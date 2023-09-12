@@ -13,24 +13,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "Bits",
       "Counter32",
-      "TimeTicks"
+      "IpAddress",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gFastMIB": {
@@ -78,8 +78,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-GFAST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:51:18 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:31:11 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DASAN-GFAST-MIB"

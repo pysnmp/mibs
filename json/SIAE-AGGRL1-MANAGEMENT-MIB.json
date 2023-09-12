@@ -16,25 +16,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "MibIdentifier",
       "OBJECT-TYPE",
       "iso",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "TimeTicks",
       "Bits",
-      "Counter64",
-      "Unsigned32"
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
       "DisplayString"
     ]
   },
@@ -430,8 +430,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-AGGRL1-MANAGEMENT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:04:27 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:42:06 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-AGGRL1-MANAGEMENT-MIB"

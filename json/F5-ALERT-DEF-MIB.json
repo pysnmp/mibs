@@ -1,0 +1,237 @@
+{
+  "imports": {
+    "class": "imports",
+    "F5-COMMON-SMI-MIB": [
+      "platform",
+      "f5Compliance"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "f5Alerts": {
+    "name": "f5Alerts",
+    "oid": "1.3.6.1.4.1.12276.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-08-01 09:41",
+        "description": "F5 Alert Common MIB definitions."
+      }
+    ]
+  },
+  "F5Severity": {
+    "name": "F5Severity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "info": 6,
+          "debug": 7,
+          "na": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "F5CondEffect": {
+    "name": "F5CondEffect",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "assert": 1,
+          "event": 2,
+          "other": 9999
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f5AlertObjects": {
+    "name": "f5AlertObjects",
+    "oid": "1.3.6.1.4.1.12276.1.1.0",
+    "class": "objectidentity"
+  },
+  "f5AlertNotificationObject": {
+    "name": "f5AlertNotificationObject",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.1",
+    "class": "objectidentity"
+  },
+  "f5AlertNotificationObjectGroup": {
+    "name": "f5AlertNotificationObjectGroup",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.2",
+    "class": "objectidentity"
+  },
+  "f5AlertNotificationGroup": {
+    "name": "f5AlertNotificationGroup",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.3",
+    "class": "objectidentity"
+  },
+  "alertSource": {
+    "name": "alertSource",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertEffect": {
+    "name": "alertEffect",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F5CondEffect",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertSeverity": {
+    "name": "alertSeverity",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "F5Severity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertTimeStamp": {
+    "name": "alertTimeStamp",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertDescription": {
+    "name": "alertDescription",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertGroup": {
+    "name": "alertGroup",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "f5AlertGroupCompliance": {
+    "name": "f5AlertGroupCompliance",
+    "oid": "1.3.6.1.4.1.12276.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alertGroup",
+        "module": "F5-ALERT-DEF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-ALERT-DEF-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:33:40 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "F5-ALERT-DEF-MIB"
+  }
+}

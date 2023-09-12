@@ -1,0 +1,87 @@
+{
+  "imports": {
+    "class": "imports",
+    "F5-COMMON-SMI-MIB": [
+      "platform"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "f5OsSystem": {
+    "name": "f5OsSystem",
+    "oid": "1.3.6.1.4.1.12276.1.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2022-04-07 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "f5OsSystemModelOIDs": {
+    "name": "f5OsSystemModelOIDs",
+    "oid": "1.3.6.1.4.1.12276.1.3.1",
+    "class": "objectidentity"
+  },
+  "f5OsAppR5x00": {
+    "name": "f5OsAppR5x00",
+    "oid": "1.3.6.1.4.1.12276.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "f5OsAppR10x00": {
+    "name": "f5OsAppR10x00",
+    "oid": "1.3.6.1.4.1.12276.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "f5OsAppR2x00": {
+    "name": "f5OsAppR2x00",
+    "oid": "1.3.6.1.4.1.12276.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "f5OsAppR4x00": {
+    "name": "f5OsAppR4x00",
+    "oid": "1.3.6.1.4.1.12276.1.3.1.4",
+    "class": "objectidentity"
+  },
+  "f5OsVelosCx410": {
+    "name": "f5OsVelosCx410",
+    "oid": "1.3.6.1.4.1.12276.1.3.1.5",
+    "class": "objectidentity"
+  },
+  "f5OsVelosCx410Partition": {
+    "name": "f5OsVelosCx410Partition",
+    "oid": "1.3.6.1.4.1.12276.1.3.1.6",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-OS-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:33:40 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "F5-OS-SYSTEM-MIB"
+  }
+}

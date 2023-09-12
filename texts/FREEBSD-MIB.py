@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module FREEBSD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/FREEBSD-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 13:02:18 2023
-# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:40:23 2023
+# On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, enterprises, Bits, Counter32, Counter64, NotificationType, ModuleIdentity, iso, Unsigned32, TimeTicks, MibIdentifier, Gauge32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "enterprises", "Bits", "Counter32", "Counter64", "NotificationType", "ModuleIdentity", "iso", "Unsigned32", "TimeTicks", "MibIdentifier", "Gauge32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, MibIdentifier, Counter64, Integer32, ModuleIdentity, TimeTicks, NotificationType, Gauge32, Unsigned32, Bits, Counter32, enterprises, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Counter64", "Integer32", "ModuleIdentity", "TimeTicks", "NotificationType", "Gauge32", "Unsigned32", "Bits", "Counter32", "enterprises", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 freeBSD = ModuleIdentity((1, 3, 6, 1, 4, 1, 2238))
 freeBSD.setRevisions(('2006-10-31 08:00',))
@@ -35,4 +35,4 @@ if mibBuilder.loadTexts: freeBSDpeoplePhk.setDescription('Subtree for phk@FreeBS
 freeBSDVersion = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 4))
 if mibBuilder.loadTexts: freeBSDVersion.setStatus('current')
 if mibBuilder.loadTexts: freeBSDVersion.setDescription('Subtree to register FreeBSD versions. The OID for a FreeBSD\n\t\t version is formed by appending the dot delimited numbers\n\t\t from the release number to this base OID. Examples:\n\n\t\t  5.2.1-STABLE:\tfreeBSDVersion.5.2.1\n\t\t  6.1-STABLE:\tfreeBSDVersion.6.1\n\t\t  7.0-CURRENT:\tfreeBSDVersion.7.0\n\n\t\t There is no indication whether this is STABLE or CURRENT.\n\n\t\t The sysObjectId is automatically set to the value indicated\n\t\t by the uname(3) release field by bsnmpd(1). This initial\n\t\t value can be overwritten in the configuration file.')
-mibBuilder.exportSymbols("FREEBSD-MIB", freeBSDpeople=freeBSDpeople, freeBSDpeoplePhk=freeBSDpeoplePhk, PYSNMP_MODULE_ID=freeBSD, freeBSDVersion=freeBSDVersion, freeBSDsrc=freeBSDsrc, freeBSDports=freeBSDports, freeBSD=freeBSD)
+mibBuilder.exportSymbols("FREEBSD-MIB", freeBSD=freeBSD, freeBSDVersion=freeBSDVersion, freeBSDsrc=freeBSDsrc, freeBSDports=freeBSDports, freeBSDpeoplePhk=freeBSDpeoplePhk, freeBSDpeople=freeBSDpeople, PYSNMP_MODULE_ID=freeBSD)

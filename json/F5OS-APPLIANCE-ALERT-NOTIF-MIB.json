@@ -1,0 +1,1506 @@
+{
+  "imports": {
+    "class": "imports",
+    "F5-ALERT-DEF-MIB": [
+      "alertSeverity",
+      "alertDescription",
+      "f5AlertNotificationGroup",
+      "f5Alerts",
+      "alertTimeStamp",
+      "alertEffect",
+      "alertSource"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "f5AlertNotification": {
+    "name": "f5AlertNotification",
+    "oid": "1.3.6.1.4.1.12276.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-08-04 09:41",
+        "description": "F5 Alert Notification Types."
+      }
+    ]
+  },
+  "hardware_device_fault": {
+    "name": "hardware_device_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65536",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "firmware_fault": {
+    "name": "firmware_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65537",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "unknown_alarm": {
+    "name": "unknown_alarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65538",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "memory_fault": {
+    "name": "memory_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65539",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "drive_fault": {
+    "name": "drive_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65540",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "cpu_fault": {
+    "name": "cpu_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65541",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "pcie_fault": {
+    "name": "pcie_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65542",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "aom_fault": {
+    "name": "aom_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65543",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "drive_capacity_fault": {
+    "name": "drive_capacity_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65544",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "power_fault": {
+    "name": "power_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65545",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "thermal_fault": {
+    "name": "thermal_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65546",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "drive_thermal_throttle": {
+    "name": "drive_thermal_throttle",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65547",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "blade_thermal_fault": {
+    "name": "blade_thermal_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65548",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "blade_hardware_fault": {
+    "name": "blade_hardware_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65549",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "firmware_update_status": {
+    "name": "firmware_update_status",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65550",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "drive_utilization": {
+    "name": "drive_utilization",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65551",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "service_health": {
+    "name": "service_health",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.65552",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "module_present": {
+    "name": "module_present",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.66304",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "psu_fault": {
+    "name": "psu_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.66305",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "lcd_fault": {
+    "name": "lcd_fault",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.66306",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "module_communication_error": {
+    "name": "module_communication_error",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.66307",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "fipsError": {
+    "name": "fipsError",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.196608",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "core_dump": {
+    "name": "core_dump",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.327680",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "raidEvent": {
+    "name": "raidEvent",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.393216",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "backplane": {
+    "name": "backplane",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262144",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txPwrHiAlarm": {
+    "name": "txPwrHiAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262400",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txPwrHiWarn": {
+    "name": "txPwrHiWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txPwrLoAlarm": {
+    "name": "txPwrLoAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262402",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txPwrLoWarn": {
+    "name": "txPwrLoWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262403",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "rxPwrHiAlarm": {
+    "name": "rxPwrHiAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "rxPwrHiWarn": {
+    "name": "rxPwrHiWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "rxPwrLoAlarm": {
+    "name": "rxPwrLoAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262406",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "rxPwrLoWarn": {
+    "name": "rxPwrLoWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262407",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txBiasHiAlarm": {
+    "name": "txBiasHiAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262408",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txBiasHiWarn": {
+    "name": "txBiasHiWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262409",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txBiasLoAlarm": {
+    "name": "txBiasLoAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262410",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "txBiasLoWarn": {
+    "name": "txBiasLoWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262411",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTempHiAlarm": {
+    "name": "ddmTempHiAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262412",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTempHiWarn": {
+    "name": "ddmTempHiWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262413",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTempLoAlarm": {
+    "name": "ddmTempLoAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262414",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmTempLoWarn": {
+    "name": "ddmTempLoWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262415",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmVccHiAlarm": {
+    "name": "ddmVccHiAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262416",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmVccHiWarn": {
+    "name": "ddmVccHiWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262417",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmVccLoAlarm": {
+    "name": "ddmVccLoAlarm",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262418",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "ddmVccLoWarn": {
+    "name": "ddmVccLoWarn",
+    "oid": "1.3.6.1.4.1.12276.1.1.1.262419",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSource"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertEffect"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertSeverity"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertTimeStamp"
+      },
+      {
+        "module": "F5-ALERT-DEF-MIB",
+        "object": "alertDescription"
+      }
+    ],
+    "status": "current"
+  },
+  "f5AlertsNotifyGroup": {
+    "name": "f5AlertsNotifyGroup",
+    "oid": "1.3.6.1.4.1.12276.1.1.0.3.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "hardware_device_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "firmware_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "unknown_alarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "memory_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "drive_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "cpu_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "pcie_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "aom_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "drive_capacity_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "power_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "thermal_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "drive_thermal_throttle"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "blade_thermal_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "blade_hardware_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "firmware_update_status"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "drive_utilization"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "service_health"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "module_present"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "psu_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "lcd_fault"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "module_communication_error"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "fipsError"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "core_dump"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "raidEvent"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "backplane"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txPwrHiAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txPwrHiWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txPwrLoAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txPwrLoWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "rxPwrHiAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "rxPwrHiWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "rxPwrLoAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "rxPwrLoWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txBiasHiAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txBiasHiWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txBiasLoAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "txBiasLoWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmTempHiAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmTempHiWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmTempLoAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmTempLoWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmVccHiAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmVccHiWarn"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmVccLoAlarm"
+      },
+      {
+        "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+        "object": "ddmVccLoWarn"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5OS-APPLIANCE-ALERT-NOTIF-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:33:40 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB"
+  }
+}

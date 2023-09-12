@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:53:49 2023
-# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:33:17 2023
+# On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Counter64, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Integer32, NotificationType, ObjectIdentity, Unsigned32, Gauge32, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Integer32", "NotificationType", "ObjectIdentity", "Unsigned32", "Gauge32", "iso", "Counter32")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Integer32, Counter32, ObjectIdentity, Bits, NotificationType, TimeTicks, ModuleIdentity, Counter64, IpAddress, MibIdentifier, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Integer32", "Counter32", "ObjectIdentity", "Bits", "NotificationType", "TimeTicks", "ModuleIdentity", "Counter64", "IpAddress", "MibIdentifier", "Gauge32", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", layerMgmt=layerMgmt, sysBridges=sysBridges, bridge=bridge, backplaneProtocol=backplaneProtocol, product=product, sysOIDs=sysOIDs, sysChassis=sysChassis, sysOtherType=sysOtherType, sysRouters=sysRouters, repeaterRev2=repeaterRev2, common=common, subSysDevice=subSysDevice, dl=dl, nb30Rev1=nb30Rev1, ups=ups, repeaterRev1=repeaterRev1, subSysMMAC=subSysMMAC, commsDevice=commsDevice, sysRepeaters=sysRepeaters, router=router, subsystem=subsystem, sysIntDev=sysIntDev, commonRev1=commonRev1, repeater=repeater)
+mibBuilder.exportSymbols("IRM-OIDS", sysOtherType=sysOtherType, subSysDevice=subSysDevice, sysRouters=sysRouters, ups=ups, sysRepeaters=sysRepeaters, sysBridges=sysBridges, bridge=bridge, repeater=repeater, nb30Rev1=nb30Rev1, subsystem=subsystem, sysChassis=sysChassis, backplaneProtocol=backplaneProtocol, layerMgmt=layerMgmt, router=router, common=common, repeaterRev2=repeaterRev2, subSysMMAC=subSysMMAC, repeaterRev1=repeaterRev1, product=product, commonRev1=commonRev1, commsDevice=commsDevice, sysIntDev=sysIntDev, dl=dl, sysOIDs=sysOIDs)

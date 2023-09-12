@@ -1,0 +1,1709 @@
+{
+  "imports": {
+    "class": "imports",
+    "F5-COMMON-SMI-MIB": [
+      "platform",
+      "f5Compliance"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "f5PlatformStats": {
+    "name": "f5PlatformStats",
+    "oid": "1.3.6.1.4.1.12276.1.2",
+    "class": "moduleidentity"
+  },
+  "f5PlatformStatsObjects": {
+    "name": "f5PlatformStatsObjects",
+    "oid": "1.3.6.1.4.1.12276.1.2.1",
+    "class": "objectidentity"
+  },
+  "platformCpuStatsTable": {
+    "name": "platformCpuStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "platformDiskStatsTable": {
+    "name": "platformDiskStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "platformTemperatureTable": {
+    "name": "platformTemperatureTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "platformMemoryStatsTable": {
+    "name": "platformMemoryStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "platformFpgaTable": {
+    "name": "platformFpgaTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "platformFwTable": {
+    "name": "platformFwTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6",
+    "class": "objectidentity"
+  },
+  "platformFantrayTable": {
+    "name": "platformFantrayTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7",
+    "class": "objectidentity"
+  },
+  "PlatformStatsIndex": {
+    "name": "PlatformStatsIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "String": {
+    "name": "String",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "1t",
+    "status": "current"
+  },
+  "cpuProcessorStatsTable": {
+    "name": "cpuProcessorStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuProcessorStatsEntry": {
+    "name": "cpuProcessorStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "index": {
+    "name": "index",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PlatformStatsIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuIndex": {
+    "name": "cpuIndex",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCacheSize": {
+    "name": "cpuCacheSize",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCoreCnt": {
+    "name": "cpuCoreCnt",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuFreq": {
+    "name": "cpuFreq",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuStepping": {
+    "name": "cpuStepping",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuThreadCnt": {
+    "name": "cpuThreadCnt",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuModelName": {
+    "name": "cpuModelName",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilizationStatsTable": {
+    "name": "cpuUtilizationStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuUtilizationStatsEntry": {
+    "name": "cpuUtilizationStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpuCore": {
+    "name": "cpuCore",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCurrent": {
+    "name": "cpuCurrent",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotal5secAvg": {
+    "name": "cpuTotal5secAvg",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotal1minAvg": {
+    "name": "cpuTotal1minAvg",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTotal5minAvg": {
+    "name": "cpuTotal5minAvg",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuCoreStatsTable": {
+    "name": "cpuCoreStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpuCoreStatsEntry": {
+    "name": "cpuCoreStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "coreIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "coreIndex": {
+    "name": "coreIndex",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coreName": {
+    "name": "coreName",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coreCurrent": {
+    "name": "coreCurrent",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coreTotal5secAvg": {
+    "name": "coreTotal5secAvg",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coreTotal1minAvg": {
+    "name": "coreTotal1minAvg",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "coreTotal5minAvg": {
+    "name": "coreTotal5minAvg",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskInfoTable": {
+    "name": "diskInfoTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskInfoEntry": {
+    "name": "diskInfoEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskName": {
+    "name": "diskName",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskModel": {
+    "name": "diskModel",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVendor": {
+    "name": "diskVendor",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskVersion": {
+    "name": "diskVersion",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSerialNo": {
+    "name": "diskSerialNo",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskSize": {
+    "name": "diskSize",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskType": {
+    "name": "diskType",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskUtilizationStatsTable": {
+    "name": "diskUtilizationStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "diskUtilizationStatsEntry": {
+    "name": "diskUtilizationStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "diskPercentageUsed": {
+    "name": "diskPercentageUsed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskTotalIops": {
+    "name": "diskTotalIops",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "IOPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskReadIops": {
+    "name": "diskReadIops",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "IOPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskReadMerged": {
+    "name": "diskReadMerged",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskReadBytes": {
+    "name": "diskReadBytes",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskReadLatencyMs": {
+    "name": "diskReadLatencyMs",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskWriteIops": {
+    "name": "diskWriteIops",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "IOPs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskWriteMerged": {
+    "name": "diskWriteMerged",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskWriteBytes": {
+    "name": "diskWriteBytes",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "diskWriteLatencyMs": {
+    "name": "diskWriteLatencyMs",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureStatsTable": {
+    "name": "temperatureStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureStatsEntry": {
+    "name": "temperatureStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tempCurrent": {
+    "name": "tempCurrent",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempAverage": {
+    "name": "tempAverage",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempMinimum": {
+    "name": "tempMinimum",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempMaximum": {
+    "name": "tempMaximum",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "centigrade",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memoryStatsTable": {
+    "name": "memoryStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "memoryStatsEntry": {
+    "name": "memoryStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "memAvailable": {
+    "name": "memAvailable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memFree": {
+    "name": "memFree",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memPercentageUsed": {
+    "name": "memPercentageUsed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memPlatformTotal": {
+    "name": "memPlatformTotal",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memPlatformUsed": {
+    "name": "memPlatformUsed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpgaTable": {
+    "name": "fpgaTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fpgaEntry": {
+    "name": "fpgaEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fpgaIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fpgaIndex": {
+    "name": "fpgaIndex",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fpgaVersion": {
+    "name": "fpgaVersion",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwTable": {
+    "name": "fwTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fwEntry": {
+    "name": "fwEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fwName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fwName": {
+    "name": "fwName",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwVersion": {
+    "name": "fwVersion",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurable": {
+    "name": "configurable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fwUpdateStatus": {
+    "name": "fwUpdateStatus",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fantrayStatsTable": {
+    "name": "fantrayStatsTable",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fantrayStatsEntry": {
+    "name": "fantrayStatsEntry",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fan_1_speed": {
+    "name": "fan_1_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_2_speed": {
+    "name": "fan_2_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_3_speed": {
+    "name": "fan_3_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_4_speed": {
+    "name": "fan_4_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_5_speed": {
+    "name": "fan_5_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_6_speed": {
+    "name": "fan_6_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_7_speed": {
+    "name": "fan_7_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_8_speed": {
+    "name": "fan_8_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_9_speed": {
+    "name": "fan_9_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_10_speed": {
+    "name": "fan_10_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_11_speed": {
+    "name": "fan_11_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fan_12_speed": {
+    "name": "fan_12_speed",
+    "oid": "1.3.6.1.4.1.12276.1.2.1.7.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "RPM",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "platformConformance": {
+    "name": "platformConformance",
+    "oid": "1.3.6.1.4.1.12276.1.2.2",
+    "class": "objectidentity"
+  },
+  "platformGroups": {
+    "name": "platformGroups",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "platformCompliances": {
+    "name": "platformCompliances",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "platformCompliance": {
+    "name": "platformCompliance",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "platformCPUGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      },
+      {
+        "object": "platformDiskGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      },
+      {
+        "object": "platformTempGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      },
+      {
+        "object": "platformMemGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      },
+      {
+        "object": "platformFpgaGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      },
+      {
+        "object": "platformFwVersionGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      },
+      {
+        "object": "platformFantrayGroup",
+        "module": "F5-PLATFORM-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "platformCPUGroup": {
+    "name": "platformCPUGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "index"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuIndex"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuCacheSize"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuCoreCnt"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuFreq"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuStepping"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuThreadCnt"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuModelName"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuCore"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuCurrent"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuTotal5secAvg"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuTotal1minAvg"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "cpuTotal5minAvg"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "coreIndex"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "coreCurrent"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "coreTotal5secAvg"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "coreTotal1minAvg"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "coreTotal5minAvg"
+      }
+    ],
+    "status": "current"
+  },
+  "platformDiskGroup": {
+    "name": "platformDiskGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskName"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskModel"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskVendor"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskVersion"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskSerialNo"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskSize"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskType"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskPercentageUsed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskTotalIops"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskReadIops"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskReadMerged"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskReadBytes"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskReadLatencyMs"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskWriteIops"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskWriteMerged"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskWriteBytes"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "diskWriteLatencyMs"
+      }
+    ],
+    "status": "current"
+  },
+  "platformTempGroup": {
+    "name": "platformTempGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "tempCurrent"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "tempAverage"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "tempMinimum"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "tempMaximum"
+      }
+    ],
+    "status": "current"
+  },
+  "platformMemGroup": {
+    "name": "platformMemGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "memAvailable"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "memFree"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "memPercentageUsed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "memPlatformTotal"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "memPlatformUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "platformFpgaGroup": {
+    "name": "platformFpgaGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fpgaIndex"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fpgaVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "platformFwVersionGroup": {
+    "name": "platformFwVersionGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fwName"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fwVersion"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "configurable"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fwUpdateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "platformFantrayGroup": {
+    "name": "platformFantrayGroup",
+    "oid": "1.3.6.1.4.1.12276.1.2.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_1_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_2_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_3_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_4_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_5_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_6_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_7_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_8_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_9_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_10_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_11_speed"
+      },
+      {
+        "module": "F5-PLATFORM-STATS-MIB",
+        "object": "fan_12_speed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-PLATFORM-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:33:40 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "F5-PLATFORM-STATS-MIB"
+  }
+}

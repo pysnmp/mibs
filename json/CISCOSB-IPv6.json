@@ -14,52 +14,52 @@
       "IANAtunnelType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAutonomousSystemNumber",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipAddressEntry",
-      "ipNetToPhysicalEntry",
+      "ipv6RouterAdvertEntry",
       "ipv6InterfaceEntry",
-      "ipv6RouterAdvertEntry"
+      "ipAddressEntry",
+      "ipNetToPhysicalEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "zeroDotZero",
-      "OBJECT-TYPE",
-      "Counter32",
       "iso",
-      "MibIdentifier",
-      "mib-2",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "mib-2",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:52:44 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:32:21 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPv6"

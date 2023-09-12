@@ -5,17 +5,17 @@
       "softentIND1EvbMib"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
+      "TmnxPortID",
       "TmnxEncapVal",
-      "TmnxServId",
-      "TmnxPortID"
+      "TmnxServId"
     ],
     "IEEE8021-EVBB-MIB": [
-      "ieee8021BridgeEvbVSITypeVersion",
-      "ieee8021BridgeEvbVSIMvFormat",
-      "ieee8021BridgeEvbVSIIDType",
-      "ieee8021BridgeEvbVSIVlanId",
       "ieee8021BridgeEvbSbpPortNumber",
-      "ieee8021BridgeEvbVSIID"
+      "ieee8021BridgeEvbVSITypeVersion",
+      "ieee8021BridgeEvbVSIID",
+      "ieee8021BridgeEvbVSIIDType",
+      "ieee8021BridgeEvbVSIMvFormat",
+      "ieee8021BridgeEvbVSIVlanId"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortNumber"
@@ -27,29 +27,29 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
       "Counter32",
-      "IpAddress",
-      "Integer32",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -544,8 +544,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-EVB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:01:38 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:39:55 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-EVB-MIB"

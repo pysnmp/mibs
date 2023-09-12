@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumberOrZero",
-      "ieee802dot1mibs",
       "IEEE8021PbbComponentIdentifierOrZero",
-      "IEEE8021BridgePortNumber"
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021BridgePortNumber",
+      "ieee802dot1mibs"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -15,33 +15,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter32",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Integer32",
       "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "iso"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TimeInterval",
+      "TruthValue"
     ]
   },
   "ieee8021BridgeEvbMib": {
@@ -1838,9 +1838,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-EVBB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:45:36 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-EVBB-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:39:58 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-EVBB-MIB"

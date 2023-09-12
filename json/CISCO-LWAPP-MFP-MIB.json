@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApSysMacAddress",
       "cLApName",
-      "cLApIfSmtDot11Bssid",
-      "cLApDot11IfSlotId"
+      "cLApDot11IfSlotId",
+      "cLApSysMacAddress",
+      "cLApIfSmtDot11Bssid"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLMfpVersion",
+      "CLTimeBaseStatus",
       "CLMfpEventType",
-      "CLEventFrames",
-      "CLTimeBaseStatus"
+      "CLMfpVersion",
+      "CLEventFrames"
     ],
     "CISCO-LWAPP-WLAN-MIB": [
       "cLWlanIndex"
@@ -24,31 +24,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
       "iso",
       "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TimeInterval",
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ciscoLwappMfpMIB": {
@@ -1029,8 +1029,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MFP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:52:46 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:32:22 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MFP-MIB"

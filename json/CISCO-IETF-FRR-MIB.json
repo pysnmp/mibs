@@ -5,43 +5,43 @@
       "ciscoExperiment"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLsrIdentifier",
       "MplsTunnelInstanceIndex",
-      "MplsTunnelIndex",
       "MplsTunnelAffinity",
+      "MplsTunnelIndex",
+      "MplsLsrIdentifier",
       "MplsBitRate"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
       "iso",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "cmplsFrrMIB": {
@@ -1115,8 +1115,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-FRR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:52:47 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:32:23 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-FRR-MIB"

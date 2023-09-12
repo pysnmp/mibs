@@ -6,49 +6,49 @@
       "fcmInstanceIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "iso",
       "OBJECT-IDENTITY",
       "mib-2",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
-      "Bits",
       "Integer32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE"
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "AutonomousType",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "RowStatus",
-      "StorageType",
       "DisplayString",
+      "StorageType",
       "TruthValue"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpTransforms",
+      "T11FcSpLifetimeLeft",
+      "T11FcSpLifetimeLeftUnits",
       "T11FcSpiIndex",
       "T11FcSpPrecedence",
-      "T11FcSpLifetimeLeftUnits",
       "T11FcSpType",
       "T11FcSpSecurityProtocolId",
       "T11FcSaDirection",
-      "T11FcSpLifetimeLeft",
+      "T11FcSpTransforms",
       "T11FcRoutingControl"
     ],
     "T11-TC-MIB": [
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:46:00 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:26:40 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

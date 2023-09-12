@@ -6,31 +6,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "MibIdentifier",
-      "Gauge32",
       "mib-2",
       "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nsVrOspf": {
@@ -2511,8 +2511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-VR-OSPF-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:04:16 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:41:57 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-VR-OSPF-MIB"

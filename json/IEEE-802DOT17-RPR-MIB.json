@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
+      "HCPerfCurrentCount",
       "HCPerfIntervalCount",
-      "HCPerfTotalCount",
-      "HCPerfCurrentCount"
+      "HCPerfTotalCount"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,28 +23,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "Unsigned32",
       "Bits",
       "Counter64",
+      "iso",
+      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "iso"
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TimeStamp",
       "TruthValue",
-      "DisplayString"
+      "MacAddress",
+      "TimeStamp",
+      "DateAndTime"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8789,9 +8789,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:45:36 2023",
-      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE-802DOT17-RPR-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:30:03 2023",
+      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

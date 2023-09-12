@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MIMOSA-NETWORKS-BASE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mimosa/MIMOSA-NETWORKS-BASE-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 13:00:03 2023
-# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:38:29 2023
+# On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Integer32, NotificationType, Bits, Gauge32, Counter64, Counter32, Unsigned32, IpAddress, TimeTicks, ObjectIdentity, MibIdentifier, iso, enterprises, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "Bits", "Gauge32", "Counter64", "Counter32", "Unsigned32", "IpAddress", "TimeTicks", "ObjectIdentity", "MibIdentifier", "iso", "enterprises", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Gauge32, enterprises, ModuleIdentity, Unsigned32, Bits, TimeTicks, MibIdentifier, Counter32, NotificationType, IpAddress, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "enterprises", "ModuleIdentity", "Unsigned32", "Bits", "TimeTicks", "MibIdentifier", "Counter32", "NotificationType", "IpAddress", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mimosa = ModuleIdentity((1, 3, 6, 1, 4, 1, 43356))
 mimosa.setRevisions(('2015-06-03 00:00',))
 
@@ -64,4 +64,4 @@ if mibBuilder.loadTexts: mimosaTempNormal.setDescription('The mimosaTempNormal n
 mimosaEthernetSpeedChange = NotificationType((1, 3, 6, 1, 4, 1, 43356, 2, 0, 4)).setObjects(("IF-MIB", "ifIndex"), ("MIMOSA-NETWORKS-BASE-MIB", "mimosaOldSpeed"), ("MIMOSA-NETWORKS-BASE-MIB", "mimosaNewSpeed"))
 if mibBuilder.loadTexts: mimosaEthernetSpeedChange.setStatus('current')
 if mibBuilder.loadTexts: mimosaEthernetSpeedChange.setDescription('The mimosaEthernetSpeedChange notification is sent when the log manager\n         in the Mimosa product determines that a speed change on the Ethernet\n         port was detected. The mimosaOldSpeed and mimosaNewSpeed indicates the\n         speed in bits per second of the change. ifIndex is used per the ifTable\n         in the IF-MIB.')
-mibBuilder.exportSymbols("MIMOSA-NETWORKS-BASE-MIB", mimosaGenericNotificationsGroup=mimosaGenericNotificationsGroup, mimosaB5=mimosaB5, mimosaHardware=mimosaHardware, mimosaTempNormal=mimosaTempNormal, PYSNMP_MODULE_ID=mimosa, mimosaWireless=mimosaWireless, mimosaMgmt=mimosaMgmt, mimosaMIBGroups=mimosaMIBGroups, mimosaTrapMIBGroup=mimosaTrapMIBGroup, mimosaTrapMessage=mimosaTrapMessage, mimosaCriticalFault=mimosaCriticalFault, mimosaTrapMib=mimosaTrapMib, mimosaB5Lite=mimosaB5Lite, mimosaSoftware=mimosaSoftware, mimosaNewSpeed=mimosaNewSpeed, mimosaOldSpeed=mimosaOldSpeed, mimosaProduct=mimosaProduct, mimosaConformanceGroup=mimosaConformanceGroup, mimosa=mimosa, mimosaTrap=mimosaTrap, mimosaC5=mimosaC5, mimosaTempWarning=mimosaTempWarning, mimosaMib=mimosaMib, mimosaEthernetSpeedChange=mimosaEthernetSpeedChange, mimosaA5=mimosaA5)
+mibBuilder.exportSymbols("MIMOSA-NETWORKS-BASE-MIB", mimosaB5Lite=mimosaB5Lite, mimosaHardware=mimosaHardware, mimosaTempWarning=mimosaTempWarning, mimosaProduct=mimosaProduct, mimosa=mimosa, mimosaNewSpeed=mimosaNewSpeed, mimosaA5=mimosaA5, mimosaEthernetSpeedChange=mimosaEthernetSpeedChange, mimosaWireless=mimosaWireless, mimosaOldSpeed=mimosaOldSpeed, mimosaC5=mimosaC5, mimosaMib=mimosaMib, mimosaTrapMIBGroup=mimosaTrapMIBGroup, mimosaCriticalFault=mimosaCriticalFault, PYSNMP_MODULE_ID=mimosa, mimosaMgmt=mimosaMgmt, mimosaB5=mimosaB5, mimosaSoftware=mimosaSoftware, mimosaTrapMessage=mimosaTrapMessage, mimosaTrapMib=mimosaTrapMib, mimosaConformanceGroup=mimosaConformanceGroup, mimosaMIBGroups=mimosaMIBGroups, mimosaGenericNotificationsGroup=mimosaGenericNotificationsGroup, mimosaTempNormal=mimosaTempNormal, mimosaTrap=mimosaTrap)
