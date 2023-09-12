@@ -5,28 +5,28 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "Gauge32",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
       "Counter64",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoLwappDot11ClientCCXTextualConventions": {
@@ -268,8 +268,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCX-TC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:09:57 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:52:46 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CLIENT-CCX-TC-MIB"

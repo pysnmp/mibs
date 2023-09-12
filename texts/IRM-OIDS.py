@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:11:07 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:53:49 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, NotificationType, Counter32, Integer32, Bits, iso, IpAddress, Gauge32, Counter64, TimeTicks, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "NotificationType", "Counter32", "Integer32", "Bits", "iso", "IpAddress", "Gauge32", "Counter64", "TimeTicks", "ModuleIdentity", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, Counter64, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Integer32, NotificationType, ObjectIdentity, Unsigned32, Gauge32, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Integer32", "NotificationType", "ObjectIdentity", "Unsigned32", "Gauge32", "iso", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
 common = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", router=router, bridge=bridge, sysOIDs=sysOIDs, dl=dl, ups=ups, subsystem=subsystem, backplaneProtocol=backplaneProtocol, sysChassis=sysChassis, product=product, commsDevice=commsDevice, sysIntDev=sysIntDev, sysBridges=sysBridges, repeaterRev2=repeaterRev2, common=common, sysOtherType=sysOtherType, repeater=repeater, nb30Rev1=nb30Rev1, sysRouters=sysRouters, commonRev1=commonRev1, repeaterRev1=repeaterRev1, sysRepeaters=sysRepeaters, subSysMMAC=subSysMMAC, subSysDevice=subSysDevice, layerMgmt=layerMgmt)
+mibBuilder.exportSymbols("IRM-OIDS", layerMgmt=layerMgmt, sysBridges=sysBridges, bridge=bridge, backplaneProtocol=backplaneProtocol, product=product, sysOIDs=sysOIDs, sysChassis=sysChassis, sysOtherType=sysOtherType, sysRouters=sysRouters, repeaterRev2=repeaterRev2, common=common, subSysDevice=subSysDevice, dl=dl, nb30Rev1=nb30Rev1, ups=ups, repeaterRev1=repeaterRev1, subSysMMAC=subSysMMAC, commsDevice=commsDevice, sysRepeaters=sysRepeaters, router=router, subsystem=subsystem, sysIntDev=sysIntDev, commonRev1=commonRev1, repeater=repeater)

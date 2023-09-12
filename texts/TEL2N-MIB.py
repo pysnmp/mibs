@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TEL2N-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2n/TEL2N-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:02:31 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:46:03 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Unsigned32, ObjectIdentity, enterprises, iso, Counter64, TimeTicks, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, IpAddress, ModuleIdentity, MibIdentifier, Gauge32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "ObjectIdentity", "enterprises", "iso", "Counter64", "TimeTicks", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "IpAddress", "ModuleIdentity", "MibIdentifier", "Gauge32", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, enterprises, Integer32, MibIdentifier, Gauge32, IpAddress, Unsigned32, iso, Bits, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "enterprises", "Integer32", "MibIdentifier", "Gauge32", "IpAddress", "Unsigned32", "iso", "Bits", "TimeTicks", "NotificationType")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tel2n = ModuleIdentity((1, 3, 6, 1, 4, 1, 6530))
 tel2n.setRevisions(('2015-05-01 10:57',))
 
@@ -57,4 +57,4 @@ if mibBuilder.loadTexts: hipRegistrationAt.setDescription('Registrar IP address'
 hipRegistrationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6530, 11, 6, 1, 5), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hipRegistrationTime.setStatus('current')
 if mibBuilder.loadTexts: hipRegistrationTime.setDescription('Registration time')
-mibBuilder.exportSymbols("TEL2N-MIB", hipBootVersion=hipBootVersion, hipRegistrationAt=hipRegistrationAt, hipVersion=hipVersion, PYSNMP_MODULE_ID=tel2n, hipIndex=hipIndex, hipSerial=hipSerial, hipState=hipState, hipRegistrationTime=hipRegistrationTime, hipProductName=hipProductName, hipSipTable=hipSipTable, hipPhoneNumber=hipPhoneNumber, heliosip=heliosip, hipSipEntry=hipSipEntry, hipHwVersion=hipHwVersion, tel2n=tel2n)
+mibBuilder.exportSymbols("TEL2N-MIB", hipIndex=hipIndex, hipState=hipState, hipVersion=hipVersion, tel2n=tel2n, heliosip=heliosip, hipPhoneNumber=hipPhoneNumber, hipBootVersion=hipBootVersion, PYSNMP_MODULE_ID=tel2n, hipProductName=hipProductName, hipSerial=hipSerial, hipRegistrationAt=hipRegistrationAt, hipRegistrationTime=hipRegistrationTime, hipHwVersion=hipHwVersion, hipSipEntry=hipSipEntry, hipSipTable=hipSipTable)

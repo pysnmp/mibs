@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetZoneIndex",
+      "InetAddressType",
       "InetVersion",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
       "IpAddressStatusTC",
       "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "iso",
       "MibIdentifier",
-      "Counter64",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
       "Unsigned32",
-      "Gauge32"
+      "Bits",
+      "zeroDotZero",
+      "Counter64",
+      "TimeTicks",
+      "iso",
+      "OBJECT-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TruthValue",
-      "TimeStamp",
-      "RowStatus",
       "TestAndIncr",
+      "RowStatus",
       "RowPointer",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
       "StorageType",
-      "DisplayString"
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:09:33 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:52:18 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-rlIP-MIB"

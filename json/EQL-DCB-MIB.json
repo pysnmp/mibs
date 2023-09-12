@@ -14,31 +14,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "eqlDcbMib": {
@@ -3438,8 +3438,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQL-DCB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:11:08 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:53:51 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQL-DCB-MIB"

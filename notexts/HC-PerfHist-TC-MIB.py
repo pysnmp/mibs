@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HC-PerfHist-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HC-PerfHist-TC-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:02:44 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:46:14 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Integer32, Counter32, Unsigned32, NotificationType, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Counter64, iso, Gauge32, mib_2, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "Counter32", "Unsigned32", "NotificationType", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Counter64", "iso", "Gauge32", "mib-2", "ModuleIdentity")
+mib_2, Gauge32, NotificationType, Unsigned32, ModuleIdentity, TimeTicks, Counter64, Counter32, ObjectIdentity, iso, MibIdentifier, Bits, Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "Gauge32", "NotificationType", "Unsigned32", "ModuleIdentity", "TimeTicks", "Counter64", "Counter32", "ObjectIdentity", "iso", "MibIdentifier", "Bits", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hcPerfHistTCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 107))
 hcPerfHistTCMIB.setRevisions(('2004-02-03 00:00',))
@@ -40,4 +40,4 @@ class HCPerfIntervalCount(TextualConvention, Counter64):
 class HCPerfTotalCount(TextualConvention, Counter64):
     status = 'current'
 
-mibBuilder.exportSymbols("HC-PerfHist-TC-MIB", HCPerfValidIntervals=HCPerfValidIntervals, hcPerfHistTCMIB=hcPerfHistTCMIB, PYSNMP_MODULE_ID=hcPerfHistTCMIB, HCPerfTotalCount=HCPerfTotalCount, HCPerfTimeElapsed=HCPerfTimeElapsed, HCPerfInvalidIntervals=HCPerfInvalidIntervals, HCPerfIntervalThreshold=HCPerfIntervalThreshold, HCPerfCurrentCount=HCPerfCurrentCount, HCPerfIntervalCount=HCPerfIntervalCount)
+mibBuilder.exportSymbols("HC-PerfHist-TC-MIB", HCPerfValidIntervals=HCPerfValidIntervals, HCPerfInvalidIntervals=HCPerfInvalidIntervals, HCPerfIntervalThreshold=HCPerfIntervalThreshold, HCPerfIntervalCount=HCPerfIntervalCount, HCPerfTimeElapsed=HCPerfTimeElapsed, HCPerfTotalCount=HCPerfTotalCount, hcPerfHistTCMIB=hcPerfHistTCMIB, HCPerfCurrentCount=HCPerfCurrentCount, PYSNMP_MODULE_ID=hcPerfHistTCMIB)

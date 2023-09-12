@@ -3,44 +3,44 @@
     "class": "imports",
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "iso",
+      "OBJECT-IDENTITY",
+      "mib-2",
       "IpAddress",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "mib-2",
-      "MibIdentifier",
-      "Bits",
       "Counter32",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus",
       "StorageType",
-      "TimeStamp"
+      "DisplayString"
     ],
     "SYSLOG-TC-MIB": [
-      "SyslogSeverity",
-      "SyslogFacility"
+      "SyslogFacility",
+      "SyslogSeverity"
     ]
   },
   "syslogMIB": {
@@ -1147,8 +1147,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:02:27 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:45:59 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SYSLOG-MIB"

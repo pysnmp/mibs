@@ -5,28 +5,28 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Integer32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "Counter32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "TPLINK-MIB": [
       "tplinkMgmt"
@@ -314,8 +314,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-DOT1Q-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:24:18 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:05:23 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TPLINK-DOT1Q-VLAN-MIB"

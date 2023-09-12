@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MSERIES-PORT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-PORT-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:23:27 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:04:37 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 mseries, = mibBuilder.importSymbols("MSERIES-MIB", "mseries")
-PortMode, PortType, PortStatus = mibBuilder.importSymbols("MSERIES-TC", "PortMode", "PortType", "PortStatus")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Gauge32, IpAddress, Counter64, Unsigned32, TimeTicks, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, MibIdentifier, Counter32, Bits, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "Counter64", "Unsigned32", "TimeTicks", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "MibIdentifier", "Counter32", "Bits", "ObjectIdentity")
+PortType, PortStatus, PortMode = mibBuilder.importSymbols("MSERIES-TC", "PortType", "PortStatus", "PortMode")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+IpAddress, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Counter64, ObjectIdentity, Integer32, Unsigned32, Counter32, MibIdentifier, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Counter64", "ObjectIdentity", "Integer32", "Unsigned32", "Counter32", "MibIdentifier", "NotificationType", "TimeTicks")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 smartPort = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 1, 3))
 smartPort.setRevisions(('2014-02-12 13:44',))
@@ -70,4 +70,4 @@ smartPortBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 30826, 1, 3, 2, 2, 1
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     smartPortBasicComplV1 = smartPortBasicComplV1.setStatus('current')
 if mibBuilder.loadTexts: smartPortBasicComplV1.setDescription('Basic implementation requirements for the port MIB V1.')
-mibBuilder.exportSymbols("MSERIES-PORT-MIB", smartPortList=smartPortList, PYSNMP_MODULE_ID=smartPort, smartPortMIBConformance=smartPortMIBConformance, smartPortGroups=smartPortGroups, smartPortEntry=smartPortEntry, smartPortListGroupV1=smartPortListGroupV1, smartPortPower=smartPortPower, smartPortMode=smartPortMode, smartPortIndex=smartPortIndex, smartPort=smartPort, smartPortObjects=smartPortObjects, smartPortType=smartPortType, smartPortStatus=smartPortStatus, smartPortHighPowerAlarmThreshold=smartPortHighPowerAlarmThreshold, smartPortBasicComplV1=smartPortBasicComplV1, smartPortGeneral=smartPortGeneral, smartPortTable=smartPortTable, smartPortLowPowerAlarmThreshold=smartPortLowPowerAlarmThreshold, smartPortAlias=smartPortAlias, smartPortCompliances=smartPortCompliances, smartPortName=smartPortName)
+mibBuilder.exportSymbols("MSERIES-PORT-MIB", smartPortLowPowerAlarmThreshold=smartPortLowPowerAlarmThreshold, smartPortType=smartPortType, smartPortGroups=smartPortGroups, smartPortStatus=smartPortStatus, smartPortHighPowerAlarmThreshold=smartPortHighPowerAlarmThreshold, smartPortMIBConformance=smartPortMIBConformance, smartPortTable=smartPortTable, smartPortBasicComplV1=smartPortBasicComplV1, smartPortAlias=smartPortAlias, smartPortCompliances=smartPortCompliances, smartPortMode=smartPortMode, smartPort=smartPort, smartPortIndex=smartPortIndex, smartPortList=smartPortList, smartPortEntry=smartPortEntry, smartPortName=smartPortName, smartPortPower=smartPortPower, smartPortObjects=smartPortObjects, smartPortGeneral=smartPortGeneral, PYSNMP_MODULE_ID=smartPort, smartPortListGroupV1=smartPortListGroupV1)

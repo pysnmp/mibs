@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ETHERNET-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ETHERNET-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:11:23 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:54:03 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-interface, remEthAlarms, locEthAlarms = mibBuilder.importSymbols("ExaltComProducts", "interface", "remEthAlarms", "locEthAlarms")
-AlarmLevelT, EnableStatusT, EthernetMgmtTypeT = mibBuilder.importSymbols("ExaltComm", "AlarmLevelT", "EnableStatusT", "EthernetMgmtTypeT")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Bits, Integer32, iso, ModuleIdentity, ObjectIdentity, Counter32, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, IpAddress, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "iso", "ModuleIdentity", "ObjectIdentity", "Counter32", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "IpAddress", "TimeTicks", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+remEthAlarms, interface, locEthAlarms = mibBuilder.importSymbols("ExaltComProducts", "remEthAlarms", "interface", "locEthAlarms")
+EnableStatusT, EthernetMgmtTypeT, AlarmLevelT = mibBuilder.importSymbols("ExaltComm", "EnableStatusT", "EthernetMgmtTypeT", "AlarmLevelT")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+ObjectIdentity, TimeTicks, IpAddress, Integer32, MibIdentifier, NotificationType, ModuleIdentity, Bits, Unsigned32, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "IpAddress", "Integer32", "MibIdentifier", "NotificationType", "ModuleIdentity", "Bits", "Unsigned32", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class EthernetFunctionT(TextualConvention, Integer32):
     status = 'current'
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
@@ -75,4 +75,4 @@ remEthAlarmsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 25651, 1, 2, 4, 2, 4, 2, 1, 1
 if mibBuilder.loadTexts: remEthAlarmsEntry.setStatus('current')
 remEthAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 25651, 1, 2, 4, 2, 4, 2, 1, 1, 1), AlarmLevelT()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: remEthAlarm.setStatus('current')
-mibBuilder.exportSymbols("ETHERNET-MIB", ethernetInterface=ethernetInterface, remEthAlarmsEntry=remEthAlarmsEntry, EthRateLimitValueT=EthRateLimitValueT, function=function, mode=mode, ethernetMgmt=ethernetMgmt, locETHAlarms=locETHAlarms, locEthAlarm=locEthAlarm, dhcp=dhcp, ethernetFlowControl=ethernetFlowControl, alarm=alarm, rateType=rateType, rateConfig=rateConfig, EthernetModeT=EthernetModeT, commitEthernetSettings=commitEthernetSettings, rateLimit=rateLimit, ethernetNumChannels=ethernetNumChannels, EthRateLimitTypeT=EthRateLimitTypeT, EthernetFunctionT=EthernetFunctionT, remETHAlarms=remETHAlarms, ethernetLearning=ethernetLearning, locEthAlarmsEntry=locEthAlarmsEntry, ethernet=ethernet, ethernetInterfaces=ethernetInterfaces, remEthAlarm=remEthAlarm, mute=mute)
+mibBuilder.exportSymbols("ETHERNET-MIB", ethernetInterface=ethernetInterface, ethernetFlowControl=ethernetFlowControl, remETHAlarms=remETHAlarms, dhcp=dhcp, locEthAlarm=locEthAlarm, rateType=rateType, remEthAlarmsEntry=remEthAlarmsEntry, rateConfig=rateConfig, ethernetMgmt=ethernetMgmt, function=function, EthRateLimitTypeT=EthRateLimitTypeT, ethernetInterfaces=ethernetInterfaces, EthernetFunctionT=EthernetFunctionT, mute=mute, remEthAlarm=remEthAlarm, locETHAlarms=locETHAlarms, locEthAlarmsEntry=locEthAlarmsEntry, EthernetModeT=EthernetModeT, ethernetNumChannels=ethernetNumChannels, mode=mode, EthRateLimitValueT=EthRateLimitValueT, commitEthernetSettings=commitEthernetSettings, ethernetLearning=ethernetLearning, rateLimit=rateLimit, alarm=alarm, ethernet=ethernet)

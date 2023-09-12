@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
       "Unsigned32",
-      "iso",
-      "Integer32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "enterprises",
       "TimeTicks",
-      "Bits"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -135,8 +135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-GLOBAL-REG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:05:23 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:48:38 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WHISP-GLOBAL-REG-MIB"

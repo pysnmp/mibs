@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-EQUIPTYPE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-EQUIPTYPE-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:23:15 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:04:25 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, ModuleIdentity, Gauge32, Counter32, NotificationType, Counter64, MibIdentifier, Integer32, Bits, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "ModuleIdentity", "Gauge32", "Counter32", "NotificationType", "Counter64", "MibIdentifier", "Integer32", "Bits", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, Unsigned32, Integer32, IpAddress, Counter32, NotificationType, Counter64, ObjectIdentity, ModuleIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "Integer32", "IpAddress", "Counter32", "NotificationType", "Counter64", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 equipTypeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 501))
 equipTypeMib.setRevisions(('2015-04-23 00:00', '2014-10-29 00:00', '2014-06-23 00:00', '2013-04-16 00:00',))
 
@@ -46,4 +46,4 @@ equipTypeEasyCellGateway = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 7
 if mibBuilder.loadTexts: equipTypeEasyCellGateway.setStatus('current')
 if mibBuilder.loadTexts: equipTypeEasyCellGateway.setDescription('EasyCellGateway')
 if mibBuilder.loadTexts: equipTypeEasyCellGateway.setReference('None')
-mibBuilder.exportSymbols("SIAE-EQUIPTYPE-MIB", equipTypeUnknown=equipTypeUnknown, equipTypeALFOplus2=equipTypeALFOplus2, PYSNMP_MODULE_ID=equipTypeMib, equipTypeALFO80HDsm=equipTypeALFO80HDsm, equipTypeEasyCellGateway=equipTypeEasyCellGateway, equipTypeALFO80HD=equipTypeALFO80HD, equipTypeMib=equipTypeMib, equipTypeList=equipTypeList, equipTypeAGS20=equipTypeAGS20)
+mibBuilder.exportSymbols("SIAE-EQUIPTYPE-MIB", PYSNMP_MODULE_ID=equipTypeMib, equipTypeALFO80HD=equipTypeALFO80HD, equipTypeALFOplus2=equipTypeALFOplus2, equipTypeList=equipTypeList, equipTypeALFO80HDsm=equipTypeALFO80HDsm, equipTypeEasyCellGateway=equipTypeEasyCellGateway, equipTypeAGS20=equipTypeAGS20, equipTypeUnknown=equipTypeUnknown, equipTypeMib=equipTypeMib)

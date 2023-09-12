@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SYNOLOGY-RAID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-RAID-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:23:51 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:04:58 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Integer32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits, enterprises, TimeTicks, Gauge32, Unsigned32, Counter64, iso, ModuleIdentity, MibIdentifier, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits", "enterprises", "TimeTicks", "Gauge32", "Unsigned32", "Counter64", "iso", "ModuleIdentity", "MibIdentifier", "NotificationType", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Unsigned32, MibIdentifier, NotificationType, Counter32, ObjectIdentity, enterprises, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, Bits, ModuleIdentity, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "NotificationType", "Counter32", "ObjectIdentity", "enterprises", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "Bits", "ModuleIdentity", "Gauge32", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 synoRaid = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 3))
 synoRaid.setRevisions(('2013-09-11 00:00',))
 if mibBuilder.loadTexts: synoRaid.setLastUpdated('201309110000Z')
@@ -40,4 +40,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 raidGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 3, 2, 2, 1)).setObjects(("SYNOLOGY-RAID-MIB", "raidName"), ("SYNOLOGY-RAID-MIB", "raidStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     raidGroup = raidGroup.setStatus('current')
-mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidIndex=raidIndex, raidTable=raidTable, raidGroups=raidGroups, PYSNMP_MODULE_ID=synoRaid, raidConformance=raidConformance, raidEntry=raidEntry, raidTotalSize=raidTotalSize, raidCompliances=raidCompliances, synology=synology, raidName=raidName, raidStatus=raidStatus, raidGroup=raidGroup, synoRaid=synoRaid, raidCompliance=raidCompliance, raidFreeSize=raidFreeSize)
+mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", PYSNMP_MODULE_ID=synoRaid, raidFreeSize=raidFreeSize, raidTotalSize=raidTotalSize, raidName=raidName, raidGroups=raidGroups, raidIndex=raidIndex, raidStatus=raidStatus, raidEntry=raidEntry, synology=synology, raidCompliances=raidCompliances, raidConformance=raidConformance, synoRaid=synoRaid, raidGroup=raidGroup, raidTable=raidTable, raidCompliance=raidCompliance)

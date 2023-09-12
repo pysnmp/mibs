@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module VLAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/VLAN
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:11:24 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:54:04 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 interface, = mibBuilder.importSymbols("ExaltComProducts", "interface")
-VlanStatusT, VlanGroupT = mibBuilder.importSymbols("ExaltComm", "VlanStatusT", "VlanGroupT")
+VlanGroupT, VlanStatusT = mibBuilder.importSymbols("ExaltComm", "VlanGroupT", "VlanStatusT")
 NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-NotificationType, Integer32, Gauge32, TimeTicks, ModuleIdentity, MibIdentifier, Bits, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, Unsigned32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Gauge32", "TimeTicks", "ModuleIdentity", "MibIdentifier", "Bits", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "Unsigned32", "iso")
+Counter64, Bits, Gauge32, Integer32, iso, ModuleIdentity, TimeTicks, IpAddress, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "Gauge32", "Integer32", "iso", "ModuleIdentity", "TimeTicks", "IpAddress", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ObjectIdentity", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vlan = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3))
 if mibBuilder.loadTexts: vlan.setStatus('current')
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: vlanID.setDescription('This is the list of Vlan ID in c
 commitVlanSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 1000), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 200))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitVlanSettings.setStatus('current')
 if mibBuilder.loadTexts: commitVlanSettings.setDescription('This command allows saving, or resetting Vlan\n                            parameters to factory original. Options are:\n                            save, clear, reset; where clear will abandon\n                            unsaved changes.')
-mibBuilder.exportSymbols("VLAN", vlanDefaultMgmtId=vlanDefaultMgmtId, commitVlanSettings=commitVlanSettings, vlanInterfaces=vlanInterfaces, vlanID=vlanID, vlanDefaultId=vlanDefaultId, vlanStatus=vlanStatus, vlan=vlan, vlanInterfacesEntry=vlanInterfacesEntry)
+mibBuilder.exportSymbols("VLAN", vlanDefaultMgmtId=vlanDefaultMgmtId, vlanInterfacesEntry=vlanInterfacesEntry, commitVlanSettings=commitVlanSettings, vlanDefaultId=vlanDefaultId, vlanID=vlanID, vlanStatus=vlanStatus, vlanInterfaces=vlanInterfaces, vlan=vlan)

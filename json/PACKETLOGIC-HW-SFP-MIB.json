@@ -11,24 +11,24 @@
       "packetlogic2"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "iso",
-      "Counter32",
-      "Gauge32",
       "Unsigned32",
-      "TimeTicks"
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -213,8 +213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-HW-SFP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:21:32 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:02:48 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PACKETLOGIC-HW-SFP-MIB"

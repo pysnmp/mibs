@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SCHLEIFENBAUER-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/schleifenbauer/SCHLEIFENBAUER-SMI
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:22:57 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:04:08 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, Gauge32, ModuleIdentity, Bits, Counter64, NotificationType, iso, Integer32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, IpAddress, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "Gauge32", "ModuleIdentity", "Bits", "Counter64", "NotificationType", "iso", "Integer32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "IpAddress", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, IpAddress, ModuleIdentity, TimeTicks, Bits, ObjectIdentity, Gauge32, MibIdentifier, iso, Unsigned32, Counter32, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "IpAddress", "ModuleIdentity", "TimeTicks", "Bits", "ObjectIdentity", "Gauge32", "MibIdentifier", "iso", "Unsigned32", "Counter32", "NotificationType", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 schleifenbauer = ModuleIdentity((1, 3, 6, 1, 4, 1, 31034))
 schleifenbauer.setRevisions(('2015-10-23 00:00',))
 
@@ -29,4 +29,4 @@ if mibBuilder.loadTexts: schleifenbauerMgmt.setDescription('schleifenbauerMgmt i
 schleifenbauerModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 31034, 13))
 if mibBuilder.loadTexts: schleifenbauerModules.setStatus('current')
 if mibBuilder.loadTexts: schleifenbauerModules.setDescription('schleifenbauerModules provides a root object identifier from which\n         MODULE-IDENTITY values may be assigned.')
-mibBuilder.exportSymbols("SCHLEIFENBAUER-SMI", schleifenbauerModules=schleifenbauerModules, schleifenbauerProducts=schleifenbauerProducts, schleifenbauerMgmt=schleifenbauerMgmt, PYSNMP_MODULE_ID=schleifenbauer, schleifenbauer=schleifenbauer)
+mibBuilder.exportSymbols("SCHLEIFENBAUER-SMI", schleifenbauerModules=schleifenbauerModules, PYSNMP_MODULE_ID=schleifenbauer, schleifenbauer=schleifenbauer, schleifenbauerProducts=schleifenbauerProducts, schleifenbauerMgmt=schleifenbauerMgmt)

@@ -5,19 +5,19 @@
       "CounterBasedGauge64"
     ],
     "IANA-RTPROTO-MIB": [
-      "IANAipMRouteProtocol",
-      "IANAipRouteProtocol"
+      "IANAipRouteProtocol",
+      "IANAipMRouteProtocol"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
       "InetZoneIndex",
-      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetVersion",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "LANGTAG-TC-MIB": [
       "LangTag"
@@ -27,33 +27,33 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "iso",
+      "OBJECT-IDENTITY",
+      "mib-2",
       "IpAddress",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "Counter32",
+      "Bits",
+      "Integer32",
       "MibIdentifier",
       "Unsigned32",
-      "Bits",
-      "Counter32",
-      "mib-2",
-      "TimeTicks"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "TimeStamp",
       "RowStatus",
       "StorageType",
-      "TimeStamp"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ipMcastMIB": {
@@ -1855,8 +1855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMCAST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:02:27 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:45:59 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPMCAST-MIB"

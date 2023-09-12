@@ -5,50 +5,50 @@
       "InterfaceIndexOrZero"
     ],
     "JUNIPER-SMI": [
-      "jnxMibs",
-      "jnxPwTdmMibRoot"
+      "jnxPwTdmMibRoot",
+      "jnxMibs"
     ],
     "JUNIPER-VPN-MIB": [
+      "jnxVpnPwVpnName",
       "jnxVpnPwVpnType",
-      "jnxVpnPwIndex",
-      "jnxVpnPwVpnName"
+      "jnxVpnPwIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "transmission",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Integer32"
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "transmission",
+      "iso",
+      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TimeStamp",
       "StorageType",
-      "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "jnxPWTdmMIB": {
@@ -1487,8 +1487,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-PW-TDM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:17:56 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:59:30 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-PW-TDM-MIB"

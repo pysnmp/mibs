@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ATM-DXI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-DXI-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:01:43 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:45:19 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Counter32, Unsigned32, MibIdentifier, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, Gauge32, IpAddress, Integer32, TimeTicks, Bits, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "Unsigned32", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "Gauge32", "IpAddress", "Integer32", "TimeTicks", "Bits", "enterprises")
+iso, Counter64, Gauge32, ModuleIdentity, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Integer32, IpAddress, MibIdentifier, Unsigned32, Bits, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Gauge32", "ModuleIdentity", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Integer32", "IpAddress", "MibIdentifier", "Unsigned32", "Bits", "NotificationType", "TimeTicks")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 atmForum = MibIdentifier((1, 3, 6, 1, 4, 1, 353))
 atmUniDxi = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 3))
@@ -37,4 +37,4 @@ atmDxiDFAConfAALType = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 3, 2, 3, 1, 3), In
 if mibBuilder.loadTexts: atmDxiDFAConfAALType.setStatus('mandatory')
 atmDxiEnterprise = MibScalar((1, 3, 6, 1, 4, 1, 353, 3, 2, 4), ObjectIdentifier())
 if mibBuilder.loadTexts: atmDxiEnterprise.setStatus('mandatory')
-mibBuilder.exportSymbols("ATM-DXI-MIB", atmUniDxi=atmUniDxi, atmDxiConfIfIndex=atmDxiConfIfIndex, atmDxi=atmDxi, atmDxiDFAConfEntry=atmDxiDFAConfEntry, atmDxiDFAConfAALType=atmDxiDFAConfAALType, atmDxiEnterprise=atmDxiEnterprise, atmDxiDFAConfIfIndex=atmDxiDFAConfIfIndex, atmDxiConfTable=atmDxiConfTable, Dfa=Dfa, atmDxiConfEntry=atmDxiConfEntry, atmDxiConfMode=atmDxiConfMode, atmDxiDFAConfDfaIndex=atmDxiDFAConfDfaIndex, atmForum=atmForum, atmDxiDFAConfTable=atmDxiDFAConfTable)
+mibBuilder.exportSymbols("ATM-DXI-MIB", atmUniDxi=atmUniDxi, atmDxiConfMode=atmDxiConfMode, atmDxiDFAConfTable=atmDxiDFAConfTable, atmDxiDFAConfIfIndex=atmDxiDFAConfIfIndex, atmDxiConfIfIndex=atmDxiConfIfIndex, atmDxi=atmDxi, atmDxiConfTable=atmDxiConfTable, atmDxiDFAConfDfaIndex=atmDxiDFAConfDfaIndex, atmDxiConfEntry=atmDxiConfEntry, atmDxiEnterprise=atmDxiEnterprise, Dfa=Dfa, atmDxiDFAConfEntry=atmDxiDFAConfEntry, atmForum=atmForum, atmDxiDFAConfAALType=atmDxiDFAConfAALType)

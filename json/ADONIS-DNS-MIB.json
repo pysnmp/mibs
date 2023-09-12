@@ -6,25 +6,25 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
-      "Gauge32",
       "iso",
-      "IpAddress",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Integer32",
+      "enterprises",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -962,8 +962,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/ADONIS-DNS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:05:05 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:48:21 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADONIS-DNS-MIB"

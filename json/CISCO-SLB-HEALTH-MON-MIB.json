@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-SLB-EXT-MIB": [
-      "SlbUrlString",
       "cslbxServerProbes",
+      "SlbUrlString",
       "SlbFunctionNameString"
     ],
     "CISCO-SLB-MIB": [
-      "slbServerFarmName",
+      "SlbServerString",
       "slbEntity",
-      "SlbServerString"
+      "slbServerFarmName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,8 +18,8 @@
       "CiscoPort"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
+      "InetPortNumber",
       "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -27,32 +27,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
       "Counter64",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "RowStatus",
       "TimeInterval",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "ciscoSlbHealthMonMIB": {
@@ -2619,8 +2619,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-HEALTH-MON-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:09:53 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:52:42 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-SLB-HEALTH-MON-MIB"

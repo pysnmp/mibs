@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OMNITRON-POE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-POE-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:19:32 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:01:02 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-OstPortSingleIndex, omnitron, OstFloatValue = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstPortSingleIndex", "omnitron", "OstFloatValue")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Counter64, Gauge32, Counter32, MibIdentifier, Bits, Integer32, IpAddress, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "Counter32", "MibIdentifier", "Bits", "Integer32", "IpAddress", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "NotificationType")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+OstPortSingleIndex, OstFloatValue, omnitron = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstPortSingleIndex", "OstFloatValue", "omnitron")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+ModuleIdentity, Gauge32, ObjectIdentity, Integer32, iso, IpAddress, Counter32, Unsigned32, MibIdentifier, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "ObjectIdentity", "Integer32", "iso", "IpAddress", "Counter32", "Unsigned32", "MibIdentifier", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 omnitronPoeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 7342, 15))
 omnitronPoeMib.setRevisions(('2015-01-19 12:00',))
 if mibBuilder.loadTexts: omnitronPoeMib.setLastUpdated('201501191200Z')
@@ -64,4 +64,4 @@ ostPoeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7342, 15, 3, 2)).setObjec
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ostPoeCompliance = ostPoeCompliance.setStatus('current')
-mibBuilder.exportSymbols("OMNITRON-POE-MIB", ostPoePortCfgEntry=ostPoePortCfgEntry, ostPoeGroup=ostPoeGroup, ostPoePortPseStatus=ostPoePortPseStatus, ostPoeCompliance=ostPoeCompliance, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoePortPdMode=ostPoePortPdMode, ostPoePortPseEnable=ostPoePortPseEnable, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts, ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable, omnitronPoeMib=omnitronPoeMib, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, ostPoePortCfgIndex=ostPoePortCfgIndex, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoeCompliances=ostPoeCompliances, ostPoePortCfgTable=ostPoePortCfgTable, ostPoeGroups=ostPoeGroups)
+mibBuilder.exportSymbols("OMNITRON-POE-MIB", ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoeCompliances=ostPoeCompliances, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, ostPoeGroup=ostPoeGroup, omnitronPoeMib=omnitronPoeMib, ostPoePortPdMode=ostPoePortPdMode, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, ostPoeCompliance=ostPoeCompliance, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoePortPseEnable=ostPoePortPseEnable, ostPoePortCfgEntry=ostPoePortCfgEntry, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts, ostPoePortCfgIndex=ostPoePortCfgIndex, ostPoePortCfgTable=ostPoePortCfgTable, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoeGroups=ostPoeGroups, ostPoePortPseStatus=ostPoePortPseStatus, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable)

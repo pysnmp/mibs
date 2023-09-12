@@ -6,13 +6,13 @@
     ],
     "IPMROUTE-STD-MIB": [
       "ipMRouteNextHopSource",
-      "ipMRouteNextHopSourceMask",
-      "ipMRouteSourceMask",
-      "ipMRouteNextHopIfIndex",
       "ipMRouteNextHopGroup",
+      "ipMRouteNextHopIfIndex",
       "ipMRouteSource",
       "ipMRouteGroup",
-      "ipMRouteNextHopAddress"
+      "ipMRouteSourceMask",
+      "ipMRouteNextHopAddress",
+      "ipMRouteNextHopSourceMask"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -20,26 +20,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "experimental",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "Counter32",
-      "TimeTicks",
       "Unsigned32",
-      "Bits",
-      "Counter64",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "experimental",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -1225,8 +1225,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PIM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:15:51 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:57:35 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PIM-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-POLICY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-POLICY-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:05:07 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:48:23 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Counter32, iso, Gauge32, NotificationType, TimeTicks, Counter64, Unsigned32, Bits, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Counter32", "iso", "Gauge32", "NotificationType", "TimeTicks", "Counter64", "Unsigned32", "Bits", "ModuleIdentity", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+TimeTicks, Integer32, ModuleIdentity, Counter32, Counter64, NotificationType, iso, Bits, IpAddress, ObjectIdentity, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "ModuleIdentity", "Counter32", "Counter64", "NotificationType", "iso", "Bits", "IpAddress", "ObjectIdentity", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 devicePolicyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 6))
 devicePolicyMIB.setRevisions(('2007-11-05 03:00', '2002-08-28 03:00',))
 
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: devicePolicyMessage.setDescription('The custom message 
 devicePolicyTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 6, 2, 0, 1)).setObjects(("BLUECOAT-SG-POLICY-MIB", "devicePolicyMessage"))
 if mibBuilder.loadTexts: devicePolicyTrap.setStatus('current')
 if mibBuilder.loadTexts: devicePolicyTrap.setDescription('A notification is generated when triggered by policy')
-mibBuilder.exportSymbols("BLUECOAT-SG-POLICY-MIB", devicePolicyMIBObjects=devicePolicyMIBObjects, devicePolicyValues=devicePolicyValues, devicePolicyTrap=devicePolicyTrap, PYSNMP_MODULE_ID=devicePolicyMIB, devicePolicyMIB=devicePolicyMIB, devicePolicyMIBNotifications=devicePolicyMIBNotifications, devicePolicyMessage=devicePolicyMessage, PolicyMessageString=PolicyMessageString, devicePolicyMIBNotificationsPrefix=devicePolicyMIBNotificationsPrefix)
+mibBuilder.exportSymbols("BLUECOAT-SG-POLICY-MIB", devicePolicyMIBObjects=devicePolicyMIBObjects, devicePolicyTrap=devicePolicyTrap, devicePolicyValues=devicePolicyValues, devicePolicyMessage=devicePolicyMessage, devicePolicyMIB=devicePolicyMIB, PolicyMessageString=PolicyMessageString, devicePolicyMIBNotificationsPrefix=devicePolicyMIBNotificationsPrefix, PYSNMP_MODULE_ID=devicePolicyMIB, devicePolicyMIBNotifications=devicePolicyMIBNotifications)

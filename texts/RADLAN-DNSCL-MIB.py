@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module RADLAN-DNSCL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-DNSCL-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:21:42 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 13:02:57 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 dnsResConfigSbeltEntry, = mibBuilder.importSymbols("DNS-RESOLVER-MIB", "dnsResConfigSbeltEntry")
 DnsName, = mibBuilder.importSymbols("DNS-SERVER-MIB", "DnsName")
 rlDnsCl, = mibBuilder.importSymbols("RADLAN-MIB", "rlDnsCl")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, NotificationType, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, Gauge32, MibIdentifier, Counter64, Counter32, ModuleIdentity, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "Gauge32", "MibIdentifier", "Counter64", "Counter32", "ModuleIdentity", "iso", "Integer32")
-DisplayString, TruthValue, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, iso, Bits, Counter64, Gauge32, ModuleIdentity, Counter32, IpAddress, MibIdentifier, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "iso", "Bits", "Counter64", "Gauge32", "ModuleIdentity", "Counter32", "IpAddress", "MibIdentifier", "Unsigned32", "NotificationType")
+TextualConvention, DisplayString, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "TruthValue")
 DisplayString, = mibBuilder.importSymbols("SNMPv2-TC-v1", "DisplayString")
 rlDnsClMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 93, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlDnsClMibVersion.setStatus('current')
@@ -74,4 +74,4 @@ if mibBuilder.loadTexts: dnsResConfigSbeltExtEntry.setDescription('A row of the 
 dnsResConfigSbeltOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 93, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("dhcp", 2))).clone('static')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dnsResConfigSbeltOwner.setStatus('current')
 if mibBuilder.loadTexts: dnsResConfigSbeltOwner.setDescription('The DNS server Entry owner. Static if DNS server Entry defined by user, dhcp\n        if received by boot protocol like DHCP.')
-mibBuilder.exportSymbols("RADLAN-DNSCL-MIB", rlDnsClMaxNumOfRetransmissions=rlDnsClMaxNumOfRetransmissions, rlDnsClNamesRowStatus=rlDnsClNamesRowStatus, dnsResConfigSbeltExtTable=dnsResConfigSbeltExtTable, rlDnsClEnable=rlDnsClEnable, rlDnsClNamesOwner=rlDnsClNamesOwner, rlDnsClNamesTable=rlDnsClNamesTable, rlDnsClDomainNameTable=rlDnsClDomainNameTable, rlDnsClNamesName=rlDnsClNamesName, rlDnsClNamesAddr=rlDnsClNamesAddr, rlDnsClDomainNameEntry=rlDnsClDomainNameEntry, rlDnsClNamesIndex=rlDnsClNamesIndex, rlDnsClMibVersion=rlDnsClMibVersion, rlDnsClMinRetransmissionInterval=rlDnsClMinRetransmissionInterval, dnsResConfigSbeltOwner=dnsResConfigSbeltOwner, dnsResConfigSbeltExtEntry=dnsResConfigSbeltExtEntry, rlDnsClDomainNameOwner=rlDnsClDomainNameOwner, rlDnsClDomainNameRowStatus=rlDnsClDomainNameRowStatus, rlDnsClNamesEntry=rlDnsClNamesEntry, rlDnsClDomainNameName=rlDnsClDomainNameName)
+mibBuilder.exportSymbols("RADLAN-DNSCL-MIB", rlDnsClDomainNameTable=rlDnsClDomainNameTable, dnsResConfigSbeltOwner=dnsResConfigSbeltOwner, rlDnsClNamesEntry=rlDnsClNamesEntry, rlDnsClMaxNumOfRetransmissions=rlDnsClMaxNumOfRetransmissions, rlDnsClNamesOwner=rlDnsClNamesOwner, rlDnsClDomainNameOwner=rlDnsClDomainNameOwner, rlDnsClNamesIndex=rlDnsClNamesIndex, rlDnsClDomainNameRowStatus=rlDnsClDomainNameRowStatus, rlDnsClDomainNameName=rlDnsClDomainNameName, rlDnsClMibVersion=rlDnsClMibVersion, rlDnsClEnable=rlDnsClEnable, dnsResConfigSbeltExtTable=dnsResConfigSbeltExtTable, rlDnsClDomainNameEntry=rlDnsClDomainNameEntry, rlDnsClNamesRowStatus=rlDnsClNamesRowStatus, rlDnsClNamesAddr=rlDnsClNamesAddr, rlDnsClNamesName=rlDnsClNamesName, rlDnsClMinRetransmissionInterval=rlDnsClMinRetransmissionInterval, rlDnsClNamesTable=rlDnsClNamesTable, dnsResConfigSbeltExtEntry=dnsResConfigSbeltExtEntry)

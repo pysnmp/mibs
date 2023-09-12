@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
+      "Gauge32",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY"
     ],
@@ -168,8 +168,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-ROOT-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:19:25 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 13:00:56 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "S5-ROOT-MIB"

@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "BGP4V2-TC-MIB": [
-      "Bgp4V2SubsequentAddressFamilyIdentifierTC",
       "Bgp4V2AddressFamilyIdentifierTC",
-      "Bgp4V2IdentifierTC"
+      "Bgp4V2IdentifierTC",
+      "Bgp4V2SubsequentAddressFamilyIdentifierTC"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "bgp4V2Root"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetPortNumber",
+      "InetAddress",
+      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddress"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,28 +25,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
+      "Integer32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
       "IpAddress",
       "MibIdentifier",
-      "iso",
-      "Integer32"
+      "mib-2",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "DisplayString",
-      "RowPointer",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowPointer"
     ]
   },
   "bgp4V2": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BGP4V2-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:11:42 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:54:20 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BGP4V2-MIB"

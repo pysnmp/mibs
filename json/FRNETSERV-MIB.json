@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "iso",
-      "IpAddress",
-      "transmission",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
+      "IpAddress",
+      "Gauge32",
       "Counter32",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Unsigned32",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "transmission",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
@@ -2520,8 +2520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FRNETSERV-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:02:28 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:45:59 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FRNETSERV-MIB"

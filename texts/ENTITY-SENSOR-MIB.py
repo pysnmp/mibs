@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ENTITY-SENSOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ENTITY-SENSOR-MIB
-# Produced by pysmi-1.1.8 at Tue Sep 12 12:04:00 2023
-# On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 12:47:23 2023
+# On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 entPhysicalIndex, entityPhysicalGroup = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entityPhysicalGroup")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Integer32, IpAddress, Counter64, Bits, Gauge32, Counter32, Unsigned32, ModuleIdentity, iso, MibIdentifier, mib_2, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "IpAddress", "Counter64", "Bits", "Gauge32", "Counter32", "Unsigned32", "ModuleIdentity", "iso", "MibIdentifier", "mib-2", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks")
-TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Unsigned32, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, mib_2, Integer32, Counter64, NotificationType, iso, Counter32, IpAddress, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "mib-2", "Integer32", "Counter64", "NotificationType", "iso", "Counter32", "IpAddress", "Bits", "TimeTicks")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 entitySensorMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 99))
 entitySensorMIB.setRevisions(('2002-12-16 00:00',))
 
@@ -94,4 +94,4 @@ entitySensorValueGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 99, 3, 2, 1)).setObjects
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     entitySensorValueGroup = entitySensorValueGroup.setStatus('current')
 if mibBuilder.loadTexts: entitySensorValueGroup.setDescription('A collection of objects representing physical entity sensor\n            information.')
-mibBuilder.exportSymbols("ENTITY-SENSOR-MIB", EntitySensorDataScale=EntitySensorDataScale, entitySensorConformance=entitySensorConformance, entPhySensorOperStatus=entPhySensorOperStatus, PYSNMP_MODULE_ID=entitySensorMIB, entPhySensorType=entPhySensorType, entitySensorValueGroup=entitySensorValueGroup, entitySensorGroups=entitySensorGroups, EntitySensorValue=EntitySensorValue, entPhySensorValueTimeStamp=entPhySensorValueTimeStamp, entPhySensorScale=entPhySensorScale, entPhySensorPrecision=entPhySensorPrecision, entPhySensorValue=entPhySensorValue, entitySensorObjects=entitySensorObjects, entitySensorCompliance=entitySensorCompliance, entitySensorMIB=entitySensorMIB, entPhySensorTable=entPhySensorTable, entitySensorCompliances=entitySensorCompliances, EntitySensorDataType=EntitySensorDataType, entPhySensorEntry=entPhySensorEntry, entPhySensorValueUpdateRate=entPhySensorValueUpdateRate, EntitySensorPrecision=EntitySensorPrecision, entPhySensorUnitsDisplay=entPhySensorUnitsDisplay, EntitySensorStatus=EntitySensorStatus)
+mibBuilder.exportSymbols("ENTITY-SENSOR-MIB", entitySensorObjects=entitySensorObjects, PYSNMP_MODULE_ID=entitySensorMIB, entitySensorConformance=entitySensorConformance, EntitySensorValue=EntitySensorValue, EntitySensorPrecision=EntitySensorPrecision, entitySensorMIB=entitySensorMIB, EntitySensorDataType=EntitySensorDataType, entPhySensorUnitsDisplay=entPhySensorUnitsDisplay, entPhySensorValue=entPhySensorValue, entitySensorGroups=entitySensorGroups, entPhySensorOperStatus=entPhySensorOperStatus, entPhySensorPrecision=entPhySensorPrecision, entPhySensorEntry=entPhySensorEntry, entPhySensorTable=entPhySensorTable, entPhySensorValueTimeStamp=entPhySensorValueTimeStamp, EntitySensorDataScale=EntitySensorDataScale, entPhySensorValueUpdateRate=entPhySensorValueUpdateRate, entitySensorValueGroup=entitySensorValueGroup, entitySensorCompliances=entitySensorCompliances, EntitySensorStatus=EntitySensorStatus, entPhySensorScale=entPhySensorScale, entPhySensorType=entPhySensorType, entitySensorCompliance=entitySensorCompliance)

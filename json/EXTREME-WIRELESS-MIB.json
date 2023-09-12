@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "WPACipherSet",
-      "WirelessRemoteConnectBindingType",
-      "ExtremeDeviceId",
-      "extremeAP",
-      "ClientAuthType",
       "extremeV2Traps",
-      "extremeLAC",
+      "WPAKeyMgmtSet",
+      "extremeAP",
       "extremeAgent",
-      "WPAKeyMgmtSet"
+      "ClientAuthType",
+      "ExtremeDeviceId",
+      "WirelessRemoteConnectBindingType",
+      "WPACipherSet",
+      "extremeLAC"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
+      "Integer32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "IpAddress",
+      "Counter32",
       "MibIdentifier",
-      "iso",
-      "Integer32"
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
+      "RowStatus",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeWireless": {
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 12:11:42 2023",
-      "On host fv-az615-431 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 12:54:20 2023",
+      "On host fv-az575-466 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"
