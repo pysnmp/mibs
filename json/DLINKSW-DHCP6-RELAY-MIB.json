@@ -5,38 +5,38 @@
       "dlinkIndustrialCommon"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Counter64",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "MibIdentifier",
-      "Bits",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "dlinkSwDhcp6RelayMIB": {
@@ -329,8 +329,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP6-RELAY-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:58:02 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:24:49 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP6-RELAY-MIB"

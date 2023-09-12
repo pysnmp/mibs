@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "ieee802dot1mibs",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021BridgePortNumberOrZero",
-      "IEEE8021PbbComponentIdentifierOrZero",
       "IEEE8021PriorityValue",
-      "IEEE8021PriorityCodePoint",
+      "IEEE8021BridgePortNumberOrZero",
       "IEEE8021BridgePortType",
-      "IEEE8021PbbComponentIdentifier"
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "IEEE8021BridgePortNumber",
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
-      "ifGeneralInformationGroup",
       "ifIndex",
+      "ifGeneralInformationGroup",
       "InterfaceIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "systemGroup"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "Bits",
+      "Counter32",
       "Counter64",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
       "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TimeInterval",
       "RowStatus",
-      "TimeInterval"
+      "TruthValue"
     ]
   },
   "ieee8021BridgeMib": {
@@ -2064,9 +2064,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:56:08 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:33 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-BRIDGE-MIB"

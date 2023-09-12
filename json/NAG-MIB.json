@@ -3,35 +3,35 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "Unsigned32",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "experimental",
       "Integer32",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "mib-2",
-      "IpAddress",
-      "enterprises",
-      "MibIdentifier"
+      "mib-2"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "TimeStamp",
-      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "DisplayString": {
@@ -33463,8 +33463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/snr/NAG-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 07:06:11 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:32:53 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NAG-MIB"

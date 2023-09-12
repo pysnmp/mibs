@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ACMEPACKET-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-TC
-# Produced by pysmi-1.1.8 at Tue Sep 12 07:03:59 2023
-# On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Sep 12 07:30:43 2023
+# On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 acmepacket, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacket")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, MibIdentifier, Unsigned32, iso, ModuleIdentity, Counter32, Integer32, TimeTicks, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "MibIdentifier", "Unsigned32", "iso", "ModuleIdentity", "Counter32", "Integer32", "TimeTicks", "IpAddress", "NotificationType")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, iso, ModuleIdentity, Integer32, Gauge32, IpAddress, MibIdentifier, NotificationType, Bits, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "iso", "ModuleIdentity", "Integer32", "Gauge32", "IpAddress", "MibIdentifier", "NotificationType", "Bits", "Counter32", "Counter64")
+TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
 apTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 0))
 apTextualConventions.setRevisions(('2012-02-06 23:05', '2012-05-05 23:05', '2014-06-26 00:00',))
 
@@ -92,4 +92,4 @@ class ApAclType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("untrusted", 0), ("trusted", 1))
 
-mibBuilder.exportSymbols("ACMEPACKET-TC", ApServerStatus=ApServerStatus, ApPercentage=ApPercentage, ApPresence=ApPresence, ApThreadOverloaded=ApThreadOverloaded, ApHardwareModuleFamily=ApHardwareModuleFamily, ApAclType=ApAclType, PYSNMP_MODULE_ID=apTextualConventions, ApPhyPortType=ApPhyPortType, apTextualConventions=apTextualConventions, ApCommMonitorState=ApCommMonitorState, ApSipMethod=ApSipMethod, ApRedundancyState=ApRedundancyState, ApTransportType=ApTransportType, ApDiamResultCode=ApDiamResultCode)
+mibBuilder.exportSymbols("ACMEPACKET-TC", ApServerStatus=ApServerStatus, ApTransportType=ApTransportType, ApPhyPortType=ApPhyPortType, ApDiamResultCode=ApDiamResultCode, ApHardwareModuleFamily=ApHardwareModuleFamily, ApPresence=ApPresence, ApThreadOverloaded=ApThreadOverloaded, ApAclType=ApAclType, ApRedundancyState=ApRedundancyState, apTextualConventions=apTextualConventions, ApCommMonitorState=ApCommMonitorState, PYSNMP_MODULE_ID=apTextualConventions, ApSipMethod=ApSipMethod, ApPercentage=ApPercentage)

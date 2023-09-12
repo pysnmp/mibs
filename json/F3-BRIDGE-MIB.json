@@ -9,49 +9,49 @@
     ],
     "CM-ENTITY-MIB": [
       "networkElementEntry",
-      "slotIndex",
       "shelfIndex",
-      "neIndex"
+      "neIndex",
+      "slotIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmFlowIndex",
-      "cmFlowEntry",
       "cmMPFlowIndex",
-      "cmEthernetAccPortIndex"
+      "cmFlowIndex",
+      "cmEthernetAccPortIndex",
+      "cmFlowEntry"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmFlowStatsEntry",
-      "cmFlowHistoryEntry"
+      "cmFlowHistoryEntry",
+      "cmFlowStatsEntry"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
-      "Counter32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "VariablePointer",
       "StorageType",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "f3BridgeMIB": {
@@ -1479,8 +1479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:53:48 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:20:35 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-BRIDGE-MIB"

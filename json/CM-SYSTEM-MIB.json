@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ADVA-MIB": [
-      "fsp150cm",
+      "FileTransferProtocol",
       "TrapCounter",
-      "FileTransferProtocol"
+      "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "IpVersion",
-      "RestartType"
+      "RestartType",
+      "IpVersion"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -29,35 +29,35 @@
       "snmpTargetAddrName"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "TimeTicks",
       "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DateAndTime",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "VariablePointer",
+      "DateAndTime",
+      "RowStatus",
       "StorageType",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "cmSystemMIB": {
@@ -4398,8 +4398,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:53:48 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:20:35 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-SYSTEM-MIB"

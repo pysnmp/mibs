@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePortComponentId",
-      "ieee8021BridgeBasePort"
+      "ieee8021BridgeBasePort",
+      "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PriorityValue",
-      "ieee802dot1mibs",
-      "IEEE8021PbbComponentIdentifierOrZero",
-      "IEEE8021BridgePortType",
+      "IEEE8021BridgePortNumberOrZero",
       "IEEE8021PortAcceptableFrameTypes",
-      "IEEE8021BridgePortNumberOrZero"
+      "IEEE8021BridgePortType",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "ieee802dot1mibs"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
       "Counter32",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
       "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021PbMib": {
@@ -1062,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:52:46 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:33 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PB-MIB"

@@ -5,55 +5,55 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepEntry",
+      "dot1agCfmMdIndex",
       "dot1agCfmMaIndex",
-      "dot1agCfmMdIndex"
+      "dot1agCfmMepEntry"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021PbbTeEsp",
       "IEEE8021PbbIngressEgress",
-      "ieee802dot1mibs",
       "IEEE8021PbbServiceIdentifier",
       "IEEE8021BridgePortNumber",
-      "IEEE8021PbbTeEsp"
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrAny",
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "Bits",
+      "Counter32",
       "Counter64",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
       "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "ieee8021SpbMib": {
@@ -3152,9 +3152,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:56:08 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPB-MIB",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:19:33 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

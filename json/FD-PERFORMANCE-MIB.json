@@ -6,8 +6,8 @@
       "mediaConverter"
     ],
     "FD-OLT-MIB": [
-      "directionId",
       "linkId",
+      "directionId",
       "oltId"
     ],
     "FD-ONU-MIB": [
@@ -21,29 +21,29 @@
       "ponCardSlotId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
       "Unsigned32",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "performance": {
@@ -2998,8 +2998,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-PERFORMANCE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 06:55:16 2023",
-      "On host fv-az442-605 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Sep 12 07:22:03 2023",
+      "On host fv-az749-158 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FD-PERFORMANCE-MIB"
