@@ -1,4 +1,5 @@
--- ArubaOS 6.4.2.3-4.1.1.2_48114
+-- ArubaOS 8.9.0.1_82154
+-- ArubaOS 8.9.0.1_82154
 ARUBA-MIB DEFINITIONS ::= BEGIN
 
    IMPORTS
@@ -27,6 +28,13 @@ arubaEnterpriseMibModules OBJECT IDENTIFIER ::= { aruba 2}
 -- Extensions.
 
 arubaMgmt OBJECT IDENTIFIER ::= { aruba 3}
+
+--Node arubaPki.
+arubaPki OBJECT-IDENTITY
+       STATUS  current
+       DESCRIPTION
+            "Aruba PKI OIDs. This arc is not used in Aruba SNMP MIBs."
+    ::= { aruba  4}
 
 -- List of all the products.
 
@@ -112,11 +120,25 @@ s1500-12P   OBJECT IDENTIFIER ::= { switchProducts 38 }
 a7005   OBJECT IDENTIFIER ::= { switchProducts 39 }
 a7010   OBJECT IDENTIFIER ::= { switchProducts 40 }
 a7030   OBJECT IDENTIFIER ::= { switchProducts 41 }
-a7110   OBJECT IDENTIFIER ::= { switchProducts 42 }
+a7205   OBJECT IDENTIFIER ::= { switchProducts 42 }
 a7024   OBJECT IDENTIFIER ::= { switchProducts 43 }
-a7105   OBJECT IDENTIFIER ::= { switchProducts 44 }
-a9900   OBJECT IDENTIFIER ::= { switchProducts 45 }
-a9980   OBJECT IDENTIFIER ::= { switchProducts 46 }
+a7215   OBJECT IDENTIFIER ::= { switchProducts 44 }
+vmc-tact   OBJECT IDENTIFIER ::= { switchProducts 45 }
+vmc-sp10k   OBJECT IDENTIFIER ::= { switchProducts 46 }
+a7240xm OBJECT IDENTIFIER ::= { switchProducts 47 }
+a7008   OBJECT IDENTIFIER ::= { switchProducts 48 }
+vmc-tact8   OBJECT IDENTIFIER ::= { switchProducts 49 }
+mm-va   OBJECT IDENTIFIER ::= { switchProducts 50 }
+a7280   OBJECT IDENTIFIER ::= { switchProducts 51 }
+mc-va   OBJECT IDENTIFIER ::= { switchProducts 52 }
+mm-hw-1K   OBJECT IDENTIFIER ::= { switchProducts 53 }
+mm-hw-5K   OBJECT IDENTIFIER ::= { switchProducts 54 }
+mm-hw-10K   OBJECT IDENTIFIER ::= { switchProducts 55 }
+a9004   OBJECT IDENTIFIER ::= { switchProducts 56 }
+a9012   OBJECT IDENTIFIER ::= { switchProducts 57 }
+a9004-lte   OBJECT IDENTIFIER ::= { switchProducts 58 }
+a9240   OBJECT IDENTIFIER ::= { switchProducts 59 }
+
 
 --Undefined switch.
 aUndefined OBJECT IDENTIFIER ::= { switchProducts 9999}
@@ -387,11 +409,183 @@ ap103H OBJECT IDENTIFIER ::= {apProducts 70}
 --iapvc, this object is the SYSOID
 iapvc OBJECT IDENTIFIER ::= {apProducts 71}
 
+--ap277, this object is the SYSOID
+ap277 OBJECT IDENTIFIER ::= {apProducts 72}
+
 --ap214, this object is the SYSOID
 ap214 OBJECT IDENTIFIER ::= {apProducts 73}
 
 --ap215, this object is the SYSOID
 ap215 OBJECT IDENTIFIER ::= {apProducts 74}
+
+--ap228, this object is the SYSOID
+ap228 OBJECT IDENTIFIER ::= {apProducts 75}
+
+--ap205H, this object is the SYSOID
+ap205H OBJECT IDENTIFIER ::= {apProducts 76}
+
+--ap324, this object is the SYSOID
+ap324 OBJECT IDENTIFIER ::= {apProducts 77}
+
+--ap325, this object is the SYSOID
+ap325 OBJECT IDENTIFIER ::= {apProducts 78}
+
+--ap334, this object is the SYSOID
+ap334 OBJECT IDENTIFIER ::= {apProducts 79}
+
+--ap335, this object is the SYSOID
+ap335 OBJECT IDENTIFIER ::= {apProducts 80}
+
+--ap314, this object is the SYSOID
+ap314 OBJECT IDENTIFIER ::= {apProducts 81}
+
+--ap315, this object is the SYSOID
+ap315 OBJECT IDENTIFIER ::= {apProducts 82}
+
+--apm210, this object is the SYSOID
+apm210 OBJECT IDENTIFIER ::= {apProducts 83}
+
+--ap207, this object is the SYSOID
+ap207 OBJECT IDENTIFIER ::= {apProducts 84}
+
+--ap304, this object is the SYSOID
+ap304 OBJECT IDENTIFIER ::= {apProducts 85}
+
+--ap305, this object is the SYSOID
+ap305 OBJECT IDENTIFIER ::= {apProducts 86}
+
+--ap303h, this object is the SYSOID
+ap303h OBJECT IDENTIFIER ::= {apProducts 87}
+
+--ap365, this object is the SYSOID
+ap365 OBJECT IDENTIFIER ::= {apProducts 88}
+
+--ap367, this object is the SYSOID
+ap367 OBJECT IDENTIFIER ::= {apProducts 89}
+
+
+--ap203H, this object is the SYSOID
+ap203H OBJECT IDENTIFIER ::= {apProducts 90}
+
+--ap203R, this object is the SYSOID
+ap203R OBJECT IDENTIFIER ::= {apProducts 91}
+
+--ap203RP, this object is the SYSOID
+ap203RP OBJECT IDENTIFIER ::= {apProducts 92}
+
+--ap344, this object is the SYSOID
+ap344 OBJECT IDENTIFIER ::= {apProducts 93}
+
+--ap345, this object is the SYSOID
+ap345 OBJECT IDENTIFIER ::= {apProducts 94}
+
+--ap374, this object is the SYSOID
+ap374 OBJECT IDENTIFIER ::= {apProducts 95}
+
+--ap375, this object is the SYSOID
+ap375 OBJECT IDENTIFIER ::= {apProducts 96}
+
+--ap377, this object is the SYSOID
+ap377 OBJECT IDENTIFIER ::= {apProducts 97}
+
+--ap318, this object is the SYSOID
+ap318 OBJECT IDENTIFIER ::= {apProducts 98}
+
+--ap303, this object is the SYSOID
+ap303 OBJECT IDENTIFIER ::= {apProducts 99}
+
+--ap555, this object is the SYSOID
+ap555 OBJECT IDENTIFIER ::= {apProducts 100}
+
+--ap534, this object is the SYSOID
+ap534 OBJECT IDENTIFIER ::= {apProducts 101}
+
+--ap535, this object is the SYSOID
+ap535 OBJECT IDENTIFIER ::= {apProducts 102}
+
+--ap387, this object is the SYSOID
+ap387 OBJECT IDENTIFIER ::= {apProducts 104}
+
+--ap303P, this object is the SYSOID
+ap303P OBJECT IDENTIFIER ::= {apProducts 105}
+
+--ap514, this object is the SYSOID
+ap514 OBJECT IDENTIFIER ::= {apProducts 106}
+
+--ap515, this object is the SYSOID
+ap515 OBJECT IDENTIFIER ::= {apProducts 107}
+
+--ap544, this object is the SYSOID
+ap544 OBJECT IDENTIFIER ::= {apProducts 108}
+
+--ap545, this object is the SYSOID
+ap545 OBJECT IDENTIFIER ::= {apProducts 109}
+
+--ap504, this object is the SYSOID
+ap504 OBJECT IDENTIFIER ::= {apProducts 110}
+
+--ap505, this object is the SYSOID
+ap505 OBJECT IDENTIFIER ::= {apProducts 111}
+
+--ap505H, this object is the SYSOID
+ap505H OBJECT IDENTIFIER ::= {apProducts 112}
+
+--ap574, this object is the SYSOID
+ap574 OBJECT IDENTIFIER ::= {apProducts 113}
+
+--ap575, this object is the SYSOID
+ap575 OBJECT IDENTIFIER ::= {apProducts 114}
+
+--ap577, this object is the SYSOID
+ap577 OBJECT IDENTIFIER ::= {apProducts 115}
+
+--ap518, this object is the SYSOID
+ap518 OBJECT IDENTIFIER ::= {apProducts 116}
+
+--ap503H, this object is the SYSOID
+ap503H OBJECT IDENTIFIER ::= {apProducts 117}
+
+--ap565, this object is the SYSOID
+ap565 OBJECT IDENTIFIER ::= {apProducts 118}
+
+--ap567, this object is the SYSOID
+ap567 OBJECT IDENTIFIER ::= {apProducts 119}
+
+--ap575EX, this object is the SYSOID
+ap575EX OBJECT IDENTIFIER ::= {apProducts 120}
+
+--ap577EX, this object is the SYSOID
+ap577EX OBJECT IDENTIFIER ::= {apProducts 121}
+
+--ap565EX, this object is the SYSOID
+ap565EX OBJECT IDENTIFIER ::= {apProducts 122}
+
+--ap567EX, this object is the SYSOID
+ap567EX OBJECT IDENTIFIER ::= {apProducts 123}
+
+--ap375ATEX, this object is the SYSOID
+ap375ATEX OBJECT IDENTIFIER ::= {apProducts 124}
+
+--ap635, this object is the SYSOID
+ap635 OBJECT IDENTIFIER ::= {apProducts 125}
+
+--ap655, this object is the SYSOID
+ap655 OBJECT IDENTIFIER ::= {apProducts 126}
+
+--ap584, this object is the SYSOID
+ap584 OBJECT IDENTIFIER ::= {apProducts 127}
+
+--ap585, this object is the SYSOID
+ap585 OBJECT IDENTIFIER ::= {apProducts 128}
+
+--ap587, this object is the SYSOID
+ap587 OBJECT IDENTIFIER ::= {apProducts 129}
+
+--ap585EX, this object is the SYSOID
+ap585EX OBJECT IDENTIFIER ::= {apProducts 130}
+
+--ap587EX, this object is the SYSOID
+ap587EX OBJECT IDENTIFIER ::= {apProducts 131}
 
 --Undefined ap.
 apUndefined OBJECT IDENTIFIER ::= { apProducts 9999}
@@ -410,6 +604,12 @@ ecsENSM   OBJECT IDENTIFIER ::= {partnerProducts 4}
 
 --Amigopod
 amigopodProducts OBJECT IDENTIFIER ::= { products 5 }
+
+-- ClearPass
+clearpassProducts OBJECT IDENTIFIER ::= { products 6 }
+
+-- ClearPass Policy Manager
+clearpass OBJECT IDENTIFIER ::= { clearpassProducts 1 }
 
 -- List of all the Enterprise MIB Modules.
 

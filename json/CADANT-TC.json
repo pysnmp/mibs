@@ -9,20 +9,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
       "MODULE-IDENTITY",
       "iso",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1382,8 +1382,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-TC-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:28:00 2023",
-      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 02:42:36 2023",
+      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CADANT-TC"

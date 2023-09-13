@@ -6,34 +6,34 @@
     ],
     "CIENA-WS-PLATFORM-TYPEDEFS-MIB": [
       "StringMaxl44",
-      "StringMaxl16",
-      "StringMaxl32"
+      "StringMaxl32",
+      "StringMaxl16"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Bits",
-      "IpAddress",
-      "Counter64",
       "TimeTicks",
-      "iso",
-      "Unsigned32",
-      "Integer32",
+      "IpAddress",
       "Counter32",
-      "MibIdentifier",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "cienaWsPlatformAlarmMIB": {
@@ -841,8 +841,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PLATFORM-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:29:26 2023",
-      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 02:43:51 2023",
+      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PLATFORM-ALARM-MIB"

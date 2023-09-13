@@ -16,28 +16,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "MacAddress"
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwDhcpFilterMIB": {
@@ -602,8 +602,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP-FILTER-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:32:17 2023",
-      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 02:46:22 2023",
+      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP-FILTER-MIB"

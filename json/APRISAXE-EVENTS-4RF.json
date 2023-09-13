@@ -6,19 +6,19 @@
       "aprisaXEEvents"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEPortNumber",
-      "AprisaXESlotNumber",
       "AprisaXECardType",
-      "AprisaXEAlarmType",
-      "AprisaXEDataStatus"
+      "AprisaXEDataStatus",
+      "AprisaXESlotNumber",
+      "AprisaXEPortNumber",
+      "AprisaXEAlarmType"
     ],
     "COMMON-TC-4RF": [
       "FourRFAlarmStatus",
-      "FourRFHardwareVersion",
-      "FourRFImageVersion",
       "FourRFAlarmPresent",
+      "FourRFAlarmEnabled",
       "FourRFAlarmSeverity",
-      "FourRFAlarmEnabled"
+      "FourRFImageVersion",
+      "FourRFHardwareVersion"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,25 +27,25 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
       "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:26:50 2023",
-      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 02:41:26 2023",
+      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

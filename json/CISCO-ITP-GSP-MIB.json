@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-TC-MIB": [
-      "CItpTcCLLI",
-      "CItpTcInstanceNumber",
       "CItpTcPointCode",
-      "CItpTcAclId",
-      "CItpTcServiceIndicator",
-      "CItpTcLinksetId",
-      "CItpTcPointCodeType",
-      "CItpTcRouteTableName",
       "CItpTcLinkType",
-      "CItpTcQos",
-      "CItpTcLinkSLC",
-      "CItpTcDisplayPC",
+      "CItpTcInstanceNumber",
+      "CItpTcNetworkIndicator",
       "CItpTcNetworkName",
-      "CItpTcNetworkIndicator"
+      "CItpTcLinkSLC",
+      "CItpTcCLLI",
+      "CItpTcDisplayPC",
+      "CItpTcServiceIndicator",
+      "CItpTcPointCodeType",
+      "CItpTcLinksetId",
+      "CItpTcAclId",
+      "CItpTcQos",
+      "CItpTcRouteTableName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -24,40 +24,40 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
+      "InetPortNumber",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
+      "MibIdentifier",
+      "iso",
       "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ciscoGspMIB": {
@@ -5476,8 +5476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Sep 12 13:32:22 2023",
-      "On host fv-az163-847 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 02:46:34 2023",
+      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-GSP-MIB"
