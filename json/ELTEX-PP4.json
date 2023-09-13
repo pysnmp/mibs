@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
+      "mcTrapLParam1",
+      "mcTrapExState",
+      "mcTrapLParam3",
       "mcTrapLParam2",
+      "mcTrapID",
       "eltrapGroup",
       "mcTrapDescr",
-      "mcTrapID",
-      "mcTrapLParam3",
-      "elHardware",
-      "mcTrapExState",
-      "mcTrapLParam1"
+      "elHardware"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
       "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
       "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "iso",
       "Counter64",
-      "IpAddress"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TimeInterval",
       "MacAddress",
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TimeInterval"
     ]
   },
   "pp4": {
@@ -6478,8 +6478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:01:05 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:50:23 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ELTEX-PP4"

@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "CISCO-CDP-MIB": [
+      "cdpCacheDeviceIndex",
       "cdpCacheIfIndex",
-      "cdpCacheEntry",
-      "cdpCacheDeviceIndex"
+      "cdpCacheEntry"
     ],
     "CISCO-TC": [
       "CiscoNetworkProtocol",
       "CiscoNetworkAddress"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
       "switch001",
@@ -23,8 +23,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
@@ -36,25 +36,25 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "iso",
       "NOTIFICATION-TYPE",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
       "MibIdentifier",
-      "iso",
-      "Integer32"
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlCdp": {
@@ -1589,8 +1589,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-CDP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:00:33 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:41 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-CDP-MIB"

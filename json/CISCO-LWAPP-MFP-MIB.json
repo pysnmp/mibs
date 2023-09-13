@@ -4,17 +4,17 @@
     "CISCO-LWAPP-AP-MIB": [
       "cLApDot11IfSlotId",
       "cLApSysMacAddress",
-      "cLApName",
-      "cLApIfSmtDot11Bssid"
+      "cLApIfSmtDot11Bssid",
+      "cLApName"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLMfpVersion",
       "CLMfpEventType",
       "CLEventFrames",
-      "CLTimeBaseStatus"
+      "CLTimeBaseStatus",
+      "CLMfpVersion"
     ],
     "CISCO-LWAPP-WLAN-MIB": [
       "cLWlanIndex"
@@ -29,26 +29,26 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "TimeTicks",
-      "Unsigned32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "IpAddress",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Integer32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
+      "DisplayString",
       "TruthValue",
-      "TimeInterval",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "ciscoLwappMfpMIB": {
@@ -1029,8 +1029,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MFP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:00:35 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:44 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MFP-MIB"

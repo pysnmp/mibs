@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module IPVS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/kemp/IPVS-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 08:04:23 2023
-# On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 12:54:33 2023
+# On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 one4net, = mibBuilder.importSymbols("ONE4NET-MIB", "one4net")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, NotificationType, Integer32, TimeTicks, Counter64, MibIdentifier, Bits, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Opaque, ObjectIdentity, Counter32, IpAddress, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Integer32", "TimeTicks", "Counter64", "MibIdentifier", "Bits", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Opaque", "ObjectIdentity", "Counter32", "IpAddress", "enterprises", "iso")
-TruthValue, TextualConvention, DisplayString, TimeInterval = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "TimeInterval")
+Unsigned32, Integer32, Gauge32, ObjectIdentity, iso, Opaque, TimeTicks, Counter32, ModuleIdentity, Counter64, IpAddress, MibIdentifier, enterprises, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "Gauge32", "ObjectIdentity", "iso", "Opaque", "TimeTicks", "Counter32", "ModuleIdentity", "Counter64", "IpAddress", "MibIdentifier", "enterprises", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
+DisplayString, TextualConvention, TimeInterval, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeInterval", "TruthValue")
 ipvs = ModuleIdentity((1, 3, 6, 1, 4, 1, 12196, 12))
 ipvs.setRevisions(('2011-12-01 00:00',))
 
@@ -138,4 +138,4 @@ if mibBuilder.loadTexts: inBytes.setDescription('Total number of incoming bytes 
 outBytes = MibScalar((1, 3, 6, 1, 4, 1, 12196, 12, 7), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: outBytes.setStatus('current')
 if mibBuilder.loadTexts: outBytes.setDescription('Total number of outgoing bytes for all VS')
-mibBuilder.exportSymbols("IPVS-MIB", vsEntry=vsEntry, outBytes=outBytes, rSDesc=rSDesc, rsTotalEntry=rsTotalEntry, PYSNMP_MODULE_ID=ipvs, rSInBytes=rSInBytes, rSWeight=rSWeight, ipvsRSTotalTable=ipvsRSTotalTable, rSInactiveConns=rSInactiveConns, vSInPkts=vSInPkts, totRSInPkts=totRSInPkts, ipvsVSTable=ipvsVSTable, vSInBytes=vSInBytes, conns=conns, inPkts=inPkts, rSVSidx=rSVSidx, rSOutPkts=rSOutPkts, vSidx=vSidx, totRSDesc=totRSDesc, inBytes=inBytes, ipvs=ipvs, rSConns=rSConns, rSInPkts=rSInPkts, totRSInBytes=totRSInBytes, totRSOutBytes=totRSOutBytes, vSOutPkts=vSOutPkts, totRSOutPkts=totRSOutPkts, vSOutBytes=vSOutBytes, rSOutBytes=rSOutBytes, outPkts=outPkts, totRSInactiveConns=totRSInactiveConns, totRSConns=totRSConns, totRSActiveConns=totRSActiveConns, rsEntry=rsEntry, rSidx=rSidx, ipvsRSTable=ipvsRSTable, totRSidx=totRSidx, vSActivConns=vSActivConns, vSDesc=vSDesc, vSConns=vSConns, rSActiveConns=rSActiveConns)
+mibBuilder.exportSymbols("IPVS-MIB", rSInBytes=rSInBytes, totRSOutPkts=totRSOutPkts, rSOutPkts=rSOutPkts, totRSInBytes=totRSInBytes, rSDesc=rSDesc, totRSDesc=totRSDesc, ipvs=ipvs, inBytes=inBytes, totRSidx=totRSidx, rSActiveConns=rSActiveConns, totRSInactiveConns=totRSInactiveConns, rSidx=rSidx, rSVSidx=rSVSidx, totRSOutBytes=totRSOutBytes, vSDesc=vSDesc, vSInPkts=vSInPkts, rsEntry=rsEntry, vSOutPkts=vSOutPkts, ipvsVSTable=ipvsVSTable, ipvsRSTotalTable=ipvsRSTotalTable, PYSNMP_MODULE_ID=ipvs, vSConns=vSConns, conns=conns, vSActivConns=vSActivConns, rsTotalEntry=rsTotalEntry, rSConns=rSConns, inPkts=inPkts, outBytes=outBytes, totRSInPkts=totRSInPkts, vSOutBytes=vSOutBytes, totRSConns=totRSConns, ipvsRSTable=ipvsRSTable, rSInactiveConns=rSInactiveConns, vSInBytes=vSInBytes, vsEntry=vsEntry, vSidx=vSidx, totRSActiveConns=totRSActiveConns, rSWeight=rSWeight, rSOutBytes=rSOutBytes, rSInPkts=rSInPkts, outPkts=outPkts)

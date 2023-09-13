@@ -5,51 +5,51 @@
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList2",
-      "VlanList1",
       "VlanList3",
-      "VlanList4"
+      "VlanList1",
+      "VlanList4",
+      "VlanList2"
     ],
     "LINKSYS-MIB": [
       "Percents",
-      "rnd",
-      "VlanPriority"
+      "VlanPriority",
+      "rnd"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Unsigned32",
-      "Bits",
+      "iso",
+      "Gauge32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "zeroDotZero",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "RowPointer"
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "InterfaceType": {
@@ -5400,8 +5400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:05:09 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:55:27 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-POLICY-MIB"

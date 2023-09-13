@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "MODULE-IDENTITY",
+      "Counter32",
       "enterprises",
-      "Unsigned32",
-      "IpAddress",
       "MibIdentifier",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
       "OBJECT-TYPE",
       "Integer32",
       "iso",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -99,8 +99,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-SMI",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:09:34 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 13:00:36 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WAYSTREAM-SMI"

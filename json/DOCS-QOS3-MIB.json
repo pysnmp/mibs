@@ -8,12 +8,12 @@
       "DscpOrAny"
     ],
     "DOCS-IF3-MIB": [
-      "Dsid",
-      "ChId",
-      "AttributeMask",
       "AttrAggrRuleMask",
+      "ChId",
+      "ChannelList",
       "ChSetId",
-      "ChannelList"
+      "Dsid",
+      "AttributeMask"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
@@ -31,34 +31,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Bits",
       "MibIdentifier",
-      "Integer32"
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "StorageType",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "StorageType",
+      "RowStatus"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:55:27 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:44:11 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-QOS3-MIB"

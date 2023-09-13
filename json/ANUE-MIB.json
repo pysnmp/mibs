@@ -10,48 +10,48 @@
       "ifEntry",
       "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifTable",
-      "ifIndex"
+      "ifIndex",
+      "ifTable"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
-      "enterprises",
-      "Gauge32",
-      "Counter64",
       "Integer32",
+      "Gauge32",
       "iso",
-      "OBJECT-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
       "IpAddress",
-      "TimeTicks"
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "DisplayString",
       "DateAndTime"
     ],
     "SNMPv2-TM": [
-      "snmpUDPDomain",
-      "SnmpUDPAddress"
+      "SnmpUDPAddress",
+      "snmpUDPDomain"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:04:15 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:54:25 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

@@ -8,8 +8,8 @@
       "vtpVlanName"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -21,25 +21,25 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "IpAddress",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Integer32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1542,8 +1542,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PORT-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 08:00:36 2023",
-      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:44 2023",
+      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-PORT-SECURITY-MIB"
