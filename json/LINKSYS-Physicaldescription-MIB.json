@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorStatus",
-      "EntitySensorValue"
+      "EntitySensorValue",
+      "EntitySensorStatus"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -11,45 +11,45 @@
       "InterfaceIndex"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "LINKSYS-HWENVIROMENT": [
       "RlEnvMonState"
     ],
     "LINKSYS-MIB": [
-      "rnd",
-      "rndNotifications"
+      "rndNotifications",
+      "rnd"
     ],
     "MAU-MIB": [
       "JackType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
       "Gauge32",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "PhysAddress"
     ]
   },
   "rlPhysicalDescription": {
@@ -1520,8 +1520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:31:16 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:59:30 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-Physicaldescription-MIB"

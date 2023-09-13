@@ -12,35 +12,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "Opaque",
-      "Gauge32",
-      "iso",
-      "mib-2",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Opaque",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "zeroDotZero",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "alarmMIB": {
@@ -1347,9 +1347,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:20:48 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:52:01 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALARM-MIB"

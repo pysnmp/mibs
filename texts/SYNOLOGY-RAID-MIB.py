@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-RAID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-RAID-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:35:09 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 15:03:17 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Gauge32, NotificationType, Bits, iso, TimeTicks, ModuleIdentity, Counter32, IpAddress, ObjectIdentity, MibIdentifier, Counter64, enterprises, Integer32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "Bits", "iso", "TimeTicks", "ModuleIdentity", "Counter32", "IpAddress", "ObjectIdentity", "MibIdentifier", "Counter64", "enterprises", "Integer32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, Counter64, ModuleIdentity, Gauge32, Bits, IpAddress, iso, ObjectIdentity, Unsigned32, Integer32, enterprises, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "Counter64", "ModuleIdentity", "Gauge32", "Bits", "IpAddress", "iso", "ObjectIdentity", "Unsigned32", "Integer32", "enterprises", "MibIdentifier")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 synoRaid = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 3))
 synoRaid.setRevisions(('2013-09-11 00:00',))
@@ -54,4 +54,4 @@ raidGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 3, 2, 2, 1)).setObjects(("SYNOL
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     raidGroup = raidGroup.setStatus('current')
 if mibBuilder.loadTexts: raidGroup.setDescription('A collection of objects providing basic instrumentation and\n            control of an synology raid entity.')
-mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidIndex=raidIndex, raidFreeSize=raidFreeSize, raidConformance=raidConformance, PYSNMP_MODULE_ID=synoRaid, raidTotalSize=raidTotalSize, synology=synology, raidTable=raidTable, raidName=raidName, raidCompliances=raidCompliances, raidCompliance=raidCompliance, raidGroup=raidGroup, raidStatus=raidStatus, synoRaid=synoRaid, raidEntry=raidEntry, raidGroups=raidGroups)
+mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidStatus=raidStatus, raidIndex=raidIndex, raidTable=raidTable, raidCompliances=raidCompliances, raidGroup=raidGroup, raidGroups=raidGroups, raidFreeSize=raidFreeSize, raidTotalSize=raidTotalSize, synology=synology, synoRaid=synoRaid, raidCompliance=raidCompliance, raidConformance=raidConformance, PYSNMP_MODULE_ID=synoRaid, raidEntry=raidEntry, raidName=raidName)

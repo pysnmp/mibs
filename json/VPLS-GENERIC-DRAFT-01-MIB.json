@@ -13,28 +13,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
       "transmission",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Integer32",
       "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "StorageType",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
     ],
     "VPN-TC-STD-MIB": [
       "VPNIdOrZero"
@@ -845,8 +845,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/VPLS-GENERIC-DRAFT-01-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:31:00 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:59:14 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VPLS-GENERIC-DRAFT-01-MIB"

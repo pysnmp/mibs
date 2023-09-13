@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ADTRAN-COMMON-AOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-COMMON-AOS
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:21:01 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:49:39 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-adGenAOSCommon, adGenAOS = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSCommon", "adGenAOS")
+adGenAOS, adGenAOSCommon = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOS", "adGenAOSCommon")
 adIdentityShared, adShared = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentityShared", "adShared")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, Counter32, ObjectIdentity, MibIdentifier, Integer32, Gauge32, IpAddress, Bits, Unsigned32, ModuleIdentity, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "Counter32", "ObjectIdentity", "MibIdentifier", "Integer32", "Gauge32", "IpAddress", "Bits", "Unsigned32", "ModuleIdentity", "iso", "NotificationType")
+Unsigned32, Counter32, Counter64, ObjectIdentity, Bits, MibIdentifier, ModuleIdentity, Gauge32, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Integer32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "Counter64", "ObjectIdentity", "Bits", "MibIdentifier", "ModuleIdentity", "Gauge32", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Integer32", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSCommonMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 53, 1))
 adGenAOSCommonMib.setRevisions(('2015-01-05 00:00', '2014-11-05 22:05', '2014-09-10 00:00', '2013-08-23 00:00', '2007-08-23 00:00',))
@@ -33,4 +33,4 @@ adGenAOSFan = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 8))
 adGenAOSNetSync = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 9))
 adGenAOSOverTempProtection = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10))
 adGenAOSDyingGasp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 11))
-mibBuilder.exportSymbols("ADTRAN-COMMON-AOS", adGenAOSSnmp=adGenAOSSnmp, adGenAOSCommonMib=adGenAOSCommonMib, adGenAosIfPerfHistory=adGenAosIfPerfHistory, adGenAOSOverTempProtection=adGenAOSOverTempProtection, PYSNMP_MODULE_ID=adGenAOSCommonMib, adGenAOSCpuUtil=adGenAOSCpuUtil, adGenAOSFileSystem=adGenAOSFileSystem, adGenAOSNetSync=adGenAOSNetSync, adGenAOSUnit=adGenAOSUnit, adGenAOSFan=adGenAOSFan, adAOSDownload=adAOSDownload, adGenAOSMux=adGenAOSMux, adGenAOSDyingGasp=adGenAOSDyingGasp)
+mibBuilder.exportSymbols("ADTRAN-COMMON-AOS", PYSNMP_MODULE_ID=adGenAOSCommonMib, adAOSDownload=adAOSDownload, adGenAOSOverTempProtection=adGenAOSOverTempProtection, adGenAosIfPerfHistory=adGenAosIfPerfHistory, adGenAOSMux=adGenAOSMux, adGenAOSFan=adGenAOSFan, adGenAOSNetSync=adGenAOSNetSync, adGenAOSCpuUtil=adGenAOSCpuUtil, adGenAOSFileSystem=adGenAOSFileSystem, adGenAOSSnmp=adGenAOSSnmp, adGenAOSCommonMib=adGenAOSCommonMib, adGenAOSDyingGasp=adGenAOSDyingGasp, adGenAOSUnit=adGenAOSUnit)

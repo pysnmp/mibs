@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PACKETLOGIC-RAID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-RAID-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:33:33 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 15:01:43 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, TimeTicks, MibIdentifier, ModuleIdentity, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, IpAddress, iso, Counter32, NotificationType, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "MibIdentifier", "ModuleIdentity", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "IpAddress", "iso", "Counter32", "NotificationType", "Unsigned32", "Gauge32")
-TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "DisplayString")
+ObjectIdentity, iso, MibIdentifier, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, ModuleIdentity, Unsigned32, Integer32, IpAddress, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "MibIdentifier", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "ModuleIdentity", "Unsigned32", "Integer32", "IpAddress", "Gauge32", "NotificationType")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 raid = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1))
 raid.setRevisions(('2019-09-12 15:00',))
 
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: diskState.setDescription('Disk State')
 diskLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: diskLabel.setStatus('current')
 if mibBuilder.loadTexts: diskLabel.setDescription('Disk Label')
-mibBuilder.exportSymbols("PACKETLOGIC-RAID-MIB", PYSNMP_MODULE_ID=raid, ldEntryIndex=ldEntryIndex, ldEntry=ldEntry, adpNumber=adpNumber, diskState=diskState, diskLabel=diskLabel, diskId=diskId, raidCfg=raidCfg, ldId=ldId, ldState=ldState, ld=ld, raid=raid, ldNumber=ldNumber, diskNumber=diskNumber, diskEntryIndex=diskEntryIndex, diskEntry=diskEntry, disk=disk)
+mibBuilder.exportSymbols("PACKETLOGIC-RAID-MIB", diskId=diskId, ldNumber=ldNumber, disk=disk, raidCfg=raidCfg, adpNumber=adpNumber, ldId=ldId, ld=ld, ldState=ldState, diskState=diskState, diskNumber=diskNumber, ldEntry=ldEntry, raid=raid, PYSNMP_MODULE_ID=raid, diskEntryIndex=diskEntryIndex, diskLabel=diskLabel, ldEntryIndex=ldEntryIndex, diskEntry=diskEntry)

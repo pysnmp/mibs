@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module HIRSCHMANN-DISCOVERY-MGMT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HIRSCHMANN-DISCOVERY-MGMT-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:28:24 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:56:45 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 hmManagement, = mibBuilder.importSymbols("HIRSCHMANN-MGMT-MIB", "hmManagement")
-InetAddress, InetAddressPrefixLength, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressPrefixLength", "InetAddressType")
+InetAddressType, InetAddress, InetAddressPrefixLength = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress", "InetAddressPrefixLength")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType, Unsigned32, Counter64, TimeTicks, Counter32, iso, Bits, MibIdentifier, IpAddress, ObjectIdentity, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType", "Unsigned32", "Counter64", "TimeTicks", "Counter32", "iso", "Bits", "MibIdentifier", "IpAddress", "ObjectIdentity", "Integer32", "Gauge32")
-TextualConvention, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "MacAddress")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Counter64, Counter32, Unsigned32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Gauge32, MibIdentifier, ModuleIdentity, TimeTicks, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Counter32", "Unsigned32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Gauge32", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Integer32")
+DisplayString, TextualConvention, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "MacAddress")
 hmMgmtDiscoveryGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 16, 100))
 hmMgmtDiscoveryGroup.setRevisions(('2014-07-07 12:00',))
 if mibBuilder.loadTexts: hmMgmtDiscoveryGroup.setLastUpdated('201407071200Z')
@@ -48,4 +48,4 @@ hmMgmtDiscCfgAction = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 8), Integer3
 if mibBuilder.loadTexts: hmMgmtDiscCfgAction.setStatus('current')
 hmMgmtDiscCfgBlinking = MibScalar((1, 3, 6, 1, 4, 1, 248, 16, 100, 2, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: hmMgmtDiscCfgBlinking.setStatus('current')
-mibBuilder.exportSymbols("HIRSCHMANN-DISCOVERY-MGMT-MIB", hmMgmtDiscCfgUUID=hmMgmtDiscCfgUUID, hmMgmtDiscCfgAction=hmMgmtDiscCfgAction, hmMgmtDiscCfgGwIPAddrType=hmMgmtDiscCfgGwIPAddrType, hmMgmtDiscoveryStatusGroup=hmMgmtDiscoveryStatusGroup, hmMgmtDiscCfgGwIPAddr=hmMgmtDiscCfgGwIPAddr, hmMgmtDiscCfgPrefLen=hmMgmtDiscCfgPrefLen, hmMgmtDiscCfgIPAddr=hmMgmtDiscCfgIPAddr, hmMgmtDiscProductDescr=hmMgmtDiscProductDescr, hmMgmtDiscSwVersion=hmMgmtDiscSwVersion, PYSNMP_MODULE_ID=hmMgmtDiscoveryGroup, hmMgmtDiscMode=hmMgmtDiscMode, hmMgmtDiscIpIntfType=hmMgmtDiscIpIntfType, hmMgmtDiscoveryGroup=hmMgmtDiscoveryGroup, hmMgmtDiscCfgProto=hmMgmtDiscCfgProto, hmMgmtDiscMacAddr=hmMgmtDiscMacAddr, hmMgmtDiscCfgBlinking=hmMgmtDiscCfgBlinking, hmMgmtDiscCfgIPAddrType=hmMgmtDiscCfgIPAddrType, hmMgmtDiscoveryCfgGroup=hmMgmtDiscoveryCfgGroup)
+mibBuilder.exportSymbols("HIRSCHMANN-DISCOVERY-MGMT-MIB", hmMgmtDiscoveryCfgGroup=hmMgmtDiscoveryCfgGroup, hmMgmtDiscMacAddr=hmMgmtDiscMacAddr, hmMgmtDiscProductDescr=hmMgmtDiscProductDescr, hmMgmtDiscCfgAction=hmMgmtDiscCfgAction, hmMgmtDiscCfgPrefLen=hmMgmtDiscCfgPrefLen, hmMgmtDiscoveryStatusGroup=hmMgmtDiscoveryStatusGroup, hmMgmtDiscIpIntfType=hmMgmtDiscIpIntfType, hmMgmtDiscoveryGroup=hmMgmtDiscoveryGroup, hmMgmtDiscCfgGwIPAddrType=hmMgmtDiscCfgGwIPAddrType, hmMgmtDiscSwVersion=hmMgmtDiscSwVersion, hmMgmtDiscCfgUUID=hmMgmtDiscCfgUUID, hmMgmtDiscCfgProto=hmMgmtDiscCfgProto, hmMgmtDiscCfgBlinking=hmMgmtDiscCfgBlinking, hmMgmtDiscCfgIPAddr=hmMgmtDiscCfgIPAddr, hmMgmtDiscCfgIPAddrType=hmMgmtDiscCfgIPAddrType, hmMgmtDiscCfgGwIPAddr=hmMgmtDiscCfgGwIPAddr, hmMgmtDiscMode=hmMgmtDiscMode, PYSNMP_MODULE_ID=hmMgmtDiscoveryGroup)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NBS-VLAN-TAGS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-VLAN-TAGS-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:31:31 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:59:46 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Counter64, ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ModuleIdentity, Bits, Counter32, Unsigned32, iso, TimeTicks, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter64", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ModuleIdentity", "Bits", "Counter32", "Unsigned32", "iso", "TimeTicks", "Gauge32", "MibIdentifier")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, Unsigned32, Integer32, TimeTicks, ObjectIdentity, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, IpAddress, Gauge32, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Unsigned32", "Integer32", "TimeTicks", "ObjectIdentity", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "IpAddress", "Gauge32", "Counter64", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsVlanTagsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 219))
 if mibBuilder.loadTexts: nbsVlanTagsMib.setLastUpdated('201604291200Z')
@@ -42,4 +42,4 @@ if mibBuilder.loadTexts: nbsVlanTagsPortVid.setDescription('need to be specified
 nbsVlanTagsPortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsVlanTagsPortPriority.setStatus('current')
 if mibBuilder.loadTexts: nbsVlanTagsPortPriority.setDescription('need to be specified when VlanTagAction is add(2)')
-mibBuilder.exportSymbols("NBS-VLAN-TAGS-MIB", nbsVlanTagsPortVid=nbsVlanTagsPortVid, nbsVlanTagsPortGrp=nbsVlanTagsPortGrp, nbsVlanTagsPortEntry=nbsVlanTagsPortEntry, nbsVlanTagsPortTableSize=nbsVlanTagsPortTableSize, nbsVlanTagsPortIfIndex=nbsVlanTagsPortIfIndex, nbsVlanTagsMib=nbsVlanTagsMib, nbsVlanTagsPortAction=nbsVlanTagsPortAction, nbsVlanTagsPortTable=nbsVlanTagsPortTable, nbsVlanTagsPortPriority=nbsVlanTagsPortPriority, PYSNMP_MODULE_ID=nbsVlanTagsMib)
+mibBuilder.exportSymbols("NBS-VLAN-TAGS-MIB", nbsVlanTagsPortVid=nbsVlanTagsPortVid, nbsVlanTagsPortGrp=nbsVlanTagsPortGrp, nbsVlanTagsMib=nbsVlanTagsMib, nbsVlanTagsPortAction=nbsVlanTagsPortAction, nbsVlanTagsPortEntry=nbsVlanTagsPortEntry, nbsVlanTagsPortTable=nbsVlanTagsPortTable, nbsVlanTagsPortIfIndex=nbsVlanTagsPortIfIndex, nbsVlanTagsPortTableSize=nbsVlanTagsPortTableSize, nbsVlanTagsPortPriority=nbsVlanTagsPortPriority, PYSNMP_MODULE_ID=nbsVlanTagsMib)

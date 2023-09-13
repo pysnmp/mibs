@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module VMWARE-HEARTBEAT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-HEARTBEAT-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:35:55 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 15:04:01 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 sysUpTime, = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime")
-ObjectIdentity, Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, NotificationType, TimeTicks, Integer32, IpAddress, Bits, ModuleIdentity, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "NotificationType", "TimeTicks", "Integer32", "IpAddress", "Bits", "ModuleIdentity", "Gauge32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Gauge32, NotificationType, Counter32, ObjectIdentity, Bits, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity, TimeTicks, Unsigned32, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "Counter32", "ObjectIdentity", "Bits", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Unsigned32", "Integer32", "Counter64")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
 vmwHBMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 190, 66))
 vmwHBMIB.setRevisions(('2016-02-10 00:00',))
@@ -39,4 +39,4 @@ vmwHbNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 190, 2, 2
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwHbNotificationGroup = vmwHbNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwHbNotificationGroup.setDescription('Notifications related to snmp agent reverse poll feature.')
-mibBuilder.exportSymbols("VMWARE-HEARTBEAT-MIB", vmwHbNotifications=vmwHbNotifications, vmwHbMIBCompliances=vmwHbMIBCompliances, vmwHbMIBConformance=vmwHbMIBConformance, PYSNMP_MODULE_ID=vmwHBMIB, vmwHbMIBGroups=vmwHbMIBGroups, vmwHb=vmwHb, vmwHbMIBBasicCompliance=vmwHbMIBBasicCompliance, vmwHbHeartbeat=vmwHbHeartbeat, vmwHBMIB=vmwHBMIB, vmwHbNotificationGroup=vmwHbNotificationGroup)
+mibBuilder.exportSymbols("VMWARE-HEARTBEAT-MIB", vmwHbMIBConformance=vmwHbMIBConformance, PYSNMP_MODULE_ID=vmwHBMIB, vmwHbMIBGroups=vmwHbMIBGroups, vmwHb=vmwHb, vmwHbMIBBasicCompliance=vmwHbMIBBasicCompliance, vmwHbNotifications=vmwHbNotifications, vmwHbHeartbeat=vmwHbHeartbeat, vmwHbMIBCompliances=vmwHbMIBCompliances, vmwHbNotificationGroup=vmwHbNotificationGroup, vmwHBMIB=vmwHBMIB)

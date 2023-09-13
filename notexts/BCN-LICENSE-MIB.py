@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:22:43 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:51:18 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter64, Unsigned32, MibIdentifier, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, Integer32, Gauge32, iso, ObjectIdentity, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "MibIdentifier", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "Integer32", "Gauge32", "iso", "ObjectIdentity", "TimeTicks", "NotificationType")
-TextualConvention, DisplayString, TruthValue, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue", "DateAndTime")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Unsigned32, MibIdentifier, Counter64, IpAddress, iso, TimeTicks, Counter32, Bits, ModuleIdentity, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Unsigned32", "MibIdentifier", "Counter64", "IpAddress", "iso", "TimeTicks", "Counter32", "Bits", "ModuleIdentity", "Integer32", "Gauge32")
+TextualConvention, TruthValue, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString", "DateAndTime")
 bcnLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6, 1))
 bcnLicenseMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnLicenseMIB.setLastUpdated('201011301200Z')
@@ -66,4 +66,4 @@ bcnLicenseStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnLicenseStatusCompliance = bcnLicenseStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicense=bcnLicense, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseType=bcnLicenseType, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseValid=bcnLicenseValid, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseTable=bcnLicenseTable, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseInformation=bcnLicenseInformation)
+mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseType=bcnLicenseType, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseValid=bcnLicenseValid, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicense=bcnLicense, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseTable=bcnLicenseTable, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances)

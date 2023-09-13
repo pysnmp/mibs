@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "mib-2",
       "iso",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
       "Integer32",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "benuGeneralNotif": {
@@ -66,8 +66,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-GENERAL-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:22:38 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:51:13 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BENU-GENERAL-NOTIFICATION-MIB"

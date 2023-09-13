@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "PhysicalIndex",
       "entPhysicalIndex",
+      "PhysicalIndex",
       "entPhysicalName"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifAdminStatus",
-      "InterfaceIndexOrZero",
-      "ifIndex",
       "InterfaceIndex",
       "ifDescr",
+      "ifName",
+      "ifAdminStatus",
+      "ifIndex",
       "ifOperStatus",
-      "ifName"
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -25,25 +25,25 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "TimeTicks",
       "Bits",
-      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
       "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "iso",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "PhysAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "hwNDMIB": {
@@ -591,8 +591,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ND-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:29:18 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:57:37 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ND-MIB"

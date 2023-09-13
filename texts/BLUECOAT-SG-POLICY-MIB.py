@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BLUECOAT-SG-POLICY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-POLICY-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:22:47 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:51:23 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, IpAddress, TimeTicks, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, Integer32, MibIdentifier, ModuleIdentity, Counter64, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "TimeTicks", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "Integer32", "MibIdentifier", "ModuleIdentity", "Counter64", "ObjectIdentity", "iso")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+TimeTicks, IpAddress, Counter64, NotificationType, Bits, Counter32, Unsigned32, iso, Integer32, MibIdentifier, Gauge32, ObjectIdentity, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "Counter64", "NotificationType", "Bits", "Counter32", "Unsigned32", "iso", "Integer32", "MibIdentifier", "Gauge32", "ObjectIdentity", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 devicePolicyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 6))
 devicePolicyMIB.setRevisions(('2007-11-05 03:00', '2002-08-28 03:00',))
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: devicePolicyMessage.setDescription('The custom message 
 devicePolicyTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 6, 2, 0, 1)).setObjects(("BLUECOAT-SG-POLICY-MIB", "devicePolicyMessage"))
 if mibBuilder.loadTexts: devicePolicyTrap.setStatus('current')
 if mibBuilder.loadTexts: devicePolicyTrap.setDescription('A notification is generated when triggered by policy')
-mibBuilder.exportSymbols("BLUECOAT-SG-POLICY-MIB", devicePolicyMIBNotifications=devicePolicyMIBNotifications, devicePolicyMessage=devicePolicyMessage, devicePolicyMIB=devicePolicyMIB, devicePolicyTrap=devicePolicyTrap, devicePolicyValues=devicePolicyValues, PolicyMessageString=PolicyMessageString, devicePolicyMIBObjects=devicePolicyMIBObjects, PYSNMP_MODULE_ID=devicePolicyMIB, devicePolicyMIBNotificationsPrefix=devicePolicyMIBNotificationsPrefix)
+mibBuilder.exportSymbols("BLUECOAT-SG-POLICY-MIB", devicePolicyMIB=devicePolicyMIB, PolicyMessageString=PolicyMessageString, devicePolicyMIBNotificationsPrefix=devicePolicyMIBNotificationsPrefix, devicePolicyMessage=devicePolicyMessage, devicePolicyMIBObjects=devicePolicyMIBObjects, devicePolicyTrap=devicePolicyTrap, devicePolicyValues=devicePolicyValues, devicePolicyMIBNotifications=devicePolicyMIBNotifications, PYSNMP_MODULE_ID=devicePolicyMIB)

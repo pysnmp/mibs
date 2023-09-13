@@ -6,31 +6,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
       "Counter32",
+      "Bits",
+      "Counter64",
       "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Unsigned32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY"
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
       "DisplayString"
     ]
@@ -749,8 +749,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:21:00 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:38 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ACD-ALARM-MIB"

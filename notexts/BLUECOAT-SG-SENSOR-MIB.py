@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-SENSOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-SENSOR-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:22:46 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:51:21 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, IpAddress, Unsigned32, Counter32, Gauge32, TimeTicks, Counter64, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "IpAddress", "Unsigned32", "Counter32", "Gauge32", "TimeTicks", "Counter64", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "NotificationType", "ModuleIdentity")
-TruthValue, TextualConvention, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "TimeStamp")
+ModuleIdentity, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, Unsigned32, IpAddress, Gauge32, iso, Counter64, ObjectIdentity, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "Unsigned32", "IpAddress", "Gauge32", "iso", "Counter64", "ObjectIdentity", "TimeTicks", "MibIdentifier")
+TimeStamp, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "TextualConvention", "TruthValue", "DisplayString")
 deviceSensorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 1))
 deviceSensorMIB.setRevisions(('2015-11-26 03:00', '2013-07-11 03:00', '2007-11-05 03:00', '2002-11-06 03:00',))
 if mibBuilder.loadTexts: deviceSensorMIB.setLastUpdated('201511260300Z')
@@ -69,4 +69,4 @@ deviceSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 1, 1, 1, 1, 1, 9),
 if mibBuilder.loadTexts: deviceSensorName.setStatus('current')
 deviceSensorTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 1, 2, 0, 1)).setObjects(("BLUECOAT-SG-SENSOR-MIB", "deviceSensorName"), ("BLUECOAT-SG-SENSOR-MIB", "deviceSensorValue"), ("BLUECOAT-SG-SENSOR-MIB", "deviceSensorCode"))
 if mibBuilder.loadTexts: deviceSensorTrap.setStatus('current')
-mibBuilder.exportSymbols("BLUECOAT-SG-SENSOR-MIB", deviceSensorMIB=deviceSensorMIB, deviceSensorIndex=deviceSensorIndex, SensorValue=SensorValue, deviceSensorTrap=deviceSensorTrap, deviceSensorMIBObjects=deviceSensorMIBObjects, deviceSensorTimeStamp=deviceSensorTimeStamp, ExpBase10=ExpBase10, deviceSensorValueTable=deviceSensorValueTable, SensorUnits=SensorUnits, deviceSensorName=deviceSensorName, SensorCode=SensorCode, deviceSensorUnits=deviceSensorUnits, deviceSensorTrapEnabled=deviceSensorTrapEnabled, deviceSensorValueEntry=deviceSensorValueEntry, deviceSensorScale=deviceSensorScale, deviceSensorStatus=deviceSensorStatus, deviceSensorValues=deviceSensorValues, deviceSensorValue=deviceSensorValue, deviceSensorCode=deviceSensorCode, deviceSensorMIBNotificationsPrefix=deviceSensorMIBNotificationsPrefix, PYSNMP_MODULE_ID=deviceSensorMIB, deviceSensorMIBNotifications=deviceSensorMIBNotifications, SensorStatus=SensorStatus)
+mibBuilder.exportSymbols("BLUECOAT-SG-SENSOR-MIB", deviceSensorTrap=deviceSensorTrap, SensorStatus=SensorStatus, deviceSensorTrapEnabled=deviceSensorTrapEnabled, deviceSensorTimeStamp=deviceSensorTimeStamp, deviceSensorUnits=deviceSensorUnits, deviceSensorScale=deviceSensorScale, deviceSensorMIBNotificationsPrefix=deviceSensorMIBNotificationsPrefix, deviceSensorMIBNotifications=deviceSensorMIBNotifications, deviceSensorValue=deviceSensorValue, SensorUnits=SensorUnits, SensorCode=SensorCode, deviceSensorValueTable=deviceSensorValueTable, deviceSensorMIB=deviceSensorMIB, deviceSensorIndex=deviceSensorIndex, PYSNMP_MODULE_ID=deviceSensorMIB, deviceSensorCode=deviceSensorCode, deviceSensorStatus=deviceSensorStatus, ExpBase10=ExpBase10, deviceSensorValues=deviceSensorValues, deviceSensorMIBObjects=deviceSensorMIBObjects, deviceSensorValueEntry=deviceSensorValueEntry, deviceSensorName=deviceSensorName, SensorValue=SensorValue)

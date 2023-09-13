@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OMNITRON-POE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-POE-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:32:14 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 15:00:27 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-OstPortSingleIndex, OstFloatValue, omnitron = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstPortSingleIndex", "OstFloatValue", "omnitron")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Integer32, Gauge32, Counter64, Unsigned32, NotificationType, ObjectIdentity, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Bits, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Gauge32", "Counter64", "Unsigned32", "NotificationType", "ObjectIdentity", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Bits", "ModuleIdentity", "Counter32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+OstFloatValue, OstPortSingleIndex, omnitron = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstFloatValue", "OstPortSingleIndex", "omnitron")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibIdentifier, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, ObjectIdentity, Integer32, iso, Counter32, Gauge32, Unsigned32, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "ObjectIdentity", "Integer32", "iso", "Counter32", "Gauge32", "Unsigned32", "Counter64", "ModuleIdentity")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 omnitronPoeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 7342, 15))
 omnitronPoeMib.setRevisions(('2015-01-19 12:00',))
 if mibBuilder.loadTexts: omnitronPoeMib.setLastUpdated('201501191200Z')
@@ -64,4 +64,4 @@ ostPoeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7342, 15, 3, 2)).setObjec
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ostPoeCompliance = ostPoeCompliance.setStatus('current')
-mibBuilder.exportSymbols("OMNITRON-POE-MIB", omnitronPoeMib=omnitronPoeMib, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, ostPoeGroup=ostPoeGroup, ostPoePortCfgIndex=ostPoePortCfgIndex, ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoePortPseStatus=ostPoePortPseStatus, ostPoeCompliance=ostPoeCompliance, ostPoePortCfgEntry=ostPoePortCfgEntry, ostPoeGroups=ostPoeGroups, ostPoePortPseEnable=ostPoePortPseEnable, ostPoePortCfgTable=ostPoePortCfgTable, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoePortPdMode=ostPoePortPdMode, ostPoeCompliances=ostPoeCompliances)
+mibBuilder.exportSymbols("OMNITRON-POE-MIB", ostPoePortPseEnable=ostPoePortPseEnable, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, omnitronPoeMib=omnitronPoeMib, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable, ostPoePortCfgTable=ostPoePortCfgTable, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoePortPdMode=ostPoePortPdMode, ostPoePortPseStatus=ostPoePortPseStatus, ostPoePortCfgEntry=ostPoePortCfgEntry, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoePortCfgIndex=ostPoePortCfgIndex, ostPoeGroup=ostPoeGroup, ostPoeCompliance=ostPoeCompliance, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoeGroups=ostPoeGroups, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, ostPoeCompliances=ostPoeCompliances, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts)

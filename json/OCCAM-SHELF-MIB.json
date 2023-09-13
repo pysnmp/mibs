@@ -10,23 +10,23 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "internet",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "private",
-      "Integer32",
-      "enterprises",
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "iso",
+      "Bits",
+      "Integer32",
       "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "internet",
+      "private"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -713,8 +713,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-SHELF-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:23:00 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:51:34 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OCCAM-SHELF-MIB"

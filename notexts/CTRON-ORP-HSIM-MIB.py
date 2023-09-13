@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-ORP-HSIM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ORP-HSIM-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:27:00 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:55:26 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 ctOrpHSIM, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctOrpHSIM")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Gauge32, Counter64, Unsigned32, MibIdentifier, iso, IpAddress, ObjectIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Gauge32", "Counter64", "Unsigned32", "MibIdentifier", "iso", "IpAddress", "ObjectIdentity", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, ModuleIdentity, Counter64, Counter32, MibIdentifier, Integer32, ObjectIdentity, Unsigned32, Gauge32, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "ModuleIdentity", "Counter64", "Counter32", "MibIdentifier", "Integer32", "ObjectIdentity", "Unsigned32", "Gauge32", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class MacAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
     fixedLength = 6
@@ -38,4 +38,4 @@ ctOrpHSIMRWCommName = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 15, 1, 1, 8
 if mibBuilder.loadTexts: ctOrpHSIMRWCommName.setStatus('mandatory')
 ctOrpHSIMSUCommName = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 15, 1, 1, 9), OctetString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctOrpHSIMSUCommName.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-ORP-HSIM-MIB", ctOrpHSIMSlot=ctOrpHSIMSlot, ctOrpHSIMIPAddress=ctOrpHSIMIPAddress, ctOrpHSIMSUCommName=ctOrpHSIMSUCommName, MacAddress=MacAddress, ctOrpHSIMEntry=ctOrpHSIMEntry, ctOrpHSIMTable=ctOrpHSIMTable, ctOrpHSIMIfRef=ctOrpHSIMIfRef, ctOrpHSIMMACAddress=ctOrpHSIMMACAddress, ctOrpHSIMIndex=ctOrpHSIMIndex, ctOrpHSIMRWCommName=ctOrpHSIMRWCommName, ctOrpHSIMROCommName=ctOrpHSIMROCommName, ctOrpHSIMSubnetMask=ctOrpHSIMSubnetMask)
+mibBuilder.exportSymbols("CTRON-ORP-HSIM-MIB", ctOrpHSIMSUCommName=ctOrpHSIMSUCommName, ctOrpHSIMRWCommName=ctOrpHSIMRWCommName, ctOrpHSIMIndex=ctOrpHSIMIndex, MacAddress=MacAddress, ctOrpHSIMMACAddress=ctOrpHSIMMACAddress, ctOrpHSIMEntry=ctOrpHSIMEntry, ctOrpHSIMTable=ctOrpHSIMTable, ctOrpHSIMIfRef=ctOrpHSIMIfRef, ctOrpHSIMIPAddress=ctOrpHSIMIPAddress, ctOrpHSIMROCommName=ctOrpHSIMROCommName, ctOrpHSIMSubnetMask=ctOrpHSIMSubnetMask, ctOrpHSIMSlot=ctOrpHSIMSlot)

@@ -11,35 +11,35 @@
       "ipRouteDest"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
       "MODULE-IDENTITY",
       "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "enterprises",
-      "Counter32",
-      "Gauge32",
-      "Bits",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "TCP-MIB": [
-      "tcpConnLocalAddress",
-      "tcpConnRemPort",
       "tcpConnRemAddress",
-      "tcpConnLocalPort"
+      "tcpConnLocalAddress",
+      "tcpConnLocalPort",
+      "tcpConnRemPort"
     ]
   },
   "cisco": {
@@ -7755,8 +7755,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:23 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:54:49 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-MIB"

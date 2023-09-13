@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCO-H323-TC-MIB": [
-      "CgkGatekeeperID",
+      "CgkTAddressTag",
       "CgkNAddress",
-      "CgkNAddressTag",
-      "CgkTAddressTag"
+      "CgkGatekeeperID",
+      "CgkNAddressTag"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -14,32 +14,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
       "MODULE-IDENTITY",
       "iso",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TAddress"
     ]
   },
@@ -2448,8 +2448,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GATEKEEPER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:19 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:54:46 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-GATEKEEPER-MIB"

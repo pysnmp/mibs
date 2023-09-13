@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TWOWCOM-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-SMI
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:20:50 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:49:28 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Bits, NotificationType, ObjectIdentity, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, enterprises, MibIdentifier, TimeTicks, Counter64, Unsigned32, IpAddress, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "NotificationType", "ObjectIdentity", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "enterprises", "MibIdentifier", "TimeTicks", "Counter64", "Unsigned32", "IpAddress", "iso")
+Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, Counter32, MibIdentifier, TimeTicks, NotificationType, Integer32, Counter64, IpAddress, enterprises, ModuleIdentity, Gauge32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "Counter32", "MibIdentifier", "TimeTicks", "NotificationType", "Integer32", "Counter64", "IpAddress", "enterprises", "ModuleIdentity", "Gauge32", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 twowcom = ModuleIdentity((1, 3, 6, 1, 4, 1, 21529))
 twowcom.setRevisions(('2011-06-23 12:00', '2009-04-27 14:25', '2008-02-19 10:37', '2006-10-26 16:04', '2006-06-01 11:51',))
@@ -23,4 +23,4 @@ dvbDecoder = MibIdentifier((1, 3, 6, 1, 4, 1, 21529, 3, 2))
 dvbMultiplexer = MibIdentifier((1, 3, 6, 1, 4, 1, 21529, 3, 3))
 generator = MibIdentifier((1, 3, 6, 1, 4, 1, 21529, 4))
 other = MibIdentifier((1, 3, 6, 1, 4, 1, 21529, 10))
-mibBuilder.exportSymbols("TWOWCOM-SMI", encoder=encoder, other=other, PYSNMP_MODULE_ID=twowcom, decoder=decoder, dvbEncoder=dvbEncoder, dvbMultiplexer=dvbMultiplexer, dvb=dvb, dvbDecoder=dvbDecoder, generator=generator, twowcom=twowcom)
+mibBuilder.exportSymbols("TWOWCOM-SMI", other=other, dvbEncoder=dvbEncoder, dvbDecoder=dvbDecoder, decoder=decoder, PYSNMP_MODULE_ID=twowcom, dvb=dvb, dvbMultiplexer=dvbMultiplexer, generator=generator, twowcom=twowcom, encoder=encoder)

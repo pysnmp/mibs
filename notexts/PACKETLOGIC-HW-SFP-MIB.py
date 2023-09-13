@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PACKETLOGIC-HW-SFP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-HW-SFP-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:33:26 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 15:01:37 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibIdentifier, TimeTicks, ModuleIdentity, NotificationType, Counter64, Counter32, Integer32, Bits, ObjectIdentity, Unsigned32, iso, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "TimeTicks", "ModuleIdentity", "NotificationType", "Counter64", "Counter32", "Integer32", "Bits", "ObjectIdentity", "Unsigned32", "iso", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
+Integer32, Unsigned32, TimeTicks, MibIdentifier, Gauge32, ObjectIdentity, Bits, Counter64, ModuleIdentity, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "TimeTicks", "MibIdentifier", "Gauge32", "ObjectIdentity", "Bits", "Counter64", "ModuleIdentity", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32")
+DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
 sfp = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 4))
 sfp.setRevisions(('2019-09-12 15:00',))
 if mibBuilder.loadTexts: sfp.setLastUpdated('201909121500Z')
@@ -44,4 +44,4 @@ portVendorDateCode = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 4, 1, 1, 9)
 if mibBuilder.loadTexts: portVendorDateCode.setStatus('current')
 checksumExtendedFields = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 4, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: checksumExtendedFields.setStatus('current')
-mibBuilder.exportSymbols("PACKETLOGIC-HW-SFP-MIB", ports=ports, portVendorPN=portVendorPN, PYSNMP_MODULE_ID=sfp, portVendorName=portVendorName, portCompatibility=portCompatibility, portVendorRevisionLevel=portVendorRevisionLevel, sfp=sfp, portVendorSN=portVendorSN, portEntry=portEntry, portName=portName, checksumBaseFields=checksumBaseFields, portEntryIndex=portEntryIndex, portVendorDateCode=portVendorDateCode, checksumExtendedFields=checksumExtendedFields, portVendorOUI=portVendorOUI)
+mibBuilder.exportSymbols("PACKETLOGIC-HW-SFP-MIB", portEntry=portEntry, portVendorRevisionLevel=portVendorRevisionLevel, checksumExtendedFields=checksumExtendedFields, sfp=sfp, portVendorPN=portVendorPN, portVendorDateCode=portVendorDateCode, portCompatibility=portCompatibility, portName=portName, portVendorSN=portVendorSN, ports=ports, portEntryIndex=portEntryIndex, checksumBaseFields=checksumBaseFields, PYSNMP_MODULE_ID=sfp, portVendorOUI=portVendorOUI, portVendorName=portVendorName)

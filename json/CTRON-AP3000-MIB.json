@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "mgmt",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Integer32",
       "IpAddress",
-      "mgmt",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks"
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "MacAddress": {
@@ -5709,8 +5709,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-AP3000-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:27:10 2023",
-      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:55:35 2023",
+      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-AP3000-MIB"

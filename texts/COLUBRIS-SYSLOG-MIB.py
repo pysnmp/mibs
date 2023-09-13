@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module COLUBRIS-SYSLOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SYSLOG-MIB.my
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:28:32 2023
-# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:56:53 2023
+# On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
 ColubrisNotificationEnable, = mibBuilder.importSymbols("COLUBRIS-TC", "ColubrisNotificationEnable")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, iso, Unsigned32, Bits, ObjectIdentity, Gauge32, TimeTicks, Integer32, IpAddress, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "iso", "Unsigned32", "Bits", "ObjectIdentity", "Gauge32", "TimeTicks", "Integer32", "IpAddress", "MibIdentifier", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+IpAddress, MibIdentifier, ModuleIdentity, Integer32, Gauge32, Unsigned32, NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, TimeTicks, Counter32, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "ModuleIdentity", "Integer32", "Gauge32", "Unsigned32", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "TimeTicks", "Counter32", "Counter64", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubrisSyslogMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 3))
 if mibBuilder.loadTexts: colubrisSyslogMIB.setLastUpdated('200402100000Z')
 if mibBuilder.loadTexts: colubrisSyslogMIB.setOrganization('Colubris Networks, Inc.')
@@ -78,4 +78,4 @@ colubrisSyslogNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 8744, 5, 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisSyslogNotificationGroup = colubrisSyslogNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: colubrisSyslogNotificationGroup.setDescription('A collection of supported notifications.')
-mibBuilder.exportSymbols("COLUBRIS-SYSLOG-MIB", colubrisSyslogMIBConformance=colubrisSyslogMIBConformance, colubrisSyslogMIBNotificationPrefix=colubrisSyslogMIBNotificationPrefix, colubrisSyslogMIBGroup=colubrisSyslogMIBGroup, syslogSeverityNotification=syslogSeverityNotification, colubrisSyslogMIBObjects=colubrisSyslogMIBObjects, colubrisSyslogNotificationGroup=colubrisSyslogNotificationGroup, syslogTrapSeverityLevel=syslogTrapSeverityLevel, colubrisSyslogMIB=colubrisSyslogMIB, SyslogSeverity=SyslogSeverity, syslogMsgText=syslogMsgText, syslogSeverityLevel=syslogSeverityLevel, colubrisSyslogMIBNotifications=colubrisSyslogMIBNotifications, colubrisSyslogMIBCompliance=colubrisSyslogMIBCompliance, colubrisSyslogMIBCompliances=colubrisSyslogMIBCompliances, syslogRegExMatchNotification=syslogRegExMatchNotification, PYSNMP_MODULE_ID=colubrisSyslogMIB, syslogMsgFacility=syslogMsgFacility, syslogRegExMatchNotificationEnabled=syslogRegExMatchNotificationEnabled, syslogConfig=syslogConfig, syslogMsgSeverity=syslogMsgSeverity, syslogSeverityNotificationEnabled=syslogSeverityNotificationEnabled, syslogMessageRegEx=syslogMessageRegEx, syslogMsgNumber=syslogMsgNumber, colubrisSyslogMIBGroups=colubrisSyslogMIBGroups, syslogMessage=syslogMessage)
+mibBuilder.exportSymbols("COLUBRIS-SYSLOG-MIB", colubrisSyslogMIBNotifications=colubrisSyslogMIBNotifications, syslogTrapSeverityLevel=syslogTrapSeverityLevel, SyslogSeverity=SyslogSeverity, syslogMsgFacility=syslogMsgFacility, colubrisSyslogMIB=colubrisSyslogMIB, colubrisSyslogMIBGroup=colubrisSyslogMIBGroup, colubrisSyslogMIBConformance=colubrisSyslogMIBConformance, colubrisSyslogMIBNotificationPrefix=colubrisSyslogMIBNotificationPrefix, syslogMessageRegEx=syslogMessageRegEx, syslogRegExMatchNotificationEnabled=syslogRegExMatchNotificationEnabled, syslogSeverityLevel=syslogSeverityLevel, syslogMsgNumber=syslogMsgNumber, colubrisSyslogMIBGroups=colubrisSyslogMIBGroups, syslogConfig=syslogConfig, colubrisSyslogMIBCompliances=colubrisSyslogMIBCompliances, colubrisSyslogNotificationGroup=colubrisSyslogNotificationGroup, syslogRegExMatchNotification=syslogRegExMatchNotification, syslogMsgText=syslogMsgText, syslogMsgSeverity=syslogMsgSeverity, colubrisSyslogMIBCompliance=colubrisSyslogMIBCompliance, syslogSeverityNotificationEnabled=syslogSeverityNotificationEnabled, colubrisSyslogMIBObjects=colubrisSyslogMIBObjects, syslogMessage=syslogMessage, PYSNMP_MODULE_ID=colubrisSyslogMIB, syslogSeverityNotification=syslogSeverityNotification)
