@@ -9,14 +9,14 @@
       "InetAddress"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelInstance",
-      "mplsTunnelName",
       "mplsTunnelAdminStatus",
       "mplsTunnelOperStatus",
-      "mplsTunnelARHopListIndex",
+      "mplsTunnelName",
       "mplsTunnelIndex",
       "mplsTunnelIngressLSRId",
-      "mplsTunnelEgressLSRId"
+      "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelARHopListIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -24,20 +24,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1499,8 +1499,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MPLS-TE-STD-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:41 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:17 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-MPLS-TE-STD-EXT-MIB"

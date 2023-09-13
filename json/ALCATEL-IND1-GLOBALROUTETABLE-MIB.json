@@ -5,34 +5,34 @@
       "routingIND1GlobalRouteTable"
     ],
     "IPV6-TC": [
-      "Ipv6Address",
-      "Ipv6IfIndex"
+      "Ipv6IfIndex",
+      "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Unsigned32",
       "Bits",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "alcatelIND1GRTMIB": {
@@ -428,8 +428,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-GLOBALROUTETABLE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:57:04 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:32:44 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-GLOBALROUTETABLE-MIB"

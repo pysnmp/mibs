@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
       "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Bits"
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "securityManagement": {
@@ -186,8 +186,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SECURITY-MANAGEMENT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:59:12 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:34:42 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-SECURITY-MANAGEMENT-MIB"

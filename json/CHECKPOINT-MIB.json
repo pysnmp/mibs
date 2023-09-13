@@ -7,25 +7,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "enterprises",
-      "iso",
-      "Bits",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "enterprises",
+      "MibIdentifier",
       "TimeTicks",
-      "Unsigned32"
+      "Unsigned32",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "checkpoint": {
@@ -21178,8 +21178,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/checkpoint/CHECKPOINT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:46:36 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:23:14 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CHECKPOINT-MIB"

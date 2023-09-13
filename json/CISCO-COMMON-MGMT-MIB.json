@@ -8,8 +8,8 @@
       "SnmpAdminString"
     ],
     "SNMP-USER-BASED-SM-MIB": [
-      "usmNoAuthProtocol",
-      "usmNoPrivProtocol"
+      "usmNoPrivProtocol",
+      "usmNoAuthProtocol"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -17,30 +17,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "iso",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
       "IpAddress",
-      "OBJECT-TYPE",
       "Integer32",
-      "MibIdentifier",
-      "dod",
+      "Counter32",
+      "Gauge32",
       "Bits",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "dod",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "StorageType",
+      "RowStatus",
       "DisplayString",
-      "TruthValue",
       "AutonomousType",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "StorageType",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "ciscoCommonMgmtMIB": {
@@ -570,8 +570,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-COMMON-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:40 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:16 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-COMMON-MGMT-MIB"

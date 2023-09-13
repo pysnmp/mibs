@@ -5,8 +5,8 @@
       "hh3cCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4"
@@ -16,27 +16,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter32",
-      "TimeTicks"
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "hh3cDhcp4": {
@@ -4375,8 +4375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DHCP4-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:47:26 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:24:03 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-DHCP4-MIB"

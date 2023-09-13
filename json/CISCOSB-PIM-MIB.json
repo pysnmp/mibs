@@ -12,18 +12,18 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetVersion",
       "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddressType",
+      "InetAddress",
+      "InetVersion"
     ],
     "PIM-STD-MIB": [
-      "pimNeighborIfIndex",
+      "pimNeighborAddress",
       "pimInterfaceIPVersion",
       "pimNeighborAddressType",
       "pimInterfaceIfIndex",
-      "pimInterfaceEntry",
-      "pimNeighborAddress"
+      "pimNeighborIfIndex",
+      "pimInterfaceEntry"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -31,26 +31,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "iso",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "rlPim": {
@@ -1595,8 +1595,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-PIM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:43 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:20 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-PIM-MIB"

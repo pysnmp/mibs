@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "iso",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32",
       "Gauge32",
-      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Bits",
       "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
-      "Counter64",
       "Unsigned32",
-      "iso"
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3473,8 +3473,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/DSR4410MD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:45:27 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:22:08 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DSR4410MD-MIB"

@@ -5,25 +5,25 @@
       "acmepacketMgmt"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter32",
       "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -459,8 +459,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSYSLOG-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:56:52 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:32:37 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APSYSLOG-MIB"

@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsTunnelInstanceIndex",
+      "MplsLSPID",
       "MplsPathIndex",
-      "MplsTunnelAffinity",
       "MplsBurstSize",
-      "MplsPathIndexOrZero",
       "MplsBitRate",
       "MplsTunnelIndex",
-      "MplsLSPID",
+      "mplsMIB",
+      "MplsTunnelInstanceIndex",
+      "MplsPathIndexOrZero",
       "MplsLsrIdentifier",
-      "mplsMIB"
+      "MplsTunnelAffinity"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -24,34 +24,34 @@
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "Integer32",
       "MibIdentifier",
       "Bits",
-      "Integer32",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus",
-      "TimeStamp",
       "RowPointer",
-      "TruthValue",
-      "StorageType"
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:53:48 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:29:32 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"

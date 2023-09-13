@@ -6,23 +6,23 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
       "Gauge32",
       "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "Counter64",
-      "IpAddress",
-      "enterprises",
-      "iso",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Opaque",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MibIdentifier",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "enterprises",
+      "Opaque",
+      "iso",
+      "IpAddress",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -57691,8 +57691,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/akcp/SPAGENT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:44:41 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:21:19 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SPAGENT-MIB"

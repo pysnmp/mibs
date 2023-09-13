@@ -7,26 +7,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "experimental",
+      "Gauge32",
       "IpAddress",
       "Integer32",
-      "experimental",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter64"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dvmrpMIB": {
@@ -1222,8 +1222,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/DVMRP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:43:57 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:20:31 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DVMRP-MIB"

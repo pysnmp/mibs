@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-WAN-ATM-CONN-MIB": [
-      "cwaChanVpi",
-      "cwaChanVci"
+      "cwaChanVci",
+      "cwaChanVpi"
     ],
     "CISCOWAN-SMI": [
       "ciscoWan"
@@ -17,25 +17,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "MODULE-IDENTITY",
       "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
       "Bits",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoWanAtmConnStatMIB": {
@@ -2818,8 +2818,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-ATM-CONN-STAT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:44 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:20 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WAN-ATM-CONN-STAT-MIB"

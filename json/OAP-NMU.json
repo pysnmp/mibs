@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "enterprises",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "tryin": {
@@ -290,8 +290,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/OAP-NMU",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:51:42 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:27:58 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OAP-NMU"

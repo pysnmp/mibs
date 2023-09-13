@@ -5,24 +5,24 @@
       "cmtsC3"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32",
       "Gauge32",
-      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "iso"
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -199,8 +199,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-TFTPD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:45:27 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:22:08 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ARRIS-C3-TFTPD-MIB"

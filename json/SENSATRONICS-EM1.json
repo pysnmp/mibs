@@ -5,28 +5,28 @@
       "envMonitors"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "productEM1": {
@@ -1198,8 +1198,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sensatronics/SENSATRONICS-EM1",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:59:02 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:34:32 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SENSATRONICS-EM1"

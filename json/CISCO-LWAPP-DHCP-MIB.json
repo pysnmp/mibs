@@ -20,20 +20,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Integer32",
-      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "IpAddress"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -797,8 +797,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:42 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:19 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-DHCP-MIB"

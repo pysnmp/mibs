@@ -12,8 +12,8 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
@@ -21,10 +21,10 @@
       "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIndex",
       "dot1qFdbId",
-      "VlanId",
-      "dot1qVlanIndex"
+      "dot1qVlanIndex",
+      "VlanIndex",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -32,28 +32,28 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32",
       "Bits",
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
       "iso",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Counter64",
       "IpAddress",
-      "MibIdentifier"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DateAndTime",
+      "RowStatus",
       "TruthValue",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "PhysAddress"
     ]
   },
   "fastPathSwitching": {
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:50:01 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:31 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

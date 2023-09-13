@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Wed Sep 13 12:50:35 2023
-# On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:27:05 2023
+# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, iso, IpAddress, ObjectIdentity, Gauge32, Bits, Unsigned32, Counter32, Integer32, MibIdentifier, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType", "iso", "IpAddress", "ObjectIdentity", "Gauge32", "Bits", "Unsigned32", "Counter32", "Integer32", "MibIdentifier", "TimeTicks")
+MibIdentifier, iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, ModuleIdentity, Bits, Counter64, IpAddress, Integer32, Gauge32, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "ModuleIdentity", "Bits", "Counter64", "IpAddress", "Integer32", "Gauge32", "Counter32", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", ups=ups, dl=dl, repeaterRev2=repeaterRev2, backplaneProtocol=backplaneProtocol, sysRepeaters=sysRepeaters, bridge=bridge, router=router, repeater=repeater, sysOIDs=sysOIDs, commonRev1=commonRev1, sysOtherType=sysOtherType, subSysDevice=subSysDevice, sysIntDev=sysIntDev, layerMgmt=layerMgmt, sysChassis=sysChassis, commsDevice=commsDevice, repeaterRev1=repeaterRev1, subsystem=subsystem, sysRouters=sysRouters, sysBridges=sysBridges, common=common, product=product, nb30Rev1=nb30Rev1, subSysMMAC=subSysMMAC)
+mibBuilder.exportSymbols("IRM-OIDS", router=router, sysRepeaters=sysRepeaters, subSysDevice=subSysDevice, repeaterRev2=repeaterRev2, repeater=repeater, sysOIDs=sysOIDs, sysOtherType=sysOtherType, common=common, commonRev1=commonRev1, sysIntDev=sysIntDev, sysChassis=sysChassis, nb30Rev1=nb30Rev1, layerMgmt=layerMgmt, product=product, commsDevice=commsDevice, repeaterRev1=repeaterRev1, sysBridges=sysBridges, dl=dl, bridge=bridge, subSysMMAC=subSysMMAC, sysRouters=sysRouters, subsystem=subsystem, backplaneProtocol=backplaneProtocol, ups=ups)

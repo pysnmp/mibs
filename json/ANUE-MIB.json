@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "hcnumTC",
       "CounterBasedGauge64",
+      "hcnumTC",
       "ZeroBasedCounter64"
     ],
     "IF-MIB": [
-      "ifEntry",
+      "ifTable",
       "InterfaceIndex",
       "InterfaceIndexOrZero",
       "ifIndex",
-      "ifTable"
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
       "Integer32",
-      "Gauge32",
-      "iso",
-      "Counter64",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
       "Bits",
-      "Unsigned32"
+      "MibIdentifier",
+      "Gauge32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -50,8 +50,8 @@
       "DateAndTime"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:54:25 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:30:18 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

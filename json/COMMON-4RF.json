@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFSerialNumber",
-      "FourRFImageStatus",
-      "FourRFTftpFileName",
-      "FourRFImageType",
-      "FourRFFileSize",
-      "FourRFTimeZone",
-      "FourRFProcessResultType",
-      "FourRFResetType",
       "FourRFWebUserEnabled",
+      "FourRFImageType",
+      "FourRFImageStatus",
+      "FourRFProcessResultType",
+      "FourRFTimeZone",
+      "FourRFSerialNumber",
+      "FourRFTftpFileName",
+      "FourRFFileSize",
       "FourRFWebUserGroup",
-      "FourRFImageVersion"
+      "FourRFImageVersion",
+      "FourRFResetType"
     ],
     "MIB-4RF": [
-      "fourRFModules",
-      "fourRFGeneric"
+      "fourRFGeneric",
+      "fourRFModules"
     ],
     "PRODUCTS-MIB-4RF": [
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "TimeTicks",
       "Counter64",
       "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:44:21 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:20:56 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "COMMON-4RF"

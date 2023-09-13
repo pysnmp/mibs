@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ATM-FORUM-ADDR-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-ADDR-REG
-# Produced by pysmi-1.1.8 at Wed Sep 13 12:43:41 2023
-# On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 14:20:15 2023
+# On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-atmfAddressRegistrationAdminGroup, AtmAddress, atmfNetPrefixGroup, atmfAddressGroup, NetPrefix = mibBuilder.importSymbols("ATM-FORUM-TC-MIB", "atmfAddressRegistrationAdminGroup", "AtmAddress", "atmfNetPrefixGroup", "atmfAddressGroup", "NetPrefix")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+atmfNetPrefixGroup, atmfAddressRegistrationAdminGroup, atmfAddressGroup, NetPrefix, AtmAddress = mibBuilder.importSymbols("ATM-FORUM-TC-MIB", "atmfNetPrefixGroup", "atmfAddressRegistrationAdminGroup", "atmfAddressGroup", "NetPrefix", "AtmAddress")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, Integer32, NotificationType, ModuleIdentity, Counter64, Unsigned32, IpAddress, Counter32, TimeTicks, iso, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "NotificationType", "ModuleIdentity", "Counter64", "Unsigned32", "IpAddress", "Counter32", "TimeTicks", "iso", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectIdentity, Counter64, ModuleIdentity, Counter32, iso, NotificationType, Integer32, Unsigned32, Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "ModuleIdentity", "Counter32", "iso", "NotificationType", "Integer32", "Unsigned32", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atmfNetPrefixTable = MibTable((1, 3, 6, 1, 4, 1, 353, 2, 7, 1), )
 if mibBuilder.loadTexts: atmfNetPrefixTable.setStatus('mandatory')
 if mibBuilder.loadTexts: atmfNetPrefixTable.setDescription('A table implemented by the user-side IME, containing the\n                network-prefix(es) for ATM-layer addresses in effect on\n                the user side of the UNI.')
@@ -57,4 +57,4 @@ if mibBuilder.loadTexts: atmfAddressRegistrationAdminIndex.setDescription('The v
 atmfAddressRegistrationAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 2, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("supported", 1), ("unsupported", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atmfAddressRegistrationAdminStatus.setStatus('mandatory')
 if mibBuilder.loadTexts: atmfAddressRegistrationAdminStatus.setDescription('An indication of whether or not Address Registration\n                is supported on this ATM Interface. Supported(1)\n                indicates that this ATM Interface supports address\n                registration. Unsupported(2) indicates that this ATM\n                Interface does not support address registration.')
-mibBuilder.exportSymbols("ATM-FORUM-ADDR-REG", atmfNetPrefixEntry=atmfNetPrefixEntry, atmfNetPrefixPort=atmfNetPrefixPort, atmfAddressStatus=atmfAddressStatus, atmfAddressRegistrationAdminEntry=atmfAddressRegistrationAdminEntry, atmfAddressPort=atmfAddressPort, atmfAddressRegistrationAdminTable=atmfAddressRegistrationAdminTable, atmfAddressRegistrationAdminStatus=atmfAddressRegistrationAdminStatus, atmfNetPrefixStatus=atmfNetPrefixStatus, atmfAddressTable=atmfAddressTable, atmfAddressOrgScope=atmfAddressOrgScope, atmfAddressRegistrationAdminIndex=atmfAddressRegistrationAdminIndex, atmfAddressEntry=atmfAddressEntry, atmfAddressAtmAddress=atmfAddressAtmAddress, atmfNetPrefixTable=atmfNetPrefixTable, atmfNetPrefixPrefix=atmfNetPrefixPrefix)
+mibBuilder.exportSymbols("ATM-FORUM-ADDR-REG", atmfAddressAtmAddress=atmfAddressAtmAddress, atmfAddressStatus=atmfAddressStatus, atmfAddressRegistrationAdminTable=atmfAddressRegistrationAdminTable, atmfNetPrefixEntry=atmfNetPrefixEntry, atmfNetPrefixPort=atmfNetPrefixPort, atmfAddressTable=atmfAddressTable, atmfNetPrefixStatus=atmfNetPrefixStatus, atmfAddressRegistrationAdminStatus=atmfAddressRegistrationAdminStatus, atmfAddressOrgScope=atmfAddressOrgScope, atmfNetPrefixTable=atmfNetPrefixTable, atmfAddressRegistrationAdminIndex=atmfAddressRegistrationAdminIndex, atmfNetPrefixPrefix=atmfNetPrefixPrefix, atmfAddressRegistrationAdminEntry=atmfAddressRegistrationAdminEntry, atmfAddressPort=atmfAddressPort, atmfAddressEntry=atmfAddressEntry)

@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11NotifyReasonType",
+      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11SSIDStringType",
       "hpnicfDot11",
-      "HpnicfDot11RFModeType",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11ObjectIDType",
       "HpnicfDot11RadioElementIndex",
       "HpnicfDot11ServicePolicyIDType",
-      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11RFModeType",
       "HpnicfDot11TxPwrLevelScopeType",
+      "HpnicfDot11NotifyReasonType",
       "HpnicfDot11MACModeType",
-      "HpnicfDot11SSIDStringType",
-      "hpnicfDot11APElementIndex",
       "HpnicfDot11ChannelScopeType"
     ],
     "SNMPv2-CONF": [
@@ -20,27 +20,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "Integer32",
       "MibIdentifier",
       "Bits",
-      "Integer32",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue"
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "hpnicfDot11APMT": {
@@ -8424,8 +8424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:53:47 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:29:31 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-APMT-MIB"

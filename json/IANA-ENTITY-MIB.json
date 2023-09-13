@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
       "mib-2",
-      "iso",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
       "Counter32",
       "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaEntityMIB": {
@@ -77,8 +77,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:43:40 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:20:15 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IANA-ENTITY-MIB"

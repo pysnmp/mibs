@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSP-MIB": [
+      "cgspInstNetwork",
       "cgspEventSequenceNumber",
-      "cgspCLLICode",
-      "cgspInstNetwork"
+      "cgspCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcNumberingPlan",
-      "CItpTcURL",
-      "CItpTcNetworkName",
       "CItpTcXuaName",
-      "CItpTcDisplayPC",
       "CItpTcGtaLongAddr",
       "CItpTcSubSystemNumber",
       "CItpTcTableLoadStatus",
+      "CItpTcNumberingPlan",
+      "CItpTcURL",
       "CItpTcGtaLongDisplayLen",
-      "CItpTcNAI",
       "CItpTcTranslationType",
+      "CItpTcNetworkName",
       "CItpTcGtaLongDisplay",
+      "CItpTcDisplayPC",
+      "CItpTcNAI",
       "CItpTcPointCode"
     ],
     "CISCO-SMI": [
@@ -33,27 +33,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
       "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TimeStamp",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoGsccpMIB": {
@@ -5510,8 +5510,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSCCP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:49:45 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:26:22 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-GSCCP-MIB"

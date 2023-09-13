@@ -8,46 +8,46 @@
       "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
+      "shelfIndex",
       "slotIndex",
-      "neIndex",
-      "shelfIndex"
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetAccPortEntry",
-      "cmEthernetNetPortEntry"
+      "cmEthernetNetPortEntry",
+      "cmEthernetAccPortEntry"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmEthernetAccPortStatsEntry",
       "cmEthernetNetPortStatsEntry",
-      "cmEthernetAccPortHistoryEntry",
-      "cmEthernetNetPortHistoryEntry"
+      "cmEthernetNetPortHistoryEntry",
+      "cmEthernetAccPortStatsEntry",
+      "cmEthernetAccPortHistoryEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "Bits",
       "MODULE-IDENTITY",
+      "TimeTicks",
       "Unsigned32",
-      "Counter32"
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "DateAndTime",
       "VariablePointer",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1085,8 +1085,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-POPM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 12:44:57 2023",
-      "On host fv-az442-700 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:21:35 2023",
+      "On host fv-az612-215 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-POPM-MIB"
