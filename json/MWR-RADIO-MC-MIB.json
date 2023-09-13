@@ -5,38 +5,38 @@
       "mwr"
     ],
     "EQUIPMENT-COMMON-MIB": [
-      "equipmentOutTrapsCounter",
       "equipmentTrapInfo",
       "equipmentAlarmActiveConditionId",
-      "EnableType"
+      "EnableType",
+      "equipmentOutTrapsCounter"
     ],
     "MWR-ETHERNET-MIB": [
-      "RadioInstanceType",
-      "mwrEventConfigSeverity"
+      "mwrEventConfigSeverity",
+      "RadioInstanceType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
       "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
       "Bits",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "TimeTicks"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwrRadioMcModIdentity": {
@@ -888,8 +888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/MWR-RADIO-MC-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:46:34 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:22:25 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MWR-RADIO-MC-MIB"

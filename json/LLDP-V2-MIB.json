@@ -10,18 +10,18 @@
     ],
     "LLDP-V2-TC-MIB": [
       "LldpV2ChassisId",
+      "LldpV2DestAddressTableIndex",
+      "LldpV2ManAddress",
+      "ieee802dot1mibs",
       "LldpV2ChassisIdSubtype",
       "LldpV2PortIdSubtype",
-      "LldpV2ManAddress",
       "LldpV2SystemCapabilitiesMap",
-      "ieee802dot1mibs",
-      "LldpV2ManAddrIfSubtype",
       "LldpV2PortId",
-      "LldpV2DestAddressTableIndex"
+      "LldpV2ManAddrIfSubtype"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,28 +32,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter64",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
       "IpAddress",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "MacAddress",
       "TimeStamp",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:40:59 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:14:54 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

@@ -8,48 +8,48 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "ISIS-MIB": [
-      "isisSysL2State",
-      "isisSysL1State",
       "isisSysInstance",
-      "SNPAAddress",
-      "isisISAdjState",
       "SystemID",
+      "isisISAdjState",
+      "isisSysL2State",
       "isisISAdjEntry",
-      "isisManAreaAddrExistState"
+      "isisManAreaAddrExistState",
+      "SNPAAddress",
+      "isisSysL1State"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
       "IpAddress",
       "iso",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TruthValue",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval"
+      "TruthValue",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "timetraIsisMIBModule": {
@@ -5754,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-ISIS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:52:28 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:31:59 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-ISIS-MIB"

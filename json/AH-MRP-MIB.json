@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "AH-SMI-MIB": [
-      "AhString",
       "ahAPMRP",
+      "AhString",
       "AhNodeID"
     ],
     "IF-MIB": [
@@ -11,24 +11,24 @@
       "ifEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "Counter32",
       "OBJECT-TYPE",
-      "Counter64"
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -338,8 +338,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-MRP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:41:40 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:15:45 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AH-MRP-MIB"

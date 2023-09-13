@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpMIBGroups"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises",
       "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Counter64",
       "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "iso",
       "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "enterprises"
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -490,8 +490,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netonix/NETONIX-SWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:51:29 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:30:33 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETONIX-SWITCH-MIB"

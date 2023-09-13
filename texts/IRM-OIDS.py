@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Wed Sep 13 02:47:15 2023
-# On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Sep 13 07:23:19 2023
+# On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, IpAddress, TimeTicks, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, MibIdentifier, Gauge32, Bits, ObjectIdentity, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "TimeTicks", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "MibIdentifier", "Gauge32", "Bits", "ObjectIdentity", "Counter32", "Unsigned32")
+ModuleIdentity, IpAddress, Counter32, iso, ObjectIdentity, Integer32, Gauge32, TimeTicks, Counter64, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "Counter32", "iso", "ObjectIdentity", "Integer32", "Gauge32", "TimeTicks", "Counter64", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", router=router, sysRepeaters=sysRepeaters, sysBridges=sysBridges, subSysDevice=subSysDevice, sysRouters=sysRouters, sysIntDev=sysIntDev, nb30Rev1=nb30Rev1, repeaterRev1=repeaterRev1, product=product, common=common, sysOtherType=sysOtherType, repeaterRev2=repeaterRev2, subsystem=subsystem, layerMgmt=layerMgmt, bridge=bridge, commonRev1=commonRev1, subSysMMAC=subSysMMAC, dl=dl, sysChassis=sysChassis, ups=ups, sysOIDs=sysOIDs, repeater=repeater, backplaneProtocol=backplaneProtocol, commsDevice=commsDevice)
+mibBuilder.exportSymbols("IRM-OIDS", ups=ups, sysRouters=sysRouters, repeaterRev2=repeaterRev2, sysChassis=sysChassis, sysBridges=sysBridges, commsDevice=commsDevice, dl=dl, router=router, product=product, subSysDevice=subSysDevice, subSysMMAC=subSysMMAC, common=common, sysOtherType=sysOtherType, commonRev1=commonRev1, sysRepeaters=sysRepeaters, repeater=repeater, sysOIDs=sysOIDs, repeaterRev1=repeaterRev1, subsystem=subsystem, layerMgmt=layerMgmt, nb30Rev1=nb30Rev1, sysIntDev=sysIntDev, backplaneProtocol=backplaneProtocol, bridge=bridge)

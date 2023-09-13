@@ -9,39 +9,39 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "IpAddress",
       "BITS",
-      "Counter64",
+      "Counter32",
       "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "sleV2QoS": {
@@ -13931,8 +13931,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:45:26 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:20:46 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLEV2-QOS-MIB"

@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "Counter32",
       "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "MibIdentifier",
-      "iso",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmRingRedundancy": {
@@ -1816,8 +1816,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmRingRed.mib",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:48:33 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:25:20 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HMRING-MGMT-SNMP-MIB"

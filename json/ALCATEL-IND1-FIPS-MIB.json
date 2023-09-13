@@ -9,44 +9,44 @@
     ],
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
       "iso",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TimeStamp",
+      "RowStatus",
       "DisplayString",
-      "DateAndTime",
+      "TimeStamp",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DateAndTime"
     ]
   },
   "alcatelIND1FipsMIB": {
@@ -7318,8 +7318,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-FIPS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:52:30 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:32:00 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-FIPS-MIB"

@@ -10,10 +10,10 @@
       "InterfaceIndexOrZero"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
+      "LldpPortId",
       "LldpChassisIdSubtype",
-      "LldpPortIdSubtype",
-      "LldpPortId"
+      "LldpChassisId",
+      "LldpPortIdSubtype"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
@@ -25,31 +25,31 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter64",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
       "IpAddress",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TimeStamp",
-      "TAddress",
-      "DisplayString",
+      "TDomain",
       "MacAddress",
-      "TDomain"
+      "TimeStamp",
+      "DisplayString",
+      "TAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus"
     ]
   },
   "ieee8021CfmMib": {
@@ -3465,8 +3465,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:40:58 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:14:54 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-CFM-MIB"

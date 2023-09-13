@@ -14,24 +14,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "panProductsMibsModule": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-PRODUCT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 02:52:39 2023",
-      "On host fv-az934-274 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:32:08 2023",
+      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PAN-PRODUCTS-MIB"
