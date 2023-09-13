@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   mibserver:
   - apiVersion: v2
+    appVersion: 1.15.4
+    created: "2023-09-13T15:01:12.556356103Z"
+    description: A Helm chart for serving mib files
+    digest: b661c97ac169a798929259f0aa41472be661dbc461eafefecb2d207d6d556e80
+    name: mibserver
+    type: application
+    urls:
+    - https://pysnmp.github.io/mibs/charts/mibserver-1.15.4.tgz
+    version: 1.15.4
+  - apiVersion: v2
     appVersion: 1.15.4-beta.2
     created: "2023-09-13T08:01:51.100111363Z"
     description: A Helm chart for serving mib files
@@ -501,4 +511,4 @@ entries:
     urls:
     - https://pysnmp.github.io/mibs/charts/mibserver-1.3.2.tgz
     version: 1.3.2
-generated: "2023-09-13T08:01:51.098829947Z"
+generated: "2023-09-13T15:01:12.554721457Z"
