@@ -9,25 +9,25 @@
     ],
     "DOCS-CABLE-DEVICE-MIB": [
       "docsDevEvId",
-      "docsDevEvText",
       "docsDevEvLevel",
+      "docsDevEvText",
       "docsDevEvLastTime"
     ],
     "DOCS-IF-MIB": [
+      "DocsisUpstreamType",
+      "TenthdB",
       "DocsisQosVersion",
       "TenthdBmV",
-      "DocsEqualizerData",
-      "DocsisUpstreamType",
-      "TenthdB"
+      "DocsEqualizerData"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "ifIndex",
       "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -44,29 +44,29 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
       "Unsigned32",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "StorageType",
       "DateAndTime",
       "MacAddress",
       "TruthValue",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:15:17 2023",
-      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:55:27 2023",
+      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF3-MIB"

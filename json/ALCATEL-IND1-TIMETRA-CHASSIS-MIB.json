@@ -9,47 +9,47 @@
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
       "TmnxPortID",
-      "TmnxOperState",
-      "TmnxActionType",
-      "TmnxAdminState",
-      "TItemDescription",
       "TNamedItem",
-      "TNamedItemOrEmpty"
+      "TmnxOperState",
+      "TNamedItemOrEmpty",
+      "TItemDescription",
+      "TmnxAdminState",
+      "TmnxActionType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Integer32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TimeStamp",
-      "TruthValue",
-      "TimeInterval",
-      "RowPointer",
       "MacAddress",
+      "DateAndTime",
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TimeInterval"
     ]
   },
   "tmnxChassisMIBModule": {
@@ -8570,8 +8570,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:32:00 2023",
-      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 08:06:31 2023",
+      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-CHASSIS-MIB"

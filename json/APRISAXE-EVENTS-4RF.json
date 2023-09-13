@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEObjects",
-      "aprisaXEEvents"
+      "aprisaXEEvents",
+      "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEDataStatus",
-      "AprisaXEPortNumber",
-      "AprisaXECardType",
       "AprisaXESlotNumber",
-      "AprisaXEAlarmType"
+      "AprisaXECardType",
+      "AprisaXEPortNumber",
+      "AprisaXEAlarmType",
+      "AprisaXEDataStatus"
     ],
     "COMMON-TC-4RF": [
-      "FourRFAlarmEnabled",
-      "FourRFAlarmSeverity",
-      "FourRFAlarmPresent",
       "FourRFImageVersion",
+      "FourRFAlarmStatus",
+      "FourRFAlarmSeverity",
       "FourRFHardwareVersion",
-      "FourRFAlarmStatus"
+      "FourRFAlarmPresent",
+      "FourRFAlarmEnabled"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,29 +27,29 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
       "MibIdentifier",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
       "Integer32",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "TimeTicks",
       "Gauge32",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:15:30 2023",
-      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:55:35 2023",
+      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

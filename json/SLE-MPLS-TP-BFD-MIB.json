@@ -8,8 +8,8 @@
       "IANAbfdDiagTC"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -17,24 +17,24 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Unsigned32",
-      "mib-2",
+      "Integer32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "mib-2",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "iso",
+      "TimeTicks",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleMplsTpBfd": {
@@ -509,8 +509,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:20:45 2023",
-      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:59:28 2023",
+      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-BFD-MIB"

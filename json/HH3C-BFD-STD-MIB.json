@@ -8,33 +8,33 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "iso",
+      "MODULE-IDENTITY",
       "Integer32",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Gauge32",
+      "Bits",
+      "Counter32",
+      "iso",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue"
     ]
@@ -965,8 +965,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:19:22 2023",
-      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 07:58:30 2023",
+      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-BFD-STD-MIB"

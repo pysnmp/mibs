@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "Te1LoopBackModeT",
-      "Te1StatusT",
-      "EnableStatusT",
-      "AcmModulationT",
-      "Te1LineCodeT",
-      "EthAuxStatusT",
-      "Led4ColorT",
-      "NtpClientEnableT",
-      "VlanGroupT",
       "EthMainStatusT",
-      "EthPortMode",
-      "exaltcommunications",
-      "Te1LboT",
+      "EthAuxStatusT",
       "AuxNmsMode",
-      "AlarmLevelT",
-      "ExaltEnableT",
+      "NtpClientEnableT",
+      "exaltcommunications",
+      "VlanStatusT",
+      "Led4ColorT",
+      "VlanGroupT",
       "TimeZoneT",
       "FileTransferTypeT",
+      "ExaltEnableT",
+      "Te1LineCodeT",
+      "AcmModulationT",
+      "Te1LboT",
       "FileTransferStartT",
-      "VlanStatusT"
+      "AlarmLevelT",
+      "EnableStatusT",
+      "EthPortMode",
+      "Te1StatusT",
+      "Te1LoopBackModeT"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -29,24 +29,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "IpAddress",
       "iso",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
+      "Gauge32",
       "Unsigned32",
-      "Counter64"
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "productsMIB": {
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 07:23:35 2023",
-      "On host fv-az454-0 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 08:01:30 2023",
+      "On host fv-az370-447 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"
