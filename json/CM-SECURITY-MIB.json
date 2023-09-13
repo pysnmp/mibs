@@ -5,8 +5,8 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "UserInterfaceType",
-      "IpVersion"
+      "IpVersion",
+      "UserInterfaceType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -18,32 +18,32 @@
       "usmUserEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
       "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
       "Integer32",
-      "OBJECT-TYPE"
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
       "RowStatus",
       "DisplayString",
+      "TruthValue",
       "StorageType",
       "VariablePointer"
     ]
@@ -3341,8 +3341,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:12 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:16 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-SECURITY-MIB"

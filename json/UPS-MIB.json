@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "mib-2",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "MibIdentifier",
-      "TimeTicks"
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "mib-2",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TestAndIncr",
-      "TimeInterval",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "TimeStamp",
+      "TimeInterval",
+      "TestAndIncr",
+      "AutonomousType",
+      "DisplayString"
     ]
   },
   "upsMIB": {
@@ -2147,9 +2147,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/UPS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:54 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/UPS-MIB",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:30 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UPS-MIB"

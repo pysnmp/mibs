@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "MBG-SNMP-ROOT-MIB": [
-      "mbgSnmpRoot",
-      "MeinbergSwitch"
+      "MeinbergSwitch",
+      "mbgSnmpRoot"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Integer32",
-      "MibIdentifier",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -7697,8 +7697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-LTNG-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:59:34 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 15:02:45 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MBG-SNMP-LTNG-MIB"

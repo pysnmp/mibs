@@ -10,44 +10,44 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
       "MibIdentifier",
-      "Counter64",
       "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "mib-2",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
-      "Unsigned32"
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "AutonomousType",
       "StorageType",
-      "DisplayString",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "AutonomousType",
+      "DisplayString"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpLifetimeLeft",
-      "T11FcSpDhGroups",
       "T11FcSpLifetimeLeftUnits",
-      "T11FcSpAuthRejectReasonCode",
-      "T11FcSpHashFunctions",
+      "T11FcSpDhGroups",
       "T11FcSpSignFunctions",
+      "T11FcSpHashFunctions",
+      "T11FcSpLifetimeLeft",
+      "T11FcSpAuthRejectReasonCode",
       "T11FcSpAuthRejReasonCodeExp"
     ],
     "T11-TC-MIB": [
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:26 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:31 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

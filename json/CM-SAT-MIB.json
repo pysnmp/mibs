@@ -5,18 +5,18 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "VlanPriority",
       "AdminState",
-      "OperationalState",
       "CmPmBinAction",
+      "SecondaryState",
       "VlanId",
       "MepDestinationType",
-      "SecondaryState",
-      "VlanPriority"
+      "OperationalState"
     ],
     "CM-ENTITY-MIB": [
       "networkElementEntry",
-      "slotIndex",
       "shelfIndex",
+      "slotIndex",
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
@@ -30,34 +30,34 @@
       "Dot1agCfmMepIdOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
       "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DateAndTime",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "RowStatus",
       "DisplayString",
+      "TruthValue",
       "StorageType",
-      "MacAddress",
       "VariablePointer"
     ]
   },
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:10 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:15 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-SAT-MIB"

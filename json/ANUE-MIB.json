@@ -7,51 +7,51 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifTable",
-      "ifIndex",
+      "ifEntry",
       "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifEntry"
+      "ifIndex",
+      "ifTable"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "enterprises",
       "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue"
     ],
     "SNMPv2-TM": [
-      "snmpUDPDomain",
-      "SnmpUDPAddress"
+      "SnmpUDPAddress",
+      "snmpUDPDomain"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:58:34 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 15:00:58 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

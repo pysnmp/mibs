@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "iso",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Counter32",
       "Gauge32",
-      "enterprises",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "enterprises",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1193,8 +1193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSAEISA-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:57:46 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 15:00:44 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPNSAEISA-MIB"

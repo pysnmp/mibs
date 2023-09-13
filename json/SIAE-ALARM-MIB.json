@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "SIAE-TREE-MIB": [
-      "siaeMib",
-      "siaeMicroelettronicaSpa"
+      "siaeMicroelettronicaSpa",
+      "siaeMib"
     ],
     "SIAE-USER-MIB": [
       "accessControlLoginIpAddress"
@@ -13,24 +13,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
       "iso",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
+      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter32",
-      "TimeTicks"
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "smalarm": {
@@ -1060,8 +1060,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 15:02:50 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 15:06:50 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-ALARM-MIB"

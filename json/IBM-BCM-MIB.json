@@ -17,19 +17,19 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Gauge32",
       "TimeTicks",
       "Counter64",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
       "OBJECT-IDENTITY",
       "Bits",
-      "Integer32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
       "Unsigned32",
-      "IpAddress"
+      "Integer32"
     ],
     "SNMPv2-SMI-v1": [
       "Integer32",
@@ -41,8 +41,8 @@
     ],
     "SNMPv2-TC-v1": [
       "MacAddress",
-      "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ibmBcmMIB": {
@@ -1265,8 +1265,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-BCM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:58:28 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 15:00:09 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IBM-BCM-MIB"

@@ -5,29 +5,29 @@
       "rielloMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "Counter32",
       "TimeTicks",
+      "Counter32",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "TRAP-TYPE",
       "IpAddress",
       "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Counter64",
       "Integer32",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mtsMIB": {
@@ -870,8 +870,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riello/RIELLOMTS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 15:02:21 2023",
-      "On host fv-az629-233 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Sep 13 15:06:08 2023",
+      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RIELLOMTS-MIB"
