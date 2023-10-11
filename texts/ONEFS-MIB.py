@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ONEFS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emc/ONEFS-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:56:08 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 07:53:11 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-ModuleIdentity, snmpModules, NotificationType, iso, enterprises, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, ObjectIdentity, Integer32, Counter32, TimeTicks, Gauge32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "snmpModules", "NotificationType", "iso", "enterprises", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "ObjectIdentity", "Integer32", "Counter32", "TimeTicks", "Gauge32", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+iso, Bits, TimeTicks, Unsigned32, ModuleIdentity, snmpModules, enterprises, IpAddress, ObjectIdentity, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "TimeTicks", "Unsigned32", "ModuleIdentity", "snmpModules", "enterprises", "IpAddress", "ObjectIdentity", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "Counter64", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 onefs = ModuleIdentity((1, 3, 6, 1, 4, 1, 12124))
 if mibBuilder.loadTexts: onefs.setLastUpdated('0201172301Z')
 if mibBuilder.loadTexts: onefs.setOrganization('COMPANY_NAME')
@@ -21,4 +21,4 @@ class TimeTicks64(TextualConvention, Counter64):
     status = 'current'
     subtypeSpec = Counter64.subtypeSpec + ValueRangeConstraint(0, 18446744073709551615)
 
-mibBuilder.exportSymbols("ONEFS-MIB", TimeTicks64=TimeTicks64, PYSNMP_MODULE_ID=onefs, onefs=onefs)
+mibBuilder.exportSymbols("ONEFS-MIB", PYSNMP_MODULE_ID=onefs, TimeTicks64=TimeTicks64, onefs=onefs)

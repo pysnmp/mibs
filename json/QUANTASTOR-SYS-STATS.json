@@ -16,29 +16,29 @@
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
       "Integer32",
-      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "mib-2",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "AutonomousType",
+      "TestAndIncr",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -34858,8 +34858,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/osnexus/QUANTASTOR-SYS-STATS",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 15:04:12 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:00:23 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "QUANTASTOR-SYS-STATS"

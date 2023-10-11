@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HALON-SP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/halon/HALON-SP-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:57:48 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 07:54:50 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, Counter32, Gauge32, ObjectIdentity, Integer32, iso, Counter64, MibIdentifier, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "Counter32", "Gauge32", "ObjectIdentity", "Integer32", "iso", "Counter64", "MibIdentifier", "Bits", "Unsigned32")
+Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, TimeTicks, iso, Integer32, Counter32, Counter64, NotificationType, Unsigned32, MibIdentifier, enterprises, IpAddress, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "TimeTicks", "iso", "Integer32", "Counter32", "Counter64", "NotificationType", "Unsigned32", "MibIdentifier", "enterprises", "IpAddress", "Gauge32", "ObjectIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 halonSecuritySP = ModuleIdentity((1, 3, 6, 1, 4, 1, 33234, 1, 1))
 halonSecuritySP.setRevisions(('2013-02-07 11:32',))
@@ -59,4 +59,4 @@ if mibBuilder.loadTexts: statCreated.setDescription('Unix timestamp when created
 statUpdated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: statUpdated.setStatus('current')
 if mibBuilder.loadTexts: statUpdated.setDescription('Unix timestamp when last updated')
-mibBuilder.exportSymbols("HALON-SP-MIB", configurationRevision=configurationRevision, mailQueueLength=mailQueueLength, statEntry=statEntry, statKey3Index=statKey3Index, halonSecuritySPObjects=halonSecuritySPObjects, statCreated=statCreated, statCount=statCount, statTable=statTable, serialNumber=serialNumber, halonSecurityProducts=halonSecurityProducts, PYSNMP_MODULE_ID=halonSecuritySP, halonSecuritySP=halonSecuritySP, statKey1Index=statKey1Index, quarantinedMessages=quarantinedMessages, statUpdated=statUpdated, statKey2Index=statKey2Index, halonSecurity=halonSecurity)
+mibBuilder.exportSymbols("HALON-SP-MIB", statEntry=statEntry, mailQueueLength=mailQueueLength, PYSNMP_MODULE_ID=halonSecuritySP, halonSecurityProducts=halonSecurityProducts, statTable=statTable, statKey3Index=statKey3Index, statCreated=statCreated, quarantinedMessages=quarantinedMessages, halonSecuritySPObjects=halonSecuritySPObjects, statKey1Index=statKey1Index, statKey2Index=statKey2Index, halonSecurity=halonSecurity, serialNumber=serialNumber, statCount=statCount, configurationRevision=configurationRevision, halonSecuritySP=halonSecuritySP, statUpdated=statUpdated)

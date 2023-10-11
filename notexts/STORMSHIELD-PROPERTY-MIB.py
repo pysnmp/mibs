@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 15:07:13 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 08:03:06 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Unsigned32, iso, TimeTicks, NotificationType, ObjectIdentity, Counter32, Integer32, ModuleIdentity, Gauge32, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Unsigned32", "iso", "TimeTicks", "NotificationType", "ObjectIdentity", "Counter32", "Integer32", "ModuleIdentity", "Gauge32", "Bits", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TimeTicks, ObjectIdentity, Bits, MibIdentifier, Unsigned32, iso, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, ModuleIdentity, Integer32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "Bits", "MibIdentifier", "Unsigned32", "iso", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "ModuleIdentity", "Integer32", "Counter32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
 snsProductProperty.setRevisions(('2017-02-20 00:00',))
@@ -46,4 +46,4 @@ snsClone = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 14), Integer32()).setMaxAcc
 if mibBuilder.loadTexts: snsClone.setStatus('current')
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsLed=snsLed, snsProductProperty=snsProductProperty, snsNbVlan=snsNbVlan, snsClone=snsClone, snsVersion=snsVersion, snsHADialup=snsHADialup, snsNbSerial=snsNbSerial, snsNbEther=snsNbEther, snsNbDialup=snsNbDialup, PYSNMP_MODULE_ID=snsProductProperty, snsWatchdog=snsWatchdog, snsSystemLanguage=snsSystemLanguage, snsSerialNumber=snsSerialNumber, snsNbLoopback=snsNbLoopback, snsNbPPTP=snsNbPPTP, snsSystemName=snsSystemName, snsModel=snsModel)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsSystemLanguage=snsSystemLanguage, snsWatchdog=snsWatchdog, snsVersion=snsVersion, snsNbVlan=snsNbVlan, snsHADialup=snsHADialup, snsLed=snsLed, snsNbEther=snsNbEther, snsSerialNumber=snsSerialNumber, PYSNMP_MODULE_ID=snsProductProperty, snsNbSerial=snsNbSerial, snsProductProperty=snsProductProperty, snsModel=snsModel, snsSystemName=snsSystemName, snsNbDialup=snsNbDialup, snsNbLoopback=snsNbLoopback, snsClone=snsClone, snsNbPPTP=snsNbPPTP)

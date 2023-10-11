@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module STORMSHIELD-SERVICES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-SERVICES-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 15:07:14 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 08:03:07 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Bits, Gauge32, IpAddress, Integer32, ObjectIdentity, MibIdentifier, TimeTicks, NotificationType, ModuleIdentity, Counter32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "Gauge32", "IpAddress", "Integer32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "NotificationType", "ModuleIdentity", "Counter32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, NotificationType, Counter32, ObjectIdentity, ModuleIdentity, Bits, iso, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "Counter32", "ObjectIdentity", "ModuleIdentity", "Bits", "iso", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "MibIdentifier", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsServices = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 7))
 snsServices.setRevisions(('2017-02-20 00:00',))
@@ -40,4 +40,4 @@ if mibBuilder.loadTexts: snsServicesState.setDescription('State value can be 0/1
 snsServicesUptime = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 7, 1, 1, 4), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsServicesUptime.setStatus('current')
 if mibBuilder.loadTexts: snsServicesUptime.setDescription('Uptime')
-mibBuilder.exportSymbols("STORMSHIELD-SERVICES-MIB", snsServicesState=snsServicesState, snsServices=snsServices, snsServicesUptime=snsServicesUptime, snsServicesName=snsServicesName, PYSNMP_MODULE_ID=snsServices, snsServicesTable=snsServicesTable, snsServicesIndex=snsServicesIndex, snsServicesEntry=snsServicesEntry)
+mibBuilder.exportSymbols("STORMSHIELD-SERVICES-MIB", snsServicesState=snsServicesState, snsServicesName=snsServicesName, snsServicesEntry=snsServicesEntry, snsServicesIndex=snsServicesIndex, snsServicesUptime=snsServicesUptime, snsServicesTable=snsServicesTable, PYSNMP_MODULE_ID=snsServices, snsServices=snsServices)

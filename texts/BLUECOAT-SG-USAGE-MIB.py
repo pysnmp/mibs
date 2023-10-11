@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-USAGE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-USAGE-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 14:51:31 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 07:48:41 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, Bits, Counter64, ModuleIdentity, iso, IpAddress, MibIdentifier, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "Bits", "Counter64", "ModuleIdentity", "iso", "IpAddress", "MibIdentifier", "Integer32", "NotificationType")
-TruthValue, DisplayString, TimeStamp, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TimeStamp", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, ObjectIdentity, iso, ModuleIdentity, Counter32, IpAddress, NotificationType, Bits, Unsigned32, MibIdentifier, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "ObjectIdentity", "iso", "ModuleIdentity", "Counter32", "IpAddress", "NotificationType", "Bits", "Unsigned32", "MibIdentifier", "Integer32", "TimeTicks")
+TruthValue, TextualConvention, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "TimeStamp")
 deviceUsageMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 4))
 deviceUsageMIB.setRevisions(('2013-07-11 03:00', '2008-01-16 03:00', '2007-12-07 03:00', '2002-11-06 03:00',))
 
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: deviceUsageTime.setDescription("Value of 'sysUpTime.0' 
 deviceUsageTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 4, 2, 0, 1)).setObjects(("BLUECOAT-SG-USAGE-MIB", "deviceUsageName"), ("BLUECOAT-SG-USAGE-MIB", "deviceUsagePercent"), ("BLUECOAT-SG-USAGE-MIB", "deviceUsageStatus"))
 if mibBuilder.loadTexts: deviceUsageTrap.setStatus('deprecated')
 if mibBuilder.loadTexts: deviceUsageTrap.setDescription('A notification is sent when the deviceUsagePercent\n                         exceeds a threshold. This is no longer functional.\n                         Use health monitoring instead.')
-mibBuilder.exportSymbols("BLUECOAT-SG-USAGE-MIB", deviceUsageTrapEnabled=deviceUsageTrapEnabled, deviceUsageTable=deviceUsageTable, deviceUsageTime=deviceUsageTime, PYSNMP_MODULE_ID=deviceUsageMIB, deviceUsageMIBObjects=deviceUsageMIBObjects, deviceUsageStatus=deviceUsageStatus, deviceUsagePercent=deviceUsagePercent, deviceUsageTrap=deviceUsageTrap, deviceUsageHigh=deviceUsageHigh, deviceUsageMIBNotifications=deviceUsageMIBNotifications, deviceUsageName=deviceUsageName, deviceUsageIndex=deviceUsageIndex, deviceUsageMIB=deviceUsageMIB, deviceUsageEntry=deviceUsageEntry, deviceUsageMIBNotificationsPrefix=deviceUsageMIBNotificationsPrefix, Percent=Percent, UsageStatus=UsageStatus)
+mibBuilder.exportSymbols("BLUECOAT-SG-USAGE-MIB", UsageStatus=UsageStatus, PYSNMP_MODULE_ID=deviceUsageMIB, deviceUsageEntry=deviceUsageEntry, deviceUsagePercent=deviceUsagePercent, deviceUsageHigh=deviceUsageHigh, deviceUsageMIBNotificationsPrefix=deviceUsageMIBNotificationsPrefix, deviceUsageName=deviceUsageName, deviceUsageTable=deviceUsageTable, deviceUsageMIB=deviceUsageMIB, deviceUsageMIBNotifications=deviceUsageMIBNotifications, deviceUsageIndex=deviceUsageIndex, Percent=Percent, deviceUsageStatus=deviceUsageStatus, deviceUsageMIBObjects=deviceUsageMIBObjects, deviceUsageTime=deviceUsageTime, deviceUsageTrapEnabled=deviceUsageTrapEnabled, deviceUsageTrap=deviceUsageTrap)

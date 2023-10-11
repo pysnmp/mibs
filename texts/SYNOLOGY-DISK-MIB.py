@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-DISK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-DISK-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 15:07:18 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 08:03:12 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, IpAddress, enterprises, ModuleIdentity, NotificationType, TimeTicks, ObjectIdentity, MibIdentifier, Unsigned32, Integer32, Gauge32, Counter64, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "IpAddress", "enterprises", "ModuleIdentity", "NotificationType", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "Counter64", "iso", "Counter32")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+NotificationType, Bits, ObjectIdentity, TimeTicks, ModuleIdentity, Gauge32, iso, Unsigned32, Counter32, IpAddress, MibIdentifier, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "Gauge32", "iso", "Unsigned32", "Counter32", "IpAddress", "MibIdentifier", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 synoDisk = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 2))
 synoDisk.setRevisions(('2013-09-11 00:00',))
@@ -57,4 +57,4 @@ diskGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 2, 2, 2, 1)).setObjects(("SYNOL
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     diskGroup = diskGroup.setStatus('current')
 if mibBuilder.loadTexts: diskGroup.setDescription('A collection of objects providing basic information\n             of an synology disk entity.')
-mibBuilder.exportSymbols("SYNOLOGY-DISK-MIB", PYSNMP_MODULE_ID=synoDisk, synoDisk=synoDisk, diskTable=diskTable, diskIndex=diskIndex, diskID=diskID, diskType=diskType, diskTemperature=diskTemperature, diskStatus=diskStatus, diskModel=diskModel, diskCompliances=diskCompliances, diskGroups=diskGroups, diskEntry=diskEntry, diskCompliance=diskCompliance, synology=synology, diskConformance=diskConformance, diskGroup=diskGroup)
+mibBuilder.exportSymbols("SYNOLOGY-DISK-MIB", diskGroups=diskGroups, diskConformance=diskConformance, synoDisk=synoDisk, diskStatus=diskStatus, synology=synology, diskGroup=diskGroup, diskModel=diskModel, diskTable=diskTable, PYSNMP_MODULE_ID=synoDisk, diskID=diskID, diskEntry=diskEntry, diskCompliance=diskCompliance, diskType=diskType, diskTemperature=diskTemperature, diskCompliances=diskCompliances, diskIndex=diskIndex)

@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanPriority",
-      "OperationalState",
-      "CmPmBinAction",
-      "PerfCounter64",
-      "SecondaryState",
-      "VlanId",
       "IpVersion",
-      "AdminState"
+      "PerfCounter64",
+      "AdminState",
+      "VlanId",
+      "VlanPriority",
+      "CmPmBinAction",
+      "SecondaryState",
+      "OperationalState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -24,35 +24,35 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "Unsigned32",
+      "IpAddress",
+      "iso",
       "MibIdentifier",
       "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "iso",
       "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "StorageType",
-      "VariablePointer"
+      "TEXTUAL-CONVENTION",
+      "VariablePointer",
+      "RowStatus",
+      "DateAndTime",
+      "MacAddress",
+      "StorageType"
     ]
   },
   "f3TwampMIB": {
@@ -8131,8 +8131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-TWAMP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:15 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:47:23 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-TWAMP-MIB"

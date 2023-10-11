@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "mib-2",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
       "enterprises",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
       "Gauge32",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
-      "TestAndIncr",
-      "RowStatus",
       "PhysAddress",
-      "TimeStamp",
-      "TruthValue",
-      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TestAndIncr",
+      "AutonomousType",
+      "TimeStamp"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:57:51 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:54:39 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetPortNumber",
       "InetAddressType",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "mib-2",
-      "Counter64",
       "OBJECT-TYPE",
-      "Integer32",
       "TimeTicks",
-      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -479,9 +479,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/UDP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:30 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/UDP-MIB",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:57:00 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UDP-MIB"

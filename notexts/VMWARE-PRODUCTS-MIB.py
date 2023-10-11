@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-PRODUCTS-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 15:08:10 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 08:04:04 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Integer32, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, Counter64, Unsigned32, IpAddress, MibIdentifier, NotificationType, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Integer32", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "Counter64", "Unsigned32", "IpAddress", "MibIdentifier", "NotificationType", "TimeTicks", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, ModuleIdentity, IpAddress, MibIdentifier, Counter32, iso, Counter64, TimeTicks, Integer32, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "IpAddress", "MibIdentifier", "Counter32", "iso", "Counter64", "TimeTicks", "Integer32", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwOID, vmwProductSpecific = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwOID", "vmwProductSpecific")
 vmwProducts = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 11))
 vmwProducts.setRevisions(('2018-06-27 00:00', '2017-10-13 00:00', '2017-05-17 00:00', '2015-07-17 00:00', '2014-09-19 00:00', '2011-09-29 00:00', '2007-07-30 00:00',))
@@ -33,4 +33,4 @@ vmwNSXControllerAppliance = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 132))
 vmwHCXManager = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 230))
 vmwHCXGateway = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 4, 31))
 oidESX = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 60, 1))
-mibBuilder.exportSymbols("VMWARE-PRODUCTS-MIB", vmwNSXManagerAppliance=vmwNSXManagerAppliance, vmwServer=vmwServer, vmwInfrastructureAppliance=vmwInfrastructureAppliance, vmwVCOps=vmwVCOps, vmwManagementAppliance=vmwManagementAppliance, vmwProducts=vmwProducts, vmwGenericAppliance=vmwGenericAppliance, vmwHCXGateway=vmwHCXGateway, vmwESX=vmwESX, vmwNSXEdgeAppliance=vmwNSXEdgeAppliance, vmwEmbeddedVirtualCenterAppliance=vmwEmbeddedVirtualCenterAppliance, vmwVC=vmwVC, vmwHCXManager=vmwHCXManager, PYSNMP_MODULE_ID=vmwProducts, vmwNSX=vmwNSX, vmwNSXControllerAppliance=vmwNSXControllerAppliance, oidESX=oidESX, vmwDVS=vmwDVS, vmwVrops=vmwVrops)
+mibBuilder.exportSymbols("VMWARE-PRODUCTS-MIB", vmwVCOps=vmwVCOps, vmwVrops=vmwVrops, vmwEmbeddedVirtualCenterAppliance=vmwEmbeddedVirtualCenterAppliance, oidESX=oidESX, vmwVC=vmwVC, vmwHCXManager=vmwHCXManager, vmwHCXGateway=vmwHCXGateway, vmwManagementAppliance=vmwManagementAppliance, vmwNSXControllerAppliance=vmwNSXControllerAppliance, vmwNSXManagerAppliance=vmwNSXManagerAppliance, vmwESX=vmwESX, vmwProducts=vmwProducts, vmwDVS=vmwDVS, vmwNSXEdgeAppliance=vmwNSXEdgeAppliance, vmwGenericAppliance=vmwGenericAppliance, vmwServer=vmwServer, vmwNSX=vmwNSX, vmwInfrastructureAppliance=vmwInfrastructureAppliance, PYSNMP_MODULE_ID=vmwProducts)

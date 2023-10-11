@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BEGEMOT-HOSTRES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-HOSTRES-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 15:04:49 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 08:00:54 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 begemot, = mibBuilder.importSymbols("BEGEMOT-MIB", "begemot")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter64, Bits, TimeTicks, Counter32, Gauge32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, ModuleIdentity, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Bits", "TimeTicks", "Counter32", "Gauge32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "ModuleIdentity", "IpAddress", "Integer32")
+NotificationType, TimeTicks, Counter32, MibIdentifier, IpAddress, iso, Unsigned32, Integer32, Gauge32, Counter64, ModuleIdentity, Bits, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "TimeTicks", "Counter32", "MibIdentifier", "IpAddress", "iso", "Unsigned32", "Integer32", "Gauge32", "Counter64", "ModuleIdentity", "Bits", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 begemotHostres = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 202))
 if mibBuilder.loadTexts: begemotHostres.setLastUpdated('200601030000Z')
@@ -30,4 +30,4 @@ begemotHrSWRunUpdate = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 202, 1, 6), TimeTi
 if mibBuilder.loadTexts: begemotHrSWRunUpdate.setStatus('current')
 begemotHrPkgDir = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 202, 1, 7), OctetString().clone('/var/db/pkg')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: begemotHrPkgDir.setStatus('current')
-mibBuilder.exportSymbols("BEGEMOT-HOSTRES-MIB", begemotHrFSUpdate=begemotHrFSUpdate, begemotHostresObjects=begemotHostresObjects, begemotHostres=begemotHostres, begemotHrPkgDir=begemotHrPkgDir, begemotHrSWInstalledUpdate=begemotHrSWInstalledUpdate, begemotHrStorageUpdate=begemotHrStorageUpdate, begemotHrDiskStorageUpdate=begemotHrDiskStorageUpdate, begemotHrSWRunUpdate=begemotHrSWRunUpdate, begemotHrNetworkUpdate=begemotHrNetworkUpdate, PYSNMP_MODULE_ID=begemotHostres)
+mibBuilder.exportSymbols("BEGEMOT-HOSTRES-MIB", begemotHrStorageUpdate=begemotHrStorageUpdate, begemotHrSWRunUpdate=begemotHrSWRunUpdate, begemotHrDiskStorageUpdate=begemotHrDiskStorageUpdate, begemotHostres=begemotHostres, begemotHrSWInstalledUpdate=begemotHrSWInstalledUpdate, begemotHrNetworkUpdate=begemotHrNetworkUpdate, begemotHostresObjects=begemotHostresObjects, begemotHrPkgDir=begemotHrPkgDir, begemotHrFSUpdate=begemotHrFSUpdate, PYSNMP_MODULE_ID=begemotHostres)

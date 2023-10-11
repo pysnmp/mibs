@@ -6,44 +6,44 @@
     ],
     "ACMEPACKET-TC": [
       "ApRedundancyState",
-      "ApHardwareModuleFamily",
-      "ApTransportType"
+      "ApTransportType",
+      "ApHardwareModuleFamily"
     ],
     "APSYSMGMT-MIB": [
       "SysMgmtPercentage"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
+      "ifIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetVersion",
       "InetAddressPrefixLength",
+      "InetAddressType",
       "InetAddress",
+      "InetVersion",
       "InetZoneIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Counter64",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
       "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "TimeTicks",
-      "iso",
-      "MibIdentifier",
-      "Bits"
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1122,8 +1122,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APDNSALG-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 15:04:02 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:00:13 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APDNSALG-MIB"

@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "mib-2",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "Gauge32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -63,8 +63,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC5131-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:30 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:34 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LANGTAG-TC-MIB"

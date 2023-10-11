@@ -2,57 +2,57 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevNotification",
-      "docsDev",
-      "docsDevEvText",
-      "docsDevSwServer",
-      "docsDevServerTime",
       "docsDevEvLevel",
+      "docsDevSwServer",
       "docsDevSwFilename",
-      "docsDevEvId",
-      "docsDevServerDhcp"
+      "docsDevServerDhcp",
+      "docsDevNotification",
+      "docsDevEvText",
+      "docsDev",
+      "docsDevServerTime",
+      "docsDevEvId"
     ],
     "DOCS-IF-EXT-MIB": [
-      "docsIfCmtsCmStatusDocsisMode",
       "docsIfDocsisOperMode",
-      "docsIfDocsisCapability"
+      "docsIfDocsisCapability",
+      "docsIfCmtsCmStatusDocsisMode"
     ],
     "DOCS-IF-MIB": [
-      "docsIfCmStatusDocsisOperMode",
-      "docsIfCmtsCmStatusDocsisRegMode",
-      "docsIfCmCmtsAddress",
       "docsIfDocsisBaseCapability",
-      "docsIfCmtsCmStatusMacAddress",
       "docsIfCmtsCmStatusModulationType",
-      "docsIfCmStatusModulationType"
+      "docsIfCmCmtsAddress",
+      "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmtsCmStatusDocsisRegMode",
+      "docsIfCmStatusModulationType",
+      "docsIfCmStatusDocsisOperMode"
     ],
     "IF-MIB": [
       "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "Gauge32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsDevTrapMIB": {
@@ -1720,8 +1720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-CABLE-DEVICE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:49:31 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:35 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-TRAP-MIB"

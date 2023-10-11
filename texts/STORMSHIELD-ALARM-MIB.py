@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module STORMSHIELD-ALARM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-ALARM-MIB
-# Produced by pysmi-1.1.8 at Wed Sep 13 15:07:14 2023
-# On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 08:03:07 2023
+# On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Bits, Gauge32, IpAddress, Integer32, ObjectIdentity, MibIdentifier, TimeTicks, NotificationType, ModuleIdentity, Counter32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "Gauge32", "IpAddress", "Integer32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "NotificationType", "ModuleIdentity", "Counter32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-stormshieldMIB, snsNotifications = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB", "snsNotifications")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, NotificationType, Counter32, ObjectIdentity, Integer32, ModuleIdentity, iso, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "Counter32", "ObjectIdentity", "Integer32", "ModuleIdentity", "iso", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "MibIdentifier", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+snsNotifications, stormshieldMIB = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "snsNotifications", "stormshieldMIB")
 snsAlarm = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 5))
 snsAlarm.setRevisions(('2017-02-20 00:00',))
 
@@ -106,4 +106,4 @@ if mibBuilder.loadTexts: snsAicmpMessage.setDescription('Alarm message')
 snsNotification = NotificationType((1, 3, 6, 1, 4, 1, 11256, 1, 6, 1)).setObjects(("STORMSHIELD-ALARM-MIB", "snsATime"), ("STORMSHIELD-ALARM-MIB", "snsASif"), ("STORMSHIELD-ALARM-MIB", "snsASaddr"), ("STORMSHIELD-ALARM-MIB", "snsADaddr"), ("STORMSHIELD-ALARM-MIB", "snsAMessage"))
 if mibBuilder.loadTexts: snsNotification.setStatus('current')
 if mibBuilder.loadTexts: snsNotification.setDescription('notification')
-mibBuilder.exportSymbols("STORMSHIELD-ALARM-MIB", snsNotification=snsNotification, snsAEntry=snsAEntry, snsATime=snsATime, snsADaddr=snsADaddr, snsAicmpMessage=snsAicmpMessage, snsAicmpEntry=snsAicmpEntry, snsAicmpSname=snsAicmpSname, snsASif=snsASif, snsAlarm=snsAlarm, snsASaddr=snsASaddr, snsAicmpIndex=snsAicmpIndex, snsADif=snsADif, snsAicmpTime=snsAicmpTime, snsASport=snsASport, snsAicmpType=snsAicmpType, snsAIndex=snsAIndex, snsAicmpSif=snsAicmpSif, snsAProto=snsAProto, snsAMessage=snsAMessage, snsAicmpSaddr=snsAicmpSaddr, snsAicmpDname=snsAicmpDname, snsATable=snsATable, snsAicmpCode=snsAicmpCode, snsAicmpDif=snsAicmpDif, snsADname=snsADname, snsAicmpTable=snsAicmpTable, snsAicmpDaddr=snsAicmpDaddr, snsADport=snsADport, snsASname=snsASname, PYSNMP_MODULE_ID=snsAlarm)
+mibBuilder.exportSymbols("STORMSHIELD-ALARM-MIB", PYSNMP_MODULE_ID=snsAlarm, snsAicmpTable=snsAicmpTable, snsAicmpMessage=snsAicmpMessage, snsASaddr=snsASaddr, snsADname=snsADname, snsAicmpDif=snsAicmpDif, snsADaddr=snsADaddr, snsAicmpSaddr=snsAicmpSaddr, snsAicmpDaddr=snsAicmpDaddr, snsAicmpDname=snsAicmpDname, snsASport=snsASport, snsATime=snsATime, snsAMessage=snsAMessage, snsAicmpSif=snsAicmpSif, snsATable=snsATable, snsAIndex=snsAIndex, snsAProto=snsAProto, snsAicmpCode=snsAicmpCode, snsAicmpType=snsAicmpType, snsAicmpSname=snsAicmpSname, snsNotification=snsNotification, snsAicmpIndex=snsAicmpIndex, snsAicmpEntry=snsAicmpEntry, snsADif=snsADif, snsAicmpTime=snsAicmpTime, snsASif=snsASif, snsAlarm=snsAlarm, snsASname=snsASname, snsADport=snsADport, snsAEntry=snsAEntry)

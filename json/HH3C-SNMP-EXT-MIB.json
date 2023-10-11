@@ -5,34 +5,34 @@
       "hh3cCommon"
     ],
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpAdminString",
-      "SnmpSecurityModel"
+      "SnmpSecurityModel",
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "iso",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
       "Counter32",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hh3cSnmpExt": {
@@ -648,8 +648,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SNMP-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:52:57 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:50:04 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-SNMP-EXT-MIB"

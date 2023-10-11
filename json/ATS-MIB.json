@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "TRAP-TYPE",
       "OBJECT-TYPE",
       "Bits",
-      "MibIdentifier",
       "iso",
-      "enterprises",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TRAP-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "UPS-MIB": [
-      "NonNegativeInteger",
-      "PositiveInteger"
+      "PositiveInteger",
+      "NonNegativeInteger"
     ]
   },
   "ats": {
@@ -2060,8 +2060,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ats/ATS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Sep 13 14:50:58 2023",
-      "On host fv-az484-871 platform Linux version 5.15.0-1041-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 07:48:07 2023",
+      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATS-MIB"
