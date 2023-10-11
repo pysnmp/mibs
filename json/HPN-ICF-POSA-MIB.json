@@ -9,34 +9,34 @@
       "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "IpAddress",
+      "iso",
+      "Integer32",
+      "TimeTicks",
       "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "Counter64",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "iso"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "hpnicfPosa": {
@@ -2207,8 +2207,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-POSA-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:34:26 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:29:38 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-POSA-MIB"

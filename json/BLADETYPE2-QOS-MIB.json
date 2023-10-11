@@ -12,25 +12,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Counter64",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-TYPE",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "DisplayString",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "qos": {
@@ -1659,8 +1659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:34:24 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:29:36 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE2-QOS-MIB"

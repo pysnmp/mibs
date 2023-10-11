@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
       "IpAddress",
       "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
       "MibIdentifier",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
       "TimeTicks",
-      "Integer32"
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "rlFileMibVersion": {
@@ -279,8 +279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-File",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:40:29 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:35:09 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-File"

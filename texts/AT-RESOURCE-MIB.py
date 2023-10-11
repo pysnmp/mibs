@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AT-RESOURCE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-RESOURCE-MIB
-# Produced by pysmi-1.1.8 at Wed Oct 11 08:24:04 2023
-# On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 09:18:03 2023
+# On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, Bits, Gauge32, Counter32, ModuleIdentity, Counter64, TimeTicks, NotificationType, Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "Gauge32", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "NotificationType", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "ObjectIdentity")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, MibIdentifier, NotificationType, ModuleIdentity, Bits, Unsigned32, Integer32, IpAddress, ObjectIdentity, TimeTicks, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "ModuleIdentity", "Bits", "Unsigned32", "Integer32", "IpAddress", "ObjectIdentity", "TimeTicks", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 resource = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 21))
 resource.setRevisions(('2014-05-26 00:00', '2014-04-30 00:00', '2014-04-16 00:00', '2012-09-21 00:00', '2012-05-22 03:00', '2010-06-15 00:15', '2009-10-22 23:00', '2008-10-20 10:00', '1920-08-09 04:00',))
@@ -69,4 +69,4 @@ if mibBuilder.loadTexts: hostInfoUptime.setDescription('This object represents t
 hostInfoBootloaderVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 21, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hostInfoBootloaderVersion.setStatus('current')
 if mibBuilder.loadTexts: hostInfoBootloaderVersion.setDescription('This object represents the host boot loader version.')
-mibBuilder.exportSymbols("AT-RESOURCE-MIB", hostInfoEntry=hostInfoEntry, PYSNMP_MODULE_ID=resource, rscBoardBay=rscBoardBay, rscBoardSerialNumber=rscBoardSerialNumber, hostInfoTable=hostInfoTable, rscBoardTable=rscBoardTable, hostInfoDRAM=hostInfoDRAM, rscBoardEntry=rscBoardEntry, rscBoardRevision=rscBoardRevision, rscStkId=rscStkId, hostInfoFlash=hostInfoFlash, hostInfoUptime=hostInfoUptime, rscResourceId=rscResourceId, rscBoardType=rscBoardType, rscBoardName=rscBoardName, rscBoardID=rscBoardID, hostInfoBootloaderVersion=hostInfoBootloaderVersion, resource=resource)
+mibBuilder.exportSymbols("AT-RESOURCE-MIB", rscStkId=rscStkId, hostInfoFlash=hostInfoFlash, rscResourceId=rscResourceId, hostInfoBootloaderVersion=hostInfoBootloaderVersion, hostInfoDRAM=hostInfoDRAM, hostInfoEntry=hostInfoEntry, rscBoardRevision=rscBoardRevision, PYSNMP_MODULE_ID=resource, rscBoardID=rscBoardID, resource=resource, rscBoardName=rscBoardName, hostInfoTable=hostInfoTable, hostInfoUptime=hostInfoUptime, rscBoardTable=rscBoardTable, rscBoardEntry=rscBoardEntry, rscBoardBay=rscBoardBay, rscBoardSerialNumber=rscBoardSerialNumber, rscBoardType=rscBoardType)

@@ -16,26 +16,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "iso",
-      "Unsigned32",
-      "Counter32",
-      "enterprises",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
       "Counter64",
+      "enterprises",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "eqlInternalModule": {
@@ -305,8 +305,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLINTERNAL-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:31:13 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:25:05 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLINTERNAL-MIB"

@@ -5,44 +5,44 @@
       "GmplsSegmentDirectionTC"
     ],
     "IF-MIB": [
-      "ifGeneralInformationGroup",
-      "ifCounterDiscontinuityGroup"
+      "ifCounterDiscontinuityGroup",
+      "ifGeneralInformationGroup"
     ],
     "MPLS-LSR-STD-MIB": [
-      "mplsXCGroup",
-      "mplsInSegmentGroup",
-      "mplsPerfGroup",
-      "mplsInSegmentIndex",
-      "mplsOutSegmentGroup",
+      "mplsInterfaceIndex",
       "mplsLsrNotificationGroup",
       "mplsOutSegmentIndex",
-      "mplsInterfaceIndex",
-      "mplsInterfaceGroup"
+      "mplsPerfGroup",
+      "mplsOutSegmentGroup",
+      "mplsInterfaceGroup",
+      "mplsInSegmentGroup",
+      "mplsInSegmentIndex",
+      "mplsXCGroup"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "Bits",
+      "iso",
+      "Unsigned32",
+      "zeroDotZero",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "TimeTicks",
+      "IpAddress",
       "Counter32",
       "MODULE-IDENTITY",
-      "zeroDotZero",
-      "iso",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "RowPointer",
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:36:36 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:31:41 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GMPLS-LSR-STD-MIB"

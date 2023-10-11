@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcClasses",
-      "FcPortType",
       "FcAddressIdOrZero",
       "FcNameIdOrZero",
+      "FcClasses",
+      "FcPortType",
       "fcmInstanceIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter32",
-      "Gauge32",
       "mib-2",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
+      "IpAddress",
+      "Bits",
       "Integer32",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
@@ -1197,8 +1197,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-NAME-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:22:47 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:16:55 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "T11-FC-NAME-SERVER-MIB"

@@ -11,48 +11,48 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "iso",
       "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Unsigned32",
       "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue",
       "TimeStamp",
       "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxMDASlotNum",
       "tmnxCardSlotNum"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRConfs",
-      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRConfs",
+      "tmnxSRObjs"
     ],
     "TIMETRA-PORT-MIB": [
-      "tmnxPortNotifyPortId",
-      "tmnxPortPortID"
+      "tmnxPortPortID",
+      "tmnxPortNotifyPortId"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxEnabledDisabled",
-      "TmnxAuthPassword",
-      "TNamedItemOrEmpty",
       "TmnxEnabledDisabledAdminState",
+      "TmnxEnabledDisabled",
+      "TNamedItemOrEmpty",
+      "TmnxAuthPassword",
       "TItemDescription"
     ]
   },
@@ -3495,8 +3495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:38:59 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:33:52 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-CELLULAR-MIB"

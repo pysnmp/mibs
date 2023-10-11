@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Integer32",
       "iso",
-      "Counter64",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -198,8 +198,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-ADDR-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:41:28 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:36:27 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-ADDR-MIB"

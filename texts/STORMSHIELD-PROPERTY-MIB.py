@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.8 at Wed Oct 11 08:42:12 2023
-# On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Wed Oct 11 09:37:05 2023
+# On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, iso, Counter32, Unsigned32, MibIdentifier, ModuleIdentity, Bits, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "iso", "Counter32", "Unsigned32", "MibIdentifier", "ModuleIdentity", "Bits", "Counter64", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, iso, Counter64, ModuleIdentity, NotificationType, ObjectIdentity, Unsigned32, Integer32, Counter32, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "iso", "Counter64", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Unsigned32", "Integer32", "Counter32", "MibIdentifier", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
 snsProductProperty.setRevisions(('2017-02-20 00:00',))
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: snsClone.setDescription("Firewall licence 'clone' token
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
 if mibBuilder.loadTexts: snsHADialup.setDescription("Firewall licence 'HA-dialup' token")
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbPPTP=snsNbPPTP, snsSystemLanguage=snsSystemLanguage, snsNbLoopback=snsNbLoopback, snsClone=snsClone, snsNbSerial=snsNbSerial, snsSerialNumber=snsSerialNumber, snsNbDialup=snsNbDialup, PYSNMP_MODULE_ID=snsProductProperty, snsVersion=snsVersion, snsSystemName=snsSystemName, snsNbVlan=snsNbVlan, snsLed=snsLed, snsProductProperty=snsProductProperty, snsHADialup=snsHADialup, snsNbEther=snsNbEther, snsWatchdog=snsWatchdog, snsModel=snsModel)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsWatchdog=snsWatchdog, snsProductProperty=snsProductProperty, PYSNMP_MODULE_ID=snsProductProperty, snsSystemName=snsSystemName, snsSystemLanguage=snsSystemLanguage, snsNbPPTP=snsNbPPTP, snsNbVlan=snsNbVlan, snsVersion=snsVersion, snsNbSerial=snsNbSerial, snsNbLoopback=snsNbLoopback, snsClone=snsClone, snsHADialup=snsHADialup, snsNbEther=snsNbEther, snsSerialNumber=snsSerialNumber, snsNbDialup=snsNbDialup, snsLed=snsLed, snsModel=snsModel)

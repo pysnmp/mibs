@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dBridge",
-      "dot1dSr"
+      "dot1dSr",
+      "dot1dBridge"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -11,19 +11,19 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "TimeTicks",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
+      "IpAddress",
+      "Bits",
       "Integer32",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -421,8 +421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SOURCE-ROUTING-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:22:47 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:16:55 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SOURCE-ROUTING-MIB"

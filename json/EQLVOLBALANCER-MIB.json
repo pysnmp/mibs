@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlGroupId",
-      "UTFString"
+      "UTFString",
+      "eqlGroupId"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLRAID-MIB": [
-      "eqlRAIDDeviceUUID",
-      "eqlRAIDDeviceLUNIndex"
+      "eqlRAIDDeviceLUNIndex",
+      "eqlRAIDDeviceUUID"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiLocalMemberId",
-      "eqliscsiVolumeIndex"
+      "eqliscsiVolumeIndex",
+      "eqliscsiLocalMemberId"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -30,30 +30,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "Unsigned32",
       "TimeTicks",
-      "enterprises",
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
+      "iso",
+      "Integer32",
       "Opaque",
+      "Unsigned32",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "RowPointer",
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "RowStatus"
+      "DateAndTime"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:31:13 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:25:05 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

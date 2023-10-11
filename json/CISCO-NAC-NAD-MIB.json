@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "CISCO-NAC-TC-MIB": [
-      "CnnEouDeviceType",
-      "CnnEouAuthType",
       "CnnEouState",
-      "CnnEouPostureToken",
-      "CnnEouPostureTokenString"
+      "CnnEouAuthType",
+      "CnnEouDeviceType",
+      "CnnEouPostureTokenString",
+      "CnnEouPostureToken"
     ],
     "CISCO-POLICY-GROUP-MIB": [
       "CpgPolicyNameOrEmpty"
@@ -18,15 +18,15 @@
       "CiscoURLString"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressType",
       "InetPortNumber",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -37,29 +37,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter32",
       "iso",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "TruthValue",
-      "MacAddress",
-      "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TruthValue",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoNacNadMIB": {
@@ -2343,8 +2343,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NAC-NAD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:30:05 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:23:48 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-NAC-NAD-MIB"

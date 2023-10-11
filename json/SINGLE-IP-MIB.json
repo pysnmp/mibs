@@ -8,31 +8,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
       "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "RowStatus",
-      "MacAddress"
+      "RowStatus"
     ]
   },
   "swSingleIPMIB": {
@@ -1110,8 +1110,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/SINGLE-IP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:29:57 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:23:53 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SINGLE-IP-MIB"

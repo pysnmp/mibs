@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
       "iso",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -891,8 +891,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-GTSENSORS-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:43:34 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:38:29 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WISI-GTSENSORS-MIB"

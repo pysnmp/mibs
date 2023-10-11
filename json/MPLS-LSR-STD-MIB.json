@@ -5,9 +5,9 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
+      "ifGeneralInformationGroup",
       "ifCounterDiscontinuityGroup",
-      "InterfaceIndexOrZero",
-      "ifGeneralInformationGroup"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -15,41 +15,41 @@
     ],
     "MPLS-TC-STD-MIB": [
       "MplsLSPID",
-      "MplsLabel",
+      "mplsStdMIB",
       "MplsBitRate",
-      "MplsOwner",
-      "mplsStdMIB"
+      "MplsLabel",
+      "MplsOwner"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "zeroDotZero",
+      "TimeTicks",
       "Counter32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
+      "IpAddress",
+      "Bits",
       "Integer32",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "zeroDotZero",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowPointer",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "StorageType",
-      "RowStatus",
-      "RowPointer",
-      "TimeStamp"
+      "RowStatus"
     ]
   },
   "mplsLsrStdMIB": {
@@ -1830,8 +1830,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 08:22:47 2023",
-      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 09:16:55 2023",
+      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MPLS-LSR-STD-MIB"
