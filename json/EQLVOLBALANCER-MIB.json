@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "UTFString",
-      "eqlGroupId"
+      "eqlGroupId",
+      "UTFString"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLRAID-MIB": [
-      "eqlRAIDDeviceLUNIndex",
-      "eqlRAIDDeviceUUID"
+      "eqlRAIDDeviceUUID",
+      "eqlRAIDDeviceLUNIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeIndex",
-      "eqliscsiLocalMemberId"
+      "eqliscsiLocalMemberId",
+      "eqliscsiVolumeIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -30,30 +30,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "enterprises",
-      "Counter64",
+      "IpAddress",
       "iso",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "TimeTicks",
+      "enterprises",
+      "Counter32",
       "Bits",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
       "Opaque",
-      "Unsigned32",
-      "Gauge32"
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
       "TruthValue",
       "RowPointer",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:53:28 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:31:13 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

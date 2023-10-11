@@ -5,31 +5,31 @@
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Integer32",
-      "iso",
-      "TimeTicks",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Bits",
-      "Gauge32"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "juniRadiusClientMIB": {
@@ -17971,8 +17971,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-RADIUS-CLIENT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:58:35 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:36:36 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-RADIUS-CLIENT-MIB"

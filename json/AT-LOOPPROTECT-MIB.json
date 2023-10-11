@@ -14,22 +14,22 @@
     "SNMPv2-SMI": [
       "Bits",
       "iso",
-      "Unsigned32",
-      "Gauge32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
-      "Counter32"
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "atLoopProtect": {
@@ -215,8 +215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-LOOPPROTECT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:47:37 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:24:07 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AT-LOOPPROTECT-MIB"

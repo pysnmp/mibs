@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbComponentIdentifier",
-      "IEEE8021PbbComponentIdentifierOrZero",
       "IEEE8021BridgePortNumberOrZero",
       "ieee802dot1mibs",
-      "IEEE8021PriorityCodePoint",
+      "IEEE8021PbbComponentIdentifierOrZero",
       "IEEE8021BridgePortType",
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021PbbComponentIdentifier",
       "IEEE8021BridgePortNumber",
       "IEEE8021PriorityValue"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndexOrZero",
+      "ifIndex",
       "ifGeneralInformationGroup"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -28,28 +28,28 @@
       "systemGroup"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "IpAddress",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "iso"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "MacAddress",
       "TimeInterval",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021BridgeMib": {
@@ -2064,9 +2064,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:15 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:27:12 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-BRIDGE-MIB"

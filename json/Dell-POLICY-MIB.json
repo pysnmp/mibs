@@ -5,14 +5,14 @@
       "diffServClassifierEntry"
     ],
     "Dell-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList4",
-      "VlanList2",
       "VlanList3",
-      "VlanList1"
+      "VlanList4",
+      "VlanList1",
+      "VlanList2"
     ],
     "Dell-MIB": [
-      "Percents",
       "rnd",
+      "Percents",
       "VlanPriority"
     ],
     "IF-MIB": [
@@ -20,8 +20,8 @@
       "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -29,27 +29,27 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "iso",
       "Integer32",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "TimeTicks",
       "Bits",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "zeroDotZero",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "RowPointer"
+      "DisplayString",
+      "RowPointer",
+      "RowStatus"
     ]
   },
   "InterfaceType": {
@@ -5401,8 +5401,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:52:08 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:29:35 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-POLICY-MIB"

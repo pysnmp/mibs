@@ -3,38 +3,38 @@
     "class": "imports",
     "NETWORK-SERVICES-MIB": [
       "applIndex",
-      "URLString",
-      "DistinguishedName"
+      "DistinguishedName",
+      "URLString"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "mib-2",
       "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
+      "MibIdentifier",
       "Bits",
-      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "dsMIB": {
@@ -914,8 +914,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIRECTORY-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:34 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:22:46 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DIRECTORY-SERVER-MIB"

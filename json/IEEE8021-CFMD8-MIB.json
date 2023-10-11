@@ -6,10 +6,10 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
-      "LldpChassisIdSubtype",
+      "LldpPortIdSubtype",
       "LldpPortId",
-      "LldpPortIdSubtype"
+      "LldpChassisIdSubtype",
+      "LldpChassisId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
@@ -17,35 +17,35 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "Gauge32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "iso"
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TAddress",
       "TimeStamp",
+      "RowStatus",
       "TDomain",
-      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeInterval",
-      "DisplayString"
+      "TAddress",
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3166,9 +3166,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFMD8-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:15 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-CFMD8-MIB",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:25:43 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-CFMD8-MIB"

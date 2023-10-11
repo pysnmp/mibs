@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePortEntry",
       "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePortEntry",
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumberOrZero",
-      "ieee802dot1mibs",
-      "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021BridgePortNumber",
+      "IEEE8021VlanIndex",
       "IEEE8021PortAcceptableFrameTypes",
-      "IEEE8021VlanIndex"
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021VlanIndexOrWildcard",
+      "ieee802dot1mibs",
+      "IEEE8021PbbComponentIdentifier"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "RMON2-MIB": [
       "TimeFilter"
@@ -31,28 +31,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
       "Counter64",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "StorageType",
-      "MacAddress",
-      "TruthValue",
+      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "ieee8021QBridgeMib": {
@@ -2482,9 +2482,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Q-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:15 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-Q-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:41:49 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-Q-BRIDGE-MIB"

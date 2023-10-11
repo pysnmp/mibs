@@ -1,0 +1,379 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "jacquesMIB": {
+    "name": "jacquesMIB",
+    "oid": "1.3.6.1.4.1.49759",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-03-26 00:00",
+        "description": "Initial version"
+      }
+    ]
+  },
+  "jacquesMIBConformance": {
+    "name": "jacquesMIBConformance",
+    "oid": "1.3.6.1.4.1.49759.1",
+    "class": "objectidentity"
+  },
+  "jacquesScalars": {
+    "name": "jacquesScalars",
+    "oid": "1.3.6.1.4.1.49759.2",
+    "class": "objectidentity"
+  },
+  "jacquesNotify": {
+    "name": "jacquesNotify",
+    "oid": "1.3.6.1.4.1.49759.3",
+    "class": "objectidentity"
+  },
+  "jacquesAppNotifyPrePrefix": {
+    "name": "jacquesAppNotifyPrePrefix",
+    "oid": "1.3.6.1.4.1.49759.3.0",
+    "class": "objectidentity"
+  },
+  "jacquesAppNotifyPrefix": {
+    "name": "jacquesAppNotifyPrefix",
+    "oid": "1.3.6.1.4.1.49759.3.0.0",
+    "class": "objectidentity"
+  },
+  "jacquesEndpointNotifyPrePrefix": {
+    "name": "jacquesEndpointNotifyPrePrefix",
+    "oid": "1.3.6.1.4.1.49759.3.1",
+    "class": "objectidentity"
+  },
+  "jacquesEndpointNotifyPrefix": {
+    "name": "jacquesEndpointNotifyPrefix",
+    "oid": "1.3.6.1.4.1.49759.3.1.0",
+    "class": "objectidentity"
+  },
+  "jacquesMIBCompliances": {
+    "name": "jacquesMIBCompliances",
+    "oid": "1.3.6.1.4.1.49759.1.1",
+    "class": "objectidentity"
+  },
+  "jacquesMIBGroups": {
+    "name": "jacquesMIBGroups",
+    "oid": "1.3.6.1.4.1.49759.1.2",
+    "class": "objectidentity"
+  },
+  "jacquesServerName": {
+    "name": "jacquesServerName",
+    "oid": "1.3.6.1.4.1.49759.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jacquesAppUp": {
+    "name": "jacquesAppUp",
+    "oid": "1.3.6.1.4.1.49759.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jacquesTag": {
+    "name": "jacquesTag",
+    "oid": "1.3.6.1.4.1.49759.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jacquesEndpointOnline": {
+    "name": "jacquesEndpointOnline",
+    "oid": "1.3.6.1.4.1.49759.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jacquesEndpointMode": {
+    "name": "jacquesEndpointMode",
+    "oid": "1.3.6.1.4.1.49759.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "remote": 2,
+          "isolate": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jacquesEndpointAlarmType": {
+    "name": "jacquesEndpointAlarmType",
+    "oid": "1.3.6.1.4.1.49759.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jacquesEndpointAlarmState": {
+    "name": "jacquesEndpointAlarmState",
+    "oid": "1.3.6.1.4.1.49759.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jacquesJccpserverUpNotify": {
+    "name": "jacquesJccpserverUpNotify",
+    "oid": "1.3.6.1.4.1.49759.3.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesAppUp"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesEndpointOnlineNotify": {
+    "name": "jacquesEndpointOnlineNotify",
+    "oid": "1.3.6.1.4.1.49759.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesTag"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointOnline"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesEndpointModeNotify": {
+    "name": "jacquesEndpointModeNotify",
+    "oid": "1.3.6.1.4.1.49759.3.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesTag"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointMode"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesEndpointAlarmNotify": {
+    "name": "jacquesEndpointAlarmNotify",
+    "oid": "1.3.6.1.4.1.49759.3.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesTag"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointAlarmType"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesMIBCompliance": {
+    "name": "jacquesMIBCompliance",
+    "oid": "1.3.6.1.4.1.49759.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "jacquesServerGroup",
+        "module": "JACQUES-650-MIB"
+      },
+      {
+        "object": "jacquesEndpointGroup",
+        "module": "JACQUES-650-MIB"
+      },
+      {
+        "object": "jacquesServerNotifyGroup",
+        "module": "JACQUES-650-MIB"
+      },
+      {
+        "object": "jacquesEndpointNotifyGroup",
+        "module": "JACQUES-650-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesServerGroup": {
+    "name": "jacquesServerGroup",
+    "oid": "1.3.6.1.4.1.49759.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesAppUp"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesEndpointGroup": {
+    "name": "jacquesEndpointGroup",
+    "oid": "1.3.6.1.4.1.49759.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesTag"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointOnline"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointMode"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointAlarmType"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointAlarmState"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesServerNotifyGroup": {
+    "name": "jacquesServerNotifyGroup",
+    "oid": "1.3.6.1.4.1.49759.1.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesJccpserverUpNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "jacquesEndpointNotifyGroup": {
+    "name": "jacquesEndpointNotifyGroup",
+    "oid": "1.3.6.1.4.1.49759.1.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointOnlineNotify"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointModeNotify"
+      },
+      {
+        "module": "JACQUES-650-MIB",
+        "object": "jacquesEndpointAlarmNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacques/JACQUES-650-MIB",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:35:44 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "JACQUES-650-MIB"
+  }
+}

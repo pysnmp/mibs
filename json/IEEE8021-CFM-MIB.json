@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "ieee802dot1mibs",
-      "IEEE8021VlanIndex"
+      "IEEE8021VlanIndex",
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
+      "LldpPortIdSubtype",
       "LldpChassisIdSubtype",
-      "LldpPortId",
-      "LldpPortIdSubtype"
+      "LldpChassisId",
+      "LldpPortId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "iso",
       "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TAddress",
-      "TimeStamp",
-      "TDomain",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TAddress",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
       "TimeInterval",
-      "DisplayString"
+      "TDomain",
+      "TimeStamp"
     ]
   },
   "ieee8021CfmMib": {
@@ -3464,9 +3464,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 07:46:15 2023",
-      "On host fv-az622-326 platform Linux version 6.2.0-1012-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-CFM-MIB",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 08:22:47 2023",
+      "On host fv-az791-264 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-CFM-MIB"
