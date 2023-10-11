@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Unsigned32",
-      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "MibIdentifier",
-      "Integer32",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter64",
-      "Bits",
+      "Unsigned32",
+      "enterprises",
       "Counter32",
-      "MODULE-IDENTITY"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -71,8 +71,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 09:37:13 2023",
-      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 10:17:25 2023",
+      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TAIT-COMMON-MIB"

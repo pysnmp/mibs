@@ -21,25 +21,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "BITS",
+      "Bits",
       "Counter32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "iso",
       "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
       "MibIdentifier",
-      "BITS",
-      "IpAddress",
-      "Bits",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleNetwork6": {
@@ -4062,8 +4062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-Network6-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 09:22:27 2023",
-      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 10:03:22 2023",
+      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-Network6-MIB"

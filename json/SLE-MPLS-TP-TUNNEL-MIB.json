@@ -5,47 +5,47 @@
       "sleMgmt"
     ],
     "IF-MIB": [
-      "ifCounterDiscontinuityGroup",
       "ifGeneralInformationGroup",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifCounterDiscontinuityGroup"
     ],
     "MPLS-TC-EXT-STD-MIB": [
       "MplsIccId",
       "MplsCcId"
     ],
     "MPLS-TC-STD-MIB": [
-      "mplsStdMIB",
-      "MplsLabel"
+      "MplsLabel",
+      "mplsStdMIB"
     ],
     "SLE-TC-MIB": [
       "SleControlRequestResultType",
       "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "Integer32",
       "MibIdentifier",
-      "IpAddress",
+      "zeroDotZero",
       "Bits",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
       "Unsigned32",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleMplsTpTunnel": {
@@ -1050,8 +1050,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-TUNNEL-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 09:22:28 2023",
-      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 10:03:23 2023",
+      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-TUNNEL-MIB"

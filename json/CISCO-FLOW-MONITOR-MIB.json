@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "CISCO-FLOW-MONITOR-TC-MIB": [
-      "FlowMonitorIdentifier",
-      "FlowMetrics",
       "FlowMonitorAlarmGroupIdentifier",
-      "FlowSetIdentifier",
-      "FlowBitRateUnits",
-      "FlowMonitorConditionsProfileOrZero",
       "FlowMetricScale",
-      "FlowMonitorConditionIdentifier",
       "FlowMetricPrecision",
-      "FlowPointIdentifier",
-      "FlowPointType",
-      "FlowMetricValue",
+      "FlowMonitorConditionsProfileOrZero",
       "FlowMonitorConditions",
+      "FlowMetricValue",
+      "FlowMonitorConditionIdentifier",
+      "FlowMetrics",
       "FlowMonitorConditionsProfile",
-      "FlowIdentifier"
+      "FlowSetIdentifier",
+      "FlowMonitorIdentifier",
+      "FlowPointType",
+      "FlowBitRateUnits",
+      "FlowIdentifier",
+      "FlowPointIdentifier"
     ],
     "CISCO-REPORT-INTERVAL-TC-MIB": [
       "ReportIntervalCount"
@@ -40,33 +40,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter32",
       "iso",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
       "MibIdentifier",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TimeStamp",
       "DisplayString",
       "TruthValue",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "AutonomousType",
+      "RowPointer"
     ]
   },
   "ciscoFlowMonitorMIB": {
@@ -2841,8 +2841,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLOW-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 09:23:52 2023",
-      "On host fv-az453-313 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 10:04:51 2023",
+      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-FLOW-MONITOR-MIB"
