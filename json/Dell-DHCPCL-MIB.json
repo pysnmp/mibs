@@ -5,8 +5,8 @@
       "rnd"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -16,30 +16,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "IpAddress",
-      "Gauge32",
       "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlDhcpCl": {
@@ -1121,8 +1121,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DHCPCL-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:04:22 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:25:17 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-DHCPCL-MIB"

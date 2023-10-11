@@ -5,55 +5,55 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "ifGeneralInformationGroup",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifGeneralInformationGroup"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2ChassisId",
-      "LldpV2ChassisIdSubtype",
-      "LldpV2DestAddressTableIndex",
-      "LldpV2SystemCapabilitiesMap",
-      "ieee802dot1mibs",
-      "LldpV2ManAddress",
       "LldpV2ManAddrIfSubtype",
+      "LldpV2ChassisIdSubtype",
+      "LldpV2ManAddress",
+      "ieee802dot1mibs",
+      "LldpV2DestAddressTableIndex",
       "LldpV2PortId",
-      "LldpV2PortIdSubtype"
+      "LldpV2PortIdSubtype",
+      "LldpV2SystemCapabilitiesMap",
+      "LldpV2ChassisId"
     ],
     "RMON2-MIB": [
-      "TimeFilter",
-      "ZeroBasedCounter32"
+      "ZeroBasedCounter32",
+      "TimeFilter"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
       "Bits",
-      "Counter64"
+      "OBJECT-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "MacAddress",
+      "RowStatus",
       "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 09:57:12 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:18:13 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

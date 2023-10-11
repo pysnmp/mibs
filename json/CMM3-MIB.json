@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
       "Counter32",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Bits",
       "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "WHISP-GLOBAL-REG-MIB": [
       "whispCMM",
@@ -32,9 +32,9 @@
       "whispModules"
     ],
     "WHISP-TCV2-MIB": [
+      "EventString",
       "WhispMACAddress",
-      "WhispLUID",
-      "EventString"
+      "WhispLUID"
     ]
   },
   "cmmIIIMibModule": {
@@ -3601,8 +3601,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/CMM3-MIB.txt",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:00:31 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:21:20 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CMM3-MIB"

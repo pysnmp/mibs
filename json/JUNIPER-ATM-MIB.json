@@ -3,8 +3,8 @@
     "class": "imports",
     "ATM-MIB": [
       "atmInterfaceConfEntry",
-      "atmVplEntry",
-      "atmVclEntry"
+      "atmVclEntry",
+      "atmVplEntry"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -21,24 +21,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
+      "Counter32",
       "IpAddress",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "iso",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxAtm": {
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-ATM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:11:47 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:33:23 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-ATM-MIB"

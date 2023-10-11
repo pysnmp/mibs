@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks",
       "IpAddress",
       "Bits",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "TimeTicks",
       "Unsigned32",
       "Integer32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "enterprises",
-      "iso"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1240,8 +1240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wti/WTI-MPC-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:18:38 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:40:19 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WTI-MPC-MIB"

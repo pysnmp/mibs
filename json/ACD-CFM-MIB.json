@@ -5,31 +5,31 @@
       "acdMibs"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
+      "Integer32",
       "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "iso",
       "Counter32",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "DateAndTime",
       "RowStatus",
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -5280,8 +5280,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 09:57:55 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:18:55 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ACD-CFM-MIB"

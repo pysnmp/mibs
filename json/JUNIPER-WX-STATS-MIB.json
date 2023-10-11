@@ -13,24 +13,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
+      "Counter32",
       "IpAddress",
       "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxWxGrpStatsSys": {
@@ -720,8 +720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-WX-GLOBAL-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:11:47 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:33:23 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-WX-STATS-MIB"

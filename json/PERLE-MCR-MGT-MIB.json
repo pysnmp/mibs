@@ -10,27 +10,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "enterprises",
       "Integer32",
       "Unsigned32",
-      "Gauge32",
       "Bits",
-      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "IpAddress"
+      "enterprises",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DateAndTime",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "mcrMGTMIB": {
@@ -39930,8 +39930,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/perle/PERLE-MCR-MGT-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:14:41 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:36:09 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PERLE-MCR-MGT-MIB"

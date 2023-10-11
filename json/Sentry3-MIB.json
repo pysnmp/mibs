@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "iso",
       "enterprises",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sentry3": {
@@ -3388,8 +3388,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sentry/Sentry3-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:16:36 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:38:13 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Sentry3-MIB"

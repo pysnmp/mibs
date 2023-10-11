@@ -6,20 +6,20 @@
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
       "XcvrSerdesRxEmphasis",
-      "StringMaxl32",
-      "ChannelsNumber",
+      "StringMaxl16",
       "Decimal2Dig",
       "XcvrSerdesRxAmplitude",
-      "XcvrId",
       "XcvrSerdesTxEq",
-      "StringMaxl16"
+      "XcvrId",
+      "StringMaxl32",
+      "ChannelsNumber"
     ],
     "CIENA-WS-XCVR-MIB": [
-      "cwsXcvrDeviceIdEntry",
-      "cwsXcvrVendorIdEntry",
       "cwsXcvrVendorTransmitterEntry",
-      "cwsXcvrVendorDiagnosticMonitoringEntry",
-      "cwsXcvrChannelDiagnosticsEntry"
+      "cwsXcvrVendorIdEntry",
+      "cwsXcvrChannelDiagnosticsEntry",
+      "cwsXcvrDeviceIdEntry",
+      "cwsXcvrVendorDiagnosticMonitoringEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -27,25 +27,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "iso",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress"
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsXcvrPluggableMIB": {
@@ -1366,8 +1366,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-PLUGGABLE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:01:09 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:22:03 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-XCVR-PLUGGABLE-MIB"

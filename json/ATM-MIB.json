@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier",
-      "atmNoClpNoScr",
-      "AtmConnKind",
-      "AtmAddr",
-      "AtmTrafficDescrParamIndex",
-      "AtmConnCastType",
       "AtmServiceCategory",
+      "AtmVpIdentifier",
+      "AtmAddr",
       "AtmVorXAdminStatus",
+      "AtmConnCastType",
+      "AtmVcIdentifier",
+      "AtmVorXLastChange",
+      "atmNoClpNoScr",
       "AtmVorXOperStatus",
-      "AtmVorXLastChange"
+      "AtmConnKind",
+      "AtmTrafficDescrParamIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
       "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
       "MibIdentifier",
-      "Bits",
       "Counter64",
-      "TimeTicks",
       "Gauge32",
+      "TimeTicks",
       "mib-2",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:06:02 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:26:56 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"

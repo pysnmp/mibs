@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IEEE8023-LAG-MIB": [
-      "dot3adAggIndex",
-      "dot3adAggPortIndex"
+      "dot3adAggPortIndex",
+      "dot3adAggIndex"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -13,26 +13,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Counter32",
-      "iso",
-      "Bits",
+      "Counter64",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "PhysAddress",
       "TruthValue",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -592,8 +592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:12:00 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:33:22 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-TRUNK-MIB"

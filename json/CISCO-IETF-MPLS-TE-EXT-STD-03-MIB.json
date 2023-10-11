@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCO-MPLS-TC-EXT-STD-MIB": [
-      "CMplsNodeId",
+      "CMplsLocalId",
       "CMplsIccId",
       "CMplsGlobalId",
-      "CMplsLocalId"
+      "CMplsNodeId"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -16,39 +16,39 @@
       "MplsTunnelIndex"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelIngressLSRId",
       "mplsTunnelEgressLSRId",
       "mplsTunnelIndex",
+      "mplsTunnelIngressLSRId",
       "mplsTunnelInstance"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "MODULE-IDENTITY",
       "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
       "TimeTicks",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "zeroDotZero",
       "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "RowPointer",
       "StorageType"
     ]
   },
@@ -657,8 +657,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:04:46 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:25:35 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"

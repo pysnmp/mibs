@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "Counter64",
-      "TimeTicks",
+      "Integer32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ],
     "UBNT-MIB": [
-      "ubntEdgeMaxGroups",
-      "ubntMIB"
+      "ubntMIB",
+      "ubntEdgeMaxGroups"
     ]
   },
   "ubntEdgeMax": {
@@ -604,8 +604,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-EdgeMAX-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:17:50 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:39:25 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UBNT-EdgeMAX-MIB"

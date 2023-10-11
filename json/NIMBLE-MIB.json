@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Integer32",
-      "Counter64",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
+      "TimeTicks",
       "Counter32",
-      "TimeTicks"
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "nimble": {
@@ -964,8 +964,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nimble/NIMBLE-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 10:12:48 2023",
-      "On host fv-az247-435 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Wed Oct 11 11:34:19 2023",
+      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NIMBLE-MIB"
