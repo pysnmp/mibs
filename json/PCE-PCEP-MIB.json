@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
       "Counter32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Bits",
-      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "mib-2",
       "OBJECT-TYPE",
-      "Counter64"
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
       "TimeStamp"
     ]
   },
@@ -2511,8 +2511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/PCE-PCEP-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 11:33:24 2023",
-      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:23:33 2023",
+      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PCE-PCEP-MIB"

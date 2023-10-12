@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Counter64",
-      "iso",
-      "Counter32",
-      "IpAddress",
       "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Counter64",
       "MODULE-IDENTITY",
       "Bits",
+      "Unsigned32",
+      "enterprises",
+      "Counter32",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "enterprises"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
-      "MacAddress",
-      "TruthValue"
+      "MacAddress"
     ]
   },
   "peplink": {
@@ -296,8 +296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/CELLULAR",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 11:36:05 2023",
-      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:26:16 2023",
+      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CELLULAR"

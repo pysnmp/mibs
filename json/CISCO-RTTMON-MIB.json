@@ -9,18 +9,18 @@
     ],
     "CISCO-RTTMON-TC-MIB": [
       "RttMplsVpnMonLpdFailureSense",
-      "RttMplsVpnMonLpdGrpStatus",
-      "RttMonProtocol",
-      "RttResponseSense",
-      "RttReset",
+      "RttMonReactVar",
       "RttMonTargetAddress",
-      "RttMonOperation",
-      "RttMplsVpnMonRttType",
-      "RttMonRttType",
+      "RttMonProtocol",
       "RttMonScheduleStartType",
-      "RttMonLSPPingReplyMode",
+      "RttMplsVpnMonRttType",
+      "RttReset",
       "RttMonCodecType",
-      "RttMonReactVar"
+      "RttMonOperation",
+      "RttMonLSPPingReplyMode",
+      "RttResponseSense",
+      "RttMplsVpnMonLpdGrpStatus",
+      "RttMonRttType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -48,28 +48,28 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Counter32",
-      "TimeTicks",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "iso",
-      "MibIdentifier"
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString",
-      "TruthValue",
-      "TimeInterval",
-      "StorageType",
       "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "TimeStamp"
     ]
   },
@@ -12645,8 +12645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 11:25:36 2023",
-      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:16:42 2023",
+      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-RTTMON-MIB"

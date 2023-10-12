@@ -5,18 +5,18 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "hosts",
-      "history",
-      "filter",
-      "historyControlEntry",
       "matrixControlEntry",
-      "OwnerString",
       "filterEntry",
-      "channelEntry",
-      "matrix",
       "hostControlEntry",
+      "channelEntry",
+      "etherStatsEntry",
       "statistics",
-      "etherStatsEntry"
+      "history",
+      "matrix",
+      "hosts",
+      "historyControlEntry",
+      "filter",
+      "OwnerString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -24,34 +24,34 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "mib-2",
       "iso",
+      "OBJECT-TYPE",
       "IpAddress",
+      "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Gauge32",
-      "Counter32"
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TimeStamp",
       "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "TOKEN-RING-RMON-MIB": [
       "sourceRoutingStatsEntry",
-      "tokenRing",
       "tokenRingPStatsEntry",
-      "tokenRingMLStatsEntry",
-      "ringStationControlEntry"
+      "ringStationControlEntry",
+      "tokenRing",
+      "tokenRingMLStatsEntry"
     ]
   },
   "rmon": {
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 11:19:33 2023",
-      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:10:41 2023",
+      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"

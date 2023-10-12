@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmServiceCategory",
+      "AtmConnKind",
       "AtmVpIdentifier",
-      "AtmAddr",
-      "AtmVorXAdminStatus",
+      "AtmVorXOperStatus",
+      "AtmServiceCategory",
+      "AtmVorXLastChange",
       "AtmConnCastType",
       "AtmVcIdentifier",
-      "AtmVorXLastChange",
       "atmNoClpNoScr",
-      "AtmVorXOperStatus",
-      "AtmConnKind",
-      "AtmTrafficDescrParamIndex"
+      "AtmAddr",
+      "AtmTrafficDescrParamIndex",
+      "AtmVorXAdminStatus"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Counter32",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks",
       "mib-2",
+      "iso",
       "OBJECT-TYPE",
-      "Bits"
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 11:26:56 2023",
-      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:17:56 2023",
+      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"

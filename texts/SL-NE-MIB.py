@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SL-NE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-NE-MIB
-# Produced by pysmi-1.1.8 at Wed Oct 11 11:35:36 2023
-# On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 08:25:49 2023
+# On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Gauge32, Counter64, Bits, NotificationType, enterprises, Unsigned32, Counter32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, MibIdentifier, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "Counter64", "Bits", "NotificationType", "enterprises", "Unsigned32", "Counter32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "MibIdentifier", "Integer32", "TimeTicks")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+ObjectIdentity, NotificationType, enterprises, Counter64, ModuleIdentity, iso, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, Unsigned32, IpAddress, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "enterprises", "Counter64", "ModuleIdentity", "iso", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "Unsigned32", "IpAddress", "Integer32", "TimeTicks")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 packetlight = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515))
 if mibBuilder.loadTexts: packetlight.setLastUpdated('200009260000Z')
 if mibBuilder.loadTexts: packetlight.setOrganization('PacketLight Networks Ltd.')
@@ -53,4 +53,4 @@ pl1000tn = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 1000, 5))
 pl2000r = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2000))
 pl2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 100, 1, 2000, 1))
 slService = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 1))
-mibBuilder.exportSymbols("SL-NE-MIB", pl1000=pl1000, pl10H=pl10H, pl404r=pl404r, PYSNMP_MODULE_ID=packetlight, pl408r=pl408r, pl1000em=pl1000em, pl400r=pl400r, pl20=pl20, pl100E=pl100E, pl10=pl10, pl1000ro=pl1000ro, pl100FT=pl100FT, pl100F=pl100F, pl10F=pl10F, pl2000r=pl2000r, packetlight=packetlight, pl400x=pl400x, sitelight=sitelight, pl200=pl200, pl100EFG=pl100EFG, pl400e=pl400e, pl1000tn=pl1000tn, ploptoI=ploptoI, plproduct=plproduct, pl20F=pl20F, slService=slService, pl100=pl100, pl100FG=pl100FG, plne=plne, pl2000=pl2000, pl20H=pl20H, pl1000r=pl1000r, pl100EF=pl100EF, pl1000e=pl1000e, ploptoXB=ploptoXB, plopto=plopto, ploptoX=ploptoX, pl400=pl400)
+mibBuilder.exportSymbols("SL-NE-MIB", pl400x=pl400x, plproduct=plproduct, pl100E=pl100E, pl100F=pl100F, pl20F=pl20F, pl10H=pl10H, packetlight=packetlight, pl1000r=pl1000r, pl100FG=pl100FG, pl400r=pl400r, pl100EFG=pl100EFG, pl100FT=pl100FT, pl20=pl20, sitelight=sitelight, plne=plne, pl1000em=pl1000em, pl1000tn=pl1000tn, slService=slService, pl100=pl100, pl2000r=pl2000r, pl1000ro=pl1000ro, pl408r=pl408r, pl200=pl200, pl100EF=pl100EF, ploptoXB=ploptoXB, PYSNMP_MODULE_ID=packetlight, pl400=pl400, pl10F=pl10F, pl400e=pl400e, pl2000=pl2000, pl404r=pl404r, plopto=plopto, ploptoI=ploptoI, pl10=pl10, pl1000e=pl1000e, ploptoX=ploptoX, pl20H=pl20H, pl1000=pl1000)

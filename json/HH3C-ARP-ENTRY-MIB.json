@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "Counter32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Unsigned32",
-      "MibIdentifier",
+      "Counter32",
       "MODULE-IDENTITY",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -60,8 +60,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-ARP-ENTRY-MIB",
-      "Produced by pysmi-1.1.8 at Wed Oct 11 11:22:50 2023",
-      "On host fv-az456-991 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:13:52 2023",
+      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-ARP-ENTRY-MIB"
