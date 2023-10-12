@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BEGEMOT-HOSTRES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-HOSTRES-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:26:19 2023
-# On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 09:02:53 2023
+# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 begemot, = mibBuilder.importSymbols("BEGEMOT-MIB", "begemot")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Gauge32, Unsigned32, ModuleIdentity, Bits, Counter64, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, Integer32, MibIdentifier, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "Unsigned32", "ModuleIdentity", "Bits", "Counter64", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "Integer32", "MibIdentifier", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, Integer32, Bits, NotificationType, IpAddress, ModuleIdentity, Gauge32, Unsigned32, TimeTicks, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "Integer32", "Bits", "NotificationType", "IpAddress", "ModuleIdentity", "Gauge32", "Unsigned32", "TimeTicks", "Counter64", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 begemotHostres = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 202))
 if mibBuilder.loadTexts: begemotHostres.setLastUpdated('200601030000Z')
 if mibBuilder.loadTexts: begemotHostres.setOrganization('German Aerospace Center')
@@ -39,4 +39,4 @@ if mibBuilder.loadTexts: begemotHrSWRunUpdate.setDescription('The maximum number
 begemotHrPkgDir = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 202, 1, 7), OctetString().clone('/var/db/pkg')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: begemotHrPkgDir.setStatus('current')
 if mibBuilder.loadTexts: begemotHrPkgDir.setDescription('The path to the package DB directory.')
-mibBuilder.exportSymbols("BEGEMOT-HOSTRES-MIB", begemotHrSWRunUpdate=begemotHrSWRunUpdate, begemotHrDiskStorageUpdate=begemotHrDiskStorageUpdate, begemotHostres=begemotHostres, begemotHrFSUpdate=begemotHrFSUpdate, PYSNMP_MODULE_ID=begemotHostres, begemotHrNetworkUpdate=begemotHrNetworkUpdate, begemotHostresObjects=begemotHostresObjects, begemotHrStorageUpdate=begemotHrStorageUpdate, begemotHrPkgDir=begemotHrPkgDir, begemotHrSWInstalledUpdate=begemotHrSWInstalledUpdate)
+mibBuilder.exportSymbols("BEGEMOT-HOSTRES-MIB", begemotHrFSUpdate=begemotHrFSUpdate, begemotHrStorageUpdate=begemotHrStorageUpdate, begemotHrNetworkUpdate=begemotHrNetworkUpdate, begemotHrSWRunUpdate=begemotHrSWRunUpdate, begemotHostresObjects=begemotHostresObjects, PYSNMP_MODULE_ID=begemotHostres, begemotHostres=begemotHostres, begemotHrSWInstalledUpdate=begemotHrSWInstalledUpdate, begemotHrPkgDir=begemotHrPkgDir, begemotHrDiskStorageUpdate=begemotHrDiskStorageUpdate)

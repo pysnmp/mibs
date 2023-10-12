@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-TX-QUEUE-ARBITRATION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-TX-QUEUE-ARBITRATION-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:17:44 2023
-# On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 08:54:40 2023
+# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
 ctTxQArb, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctTxQArb")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Bits, MibIdentifier, ModuleIdentity, Unsigned32, Counter64, Counter32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, ObjectIdentity, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "MibIdentifier", "ModuleIdentity", "Unsigned32", "Counter64", "Counter32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "ObjectIdentity", "NotificationType", "iso")
+Counter64, NotificationType, Unsigned32, ModuleIdentity, Integer32, Counter32, iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, Gauge32, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "NotificationType", "Unsigned32", "ModuleIdentity", "Integer32", "Counter32", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "Gauge32", "IpAddress", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctTxQArbConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 1))
 ctTxQBufferConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 2))
@@ -33,4 +33,4 @@ ctTxQArbSetting = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 1, 2, 1, 4)
 if mibBuilder.loadTexts: ctTxQArbSetting.setStatus('mandatory')
 ctTxQBufferOptimizeEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 12, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctTxQBufferOptimizeEnable.setStatus('optional')
-mibBuilder.exportSymbols("CTRON-TX-QUEUE-ARBITRATION-MIB", ctTxQArbSetting=ctTxQArbSetting, ctTxQPortGroup=ctTxQPortGroup, ctTxQBufferOptimizeEnable=ctTxQBufferOptimizeEnable, ctTxQArbConfig=ctTxQArbConfig, ctTxQPortGroupMapTable=ctTxQPortGroupMapTable, ctTxQArbTable=ctTxQArbTable, ctTxQBufferConfig=ctTxQBufferConfig, ctTxQArbEntry=ctTxQArbEntry, ctTxQArbNumQueues=ctTxQArbNumQueues, ctTxQArbNumSlices=ctTxQArbNumSlices, ctTxQPortGroupEntry=ctTxQPortGroupEntry)
+mibBuilder.exportSymbols("CTRON-TX-QUEUE-ARBITRATION-MIB", ctTxQBufferConfig=ctTxQBufferConfig, ctTxQPortGroupEntry=ctTxQPortGroupEntry, ctTxQArbNumQueues=ctTxQArbNumQueues, ctTxQArbSetting=ctTxQArbSetting, ctTxQBufferOptimizeEnable=ctTxQBufferOptimizeEnable, ctTxQArbTable=ctTxQArbTable, ctTxQArbNumSlices=ctTxQArbNumSlices, ctTxQPortGroup=ctTxQPortGroup, ctTxQPortGroupMapTable=ctTxQPortGroupMapTable, ctTxQArbEntry=ctTxQArbEntry, ctTxQArbConfig=ctTxQArbConfig)

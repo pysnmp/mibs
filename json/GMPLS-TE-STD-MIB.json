@@ -15,22 +15,22 @@
       "mplsStdMIB"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelCHopIndex",
-      "mplsTunnelGroup",
-      "mplsTunnelCHopListIndex",
-      "mplsTunnelIndex",
-      "mplsTunnelARHopListIndex",
-      "mplsTunnelARHopIndex",
-      "mplsTunnelHopIndex",
-      "mplsTunnelOperStatus",
-      "mplsTunnelScalarGroup",
-      "mplsTunnelInstance",
-      "mplsTunnelAdminStatus",
-      "mplsTunnelHopListIndex",
       "mplsTunnelIngressLSRId",
-      "mplsTunnelEgressLSRId",
+      "mplsTunnelARHopListIndex",
+      "mplsTunnelOperStatus",
+      "mplsTunnelIndex",
+      "mplsTunnelEntry",
+      "mplsTunnelHopIndex",
       "mplsTunnelHopPathOptionIndex",
-      "mplsTunnelEntry"
+      "mplsTunnelARHopIndex",
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelHopListIndex",
+      "mplsTunnelGroup",
+      "mplsTunnelCHopIndex",
+      "mplsTunnelScalarGroup",
+      "mplsTunnelAdminStatus",
+      "mplsTunnelCHopListIndex",
+      "mplsTunnelInstance"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -41,27 +41,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
       "Counter64",
-      "Integer32",
-      "zeroDotZero",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "zeroDotZero",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
       "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowPointer"
     ]
   },
@@ -1391,8 +1391,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-TE-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:23:33 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:33 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GMPLS-TE-STD-MIB"

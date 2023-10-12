@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Bits",
       "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "IpAddress",
-      "Integer32",
+      "NOTIFICATION-TYPE",
       "iso",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits"
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "MacAddress"
     ]
   },
   "huaweiTCMIB": {
@@ -10352,8 +10352,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:20:46 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:57:28 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-TC-MIB"

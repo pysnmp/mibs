@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module JACQUES-650-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacques/JACQUES-650-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:22:29 2023
-# On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 08:59:23 2023
+# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Integer32, TimeTicks, enterprises, ObjectIdentity, Bits, ModuleIdentity, Counter32, Gauge32, Unsigned32, IpAddress, MibIdentifier, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "enterprises", "ObjectIdentity", "Bits", "ModuleIdentity", "Counter32", "Gauge32", "Unsigned32", "IpAddress", "MibIdentifier", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+IpAddress, MibIdentifier, TimeTicks, Integer32, NotificationType, Counter64, ObjectIdentity, Unsigned32, ModuleIdentity, Counter32, iso, Gauge32, enterprises, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "TimeTicks", "Integer32", "NotificationType", "Counter64", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "Counter32", "iso", "Gauge32", "enterprises", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
 jacquesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 49759))
 jacquesMIB.setRevisions(('2017-03-26 00:00',))
 
@@ -84,4 +84,4 @@ jacquesEndpointNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 49759, 1, 2, 4
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     jacquesEndpointNotifyGroup = jacquesEndpointNotifyGroup.setStatus('current')
 if mibBuilder.loadTexts: jacquesEndpointNotifyGroup.setDescription('The Jacques 650 System Endpoint Notifications Group')
-mibBuilder.exportSymbols("JACQUES-650-MIB", jacquesEndpointOnline=jacquesEndpointOnline, PYSNMP_MODULE_ID=jacquesMIB, jacquesEndpointNotifyPrefix=jacquesEndpointNotifyPrefix, jacquesServerName=jacquesServerName, jacquesTag=jacquesTag, jacquesEndpointGroup=jacquesEndpointGroup, jacquesServerGroup=jacquesServerGroup, jacquesEndpointAlarmType=jacquesEndpointAlarmType, jacquesEndpointAlarmNotify=jacquesEndpointAlarmNotify, jacquesEndpointOnlineNotify=jacquesEndpointOnlineNotify, jacquesMIBCompliances=jacquesMIBCompliances, jacquesScalars=jacquesScalars, jacquesNotify=jacquesNotify, jacquesMIBCompliance=jacquesMIBCompliance, jacquesMIBGroups=jacquesMIBGroups, jacquesEndpointModeNotify=jacquesEndpointModeNotify, jacquesMIBConformance=jacquesMIBConformance, jacquesAppNotifyPrePrefix=jacquesAppNotifyPrePrefix, jacquesMIB=jacquesMIB, jacquesEndpointAlarmState=jacquesEndpointAlarmState, jacquesServerNotifyGroup=jacquesServerNotifyGroup, jacquesEndpointMode=jacquesEndpointMode, jacquesAppUp=jacquesAppUp, jacquesJccpserverUpNotify=jacquesJccpserverUpNotify, jacquesEndpointNotifyGroup=jacquesEndpointNotifyGroup, jacquesAppNotifyPrefix=jacquesAppNotifyPrefix, jacquesEndpointNotifyPrePrefix=jacquesEndpointNotifyPrePrefix)
+mibBuilder.exportSymbols("JACQUES-650-MIB", jacquesEndpointModeNotify=jacquesEndpointModeNotify, jacquesEndpointOnlineNotify=jacquesEndpointOnlineNotify, jacquesEndpointAlarmState=jacquesEndpointAlarmState, jacquesJccpserverUpNotify=jacquesJccpserverUpNotify, jacquesEndpointAlarmNotify=jacquesEndpointAlarmNotify, jacquesMIBConformance=jacquesMIBConformance, jacquesMIB=jacquesMIB, jacquesTag=jacquesTag, PYSNMP_MODULE_ID=jacquesMIB, jacquesAppNotifyPrefix=jacquesAppNotifyPrefix, jacquesEndpointMode=jacquesEndpointMode, jacquesServerName=jacquesServerName, jacquesMIBCompliance=jacquesMIBCompliance, jacquesAppNotifyPrePrefix=jacquesAppNotifyPrePrefix, jacquesEndpointAlarmType=jacquesEndpointAlarmType, jacquesEndpointGroup=jacquesEndpointGroup, jacquesServerNotifyGroup=jacquesServerNotifyGroup, jacquesEndpointNotifyPrePrefix=jacquesEndpointNotifyPrePrefix, jacquesEndpointOnline=jacquesEndpointOnline, jacquesEndpointNotifyPrefix=jacquesEndpointNotifyPrefix, jacquesMIBGroups=jacquesMIBGroups, jacquesScalars=jacquesScalars, jacquesNotify=jacquesNotify, jacquesServerGroup=jacquesServerGroup, jacquesAppUp=jacquesAppUp, jacquesEndpointNotifyGroup=jacquesEndpointNotifyGroup, jacquesMIBCompliances=jacquesMIBCompliances)

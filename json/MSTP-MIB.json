@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
+      "dot1dBridge",
       "BridgeId",
-      "Timeout",
-      "dot1dBridge"
+      "Timeout"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
       "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mstpMib": {
@@ -900,8 +900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MSTP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:09:41 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:47:51 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MSTP-MIB"

@@ -5,44 +5,44 @@
       "f10Experiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetPortNumber",
       "InetAddress",
+      "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
       "Counter32",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowPointer",
       "RowStatus",
       "StorageType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowPointer"
     ]
   },
   "f10BgpM2": {
@@ -4298,8 +4298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-BGP4-V2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:16:13 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:53:28 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FORCE10-BGP4-V2-MIB"

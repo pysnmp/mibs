@@ -5,49 +5,49 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifAlias",
-      "ifIndex"
+      "ifIndex",
+      "ifAlias"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
       "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfTotalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "iso",
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
       "OBJECT-TYPE",
-      "enterprises"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
-      "RowPointer"
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "MacAddress": {
@@ -1396,8 +1396,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/RAD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:25:51 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:02:27 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAD-MIB"

@@ -10,30 +10,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "mib-2",
-      "IpAddress",
-      "Bits",
-      "iso",
       "TimeTicks",
-      "enterprises",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "iso",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "zeroDotZero",
+      "enterprises",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
       "Integer32",
       "OBJECT-TYPE",
-      "zeroDotZero",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "Counter32",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
+      "TimeStamp",
       "RowPointer",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TRANSPORT-ADDRESS-MIB": [
       "TransportAddress",
@@ -1850,8 +1850,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPVC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:21:36 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:58:45 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPVC-MIB"

@@ -16,32 +16,32 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "mib-2",
-      "snmpModules",
-      "iso",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
       "Unsigned32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "enterprises",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TestAndIncr",
-      "RowStatus",
-      "DateAndTime",
-      "TimeStamp",
+      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "advaMIB": {
@@ -8014,8 +8014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:10:40 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:48:39 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADVA-MIB"

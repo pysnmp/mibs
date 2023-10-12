@@ -5,46 +5,46 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressIPv6",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressIPv6",
+      "InetAddressType"
     ],
     "OSPF-MIB": [
-      "Metric",
-      "BigMetric",
-      "HelloRange",
       "DesignatedRouterPriority",
-      "Status"
+      "HelloRange",
+      "BigMetric",
+      "Status",
+      "Metric"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "mib-2",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
       "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
       "Counter32",
       "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DisplayString",
-      "TruthValue",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "ospfv3MIB": {
@@ -4236,9 +4236,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/OSPFV3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:09:42 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/OSPFV3-MIB",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:58:46 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OSPFV3-MIB"

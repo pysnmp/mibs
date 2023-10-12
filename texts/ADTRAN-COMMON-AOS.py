@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADTRAN-COMMON-AOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-COMMON-AOS
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:09:58 2023
-# On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 08:48:07 2023
+# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-adGenAOSCommon, adGenAOS = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSCommon", "adGenAOS")
+adGenAOS, adGenAOSCommon = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOS", "adGenAOSCommon")
 adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Integer32, ObjectIdentity, Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, MibIdentifier, Unsigned32, NotificationType, ModuleIdentity, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "ObjectIdentity", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "MibIdentifier", "Unsigned32", "NotificationType", "ModuleIdentity", "Bits", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32, Counter32, MibIdentifier, Gauge32, Unsigned32, ModuleIdentity, Bits, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32", "Counter32", "MibIdentifier", "Gauge32", "Unsigned32", "ModuleIdentity", "Bits", "TimeTicks", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSCommonMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 53, 1))
 adGenAOSCommonMib.setRevisions(('2015-01-05 00:00', '2014-11-05 22:05', '2014-09-10 00:00', '2013-08-23 00:00', '2007-08-23 00:00',))
 
@@ -33,4 +33,4 @@ adGenAOSFan = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 8))
 adGenAOSNetSync = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 9))
 adGenAOSOverTempProtection = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10))
 adGenAOSDyingGasp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 11))
-mibBuilder.exportSymbols("ADTRAN-COMMON-AOS", adGenAOSDyingGasp=adGenAOSDyingGasp, adGenAOSCommonMib=adGenAOSCommonMib, adAOSDownload=adAOSDownload, adGenAOSOverTempProtection=adGenAOSOverTempProtection, PYSNMP_MODULE_ID=adGenAOSCommonMib, adGenAOSNetSync=adGenAOSNetSync, adGenAosIfPerfHistory=adGenAosIfPerfHistory, adGenAOSMux=adGenAOSMux, adGenAOSUnit=adGenAOSUnit, adGenAOSFileSystem=adGenAOSFileSystem, adGenAOSFan=adGenAOSFan, adGenAOSSnmp=adGenAOSSnmp, adGenAOSCpuUtil=adGenAOSCpuUtil)
+mibBuilder.exportSymbols("ADTRAN-COMMON-AOS", adGenAOSUnit=adGenAOSUnit, adGenAOSCpuUtil=adGenAOSCpuUtil, adGenAOSNetSync=adGenAOSNetSync, adGenAOSMux=adGenAOSMux, adGenAOSCommonMib=adGenAOSCommonMib, adGenAOSSnmp=adGenAOSSnmp, adGenAOSFileSystem=adGenAOSFileSystem, adAOSDownload=adAOSDownload, adGenAOSOverTempProtection=adGenAOSOverTempProtection, PYSNMP_MODULE_ID=adGenAOSCommonMib, adGenAOSFan=adGenAOSFan, adGenAosIfPerfHistory=adGenAosIfPerfHistory, adGenAOSDyingGasp=adGenAOSDyingGasp)

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-CIMOM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-CIMOM-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:30:00 2023
-# On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 09:06:11 2023
+# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, ModuleIdentity, Bits, iso, Counter64, MibIdentifier, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Unsigned32, IpAddress, Gauge32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "Bits", "iso", "Counter64", "MibIdentifier", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Unsigned32", "IpAddress", "Gauge32", "ObjectIdentity")
+Gauge32, ModuleIdentity, iso, IpAddress, Counter64, TimeTicks, MibIdentifier, Bits, ObjectIdentity, Unsigned32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "iso", "IpAddress", "Counter64", "TimeTicks", "MibIdentifier", "Bits", "ObjectIdentity", "Unsigned32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwEnvIndicationTime, = mibBuilder.importSymbols("VMWARE-ENV-MIB", "vmwEnvIndicationTime")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
@@ -39,4 +39,4 @@ vmwCimOmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 90, 2,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwCimOmNotificationGroup = vmwCimOmNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwCimOmNotificationGroup.setDescription('Notifications related to CIM Object Manager subsystem.')
-mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOm=vmwCimOm, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCimOmMIBGroups=vmwCimOmMIBGroups)
+mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmHeartbeat=vmwCimOmHeartbeat, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOm=vmwCimOm, vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmNotifications=vmwCimOmNotifications)

@@ -13,13 +13,13 @@
       "jnxMibs"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLdpLabelType",
-      "MplsLdpIdentifier",
       "MplsLabelDistributionMethod",
+      "MplsLdpIdentifier",
       "MplsLsrIdentifier",
+      "MplsLdpLabelType",
+      "MplsRetentionMode",
       "MplsLabel",
-      "MplsLspType",
-      "MplsRetentionMode"
+      "MplsLspType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -27,30 +27,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
       "Counter64",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
-      "StorageType",
       "DisplayString",
       "TimeStamp",
-      "RowPointer",
-      "TimeInterval"
+      "TruthValue",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType",
+      "RowPointer"
     ]
   },
   "jnxMplsLdpMIB": {
@@ -2014,8 +2014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:23:33 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:32 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-MPLS-LDP-MIB"

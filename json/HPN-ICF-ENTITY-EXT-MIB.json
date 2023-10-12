@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
+      "entPhysicalName",
       "entPhysicalIndex",
-      "entPhysicalDescr",
-      "entPhysicalName"
+      "entPhysicalDescr"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -21,25 +21,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "iso",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
       "Integer32",
       "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "Counter32",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
       "DateAndTime",
+      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2316,8 +2316,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-ENTITY-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:21:35 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 08:58:44 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-ENTITY-EXT-MIB"

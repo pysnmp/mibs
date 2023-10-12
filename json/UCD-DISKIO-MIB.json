@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Counter64",
-      "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Integer32",
-      "Counter32"
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "UCD-SNMP-MIB": [
       "ucdExperimental"
@@ -254,8 +254,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-DISKIO-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:24:27 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:01:18 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UCD-DISKIO-MIB"

@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Counter32",
       "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
       "Bits",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -712,8 +712,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PMG828-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:28:22 2023",
-      "On host fv-az585-225 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:04:49 2023",
+      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-PMG828-MIB"
