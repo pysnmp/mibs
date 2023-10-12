@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OG-HOST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-HOST-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:02:00 2023
-# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 09:11:47 2023
+# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, iso, Bits, Unsigned32, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, TimeTicks, Counter64, ObjectIdentity, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "Bits", "Unsigned32", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "TimeTicks", "Counter64", "ObjectIdentity", "Integer32", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Integer32, Counter32, Bits, TimeTicks, Counter64, MibIdentifier, NotificationType, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Integer32", "Counter32", "Bits", "TimeTicks", "Counter64", "MibIdentifier", "NotificationType", "Gauge32", "Unsigned32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ogHostMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 14))
 ogHostMib.setRevisions(('2013-08-11 00:00', '2010-03-22 11:27', '2008-11-27 11:40',))
 if mibBuilder.loadTexts: ogHostMib.setLastUpdated('201308110000Z')
@@ -53,4 +53,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 oghostNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 14, 3, 2, 2)).setObjects(("OG-HOST-MIB", "oghostEventOccurred"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     oghostNotificationsGroup = oghostNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("OG-HOST-MIB", oghostEventType=oghostEventType, ogHostMibCompliance=ogHostMibCompliance, oghostEventOccurred=oghostEventOccurred, oghostEventPort=oghostEventPort, ogHostMibNotificationPrefix=ogHostMibNotificationPrefix, oghostEventTable=oghostEventTable, oghostEventIndex=oghostEventIndex, oghostEventUsername=oghostEventUsername, ogHostMibConformance=ogHostMibConformance, oghostEvent=oghostEvent, PYSNMP_MODULE_ID=ogHostMib, oghostEventProtocol=oghostEventProtocol, ogHostMibObjects=ogHostMibObjects, ogHostMibGroups=ogHostMibGroups, ogHostMib=ogHostMib, oghostEventEntry=oghostEventEntry, oghostEventDescription=oghostEventDescription, ogHostMibGroup=ogHostMibGroup, oghostNotificationsGroup=oghostNotificationsGroup, oghostMibNotifications=oghostMibNotifications, ogHostMibCompliances=ogHostMibCompliances, oghostEventAddress=oghostEventAddress)
+mibBuilder.exportSymbols("OG-HOST-MIB", oghostEventType=oghostEventType, oghostEventAddress=oghostEventAddress, oghostEventEntry=oghostEventEntry, oghostNotificationsGroup=oghostNotificationsGroup, oghostEventTable=oghostEventTable, ogHostMibGroups=ogHostMibGroups, oghostEventProtocol=oghostEventProtocol, ogHostMibGroup=ogHostMibGroup, ogHostMibCompliances=ogHostMibCompliances, oghostEventPort=oghostEventPort, oghostEventOccurred=oghostEventOccurred, ogHostMib=ogHostMib, ogHostMibNotificationPrefix=ogHostMibNotificationPrefix, oghostEventUsername=oghostEventUsername, ogHostMibConformance=ogHostMibConformance, oghostEvent=oghostEvent, ogHostMibObjects=ogHostMibObjects, oghostEventIndex=oghostEventIndex, oghostMibNotifications=oghostMibNotifications, oghostEventDescription=oghostEventDescription, PYSNMP_MODULE_ID=ogHostMib, ogHostMibCompliance=ogHostMibCompliance)

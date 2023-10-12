@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "CISCO-FLOW-MONITOR-TC-MIB": [
+      "FlowBitRateUnits",
+      "FlowMonitorConditionsProfile",
+      "FlowMonitorConditionIdentifier",
+      "FlowIdentifier",
+      "FlowMetricScale",
+      "FlowMonitorConditionsProfileOrZero",
+      "FlowSetIdentifier",
+      "FlowPointIdentifier",
+      "FlowMonitorAlarmGroupIdentifier",
       "FlowMonitorIdentifier",
       "FlowMetricPrecision",
-      "FlowPointIdentifier",
-      "FlowIdentifier",
-      "FlowMonitorConditionIdentifier",
-      "FlowBitRateUnits",
+      "FlowMetricValue",
       "FlowPointType",
       "FlowMonitorConditions",
-      "FlowMonitorAlarmGroupIdentifier",
-      "FlowMetrics",
-      "FlowSetIdentifier",
-      "FlowMonitorConditionsProfileOrZero",
-      "FlowMetricScale",
-      "FlowMetricValue",
-      "FlowMonitorConditionsProfile"
+      "FlowMetrics"
     ],
     "CISCO-REPORT-INTERVAL-TC-MIB": [
       "ReportIntervalCount"
@@ -25,13 +25,13 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Layer2Cos",
-      "CiscoAlarmSeverity"
+      "CiscoAlarmSeverity",
+      "Layer2Cos"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -40,33 +40,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "DisplayString",
-      "TruthValue",
-      "TimeStamp",
       "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoFlowMonitorMIB": {
@@ -2841,8 +2841,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLOW-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:53:46 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:05:57 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-FLOW-MONITOR-MIB"

@@ -6,30 +6,30 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "iso",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
+      "Integer32",
       "Bits",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
       "Counter32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DateAndTime"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "acdDiscovery": {
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-DISCOVERY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:48:06 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:54 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ACD-DISCOVERY-MIB"

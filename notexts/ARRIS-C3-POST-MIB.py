@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ARRIS-C3-POST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-POST-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:49:08 2023
-# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 09:01:53 2023
+# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, iso, Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, ModuleIdentity, Counter32, TimeTicks, IpAddress, Unsigned32, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "ModuleIdentity", "Counter32", "TimeTicks", "IpAddress", "Unsigned32", "Integer32", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, NotificationType, ObjectIdentity, Gauge32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, IpAddress, Counter32, iso, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "ObjectIdentity", "Gauge32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "IpAddress", "Counter32", "iso", "ModuleIdentity", "Bits")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cmtsC3POSTMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13))
 if mibBuilder.loadTexts: cmtsC3POSTMIB.setLastUpdated('200403300000Z')
 if mibBuilder.loadTexts: cmtsC3POSTMIB.setOrganization('Arris International')
@@ -38,4 +38,4 @@ dcx3212POSTDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1,
 if mibBuilder.loadTexts: dcx3212POSTDescr.setStatus('current')
 dcx3212POSTResult = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("passed", 0), ("failed", 1), ("skipped", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dcx3212POSTResult.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-POST-MIB", dcx3212POSTTable=dcx3212POSTTable, PYSNMP_MODULE_ID=cmtsC3POSTMIB, dcx3212POSTGroup=dcx3212POSTGroup, dcxPOSTObjects=dcxPOSTObjects, dcxCPUWANPOSTDescr=dcxCPUWANPOSTDescr, dcxCPUWANPOSTResult=dcxCPUWANPOSTResult, dcxCPUWANPOSTEntry=dcxCPUWANPOSTEntry, dcx3212POSTDescr=dcx3212POSTDescr, dcx3212POSTResult=dcx3212POSTResult, dcxCPUWANPOSTTable=dcxCPUWANPOSTTable, dcxCPUWANPOSTGroup=dcxCPUWANPOSTGroup, dcx3212POSTEntry=dcx3212POSTEntry, dcx3212POSTType=dcx3212POSTType, cmtsC3POSTMIB=cmtsC3POSTMIB, dcxCPUWANPOSTType=dcxCPUWANPOSTType)
+mibBuilder.exportSymbols("ARRIS-C3-POST-MIB", cmtsC3POSTMIB=cmtsC3POSTMIB, dcx3212POSTTable=dcx3212POSTTable, dcxCPUWANPOSTEntry=dcxCPUWANPOSTEntry, PYSNMP_MODULE_ID=cmtsC3POSTMIB, dcxCPUWANPOSTDescr=dcxCPUWANPOSTDescr, dcx3212POSTEntry=dcx3212POSTEntry, dcxCPUWANPOSTType=dcxCPUWANPOSTType, dcx3212POSTGroup=dcx3212POSTGroup, dcx3212POSTType=dcx3212POSTType, dcxCPUWANPOSTTable=dcxCPUWANPOSTTable, dcx3212POSTDescr=dcx3212POSTDescr, dcx3212POSTResult=dcx3212POSTResult, dcxPOSTObjects=dcxPOSTObjects, dcxCPUWANPOSTGroup=dcxCPUWANPOSTGroup, dcxCPUWANPOSTResult=dcxCPUWANPOSTResult)

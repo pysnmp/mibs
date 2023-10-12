@@ -2,43 +2,43 @@
   "imports": {
     "class": "imports",
     "IEEE8023-LAG-MIB": [
-      "dot3adAggPortListPorts",
-      "dot3adAggPortActorAdminKey"
+      "dot3adAggPortActorAdminKey",
+      "dot3adAggPortListPorts"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
-      "sysLocation"
+      "sysLocation",
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Gauge32",
-      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
       "Integer32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "RowStatus",
       "DisplayString",
-      "MacAddress",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "WWP-SMI": [
-      "wwpModulesLeos",
-      "wwpModules"
+      "wwpModules",
+      "wwpModulesLeos"
     ]
   },
   "wwpLeosPortMIB": {
@@ -2012,8 +2012,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WWP-LEOS-PORT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:50:44 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:03:13 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WWP-LEOS-PORT-MIB"

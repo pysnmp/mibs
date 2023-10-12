@@ -8,10 +8,10 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength",
       "InetZoneIndex",
+      "InetAddressPrefixLength",
+      "InetAddress",
       "InetVersion"
     ],
     "IP-MIB": [
@@ -19,38 +19,38 @@
       "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "mib-2",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
       "zeroDotZero",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "TimeTicks",
-      "mib-2"
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "TestAndIncr",
       "PhysAddress",
-      "RowStatus",
       "StorageType",
       "TimeStamp",
-      "DisplayString",
-      "TestAndIncr",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "RowPointer"
+      "RowPointer",
+      "RowStatus"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:53:29 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:05:30 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-rlIP-MIB"

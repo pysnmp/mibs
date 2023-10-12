@@ -5,51 +5,51 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "ifCounterDiscontinuityGroup",
-      "ifGeneralInformationGroup",
-      "InterfaceIndexOrZero"
+      "ifGeneralInformationGroup"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "MPLS-TC-STD-MIB": [
-      "mplsStdMIB",
       "MplsLabel",
-      "MplsLSPID",
       "MplsBitRate",
-      "MplsOwner"
+      "MplsOwner",
+      "MplsLSPID",
+      "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "zeroDotZero",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
       "Counter64",
       "iso",
       "Integer32",
-      "zeroDotZero",
-      "Unsigned32",
       "TimeTicks",
+      "Bits",
       "MibIdentifier",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "RowPointer",
-      "DisplayString",
       "TruthValue",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "RowPointer",
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "mplsLsrStdMIB": {
@@ -1829,9 +1829,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:53:48 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LSR-STD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:42 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MPLS-LSR-STD-MIB"

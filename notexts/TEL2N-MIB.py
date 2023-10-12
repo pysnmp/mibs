@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TEL2N-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2n/TEL2N-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 08:47:53 2023
-# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 09:00:43 2023
+# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, ObjectIdentity, TimeTicks, Bits, MibIdentifier, Integer32, ModuleIdentity, Unsigned32, Gauge32, Counter32, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "ObjectIdentity", "TimeTicks", "Bits", "MibIdentifier", "Integer32", "ModuleIdentity", "Unsigned32", "Gauge32", "Counter32", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, MibIdentifier, Integer32, NotificationType, Counter32, ObjectIdentity, enterprises, IpAddress, Counter64, Gauge32, iso, Bits, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "Integer32", "NotificationType", "Counter32", "ObjectIdentity", "enterprises", "IpAddress", "Counter64", "Gauge32", "iso", "Bits", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tel2n = ModuleIdentity((1, 3, 6, 1, 4, 1, 6530))
 tel2n.setRevisions(('2015-05-01 10:57',))
 if mibBuilder.loadTexts: tel2n.setLastUpdated('201505011057Z')
@@ -40,4 +40,4 @@ hipRegistrationAt = MibTableColumn((1, 3, 6, 1, 4, 1, 6530, 11, 6, 1, 4), IpAddr
 if mibBuilder.loadTexts: hipRegistrationAt.setStatus('current')
 hipRegistrationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6530, 11, 6, 1, 5), TimeTicks()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hipRegistrationTime.setStatus('current')
-mibBuilder.exportSymbols("TEL2N-MIB", hipVersion=hipVersion, hipProductName=hipProductName, hipHwVersion=hipHwVersion, heliosip=heliosip, hipState=hipState, hipPhoneNumber=hipPhoneNumber, PYSNMP_MODULE_ID=tel2n, hipIndex=hipIndex, hipBootVersion=hipBootVersion, hipSipTable=hipSipTable, hipRegistrationAt=hipRegistrationAt, tel2n=tel2n, hipSipEntry=hipSipEntry, hipRegistrationTime=hipRegistrationTime, hipSerial=hipSerial)
+mibBuilder.exportSymbols("TEL2N-MIB", hipVersion=hipVersion, hipSerial=hipSerial, hipIndex=hipIndex, hipProductName=hipProductName, hipState=hipState, hipRegistrationAt=hipRegistrationAt, PYSNMP_MODULE_ID=tel2n, heliosip=heliosip, hipSipEntry=hipSipEntry, hipSipTable=hipSipTable, hipRegistrationTime=hipRegistrationTime, hipBootVersion=hipBootVersion, hipHwVersion=hipHwVersion, tel2n=tel2n, hipPhoneNumber=hipPhoneNumber)

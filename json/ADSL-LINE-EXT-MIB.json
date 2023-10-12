@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslAturPerfDataEntry",
       "adslLineEntry",
       "adslAtucIntervalEntry",
-      "adslMIB",
+      "adslLineConfProfileEntry",
       "adslAturIntervalEntry",
-      "adslAtucPerfDataEntry",
+      "adslMIB",
+      "adslAturPerfDataEntry",
       "adslLineAlarmConfProfileEntry",
-      "adslLineConfProfileEntry"
+      "adslAtucPerfDataEntry"
     ],
     "ADSL-TC-MIB": [
       "AdslPerfCurrDayCount",
       "AdslPerfPrevDayCount"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
+      "IpAddress",
       "Gauge32",
+      "iso",
       "TimeTicks",
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adslExtMIB": {
@@ -1192,8 +1192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:47:51 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:41 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADSL-LINE-EXT-MIB"

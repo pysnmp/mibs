@@ -6,50 +6,50 @@
       "fcmInstanceIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "iso",
-      "Counter64",
       "mib-2",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Gauge32",
+      "Counter64",
       "TimeTicks",
+      "iso",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "TruthValue",
-      "StorageType",
       "AutonomousType",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TimeStamp"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpPrecedence",
       "T11FcSpLifetimeLeft",
-      "T11FcSaDirection",
-      "T11FcSpTransforms",
-      "T11FcSpiIndex",
+      "T11FcSpPrecedence",
       "T11FcSpLifetimeLeftUnits",
-      "T11FcSpType",
+      "T11FcSpTransforms",
+      "T11FcSpSecurityProtocolId",
+      "T11FcSpiIndex",
+      "T11FcSaDirection",
       "T11FcRoutingControl",
-      "T11FcSpSecurityProtocolId"
+      "T11FcSpType"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:47:51 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:41 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

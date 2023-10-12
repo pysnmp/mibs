@@ -8,10 +8,10 @@
       "DscpOrAny"
     ],
     "DOCS-IF3-MIB": [
-      "AttrAggrRuleMask",
-      "ChannelList",
-      "AttributeMask",
       "ChSetId",
+      "AttrAggrRuleMask",
+      "AttributeMask",
+      "ChannelList",
       "ChId",
       "Dsid"
     ],
@@ -38,27 +38,27 @@
     "SNMPv2-SMI": [
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "iso",
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "IpAddress",
       "Gauge32",
+      "Counter64",
+      "iso",
+      "Integer32",
       "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "MacAddress",
       "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "StorageType",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:47:51 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:00:41 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-QOS3-MIB"

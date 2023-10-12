@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
-      "enterprises",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Counter64",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "private",
       "Gauge32",
-      "OBJECT-TYPE",
+      "iso",
+      "enterprises",
       "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "private"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hyteraRepeaterMIB": {
@@ -3136,8 +3136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hytera/HYTERA-REPEATER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:57:37 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:08:52 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HYTERA-REPEATER-MIB"

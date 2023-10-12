@@ -5,33 +5,33 @@
       "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanIndex"
+      "VlanIndex",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter64",
-      "iso",
       "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "iso",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "DisplayString"
     ],
     "ZYXEL-MIB": [
       "accessSwitchCommonATM"
@@ -460,8 +460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-AS-ATM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:07:02 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:15:34 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-AS-ATM-MIB"

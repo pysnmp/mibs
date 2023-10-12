@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "CTRON-IP-ROUTER-MIB": [
-      "nwIpRouter",
-      "nwIpComponents",
+      "nwIpMibs",
       "nwIpClientServices",
-      "nwIpMibs"
+      "nwIpComponents",
+      "nwIpRouter"
     ],
     "ROUTER-OIDS": [
       "nwRtrProtoSuites"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Gauge32",
       "Counter64",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -740,8 +740,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-NAT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:54:50 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:06:45 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-NAT-MIB"

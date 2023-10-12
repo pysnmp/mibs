@@ -5,17 +5,17 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifAlias"
+      "ifAlias",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
-      "PerfIntervalCount",
-      "PerfTotalCount"
+      "PerfTotalCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,29 +25,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "enterprises",
       "IpAddress",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "enterprises",
+      "Counter64",
+      "iso",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TimeStamp",
-      "TruthValue",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "MacAddress": {
@@ -1396,8 +1396,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/RAD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:02:27 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:12:09 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAD-MIB"

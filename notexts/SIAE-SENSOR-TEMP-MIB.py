@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-SENSOR-TEMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SENSOR-TEMP-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:04:46 2023
-# On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 12 09:13:50 2023
+# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+AlarmStatus, AlarmSeverityCode = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmStatus", "AlarmSeverityCode")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Gauge32, NotificationType, MibIdentifier, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, Counter64, Bits, Counter32, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "NotificationType", "MibIdentifier", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "Counter64", "Bits", "Counter32", "ModuleIdentity", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleIdentity, iso, ObjectIdentity, Unsigned32, TimeTicks, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits, Counter64, Counter32, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "ObjectIdentity", "Unsigned32", "TimeTicks", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits", "Counter64", "Counter32", "MibIdentifier", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 sensorTemp = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 77))
 sensorTemp.setRevisions(('2016-05-03 00:00', '2014-03-31 00:00',))
 if mibBuilder.loadTexts: sensorTemp.setLastUpdated('201605030000Z')
@@ -65,4 +65,4 @@ sensorTempMonitorAverageTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 77,
 if mibBuilder.loadTexts: sensorTempMonitorAverageTemp.setStatus('current')
 sensorTempMonitorSystemControl = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 77, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("start", 1), ("shutdown", 2))).clone('shutdown')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: sensorTempMonitorSystemControl.setStatus('current')
-mibBuilder.exportSymbols("SIAE-SENSOR-TEMP-MIB", sensorTempStatus1=sensorTempStatus1, sensorTempStatus2=sensorTempStatus2, sensorTempLabel=sensorTempLabel, sensorTempMonitorTable=sensorTempMonitorTable, sensorTempMonitorAverageTemp=sensorTempMonitorAverageTemp, sensorTempMonitorSystemControl=sensorTempMonitorSystemControl, sensorTempAlarmThreshold2=sensorTempAlarmThreshold2, sensorTempMonitorOperStatus=sensorTempMonitorOperStatus, PYSNMP_MODULE_ID=sensorTemp, sensorTempAlarmThreshold1Severity=sensorTempAlarmThreshold1Severity, sensorTempIndex=sensorTempIndex, sensorTempMonitorMaxTemp=sensorTempMonitorMaxTemp, sensorTempMonitorAdminStatus=sensorTempMonitorAdminStatus, sensorTempMonitorEntry=sensorTempMonitorEntry, sensorTempAlarmThreshold1=sensorTempAlarmThreshold1, sensorTempThreshold2=sensorTempThreshold2, sensorTempTable=sensorTempTable, sensorTempValue=sensorTempValue, sensorTemp=sensorTemp, sensorTempMonitorMinTemp=sensorTempMonitorMinTemp, sensorTempMibVersion=sensorTempMibVersion, sensorTempEntry=sensorTempEntry, sensorTempHysteresis1=sensorTempHysteresis1, sensorTempAlarmThreshold2Severity=sensorTempAlarmThreshold2Severity, sensorTempHysteresis2=sensorTempHysteresis2, sensorTempThreshold1=sensorTempThreshold1)
+mibBuilder.exportSymbols("SIAE-SENSOR-TEMP-MIB", sensorTempStatus1=sensorTempStatus1, sensorTempAlarmThreshold2=sensorTempAlarmThreshold2, sensorTempMonitorMinTemp=sensorTempMonitorMinTemp, sensorTempIndex=sensorTempIndex, sensorTempMonitorTable=sensorTempMonitorTable, sensorTempHysteresis1=sensorTempHysteresis1, sensorTempMonitorSystemControl=sensorTempMonitorSystemControl, sensorTempAlarmThreshold1Severity=sensorTempAlarmThreshold1Severity, sensorTempMonitorAverageTemp=sensorTempMonitorAverageTemp, sensorTempTable=sensorTempTable, sensorTempLabel=sensorTempLabel, sensorTempMibVersion=sensorTempMibVersion, sensorTempMonitorMaxTemp=sensorTempMonitorMaxTemp, sensorTempEntry=sensorTempEntry, sensorTempMonitorAdminStatus=sensorTempMonitorAdminStatus, sensorTempThreshold1=sensorTempThreshold1, sensorTempAlarmThreshold1=sensorTempAlarmThreshold1, sensorTempThreshold2=sensorTempThreshold2, sensorTempAlarmThreshold2Severity=sensorTempAlarmThreshold2Severity, sensorTempMonitorOperStatus=sensorTempMonitorOperStatus, PYSNMP_MODULE_ID=sensorTemp, sensorTempHysteresis2=sensorTempHysteresis2, sensorTemp=sensorTemp, sensorTempMonitorEntry=sensorTempMonitorEntry, sensorTempStatus2=sensorTempStatus2, sensorTempValue=sensorTempValue)

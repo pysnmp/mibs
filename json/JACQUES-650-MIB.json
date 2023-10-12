@@ -10,21 +10,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "iso",
-      "enterprises",
+      "OBJECT-TYPE",
       "Bits",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "enterprises",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -370,8 +370,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacques/JACQUES-650-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:59:24 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:09:44 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JACQUES-650-MIB"

@@ -5,24 +5,24 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoVrfName",
-      "Cisco2KVlanList"
+      "Cisco2KVlanList",
+      "CiscoVrfName"
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
-      "CtsSecurityGroupTag",
+      "CtsAclListOrEmpty",
       "CtsAclList",
-      "CtsAclName",
-      "CtsGenerationId",
+      "CtsSecurityGroupTag",
       "CtsSgaclMonitorMode",
+      "CtsGenerationId",
       "CtsAclNameOrEmpty",
-      "CtsAclListOrEmpty"
+      "CtsAclName"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
@@ -32,33 +32,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DateAndTime",
-      "TruthValue",
-      "DisplayString",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "ciscoTrustSecPolicyMIB": {
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-POLICY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 08:53:45 2023",
-      "On host fv-az792-520 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 12 09:05:56 2023",
+      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-TRUSTSEC-POLICY-MIB"
