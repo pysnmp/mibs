@@ -5,56 +5,56 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "TimeIntervalSec",
       "CiscoAlarmSeverity",
       "CiscoNetworkAddress",
       "Unsigned64",
+      "TimeIntervalSec",
       "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
       "CucsManagedObjectDn",
-      "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectId"
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
       "CucsCommCipherSuiteMode",
       "CucsCommChannel",
+      "CucsCommSnmpProto",
+      "CucsCommAdminState",
       "CucsCommSyslogFileSize",
-      "CucsCommSyslogSeverity",
-      "CucsCommSyslogClientEnum",
+      "CucsFsmCompletion",
       "CucsCommSyslogProto",
+      "CucsCommSyslogRestrictedSeverity",
+      "CucsCommSnmpNotificationType",
+      "CucsCommSnmpV3Privilege",
+      "CucsCommSyslogSourceAudits",
       "CucsCommSyslogSourceEvents",
-      "CucsCommSshAdminState",
+      "CucsConditionRemoteInvRslt",
       "CucsCommShellProto",
+      "CucsCommSyslogForwardingFacility",
+      "CucsCommSnmpAuth",
+      "CucsCommTimeZoneConfigState",
+      "CucsCommWebProto",
+      "CucsCommSvcEpFsmStageName",
+      "CucsCommSmashCLPProto",
+      "CucsCommSyslogAdminState",
+      "CucsCommSnmpVersion",
+      "CucsPolicyPolicyOwner",
+      "CucsCommSvcEpFsmTaskFlags",
+      "CucsCommSyslogSourceFaults",
+      "CucsAaaConfigState",
+      "CucsCommSshAdminState",
+      "CucsCommSyslogSeverity",
       "CucsCommDnsProviderAdminState",
       "CucsCommSnmpConfigState",
-      "CucsCommSyslogAdminState",
-      "CucsCommProtocol",
-      "CucsCommSyslogRestrictedSeverity",
-      "CucsCommHttpRedirectState",
-      "CucsCommSvcEpFsmTaskItem",
-      "CucsCommSyslogSourceAudits",
-      "CucsCommSvcEpFsmTaskFlags",
-      "CucsConditionRemoteInvRslt",
       "CucsCommSvcEpFsmCurrentFsm",
-      "CucsCommSnmpV3Privilege",
-      "CucsCommNtpProviderAdminState",
-      "CucsCommSnmpAuth",
-      "CucsCommSnmpNotificationType",
-      "CucsCommWebProto",
-      "CucsCommSyslogSourceFaults",
-      "CucsCommSnmpVersion",
-      "CucsCommSnmpProto",
-      "CucsCommSmashCLPProto",
-      "CucsCommSvcEpFsmStageName",
-      "CucsCommXmlClConnPolicyClientType",
-      "CucsCommSyslogForwardingFacility",
-      "CucsAaaConfigState",
-      "CucsCommTimeZoneConfigState",
       "CucsFsmFsmStageStatus",
-      "CucsCommAdminState",
-      "CucsFsmCompletion",
-      "CucsPolicyPolicyOwner"
+      "CucsCommHttpRedirectState",
+      "CucsCommXmlClConnPolicyClientType",
+      "CucsCommSyslogClientEnum",
+      "CucsCommSvcEpFsmTaskItem",
+      "CucsCommNtpProviderAdminState",
+      "CucsCommProtocol"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -64,34 +64,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE",
-      "iso",
       "Unsigned32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "IpAddress",
+      "Integer32",
       "Counter64",
-      "Bits"
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowPointer",
       "MacAddress",
-      "DisplayString",
+      "DateAndTime",
       "TimeStamp",
-      "TimeInterval",
       "TruthValue",
-      "DateAndTime"
+      "TimeInterval",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cucsCommObjects": {
@@ -4990,8 +4990,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-COMM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:05:59 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:01:53 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-COMM-MIB"

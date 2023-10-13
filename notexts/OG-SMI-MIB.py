@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module OG-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SMI-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:11:47 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:10:34 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, enterprises, Integer32, Counter32, Bits, TimeTicks, Counter64, MibIdentifier, ObjectIdentity, Gauge32, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "enterprises", "Integer32", "Counter32", "Bits", "TimeTicks", "Counter64", "MibIdentifier", "ObjectIdentity", "Gauge32", "NotificationType", "Unsigned32")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+TimeTicks, Counter32, ObjectIdentity, IpAddress, Gauge32, iso, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ModuleIdentity, Bits, enterprises, NotificationType, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "ObjectIdentity", "IpAddress", "Gauge32", "iso", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ModuleIdentity", "Bits", "enterprises", "NotificationType", "MibIdentifier")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 opengear = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049))
 opengear.setRevisions(('2018-06-15 00:00', '2013-11-15 00:00', '2013-08-11 00:00', '2010-03-22 11:27', '2005-02-24 01:00',))
@@ -39,4 +39,4 @@ ogModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 11))
 if mibBuilder.loadTexts: ogModules.setStatus('current')
 ogSpecific = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 18))
 if mibBuilder.loadTexts: ogSpecific.setStatus('current')
-mibBuilder.exportSymbols("OG-SMI-MIB", ogInternal=ogInternal, ogConfig=ogConfig, ogReserved1=ogReserved1, ogAgentCapability=ogAgentCapability, otherEnterprises=otherEnterprises, ogModules=ogModules, ogProducts=ogProducts, ogSpecific=ogSpecific, ogMgmt=ogMgmt, ogReserved2=ogReserved2, opengear=opengear, ogLegacyMgmt=ogLegacyMgmt, PYSNMP_MODULE_ID=opengear, ogExperimental=ogExperimental)
+mibBuilder.exportSymbols("OG-SMI-MIB", ogReserved1=ogReserved1, ogMgmt=ogMgmt, ogReserved2=ogReserved2, otherEnterprises=otherEnterprises, ogInternal=ogInternal, ogAgentCapability=ogAgentCapability, ogExperimental=ogExperimental, ogSpecific=ogSpecific, PYSNMP_MODULE_ID=opengear, ogLegacyMgmt=ogLegacyMgmt, ogProducts=ogProducts, ogModules=ogModules, ogConfig=ogConfig, opengear=opengear)

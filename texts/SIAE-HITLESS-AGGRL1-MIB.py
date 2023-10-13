@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-HITLESS-AGGRL1-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-HITLESS-AGGRL1-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:13:52 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:13:31 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 aggrL1Entry, = mibBuilder.importSymbols("SIAE-AGGRL1-MANAGEMENT-MIB", "aggrL1Entry")
 linkSettingsEntry, linkStatusEntry = mibBuilder.importSymbols("SIAE-RADIO-SYSTEM-MIB", "linkSettingsEntry", "linkStatusEntry")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, NotificationType, Counter32, Unsigned32, ObjectIdentity, Integer32, ModuleIdentity, MibIdentifier, Bits, iso, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "NotificationType", "Counter32", "Unsigned32", "ObjectIdentity", "Integer32", "ModuleIdentity", "MibIdentifier", "Bits", "iso", "TimeTicks", "Gauge32")
+ModuleIdentity, Bits, ObjectIdentity, Unsigned32, Gauge32, IpAddress, Counter64, Counter32, Integer32, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "ObjectIdentity", "Unsigned32", "Gauge32", "IpAddress", "Counter64", "Counter32", "Integer32", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hitlessAggregationL1 = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 98))
 hitlessAggregationL1.setRevisions(('2016-02-29 00:00',))
@@ -62,4 +62,4 @@ if mibBuilder.loadTexts: hlLinkStatusEntry.setDescription('An entry containing t
 linkHitlessZone = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 98, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("goodZone", 1), ("hitlessZone", 2), ("badZone", 3)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: linkHitlessZone.setStatus('current')
 if mibBuilder.loadTexts: linkHitlessZone.setDescription('The object shows the working zone of an aggregated radio\n             link.\n            ')
-mibBuilder.exportSymbols("SIAE-HITLESS-AGGRL1-MIB", hlAggrL1Entry=hlAggrL1Entry, hlAggrL1Table=hlAggrL1Table, hlAggrL1Behaviour=hlAggrL1Behaviour, hlAggrL1Mode=hlAggrL1Mode, hlLinkSettingsEntry=hlLinkSettingsEntry, hlLinkStatusEntry=hlLinkStatusEntry, linkHitlessProfile=linkHitlessProfile, PYSNMP_MODULE_ID=hitlessAggregationL1, linkHitlessZone=linkHitlessZone, hitlessAggregationL1=hitlessAggregationL1, hlAggrL1MibVersion=hlAggrL1MibVersion, hlLinkSettingsTable=hlLinkSettingsTable, hlLinkStatusTable=hlLinkStatusTable)
+mibBuilder.exportSymbols("SIAE-HITLESS-AGGRL1-MIB", hlAggrL1Table=hlAggrL1Table, PYSNMP_MODULE_ID=hitlessAggregationL1, hlLinkStatusTable=hlLinkStatusTable, linkHitlessProfile=linkHitlessProfile, hlAggrL1Behaviour=hlAggrL1Behaviour, hlLinkSettingsEntry=hlLinkSettingsEntry, hitlessAggregationL1=hitlessAggregationL1, hlLinkStatusEntry=hlLinkStatusEntry, hlAggrL1MibVersion=hlAggrL1MibVersion, hlAggrL1Entry=hlAggrL1Entry, linkHitlessZone=linkHitlessZone, hlAggrL1Mode=hlAggrL1Mode, hlLinkSettingsTable=hlLinkSettingsTable)

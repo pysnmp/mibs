@@ -5,34 +5,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "iso",
-      "Gauge32",
       "Unsigned32",
-      "Integer32",
       "enterprises",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "vertiv": {
@@ -11232,8 +11232,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vertiv/VERTIV-V5-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:14:59 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:14:59 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VERTIV-V5-MIB"

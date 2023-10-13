@@ -8,34 +8,34 @@
       "snanauMIB"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Bits",
-      "MibIdentifier"
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "RowPointer",
+      "DateAndTime",
       "VariablePointer",
       "TruthValue",
-      "TimeStamp",
-      "DisplayString",
-      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "appnMIB": {
@@ -7447,8 +7447,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/APPN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:08:57 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:06:42 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APPN-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OPENBSD-SENSORS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-SENSORS-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:11:43 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:10:29 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 openBSD, = mibBuilder.importSymbols("OPENBSD-BASE-MIB", "openBSD")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter32, IpAddress, TimeTicks, ObjectIdentity, MibIdentifier, ModuleIdentity, iso, Counter64, NotificationType, Integer32, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter32", "IpAddress", "TimeTicks", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "iso", "Counter64", "NotificationType", "Integer32", "Bits", "Unsigned32")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, iso, MibIdentifier, enterprises, Counter32, IpAddress, TimeTicks, ObjectIdentity, ModuleIdentity, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "iso", "MibIdentifier", "enterprises", "Counter32", "IpAddress", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "NotificationType", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 sensorsMIBObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 30155, 2))
 sensorsMIBObjects.setRevisions(('2012-09-20 00:00', '2012-01-31 00:00', '2008-12-23 00:00',))
@@ -37,4 +37,4 @@ sensorUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 6), OctetStri
 if mibBuilder.loadTexts: sensorUnits.setStatus('current')
 sensorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unspecified", 0), ("ok", 1), ("warn", 2), ("critical", 3), ("unknown", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sensorStatus.setStatus('current')
-mibBuilder.exportSymbols("OPENBSD-SENSORS-MIB", sensorEntry=sensorEntry, sensors=sensors, sensorUnits=sensorUnits, sensorStatus=sensorStatus, sensorNumber=sensorNumber, sensorsMIBObjects=sensorsMIBObjects, sensorDescr=sensorDescr, sensorDevice=sensorDevice, sensorType=sensorType, sensorTable=sensorTable, PYSNMP_MODULE_ID=sensorsMIBObjects, sensorValue=sensorValue, sensorIndex=sensorIndex)
+mibBuilder.exportSymbols("OPENBSD-SENSORS-MIB", sensorEntry=sensorEntry, sensorUnits=sensorUnits, sensors=sensors, sensorsMIBObjects=sensorsMIBObjects, sensorDescr=sensorDescr, sensorValue=sensorValue, sensorNumber=sensorNumber, sensorIndex=sensorIndex, sensorStatus=sensorStatus, sensorType=sensorType, sensorTable=sensorTable, sensorDevice=sensorDevice, PYSNMP_MODULE_ID=sensorsMIBObjects)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NORTEL-OPTICAL-GENERIC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/NORTEL-OPTICAL-GENERIC-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:11:22 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:10:00 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 nortel, = mibBuilder.importSymbols("NORTEL-MIB", "nortel")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Counter32, TimeTicks, Gauge32, Counter64, ModuleIdentity, IpAddress, Bits, ObjectIdentity, iso, NotificationType, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter32", "TimeTicks", "Gauge32", "Counter64", "ModuleIdentity", "IpAddress", "Bits", "ObjectIdentity", "iso", "NotificationType", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, MibIdentifier, Counter32, Counter64, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32, Bits, Unsigned32, IpAddress, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "Counter32", "Counter64", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32", "Bits", "Unsigned32", "IpAddress", "TimeTicks", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nnOpticalGenericMIBs = ModuleIdentity((1, 3, 6, 1, 4, 1, 562, 68, 10))
 nnOpticalGenericMIBs.setRevisions(('2005-07-12 00:00', '2008-02-07 00:00',))
@@ -22,4 +22,4 @@ if mibBuilder.loadTexts: nnOpticalGenericMIBs.setOrganization('Nortel')
 if mibBuilder.loadTexts: nnOpticalGenericMIBs.setContactInfo('   7035 Ridge Road\n               Hanover, Maryland 21076\n               United States\n               Toll-free: +1-800-921-1144\n               Phone: +1-410-694-5700\n               Fax: +1-410-694-5750\n               www.ciena.com ')
 if mibBuilder.loadTexts: nnOpticalGenericMIBs.setDescription('This Module represents the top-level MIB branch for the\n               generic MIBs that are common to Nortel Optical products')
 opterametro = MibIdentifier((1, 3, 6, 1, 4, 1, 562, 68))
-mibBuilder.exportSymbols("NORTEL-OPTICAL-GENERIC-MIB", opterametro=opterametro, PYSNMP_MODULE_ID=nnOpticalGenericMIBs, nnOpticalGenericMIBs=nnOpticalGenericMIBs)
+mibBuilder.exportSymbols("NORTEL-OPTICAL-GENERIC-MIB", nnOpticalGenericMIBs=nnOpticalGenericMIBs, PYSNMP_MODULE_ID=nnOpticalGenericMIBs, opterametro=opterametro)

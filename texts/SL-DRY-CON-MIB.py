@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-DRY-CON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-EDFA-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:12:08 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:11:04 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 InterfaceIndex, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
-PerfCurrentCount, PerfIntervalCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfIntervalCount", "PerfTotalCount")
+PerfTotalCount, PerfCurrentCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfTotalCount", "PerfCurrentCount", "PerfIntervalCount")
 sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Integer32, Unsigned32, Gauge32, NotificationType, iso, Bits, ObjectIdentity, IpAddress, MibIdentifier, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "Gauge32", "NotificationType", "iso", "Bits", "ObjectIdentity", "IpAddress", "MibIdentifier", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks")
-TruthValue, TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "RowStatus")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Counter32, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, ObjectIdentity, Integer32, Unsigned32, MibIdentifier, Counter64, NotificationType, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "ObjectIdentity", "Integer32", "Unsigned32", "MibIdentifier", "Counter64", "NotificationType", "Bits", "iso")
+TextualConvention, RowStatus, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "TruthValue", "DisplayString")
 slDryConMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 7))
 if mibBuilder.loadTexts: slDryConMib.setLastUpdated('200108070000Z')
 if mibBuilder.loadTexts: slDryConMib.setOrganization('PacketLight Networks Ltd.')
@@ -75,4 +75,4 @@ if mibBuilder.loadTexts: slDryConInAlmType.setDescription('Describe the current 
 slDryConStatusChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 7, 3, 1)).setObjects(("SL-DRY-CON-MIB", "slDryConInIndex"), ("SL-DRY-CON-MIB", "slDryConInStatus"), ("SL-DRY-CON-MIB", "slDryConInAlmType"))
 if mibBuilder.loadTexts: slDryConStatusChangeTrap.setStatus('current')
 if mibBuilder.loadTexts: slDryConStatusChangeTrap.setDescription('An slDryConStatusChangeTrap notification is sent when\n\t\tthe the Status of an input dry contact is changed and the\n\t\tcorresponding alarm is enabled.\n\t\tIn order to shoten the Trap, the DisplayString that \n\t\tdescribes the alarm is not sent. To find out this string\n\t\tthe NMS should use the index and get it from the table.')
-mibBuilder.exportSymbols("SL-DRY-CON-MIB", slDryConLastChange=slDryConLastChange, slDryConMib=slDryConMib, slDryConOutEntry=slDryConOutEntry, slDryConInIndex=slDryConInIndex, slDryConOutCommand=slDryConOutCommand, slDryConInStatus=slDryConInStatus, slDryConInSeverity=slDryConInSeverity, slDryConStatusChangeTrap=slDryConStatusChangeTrap, slDryConInEnable=slDryConInEnable, slDryConOutIndex=slDryConOutIndex, slDryConInEntry=slDryConInEntry, slDryConIn=slDryConIn, slDryConInPolarity=slDryConInPolarity, slDryConOutActiveStatus=slDryConOutActiveStatus, slDryConInAlmType=slDryConInAlmType, slDryConInDescription=slDryConInDescription, slDryConOut=slDryConOut, slDryConInTable=slDryConInTable, PYSNMP_MODULE_ID=slDryConMib, slDryConOutTable=slDryConOutTable, slDryConTraps=slDryConTraps, slDryConAlarmCutoff=slDryConAlarmCutoff)
+mibBuilder.exportSymbols("SL-DRY-CON-MIB", slDryConStatusChangeTrap=slDryConStatusChangeTrap, slDryConInTable=slDryConInTable, slDryConIn=slDryConIn, slDryConTraps=slDryConTraps, slDryConOut=slDryConOut, slDryConOutCommand=slDryConOutCommand, slDryConInPolarity=slDryConInPolarity, slDryConInEntry=slDryConInEntry, slDryConOutEntry=slDryConOutEntry, slDryConInIndex=slDryConInIndex, slDryConOutActiveStatus=slDryConOutActiveStatus, slDryConOutIndex=slDryConOutIndex, slDryConInSeverity=slDryConInSeverity, slDryConOutTable=slDryConOutTable, slDryConInDescription=slDryConInDescription, slDryConInAlmType=slDryConInAlmType, slDryConLastChange=slDryConLastChange, slDryConInStatus=slDryConInStatus, slDryConMib=slDryConMib, PYSNMP_MODULE_ID=slDryConMib, slDryConInEnable=slDryConInEnable, slDryConAlarmCutoff=slDryConAlarmCutoff)

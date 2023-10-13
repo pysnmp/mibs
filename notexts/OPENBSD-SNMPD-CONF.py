@@ -1,8 +1,8 @@
 #
 # PySNMP MIB module OPENBSD-SNMPD-CONF (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-SNMPD-CONF
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:11:43 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:10:29 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
@@ -22,5 +22,5 @@ pfMIBObjects, = mibBuilder.importSymbols("OPENBSD-PF-MIB", "pfMIBObjects")
 sensorsMIBObjects, = mibBuilder.importSymbols("OPENBSD-SENSORS-MIB", "sensorsMIBObjects")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
 snmpMIB, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpMIB")
-Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, TimeTicks, NotificationType, ObjectIdentity, MibIdentifier, iso, Counter64, ModuleIdentity, Bits, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "TimeTicks", "NotificationType", "ObjectIdentity", "MibIdentifier", "iso", "Counter64", "ModuleIdentity", "Bits", "Integer32", "Unsigned32")
+Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, iso, MibIdentifier, Counter32, IpAddress, TimeTicks, ObjectIdentity, ModuleIdentity, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "iso", "MibIdentifier", "Counter32", "IpAddress", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "NotificationType", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")

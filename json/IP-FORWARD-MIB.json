@@ -8,38 +8,38 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber"
     ],
     "IP-MIB": [
       "ip"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
       "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -1266,8 +1266,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IP-FORWARD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:09:35 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:07:07 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IP-FORWARD-MIB"

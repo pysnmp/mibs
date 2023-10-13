@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-TC-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:15:00 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:15:09 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, IpAddress, Gauge32, Integer32, Counter64, Bits, Counter32, iso, MibIdentifier, NotificationType, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "IpAddress", "Gauge32", "Integer32", "Counter64", "Bits", "Counter32", "iso", "MibIdentifier", "NotificationType", "ModuleIdentity", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, NotificationType, Gauge32, IpAddress, MibIdentifier, Counter64, Bits, ObjectIdentity, Unsigned32, Counter32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "NotificationType", "Gauge32", "IpAddress", "MibIdentifier", "Counter64", "Bits", "ObjectIdentity", "Unsigned32", "Counter32", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwSystem, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwSystem")
 vmwTcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 1, 11))
 vmwTcMIB.setRevisions(('2009-09-05 00:00', '2007-12-27 00:00',))
@@ -64,4 +64,4 @@ class VmwUnixAbsFilePath(TextualConvention, OctetString):
     displayHint = '1024a'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 1024)
 
-mibBuilder.exportSymbols("VMWARE-TC-MIB", VmwLongDisplayString=VmwLongDisplayString, PYSNMP_MODULE_ID=vmwTcMIB, VmwCimName=VmwCimName, VmwUnixAbsFilePath=VmwUnixAbsFilePath, VmwLongSnmpAdminString=VmwLongSnmpAdminString, VmwCIMAlertTypes=VmwCIMAlertTypes, VmwSubsystemStatus=VmwSubsystemStatus, VmwConnectedState=VmwConnectedState, vmwTcMIB=vmwTcMIB, VmwSubsystemTypes=VmwSubsystemTypes, VmwCIMAlertFormat=VmwCIMAlertFormat, VmwCIMSeverity=VmwCIMSeverity)
+mibBuilder.exportSymbols("VMWARE-TC-MIB", VmwCimName=VmwCimName, VmwLongSnmpAdminString=VmwLongSnmpAdminString, VmwSubsystemStatus=VmwSubsystemStatus, vmwTcMIB=vmwTcMIB, VmwCIMSeverity=VmwCIMSeverity, VmwCIMAlertTypes=VmwCIMAlertTypes, VmwUnixAbsFilePath=VmwUnixAbsFilePath, PYSNMP_MODULE_ID=vmwTcMIB, VmwSubsystemTypes=VmwSubsystemTypes, VmwLongDisplayString=VmwLongDisplayString, VmwConnectedState=VmwConnectedState, VmwCIMAlertFormat=VmwCIMAlertFormat)

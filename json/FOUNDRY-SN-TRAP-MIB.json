@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-SN-AGENT-MIB": [
-      "snChasFanDescription",
-      "snAgGblTrapMessage",
-      "snChasPwrSupplyDescription",
       "snAgentBrdIndex",
-      "snChasPwrSupplyIndex",
-      "snChasFanIndex"
+      "snChasFanDescription",
+      "snChasFanIndex",
+      "snChasPwrSupplyDescription",
+      "snAgGblTrapMessage",
+      "snChasPwrSupplyIndex"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "foundry"
     ],
     "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4LinkVirtualInterface",
-      "snL4TrapRealServerPort",
-      "snL4MaxSessionLimit",
-      "snL4TrapRealServerCurConnections",
-      "snL4TcpSynLimit",
-      "snL4TrapRealServerName",
       "snL4TrapLinkName",
-      "snL4TrapRealServerIP"
+      "snL4TrapRealServerPort",
+      "snL4TrapRealServerCurConnections",
+      "snL4MaxSessionLimit",
+      "snL4TrapRealServerIP",
+      "snL4TrapRealServerName",
+      "snL4TcpSynLimit"
     ],
     "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
-      "wgPnPIfIndex",
       "wgPnPStatus",
+      "wgPnPIfIndex",
       "wgPnPMacAddress"
     ],
     "SNMPv2-CONF": [
@@ -32,25 +32,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
-      "Bits",
-      "TRAP-TYPE"
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snTrapL4MaxSessionLimitReached": {
@@ -1144,8 +1144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:07:04 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:03:29 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-TRAP-MIB"

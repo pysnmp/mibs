@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "RUCKUS-ROOT-MIB": [
       "ruckusZDSystemModule"
     ],
     "RUCKUS-TC-MIB": [
-      "RuckusNameString",
       "RuckusdB",
       "RuckusAdminStatus",
+      "RuckusSSID",
       "RuckusRadioMode",
-      "RuckusCountryCode",
-      "RuckusSSID"
+      "RuckusNameString",
+      "RuckusCountryCode"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
+      "Counter64",
       "OBJECT-TYPE",
-      "iso",
       "Counter32",
       "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
       "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruckusZDSystemMIB": {
@@ -2748,8 +2748,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:13:32 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:13:07 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-ZD-SYSTEM-MIB"

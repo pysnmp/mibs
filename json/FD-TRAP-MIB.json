@@ -5,9 +5,9 @@
       "epon"
     ],
     "FD-OLT-MIB": [
+      "onuIdExhaust",
       "linkOnLineStatus",
-      "linkIdExhaust",
-      "onuIdExhaust"
+      "linkIdExhaust"
     ],
     "FD-ONU-MIB": [
       "uniPortRstpState",
@@ -16,52 +16,52 @@
     ],
     "FD-PERFORMANCE-MIB": [
       "oltTrafficChangeVal",
-      "onuTrafficChangeVal",
-      "swSniPortTrafficChangeVal"
+      "swSniPortTrafficChangeVal",
+      "onuTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
       "swPortLinkState",
       "sfpPlugStauts"
     ],
     "FD-SYSTEM-MIB": [
+      "powerStatusBit",
+      "userPassword",
+      "userEntryRowStatus",
+      "fanStatusBit",
+      "nonAuthOnuMac",
+      "loginTimeout",
       "userName",
       "ponCardRunningStatus",
-      "userPassword",
-      "nonAuthOnuMac",
       "userId",
       "userPermission",
-      "userEntryRowStatus",
-      "userAccessDeviceMap",
-      "fanStatusBit",
-      "loginTimeout",
-      "powerStatusBit"
+      "userAccessDeviceMap"
     ],
     "RMON-MIB": [
       "alarmValue"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
-      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
       "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
       "Counter64",
-      "MibIdentifier"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eponTraps": {
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:02:56 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 13:57:43 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FD-TRAP-MIB"

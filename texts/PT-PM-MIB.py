@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PT-PM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-PM-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:06:43 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:03:00 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 pt, = mibBuilder.importSymbols("PT-MIB", "pt")
 ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ObjectIdentity, ModuleIdentity, Gauge32, IpAddress, Integer32, Unsigned32, Counter32, TimeTicks, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "Gauge32", "IpAddress", "Integer32", "Unsigned32", "Counter32", "TimeTicks", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "NotificationType")
+Counter64, MibIdentifier, Gauge32, IpAddress, NotificationType, TimeTicks, iso, Counter32, ObjectIdentity, Integer32, ModuleIdentity, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "Gauge32", "IpAddress", "NotificationType", "TimeTicks", "iso", "Counter32", "ObjectIdentity", "Integer32", "ModuleIdentity", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ptPM = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223, 2, 5))
 ptPM.setRevisions(('2018-08-29 12:30', '2016-03-09 12:30', '2016-02-10 12:30',))
@@ -60,4 +60,4 @@ ptPMCompleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 193, 223, 2, 5, 2, 2, 1)).set
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ptPMCompleteGroup = ptPMCompleteGroup.setStatus('current')
 if mibBuilder.loadTexts: ptPMCompleteGroup.setDescription('A collection of all current objects in this MIB module.')
-mibBuilder.exportSymbols("PT-PM-MIB", ptPMFullCompliance=ptPMFullCompliance, forwardingPacket=forwardingPacket, ptPMCompliances=ptPMCompliances, ptPMCompleteGroup=ptPMCompleteGroup, ptPMTable=ptPMTable, queueIndex=queueIndex, PYSNMP_MODULE_ID=ptPM, ptPMGroups=ptPMGroups, discardPackets=discardPackets, ptPMEntry=ptPMEntry, forwardingOctets=forwardingOctets, inputOctets=inputOctets, ptPM=ptPM, inputPackets=inputPackets, ptPMConformance=ptPMConformance, discardOctets=discardOctets)
+mibBuilder.exportSymbols("PT-PM-MIB", ptPMFullCompliance=ptPMFullCompliance, inputOctets=inputOctets, queueIndex=queueIndex, forwardingPacket=forwardingPacket, forwardingOctets=forwardingOctets, ptPMGroups=ptPMGroups, ptPMCompleteGroup=ptPMCompleteGroup, discardPackets=discardPackets, ptPM=ptPM, inputPackets=inputPackets, PYSNMP_MODULE_ID=ptPM, discardOctets=discardOctets, ptPMCompliances=ptPMCompliances, ptPMConformance=ptPMConformance, ptPMEntry=ptPMEntry, ptPMTable=ptPMTable)

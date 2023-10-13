@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module COLUBRIS-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-TC.my
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:08:02 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:04:57 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 colubrisModules, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisModules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter32, Unsigned32, NotificationType, ObjectIdentity, iso, Integer32, Gauge32, Counter64, IpAddress, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter32", "Unsigned32", "NotificationType", "ObjectIdentity", "iso", "Integer32", "Gauge32", "Counter64", "IpAddress", "ModuleIdentity", "Bits")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, TimeTicks, Gauge32, IpAddress, ObjectIdentity, NotificationType, Counter64, Integer32, Bits, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "Gauge32", "IpAddress", "ObjectIdentity", "NotificationType", "Counter64", "Integer32", "Bits", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubrisTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 4, 1))
 if mibBuilder.loadTexts: colubrisTextualConventions.setLastUpdated('200710300000Z')
@@ -95,4 +95,4 @@ class ColubrisRadioType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5))
     namedValues = NamedValues(("cm6", 1), ("cm9", 2), ("sunfish", 3), ("mb82", 5))
 
-mibBuilder.exportSymbols("COLUBRIS-TC", ColubrisSecurity=ColubrisSecurity, ColubrisUsersAuthenticationMode=ColubrisUsersAuthenticationMode, ColubrisUsersAuthenticationType=ColubrisUsersAuthenticationType, ColubrisProfileIndexOrZero=ColubrisProfileIndexOrZero, ColubrisSSIDOrNone=ColubrisSSIDOrNone, ColubrisProfileIndex=ColubrisProfileIndex, ColubrisSSID=ColubrisSSID, ColubrisDataRate=ColubrisDataRate, ColubrisRadioType=ColubrisRadioType, ColubrisNotificationEnable=ColubrisNotificationEnable, ColubrisAuthenticationMode=ColubrisAuthenticationMode, ColubrisServerIndex=ColubrisServerIndex, ColubrisPriorityQueue=ColubrisPriorityQueue, ColubrisServerIndexOrZero=ColubrisServerIndexOrZero, PYSNMP_MODULE_ID=colubrisTextualConventions, colubrisTextualConventions=colubrisTextualConventions)
+mibBuilder.exportSymbols("COLUBRIS-TC", ColubrisDataRate=ColubrisDataRate, ColubrisNotificationEnable=ColubrisNotificationEnable, ColubrisServerIndex=ColubrisServerIndex, colubrisTextualConventions=colubrisTextualConventions, ColubrisServerIndexOrZero=ColubrisServerIndexOrZero, PYSNMP_MODULE_ID=colubrisTextualConventions, ColubrisProfileIndex=ColubrisProfileIndex, ColubrisUsersAuthenticationMode=ColubrisUsersAuthenticationMode, ColubrisPriorityQueue=ColubrisPriorityQueue, ColubrisSSIDOrNone=ColubrisSSIDOrNone, ColubrisUsersAuthenticationType=ColubrisUsersAuthenticationType, ColubrisSecurity=ColubrisSecurity, ColubrisAuthenticationMode=ColubrisAuthenticationMode, ColubrisSSID=ColubrisSSID, ColubrisProfileIndexOrZero=ColubrisProfileIndexOrZero, ColubrisRadioType=ColubrisRadioType)

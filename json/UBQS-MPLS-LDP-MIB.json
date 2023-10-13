@@ -5,46 +5,46 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "MPLS-TC-STD-MIB": [
-      "TeHopAddressType",
-      "MplsLSPID",
-      "MplsOwner",
-      "mplsStdMIB",
       "MplsTunnelIndex",
-      "MplsTunnelInstanceIndex"
+      "mplsStdMIB",
+      "MplsOwner",
+      "MplsLSPID",
+      "MplsTunnelInstanceIndex",
+      "TeHopAddressType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter32",
       "Counter64",
-      "Counter32"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
       "IpAddress",
       "RowStatus",
-      "DisplayString",
-      "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ],
     "UBQS-SMI": [
       "ubiMplsGroupMIB"
@@ -317,8 +317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:14:54 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:15:01 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UBQS-MPLS-LDP-MIB"

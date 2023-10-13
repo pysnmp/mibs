@@ -5,31 +5,31 @@
       "bdcomPibToMib"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "Bits",
-      "Counter64"
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress"
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "bdcomQosPIBMIB": {
@@ -2486,8 +2486,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/BDCOM-QOS-PIB-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:02:26 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 13:57:02 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BDCOM-QOS-PIB-MIB"

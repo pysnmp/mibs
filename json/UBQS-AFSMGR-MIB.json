@@ -9,31 +9,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
-      "sysObjectID",
       "sysName",
+      "sysObjectID",
+      "sysLocation",
       "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Counter32",
       "Counter64",
-      "Counter32"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -5090,8 +5090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-AFSMGR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:14:54 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:15:01 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "UBQS-AFSMGR-MIB"

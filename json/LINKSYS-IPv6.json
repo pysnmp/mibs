@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress",
+      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipv6InterfaceEntry",
+      "ipNetToPhysicalEntry",
       "ipAddressEntry",
-      "ipv6RouterAdvertEntry",
-      "ipNetToPhysicalEntry"
+      "ipv6RouterAdvertEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "zeroDotZero",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "Counter64",
       "TimeTicks",
-      "Counter32",
+      "zeroDotZero",
+      "Bits",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
       "Unsigned32",
-      "Gauge32",
-      "iso"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:10:39 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:08:56 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"

@@ -10,29 +10,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Gauge32",
-      "IpAddress",
-      "iso",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "Bits",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Integer32",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fbRunMib": {
@@ -96,8 +96,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/firebrick/FIREBRICK-RUNSTATS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:07:11 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:03:39 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FIREBRICK-RUNSTATS-MIB"

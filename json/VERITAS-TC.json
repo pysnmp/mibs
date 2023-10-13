@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "Opaque",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "enterprises",
       "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Opaque",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Bits",
-      "OBJECT-TYPE"
+      "enterprises",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "VERITAS-REG": [
       "veritasModules"
@@ -119,8 +119,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-TC.mib",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:14:55 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:14:55 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VERITAS-TC"

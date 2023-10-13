@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module IANA-BFD-TC-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANA-BFD-TC-STD-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:01:14 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 13:55:24 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Bits, Counter64, Integer32, TimeTicks, NotificationType, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, IpAddress, iso, ObjectIdentity, mib_2, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Counter64", "Integer32", "TimeTicks", "NotificationType", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "IpAddress", "iso", "ObjectIdentity", "mib-2", "ModuleIdentity")
+mib_2, Bits, Gauge32, NotificationType, MibIdentifier, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, Counter64, Unsigned32, IpAddress, Integer32, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "Bits", "Gauge32", "NotificationType", "MibIdentifier", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "Counter64", "Unsigned32", "IpAddress", "Integer32", "TimeTicks", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ianaBfdTCStdMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 224))
 ianaBfdTCStdMib.setRevisions(('2014-08-12 00:00',))
@@ -62,4 +62,4 @@ class IANAbfdSessAuthenticationKeyTC(TextualConvention, OctetString):
     displayHint = '1x '
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 252)
 
-mibBuilder.exportSymbols("IANA-BFD-TC-STD-MIB", IANAbfdDiagTC=IANAbfdDiagTC, ianaBfdTCStdMib=ianaBfdTCStdMib, IANAbfdSessStateTC=IANAbfdSessStateTC, IANAbfdSessTypeTC=IANAbfdSessTypeTC, IANAbfdSessAuthenticationTypeTC=IANAbfdSessAuthenticationTypeTC, IANAbfdSessAuthenticationKeyTC=IANAbfdSessAuthenticationKeyTC, IANAbfdSessOperModeTC=IANAbfdSessOperModeTC, PYSNMP_MODULE_ID=ianaBfdTCStdMib)
+mibBuilder.exportSymbols("IANA-BFD-TC-STD-MIB", IANAbfdSessAuthenticationTypeTC=IANAbfdSessAuthenticationTypeTC, ianaBfdTCStdMib=ianaBfdTCStdMib, PYSNMP_MODULE_ID=ianaBfdTCStdMib, IANAbfdDiagTC=IANAbfdDiagTC, IANAbfdSessStateTC=IANAbfdSessStateTC, IANAbfdSessTypeTC=IANAbfdSessTypeTC, IANAbfdSessAuthenticationKeyTC=IANAbfdSessAuthenticationKeyTC, IANAbfdSessOperModeTC=IANAbfdSessOperModeTC)

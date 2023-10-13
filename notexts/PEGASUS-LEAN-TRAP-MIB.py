@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PEGASUS-LEAN-TRAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pegasus/PEGASUS-LEAN-TRAP-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:12:21 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:11:22 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
 pegasusMibModule, = mibBuilder.importSymbols("PEGASUS-MIB", "pegasusMibModule")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Integer32, Counter32, iso, NotificationType, Unsigned32, ModuleIdentity, TimeTicks, ObjectIdentity, MibIdentifier, Counter64, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Integer32", "Counter32", "iso", "NotificationType", "Unsigned32", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Counter64", "Bits", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, Integer32, Counter32, Bits, MibIdentifier, ModuleIdentity, NotificationType, Gauge32, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "Integer32", "Counter32", "Bits", "MibIdentifier", "ModuleIdentity", "NotificationType", "Gauge32", "iso", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 pegasusLeanTrapModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6368, 2, 5))
 pegasusLeanTrapModule.setRevisions(('2005-02-02 00:00', '2004-12-17 00:00', '2004-03-18 00:00', '2004-01-15 00:00', '2003-11-11 00:00', '2003-03-21 00:00', '2002-09-19 00:00', '2002-04-25 00:00', '2002-04-02 00:00', '2002-03-14 00:00', '2002-02-18 00:00', '2002-02-14 00:00',))
 if mibBuilder.loadTexts: pegasusLeanTrapModule.setLastUpdated('200502020000Z')
@@ -35,4 +35,4 @@ perceivedSeverityText = MibScalar((1, 3, 6, 1, 4, 1, 6368, 2, 5, 1, 7), DisplayS
 if mibBuilder.loadTexts: perceivedSeverityText.setStatus('current')
 pegasusAlarm = NotificationType((1, 3, 6, 1, 4, 1, 6368, 2, 5, 2, 0, 1)).setObjects(("PEGASUS-LEAN-TRAP-MIB", "sender"), ("PEGASUS-LEAN-TRAP-MIB", "senderObjectName"), ("PEGASUS-LEAN-TRAP-MIB", "senderDescription"), ("PEGASUS-LEAN-TRAP-MIB", "probableCause"), ("PEGASUS-LEAN-TRAP-MIB", "probableCauseText"), ("PEGASUS-LEAN-TRAP-MIB", "perceivedSeverity"), ("PEGASUS-LEAN-TRAP-MIB", "perceivedSeverityText"))
 if mibBuilder.loadTexts: pegasusAlarm.setStatus('current')
-mibBuilder.exportSymbols("PEGASUS-LEAN-TRAP-MIB", senderObjectName=senderObjectName, leanTraps=leanTraps, leanTrapObjects=leanTrapObjects, probableCause=probableCause, perceivedSeverity=perceivedSeverity, sender=sender, probableCauseText=probableCauseText, PYSNMP_MODULE_ID=pegasusLeanTrapModule, perceivedSeverityText=perceivedSeverityText, pegasusAlarm=pegasusAlarm, pegasusLeanTrapModule=pegasusLeanTrapModule, senderDescription=senderDescription, leanNotifications=leanNotifications)
+mibBuilder.exportSymbols("PEGASUS-LEAN-TRAP-MIB", pegasusLeanTrapModule=pegasusLeanTrapModule, PYSNMP_MODULE_ID=pegasusLeanTrapModule, probableCauseText=probableCauseText, perceivedSeverityText=perceivedSeverityText, leanTraps=leanTraps, leanNotifications=leanNotifications, probableCause=probableCause, senderDescription=senderDescription, leanTrapObjects=leanTrapObjects, perceivedSeverity=perceivedSeverity, pegasusAlarm=pegasusAlarm, senderObjectName=senderObjectName, sender=sender)

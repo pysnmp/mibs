@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "mgmt",
-      "Counter32",
       "IpAddress",
-      "Gauge32",
-      "Counter64",
+      "Unsigned32",
+      "mgmt",
+      "TRAP-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "iso",
-      "Integer32"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "Counter32",
+      "enterprises",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "zte": {
@@ -4314,8 +4314,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zte/ZXR10-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:15:21 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:15:36 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ZXR10-MIB"

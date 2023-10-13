@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WOLLONGONG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wollongong/WOLLONGONG-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:15:11 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:15:19 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, MibIdentifier, Counter32, Unsigned32, Integer32, ModuleIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, IpAddress, TimeTicks, Bits, enterprises, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibIdentifier", "Counter32", "Unsigned32", "Integer32", "ModuleIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "IpAddress", "TimeTicks", "Bits", "enterprises", "Gauge32")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Integer32, ObjectIdentity, Counter32, IpAddress, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, iso, Counter64, Bits, NotificationType, Gauge32, MibIdentifier, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "Counter32", "IpAddress", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "iso", "Counter64", "Bits", "NotificationType", "Gauge32", "MibIdentifier", "enterprises")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 wollongong = MibIdentifier((1, 3, 6, 1, 4, 1, 6))
 model = MibIdentifier((1, 3, 6, 1, 4, 1, 6, 1))
@@ -68,4 +68,4 @@ twgLBState2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6, 2, 1, 1, 18), Integer32()).se
 if mibBuilder.loadTexts: twgLBState2.setStatus('optional')
 twgLBAddr1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6, 2, 1, 1, 19), OctetString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: twgLBAddr1.setStatus('optional')
-mibBuilder.exportSymbols("WOLLONGONG-MIB", twgLBOutOwnFrames1=twgLBOutOwnFrames1, att3B2=att3B2, dostcp=dostcp, twgLBBadFrames2=twgLBBadFrames2, twgLBNeigh2=twgLBNeigh2, vms5=vms5, sun3=sun3, lANbridgeEnt=lANbridgeEnt, twgLBState1=twgLBState1, ncr=ncr, mac=mac, twgLBInOwnFrames1=twgLBInOwnFrames1, lANbridgeTab=lANbridgeTab, dosruntime=dosruntime, dosroute=dosroute, vms4=vms4, twgLBInFrames1=twgLBInFrames1, dos=dos, twgLBStatus=twgLBStatus, twgLBOutFrames2=twgLBOutFrames2, model=model, twgLBReboot=twgLBReboot, twgLBInFrames2=twgLBInFrames2, twgLBOutFrames1=twgLBOutFrames1, twgLBNeigh1=twgLBNeigh1, twgLBBadFrames1=twgLBBadFrames1, twgLBOutOwnFrames2=twgLBOutOwnFrames2, sysV386=sysV386, twgLBCollisions=twgLBCollisions, twgLBAddr1=twgLBAddr1, proxy=proxy, os2=os2, twgLBInOwnFrames2=twgLBInOwnFrames2, twgLBState2=twgLBState2, wollongong=wollongong, twgLBUpTime=twgLBUpTime)
+mibBuilder.exportSymbols("WOLLONGONG-MIB", sun3=sun3, lANbridgeEnt=lANbridgeEnt, twgLBAddr1=twgLBAddr1, twgLBState1=twgLBState1, dosroute=dosroute, twgLBOutOwnFrames2=twgLBOutOwnFrames2, mac=mac, twgLBBadFrames2=twgLBBadFrames2, twgLBCollisions=twgLBCollisions, os2=os2, twgLBOutFrames1=twgLBOutFrames1, twgLBReboot=twgLBReboot, twgLBNeigh1=twgLBNeigh1, lANbridgeTab=lANbridgeTab, twgLBInFrames1=twgLBInFrames1, twgLBOutFrames2=twgLBOutFrames2, twgLBInOwnFrames2=twgLBInOwnFrames2, dostcp=dostcp, vms5=vms5, model=model, twgLBStatus=twgLBStatus, dos=dos, twgLBUpTime=twgLBUpTime, twgLBInFrames2=twgLBInFrames2, twgLBOutOwnFrames1=twgLBOutOwnFrames1, dosruntime=dosruntime, twgLBNeigh2=twgLBNeigh2, proxy=proxy, att3B2=att3B2, ncr=ncr, vms4=vms4, twgLBBadFrames1=twgLBBadFrames1, wollongong=wollongong, twgLBState2=twgLBState2, sysV386=sysV386, twgLBInOwnFrames1=twgLBInOwnFrames1)

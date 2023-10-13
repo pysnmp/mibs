@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "enterprises",
-      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "WATCHGUARD-SMI": [
       "watchguard"
@@ -519,8 +519,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/watchguard/WATCHGUARD-IPSEC-ENDPOINT-PAIR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:15:06 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:15:13 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WATCHGUARD-IPSEC-ENDPOINT-PAIR-MIB"

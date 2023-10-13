@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-SSR-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-SMI-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:06:40 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 14:02:55 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, Integer32, MibIdentifier, TimeTicks, Counter64, IpAddress, Counter32, ModuleIdentity, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "Integer32", "MibIdentifier", "TimeTicks", "Counter64", "IpAddress", "Counter32", "ModuleIdentity", "iso", "Bits")
+iso, Bits, Integer32, Gauge32, NotificationType, IpAddress, MibIdentifier, ObjectIdentity, Unsigned32, Counter32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "Integer32", "Gauge32", "NotificationType", "IpAddress", "MibIdentifier", "ObjectIdentity", "Unsigned32", "Counter32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ssr = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501))
 ssr.setRevisions(('2000-07-15 00:00',))
@@ -27,4 +27,4 @@ if mibBuilder.loadTexts: ssrMibs.setDescription('All Smart Switch Router (SSR) e
 ssrTraps = ObjectIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 10))
 if mibBuilder.loadTexts: ssrTraps.setStatus('current')
 if mibBuilder.loadTexts: ssrTraps.setDescription('All enterprise traps are defined under this branch.')
-mibBuilder.exportSymbols("CTRON-SSR-SMI-MIB", ssrMibs=ssrMibs, ssrTraps=ssrTraps, ssr=ssr, PYSNMP_MODULE_ID=ssr)
+mibBuilder.exportSymbols("CTRON-SSR-SMI-MIB", ssr=ssr, ssrTraps=ssrTraps, PYSNMP_MODULE_ID=ssr, ssrMibs=ssrMibs)

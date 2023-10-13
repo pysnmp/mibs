@@ -6,8 +6,8 @@
     ],
     "MY-TC": [
       "IfIndex",
-      "ConfigStatus",
-      "MemberMap"
+      "MemberMap",
+      "ConfigStatus"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -16,32 +16,32 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
       "Integer32",
       "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "myInterfaceMIB": {
@@ -868,8 +868,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-INTERFACE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:13:36 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:13:11 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MY-INTERFACE-MIB"

@@ -11,34 +11,34 @@
       "EnabledStatus"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "hwCdpComplianceMIB": {
@@ -522,8 +522,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-CDP-COMPLIANCE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:08:44 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:05:55 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-CDP-COMPLIANCE-MIB"

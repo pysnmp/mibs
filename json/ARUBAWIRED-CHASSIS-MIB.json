@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "iso",
-      "Counter32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Integer32",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier"
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -67,8 +67,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:08:55 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:06:40 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ARUBAWIRED-CHASSIS-MIB"

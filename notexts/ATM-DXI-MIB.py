@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ATM-DXI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-DXI-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 12 09:00:09 2023
-# On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Oct 13 13:53:58 2023
+# On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Unsigned32, TimeTicks, Counter32, Bits, Integer32, MibIdentifier, Counter64, enterprises, NotificationType, Gauge32, ObjectIdentity, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "TimeTicks", "Counter32", "Bits", "Integer32", "MibIdentifier", "Counter64", "enterprises", "NotificationType", "Gauge32", "ObjectIdentity", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, iso, enterprises, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, IpAddress, MibIdentifier, Gauge32, NotificationType, Counter32, Integer32, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "enterprises", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "IpAddress", "MibIdentifier", "Gauge32", "NotificationType", "Counter32", "Integer32", "Counter64", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 atmForum = MibIdentifier((1, 3, 6, 1, 4, 1, 353))
 atmUniDxi = MibIdentifier((1, 3, 6, 1, 4, 1, 353, 3))
 class Dfa(Integer32):
@@ -37,4 +37,4 @@ atmDxiDFAConfAALType = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 3, 2, 3, 1, 3), In
 if mibBuilder.loadTexts: atmDxiDFAConfAALType.setStatus('mandatory')
 atmDxiEnterprise = MibScalar((1, 3, 6, 1, 4, 1, 353, 3, 2, 4), ObjectIdentifier())
 if mibBuilder.loadTexts: atmDxiEnterprise.setStatus('mandatory')
-mibBuilder.exportSymbols("ATM-DXI-MIB", atmForum=atmForum, atmUniDxi=atmUniDxi, atmDxiDFAConfIfIndex=atmDxiDFAConfIfIndex, atmDxi=atmDxi, atmDxiConfMode=atmDxiConfMode, atmDxiDFAConfDfaIndex=atmDxiDFAConfDfaIndex, Dfa=Dfa, atmDxiDFAConfEntry=atmDxiDFAConfEntry, atmDxiConfTable=atmDxiConfTable, atmDxiDFAConfTable=atmDxiDFAConfTable, atmDxiConfIfIndex=atmDxiConfIfIndex, atmDxiEnterprise=atmDxiEnterprise, atmDxiDFAConfAALType=atmDxiDFAConfAALType, atmDxiConfEntry=atmDxiConfEntry)
+mibBuilder.exportSymbols("ATM-DXI-MIB", Dfa=Dfa, atmDxiEnterprise=atmDxiEnterprise, atmUniDxi=atmUniDxi, atmForum=atmForum, atmDxiDFAConfDfaIndex=atmDxiDFAConfDfaIndex, atmDxiConfIfIndex=atmDxiConfIfIndex, atmDxi=atmDxi, atmDxiConfEntry=atmDxiConfEntry, atmDxiConfMode=atmDxiConfMode, atmDxiDFAConfTable=atmDxiDFAConfTable, atmDxiDFAConfEntry=atmDxiDFAConfEntry, atmDxiDFAConfAALType=atmDxiDFAConfAALType, atmDxiConfTable=atmDxiConfTable, atmDxiDFAConfIfIndex=atmDxiDFAConfIfIndex)

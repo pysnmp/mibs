@@ -12,20 +12,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Counter64",
-      "Gauge32"
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -180,8 +180,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY-BAY-STACK",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:11:28 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:10:09 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAPID-CITY-BAY-STACK"

@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "Led4ColorT",
-      "EthPortMode",
-      "exaltcommunications",
-      "VlanStatusT",
-      "Te1LineCodeT",
-      "TimeZoneT",
-      "AuxNmsMode",
-      "Te1StatusT",
-      "NtpClientEnableT",
-      "ExaltEnableT",
-      "Te1LboT",
       "EnableStatusT",
-      "FileTransferStartT",
+      "Te1LoopBackModeT",
+      "EthPortMode",
+      "Te1LineCodeT",
+      "VlanGroupT",
+      "VlanStatusT",
+      "AlarmLevelT",
+      "NtpClientEnableT",
       "FileTransferTypeT",
+      "Te1StatusT",
       "EthMainStatusT",
       "AcmModulationT",
-      "Te1LoopBackModeT",
-      "AlarmLevelT",
-      "VlanGroupT",
-      "EthAuxStatusT"
+      "Te1LboT",
+      "AuxNmsMode",
+      "exaltcommunications",
+      "TimeZoneT",
+      "EthAuxStatusT",
+      "FileTransferStartT",
+      "Led4ColorT",
+      "ExaltEnableT"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Unsigned32",
       "iso",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "Unsigned32"
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "productsMIB": {
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:06:52 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:03:13 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"

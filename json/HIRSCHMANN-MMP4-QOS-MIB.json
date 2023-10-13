@@ -8,31 +8,31 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
+      "Integer32",
+      "Gauge32",
       "Counter32",
       "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "Integer32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "hmPlatform4QOS": {
@@ -1625,8 +1625,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4Qos.mib",
-      "Produced by pysmi-1.1.8 at Thu Oct 12 09:07:59 2023",
-      "On host fv-az245-3 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Oct 13 14:04:53 2023",
+      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HIRSCHMANN-MMP4-QOS-MIB"
