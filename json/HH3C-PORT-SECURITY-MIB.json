@@ -6,8 +6,8 @@
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xPaePortNumber",
-      "dot1xAuthSessionTerminateCause",
       "dot1xAuthSessionAuthenticMethod",
+      "dot1xAuthSessionTerminateCause",
       "dot1xAuthSessionUserName"
     ],
     "IF-MIB": [
@@ -19,27 +19,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
       "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "MacAddress",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hh3cPortSecurityMIB": {
@@ -950,8 +950,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-PORT-SECURITY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:09:51 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:25:34 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-PORT-SECURITY-MIB"

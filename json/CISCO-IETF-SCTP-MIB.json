@@ -15,19 +15,19 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "Counter32",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "iso",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
       "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "TimeTicks",
-      "IpAddress"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -1312,8 +1312,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-SCTP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:12:40 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:28:15 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-SCTP-MIB"

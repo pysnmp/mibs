@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "vrrpCurCfgIfPasswd",
-      "ipCurCfgGwIndex",
       "ipCurCfgGwAddr",
       "vrrpCurCfgIfIndx",
+      "ipCurCfgGwIndex",
+      "vrrpCurCfgVirtRtrAddr",
       "vrrpCurCfgVirtRtrIndx",
-      "vrrpCurCfgVirtRtrAddr"
+      "vrrpCurCfgIfPasswd"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
-      "agSlotNumber",
       "agRackId",
-      "agChassis"
+      "agChassis",
+      "agSlotNumber"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysContact",
       "sysName",
-      "sysLocation"
+      "sysLocation",
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
       "Integer32",
-      "TRAP-TYPE",
-      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "Counter64",
+      "IpAddress",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bt2Traps": {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:17:23 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:31:54 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

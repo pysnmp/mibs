@@ -14,23 +14,23 @@
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "Counter32",
-      "Bits",
       "Counter64",
+      "OBJECT-TYPE",
       "IpAddress",
-      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "iso",
       "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAOSDyingGaspMib": {
@@ -102,8 +102,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-DYING-GASP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:06:12 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:22:03 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-DYING-GASP-MIB"

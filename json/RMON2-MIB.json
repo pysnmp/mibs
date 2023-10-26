@@ -5,18 +5,18 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "hostControlEntry",
-      "matrixControlEntry",
-      "etherStatsEntry",
-      "statistics",
-      "historyControlEntry",
-      "channelEntry",
-      "OwnerString",
-      "filter",
       "filterEntry",
       "hosts",
+      "history",
       "matrix",
-      "history"
+      "OwnerString",
+      "hostControlEntry",
+      "matrixControlEntry",
+      "filter",
+      "etherStatsEntry",
+      "statistics",
+      "channelEntry",
+      "historyControlEntry"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -24,33 +24,33 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
       "mib-2",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "iso",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "Bits"
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeStamp"
     ],
     "TOKEN-RING-RMON-MIB": [
+      "tokenRing",
+      "ringStationControlEntry",
       "sourceRoutingStatsEntry",
       "tokenRingPStatsEntry",
-      "ringStationControlEntry",
-      "tokenRing",
       "tokenRingMLStatsEntry"
     ]
   },
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:06:51 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:22:40 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"

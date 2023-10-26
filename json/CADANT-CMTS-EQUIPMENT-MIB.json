@@ -5,24 +5,24 @@
       "cadEquipment"
     ],
     "CADANT-TC": [
-      "DiskVolumeUsageLevel",
-      "CardId",
-      "EqActionType",
-      "PortDetectedMode",
-      "FirmwareSource",
-      "PortType",
-      "CardSubType",
-      "DuplexStatus",
-      "PrimaryState",
       "ShelfId",
       "SecondaryState",
       "UnknownState",
-      "PortId",
-      "PicType",
+      "CardType",
       "AdminState",
-      "PortMode",
+      "PortDetectedMode",
+      "PicType",
+      "CardId",
+      "DuplexStatus",
       "FlowControlMode",
-      "CardType"
+      "PortId",
+      "EqActionType",
+      "PortMode",
+      "DiskVolumeUsageLevel",
+      "PrimaryState",
+      "CardSubType",
+      "FirmwareSource",
+      "PortType"
     ],
     "DOCS-IF-MIB": [
       "TenthdBmV"
@@ -31,34 +31,34 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "iso",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "iso",
       "Counter32",
-      "TimeTicks"
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
-      "TruthValue",
       "DateAndTime",
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "MacAddress"
     ]
   },
   "cadEquipmentMib": {
@@ -4091,8 +4091,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/CADANT-CMTS-EQUIPMENT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:07:29 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:23:19 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CADANT-CMTS-EQUIPMENT-MIB"

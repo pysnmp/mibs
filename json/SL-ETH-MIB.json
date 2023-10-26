@@ -5,39 +5,39 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
       "PerfTotalCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SL-NE-MIB": [
       "slService"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "Counter32",
       "Bits",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "Integer32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "TruthValue",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "slEthernet": {
@@ -1283,8 +1283,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ETH-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:21:29 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:35:53 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-ETH-MIB"

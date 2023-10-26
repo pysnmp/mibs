@@ -3,59 +3,59 @@
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
       "VlanList3",
+      "VlanList1",
       "VlanList2",
-      "VlanList4",
-      "VlanList1"
+      "VlanList4"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
       "rndErrorDesc",
       "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
-      "rlMacMulticast",
       "rndNotifications",
-      "switch001"
+      "switch001",
+      "rlMacMulticast"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
-      "VlanId",
-      "VlanIndex"
+      "VlanIndex",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "MibIdentifier",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "iso",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
       "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress",
       "RowStatus",
       "DisplayString",
-      "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIpv6Fhs": {
@@ -8432,8 +8432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPV6FHS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:12:39 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:28:14 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPV6FHS-MIB"

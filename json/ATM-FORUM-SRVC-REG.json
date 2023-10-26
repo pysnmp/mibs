@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-FORUM-TC-MIB": [
-      "atmForumAdmin",
-      "atmForumUni"
+      "atmForumUni",
+      "atmForumAdmin"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -11,23 +11,23 @@
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "iso",
       "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "AtmAddress": {
@@ -157,8 +157,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-SRVC-REG",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:05:18 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:21:10 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-SRVC-REG"

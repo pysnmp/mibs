@@ -6,32 +6,32 @@
       "hpnicfLswFrameIndex"
     ],
     "HPN-ICF-OID-MIB": [
-      "hpnicfRhw",
-      "hpnicflswCommon"
+      "hpnicflswCommon",
+      "hpnicfRhw"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "iso",
-      "Counter64",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Counter32",
+      "TimeTicks",
       "Bits",
+      "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hpnicfLswdevMMib": {
@@ -706,8 +706,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswDEVM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 12:17:25 2023",
-      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:31:55 2023",
+      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LswDEVM-MIB"
