@@ -3,36 +3,36 @@
     "class": "imports",
     "RADLAN-MIB": [
       "rlAAAEap",
-      "rnd",
-      "rlRadius"
+      "rlRadius",
+      "rnd"
     ],
     "RADLAN-SNMPv2": [
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
       "Gauge32",
-      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
-      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -3240,8 +3240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-AAA",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:13:58 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:15:01 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-AAA"

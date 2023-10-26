@@ -10,25 +10,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MibIdentifier",
       "Gauge32",
-      "iso"
+      "Counter32",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TAIT-COMMON-MIB": [
       "taitGeneric"
@@ -37,39 +37,39 @@
       "infra93-94MibModule"
     ],
     "TAIT-INFRA93-94SERIES-TC-MIB": [
-      "BaseStationMode",
+      "ChannelGroupStatus",
+      "Condition",
+      "AlarmState",
+      "VoltageV",
+      "TimingControlType",
       "GateState",
-      "PowerW",
-      "CurrentmA",
+      "TransmitterStatus",
       "Milliseconds",
       "OptionState",
-      "ChannelGroupStatus",
-      "VoltageV",
-      "FrequencyHz",
-      "AlarmState",
-      "TransmitterStatus",
-      "Condition",
-      "TimingControlType"
+      "PowerW",
+      "BaseStationMode",
+      "CurrentmA",
+      "FrequencyHz"
     ],
     "TAIT-INFRA93SERIES-TC-MIB": [
-      "Temperature",
-      "FallbackNodeStatus",
-      "SubAudibleType",
-      "RxFrequencyResponse",
-      "ControlProtocolStatus",
-      "OperationalMode",
-      "ReceiverSyncStatus",
-      "Ratio",
-      "DcsCode",
       "TransmitterSyncStatus",
-      "ColourCode",
-      "LogicalChannelState",
+      "ReceiverSyncStatus",
+      "OperationalMode",
+      "FallbackNodeStatus",
       "StandaloneNodeStatus",
       "LeveldBm",
-      "SINADLevel",
-      "FrequencydHz",
+      "DcsCode",
+      "ColourCode",
+      "RxFrequencyResponse",
+      "ControlProtocolStatus",
+      "SubAudibleType",
       "TxFrequencyResponse",
-      "MPTControlProtocolStatus"
+      "LogicalChannelState",
+      "FrequencydHz",
+      "MPTControlProtocolStatus",
+      "SINADLevel",
+      "Ratio",
+      "Temperature"
     ]
   },
   "infra93MibMonitored": {
@@ -3705,8 +3705,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-INFRA93SERIES-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:15:36 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:16:57 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TAIT-INFRA93SERIES-MIB"

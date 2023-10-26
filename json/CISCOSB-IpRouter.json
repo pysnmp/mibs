@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "CISCOSB-IP": [
-      "ipRipFilter",
-      "ipSpec",
-      "rlOspf",
-      "ipRedundancy",
-      "ipRouteLeaking",
       "rlIpRoutingProtPreference",
-      "rip2Spec"
+      "ipRedundancy",
+      "rlOspf",
+      "rip2Spec",
+      "ipRipFilter",
+      "ipRouteLeaking",
+      "ipSpec"
     ],
     "OSPF-MIB": [
-      "RouterID",
-      "AreaID",
       "ospfVirtIfEntry",
-      "ospfIfEntry"
+      "RouterID",
+      "ospfIfEntry",
+      "AreaID"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -2215,8 +2215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IpRouter",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:11 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:00 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IpRouter"

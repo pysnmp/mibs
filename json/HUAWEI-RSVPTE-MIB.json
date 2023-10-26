@@ -9,39 +9,39 @@
     ],
     "INTEGRATED-SERVICES-MIB": [
       "BitRate",
-      "MessageSize",
-      "QosService",
       "SessionType",
-      "BurstSize"
+      "MessageSize",
+      "BurstSize",
+      "QosService"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "MibIdentifier",
       "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Integer32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeInterval",
       "RowStatus",
-      "TimeStamp",
+      "TimeInterval",
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "hwRsvpTe": {
@@ -3873,8 +3873,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-RSVPTE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:08:41 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:08:48 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-RSVPTE-MIB"

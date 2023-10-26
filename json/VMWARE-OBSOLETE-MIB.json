@@ -7,20 +7,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
       "Gauge32",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
       "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -30,18 +30,18 @@
       "vmwESX"
     ],
     "VMWARE-RESOURCES-MIB": [
-      "vmwMemory",
-      "vmwCPU"
+      "vmwCPU",
+      "vmwMemory"
     ],
     "VMWARE-ROOT-MIB": [
-      "vmwResources",
       "vmwObsolete",
       "vmwTraps",
-      "vmwNotifications"
+      "vmwNotifications",
+      "vmwResources"
     ],
     "VMWARE-VMINFO-MIB": [
-      "vmwVmID",
-      "vmwVmConfigFilePath"
+      "vmwVmConfigFilePath",
+      "vmwVmID"
     ]
   },
   "vmwObsoleteMIB": {
@@ -914,8 +914,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-OBSOLETE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:16:25 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:17:47 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VMWARE-OBSOLETE-MIB"

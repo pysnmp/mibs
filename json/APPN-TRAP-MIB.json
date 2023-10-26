@@ -5,23 +5,23 @@
       "dlurDlusSessnStatus"
     ],
     "APPN-MIB": [
-      "appnCompliances",
-      "appnIsInS2PFmdPius",
-      "appnIsInP2SNonFmdPius",
-      "appnIsInP2SNonFmdBytes",
-      "appnMIB",
-      "appnIsInS2PNonFmdPius",
-      "appnIsInP2SFmdBytes",
-      "appnObjects",
-      "appnPortOperState",
-      "appnLsOperState",
-      "appnIsInSessUpTime",
       "appnIsInP2SFmdPius",
-      "appnLocalTgCpCpSession",
-      "appnIsInS2PNonFmdBytes",
-      "appnIsInS2PFmdBytes",
+      "appnIsInP2SNonFmdPius",
+      "appnLocalTgOperational",
+      "appnLsOperState",
+      "appnCompliances",
+      "appnIsInS2PNonFmdPius",
       "appnGroups",
-      "appnLocalTgOperational"
+      "appnIsInP2SFmdBytes",
+      "appnIsInS2PNonFmdBytes",
+      "appnMIB",
+      "appnPortOperState",
+      "appnIsInS2PFmdPius",
+      "appnIsInP2SNonFmdBytes",
+      "appnIsInSessUpTime",
+      "appnObjects",
+      "appnIsInS2PFmdBytes",
+      "appnLocalTgCpCpSession"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -29,20 +29,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "IpAddress",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
       "TimeTicks",
       "Unsigned32",
-      "Integer32",
-      "Counter64"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -369,8 +369,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPN-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:58:39 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:59:09 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APPN-TRAP-MIB"

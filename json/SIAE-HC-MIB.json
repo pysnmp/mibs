@@ -5,24 +5,24 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
       "Counter32",
       "OBJECT-TYPE",
+      "Gauge32",
       "Unsigned32",
       "IpAddress",
+      "Integer32",
+      "TimeTicks",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso"
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -182,8 +182,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-HC-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:14:59 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:16:25 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-HC-MIB"

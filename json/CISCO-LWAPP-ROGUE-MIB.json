@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApIfSmtDot11Bssid",
-      "cLApRogueDetectedChannel",
-      "cLApDot11IfType",
-      "cLApRogueMode",
-      "cLApName",
       "cLApRogueApMacAddress",
-      "cLApDot11RadioChannelNumber",
-      "cLApDot11RadioMACAddress"
+      "cLApDot11IfType",
+      "cLApDot11RadioMACAddress",
+      "cLApRogueMode",
+      "cLApRogueDetectedChannel",
+      "cLApName",
+      "cLApIfSmtDot11Bssid",
+      "cLApDot11RadioChannelNumber"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
@@ -21,33 +21,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "Bits",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
-      "StorageType",
       "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "ciscoLwappRogueMIB": {
@@ -2521,8 +2521,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:14 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:01 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-ROGUE-MIB"

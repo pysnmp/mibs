@@ -3,30 +3,30 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter32",
-      "iso",
-      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
       "MODULE-IDENTITY",
-      "enterprises",
-      "Integer32",
+      "iso",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "siteMonitoringMIB": {
@@ -8110,8 +8110,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/SITE-MONITORING-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:59:47 2023",
-      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:00:06 2023",
+      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SITE-MONITORING-MIB"
