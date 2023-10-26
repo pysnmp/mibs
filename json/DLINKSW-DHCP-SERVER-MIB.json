@@ -5,33 +5,33 @@
       "dlinkIndustrialCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "Integer32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
       "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DateAndTime",
       "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "MacAddress",
+      "DateAndTime"
     ]
   },
   "dlinkSwDhcpServerMIB": {
@@ -1945,8 +1945,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP-SERVER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:59:37 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:13:09 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP-SERVER-MIB"

@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
       "CiscoAlarmSeverity",
+      "TimeIntervalSec",
       "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
-      "TimeIntervalSec"
+      "Unsigned64",
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
       "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn",
       "CucsManagedObjectId"
     ],
     "INET-ADDRESS-MIB": [
@@ -28,30 +28,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
+      "Bits",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "RowPointer",
+      "TimeStamp",
       "TimeInterval",
-      "TimeStamp"
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "cucsLldpObjects": {
@@ -169,8 +169,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:59:53 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:13:23 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-LLDP-MIB"

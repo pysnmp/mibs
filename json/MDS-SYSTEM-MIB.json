@@ -5,31 +5,31 @@
       "mdsSystem"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
       "Integer32",
-      "Bits",
-      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "Counter32",
+      "Bits",
       "iso",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "mdsSystemMIB": {
@@ -450,8 +450,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:01:46 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:15:07 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MDS-SYSTEM-MIB"

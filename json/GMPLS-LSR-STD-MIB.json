@@ -5,49 +5,49 @@
       "GmplsSegmentDirectionTC"
     ],
     "IF-MIB": [
-      "ifCounterDiscontinuityGroup",
-      "ifGeneralInformationGroup"
+      "ifGeneralInformationGroup",
+      "ifCounterDiscontinuityGroup"
     ],
     "MPLS-LSR-STD-MIB": [
-      "mplsOutSegmentIndex",
-      "mplsInterfaceIndex",
-      "mplsOutSegmentGroup",
-      "mplsInSegmentGroup",
-      "mplsXCGroup",
+      "mplsInSegmentIndex",
       "mplsInterfaceGroup",
       "mplsPerfGroup",
-      "mplsInSegmentIndex",
+      "mplsInterfaceIndex",
+      "mplsOutSegmentIndex",
+      "mplsXCGroup",
+      "mplsOutSegmentGroup",
+      "mplsInSegmentGroup",
       "mplsLsrNotificationGroup"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "zeroDotZero",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "TimeTicks",
+      "MibIdentifier",
+      "zeroDotZero",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gmplsLsrStdMIB": {
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:05:00 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:18:04 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GMPLS-LSR-STD-MIB"

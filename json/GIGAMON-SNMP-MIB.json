@@ -9,27 +9,27 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
+      "enterprises",
+      "iso",
+      "Counter32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "enterprises",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "TimeTicks",
-      "iso",
-      "Counter32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "gigamonSnmp": {
@@ -1363,8 +1363,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gigamon/GIGAMON-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:01:50 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:15:10 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GIGAMON-SNMP-MIB"

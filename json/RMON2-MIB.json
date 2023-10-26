@@ -5,52 +5,52 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "matrix",
-      "hosts",
-      "statistics",
       "OwnerString",
-      "history",
-      "hostControlEntry",
+      "matrix",
       "filterEntry",
-      "historyControlEntry",
-      "filter",
-      "channelEntry",
+      "history",
       "matrixControlEntry",
-      "etherStatsEntry"
+      "historyControlEntry",
+      "channelEntry",
+      "statistics",
+      "etherStatsEntry",
+      "hostControlEntry",
+      "filter",
+      "hosts"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "iso",
+      "IpAddress",
       "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "mib-2",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Bits",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "TimeStamp"
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "tokenRing",
-      "tokenRingMLStatsEntry",
       "tokenRingPStatsEntry",
+      "tokenRingMLStatsEntry",
       "ringStationControlEntry",
+      "tokenRing",
       "sourceRoutingStatsEntry"
     ]
   },
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:54:28 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:08:34 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"

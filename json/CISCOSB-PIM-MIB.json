@@ -8,49 +8,49 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
       "InetVersion",
+      "InetAddress",
       "InetAddressPrefixLength"
     ],
     "PIM-STD-MIB": [
-      "pimNeighborAddress",
-      "pimNeighborIfIndex",
-      "pimInterfaceEntry",
-      "pimNeighborAddressType",
       "pimInterfaceIfIndex",
-      "pimInterfaceIPVersion"
+      "pimNeighborIfIndex",
+      "pimNeighborAddressType",
+      "pimInterfaceIPVersion",
+      "pimNeighborAddress",
+      "pimInterfaceEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Integer32",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "OBJECT-IDENTITY",
+      "iso",
       "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Bits"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "rlPim": {
@@ -1595,8 +1595,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-PIM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:59:53 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:13:23 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-PIM-MIB"

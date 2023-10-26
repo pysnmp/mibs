@@ -8,20 +8,20 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsNameAsIndex",
-      "DnsRespCode",
+      "DnsType",
       "DnsOpCode",
-      "DnsQClass",
+      "DnsQType",
       "DnsTime",
       "DnsName",
       "DnsClass",
-      "DnsQType",
-      "dns",
-      "DnsType"
+      "DnsNameAsIndex",
+      "DnsRespCode",
+      "DnsQClass",
+      "dns"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -32,26 +32,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Integer32",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "OBJECT-IDENTITY",
+      "iso",
       "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlDnsCl": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-DNSCL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:59:51 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:13:21 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-DNSCL-MIB"

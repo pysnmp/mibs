@@ -9,45 +9,45 @@
       "IANACharset"
     ],
     "IANA-PRINTER-MIB": [
+      "PrtChannelTypeTC",
+      "PrtAlertGroupTC",
       "PrtCoverStatusTC",
-      "PrtMarkerMarkTechTC",
       "PrtConsoleColorTC",
-      "PrtAlertTrainingLevelTC",
       "PrtGeneralResetTC",
       "PrtAlertCodeTC",
-      "PrtInterpreterLangFamilyTC",
+      "PrtAlertTrainingLevelTC",
       "PrtInputTypeTC",
-      "PrtAlertGroupTC",
-      "PrtConsoleDisableTC",
-      "PrtChannelTypeTC",
       "PrtMarkerSuppliesTypeTC",
       "PrtMediaPathTypeTC",
-      "PrtOutputTypeTC"
+      "PrtOutputTypeTC",
+      "PrtInterpreterLangFamilyTC",
+      "PrtMarkerMarkTechTC",
+      "PrtConsoleDisableTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "mib-2",
-      "iso",
+      "Integer32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
+      "mib-2",
+      "Unsigned32",
       "Counter64",
-      "MibIdentifier"
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Printer-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:53:33 2023",
-      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:07:45 2023",
+      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Printer-MIB"
