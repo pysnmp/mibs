@@ -12,35 +12,35 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
+      "sysContact",
       "sysName",
-      "sysContact"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "Bits",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "iso",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
       "Integer32",
-      "Gauge32"
+      "enterprises",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "MacAddress"
     ]
   },
@@ -33418,8 +33418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE5-NETWORK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:24:01 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:17:25 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE5-NETWORK-MIB"

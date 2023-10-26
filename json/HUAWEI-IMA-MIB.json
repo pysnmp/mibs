@@ -5,37 +5,37 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Integer32",
-      "Counter32",
+      "Counter64",
+      "MibIdentifier",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "enterprises",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "DateAndTime"
     ]
   },
   "hwImaMIB": {
@@ -1298,8 +1298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IMA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:23:11 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:16:32 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-IMA-MIB"

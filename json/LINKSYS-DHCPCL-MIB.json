@@ -20,26 +20,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
+      "Unsigned32",
       "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
       "OBJECT-TYPE",
       "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlDhcpCl": {
@@ -1109,8 +1109,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCPCL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:26:12 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:19:31 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-DHCPCL-MIB"

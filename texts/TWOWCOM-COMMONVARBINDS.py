@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TWOWCOM-COMMONVARBINDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-COMMONVARBINDS
-# Produced by pysmi-1.1.8 at Thu Oct 26 11:11:56 2023
-# On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 26 12:05:57 2023
+# On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Gauge32, ModuleIdentity, IpAddress, TimeTicks, iso, MibIdentifier, NotificationType, Unsigned32, Counter32, Integer32, ObjectIdentity, Counter64, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "IpAddress", "TimeTicks", "iso", "MibIdentifier", "NotificationType", "Unsigned32", "Counter32", "Integer32", "ObjectIdentity", "Counter64", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+iso, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Integer32, MibIdentifier, Bits, ObjectIdentity, Counter64, TimeTicks, ModuleIdentity, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Integer32", "MibIdentifier", "Bits", "ObjectIdentity", "Counter64", "TimeTicks", "ModuleIdentity", "IpAddress", "Counter32")
 DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
 twowcom, = mibBuilder.importSymbols("TWOWCOM-SMI", "twowcom")
 commonVarbinds = ModuleIdentity((1, 3, 6, 1, 4, 1, 21529, 11, 1))
@@ -105,4 +105,4 @@ if mibBuilder.loadTexts: eventCounter.setDescription('Description.')
 mibRelease = MibScalar((1, 3, 6, 1, 4, 1, 21529, 11, 1, 5), DateAndTime()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mibRelease.setStatus('current')
 if mibBuilder.loadTexts: mibRelease.setDescription('Description.')
-mibBuilder.exportSymbols("TWOWCOM-COMMONVARBINDS", common=common, eventCounter=eventCounter, commonVarbinds=commonVarbinds, PYSNMP_MODULE_ID=commonVarbinds, Integer32d3=Integer32d3, Unsigned16x=Unsigned16x, Integer32d1=Integer32d1, eventPriority=eventPriority, ActiveNotActive=ActiveNotActive, commonGroup=commonGroup, Integer32h=Integer32h, Integer32d2=Integer32d2, FloatString=FloatString, eventTimeStamp=eventTimeStamp, SelectYesNo=SelectYesNo, mibRelease=mibRelease, Integer32d=Integer32d, FaultOK=FaultOK, SelectOnOff=SelectOnOff, ValidFlag=ValidFlag)
+mibBuilder.exportSymbols("TWOWCOM-COMMONVARBINDS", FloatString=FloatString, Integer32d1=Integer32d1, SelectOnOff=SelectOnOff, Integer32d3=Integer32d3, Integer32d=Integer32d, commonGroup=commonGroup, eventTimeStamp=eventTimeStamp, mibRelease=mibRelease, FaultOK=FaultOK, ActiveNotActive=ActiveNotActive, Integer32h=Integer32h, Integer32d2=Integer32d2, SelectYesNo=SelectYesNo, eventCounter=eventCounter, eventPriority=eventPriority, PYSNMP_MODULE_ID=commonVarbinds, ValidFlag=ValidFlag, common=common, Unsigned16x=Unsigned16x, commonVarbinds=commonVarbinds)

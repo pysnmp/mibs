@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpPortEntry",
-      "dot1dStpPort"
+      "dot1dStpPort",
+      "dot1dStpPortEntry"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -17,25 +17,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "iso",
       "Counter64",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "jnxL2cpFeaturesMIB": {
@@ -522,8 +522,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-L2CP-FEATURES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:25:56 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:19:19 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-L2CP-FEATURES-MIB"

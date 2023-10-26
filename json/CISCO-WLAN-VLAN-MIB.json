@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "CISCO-DOT11-IF-MIB": [
-      "CDot11IfWepKeyPermuteAlgorithm",
       "CDot11IfMicAlgorithm",
+      "CDot11IfWepKeyPermuteAlgorithm",
       "WepKeyType128"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Bits",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "Gauge32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoWlanVlanMIB": {
@@ -622,8 +622,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WLAN-VLAN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:19:04 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:12:38 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WLAN-VLAN-MIB"

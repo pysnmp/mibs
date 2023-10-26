@@ -5,30 +5,30 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
+      "CiscoAlarmSeverity",
       "Unsigned64",
+      "CiscoNetworkAddress",
       "TimeIntervalSec",
-      "CiscoAlarmSeverity"
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn"
+      "CucsManagedObjectDn",
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsFsmFlags",
-      "CucsPolicyPolicyOwner",
-      "CucsPkiEpFsmStageName",
-      "CucsConditionRemoteInvRslt",
-      "CucsPkiEpFsmTaskItem",
-      "CucsPkiModulus",
-      "CucsPkiKeyringState",
       "CucsPkiEpFsmCurrentFsm",
-      "CucsAaaConfigState",
       "CucsFsmFsmStageStatus",
+      "CucsAaaConfigState",
+      "CucsPkiEpFsmStageName",
+      "CucsFsmFlags",
+      "CucsPkiKeyringState",
+      "CucsPkiEpFsmTaskItem",
+      "CucsPolicyPolicyOwner",
+      "CucsPkiModulus",
       "CucsPkiCertStatus",
-      "CucsFsmCompletion"
+      "CucsFsmCompletion",
+      "CucsConditionRemoteInvRslt"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -38,34 +38,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "iso",
-      "Gauge32"
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
       "RowPointer",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TimeInterval",
       "TimeStamp",
-      "MacAddress",
-      "TimeInterval"
+      "DisplayString",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "cucsPkiObjects": {
@@ -1353,8 +1353,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PKI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:19:07 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:12:41 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-PKI-MIB"

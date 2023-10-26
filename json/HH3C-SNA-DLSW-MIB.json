@@ -9,30 +9,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter32",
-      "Unsigned32",
-      "iso",
+      "OBJECT-TYPE",
       "Bits",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier"
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cdlsw": {
@@ -2252,8 +2252,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SNA-DLSW-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:16:13 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:09:51 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-SNA-DLSW-MIB"

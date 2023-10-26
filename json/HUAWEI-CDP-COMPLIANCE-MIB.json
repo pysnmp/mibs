@@ -20,25 +20,25 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
+      "Integer32",
       "Counter64",
-      "OBJECT-IDENTITY",
       "TimeTicks",
       "MibIdentifier",
-      "Integer32",
-      "Counter32",
+      "iso",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "hwCdpComplianceMIB": {
@@ -522,8 +522,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-CDP-COMPLIANCE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:23:13 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:16:33 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-CDP-COMPLIANCE-MIB"

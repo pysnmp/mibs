@@ -13,25 +13,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
       "Bits",
-      "TimeTicks",
-      "Counter32",
       "Counter64",
       "MibIdentifier",
       "Integer32",
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "ctVlanClassify": {
@@ -421,8 +421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-VLAN-CLASSIFY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:20:13 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:13:48 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-VLAN-CLASSIFY-MIB"

@@ -8,34 +8,34 @@
       "interfaces"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Unsigned32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Gauge32",
-      "iso",
       "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "AutonomousType",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TestAndIncr",
+      "RowStatus",
+      "TruthValue",
+      "AutonomousType",
       "PhysAddress",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ifMIB": {
@@ -980,8 +980,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ITF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:28:22 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:21:25 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ITF-MIB"

@@ -15,8 +15,8 @@
       "InetAddressIPv6"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -24,25 +24,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "Counter64",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Bits",
       "IpAddress",
       "MibIdentifier",
-      "Counter32",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ],
     "XF-TOP-MIB": [
       "xfRadioLink"
@@ -6922,8 +6922,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-RADIOLINK-RLT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:20:15 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:13:47 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "XF-RADIOLINK-RLT-MIB"

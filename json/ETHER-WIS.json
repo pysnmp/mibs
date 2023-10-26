@@ -10,40 +10,40 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
       "transmission",
+      "TimeTicks",
+      "IpAddress",
       "Counter64",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Bits",
-      "Counter32",
-      "IpAddress"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetMediumLineType",
+      "sonetMediumLoopbackConfig",
+      "sonetSectionStuff2",
+      "sonetFarEndLineStuff2",
       "sonetMediumLineCoding",
       "sonetPathCurrentWidth",
-      "sonetMediumCircuitIdentifier",
       "sonetFarEndPathStuff2",
       "sonetPathStuff2",
-      "sonetLineStuff2",
       "sonetMediumType",
-      "sonetSESthresholdSet",
-      "sonetFarEndLineStuff2",
+      "sonetLineStuff2",
+      "sonetMediumCircuitIdentifier",
       "sonetMediumStuff2",
-      "sonetMediumLoopbackConfig",
-      "sonetSectionStuff2"
+      "sonetSESthresholdSet",
+      "sonetMediumLineType"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-WIS",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:11:52 2023",
-      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 12:05:53 2023",
+      "On host fv-az1234-823 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ETHER-WIS"
