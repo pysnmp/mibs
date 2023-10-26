@@ -1,0 +1,918 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "huawei": {
+    "name": "huawei",
+    "oid": "1.3.6.1.4.1.2011",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.2011.2",
+    "class": "objectidentity"
+  },
+  "netManagement": {
+    "name": "netManagement",
+    "oid": "1.3.6.1.4.1.2011.2.15",
+    "class": "objectidentity"
+  },
+  "nmAgent": {
+    "name": "nmAgent",
+    "oid": "1.3.6.1.4.1.2011.2.15.1",
+    "class": "objectidentity"
+  },
+  "nmNorthboundEvent": {
+    "name": "nmNorthboundEvent",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7",
+    "class": "objectidentity"
+  },
+  "northboundReportAlarm": {
+    "name": "northboundReportAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3",
+    "class": "objectidentity"
+  },
+  "northboundReportAlarmManagedObjectClass": {
+    "name": "northboundReportAlarmManagedObjectClass",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmManagedObjectInstance": {
+    "name": "northboundReportAlarmManagedObjectInstance",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmEventType": {
+    "name": "northboundReportAlarmEventType",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmEventTime": {
+    "name": "northboundReportAlarmEventTime",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmProbableCause": {
+    "name": "northboundReportAlarmProbableCause",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmSpecificProblems": {
+    "name": "northboundReportAlarmSpecificProblems",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmPerceivedSeverity": {
+    "name": "northboundReportAlarmPerceivedSeverity",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmNotificationIdentifier": {
+    "name": "northboundReportAlarmNotificationIdentifier",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmCorrelatedNotifications": {
+    "name": "northboundReportAlarmCorrelatedNotifications",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmProposedRepairActions": {
+    "name": "northboundReportAlarmProposedRepairActions",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalText": {
+    "name": "northboundReportAlarmAdditionalText",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmEmsName": {
+    "name": "northboundReportAlarmEmsName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmNEName": {
+    "name": "northboundReportAlarmNEName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmDevLocation": {
+    "name": "northboundReportAlarmDevLocation",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmRackName": {
+    "name": "northboundReportAlarmRackName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmShelfName": {
+    "name": "northboundReportAlarmShelfName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmBoardName": {
+    "name": "northboundReportAlarmBoardName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmPortType": {
+    "name": "northboundReportAlarmPortType",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmPortNumber": {
+    "name": "northboundReportAlarmPortNumber",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmLocation": {
+    "name": "northboundReportAlarmLocation",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmOperationAffected": {
+    "name": "northboundReportAlarmOperationAffected",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmID": {
+    "name": "northboundReportAlarmID",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmName": {
+    "name": "northboundReportAlarmName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmIPAddress": {
+    "name": "northboundReportAlarmIPAddress",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmResourceID": {
+    "name": "northboundReportAlarmResourceID",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmCleared": {
+    "name": "northboundReportAlarmCleared",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0",
+        "format": "bin"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB1": {
+    "name": "northboundReportAlarmAdditionalVB1",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB2": {
+    "name": "northboundReportAlarmAdditionalVB2",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB3": {
+    "name": "northboundReportAlarmAdditionalVB3",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB4": {
+    "name": "northboundReportAlarmAdditionalVB4",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB5": {
+    "name": "northboundReportAlarmAdditionalVB5",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB6": {
+    "name": "northboundReportAlarmAdditionalVB6",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB7": {
+    "name": "northboundReportAlarmAdditionalVB7",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB8": {
+    "name": "northboundReportAlarmAdditionalVB8",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB9": {
+    "name": "northboundReportAlarmAdditionalVB9",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundReportAlarmAdditionalVB10": {
+    "name": "northboundReportAlarmAdditionalVB10",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.3.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundSynchAlarm": {
+    "name": "northboundSynchAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.4",
+    "class": "objectidentity"
+  },
+  "northBoundSynchAlarmCommand": {
+    "name": "northBoundSynchAlarmCommand",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "northBoundSynchAlarmStartStatus": {
+    "name": "northBoundSynchAlarmStartStatus",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northBoundSynchAlarmEndStatus": {
+    "name": "northBoundSynchAlarmEndStatus",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "northboundNotificationType": {
+    "name": "northboundNotificationType",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.5",
+    "class": "objectidentity"
+  },
+  "nmModuleIdentity": {
+    "name": "nmModuleIdentity",
+    "oid": "1.3.6.1.4.1.2011.2.15.2",
+    "class": "objectidentity"
+  },
+  "nmObjectGroup": {
+    "name": "nmObjectGroup",
+    "oid": "1.3.6.1.4.1.2011.2.15.3",
+    "class": "objectidentity"
+  },
+  "northBoundReportAlarm": {
+    "name": "northBoundReportAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.50.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmManagedObjectClass"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmManagedObjectInstance"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmEventType"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmEventTime"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmProbableCause"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmSpecificProblems"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmPerceivedSeverity"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmNotificationIdentifier"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmCorrelatedNotifications"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmProposedRepairActions"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalText"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmEmsName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmNEName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmDevLocation"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmShelfName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmBoardName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmPortType"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmPortNumber"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmLocation"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmOperationAffected"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmID"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmIPAddress"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmResourceID"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmCleared"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB1"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB2"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB3"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB4"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB5"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB6"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB7"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB8"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB9"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB10"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmRackName"
+      }
+    ]
+  },
+  "northBoundSynchAlarm": {
+    "name": "northBoundSynchAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.50.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmManagedObjectClass"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmManagedObjectInstance"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmEventType"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmEventTime"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmProbableCause"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmSpecificProblems"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmPerceivedSeverity"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmNotificationIdentifier"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmCorrelatedNotifications"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmProposedRepairActions"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalText"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmEmsName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmNEName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmDevLocation"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmShelfName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmBoardName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmPortType"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmPortNumber"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmLocation"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmOperationAffected"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmID"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmName"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmIPAddress"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmResourceID"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmCleared"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB1"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB2"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB3"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB4"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB5"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB6"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB7"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB8"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB9"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmAdditionalVB10"
+      },
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northboundReportAlarmRackName"
+      }
+    ]
+  },
+  "northBoundSynchAlarmStart": {
+    "name": "northBoundSynchAlarmStart",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.50.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northBoundSynchAlarmStartStatus"
+      }
+    ]
+  },
+  "northBoundSynchAlarmEnd": {
+    "name": "northBoundSynchAlarmEnd",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.50.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "T2000-NETMANAGEMENT-MIB",
+        "object": "northBoundSynchAlarmEndStatus"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/T2000-NETMANAGEMENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 09:05:09 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "T2000-NETMANAGEMENT-MIB"
+  }
+}

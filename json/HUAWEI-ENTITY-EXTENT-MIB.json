@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalClass",
-      "PhysicalClass",
-      "entPhysicalIndex",
-      "entPhysicalName",
       "entPhysicalVendorType",
-      "PhysicalIndex"
+      "PhysicalClass",
+      "entPhysicalClass",
+      "PhysicalIndex",
+      "entPhysicalIndex",
+      "entPhysicalName"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -22,32 +22,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "OBJECT-TYPE",
       "Gauge32",
       "Bits",
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter64",
+      "Integer32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso"
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DateAndTime",
-      "DisplayString",
       "AutonomousType",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "hwEntityExtentMIB": {
@@ -9049,8 +9049,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENTITY-EXTENT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Oct 13 14:05:54 2023",
-      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 09:05:10 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ENTITY-EXTENT-MIB"

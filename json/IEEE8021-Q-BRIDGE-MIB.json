@@ -7,13 +7,13 @@
       "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021VlanIndex",
-      "IEEE8021BridgePortNumberOrZero",
-      "ieee802dot1mibs",
       "IEEE8021VlanIndexOrWildcard",
+      "IEEE8021VlanIndex",
       "IEEE8021PortAcceptableFrameTypes",
+      "IEEE8021BridgePortNumber",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumber"
+      "ieee802dot1mibs",
+      "IEEE8021BridgePortNumberOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
@@ -26,33 +26,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
+      "Integer32",
+      "MibIdentifier",
       "IpAddress",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "iso",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "StorageType",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ieee8021QBridgeMib": {
@@ -2483,8 +2483,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Q-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Oct 13 13:54:15 2023",
-      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 08:55:09 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-Q-BRIDGE-MIB"

@@ -5,45 +5,45 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
+      "ArubaMeshRole",
       "ArubaPhyType",
-      "ArubaEncryptionMethods",
-      "ArubaMeshRole"
+      "ArubaEncryptionMethods"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "snmpModules",
       "Unsigned32",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
-      "snmpModules"
+      "iso",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TDomain",
-      "TestAndIncr",
-      "StorageType",
-      "DisplayString",
+      "TimeInterval",
       "DateAndTime",
-      "TAddress",
-      "TruthValue",
       "PhysAddress",
+      "MacAddress",
+      "DisplayString",
+      "StorageType",
+      "TAddress",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TimeInterval"
+      "TestAndIncr",
+      "TruthValue",
+      "TDomain"
     ],
     "WLSX-WLAN-MIB": [
       "wlanAPMacAddress"
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MESH-MIB",
-      "Produced by pysmi-1.1.8 at Fri Oct 13 13:56:25 2023",
-      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 08:57:08 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WLSX-MESH-MIB"

@@ -6,43 +6,43 @@
       "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021BridgePortNumberOrZero",
-      "ieee802dot1mibs",
-      "IEEE8021PortAcceptableFrameTypes",
       "IEEE8021PriorityValue",
-      "IEEE8021BridgePortType",
-      "IEEE8021PbbComponentIdentifierOrZero"
+      "IEEE8021PortAcceptableFrameTypes",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "ieee802dot1mibs",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021BridgePortType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
+      "Integer32",
+      "MibIdentifier",
       "IpAddress",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter64",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "iso",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021PbMib": {
@@ -1062,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Oct 13 13:54:15 2023",
-      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 08:55:09 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PB-MIB"

@@ -1,0 +1,2095 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "enterprises",
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "huawei": {
+    "name": "huawei",
+    "oid": "1.3.6.1.4.1.2011",
+    "class": "moduleidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.2011.2",
+    "class": "objectidentity"
+  },
+  "hwNetManagement": {
+    "name": "hwNetManagement",
+    "oid": "1.3.6.1.4.1.2011.2.15",
+    "class": "objectidentity"
+  },
+  "hwNmAgent": {
+    "name": "hwNmAgent",
+    "oid": "1.3.6.1.4.1.2011.2.15.1",
+    "class": "objectidentity"
+  },
+  "hwNmFault": {
+    "name": "hwNmFault",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.3",
+    "class": "objectidentity"
+  },
+  "thirdNMSFaultFilter": {
+    "name": "thirdNMSFaultFilter",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNmClearAlarms": {
+    "name": "hwNmClearAlarms",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNmAcknowledgeAlarms": {
+    "name": "hwNmAcknowledgeAlarms",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNmUnAcknowledgeAlarms": {
+    "name": "hwNmUnAcknowledgeAlarms",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 2048
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNmNorthboundEvent": {
+    "name": "hwNmNorthboundEvent",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventInfo": {
+    "name": "hwNmNorthboundEventInfo",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventTrap": {
+    "name": "hwNmNorthboundEventTrap",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwNmNorthboundNEName": {
+    "name": "hwNmNorthboundNEName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundNEType": {
+    "name": "hwNmNorthboundNEType",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundObjectInstance": {
+    "name": "hwNmNorthboundObjectInstance",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventType": {
+    "name": "hwNmNorthboundEventType",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventTime": {
+    "name": "hwNmNorthboundEventTime",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundProbableCause": {
+    "name": "hwNmNorthboundProbableCause",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundSeverity": {
+    "name": "hwNmNorthboundSeverity",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventDetail": {
+    "name": "hwNmNorthboundEventDetail",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundAdditionalInfo": {
+    "name": "hwNmNorthboundAdditionalInfo",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundFaultFlag": {
+    "name": "hwNmNorthboundFaultFlag",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundFaultFunction": {
+    "name": "hwNmNorthboundFaultFunction",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundDeviceIP": {
+    "name": "hwNmNorthboundDeviceIP",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundSerialNo": {
+    "name": "hwNmNorthboundSerialNo",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundProbableRepair": {
+    "name": "hwNmNorthboundProbableRepair",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundResourceIDs": {
+    "name": "hwNmNorthboundResourceIDs",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB1": {
+    "name": "hwNmNorthboundsAdditionalVB1",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB2": {
+    "name": "hwNmNorthboundsAdditionalVB2",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB3": {
+    "name": "hwNmNorthboundsAdditionalVB3",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB4": {
+    "name": "hwNmNorthboundsAdditionalVB4",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB5": {
+    "name": "hwNmNorthboundsAdditionalVB5",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB6": {
+    "name": "hwNmNorthboundsAdditionalVB6",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB7": {
+    "name": "hwNmNorthboundsAdditionalVB7",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundsAdditionalVB8": {
+    "name": "hwNmNorthboundsAdditionalVB8",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventName": {
+    "name": "hwNmNorthboundEventName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundReasonID": {
+    "name": "hwNmNorthboundReasonID",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundFaultID": {
+    "name": "hwNmNorthboundFaultID",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundDeviceType": {
+    "name": "hwNmNorthboundDeviceType",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundTrailName": {
+    "name": "hwNmNorthboundTrailName",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundRootAlarm": {
+    "name": "hwNmNorthboundRootAlarm",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundGroupID": {
+    "name": "hwNmNorthboundGroupID",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundMaintainStatus": {
+    "name": "hwNmNorthboundMaintainStatus",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundRootAlarmSerialNo": {
+    "name": "hwNmNorthboundRootAlarmSerialNo",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundConfirmStatus": {
+    "name": "hwNmNorthboundConfirmStatus",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundRestoreStatus": {
+    "name": "hwNmNorthboundRestoreStatus",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventKeepAliveInfo": {
+    "name": "hwNmNorthboundEventKeepAliveInfo",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.2",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventKeepAliveInfoTrap": {
+    "name": "hwNmNorthboundEventKeepAliveInfoTrap",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronization": {
+    "name": "hwNmNorthboundEventSynchronization",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventSynchronizationStart": {
+    "name": "hwNmNorthboundEventSynchronizationStart",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.1",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventSynchronizationStartTrap": {
+    "name": "hwNmNorthboundEventSynchronizationStartTrap",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationQueryResult": {
+    "name": "hwNmNorthboundEventSynchronizationQueryResult",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.2",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventSynchronizationQueryResultTrap": {
+    "name": "hwNmNorthboundEventSynchronizationQueryResultTrap",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.2.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationEnd": {
+    "name": "hwNmNorthboundEventSynchronizationEnd",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.3",
+    "class": "objectidentity"
+  },
+  "hwNmNorthboundEventSynchronizationEndTrap": {
+    "name": "hwNmNorthboundEventSynchronizationEndTrap",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.3.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "hwNmNorthboundKeepAlive": {
+    "name": "hwNmNorthboundKeepAlive",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationEndStatus": {
+    "name": "hwNmNorthboundEventSynchronizationEndStatus",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normalEnd": 1,
+          "stopped": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationEndStatusDetail": {
+    "name": "hwNmNorthboundEventSynchronizationEndStatusDetail",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationCommandStart": {
+    "name": "hwNmNorthboundEventSynchronizationCommandStart",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationCommandStop": {
+    "name": "hwNmNorthboundEventSynchronizationCommandStop",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotify": {
+    "name": "hwNmNorthboundEventNotify",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventKeepAlive": {
+    "name": "hwNmNorthboundEventKeepAlive",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundKeepAlive"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotifyCritical": {
+    "name": "hwNmNorthboundEventNotifyCritical",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotifyMajor": {
+    "name": "hwNmNorthboundEventNotifyMajor",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotifyMinor": {
+    "name": "hwNmNorthboundEventNotifyMinor",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotifyWarning": {
+    "name": "hwNmNorthboundEventNotifyWarning",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotifyIndefinitely": {
+    "name": "hwNmNorthboundEventNotifyIndefinitely",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventNotifyUnknownSeverity": {
+    "name": "hwNmNorthboundEventNotifyUnknownSeverity",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationStartNotify": {
+    "name": "hwNmNorthboundEventSynchronizationStartNotify",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.1.0.9",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationQueryResultNotify": {
+    "name": "hwNmNorthboundEventSynchronizationQueryResultNotify",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundNEType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundObjectInstance"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventTime"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableCause"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSeverity"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventDetail"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundAdditionalInfo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFlag"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultFunction"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceIP"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundProbableRepair"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundResourceIDs"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB1"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB2"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB3"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB4"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB5"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB6"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB7"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundsAdditionalVB8"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundReasonID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundFaultID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundDeviceType"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundTrailName"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarm"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundGroupID"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundMaintainStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRootAlarmSerialNo"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundConfirmStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundRestoreStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "hwNmNorthboundEventSynchronizationEndNotify": {
+    "name": "hwNmNorthboundEventSynchronizationEndNotify",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventSynchronizationEndStatus"
+      },
+      {
+        "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB",
+        "object": "hwNmNorthboundEventSynchronizationEndStatusDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HW-IMAPV2NORTHBOUND-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 09:05:10 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "HW-IMAPV2NORTHBOUND-TRAP-MIB"
+  }
+}

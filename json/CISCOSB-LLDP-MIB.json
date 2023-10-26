@@ -16,22 +16,22 @@
       "AddressFamilyNumbers"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetVersion",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "LLDP-EXT-MED-MIB": [
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpPortList",
-      "lldpRemTimeMark",
+      "lldpRemLocalPortNum",
       "lldpPortConfigEntry",
-      "LldpManAddress",
+      "lldpRemTimeMark",
       "LldpPortNumber",
       "lldpRemEntry",
-      "lldpRemIndex",
-      "lldpRemLocalPortNum"
+      "LldpPortList",
+      "LldpManAddress",
+      "lldpRemIndex"
     ],
     "LLDP-V2-MIB": [
       "lldpV2RemLocalIfIndex",
@@ -41,32 +41,32 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Integer32",
-      "Counter64",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "Bits",
+      "Counter32",
+      "iso",
       "OBJECT-TYPE",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "MacAddress",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rlLldp": {
@@ -1226,8 +1226,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Oct 13 14:01:48 2023",
-      "On host fv-az877-675 platform Linux version 6.2.0-1012-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 09:01:55 2023",
+      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-LLDP-MIB"
