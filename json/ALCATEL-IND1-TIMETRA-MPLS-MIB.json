@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
-      "tmnxSRConfs",
-      "tmnxSRObjs"
+      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
+      "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxActionType",
-      "TNamedItem",
-      "TmnxVRtrMplsLspID",
       "TNamedItemOrEmpty",
       "TmnxOperState",
-      "TmnxAdminState"
+      "TmnxActionType",
+      "TmnxAdminState",
+      "TNamedItem",
+      "TmnxVRtrMplsLspID"
     ],
     "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
       "vRtrIfIndex",
@@ -26,8 +26,8 @@
       "InetAddressIPv6"
     ],
     "MPLS-LSR-MIB": [
-      "MplsLabel",
       "mplsXCLspId",
+      "MplsLabel",
       "MplsLSPID"
     ],
     "MPLS-TE-MIB": [
@@ -42,30 +42,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Gauge32",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "TimeStamp",
-      "TestAndIncr",
-      "RowPointer",
       "TimeInterval",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TestAndIncr",
+      "RowPointer"
     ]
   },
   "timetraMplsMIBModule": {
@@ -5170,8 +5170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-MPLS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:19:50 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:11:57 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"

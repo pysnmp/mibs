@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
+      "dot1agCfmMepIdentifier",
+      "Dot1agCfmIdPermission",
       "dot1agCfmLtrSeqNumber",
-      "Dot1agCfmMepIdOrZero",
       "Dot1agCfmMepId",
-      "dot1agCfmLtrReceiveOrder",
       "Dot1agCfmMpDirection",
+      "Dot1agCfmPbbComponentIdentifier",
+      "dot1agCfmMepDbRMepIdentifier",
       "Dot1agCfmCcmInterval",
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmLtrReceiveOrder",
       "Dot1agCfmMDLevel",
+      "dot1agCfmMaMepListIdentifier",
       "dot1agCfmMaComponentId",
       "dot1agCfmMdIndex",
-      "Dot1agCfmIdPermission",
-      "dot1agCfmMepDbRMepIdentifier",
-      "dot1agCfmMaMepListIdentifier",
-      "dot1agCfmMepIdentifier",
-      "dot1agCfmMaIndex",
-      "Dot1agCfmPbbComponentIdentifier"
+      "dot1agCfmMaIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LLDP-MIB": [
-      "LldpChassisIdSubtype",
+      "LldpPortId",
       "LldpChassisId",
       "LldpPortIdSubtype",
-      "LldpPortId"
+      "LldpChassisIdSubtype"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
-      "VlanId"
+      "VlanId",
+      "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -38,30 +38,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Integer32",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
       "enterprises",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
       "Counter64"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "MacAddress",
+      "DisplayString",
       "TDomain",
       "TAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "calixEoamExtMIB": {
@@ -2236,8 +2236,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/CALIX-SOAM-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:10:01 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:00:54 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CALIX-EOAM-EXT-MIB"

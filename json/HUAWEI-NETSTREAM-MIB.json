@@ -10,26 +10,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "Bits",
       "BITS",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Gauge32",
       "Counter32",
-      "Counter64"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwNetStreamMIB": {
@@ -241,8 +241,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-NETSTREAM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:16:22 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:07:43 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-NETSTREAM-MIB"

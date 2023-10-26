@@ -8,17 +8,17 @@
       "ifIndex"
     ],
     "LLDP-MIB": [
-      "LldpPortIdSubtype",
-      "LldpManAddress",
-      "LldpChassisIdSubtype",
       "LldpChassisId",
+      "LldpManAddress",
       "LldpSystemCapabilitiesMap",
+      "LldpPortIdSubtype",
+      "LldpManAddrIfSubtype",
       "LldpPortId",
-      "LldpManAddrIfSubtype"
+      "LldpChassisIdSubtype"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -29,36 +29,36 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Gauge32",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "MacAddress",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
-      "tmnxSRConfs",
-      "tmnxSRObjs"
+      "tmnxSRNotifyPrefix",
+      "tmnxSRObjs",
+      "tmnxSRConfs"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxEnabledDisabled",
-      "TmnxEnabledDisabledAdminState"
+      "TmnxEnabledDisabledAdminState",
+      "TmnxEnabledDisabled"
     ]
   },
   "tmnxLldpMIBModule": {
@@ -1599,8 +1599,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:19:51 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:11:57 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-LLDP-MIB"

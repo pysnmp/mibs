@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
+      "pingCtlDescr",
       "pingCtlTestName",
-      "pingCtlType",
+      "pingCtlOwnerIndex",
       "pingCtlTargetAddressType",
       "pingCtlTargetAddress",
-      "pingCtlEntry",
-      "pingCtlOwnerIndex",
-      "pingCtlDescr"
+      "pingCtlType",
+      "pingCtlEntry"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfRhw"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime",
-      "DisplayString"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfNqa": {
@@ -3081,8 +3081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NQA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:16:32 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:08:29 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-NQA-MIB"

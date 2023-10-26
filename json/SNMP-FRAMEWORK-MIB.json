@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
+      "Unsigned32",
       "Counter32",
+      "iso",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "TimeTicks",
       "snmpModules"
     ],
@@ -286,8 +286,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-FRAMEWORK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:13:33 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:04:38 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SNMP-FRAMEWORK-MIB"

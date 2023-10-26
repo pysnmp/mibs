@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module XF-TOP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-TOP-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 26 10:14:09 2023
-# On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 26 11:05:15 2023
+# On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, ModuleIdentity, Integer32, IpAddress, iso, Counter32, ObjectIdentity, Bits, TimeTicks, NotificationType, Gauge32, MibIdentifier, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "ModuleIdentity", "Integer32", "IpAddress", "iso", "Counter32", "ObjectIdentity", "Bits", "TimeTicks", "NotificationType", "Gauge32", "MibIdentifier", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, ObjectIdentity, Counter32, Gauge32, Unsigned32, ModuleIdentity, NotificationType, iso, TimeTicks, Counter64, enterprises, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "Counter32", "Gauge32", "Unsigned32", "ModuleIdentity", "NotificationType", "iso", "TimeTicks", "Counter64", "enterprises", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 miniLinkXF = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 81))
 miniLinkXF.setRevisions(('2012-10-10 16:00', '2012-08-31 16:00', '2012-06-13 16:00', '2011-09-10 12:00', '2010-09-22 11:00', '2010-04-20 10:00', '2010-01-26 10:00', '2009-03-16 12:00', '2009-01-22 11:00', '2008-02-25 14:44', '2006-01-26 12:24', '2005-02-25 16:00', '2004-01-23 11:11', '2003-06-19 09:24', '2002-03-07 13:29', '2001-10-08 15:01', '2001-04-02 00:00',))
 if mibBuilder.loadTexts: miniLinkXF.setLastUpdated('201210101600Z')
@@ -63,4 +63,4 @@ xfIpSau = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 81, 5))
 xfCN210 = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 81, 6))
 xfCN500 = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 81, 7))
 xfPT6010 = MibIdentifier((1, 3, 6, 1, 4, 1, 193, 81, 8))
-mibBuilder.exportSymbols("XF-TOP-MIB", xfRadioLink=xfRadioLink, xfEthernetBridge=xfEthernetBridge, xfSysId=xfSysId, Xf24HrsSeconds=Xf24HrsSeconds, Xf15MinSecondsGauge=Xf15MinSecondsGauge, xfIpSau=xfIpSau, xfMediaSpecific=xfMediaSpecific, Xf24HrsSecondsGauge=Xf24HrsSecondsGauge, xfPDH=xfPDH, xfSDH=xfSDH, xfPT6010=xfPT6010, XfProductRevision=XfProductRevision, ericsson=ericsson, XfProductnumber=XfProductnumber, Xf15MinSeconds=Xf15MinSeconds, xfAtmAggregationUnit=xfAtmAggregationUnit, PYSNMP_MODULE_ID=miniLinkXF, xfMCR=xfMCR, xfSdhAdm=xfSdhAdm, xfPlatform=xfPlatform, xfCesService=xfCesService, miniLinkXF=miniLinkXF, xfServiceApplications=xfServiceApplications, xfRps=xfRps, xfCN210=xfCN210, xfCN500=xfCN500)
+mibBuilder.exportSymbols("XF-TOP-MIB", xfRps=xfRps, xfPT6010=xfPT6010, xfPlatform=xfPlatform, xfAtmAggregationUnit=xfAtmAggregationUnit, ericsson=ericsson, xfServiceApplications=xfServiceApplications, Xf15MinSecondsGauge=Xf15MinSecondsGauge, xfRadioLink=xfRadioLink, xfCN500=xfCN500, xfEthernetBridge=xfEthernetBridge, xfCesService=xfCesService, xfSDH=xfSDH, XfProductRevision=XfProductRevision, xfPDH=xfPDH, miniLinkXF=miniLinkXF, XfProductnumber=XfProductnumber, xfMediaSpecific=xfMediaSpecific, xfSysId=xfSysId, xfMCR=xfMCR, xfCN210=xfCN210, Xf24HrsSeconds=Xf24HrsSeconds, xfSdhAdm=xfSdhAdm, xfIpSau=xfIpSau, Xf15MinSeconds=Xf15MinSeconds, PYSNMP_MODULE_ID=miniLinkXF, Xf24HrsSecondsGauge=Xf24HrsSecondsGauge)

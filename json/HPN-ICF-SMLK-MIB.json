@@ -8,31 +8,31 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "Counter64",
       "iso",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "IpAddress",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hpnicfSmlk": {
@@ -476,8 +476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-SMLK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:16:32 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:08:29 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-SMLK-MIB"

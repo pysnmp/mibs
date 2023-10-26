@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList2",
       "VlanList1",
       "VlanList3",
+      "VlanList2",
       "VlanList4"
     ],
     "LINKSYS-MIB": [
@@ -17,30 +17,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Bits",
       "Integer32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "iso",
+      "Counter32",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter64",
       "Gauge32",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "iso"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "rsDHCP": {
@@ -1609,8 +1609,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:18:22 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:10:15 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-DHCP-MIB"

@@ -5,30 +5,30 @@
       "ssrMibs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
       "iso",
       "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "Counter64",
-      "Unsigned32"
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "PhysAddress"
+      "DisplayString"
     ]
   },
   "l2MIB": {
@@ -1311,8 +1311,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-L2-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:14:12 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:05:18 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-SSR-L2-MIB"

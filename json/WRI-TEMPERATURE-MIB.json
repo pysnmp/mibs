@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "enterprises",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Bits",
-      "Counter64"
+      "Counter32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "WRI-SMI": [
-      "wri",
-      "wriProducts"
+      "wriProducts",
+      "wri"
     ]
   },
   "msppTemperature": {
@@ -330,8 +330,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-TEMPERATURE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:14:38 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:05:43 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WRI-TEMPERATURE-MIB"

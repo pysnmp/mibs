@@ -10,17 +10,17 @@
       "hwDatacomm"
     ],
     "IEEE802171-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
       "Dot1agCfmMaintDomainName",
-      "Dot1agCfmMaintAssocName"
+      "Dot1agCfmMaintAssocName",
+      "Dot1agCfmMepIdOrZero"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetPortNumber",
       "InetAddressType",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -37,32 +37,32 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "IpAddress",
-      "Counter64",
-      "Bits",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "mib-2",
+      "NOTIFICATION-GROUP",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "NOTIFICATION-GROUP"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "StorageType",
+      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue",
-      "TimeStamp",
       "DateAndTime",
+      "MacAddress",
+      "TruthValue",
       "TimeInterval"
     ]
   },
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:16:21 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:07:42 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NQA-MIB"

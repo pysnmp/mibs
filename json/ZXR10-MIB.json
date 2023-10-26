@@ -6,28 +6,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "mgmt",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "Counter32",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Bits",
       "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
       "Counter64",
+      "MODULE-IDENTITY",
+      "mgmt",
       "OBJECT-IDENTITY",
-      "iso"
+      "TRAP-TYPE",
+      "enterprises",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "zte": {
@@ -4314,8 +4314,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zte/ZXR10-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:23:24 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:15:52 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ZXR10-MIB"

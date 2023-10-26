@@ -9,24 +9,24 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "MibIdentifier",
-      "Bits",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
       "Counter64",
-      "Counter32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-TYPE"
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -285,8 +285,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/BDCOM-PROCESS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:09:39 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:00:28 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BDCOM-PROCESS-MIB"

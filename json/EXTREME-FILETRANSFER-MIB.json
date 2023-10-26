@@ -8,24 +8,24 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
       "Integer32",
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
       "MODULE-IDENTITY",
       "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TestAndIncr",
@@ -280,8 +280,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:14:34 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:05:40 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EXTREME-FILETRANSFER-MIB"

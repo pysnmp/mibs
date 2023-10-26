@@ -5,8 +5,8 @@
       "eqlGroupId"
     ],
     "EQLMEMBER-MIB": [
-      "eqlMemberIndex",
-      "eqlDriveGroupIndex"
+      "eqlDriveGroupIndex",
+      "eqlMemberIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
@@ -23,20 +23,20 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "enterprises",
       "Unsigned32",
       "Integer32",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "iso",
       "IpAddress",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -796,8 +796,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLRAID-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:14:07 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:05:13 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLRAID-MIB"

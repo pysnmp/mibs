@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVpIdentifier",
-      "AtmServiceCategory",
-      "AtmVorXAdminStatus",
       "AtmTrafficDescrParamIndex",
-      "AtmAddr",
-      "atmNoClpNoScr",
-      "AtmVcIdentifier",
-      "AtmVorXLastChange",
       "AtmVorXOperStatus",
+      "AtmVpIdentifier",
       "AtmConnKind",
-      "AtmConnCastType"
+      "AtmVcIdentifier",
+      "AtmVorXAdminStatus",
+      "AtmConnCastType",
+      "AtmVorXLastChange",
+      "AtmServiceCategory",
+      "AtmAddr",
+      "atmNoClpNoScr"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "iso",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "IpAddress",
-      "mib-2",
-      "Gauge32",
       "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "mib-2",
       "Counter64",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:14:13 2023",
-      "On host fv-az313-139 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:05:19 2023",
+      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"
