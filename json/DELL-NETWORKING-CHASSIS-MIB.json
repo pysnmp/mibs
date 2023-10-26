@@ -5,20 +5,20 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
-      "DellNetSystemCardType",
-      "DellNetDeviceType",
-      "DellNetChassisType",
-      "DellNetIfType",
-      "DellNetHundredthdB",
-      "DellNetSwDate",
       "DellNetProcessorModuleType",
+      "DellNetChassisType",
       "DellNetMfgDate",
+      "DellNetCardOperStatus",
+      "DellNetSwDate",
       "DellNetPEOperStatus",
-      "DellNetCardOperStatus"
+      "DellNetIfType",
+      "DellNetDeviceType",
+      "DellNetSystemCardType",
+      "DellNetHundredthdB"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -26,25 +26,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter64",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
       "Gauge32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32"
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
       "MacAddress"
     ]
   },
@@ -4673,8 +4673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:03:56 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:18:33 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"

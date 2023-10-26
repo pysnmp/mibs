@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-PRIORITY-CLASSIFY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PRIORITY-CLASSIFY-MIB
-# Produced by pysmi-1.1.8 at Thu Oct 26 11:05:09 2023
-# On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Oct 26 11:20:00 2023
+# On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Unsigned32, ObjectIdentity, NotificationType, Bits, iso, ModuleIdentity, Counter32, Counter64, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ObjectIdentity", "NotificationType", "Bits", "iso", "ModuleIdentity", "Counter32", "Counter64", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks", "MibIdentifier")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, Integer32, IpAddress, TimeTicks, NotificationType, Counter64, Unsigned32, Counter32, ModuleIdentity, iso, Gauge32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "Integer32", "IpAddress", "TimeTicks", "NotificationType", "Counter64", "Unsigned32", "Counter32", "ModuleIdentity", "iso", "Gauge32", "Bits")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 ctPriClassify = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6))
 if mibBuilder.loadTexts: ctPriClassify.setLastUpdated('200203121855Z')
 if mibBuilder.loadTexts: ctPriClassify.setOrganization('Cabletron Systems, Inc')
@@ -72,4 +72,4 @@ ctPriClassifyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctPriClassifyCompliance = ctPriClassifyCompliance.setStatus('current')
-mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassifyTOSValue=ctPriClassifyTOSValue, PortList=PortList, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyIngressList=ctPriClassifyIngressList, PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyObjects=ctPriClassifyObjects, CtPriClassifyType=CtPriClassifyType, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassify=ctPriClassify, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyGroups=ctPriClassifyGroups)
+mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassifyTOSValue=ctPriClassifyTOSValue, ctPriClassifyPorts=ctPriClassifyPorts, CtPriClassifyType=CtPriClassifyType, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassifyIngressList=ctPriClassifyIngressList, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassify=ctPriClassify, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyEntry=ctPriClassifyEntry, PortList=PortList)

@@ -4,48 +4,48 @@
     "ADSL-LINE-MIB": [
       "adslLineEntry",
       "adslMIB",
-      "adslAturIntervalEntry",
-      "adslLineAlarmConfProfileEntry",
-      "adslAtucPerfDataEntry",
       "adslLineConfProfileEntry",
-      "adslAtucIntervalEntry",
-      "adslAturPerfDataEntry"
+      "adslLineAlarmConfProfileEntry",
+      "adslAturIntervalEntry",
+      "adslAturPerfDataEntry",
+      "adslAtucPerfDataEntry",
+      "adslAtucIntervalEntry"
     ],
     "ADSL-TC-MIB": [
-      "AdslPerfPrevDayCount",
-      "AdslPerfCurrDayCount"
+      "AdslPerfCurrDayCount",
+      "AdslPerfPrevDayCount"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfCurrentCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Counter32",
-      "Gauge32",
-      "MibIdentifier",
       "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "TimeTicks",
-      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adslExtMIB": {
@@ -1192,8 +1192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:58:35 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:11:52 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADSL-LINE-EXT-MIB"

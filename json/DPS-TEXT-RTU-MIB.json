@@ -5,28 +5,28 @@
       "dpsAlarmControl"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "MibIdentifier",
       "TimeTicks",
-      "Counter64",
-      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Counter32",
       "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dpsTEXTRTUv2": {
@@ -349,8 +349,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-TEXT-RTU-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:04:17 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:18:59 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DPS-TEXT-RTU-MIB"

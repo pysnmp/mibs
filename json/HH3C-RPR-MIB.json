@@ -5,9 +5,9 @@
       "hh3cCommon"
     ],
     "IEEE-802DOT17-RPR-MIB": [
+      "rprTopoImageInetAddress",
       "rprTopoImageMacAddress",
-      "rprTopoImageEntry",
-      "rprTopoImageInetAddress"
+      "rprTopoImageEntry"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -19,31 +19,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "iso",
+      "Integer32",
       "Bits",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "hh3cRpr": {
@@ -1697,8 +1697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RPR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:01:59 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:16:13 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-RPR-MIB"

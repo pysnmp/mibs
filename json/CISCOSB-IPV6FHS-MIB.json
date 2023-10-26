@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList4",
-      "VlanList1",
+      "VlanList2",
       "VlanList3",
-      "VlanList2"
+      "VlanList1",
+      "VlanList4"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
       "rndErrorSeverity",
@@ -27,35 +27,35 @@
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex",
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Gauge32",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "rlIpv6Fhs": {
@@ -8432,8 +8432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPV6FHS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:04:19 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:19:06 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPV6FHS-MIB"

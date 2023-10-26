@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-SMI": [
-      "netscreenSetting",
-      "netscreenSettingMibModule"
+      "netscreenSettingMibModule",
+      "netscreenSetting"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "Integer32",
       "OBJECT-TYPE",
+      "Unsigned32",
       "MibIdentifier",
       "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter64",
-      "iso"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "netscreenSetEmailMibModule": {
@@ -161,8 +161,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-SET-EMAIL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:14:01 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:31:01 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-SET-EMAIL-MIB"

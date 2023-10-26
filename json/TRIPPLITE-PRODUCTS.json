@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
       "OBJECT-TYPE",
       "Integer32",
-      "Bits",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "Bits",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
+      "RowStatus",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
       "DisplayString"
@@ -15558,8 +15558,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/poweralert/TRIPPLITE-PRODUCTS",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:12:36 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:29:12 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TRIPPLITE-PRODUCTS"

@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "Bits",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter64",
-      "Integer32",
-      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
       "Counter32",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubris": {
@@ -77,8 +77,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SMI.my",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 11:06:57 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:22:17 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-SMI"

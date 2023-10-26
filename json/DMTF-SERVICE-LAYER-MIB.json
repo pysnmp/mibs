@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "DMTF-DMI-MIB": [
-      "DmiDate",
-      "dmiEventDateTime",
-      "dmiEventStateKey",
-      "dmiCompId",
       "dmiEventAssociatedGroup",
-      "DmiString",
+      "dmiEventSystem",
+      "dmiEventStateKey",
       "dmiEventSubSystem",
+      "dmiEventDateTime",
       "dmiEventSeverity",
-      "dmiEventSystem"
+      "DmiDate",
+      "DmiString",
+      "dmiCompId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Counter32",
-      "Gauge32",
-      "MibIdentifier",
       "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "enterprises",
-      "TimeTicks",
-      "Bits",
-      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "enterprises",
+      "Bits",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "DmiCounter": {
@@ -557,8 +557,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DMTF-SERVICE-LAYER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 10:58:34 2023",
-      "On host fv-az552-338 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 11:11:51 2023",
+      "On host fv-az1233-44 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DMTF-SERVICE-LAYER-MIB"
