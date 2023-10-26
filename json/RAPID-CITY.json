@@ -5,9 +5,9 @@
       "AtmAddr"
     ],
     "BGP4-MIB": [
-      "bgpPeerRemoteAddr",
+      "bgpPeerLastError",
       "bgpPeerState",
-      "bgpPeerLastError"
+      "bgpPeerRemoteAddr"
     ],
     "DIFFSERV-MIB": [
       "IndexInteger"
@@ -22,26 +22,26 @@
       "secyIfEntry"
     ],
     "IF-MIB": [
-      "ifOperStatus",
       "ifAdminStatus",
-      "ifIndex"
+      "ifIndex",
+      "ifOperStatus"
     ],
     "IGMP-MIB": [
+      "igmpInterfaceIfIndex",
       "igmpInterfaceQuerier",
       "igmpCacheIfIndex",
-      "igmpInterfaceIfIndex",
       "igmpCacheAddress"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddress",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "IP-MIB": [
-      "ipNetToMediaPhysAddress",
-      "ipNetToMediaNetAddress"
+      "ipNetToMediaNetAddress",
+      "ipNetToMediaPhysAddress"
     ],
     "IPMROUTE-MIB": [
       "ipMRouteInterfaceEntry",
@@ -52,36 +52,36 @@
       "ipv6RouteEntry"
     ],
     "IPV6-MLD-MIB": [
-      "mldInterfaceQuerier",
-      "mldInterfaceIfIndex"
+      "mldInterfaceIfIndex",
+      "mldInterfaceQuerier"
     ],
     "IPV6-TC": [
-      "Ipv6AddressPrefix",
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero",
       "Ipv6AddressIfIdentifier",
       "Ipv6IfIndex",
-      "Ipv6IfIndexOrZero",
-      "Ipv6Address"
+      "Ipv6AddressPrefix"
     ],
     "LLDP-MIB": [
+      "LldpPortIdSubtype",
       "LldpSystemCapabilitiesMap",
-      "AddressFamilyNumbers",
+      "LldpManAddress",
       "lldpRemEntry",
       "LldpPortId",
-      "LldpManAddress",
-      "LldpPortIdSubtype"
+      "AddressFamilyNumbers"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsTunnelIndex",
       "MplsTunnelInstanceIndex",
-      "MplsLabel",
       "MplsLdpIdentifier",
-      "MplsExtendedTunnelId",
-      "MplsLSPID"
+      "MplsLabel",
+      "MplsLSPID",
+      "MplsTunnelIndex",
+      "MplsExtendedTunnelId"
     ],
     "MSDP-MIB": [
       "msdpSACacheEntry",
-      "msdpPeerEntry",
       "msdpPeerState",
+      "msdpPeerEntry",
       "msdpPeerFsmEstablishedTransitions"
     ],
     "RADIUS-DYNAUTH-SERVER-MIB": [
@@ -93,39 +93,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "enterprises",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "TimeTicks",
-      "Integer32",
       "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "Integer32",
       "Gauge32",
+      "enterprises",
       "iso",
-      "Unsigned32"
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "PhysAddress",
-      "TimeInterval",
-      "MacAddress",
-      "TruthValue",
-      "RowPointer",
-      "StorageType",
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString",
+      "DateAndTime",
+      "MacAddress",
+      "RowStatus",
+      "TimeInterval",
+      "StorageType",
+      "TimeStamp",
+      "TruthValue",
+      "RowPointer"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -145635,8 +145635,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:35:01 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:12:01 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAPID-CITY"

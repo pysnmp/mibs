@@ -12,30 +12,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32",
       "iso",
       "Gauge32",
-      "Counter64",
-      "Counter32",
       "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
       "RowStatus",
+      "TruthValue",
       "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -366,8 +366,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-FINDIT",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:28:12 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:08 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-FINDIT"

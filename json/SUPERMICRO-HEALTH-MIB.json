@@ -3,29 +3,29 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "iso",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32",
+      "Integer32",
       "Counter32",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
+      "Gauge32",
+      "Counter64",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "iso",
-      "Counter64",
-      "IpAddress"
+      "IpAddress",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ],
     "SUPERMICRO-SMI": [
       "smHealth"
@@ -372,8 +372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/supermicro/SUPERMICRO-HEALTH-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:38:31 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:15:32 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SUPERMICRO-HEALTH-MIB"

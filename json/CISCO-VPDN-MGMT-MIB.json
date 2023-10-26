@@ -20,20 +20,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Counter64",
+      "TimeTicks",
       "MibIdentifier",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Integer32",
+      "Counter32",
+      "IpAddress",
       "Bits",
-      "TimeTicks",
-      "Counter32"
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -3268,8 +3268,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VPDN-MGMT-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:28:12 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:09 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-VPDN-MGMT-MIB"

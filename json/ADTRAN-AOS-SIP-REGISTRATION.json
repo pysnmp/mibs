@@ -17,24 +17,24 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Bits",
-      "TimeTicks",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier"
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adGenAOSSipRegistration": {
@@ -427,8 +427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-SIP-REGISTRATION",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:22:03 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:58:56 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-SIP-REGISTRATION"

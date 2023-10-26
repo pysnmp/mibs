@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsSwitchPath",
-      "sfpsPathMaskObj",
-      "sfpsSwitchPathStats",
-      "sfpsStaticPath",
       "sfpsChassisRIPPath",
+      "sfpsStaticPath",
+      "sfpsPathMaskObj",
+      "sfpsSwitchPath",
       "sfpsISPSwitchPath",
       "sfpsSwitchPathAPI",
-      "sfpsPathAPI"
+      "sfpsPathAPI",
+      "sfpsSwitchPathStats"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter64",
-      "Bits",
       "iso",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
       "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -1223,8 +1223,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-PATH-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:29:13 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:06:11 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-PATH-MIB"

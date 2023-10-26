@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64",
       "IpAddress",
+      "iso",
+      "Gauge32",
+      "Integer32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Bits",
-      "Integer32"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -179,8 +179,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-ATTACK-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:24:07 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:01:01 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLUECOAT-SG-ATTACK-MIB"

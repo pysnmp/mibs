@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "NET-SNMP-MIB": [
-      "netSnmpModuleIDs",
+      "netSnmpAgentOIDs",
       "netSnmpDomains",
-      "netSnmpAgentOIDs"
+      "netSnmpModuleIDs"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
+      "Integer32",
       "iso",
-      "Counter64",
+      "OBJECT-TYPE",
       "Gauge32",
       "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
       "Unsigned32",
-      "Opaque",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32"
+      "Opaque",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -203,8 +203,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-TC",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:34:35 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:11:37 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NET-SNMP-TC"

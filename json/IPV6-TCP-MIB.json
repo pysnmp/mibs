@@ -11,22 +11,22 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "experimental",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "mib-2",
-      "TimeTicks",
-      "Integer32",
       "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "experimental",
       "MibIdentifier",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Bits"
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "mib-2",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -232,8 +232,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPV6-TCP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:21:44 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 12:58:37 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPV6-TCP-MIB"

@@ -5,24 +5,24 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "AGENT-CAPABILITIES",
       "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
       "MibIdentifier",
-      "Gauge32",
+      "Counter32",
       "Unsigned32",
-      "Integer32",
+      "TimeTicks",
       "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -55,8 +55,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-Notification-Log-CONF",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:33:43 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:10:41 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-Notification-Log-CONF"

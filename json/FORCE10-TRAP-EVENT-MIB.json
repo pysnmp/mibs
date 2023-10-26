@@ -6,31 +6,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
       "OBJECT-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
       "Gauge32",
+      "Counter32",
       "TimeTicks",
-      "Bits",
-      "Counter64"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowPointer"
     ]
   },
   "f10TrapEventMib": {
@@ -399,8 +399,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-TRAP-EVENT-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:27:40 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:04:36 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FORCE10-TRAP-EVENT-MIB"

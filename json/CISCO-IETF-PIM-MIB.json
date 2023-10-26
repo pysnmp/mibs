@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "CISCO-IETF-IPMROUTE-MIB": [
-      "cIpMRouteSourceMask",
-      "cIpMRouteNextHopAddrType",
-      "cIpMRouteNextHopSourceMask",
-      "cIpMRouteNextHopAddress",
-      "cIpMRouteAddrType",
-      "cIpMRouteNextHopGroup",
-      "cIpMRouteSource",
+      "cIpMRouteGroup",
       "cIpMRouteNextHopSource",
       "cIpMRouteNextHopIfIndex",
-      "cIpMRouteGroup"
+      "cIpMRouteAddrType",
+      "cIpMRouteNextHopGroup",
+      "cIpMRouteNextHopAddress",
+      "cIpMRouteNextHopAddrType",
+      "cIpMRouteSourceMask",
+      "cIpMRouteSource",
+      "cIpMRouteNextHopSourceMask"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -20,9 +20,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetVersion",
       "InetAddressPrefixLength",
       "InetAddressType",
-      "InetVersion",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
@@ -31,26 +31,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
+      "Bits",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "iso",
       "Gauge32",
-      "Counter64",
-      "Counter32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoIetfPimMIB": {
@@ -1310,8 +1310,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PIM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:28:16 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:05:13 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-PIM-MIB"

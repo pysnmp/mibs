@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "L4Port",
       "extremeAgent",
-      "PortList"
+      "PortList",
+      "L4Port"
     ],
     "IF-MIB": [
       "ifEntry"
@@ -17,26 +17,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Counter64",
       "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "Integer32",
-      "TimeTicks"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeQosPolicy": {
@@ -531,8 +531,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 12:29:38 2023",
-      "On host fv-az583-292 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:06:36 2023",
+      "On host fv-az247-868 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EXTREME-PBQOS-MIB"
