@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "MibIdentifier",
-      "iso",
-      "enterprises",
-      "mib-2",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
       "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
       "MacAddress",
-      "AutonomousType",
-      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
+      "AutonomousType",
+      "PhysAddress",
       "TimeStamp",
       "TruthValue",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "TestAndIncr"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:07:27 2023",
-      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:41:47 2023",
+      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

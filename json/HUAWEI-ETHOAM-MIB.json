@@ -8,10 +8,10 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -25,30 +25,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
       "Integer32",
-      "Counter64",
-      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "MacAddress",
-      "TimeInterval",
-      "TruthValue",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus",
+      "TimeInterval",
+      "MacAddress",
       "DisplayString",
-      "TimeStamp"
+      "TruthValue"
     ]
   },
   "hwEthOamMib": {
@@ -13469,8 +13469,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ETHOAM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:08:48 2023",
-      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:43:04 2023",
+      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ETHOAM-MIB"

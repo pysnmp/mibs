@@ -7,28 +7,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "mib-2",
+      "TimeTicks",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
       "iso",
-      "Bits",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "mib-2",
-      "Counter32"
+      "Unsigned32",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "InstancePointer",
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus",
-      "TimeStamp"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snanauMIB": {
@@ -2612,8 +2612,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNA-NAU-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:10:22 2023",
-      "On host fv-az445-119 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:43:19 2023",
+      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SNA-NAU-MIB"
