@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "WirelessRemoteConnectBindingType",
-      "extremeLAC",
-      "WPACipherSet",
-      "ExtremeDeviceId",
-      "extremeAP",
       "extremeV2Traps",
       "WPAKeyMgmtSet",
       "ClientAuthType",
-      "extremeAgent"
+      "WPACipherSet",
+      "WirelessRemoteConnectBindingType",
+      "extremeAgent",
+      "extremeLAC",
+      "ExtremeDeviceId",
+      "extremeAP"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -25,27 +25,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Counter64",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "IpAddress",
       "Integer32",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "extremeWireless": {
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:41:19 2023",
-      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:42:50 2023",
+      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "AH-SMI-MIB": [
-      "AhNodeID",
-      "AhInterfaceMode",
       "ahAPInterface",
       "AhInterfaceType",
       "AhMACProtocol",
-      "AhString"
+      "AhString",
+      "AhNodeID",
+      "AhInterfaceMode"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -18,24 +18,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "Counter32",
       "Bits",
-      "Gauge32",
       "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "Gauge32",
       "IpAddress",
-      "Counter32",
       "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks"
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1250,8 +1250,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-INTERFACE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:35:09 2023",
-      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:35:19 2023",
+      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AH-INTERFACE-MIB"

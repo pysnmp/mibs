@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "iso",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Bits",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
       "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Unsigned32",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "aristaBgp4V2TC": {
@@ -100,8 +100,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-TC-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:35:56 2023",
-      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:36:16 2023",
+      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ARISTA-BGP4V2-TC-MIB"

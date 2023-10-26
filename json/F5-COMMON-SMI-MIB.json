@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
+      "Counter64",
       "MODULE-IDENTITY",
+      "Bits",
       "Counter32",
       "Gauge32",
+      "IpAddress",
       "iso",
       "Unsigned32",
-      "Counter64",
       "OBJECT-TYPE",
-      "enterprises"
+      "Integer32",
+      "enterprises",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "f5networks": {
@@ -45,8 +45,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-COMMON-SMI-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:41:18 2023",
-      "On host fv-az306-641 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Oct 26 13:42:48 2023",
+      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F5-COMMON-SMI-MIB"
