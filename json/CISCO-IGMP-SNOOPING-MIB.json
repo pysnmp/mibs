@@ -11,8 +11,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoPortList",
-      "CiscoPortListRange"
+      "CiscoPortListRange",
+      "CiscoPortList"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -22,8 +22,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -34,28 +34,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Counter32",
       "Integer32",
       "Unsigned32",
-      "Bits",
-      "Gauge32",
       "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "Gauge32",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TimeStamp",
+      "TruthValue",
       "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "StorageType",
+      "TimeStamp"
     ]
   },
   "ciscoIgmpSnoopingMIB": {
@@ -4035,8 +4035,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IGMP-SNOOPING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:01:50 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 09:59:50 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IGMP-SNOOPING-MIB"

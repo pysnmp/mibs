@@ -14,24 +14,24 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter32",
       "Counter64",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "iso",
-      "Unsigned32"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "pmTxPwr": {
@@ -750,8 +750,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PMTXPWR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:11:09 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:09:11 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-PMTXPWR-MIB"

@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsTopologyDirStats",
+      "sfpsTopologyDAPITest",
+      "sfpsTopologyRemoteNodes",
       "sfpsTopologyAliases",
       "sfpsDirFilterAPI",
-      "sfpsTopologyDirStats",
-      "sfpsTopologyDAPI",
       "sfpsServiceCenter",
-      "sfpsTopologyNodes",
-      "sfpsTopologyRemoteNodes",
-      "sfpsTopologyDAPITest"
+      "sfpsTopologyDAPI",
+      "sfpsTopologyNodes"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
       "TimeTicks",
-      "IpAddress",
+      "Counter64",
       "MibIdentifier",
+      "Counter32",
+      "Bits",
       "iso",
-      "Unsigned32"
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "SfpsSwitchPort": {
@@ -2925,8 +2925,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-DIRECTORY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:02:46 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:00:48 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-DIRECTORY-MIB"

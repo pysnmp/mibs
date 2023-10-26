@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "Counter64",
       "MibIdentifier",
+      "IpAddress",
       "TimeTicks",
-      "OBJECT-TYPE",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "mib-2",
+      "MODULE-IDENTITY",
       "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
       "enterprises",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1614,8 +1614,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ray/RAY3-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:10:27 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:08:30 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAY3-MIB"

@@ -12,31 +12,31 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Integer32",
-      "Unsigned32",
-      "Counter64",
-      "Bits",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "iso",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "Integer32",
+      "enterprises",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "DateAndTime",
-      "MacAddress",
       "TimeInterval",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString"
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "mwConfigSecurityCert": {
@@ -129,8 +129,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-SECURITYCERT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:03:22 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:01:24 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-SECURITYCERT-MIB"

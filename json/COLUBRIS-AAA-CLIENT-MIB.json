@@ -6,33 +6,33 @@
     ],
     "COLUBRIS-TC": [
       "ColubrisServerIndexOrZero",
-      "ColubrisProfileIndex",
-      "ColubrisServerIndex"
+      "ColubrisServerIndex",
+      "ColubrisProfileIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "Unsigned32",
       "MibIdentifier",
-      "Bits",
-      "Integer32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisAAAClientMIB": {
@@ -406,8 +406,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-AAA-CLIENT-MIB.my",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:04:20 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 10:02:21 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-AAA-CLIENT-MIB"

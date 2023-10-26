@@ -6,24 +6,24 @@
     ],
     "CISCO-TC": [
       "Unsigned64",
-      "CiscoInetAddressMask",
-      "TimeIntervalSec",
       "CiscoAlarmSeverity",
-      "CiscoNetworkAddress"
+      "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectDn",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectId",
-      "CucsManagedObjectDn"
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsMoMoClassId",
+      "CucsDupeStatus",
       "CucsDupeOperation",
-      "CucsDupeStatus"
+      "CucsMoMoClassId"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -33,30 +33,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
-      "Bits",
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "DateAndTime",
-      "TimeStamp",
       "MacAddress",
+      "TruthValue",
       "DisplayString",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DateAndTime",
+      "RowPointer",
+      "TimeInterval",
+      "TimeStamp"
     ]
   },
   "cucsDupeObjects": {
@@ -305,8 +305,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DUPE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Oct 26 09:01:53 2023",
-      "On host fv-az1032-268 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Oct 26 09:59:53 2023",
+      "On host fv-az351-613 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-DUPE-MIB"
