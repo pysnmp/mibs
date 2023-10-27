@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ADVA-MIB": [
-      "TrapCounter",
       "fsp150cm",
-      "FileTransferProtocol"
+      "FileTransferProtocol",
+      "TrapCounter"
     ],
     "CM-COMMON-MIB": [
-      "IpVersion",
-      "RestartType"
+      "RestartType",
+      "IpVersion"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -29,35 +29,35 @@
       "snmpTargetAddrName"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
       "iso",
       "Counter32",
       "MODULE-IDENTITY",
       "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress",
-      "TruthValue",
       "StorageType",
       "VariablePointer",
-      "RowStatus",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "cmSystemMIB": {
@@ -4398,8 +4398,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SYSTEM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 06:56:04 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:35:11 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-SYSTEM-MIB"

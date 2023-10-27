@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
       "Bits",
       "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "iso",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1TpDevicesMIB": {
@@ -619,8 +619,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TP-DEVICES",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:11:49 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:45:36 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TP-DEVICES"

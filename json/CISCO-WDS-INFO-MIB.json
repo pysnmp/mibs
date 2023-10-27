@@ -5,8 +5,8 @@
       "CDot11IfVlanIdOrZero"
     ],
     "CISCO-DOT11-SSID-SECURITY-MIB": [
-      "CDot11SsidString",
-      "CDot11SecAuthKeyMgmtType"
+      "CDot11SecAuthKeyMgmtType",
+      "CDot11SsidString"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -20,31 +20,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
+      "Bits",
       "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
       "Counter64",
       "OBJECT-IDENTITY",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TimeStamp",
+      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoWdsInfoMIB": {
@@ -1818,8 +1818,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WDS-INFO-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:02:21 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:39:36 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WDS-INFO-MIB"

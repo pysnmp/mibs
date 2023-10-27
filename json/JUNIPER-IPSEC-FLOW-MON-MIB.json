@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
+      "InetPortNumber",
       "InetAddressType",
-      "InetAddress",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "JUNIPER-SMI": [
       "jnxIpSecMibRoot"
@@ -14,25 +14,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "iso",
       "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
       "IpAddress",
       "Counter32",
-      "Bits",
-      "Unsigned32",
-      "Integer32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "DisplayString"
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "jnxIpSecFlowMonMIB": {
@@ -5681,8 +5681,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-IPSEC-FLOW-MON-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:09:28 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:43:58 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-IPSEC-FLOW-MON-MIB"

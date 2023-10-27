@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
+      "VlanList2",
       "VlanList4",
       "VlanList1",
-      "VlanList2",
       "VlanList3"
     ],
     "CISCOSB-MIB": [
+      "VlanPriority",
       "Percents",
-      "switch001",
-      "VlanPriority"
+      "switch001"
     ],
     "DIFF-SERV-MIB": [
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "zeroDotZero",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
+      "Bits",
       "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
       "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
       "DisplayString",
-      "TruthValue"
+      "RowPointer",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:02:21 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:39:36 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

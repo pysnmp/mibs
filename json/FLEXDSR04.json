@@ -7,50 +7,50 @@
     ],
     "SNMPv2-MIB": [
       "sysContact",
+      "sysLocation",
       "sysDescr",
-      "sysName",
-      "sysLocation"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "iso",
-      "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "DateAndTime",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "Integer32d1",
-      "Integer32d2",
-      "mibRelease",
-      "FaultOK",
-      "commonGroup",
-      "eventPriority",
-      "eventTimeStamp",
-      "eventCounter",
       "commonVarbindsCompliance",
-      "FloatString"
+      "FloatString",
+      "eventPriority",
+      "eventCounter",
+      "Integer32d1",
+      "mibRelease",
+      "commonGroup",
+      "FaultOK",
+      "Integer32d2",
+      "eventTimeStamp"
     ],
     "TWOWCOM-SMI": [
-      "dvbDecoder",
       "other",
-      "encoder",
       "dvbEncoder",
-      "decoder"
+      "decoder",
+      "dvbDecoder",
+      "encoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 06:55:09 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:34:32 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

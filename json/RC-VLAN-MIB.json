@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "RAPID-CITY": [
-      "IdList",
-      "LPortSet",
-      "rcVlan",
-      "PortSet",
       "EnableValue",
-      "RcVlanIdOrNone",
-      "rcSvlan"
+      "IdList",
+      "PortSet",
+      "LPortSet",
+      "rcSvlan",
+      "rcVlan",
+      "RcVlanIdOrNone"
     ],
     "RC-VRF-MIB": [
       "VrfIdentifier"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "MacAddress",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rcVlanMib": {
@@ -3530,8 +3530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-VLAN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:10:55 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:45:01 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RC-VLAN-MIB"

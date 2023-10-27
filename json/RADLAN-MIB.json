@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "Timeout",
-      "MacAddress",
-      "dot1dBasePortEntry",
       "BridgeId",
-      "dot1dBasePort"
+      "dot1dBasePort",
+      "dot1dBasePortEntry",
+      "MacAddress",
+      "Timeout"
     ],
     "IEEE8021-PAE-MIB": [
-      "dot1xPaePortNumber",
       "dot1xAuthSessionStatsEntry",
+      "dot1xPaePortNumber",
       "PaeControlledPortStatus"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifIndex",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanIndex",
       "dot1qFdbId",
-      "PortList",
-      "VlanIndex"
+      "PortList"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -35,20 +35,20 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Counter32",
       "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
+      "Bits",
       "IpAddress",
-      "enterprises",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Bits"
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-SMI-v1": [
       "Unsigned-32",
@@ -56,16 +56,16 @@
       "Counter-32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SNMPv2-TC-v1": [
-      "DisplayString",
-      "PhysAddress",
       "TruthValue",
       "TimeInterval",
-      "DateAndTime",
+      "PhysAddress",
+      "DisplayString",
       "RowStatus",
+      "DateAndTime",
       "RowPointer"
     ]
   },
@@ -8659,8 +8659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:03:14 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:40:07 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-MIB"

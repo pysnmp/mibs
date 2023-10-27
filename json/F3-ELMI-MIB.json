@@ -5,39 +5,39 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "OperationalState",
-      "PerfCounter64"
+      "PerfCounter64",
+      "OperationalState"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "shelfIndex",
-      "slotIndex"
+      "slotIndex",
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
+      "cmEthernetAccPortIndex",
       "cmFlowIndex",
-      "cmEthernetNetPortIndex",
-      "cmEthernetAccPortIndex"
+      "cmEthernetNetPortIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
       "iso",
       "Counter32",
       "MODULE-IDENTITY",
-      "Unsigned32",
       "IpAddress",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1152,8 +1152,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-ELMI-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 06:56:06 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:35:12 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-ELMI-MIB"

@@ -18,31 +18,31 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
       "iso",
+      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "dlinkSwIpSourceGuardMIB": {
@@ -478,8 +478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IP-SOURCE-GUARD-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:02:13 2023",
-      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:39:27 2023",
+      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-IP-SOURCE-GUARD-MIB"
