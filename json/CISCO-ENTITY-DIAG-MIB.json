@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-DIAG-TC-MIB": [
-      "CeDiagJobIdentifier",
       "CeDiagJobSuite",
-      "CeDiagDiagnosticMethod",
-      "CeDiagErrorIdentifier",
-      "CeDiagDiagnosticLevel",
       "CeDiagErrorIdentifierOrZero",
-      "CeDiagPortList",
+      "CeDiagTestIdentifier",
       "CeDiagTestList",
-      "CeDiagTestIdentifier"
+      "CeDiagJobIdentifier",
+      "CeDiagDiagnosticMethod",
+      "CeDiagDiagnosticLevel",
+      "CeDiagPortList",
+      "CeDiagErrorIdentifier"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -19,40 +19,40 @@
       "EntPhysicalIndexOrZero"
     ],
     "ENTITY-MIB": [
-      "entPhysicalIndex",
       "PhysicalIndex",
+      "entPhysicalIndex",
       "entPhysicalDescr"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
       "Integer32",
-      "OBJECT-IDENTITY",
       "Gauge32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
       "Bits",
-      "Unsigned32"
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DateAndTime",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "ciscoEntityDiagMIB": {
@@ -2117,8 +2117,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-DIAG-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:52:06 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:10:01 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENTITY-DIAG-MIB"

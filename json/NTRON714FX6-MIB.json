@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
+      "Integer32",
       "enterprises",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
       "IpAddress",
       "Unsigned32",
-      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
       "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ntron714fx6": {
@@ -1454,8 +1454,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/redlion/NTRON714FX6-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:59:37 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:20:30 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NTRON714FX6-MIB"

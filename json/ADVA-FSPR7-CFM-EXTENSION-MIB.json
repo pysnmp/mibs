@@ -3,48 +3,48 @@
     "class": "imports",
     "ADVA-MIB": [
       "TrapAlarmSeverity",
+      "ServiceImpairment",
       "fspR7",
       "neEventLogIdentityTranslation",
-      "ServiceImpairment",
       "neEventLogTimeStamp"
     ],
     "FspR7-LAYER2-MIB": [
-      "flowEntityIndexEth",
-      "flowEntityIndexFlow"
+      "flowEntityIndexFlow",
+      "flowEntityIndexEth"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepIdentifier",
       "dot1agCfmMdIndex",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMaIndex",
+      "dot1agCfmMepIdentifier"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
       "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "TimeTicks",
       "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "Counter64",
       "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Integer32",
       "IpAddress",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "cfmExtensionMIB": {
@@ -762,8 +762,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-CFM-EXTENSION-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:47:26 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:04:54 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADVA-FSPR7-CFM-EXTENSION-MIB"

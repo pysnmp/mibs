@@ -13,25 +13,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Bits",
       "Unsigned32",
-      "IpAddress",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Integer32",
       "Counter64",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -181,8 +181,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-RETIMER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:58:25 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:18:54 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-RETIMER-MIB"

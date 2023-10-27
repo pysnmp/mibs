@@ -8,55 +8,55 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlCertificateStatus",
       "MwlDiscoveryOrder",
-      "MwlEnableDisableOption",
-      "MwlVpnConnectivityStatus",
-      "MwlPowerSupply",
-      "MwlVpnAuthenticationStatus",
-      "MwlAlarmState",
-      "MwlOperationalState",
-      "MwlCertRequestStatus",
+      "MwlVpnMode",
       "MwlApHwType",
-      "MwlApIndoorOutdoorType",
-      "MwlApIpAssignmentType",
-      "MwlAvailabilityStatus",
-      "MwlLedMode",
-      "MwlOnOffSwitch",
-      "MwlVpnAuthenticationType",
       "MwlApDiscoveryState",
-      "MwlVpnMode"
+      "MwlCertificateStatus",
+      "MwlApIpAssignmentType",
+      "MwlVpnConnectivityStatus",
+      "MwlApIndoorOutdoorType",
+      "MwlOnOffSwitch",
+      "MwlLedMode",
+      "MwlPowerSupply",
+      "MwlCertRequestStatus",
+      "MwlVpnAuthenticationStatus",
+      "MwlVpnAuthenticationType",
+      "MwlOperationalState",
+      "MwlAvailabilityStatus",
+      "MwlAlarmState",
+      "MwlEnableDisableOption"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
       "Counter32",
-      "Counter64",
-      "TimeTicks",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Bits",
+      "enterprises",
+      "TimeTicks",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "TimeInterval",
+      "RowStatus",
+      "TruthValue",
       "DateAndTime",
       "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TruthValue",
-      "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwConfigAp": {
@@ -1484,8 +1484,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-AP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:53:23 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:11:39 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-AP-MIB"

@@ -5,44 +5,44 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEventLogWindowHi",
-      "dot3OamEventLogLocation",
-      "dot3OamStatsEntry",
-      "dot3OamEventLogType",
       "dot3OamEventLogThresholdHi",
+      "dot3OamStatsEntry",
       "dot3OamEventLogThresholdLo",
       "dot3OamEventLogWindowLo",
-      "dot3OamLoopbackEntry",
-      "dot3OamEventLogEventTotal",
-      "dot3OamEventLogTimestamp",
-      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogType",
       "dot3OamEntry",
+      "dot3OamEventLogLocation",
       "dot3OamEventLogValue",
-      "dot3OamEventLogOui"
+      "dot3OamEventLogEventTotal",
+      "dot3OamLoopbackEntry",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogTimestamp",
+      "dot3OamEventLogOui",
+      "dot3OamEventLogWindowHi"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:58:17 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:18:57 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

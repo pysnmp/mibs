@@ -8,38 +8,38 @@
       "ifName"
     ],
     "ISIS-MIB": [
-      "isisCircIfIndex",
-      "isisSysInstance",
-      "isisPduLspId",
+      "isisAdjState",
       "isisSysLevelIndex",
-      "isisAdjState"
+      "isisPduLspId",
+      "isisCircIfIndex",
+      "isisSysInstance"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hwISIS": {
@@ -6448,8 +6448,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ISIS-CONF-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:54:55 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:13:48 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ISIS-CONF-MIB"

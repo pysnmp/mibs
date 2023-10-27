@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "FCMGMT-MIB": [
+      "connUnitEventDescr",
       "connUnitEventId",
-      "connUnitEventType",
-      "connUnitEventDescr"
+      "connUnitEventType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "IpAddress",
-      "Bits",
+      "enterprises",
       "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
       "Gauge32",
+      "IpAddress",
+      "TRAP-TYPE",
       "MibIdentifier",
       "Counter64",
-      "enterprises",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hp": {
@@ -139,8 +139,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/MSA2000TRAPS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:55:05 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:15:18 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MSA2000TRAPS-MIB"

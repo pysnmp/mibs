@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "iso",
-      "Integer32",
-      "Counter64",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "TimeTicks"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -430,8 +430,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-VRTX-CLI-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:51:35 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:09:41 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-VRTX-CLI-MIB"

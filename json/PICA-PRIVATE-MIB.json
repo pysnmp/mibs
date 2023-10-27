@@ -13,33 +13,33 @@
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
-      "Bits",
+      "enterprises",
       "iso",
-      "TimeTicks",
+      "MibIdentifier",
       "mib-2",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
       "snmpModules",
-      "IpAddress"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TestAndIncr",
-      "TruthValue",
       "AutonomousType",
-      "TimeStamp",
+      "PhysAddress",
       "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "TimeStamp"
     ]
   },
   "picaPrivateMib": {
@@ -655,8 +655,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/picos/PICA-PRIVATE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:58:49 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:19:29 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PICA-PRIVATE-MIB"

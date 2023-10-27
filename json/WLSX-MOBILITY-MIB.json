@@ -5,48 +5,48 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaEncryptionMethods",
       "ArubaRogueApType",
       "ArubaEnableValue",
-      "ArubaFrameType",
+      "ArubaAuthenticationMethods",
+      "ArubaEncryptionMethods",
       "ArubaPhyType",
       "ArubaActiveState",
-      "ArubaAuthenticationMethods"
+      "ArubaFrameType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "snmpModules",
-      "Unsigned32",
       "iso",
-      "Bits",
-      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "StorageType",
-      "MacAddress",
-      "TruthValue",
-      "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "TDomain",
+      "TestAndIncr",
+      "StorageType",
       "TAddress",
-      "TestAndIncr"
+      "MacAddress",
+      "PhysAddress",
+      "TruthValue"
     ]
   },
   "wlsxMobilityMIB": {
@@ -892,8 +892,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MOBILITY-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:47:59 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:05:27 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WLSX-MOBILITY-MIB"

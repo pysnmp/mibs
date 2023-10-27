@@ -5,38 +5,38 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "Counter64",
+      "MibIdentifier",
       "Integer32",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hwVpMIB": {
@@ -330,8 +330,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:54:56 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:13:48 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VP-MIB"

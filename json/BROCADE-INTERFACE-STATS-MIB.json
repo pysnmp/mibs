@@ -11,29 +11,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "Counter32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64",
-      "iso",
       "TimeTicks",
+      "Integer32",
       "Unsigned32",
-      "Bits"
+      "Bits",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "brocadeInterfaceStatsMIB": {
@@ -406,8 +406,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-INTERFACE-STATS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:53:13 2023",
-      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 12:11:26 2023",
+      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BROCADE-INTERFACE-STATS-MIB"
