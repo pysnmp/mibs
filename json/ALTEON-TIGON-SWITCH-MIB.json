@@ -5,31 +5,31 @@
       "switch"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "mgmt",
       "Bits",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "iso",
       "enterprises",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter64",
-      "TimeTicks",
-      "iso",
-      "mgmt"
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hardware": {
@@ -2740,8 +2740,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-TIGON-SWITCH-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:37:45 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:47:43 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALTEON-TIGON-SWITCH-MIB"

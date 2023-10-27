@@ -8,31 +8,31 @@
       "hwWlan"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
       "Counter32",
       "Integer32",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "Gauge32",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "MacAddress",
       "DateAndTime",
+      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -4032,8 +4032,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-WLAN-WIDS-SERVICE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:44:59 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:54:56 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-WLAN-WIDS-SERVICE-MIB"

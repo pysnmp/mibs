@@ -8,12 +8,12 @@
       "DscpOrAny"
     ],
     "DOCS-IF3-MIB": [
-      "AttributeMask",
       "Dsid",
       "ChSetId",
+      "AttrAggrRuleMask",
       "ChannelList",
-      "ChId",
-      "AttrAggrRuleMask"
+      "AttributeMask",
+      "ChId"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
@@ -23,42 +23,42 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "IpAddress",
       "Gauge32",
       "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "IpAddress",
       "iso",
+      "Integer32",
       "Counter64",
-      "Counter32"
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "StorageType",
       "DisplayString",
-      "RowStatus",
+      "TimeStamp",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TruthValue",
+      "RowStatus",
+      "StorageType"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:36:43 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:46:39 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-QOS3-MIB"

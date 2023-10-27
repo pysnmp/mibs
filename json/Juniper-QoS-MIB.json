@@ -8,31 +8,31 @@
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "Bits",
+      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
       "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "iso",
+      "Gauge32",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "juniQosMIB": {
@@ -4404,8 +4404,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-QoS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:46:57 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:56:35 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-QoS-MIB"

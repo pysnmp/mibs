@@ -8,39 +8,39 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlOnOffSwitch",
-      "MwlIpProxyType"
+      "MwlIpProxyType",
+      "MwlOnOffSwitch"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-TYPE",
       "Counter32",
-      "Bits",
+      "Counter64",
+      "TimeTicks",
       "enterprises",
       "MODULE-IDENTITY",
-      "Counter64",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
       "Integer32",
-      "OBJECT-TYPE",
-      "iso"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DateAndTime",
       "MacAddress",
       "RowStatus",
-      "TimeStamp",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "TimeInterval",
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "mwSupportedFeatures": {
@@ -92,8 +92,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-SUPPORTED-FEATURES-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:43:21 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:53:23 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MERU-SUPPORTED-FEATURES-MIB"

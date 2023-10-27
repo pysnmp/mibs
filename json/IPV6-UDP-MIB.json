@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "IPV6-TC": [
-      "Ipv6IfIndexOrZero",
-      "Ipv6Address"
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "experimental",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "experimental",
+      "Unsigned32",
+      "IpAddress",
       "iso",
+      "Integer32",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Bits",
+      "mib-2",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -162,8 +162,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPV6-UDP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:36:44 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:46:40 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPV6-UDP-MIB"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
       "Bits",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
       "Counter32",
       "Integer32",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "enterprises",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -624,8 +624,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/ISM-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:44:58 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:54:56 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ISM-TRAP-MIB"

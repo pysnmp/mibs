@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressType",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipAddressEntry",
+      "ipNetToPhysicalEntry",
       "ipv6RouterAdvertEntry",
-      "ipv6InterfaceEntry",
-      "ipNetToPhysicalEntry"
+      "ipv6InterfaceEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "mib-2",
-      "zeroDotZero",
       "Bits",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
+      "RowStatus",
       "DisplayString",
-      "TruthValue",
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:47:15 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:56:51 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"

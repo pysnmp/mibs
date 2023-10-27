@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "DS3-MIB": [
-      "dsx3FarEndTotalEntry",
+      "dsx3FarEndConfigEntry",
       "dsx3FarEndIntervalEntry",
-      "dsx3FarEndCurrentEntry",
-      "dsx3FarEndConfigEntry"
+      "dsx3FarEndTotalEntry",
+      "dsx3FarEndCurrentEntry"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -18,36 +18,36 @@
       "JuniNextIfIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
       "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfTotalCount"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "Bits",
+      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
       "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "iso",
+      "Gauge32",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "juniDs3MIB": {
@@ -1106,8 +1106,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DS3-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:46:56 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:56:34 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-DS3-MIB"

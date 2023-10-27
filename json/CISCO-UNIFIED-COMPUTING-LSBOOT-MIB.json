@@ -5,10 +5,10 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "CiscoAlarmSeverity",
+      "Unsigned64",
       "CiscoInetAddressMask",
       "TimeIntervalSec",
-      "Unsigned64",
-      "CiscoAlarmSeverity",
       "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
@@ -17,37 +17,37 @@
       "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsLsbootIScsiAccess",
-      "CucsLsbootLocalDiskImageType",
-      "CucsLsbootADefBootMode",
-      "CucsLsbootStorageType",
-      "CucsLsbootLocalLunImagePathType",
-      "CucsLsbootSanCatSanImagePathType",
-      "CucsLsbootLanAccess",
-      "CucsLsbootPurpose",
-      "CucsLsbootAccessType",
-      "CucsLsbootDefaultLocalImageType",
-      "CucsLsbootSanImagePathType",
-      "CucsLsbootUsbInternalImageType",
       "CucsLsbootSanImageType",
-      "CucsLsbootUsbExternalImageType",
-      "CucsLsbootEmbeddedLocalDiskImagePathType",
-      "CucsLsbootEmbeddedLocalLunImageType",
-      "CucsLsbootLocalHddImageType",
-      "CucsLsbootLanBootProt",
+      "CucsLsbootSanCatSanImagePathType",
       "CucsLsbootEmbeddedLocalDiskImageType",
-      "CucsLsbootLocalDiskImagePathType",
-      "CucsLsbootSanType",
       "CucsLsbootSanCatSanImageType",
-      "CucsLsbootIScsiType",
-      "CucsLsbootSanAccess",
-      "CucsLsbootLanImagePathType",
-      "CucsLsbootVirtualMediaType",
-      "CucsLsbootUsbFlashStorageImageType",
-      "CucsLsbootIScsiImagePathType",
-      "CucsLsbootStorageAccess",
+      "CucsLsbootIScsiAccess",
       "CucsPolicyPolicyOwner",
-      "CucsLsbootLanType"
+      "CucsLsbootLocalHddImageType",
+      "CucsLsbootIScsiImagePathType",
+      "CucsLsbootPurpose",
+      "CucsLsbootSanImagePathType",
+      "CucsLsbootUsbFlashStorageImageType",
+      "CucsLsbootLanBootProt",
+      "CucsLsbootUsbExternalImageType",
+      "CucsLsbootADefBootMode",
+      "CucsLsbootSanAccess",
+      "CucsLsbootEmbeddedLocalDiskImagePathType",
+      "CucsLsbootLanImagePathType",
+      "CucsLsbootUsbInternalImageType",
+      "CucsLsbootAccessType",
+      "CucsLsbootLocalDiskImageType",
+      "CucsLsbootLocalDiskImagePathType",
+      "CucsLsbootLocalLunImagePathType",
+      "CucsLsbootEmbeddedLocalLunImageType",
+      "CucsLsbootSanType",
+      "CucsLsbootLanType",
+      "CucsLsbootIScsiType",
+      "CucsLsbootDefaultLocalImageType",
+      "CucsLsbootStorageType",
+      "CucsLsbootStorageAccess",
+      "CucsLsbootLanAccess",
+      "CucsLsbootVirtualMediaType"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -57,34 +57,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "RowPointer",
-      "TruthValue",
-      "DisplayString",
-      "TimeStamp",
       "TimeInterval",
-      "MacAddress",
-      "DateAndTime"
+      "TimeStamp",
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "cucsLsbootObjects": {
@@ -2768,8 +2768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:42:01 2023",
-      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:52:03 2023",
+      "On host fv-az555-184 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-LSBOOT-MIB"
