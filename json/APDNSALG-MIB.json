@@ -5,49 +5,49 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApRedundancyState",
       "ApTransportType",
+      "ApRedundancyState",
       "ApHardwareModuleFamily"
     ],
     "APSYSMGMT-MIB": [
       "SysMgmtPercentage"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetZoneIndex",
-      "InetAddressType",
       "InetAddress",
-      "InetVersion"
+      "InetVersion",
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetZoneIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Counter32",
-      "iso",
-      "Bits"
+      "TimeTicks",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "apDNSALGModule": {
@@ -1122,8 +1122,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APDNSALG-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:49:31 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:06:56 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APDNSALG-MIB"

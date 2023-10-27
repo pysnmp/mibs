@@ -6,30 +6,30 @@
     ],
     "SL-ALARM-MIB": [
       "slAlarmType",
-      "slAlarmSeverity",
-      "slAlarmIfIndex",
       "slAlarmActive",
-      "slAlarmServiceAffect"
+      "slAlarmServiceAffect",
+      "slAlarmIfIndex",
+      "slAlarmSeverity"
     ],
     "SL-EDFA-MIB": [
-      "edfaOperControlMode",
+      "edfaIfIndex",
       "edfaStatus",
-      "edfaIfIndex"
+      "edfaOperControlMode"
     ],
     "SL-EVENT-MIB": [
-      "slEventInventoryAction",
-      "slEventInventoryType",
-      "slEventVal",
-      "slEventIfIndex",
       "slGenEventIfIndex",
+      "slEventInventoryIfIndex",
+      "slEventInventoryType",
+      "slEventIfIndex",
       "slEventType",
-      "slGenEventUser",
-      "slEventInventorySerial",
-      "slEventUser",
-      "slGenEventVal",
       "slGenEventType",
+      "slEventInventorySerial",
+      "slEventVal",
       "slEventInventoryPartnum",
-      "slEventInventoryIfIndex"
+      "slGenEventVal",
+      "slEventInventoryAction",
+      "slEventUser",
+      "slGenEventUser"
     ],
     "SL-NE-MIB": [
       "packetlight"
@@ -48,24 +48,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "Counter64",
       "MODULE-IDENTITY",
-      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "TimeTicks",
-      "Integer32",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "slAlarmTrapV1": {
@@ -246,8 +246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:49:51 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:07:12 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-TRAP-MIB"

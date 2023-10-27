@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "cpqHoTrapFlags",
+      "cpqHoGUIDCanonical",
       "compaq",
-      "cpqHoGUIDCanonical"
+      "cpqHoTrapFlags"
     ],
     "CPQSINFO-MIB": [
       "cpqSiMemModuleSize",
       "cpqSiServerSystemId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "enterprises",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Bits",
-      "TRAP-TYPE"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cpqHealth": {
@@ -6809,8 +6809,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQHLTH-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:45:54 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:03:53 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CPQHLTH-MIB"

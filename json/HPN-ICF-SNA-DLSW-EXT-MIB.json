@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "DLSW-MIB": [
-      "TAddress",
       "dlswTConnOperEntry",
-      "dlswTConnTcpConfigEntry",
+      "LFSize",
       "dlswTConnConfigEntry",
-      "MacAddressNC",
-      "LFSize"
+      "TAddress",
+      "dlswTConnTcpConfigEntry",
+      "MacAddressNC"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfCommon"
@@ -20,29 +20,29 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
       "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "iso",
       "TimeTicks",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hpnicfDlswExt": {
@@ -2207,8 +2207,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-SNA-DLSW-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:45:52 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:03:51 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-SNA-DLSW-EXT-MIB"

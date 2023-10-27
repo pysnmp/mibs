@@ -5,29 +5,29 @@
       "firebrickNewStyle"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
       "iso",
-      "OBJECT-TYPE",
-      "enterprises",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Integer32",
       "Gauge32",
       "Counter32",
-      "Counter64",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -184,8 +184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/firebrick/FIREBRICK-IPSEC-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:42:58 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:02:03 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FIREBRICK-IPSEC-MIB"

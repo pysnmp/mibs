@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HMPRIV-MGMT-SNMP-MIB": [
-      "HmAgentLogSeverity",
-      "hirschmann"
+      "hirschmann",
+      "HmAgentLogSeverity"
     ],
     "IANAifType-MIB": [
       "IANAifType"
@@ -18,36 +18,36 @@
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
+      "dot1qFdbId",
       "dot1qVlanIndex",
-      "VlanIndex",
-      "dot1qFdbId"
+      "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
       "Integer32",
-      "Bits",
+      "Gauge32",
       "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "hmPlatform4BasicL2": {
@@ -6241,8 +6241,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4.mib",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:44:07 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:02:52 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HIRSCHMANN-MMP4-BASICL2-MIB"

@@ -5,47 +5,47 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "Decimal1Dig",
-      "XcvrType",
-      "TraceMismatchFailMode",
-      "PtpId",
-      "Decimal2Dig",
-      "TraceMismatchMode",
-      "TraceTxOperMode",
-      "XcvrId",
-      "ChannelsNumber",
-      "Decimal2DigSmall",
-      "StringMaxl32",
-      "StringMaxl15",
-      "NameString",
       "EnabledDisabledNaEnum",
-      "EnabledDisabledEnum"
+      "TraceMismatchMode",
+      "XcvrType",
+      "Decimal2Dig",
+      "Decimal2DigSmall",
+      "PtpId",
+      "ChannelsNumber",
+      "Decimal1Dig",
+      "TraceTxOperMode",
+      "StringMaxl32",
+      "XcvrId",
+      "TraceMismatchFailMode",
+      "NameString",
+      "EnabledDisabledEnum",
+      "StringMaxl15"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "Counter32",
       "Gauge32",
-      "MibIdentifier",
-      "Bits",
       "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
       "iso",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "cienaWsPtpMIB": {
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Oct 26 13:38:00 2023",
-      "On host fv-az1288-210 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 06:57:58 2023",
+      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MIB"
