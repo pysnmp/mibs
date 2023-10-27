@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module QUIDOS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/papouch/QUIDOS-MIB
-# Produced by pysmi-1.1.10 at Fri Oct 27 07:07:16 2023
-# On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Oct 27 07:12:01 2023
+# On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, ModuleIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Unsigned32, Integer32, NotificationType, Counter32, MibIdentifier, TimeTicks, NotificationType, ObjectIdentity, Gauge32, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Unsigned32", "Integer32", "NotificationType", "Counter32", "MibIdentifier", "TimeTicks", "NotificationType", "ObjectIdentity", "Gauge32", "iso", "IpAddress")
+MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, NotificationType, Integer32, MibIdentifier, Bits, Gauge32, TimeTicks, Counter32, iso, ModuleIdentity, Counter64, IpAddress, Unsigned32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "NotificationType", "Integer32", "MibIdentifier", "Bits", "Gauge32", "TimeTicks", "Counter32", "iso", "ModuleIdentity", "Counter64", "IpAddress", "Unsigned32", "enterprises")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 papouchProjekt = MibIdentifier((1, 3, 6, 1, 4, 1, 18248))
 quidos = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16))
@@ -73,4 +73,4 @@ time = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 4), Integer32().sub
 if mibBuilder.loadTexts: time.setStatus('current')
 err = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: err.setStatus('current')
-mibBuilder.exportSymbols("QUIDOS-MIB", outTable=outTable, user_name=user_name, err=err, mezLo=mezLo, inEntry=inEntry, device_msg=device_msg, temp_msg=temp_msg, quido_var=quido_var, in_name=in_name, outTwr=outTwr, PositiveInteger=PositiveInteger, papouchProjekt=papouchProjekt, out_name=out_name, citrwS=citrwS, temperatureReading=temperatureReading, outEntry=outEntry, StatCit=StatCit, termTable=termTable, modeTerm=modeTerm, temperature_S_Reading=temperature_S_Reading, mezHi=mezHi, termEntry=termEntry, quidos=quidos, inTable=inTable, pysmi_in=pysmi_in, out=out, table_term=table_term, citrw=citrw, table_out=table_out, OnOff=OnOff, table_in=table_in, time=time)
+mibBuilder.exportSymbols("QUIDOS-MIB", err=err, pysmi_in=pysmi_in, temperatureReading=temperatureReading, mezHi=mezHi, citrw=citrw, temp_msg=temp_msg, mezLo=mezLo, StatCit=StatCit, outTwr=outTwr, user_name=user_name, in_name=in_name, out=out, quido_var=quido_var, citrwS=citrwS, out_name=out_name, quidos=quidos, inEntry=inEntry, temperature_S_Reading=temperature_S_Reading, PositiveInteger=PositiveInteger, inTable=inTable, table_in=table_in, termTable=termTable, outTable=outTable, OnOff=OnOff, modeTerm=modeTerm, outEntry=outEntry, device_msg=device_msg, papouchProjekt=papouchProjekt, termEntry=termEntry, table_out=table_out, time=time, table_term=table_term)

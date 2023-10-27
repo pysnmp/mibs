@@ -8,35 +8,35 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Gauge32",
-      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TAddress",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "hpnicfInfoCenter": {
@@ -692,8 +692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-INFOCENTER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:03:52 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:07:26 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-INFOCENTER-MIB"

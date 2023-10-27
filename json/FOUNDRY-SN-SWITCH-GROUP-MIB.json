@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-SN-AGENT-MIB": [
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "switch"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
@@ -18,25 +18,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Bits",
       "Integer32",
       "iso",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "Counter32",
       "MibIdentifier",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snSwitch": {
@@ -10590,8 +10590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-SWITCH-GROUP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:01:56 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:04:04 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-SWITCH-GROUP-MIB"

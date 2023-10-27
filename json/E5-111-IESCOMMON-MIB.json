@@ -12,31 +12,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "enterprises",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
       "TRAP-TYPE",
+      "iso",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "iso",
-      "enterprises",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "PhysAddress"
     ]
   },
@@ -3205,8 +3205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-IESCOMMON-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 06:57:31 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 06:58:00 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "E5-111-IESCOMMON-MIB"

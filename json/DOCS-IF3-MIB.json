@@ -8,22 +8,22 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvId",
-      "docsDevEvLevel",
       "docsDevEvText",
-      "docsDevEvLastTime"
+      "docsDevEvLevel",
+      "docsDevEvLastTime",
+      "docsDevEvId"
     ],
     "DOCS-IF-MIB": [
-      "DocsisUpstreamType",
-      "DocsisQosVersion",
-      "TenthdBmV",
       "DocsEqualizerData",
+      "DocsisUpstreamType",
+      "TenthdBmV",
+      "DocsisQosVersion",
       "TenthdB"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -44,29 +44,29 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
+      "IpAddress",
       "Bits",
-      "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter32",
-      "IpAddress"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "DateAndTime"
+      "MacAddress"
     ]
   },
   "docsIf3Mib": {
@@ -5172,8 +5172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 06:55:21 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 06:55:03 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF3-MIB"

@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsMcastCnxAPI",
+      "sfpsMcastIPReceiverInfoBase",
       "sfpsMcastConfigApi",
       "sfpsMcastCnx",
       "sfpsMcastIPRIBApi",
-      "sfpsMcastCnxAPI",
-      "sfpsMcastIPSIBApi",
       "sfpsMcastIPSenderInfoBase",
-      "sfpsMcastIPRouter",
-      "sfpsMcastIPReceiverInfoBase"
+      "sfpsMcastIPSIBApi",
+      "sfpsMcastIPRouter"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -17,19 +17,19 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -934,8 +934,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-MCAST-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:01:35 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:03:37 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-MCAST-MIB"

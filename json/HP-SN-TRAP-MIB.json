@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "HP-SN-AGENT-MIB": [
+      "snAgGblTrapMessage",
       "snAgentBrdIndex",
-      "snChasPwrSupplyDescription",
+      "snChasFanDescription",
+      "snChasPwrSupplyStatus",
       "snChasFanIndex",
       "snChasPwrSupplyIndex",
-      "snChasPwrSupplyStatus",
-      "snChasFanDescription",
-      "snAgGblTrapMessage"
+      "snChasPwrSupplyDescription"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
-      "snL4MaxSessionLimit",
       "snL4TrapRealServerPort",
-      "snL4TcpSynLimit",
+      "snL4MaxSessionLimit",
       "snL4TrapRealServerName",
+      "snL4TcpSynLimit",
       "snL4TrapRealServerIP",
       "snL4TrapRealServerCurConnections"
     ],
@@ -26,25 +26,25 @@
       "snSwViolatorMacAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Gauge32",
-      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "IpAddress",
+      "TRAP-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:03:51 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:07:25 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

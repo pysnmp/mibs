@@ -8,23 +8,23 @@
       "DscpOrAny"
     ],
     "DOCS-IF3-MIB": [
-      "AttrAggrRuleMask",
-      "ChSetId",
       "ChannelList",
-      "ChId",
+      "AttributeMask",
+      "AttrAggrRuleMask",
       "Dsid",
-      "AttributeMask"
+      "ChSetId",
+      "ChId"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
+      "InetPortNumber",
       "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -36,29 +36,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
+      "IpAddress",
       "Bits",
-      "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter32",
-      "IpAddress"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "TruthValue",
-      "RowStatus",
-      "DisplayString",
-      "MacAddress",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "RowStatus",
+      "TimeStamp",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 06:55:21 2023",
-      "On host fv-az1114-438 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 06:55:03 2023",
+      "On host fv-az550-936 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-QOS3-MIB"
