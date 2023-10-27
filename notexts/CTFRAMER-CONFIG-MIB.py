@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTFRAMER-CONFIG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTFRAMER-CONFIG-MIB
-# Produced by pysmi-1.1.10 at Fri Oct 27 07:40:14 2023
-# On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Oct 27 07:42:41 2023
+# On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ctIfPortPortNumber, ctFramerConfig = mibBuilder.importSymbols("CTIF-EXT-MIB", "ctIfPortPortNumber", "ctFramerConfig")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Unsigned32, Bits, Integer32, TimeTicks, Gauge32, MibIdentifier, ObjectIdentity, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Unsigned32", "Bits", "Integer32", "TimeTicks", "Gauge32", "MibIdentifier", "ObjectIdentity", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "iso", "NotificationType")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, IpAddress, ObjectIdentity, TimeTicks, Counter64, MibIdentifier, Integer32, Unsigned32, Gauge32, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "ObjectIdentity", "TimeTicks", "Counter64", "MibIdentifier", "Integer32", "Unsigned32", "Gauge32", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctFramerBaseConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1))
 ctFramerSonetConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 2))
@@ -30,4 +30,4 @@ ctFramerIdleCellsConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1
 if mibBuilder.loadTexts: ctFramerIdleCellsConfig.setStatus('mandatory')
 ctFramerCellPayScramConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 3, 3, 9, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctFramerCellPayScramConfig.setStatus('mandatory')
-mibBuilder.exportSymbols("CTFRAMER-CONFIG-MIB", ctFramerAlarmsConfig=ctFramerAlarmsConfig, ctFramerSonetConfig=ctFramerSonetConfig, ctFramerIdleCellsConfig=ctFramerIdleCellsConfig, ctFramerMediumConfig=ctFramerMediumConfig, ctFramerConfigEntry=ctFramerConfigEntry, ctFramerDS3Config=ctFramerDS3Config, ctFramerStatsConfig=ctFramerStatsConfig, ctFramerConfigTable=ctFramerConfigTable, ctFramerBaseConfig=ctFramerBaseConfig, ctFramerCellPayScramConfig=ctFramerCellPayScramConfig)
+mibBuilder.exportSymbols("CTFRAMER-CONFIG-MIB", ctFramerSonetConfig=ctFramerSonetConfig, ctFramerCellPayScramConfig=ctFramerCellPayScramConfig, ctFramerConfigTable=ctFramerConfigTable, ctFramerStatsConfig=ctFramerStatsConfig, ctFramerMediumConfig=ctFramerMediumConfig, ctFramerConfigEntry=ctFramerConfigEntry, ctFramerBaseConfig=ctFramerBaseConfig, ctFramerDS3Config=ctFramerDS3Config, ctFramerAlarmsConfig=ctFramerAlarmsConfig, ctFramerIdleCellsConfig=ctFramerIdleCellsConfig)

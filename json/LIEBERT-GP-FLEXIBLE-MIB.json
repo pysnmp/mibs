@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "LIEBERT-GP-REGISTRATION-MIB": [
-      "liebertFlexibleModuleReg",
-      "lgpFlexible"
+      "lgpFlexible",
+      "liebertFlexibleModuleReg"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "Gauge32",
+      "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Integer32",
       "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "liebertGlobalProductsFlexibleModule": {
@@ -344,8 +344,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-FLEXIBLE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:44:02 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:47:02 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LIEBERT-GP-FLEXIBLE-MIB"

@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
       "TimeTicks",
       "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
       "Counter64",
-      "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "PhysAddress"
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ctPriorityExtTxQueue": {
@@ -558,8 +558,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PRIORITY-EXTENSIONS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:40:23 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:42:50 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTRON-PRIORITY-EXTENSIONS-MIB"

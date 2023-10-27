@@ -12,25 +12,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "Counter64",
       "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Bits"
+      "iso",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "trigger": {
@@ -492,8 +492,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-TRIGGER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:35:24 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:37:40 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AT-TRIGGER-MIB"

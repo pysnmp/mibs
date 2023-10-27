@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module AVIAT-TEXTCONVENTION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-TEXTCONVENTION-MIB
-# Produced by pysmi-1.1.10 at Fri Oct 27 07:35:59 2023
-# On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Oct 27 07:38:15 2023
+# On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Unsigned32, NotificationType, ObjectIdentity, Counter64, Integer32, Bits, TimeTicks, IpAddress, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Unsigned32", "NotificationType", "ObjectIdentity", "Counter64", "Integer32", "Bits", "TimeTicks", "IpAddress", "ModuleIdentity", "Counter32")
+ModuleIdentity, Counter32, ObjectIdentity, Integer32, TimeTicks, Bits, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, IpAddress, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "ObjectIdentity", "Integer32", "TimeTicks", "Bits", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "IpAddress", "MibIdentifier", "Gauge32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 aviatModules, = mibBuilder.importSymbols("STXN-GLOBALREGISTER-MIB", "aviatModules")
 aviatTextConventionModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 2509, 9, 1))
@@ -80,4 +80,4 @@ class AviatYangIdentityRef(TextualConvention, OctetString):
     displayHint = '255t'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
 
-mibBuilder.exportSymbols("AVIAT-TEXTCONVENTION-MIB", AviatPowerLevel=AviatPowerLevel, AviatProtectionType=AviatProtectionType, AviatTimeOfDay=AviatTimeOfDay, AviatRfuSideBandType=AviatRfuSideBandType, AviatFunctionTimer=AviatFunctionTimer, aviatTextConventionModule=aviatTextConventionModule, AviatYangIdentityRef=AviatYangIdentityRef, AviatPluginModuleType=AviatPluginModuleType, AviatModulationType=AviatModulationType, AviatTableIndexInteger=AviatTableIndexInteger, AviatL1LinkAggregationType=AviatL1LinkAggregationType, AviatEnabledStatus=AviatEnabledStatus, AviatLoggingProtocolType=AviatLoggingProtocolType, AviatDecibel=AviatDecibel, PYSNMP_MODULE_ID=aviatTextConventionModule)
+mibBuilder.exportSymbols("AVIAT-TEXTCONVENTION-MIB", PYSNMP_MODULE_ID=aviatTextConventionModule, AviatPluginModuleType=AviatPluginModuleType, AviatFunctionTimer=AviatFunctionTimer, AviatProtectionType=AviatProtectionType, AviatRfuSideBandType=AviatRfuSideBandType, AviatLoggingProtocolType=AviatLoggingProtocolType, AviatEnabledStatus=AviatEnabledStatus, AviatModulationType=AviatModulationType, AviatTimeOfDay=AviatTimeOfDay, AviatYangIdentityRef=AviatYangIdentityRef, AviatDecibel=AviatDecibel, AviatTableIndexInteger=AviatTableIndexInteger, AviatL1LinkAggregationType=AviatL1LinkAggregationType, AviatPowerLevel=AviatPowerLevel, aviatTextConventionModule=aviatTextConventionModule)

@@ -8,31 +8,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
       "Bits",
-      "Integer32",
-      "IpAddress",
       "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "TimeTicks",
-      "Counter64",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier"
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "ciscoWanMgMIB": {
@@ -1474,8 +1474,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-MG-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:39:35 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:42:00 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WAN-MG-MIB"

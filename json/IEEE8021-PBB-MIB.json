@@ -6,18 +6,18 @@
       "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021PbbServiceIdentifier",
       "IEEE8021PbbIngressEgress",
-      "IEEE8021BridgePortNumber",
-      "ieee802dot1mibs",
-      "IEEE8021PriorityCodePoint",
-      "IEEE8021PbbComponentIdentifier",
       "IEEE8021PbbServiceIdentifierOrUnassigned",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbComponentIdentifier",
       "IEEE8021PriorityValue",
-      "IEEE8021PbbServiceIdentifier"
+      "IEEE8021PriorityCodePoint",
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -26,33 +26,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Bits",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "RowStatus",
+      "StorageType",
+      "DisplayString"
     ]
   },
   "ieee8021PbbMib": {
@@ -1408,8 +1408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBB-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:34:09 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:36:25 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBB-MIB"

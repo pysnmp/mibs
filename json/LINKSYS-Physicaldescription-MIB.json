@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorStatus",
-      "EntitySensorValue"
+      "EntitySensorValue",
+      "EntitySensorStatus"
     ],
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "LINKSYS-HWENVIROMENT": [
       "RlEnvMonState"
@@ -25,31 +25,31 @@
       "JackType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "Counter32",
+      "IpAddress",
       "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "TruthValue",
       "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "rlPhysicalDescription": {
@@ -1520,8 +1520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:44:14 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:47:15 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-Physicaldescription-MIB"

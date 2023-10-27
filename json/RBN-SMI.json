@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
       "Bits",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Integer32",
       "TimeTicks",
       "Counter32",
-      "enterprises",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -95,8 +95,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/RBN-SMI",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:40:26 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:42:51 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RBN-SMI"

@@ -12,43 +12,43 @@
       "entPhysicalParentRelPos"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "MibIdentifier"
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
       "TimeInterval",
+      "DateAndTime",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ciscoSlbMIB": {
@@ -5042,8 +5042,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:39:33 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:41:57 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-SLB-MIB"

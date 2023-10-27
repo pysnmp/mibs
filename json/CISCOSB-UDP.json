@@ -10,39 +10,39 @@
     ],
     "IP-FORWARD-MIB": [
       "ipCidrRouteMask",
-      "ipCidrRouteDest",
       "ipCidrRouteTos",
+      "ipCidrRouteNextHop",
       "ipCidrRouteEntry",
-      "ipCidrRouteNextHop"
+      "ipCidrRouteDest"
     ],
     "IP-MIB": [
       "ipAddrEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "MibIdentifier"
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "rsUDP": {
@@ -278,8 +278,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-UDP",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:39:33 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:41:57 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-UDP"

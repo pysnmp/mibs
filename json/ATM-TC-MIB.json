@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Gauge32",
-      "Counter32",
-      "Bits",
       "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "mib-2",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Integer32",
-      "MODULE-IDENTITY"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "atmTCMIB": {
@@ -361,8 +361,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-TC-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:45:02 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:48:07 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-TC-MIB"

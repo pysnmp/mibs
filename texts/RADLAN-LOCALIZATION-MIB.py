@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RADLAN-LOCALIZATION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-LOCALIZATION-MIB
-# Produced by pysmi-1.1.10 at Fri Oct 27 07:46:31 2023
-# On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Oct 27 07:49:42 2023
+# On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
 rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, Bits, ObjectIdentity, iso, NotificationType, TimeTicks, Integer32, MibIdentifier, Unsigned32, Counter64, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "Bits", "ObjectIdentity", "iso", "NotificationType", "TimeTicks", "Integer32", "MibIdentifier", "Unsigned32", "Counter64", "IpAddress", "Gauge32")
-RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
+Counter32, ModuleIdentity, MibIdentifier, iso, Unsigned32, Counter64, Gauge32, TimeTicks, NotificationType, ObjectIdentity, Bits, IpAddress, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "MibIdentifier", "iso", "Unsigned32", "Counter64", "Gauge32", "TimeTicks", "NotificationType", "ObjectIdentity", "Bits", "IpAddress", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
 rlLocalization = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 103))
 rlLocalization.setRevisions(('2005-03-15 00:00',))
 
@@ -39,4 +39,4 @@ if mibBuilder.loadTexts: rlWEBlocalizationLanguage.setDescription('The language 
 rlLocalizationFiles = MibScalar((1, 3, 6, 1, 4, 1, 89, 103, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("no-translated-files", 1), ("two-messages-files", 2), ("two-web-files", 3), ("two-messages-and-web-files", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlLocalizationFiles.setStatus('current')
 if mibBuilder.loadTexts: rlLocalizationFiles.setDescription('The language for WEB GUI.')
-mibBuilder.exportSymbols("RADLAN-LOCALIZATION-MIB", RlLanguage=RlLanguage, rlLocalizationFiles=rlLocalizationFiles, PYSNMP_MODULE_ID=rlLocalization, rlLocalizationMibVersion=rlLocalizationMibVersion, rlLocalizationLanguage=rlLocalizationLanguage, rlLocalization=rlLocalization, rlWEBlocalizationLanguage=rlWEBlocalizationLanguage)
+mibBuilder.exportSymbols("RADLAN-LOCALIZATION-MIB", PYSNMP_MODULE_ID=rlLocalization, RlLanguage=RlLanguage, rlWEBlocalizationLanguage=rlWEBlocalizationLanguage, rlLocalizationLanguage=rlLocalizationLanguage, rlLocalizationFiles=rlLocalizationFiles, rlLocalizationMibVersion=rlLocalizationMibVersion, rlLocalization=rlLocalization)

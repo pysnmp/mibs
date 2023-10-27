@@ -8,28 +8,28 @@
       "packetlogic2"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "Bits",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
       "Counter32",
       "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -600,8 +600,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:46:24 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:49:35 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PACKETLOGIC-TRAP-MIB"

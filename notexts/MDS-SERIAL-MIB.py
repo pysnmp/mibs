@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MDS-SERIAL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SERIAL-MIB
-# Produced by pysmi-1.1.10 at Fri Oct 27 07:41:13 2023
-# On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Oct 27 07:43:42 2023
+# On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
 mdsServices, = mibBuilder.importSymbols("MDS-ORBIT-SMI-MIB", "mdsServices")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Bits, iso, IpAddress, Counter32, ModuleIdentity, Unsigned32, Integer32, Counter64, ObjectIdentity, TimeTicks, NotificationType, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "IpAddress", "Counter32", "ModuleIdentity", "Unsigned32", "Integer32", "Counter64", "ObjectIdentity", "TimeTicks", "NotificationType", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+IpAddress, NotificationType, Gauge32, MibIdentifier, TimeTicks, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, iso, ObjectIdentity, Bits, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "NotificationType", "Gauge32", "MibIdentifier", "TimeTicks", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "iso", "ObjectIdentity", "Bits", "Counter64")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 mdsSerialMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 10, 3, 2))
 mdsSerialMIB.setRevisions(('2018-05-16 00:00', '2014-05-12 00:00',))
 if mibBuilder.loadTexts: mdsSerialMIB.setLastUpdated('201805160000Z')
@@ -55,4 +55,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mSerStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4130, 10, 3, 2, 3, 2, 1)).setObjects(("MDS-SERIAL-MIB", "mSerTermServerSerialPort"), ("MDS-SERIAL-MIB", "mSerTermServerDescription"), ("MDS-SERIAL-MIB", "mSerTermServerEnabled"), ("MDS-SERIAL-MIB", "mSerTermServerIpTxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerIpTxBytes"), ("MDS-SERIAL-MIB", "mSerTermServerIpRxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerIpRxBytes"), ("MDS-SERIAL-MIB", "mSerTermServerSerialTxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerSerialTxBytes"), ("MDS-SERIAL-MIB", "mSerTermServerSerialRxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerSerialRxBytes"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mSerStatusGroup = mSerStatusGroup.setStatus('current')
-mibBuilder.exportSymbols("MDS-SERIAL-MIB", PYSNMP_MODULE_ID=mdsSerialMIB, mSerTermServerSerialTxPackets=mSerTermServerSerialTxPackets, mSerTermServerSerialPort=mSerTermServerSerialPort, mSerTermServerIpRxPackets=mSerTermServerIpRxPackets, mSerTermServerStatusEntry=mSerTermServerStatusEntry, mSerCompliance=mSerCompliance, mSerTermServerIpTxPackets=mSerTermServerIpTxPackets, mSerTermServerDescription=mSerTermServerDescription, mSerConfig=mSerConfig, mSerTermServerSerialRxBytes=mSerTermServerSerialRxBytes, mSerTermServerSerialTxBytes=mSerTermServerSerialTxBytes, mdsSerialMIB=mdsSerialMIB, mSerStatus=mSerStatus, mSerTermServerSerialRxPackets=mSerTermServerSerialRxPackets, mSerTermServerIpTxBytes=mSerTermServerIpTxBytes, mSerTermServerStatusTable=mSerTermServerStatusTable, mdsSerMIBGroups=mdsSerMIBGroups, mSerTermServerEnabled=mSerTermServerEnabled, mSerTermServerIpRxBytes=mSerTermServerIpRxBytes, mSerMIBObjects=mSerMIBObjects, mdsSerMIBConformance=mdsSerMIBConformance, mSerStatusGroup=mSerStatusGroup, mdsSerMIBCompliances=mdsSerMIBCompliances)
+mibBuilder.exportSymbols("MDS-SERIAL-MIB", PYSNMP_MODULE_ID=mdsSerialMIB, mSerTermServerEnabled=mSerTermServerEnabled, mSerTermServerStatusTable=mSerTermServerStatusTable, mSerTermServerSerialRxPackets=mSerTermServerSerialRxPackets, mdsSerialMIB=mdsSerialMIB, mSerTermServerIpTxBytes=mSerTermServerIpTxBytes, mSerConfig=mSerConfig, mSerTermServerIpRxPackets=mSerTermServerIpRxPackets, mSerTermServerIpTxPackets=mSerTermServerIpTxPackets, mSerTermServerSerialTxPackets=mSerTermServerSerialTxPackets, mSerStatus=mSerStatus, mSerCompliance=mSerCompliance, mdsSerMIBConformance=mdsSerMIBConformance, mSerTermServerSerialRxBytes=mSerTermServerSerialRxBytes, mSerTermServerSerialPort=mSerTermServerSerialPort, mSerStatusGroup=mSerStatusGroup, mSerTermServerIpRxBytes=mSerTermServerIpRxBytes, mSerTermServerStatusEntry=mSerTermServerStatusEntry, mSerTermServerDescription=mSerTermServerDescription, mSerMIBObjects=mSerMIBObjects, mdsSerMIBCompliances=mdsSerMIBCompliances, mdsSerMIBGroups=mdsSerMIBGroups, mSerTermServerSerialTxBytes=mSerTermServerSerialTxBytes)

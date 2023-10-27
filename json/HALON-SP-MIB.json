@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "Counter32",
-      "Integer32",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "enterprises",
+      "MibIdentifier",
+      "Gauge32",
       "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "Integer32",
+      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32"
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "enterprises",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "halonSecuritySP": {
@@ -209,8 +209,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/halon/HALON-SP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 07:41:23 2023",
-      "On host fv-az1236-588 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Oct 27 07:43:56 2023",
+      "On host fv-az178-832 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HALON-SP-MIB"
