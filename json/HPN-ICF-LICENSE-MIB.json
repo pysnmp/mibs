@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "PhysicalIndex",
-      "PhysicalIndexOrZero"
+      "PhysicalIndexOrZero",
+      "PhysicalIndex"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfCommon"
@@ -16,27 +16,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
       "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Unsigned32",
-      "Integer32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hpnicfLicense": {
@@ -1006,8 +1006,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LICENSE-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:19:51 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:18 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LICENSE-MIB"

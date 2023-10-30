@@ -5,52 +5,52 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddress",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLabel",
+      "MplsLdpIdentifier",
+      "MplsLsrIdentifier",
       "MplsRetentionMode",
       "MplsLdpLabelType",
-      "MplsLspType",
-      "MplsLsrIdentifier",
-      "MplsLdpIdentifier",
-      "MplsLabelDistributionMethod"
+      "MplsLabelDistributionMethod",
+      "MplsLabel",
+      "MplsLspType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
+      "Unsigned32",
       "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
       "iso",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
-      "TimeStamp",
-      "TimeInterval",
-      "StorageType",
+      "DisplayString",
       "RowPointer",
-      "DisplayString"
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "jnxMplsLdpMIB": {
@@ -2014,8 +2014,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:22 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:22:55 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-MPLS-LDP-MIB"

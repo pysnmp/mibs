@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
+      "Bits",
       "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Counter32",
-      "Bits"
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "netBotz_APC": {
@@ -24108,8 +24108,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netbotz/NETBOTZ410-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:22:00 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:23:31 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETBOTZ410-MIB"

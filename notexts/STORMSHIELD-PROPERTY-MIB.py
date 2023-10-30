@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:25:23 2023
-# On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:27:18 2023
+# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, iso, ModuleIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, NotificationType, TimeTicks, MibIdentifier, Gauge32, ObjectIdentity, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "ModuleIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "NotificationType", "TimeTicks", "MibIdentifier", "Gauge32", "ObjectIdentity", "IpAddress", "Bits")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, MibIdentifier, Integer32, TimeTicks, NotificationType, Unsigned32, iso, Counter32, IpAddress, Counter64, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "MibIdentifier", "Integer32", "TimeTicks", "NotificationType", "Unsigned32", "iso", "Counter32", "IpAddress", "Counter64", "ModuleIdentity", "Gauge32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -46,4 +46,4 @@ snsClone = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 14), Integer32()).setMaxAcc
 if mibBuilder.loadTexts: snsClone.setStatus('current')
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsSerialNumber=snsSerialNumber, PYSNMP_MODULE_ID=snsProductProperty, snsSystemLanguage=snsSystemLanguage, snsWatchdog=snsWatchdog, snsNbEther=snsNbEther, snsHADialup=snsHADialup, snsModel=snsModel, snsProductProperty=snsProductProperty, snsNbDialup=snsNbDialup, snsClone=snsClone, snsNbVlan=snsNbVlan, snsNbPPTP=snsNbPPTP, snsNbSerial=snsNbSerial, snsNbLoopback=snsNbLoopback, snsVersion=snsVersion, snsLed=snsLed, snsSystemName=snsSystemName)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsSystemName=snsSystemName, snsSerialNumber=snsSerialNumber, snsNbVlan=snsNbVlan, snsClone=snsClone, snsHADialup=snsHADialup, snsNbSerial=snsNbSerial, snsWatchdog=snsWatchdog, snsNbEther=snsNbEther, snsVersion=snsVersion, snsNbDialup=snsNbDialup, snsNbLoopback=snsNbLoopback, snsSystemLanguage=snsSystemLanguage, snsProductProperty=snsProductProperty, snsModel=snsModel, snsLed=snsLed, PYSNMP_MODULE_ID=snsProductProperty, snsNbPPTP=snsNbPPTP)

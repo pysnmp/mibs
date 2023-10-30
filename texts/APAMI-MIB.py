@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module APAMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAMI-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:22:56 2023
-# On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:24:25 2023
+# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, IpAddress, Gauge32, iso, NotificationType, Counter32, MibIdentifier, Integer32, Bits, TimeTicks, Counter64, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "IpAddress", "Gauge32", "iso", "NotificationType", "Counter32", "MibIdentifier", "Integer32", "Bits", "TimeTicks", "Counter64", "ModuleIdentity", "Unsigned32")
+Gauge32, Counter32, TimeTicks, ObjectIdentity, MibIdentifier, iso, Bits, Integer32, NotificationType, IpAddress, Counter64, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "TimeTicks", "ObjectIdentity", "MibIdentifier", "iso", "Bits", "Integer32", "NotificationType", "IpAddress", "Counter64", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 apAMIModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 6))
 apAMIModule.setRevisions(('2012-07-16 00:00', '2014-06-26 00:00',))
@@ -41,4 +41,4 @@ apAMIMibObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 6, 2, 1, 1)).setO
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apAMIMibObjectsGroup = apAMIMibObjectsGroup.setStatus('current')
 if mibBuilder.loadTexts: apAMIMibObjectsGroup.setDescription('This automatically created object group contains\n                            all those objects that do not belong to any other\n                            OBJECT-GROUP')
-mibBuilder.exportSymbols("APAMI-MIB", PYSNMP_MODULE_ID=apAMIModule, apAMIMibObjectsGroup=apAMIMibObjectsGroup, apAMIModuleGroups=apAMIModuleGroups, apAMISoapHttp=apAMISoapHttp, apAMISoapHttpPort=apAMISoapHttpPort, apAMISoapHttpsPort=apAMISoapHttpsPort, apAMIModuleConformance=apAMIModuleConformance, apAMISoapObjects=apAMISoapObjects, apAMIModule=apAMIModule, apAMISoapHttps=apAMISoapHttps, apAMIMIBObjects=apAMIMIBObjects)
+mibBuilder.exportSymbols("APAMI-MIB", apAMIMibObjectsGroup=apAMIMibObjectsGroup, apAMISoapHttpPort=apAMISoapHttpPort, apAMISoapHttp=apAMISoapHttp, apAMISoapHttps=apAMISoapHttps, apAMIModuleGroups=apAMIModuleGroups, PYSNMP_MODULE_ID=apAMIModule, apAMISoapHttpsPort=apAMISoapHttpsPort, apAMIMIBObjects=apAMIMIBObjects, apAMIModuleConformance=apAMIModuleConformance, apAMISoapObjects=apAMISoapObjects, apAMIModule=apAMIModule)

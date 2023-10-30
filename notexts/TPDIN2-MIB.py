@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TPDIN2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tycon/TPDIN2-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:25:44 2023
-# On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:27:39 2023
+# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Counter32, TimeTicks, Bits, enterprises, IpAddress, Gauge32, Counter64, ObjectIdentity, NotificationType, MibIdentifier, ModuleIdentity, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "TimeTicks", "Bits", "enterprises", "IpAddress", "Gauge32", "Counter64", "ObjectIdentity", "NotificationType", "MibIdentifier", "ModuleIdentity", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, Gauge32, Unsigned32, IpAddress, ObjectIdentity, ModuleIdentity, iso, TimeTicks, Counter64, Counter32, MibIdentifier, Integer32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "Gauge32", "Unsigned32", "IpAddress", "ObjectIdentity", "ModuleIdentity", "iso", "TimeTicks", "Counter64", "Counter32", "MibIdentifier", "Integer32", "enterprises")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tpdin2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 45621, 2))
 if mibBuilder.loadTexts: tpdin2.setLastUpdated('201703031251Z')
 if mibBuilder.loadTexts: tpdin2.setOrganization('Tycon Systems')
@@ -56,4 +56,4 @@ temperature1 = MibScalar((1, 3, 6, 1, 4, 1, 45621, 2, 2, 13), Tenths()).setMaxAc
 if mibBuilder.loadTexts: temperature1.setStatus('current')
 temperature2 = MibScalar((1, 3, 6, 1, 4, 1, 45621, 2, 2, 14), Tenths()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: temperature2.setStatus('current')
-mibBuilder.exportSymbols("TPDIN2-MIB", voltage3=voltage3, voltage2=voltage2, relay2=relay2, relay1=relay1, relay4=relay4, product=product, tycon=tycon, voltage4=voltage4, name=name, relay3=relay3, temperature1=temperature1, builddate=builddate, current3=current3, current4=current4, temperature2=temperature2, monitor=monitor, Tenths=Tenths, current2=current2, version=version, PYSNMP_MODULE_ID=tpdin2, current1=current1, tpdin2=tpdin2, voltage1=voltage1)
+mibBuilder.exportSymbols("TPDIN2-MIB", Tenths=Tenths, version=version, builddate=builddate, PYSNMP_MODULE_ID=tpdin2, tycon=tycon, voltage4=voltage4, monitor=monitor, current3=current3, temperature1=temperature1, product=product, voltage1=voltage1, name=name, voltage3=voltage3, voltage2=voltage2, temperature2=temperature2, relay3=relay3, tpdin2=tpdin2, relay2=relay2, relay1=relay1, current2=current2, relay4=relay4, current1=current1, current4=current4)

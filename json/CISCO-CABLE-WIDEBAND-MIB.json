@@ -8,51 +8,51 @@
       "docsIfCmtsCmStatusIndex"
     ],
     "ENTITY-MIB": [
+      "entPhysicalName",
       "entPhysicalIndex",
-      "PhysicalIndexOrZero",
-      "entPhysicalName"
+      "PhysicalIndexOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "Counter64",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Integer32",
       "Bits",
-      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Counter64",
-      "Gauge32"
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "StorageType",
       "MacAddress",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ciscoCableWidebandMIB": {
@@ -1499,8 +1499,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-WIDEBAND-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:42 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:51 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-CABLE-WIDEBAND-MIB"

@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-MIB": [
-      "IndexIntegerNextFree",
-      "IndexInteger"
+      "IndexInteger",
+      "IndexIntegerNextFree"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLdpIdentifier",
       "MplsLspType",
-      "mplsStdMIB",
+      "MplsLdpLabelType",
+      "MplsLdpIdentifier",
       "MplsLsrIdentifier",
       "MplsLabelDistributionMethod",
-      "MplsLdpLabelType",
+      "mplsStdMIB",
       "MplsRetentionMode"
     ],
     "SNMPv2-CONF": [
@@ -29,29 +29,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
       "DisplayString",
       "StorageType",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TimeStamp",
-      "TimeInterval"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mplsLdpStdMIB": {
@@ -2173,8 +2173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LDP-STD-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:14 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:17 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MPLS-LDP-STD-MIB"

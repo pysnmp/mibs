@@ -5,28 +5,28 @@
       "fsp150cm"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
       "Integer32",
       "iso",
-      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cmCommonMIB": {
@@ -1005,8 +1005,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-COMMON-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:59 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:12:01 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-COMMON-MIB"

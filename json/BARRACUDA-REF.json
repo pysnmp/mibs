@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
       "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
       "enterprises",
       "TimeTicks",
       "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "barracuda": {
@@ -36,7 +36,7 @@
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barracuda/BARRACUDA-REF-MIB",
       "Produced by pysmi-1.1.10 at Mon Oct 30 02:13:00 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BARRACUDA-REF"

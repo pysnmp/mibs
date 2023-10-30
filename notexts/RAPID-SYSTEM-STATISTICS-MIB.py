@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RAPID-SYSTEM-STATISTICS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-SYSTEM-STATISTICS-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:22:16 2023
-# On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:23:47 2023
+# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, NotificationType, Bits, enterprises, ModuleIdentity, ObjectIdentity, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, IpAddress, Counter32, TimeTicks, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "Bits", "enterprises", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "IpAddress", "Counter32", "TimeTicks", "Integer32")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, Unsigned32, Counter32, iso, ObjectIdentity, Bits, Integer32, IpAddress, NotificationType, MibIdentifier, Counter64, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "Unsigned32", "Counter32", "iso", "ObjectIdentity", "Bits", "Integer32", "IpAddress", "NotificationType", "MibIdentifier", "Counter64", "enterprises")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rsInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 6))
 rsInfoModule.setRevisions(('2001-05-16 12:00', '2002-11-01 12:00',))
@@ -38,4 +38,4 @@ rsSystemCpuUtil5 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 3, 78), Counter64()).se
 if mibBuilder.loadTexts: rsSystemCpuUtil5.setStatus('current')
 rsSystemCpuUtil15 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 3, 79), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rsSystemCpuUtil15.setStatus('current')
-mibBuilder.exportSymbols("RAPID-SYSTEM-STATISTICS-MIB", rsSystemTotalRecvPackets=rsSystemTotalRecvPackets, rsSystemTotalRecvBytes=rsSystemTotalRecvBytes, rsSystemCpuUtil=rsSystemCpuUtil, rsSystemTotalSendPackets=rsSystemTotalSendPackets, rsSystemStreamReqDrop=rsSystemStreamReqDrop, rsSystemCpuUtil5=rsSystemCpuUtil5, rsSystemCpuUtil15=rsSystemCpuUtil15, rsInfoModule=rsInfoModule, rsSystemTotalSendBytes=rsSystemTotalSendBytes, PYSNMP_MODULE_ID=rsInfoModule, rsSystemStreamReqTotal=rsSystemStreamReqTotal, rsSystemStatisticsMIB=rsSystemStatisticsMIB, rsSystemCpuUtil1=rsSystemCpuUtil1)
+mibBuilder.exportSymbols("RAPID-SYSTEM-STATISTICS-MIB", rsSystemTotalRecvBytes=rsSystemTotalRecvBytes, rsSystemTotalSendPackets=rsSystemTotalSendPackets, rsSystemStreamReqTotal=rsSystemStreamReqTotal, rsSystemCpuUtil=rsSystemCpuUtil, rsSystemTotalRecvPackets=rsSystemTotalRecvPackets, rsInfoModule=rsInfoModule, PYSNMP_MODULE_ID=rsInfoModule, rsSystemStatisticsMIB=rsSystemStatisticsMIB, rsSystemCpuUtil15=rsSystemCpuUtil15, rsSystemTotalSendBytes=rsSystemTotalSendBytes, rsSystemStreamReqDrop=rsSystemStreamReqDrop, rsSystemCpuUtil5=rsSystemCpuUtil5, rsSystemCpuUtil1=rsSystemCpuUtil1)

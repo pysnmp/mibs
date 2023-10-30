@@ -22,26 +22,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "iso",
       "Gauge32",
-      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Counter64",
-      "enterprises"
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "eqlAgentModule": {
@@ -247,8 +247,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLAGENT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:29 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:51 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLAGENT-MIB"

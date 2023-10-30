@@ -15,8 +15,8 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -25,34 +25,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
       "Counter64",
-      "Gauge32"
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "StorageType",
       "MacAddress",
-      "DateAndTime",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime"
     ]
   },
   "ciscoLwappMobilityExtMIB": {
@@ -4695,8 +4695,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MOBILITY-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:46 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:54 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MOBILITY-EXT-MIB"

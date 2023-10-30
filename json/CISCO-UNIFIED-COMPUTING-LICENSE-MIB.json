@@ -6,44 +6,44 @@
     ],
     "CISCO-TC": [
       "Unsigned64",
-      "CiscoNetworkAddress",
-      "CiscoInetAddressMask",
+      "CiscoAlarmSeverity",
       "TimeIntervalSec",
-      "CiscoAlarmSeverity"
+      "CiscoNetworkAddress",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectId",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsLicenseInstanceFsmTaskItem",
-      "CucsLicenseState",
-      "CucsFsmFsmStageStatus",
-      "CucsLicenseFileFsmStageName",
-      "CucsPolicyPolicyOwner",
-      "CucsLicensePeerStatus",
-      "CucsLicenseType",
-      "CucsLicenseScope",
-      "CucsLicenseDownloaderFsmTaskItem",
-      "CucsFsmCompletion",
-      "CucsLicenseFileFsmCurrentFsm",
-      "CucsLicenseInstanceFsmStageName",
-      "CucsLicenseDownloadActivity",
-      "CucsConditionRemoteInvRslt",
-      "CucsLicenseTransferState",
-      "CucsLicenseDownloaderFsmStageName",
-      "CucsLicenseInstanceFsmCurrentFsm",
-      "CucsLicenseDownloaderFsmCurrentFsm",
       "CucsLicenseFeatureType",
-      "CucsLicenseTransport",
-      "CucsFsmFlags",
+      "CucsLicenseInstanceFsmTaskItem",
+      "CucsLicenseScope",
+      "CucsLicenseInstanceFsmCurrentFsm",
+      "CucsLicenseFileFsmCurrentFsm",
+      "CucsLicenseType",
+      "CucsLicenseDownloaderFsmCurrentFsm",
+      "CucsLicenseInstanceFsmStageName",
       "CucsLicenseFileFsmTaskItem",
-      "CucsLicenseFileState"
+      "CucsLicenseTransferState",
+      "CucsLicenseFileState",
+      "CucsFsmFlags",
+      "CucsLicenseFileFsmStageName",
+      "CucsLicenseDownloaderFsmStageName",
+      "CucsLicenseDownloadActivity",
+      "CucsFsmFsmStageStatus",
+      "CucsPolicyPolicyOwner",
+      "CucsLicenseDownloaderFsmTaskItem",
+      "CucsLicenseTransport",
+      "CucsLicenseState",
+      "CucsLicensePeerStatus",
+      "CucsConditionRemoteInvRslt",
+      "CucsFsmCompletion"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -53,30 +53,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
       "Counter64",
-      "Gauge32"
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "TimeStamp",
       "MacAddress",
+      "TruthValue",
+      "DisplayString",
       "RowPointer",
-      "DateAndTime",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "cucsLicenseObjects": {
@@ -3413,8 +3413,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LICENSE-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:43 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:51 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-LICENSE-MIB"

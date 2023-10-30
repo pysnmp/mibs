@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "EQLAPPLIANCE-MIB": [
-      "eqlApplianceNetworkType",
       "eqlApplianceNetworkID",
+      "eqlApplianceNetworkType",
       "eqlApplianceIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeReplSiteIndex",
-      "SiteIndexOrZero",
       "StatusDisabledDefault",
-      "SiteIndex"
+      "SiteIndexOrZero",
+      "SiteIndex",
+      "eqliscsiVolumeReplSiteIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -24,29 +24,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
       "Counter64",
-      "enterprises"
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowPointer",
       "DisplayString",
-      "DateAndTime",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "eqlNASModule": {
@@ -8606,8 +8606,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLNAS-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:29 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:51 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLNAS-MIB"

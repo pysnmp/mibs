@@ -5,30 +5,30 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "Counter32",
-      "Counter64",
+      "OBJECT-TYPE",
       "Bits",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "Counter32",
       "Gauge32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlSsl": {
@@ -681,8 +681,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SSL",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:38 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:23:00 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-SSL"

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "iso",
       "Integer32",
-      "enterprises",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "synoptics": {
@@ -2086,8 +2086,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/SYNOPTICS-ROOT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:22:30 2023",
-      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:23:59 2023",
+      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SYNOPTICS-ROOT-MIB"
