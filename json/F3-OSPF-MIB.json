@@ -5,43 +5,43 @@
       "fsp150cm"
     ],
     "CM-IP-MIB": [
-      "ipManagementTunnelEntry",
-      "cmIpInterfaceEntry"
+      "cmIpInterfaceEntry",
+      "ipManagementTunnelEntry"
     ],
     "OSPF-MIB": [
-      "HelloRange",
-      "RouterID",
-      "ospfNbrEntry",
-      "OspfAuthenticationType",
       "AreaID",
+      "HelloRange",
+      "ospfNbrEntry",
+      "RouterID",
+      "OspfAuthenticationType",
       "DesignatedRouterPriority"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
       "Gauge32",
-      "Counter64",
-      "Integer32",
-      "iso",
       "Counter32",
       "MODULE-IDENTITY",
       "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Counter64",
       "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowStatus",
       "StorageType",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString"
     ]
   },
@@ -1115,8 +1115,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-OSPF-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:12:01 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:12:30 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-OSPF-MIB"

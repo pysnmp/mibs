@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetZoneIndex",
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
       "InetVersion",
-      "InetAddress"
+      "InetAddressType",
+      "InetZoneIndex"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "mib-2",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "iso",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "zeroDotZero",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier"
+      "mib-2",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "TimeStamp",
       "PhysAddress",
       "TruthValue",
-      "TestAndIncr",
+      "StorageType",
+      "TimeStamp",
       "DisplayString",
       "RowPointer",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:51 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:18:30 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

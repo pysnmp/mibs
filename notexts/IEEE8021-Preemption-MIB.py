@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module IEEE8021-Preemption-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Preemption-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:10:52 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:11:03 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 ieee8021BridgeBasePort, ieee8021BridgeBaseComponentId = mibBuilder.importSymbols("IEEE8021-BRIDGE-MIB", "ieee8021BridgeBasePort", "ieee8021BridgeBaseComponentId")
 ieee802dot1mibs, IEEE8021PriorityValue = mibBuilder.importSymbols("IEEE8021-TC-MIB", "ieee802dot1mibs", "IEEE8021PriorityValue")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, NotificationType, IpAddress, MibIdentifier, Counter64, ObjectIdentity, Bits, Integer32, iso, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "NotificationType", "IpAddress", "MibIdentifier", "Counter64", "ObjectIdentity", "Bits", "Integer32", "iso", "Unsigned32", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, ModuleIdentity, Integer32, iso, Bits, NotificationType, Counter64, Unsigned32, ObjectIdentity, MibIdentifier, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "ModuleIdentity", "Integer32", "iso", "Bits", "NotificationType", "Counter64", "Unsigned32", "ObjectIdentity", "MibIdentifier", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ieee8021PreemptionMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 29))
 ieee8021PreemptionMib.setRevisions(('2018-06-21 00:00', '2016-08-15 00:00',))
 if mibBuilder.loadTexts: ieee8021PreemptionMib.setLastUpdated('201806210000Z')
@@ -50,4 +50,4 @@ ieee8021PreemptionCompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 29, 2,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ieee8021PreemptionCompliance = ieee8021PreemptionCompliance.setStatus('current')
-mibBuilder.exportSymbols("IEEE8021-Preemption-MIB", ieee8021FramePreemptionReleaseAdvance=ieee8021FramePreemptionReleaseAdvance, PYSNMP_MODULE_ID=ieee8021PreemptionMib, ieee8021FramePreemptionAdminStatus=ieee8021FramePreemptionAdminStatus, ieee8021PreemptionPriority=ieee8021PreemptionPriority, ieee8021PreemptionConfigEntry=ieee8021PreemptionConfigEntry, ieee8021PreemptionConformance=ieee8021PreemptionConformance, ieee8021PreemptionParameters=ieee8021PreemptionParameters, ieee8021PreemptionCompliance=ieee8021PreemptionCompliance, ieee8021PreemptionParameterEntry=ieee8021PreemptionParameterEntry, ieee8021PreemptionNotifications=ieee8021PreemptionNotifications, ieee8021FramePreemptionActive=ieee8021FramePreemptionActive, ieee8021PreemptionObjects=ieee8021PreemptionObjects, ieee8021PreemptionCompliances=ieee8021PreemptionCompliances, ieee8021PreemptionGroups=ieee8021PreemptionGroups, ieee8021PreemptionGroup=ieee8021PreemptionGroup, ieee8021PreemptionMib=ieee8021PreemptionMib, ieee8021FramePreemptionHoldAdvance=ieee8021FramePreemptionHoldAdvance, ieee8021FramePreemptionHoldRequest=ieee8021FramePreemptionHoldRequest, ieee8021PreemptionParameterTable=ieee8021PreemptionParameterTable, ieee8021PreemptionConfigTable=ieee8021PreemptionConfigTable)
+mibBuilder.exportSymbols("IEEE8021-Preemption-MIB", PYSNMP_MODULE_ID=ieee8021PreemptionMib, ieee8021FramePreemptionHoldAdvance=ieee8021FramePreemptionHoldAdvance, ieee8021FramePreemptionReleaseAdvance=ieee8021FramePreemptionReleaseAdvance, ieee8021PreemptionGroup=ieee8021PreemptionGroup, ieee8021PreemptionMib=ieee8021PreemptionMib, ieee8021PreemptionParameterEntry=ieee8021PreemptionParameterEntry, ieee8021PreemptionParameterTable=ieee8021PreemptionParameterTable, ieee8021PreemptionParameters=ieee8021PreemptionParameters, ieee8021PreemptionGroups=ieee8021PreemptionGroups, ieee8021PreemptionObjects=ieee8021PreemptionObjects, ieee8021FramePreemptionActive=ieee8021FramePreemptionActive, ieee8021PreemptionConfigTable=ieee8021PreemptionConfigTable, ieee8021PreemptionPriority=ieee8021PreemptionPriority, ieee8021PreemptionCompliance=ieee8021PreemptionCompliance, ieee8021PreemptionNotifications=ieee8021PreemptionNotifications, ieee8021FramePreemptionHoldRequest=ieee8021FramePreemptionHoldRequest, ieee8021FramePreemptionAdminStatus=ieee8021FramePreemptionAdminStatus, ieee8021PreemptionConfigEntry=ieee8021PreemptionConfigEntry, ieee8021PreemptionCompliances=ieee8021PreemptionCompliances, ieee8021PreemptionConformance=ieee8021PreemptionConformance)

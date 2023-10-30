@@ -9,45 +9,45 @@
       "ifGeneralInformationGroup"
     ],
     "MPLS-LSR-STD-MIB": [
-      "mplsXCGroup",
-      "mplsPerfGroup",
-      "mplsInSegmentIndex",
       "mplsInSegmentGroup",
+      "mplsOutSegmentIndex",
       "mplsInterfaceIndex",
-      "mplsLsrNotificationGroup",
-      "mplsOutSegmentGroup",
       "mplsInterfaceGroup",
-      "mplsOutSegmentIndex"
+      "mplsXCGroup",
+      "mplsLsrNotificationGroup",
+      "mplsInSegmentIndex",
+      "mplsOutSegmentGroup",
+      "mplsPerfGroup"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
       "Integer32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
       "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
       "zeroDotZero",
-      "TimeTicks"
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gmplsLsrStdMIB": {
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:22:55 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:26:14 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "GMPLS-LSR-STD-MIB"

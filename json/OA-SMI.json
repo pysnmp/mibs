@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "enterprises",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "enterprises",
+      "Counter64",
       "iso",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "oa": {
@@ -59,8 +59,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openaccess/OA-SMI",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:14 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:27:46 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OA-SMI"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:13:11 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:13:57 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, Gauge32, NotificationType, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, TimeTicks, ObjectIdentity, ModuleIdentity, Counter64, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Gauge32", "NotificationType", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "Counter64", "Bits", "Counter32")
-DisplayString, TruthValue, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "DateAndTime", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+TimeTicks, Integer32, IpAddress, ObjectIdentity, ModuleIdentity, NotificationType, iso, Gauge32, MibIdentifier, Bits, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "IpAddress", "ObjectIdentity", "ModuleIdentity", "NotificationType", "iso", "Gauge32", "MibIdentifier", "Bits", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32")
+DateAndTime, TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString", "TruthValue")
 bcnLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6, 1))
 bcnLicenseMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnLicenseMIB.setLastUpdated('201011301200Z')
@@ -66,4 +66,4 @@ bcnLicenseStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnLicenseStatusCompliance = bcnLicenseStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseValid=bcnLicenseValid, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseType=bcnLicenseType, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicense=bcnLicense, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseTable=bcnLicenseTable, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseConformance=bcnLicenseConformance)
+mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseValid=bcnLicenseValid, bcnLicenseTable=bcnLicenseTable, bcnLicense=bcnLicense, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseType=bcnLicenseType, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseMIB=bcnLicenseMIB, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseGracePeriod=bcnLicenseGracePeriod)

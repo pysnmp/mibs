@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:13:12 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:13:58 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-TimeTicks, NotificationType, Integer32, Unsigned32, ModuleIdentity, IpAddress, MibIdentifier, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "Integer32", "Unsigned32", "ModuleIdentity", "IpAddress", "MibIdentifier", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "Counter64", "Gauge32")
-DateAndTime, TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TruthValue", "TextualConvention", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+NotificationType, iso, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Counter64, ModuleIdentity, Bits, Integer32, Counter32, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Counter64", "ModuleIdentity", "Bits", "Integer32", "Counter32", "Gauge32", "Unsigned32")
+DateAndTime, TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString", "TruthValue")
 bcnLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6, 1))
 bcnLicenseMIB.setRevisions(('2010-11-30 12:00',))
 
@@ -89,4 +89,4 @@ bcnLicenseStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnLicenseStatusCompliance = bcnLicenseStatusCompliance.setStatus('current')
 if mibBuilder.loadTexts: bcnLicenseStatusCompliance.setDescription('Basic conformance')
-mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseTable=bcnLicenseTable, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseValid=bcnLicenseValid, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicense=bcnLicense, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseType=bcnLicenseType)
+mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseValid=bcnLicenseValid, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseTable=bcnLicenseTable, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseType=bcnLicenseType, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicense=bcnLicense, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup)

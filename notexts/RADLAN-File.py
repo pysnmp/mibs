@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RADLAN-File (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-File
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:25:40 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:29:32 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
 rlFile, = mibBuilder.importSymbols("RADLAN-MIB", "rlFile")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Counter64, iso, Bits, TimeTicks, NotificationType, Integer32, ModuleIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Counter64", "iso", "Bits", "TimeTicks", "NotificationType", "Integer32", "ModuleIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "MibIdentifier", "ObjectIdentity")
-RowStatus, DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention", "TruthValue")
+Bits, Counter32, Gauge32, iso, TimeTicks, Counter64, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, NotificationType, ModuleIdentity, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Gauge32", "iso", "TimeTicks", "Counter64", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "NotificationType", "ModuleIdentity", "Unsigned32", "Integer32")
+DisplayString, TruthValue, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "RowStatus")
 rlFileMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 89, 96, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rlFileMibVersion.setStatus('current')
 rlFileTable = MibTable((1, 3, 6, 1, 4, 1, 89, 96, 2), )
@@ -50,4 +50,4 @@ rlFileFreeSizeOfFlash = MibScalar((1, 3, 6, 1, 4, 1, 89, 96, 5), Integer32()).se
 if mibBuilder.loadTexts: rlFileFreeSizeOfFlash.setStatus('current')
 rlFileAuditingEnable = MibScalar((1, 3, 6, 1, 4, 1, 89, 96, 6), TruthValue().clone('true')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlFileAuditingEnable.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-File", rlFileModificationTime=rlFileModificationTime, rlFileActionEntry=rlFileActionEntry, rlFileActionRowStatus=rlFileActionRowStatus, rlFileModificationDate=rlFileModificationDate, rlFileName=rlFileName, rlFileActionCommand=rlFileActionCommand, rlFileFlashSize=rlFileFlashSize, rlFileFreeSizeOfFlash=rlFileFreeSizeOfFlash, rlFileEntry=rlFileEntry, rlFileActionTable=rlFileActionTable, rlFileMibVersion=rlFileMibVersion, rlFileActionNewName=rlFileActionNewName, rlFileTable=rlFileTable, rlFileAuditingEnable=rlFileAuditingEnable, rlFileSize=rlFileSize, rlFileActionName=rlFileActionName, rlFilePermission=rlFilePermission, rlFileRowStatus=rlFileRowStatus, rlFileTotalSizeOfFlash=rlFileTotalSizeOfFlash)
+mibBuilder.exportSymbols("RADLAN-File", rlFileModificationTime=rlFileModificationTime, rlFileTotalSizeOfFlash=rlFileTotalSizeOfFlash, rlFileAuditingEnable=rlFileAuditingEnable, rlFileActionEntry=rlFileActionEntry, rlFileFlashSize=rlFileFlashSize, rlFileMibVersion=rlFileMibVersion, rlFileActionRowStatus=rlFileActionRowStatus, rlFilePermission=rlFilePermission, rlFileSize=rlFileSize, rlFileActionCommand=rlFileActionCommand, rlFileActionTable=rlFileActionTable, rlFileTable=rlFileTable, rlFileName=rlFileName, rlFileRowStatus=rlFileRowStatus, rlFileActionNewName=rlFileActionNewName, rlFileModificationDate=rlFileModificationDate, rlFileFreeSizeOfFlash=rlFileFreeSizeOfFlash, rlFileEntry=rlFileEntry, rlFileActionName=rlFileActionName)

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "enterprises",
       "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Unsigned32",
       "Counter32",
       "OBJECT-TYPE",
-      "Counter64",
-      "enterprises",
-      "MibIdentifier",
-      "iso",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -5370,8 +5370,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-AIX-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:14 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:23:55 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IBM-AIX-MIB"

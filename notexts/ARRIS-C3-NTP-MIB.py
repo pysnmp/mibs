@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ARRIS-C3-NTP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-NTP-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:12:29 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:13:06 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter64, IpAddress, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Unsigned32, Integer32, ModuleIdentity, ObjectIdentity, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "IpAddress", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Unsigned32", "Integer32", "ModuleIdentity", "ObjectIdentity", "iso", "NotificationType")
+NotificationType, MibIdentifier, Unsigned32, TimeTicks, ModuleIdentity, IpAddress, Integer32, Gauge32, ObjectIdentity, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibIdentifier", "Unsigned32", "TimeTicks", "ModuleIdentity", "IpAddress", "Integer32", "Gauge32", "ObjectIdentity", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso")
 TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 cmtsC3NTPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7))
 if mibBuilder.loadTexts: cmtsC3NTPMIB.setLastUpdated('200403300000Z')
@@ -34,4 +34,4 @@ dcxNTPServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1
 if mibBuilder.loadTexts: dcxNTPServerStatus.setStatus('current')
 dcxNTPMasterServer = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 2), IpAddress()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dcxNTPMasterServer.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-NTP-MIB", dcxNTPServerInterval=dcxNTPServerInterval, dcxNTPServerSuccess=dcxNTPServerSuccess, dcxNTPServerAttempts=dcxNTPServerAttempts, dcxNTPServerStatus=dcxNTPServerStatus, cmtsC3NTPMIB=cmtsC3NTPMIB, dcxNTPServerOffset=dcxNTPServerOffset, PYSNMP_MODULE_ID=cmtsC3NTPMIB, dcxNTPServerEntry=dcxNTPServerEntry, dcxNTPServerIp=dcxNTPServerIp, dcxNTPObjects=dcxNTPObjects, dcxNTPServerTable=dcxNTPServerTable, dcxNTPMasterServer=dcxNTPMasterServer)
+mibBuilder.exportSymbols("ARRIS-C3-NTP-MIB", dcxNTPServerEntry=dcxNTPServerEntry, dcxNTPServerOffset=dcxNTPServerOffset, dcxNTPMasterServer=dcxNTPMasterServer, dcxNTPServerAttempts=dcxNTPServerAttempts, dcxNTPServerStatus=dcxNTPServerStatus, dcxNTPServerSuccess=dcxNTPServerSuccess, dcxNTPObjects=dcxNTPObjects, cmtsC3NTPMIB=cmtsC3NTPMIB, PYSNMP_MODULE_ID=cmtsC3NTPMIB, dcxNTPServerTable=dcxNTPServerTable, dcxNTPServerInterval=dcxNTPServerInterval, dcxNTPServerIp=dcxNTPServerIp)

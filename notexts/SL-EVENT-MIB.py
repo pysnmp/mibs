@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-EVENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-EVENT-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:24:42 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:28:20 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfIntervalCount, PerfCurrentCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount", "PerfTotalCount")
+PerfTotalCount, PerfIntervalCount, PerfCurrentCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfTotalCount", "PerfIntervalCount", "PerfCurrentCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Gauge32, iso, NotificationType, Integer32, IpAddress, MibIdentifier, ObjectIdentity, TimeTicks, Counter64, ModuleIdentity, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "iso", "NotificationType", "Integer32", "IpAddress", "MibIdentifier", "ObjectIdentity", "TimeTicks", "Counter64", "ModuleIdentity", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TruthValue, DisplayString, TextualConvention, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention", "TimeStamp")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Counter64, MibIdentifier, TimeTicks, Counter32, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, NotificationType, Bits, ModuleIdentity, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "TimeTicks", "Counter32", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "NotificationType", "Bits", "ModuleIdentity", "IpAddress", "Gauge32")
+TruthValue, TimeStamp, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TimeStamp", "DisplayString", "TextualConvention")
 slEventMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 22))
 if mibBuilder.loadTexts: slEventMib.setLastUpdated('200708280000Z')
 if mibBuilder.loadTexts: slEventMib.setOrganization('PacketLight Networks Ltd.')
@@ -98,4 +98,4 @@ slGenEventTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 22, 2, 4)).setO
 if mibBuilder.loadTexts: slGenEventTrap.setStatus('current')
 slGenEventTrap0 = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 22, 2, 0, 4)).setObjects(("SL-EVENT-MIB", "slGenEventIfIndex"), ("SL-EVENT-MIB", "slGenEventType"), ("SL-EVENT-MIB", "slGenEventVal"), ("SL-EVENT-MIB", "slGenEventUser"))
 if mibBuilder.loadTexts: slGenEventTrap0.setStatus('current')
-mibBuilder.exportSymbols("SL-EVENT-MIB", slGenEventConfigTable=slGenEventConfigTable, slGenEventTrap0=slGenEventTrap0, slEventConfigEntry=slEventConfigEntry, PYSNMP_MODULE_ID=slEventMib, slEventTrap0=slEventTrap0, slGenEventIfIndex=slGenEventIfIndex, slGenEventCtag=slGenEventCtag, slGenEventTid=slGenEventTid, slEventInventoryAction=slEventInventoryAction, SlGenEventType=SlGenEventType, slEventInventoryPartnum=slEventInventoryPartnum, slGenEventConfigEntry=slGenEventConfigEntry, SlEventInventoryAction=SlEventInventoryAction, slEventUser=slEventUser, slEventInventoryEntry=slEventInventoryEntry, slGenEventVal=slGenEventVal, slEventInventorySerial=slEventInventorySerial, slEventInventoryTable=slEventInventoryTable, slEventInventoryType=slEventInventoryType, slEventType=slEventType, slGenEventType=slGenEventType, slGenEventUser=slGenEventUser, slEventMib=slEventMib, SlEventInventoryType=SlEventInventoryType, slEventConfigTable=slEventConfigTable, slEventTraps=slEventTraps, slEventTrap=slEventTrap, slEventInventoryTrap0=slEventInventoryTrap0, slEventConfig=slEventConfig, SlEventType=SlEventType, slEventTraps0=slEventTraps0, slEventInventoryIfIndex=slEventInventoryIfIndex, slEventCtag=slEventCtag, slEventVal=slEventVal, slEventInventoryTrap=slEventInventoryTrap, slEventTid=slEventTid, slGenEventTrap=slGenEventTrap, slEventIfIndex=slEventIfIndex)
+mibBuilder.exportSymbols("SL-EVENT-MIB", slGenEventTid=slGenEventTid, SlGenEventType=SlGenEventType, slEventInventoryTable=slEventInventoryTable, slGenEventUser=slGenEventUser, slEventTrap=slEventTrap, slEventConfigEntry=slEventConfigEntry, SlEventInventoryAction=SlEventInventoryAction, slGenEventTrap=slGenEventTrap, slGenEventIfIndex=slGenEventIfIndex, slEventInventoryEntry=slEventInventoryEntry, slGenEventConfigEntry=slGenEventConfigEntry, slEventInventoryTrap0=slEventInventoryTrap0, slEventInventoryPartnum=slEventInventoryPartnum, slGenEventType=slGenEventType, slGenEventVal=slGenEventVal, slEventTid=slEventTid, slEventCtag=slEventCtag, slEventConfigTable=slEventConfigTable, slEventInventoryTrap=slEventInventoryTrap, slEventIfIndex=slEventIfIndex, PYSNMP_MODULE_ID=slEventMib, slEventUser=slEventUser, slEventConfig=slEventConfig, slEventType=slEventType, SlEventType=SlEventType, slEventTrap0=slEventTrap0, slEventInventoryAction=slEventInventoryAction, slEventTraps=slEventTraps, slEventInventoryType=slEventInventoryType, slEventInventorySerial=slEventInventorySerial, slGenEventTrap0=slGenEventTrap0, slGenEventConfigTable=slGenEventConfigTable, slEventMib=slEventMib, slEventTraps0=slEventTraps0, slEventInventoryIfIndex=slEventInventoryIfIndex, slEventVal=slEventVal, slGenEventCtag=slGenEventCtag, SlEventInventoryType=SlEventInventoryType)

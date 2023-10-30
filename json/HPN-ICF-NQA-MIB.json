@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingCtlOwnerIndex",
-      "pingCtlDescr",
-      "pingCtlTestName",
-      "pingCtlTargetAddressType",
-      "pingCtlType",
       "pingCtlTargetAddress",
-      "pingCtlEntry"
+      "pingCtlTargetAddressType",
+      "pingCtlOwnerIndex",
+      "pingCtlEntry",
+      "pingCtlTestName",
+      "pingCtlType",
+      "pingCtlDescr"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfRhw"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Gauge32",
       "Unsigned32",
-      "Counter32"
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hpnicfNqa": {
@@ -3081,8 +3081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NQA-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:17 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:13 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-NQA-MIB"

@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "enterprises",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Counter64",
-      "MibIdentifier"
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -711,8 +711,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ddn/SFA-INFO",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:15 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:38 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SFA-INFO"

@@ -7,8 +7,8 @@
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "MAU-MIB": [
       "JackType"
@@ -18,36 +18,36 @@
     ],
     "RADLAN-MIB": [
       "rndNotifications",
-      "rndErrorDesc",
+      "rnd",
       "rndErrorSeverity",
-      "rnd"
+      "rndErrorDesc"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Bits",
       "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Integer32",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Counter32",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "PhysAddress"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1354,8 +1354,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:25:46 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:29:39 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-Physicaldescription-MIB"

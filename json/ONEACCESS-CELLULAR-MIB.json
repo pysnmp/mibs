@@ -6,29 +6,29 @@
       "oacMIBModules"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter32",
-      "iso",
+      "Bits",
       "TimeTicks",
-      "Unsigned32",
-      "Integer32",
+      "Gauge32",
       "Counter64",
       "OBJECT-IDENTITY",
-      "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "oacCellularMIBModule": {
@@ -622,8 +622,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oneaccess/ONEACCESS-CELLULAR-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:10 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:27:42 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ONEACCESS-CELLULAR-MIB"

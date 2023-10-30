@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-HA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-HA-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:27:19 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:31:36 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, Counter64, NotificationType, Unsigned32, IpAddress, MibIdentifier, Counter32, ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "Counter64", "NotificationType", "Unsigned32", "IpAddress", "MibIdentifier", "Counter32", "ObjectIdentity", "ModuleIdentity")
-DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, MibIdentifier, iso, Bits, Counter64, NotificationType, TimeTicks, Integer32, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Unsigned32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "iso", "Bits", "Counter64", "NotificationType", "TimeTicks", "Integer32", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Unsigned32", "ObjectIdentity")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsHA = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 11))
 snsHA.setRevisions(('2017-02-20 00:00',))
@@ -129,4 +129,4 @@ if mibBuilder.loadTexts: snsNodeCpuIndex.setDescription('Index of each cpu in ta
 snsNodeCpuTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1, 2), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsNodeCpuTemp.setStatus('current')
 if mibBuilder.loadTexts: snsNodeCpuTemp.setDescription('Temperature in Celsius degree')
-mibBuilder.exportSymbols("STORMSHIELD-HA-MIB", snsHA=snsHA, snsNodeIndex=snsNodeIndex, snsVersion=snsVersion, snsUptime=snsUptime, snsNodeDiskRaidStatus=snsNodeDiskRaidStatus, snsHALicence=snsHALicence, snsNodeCpuTemp=snsNodeCpuTemp, snsFwSerial=snsFwSerial, snsOnline=snsOnline, snsModel=snsModel, snsNodePowerSupplyPowered=snsNodePowerSupplyPowered, snsNodePowerSupplyTable=snsNodePowerSupplyTable, snsNodeDiskName=snsNodeDiskName, snsNodeCpuIndex=snsNodeCpuIndex, snsNodeDiskIndex=snsNodeDiskIndex, snsHAStatusForced=snsHAStatusForced, snsHAQuality=snsHAQuality, snsNbFaultyHALinks=snsNbFaultyHALinks, snsHASyncStatus=snsHASyncStatus, snsNodeDiskEntry=snsNodeDiskEntry, snsNodeDiskIsRaid=snsNodeDiskIsRaid, snsNodeTable=snsNodeTable, snsHAActive=snsHAActive, snsNodeDiskTable=snsNodeDiskTable, snsNodeDiskSmartResult=snsNodeDiskSmartResult, snsNodeCpuEntry=snsNodeCpuEntry, snsNodeDiskPosition=snsNodeDiskPosition, snsNode=snsNode, snsNodePowerSupplyIndex=snsNodePowerSupplyIndex, snsHAFwAdminRevison=snsHAFwAdminRevison, snsNbActiveNode=snsNbActiveNode, snsNbNode=snsNbNode, snsNbHALinks=snsNbHALinks, PYSNMP_MODULE_ID=snsHA, snsNodePowerSupplyEntry=snsNodePowerSupplyEntry, snsHAPriority=snsHAPriority, snsNodeCpuTable=snsNodeCpuTable, snsNbDeadNode=snsNbDeadNode)
+mibBuilder.exportSymbols("STORMSHIELD-HA-MIB", snsNodeDiskSmartResult=snsNodeDiskSmartResult, snsNbActiveNode=snsNbActiveNode, snsNodeDiskEntry=snsNodeDiskEntry, snsHAPriority=snsHAPriority, snsNodeDiskRaidStatus=snsNodeDiskRaidStatus, snsFwSerial=snsFwSerial, snsNodeCpuEntry=snsNodeCpuEntry, snsOnline=snsOnline, snsHAFwAdminRevison=snsHAFwAdminRevison, snsNodePowerSupplyIndex=snsNodePowerSupplyIndex, snsNodeIndex=snsNodeIndex, snsHASyncStatus=snsHASyncStatus, snsNode=snsNode, snsHALicence=snsHALicence, snsNodeDiskIndex=snsNodeDiskIndex, snsNodeDiskName=snsNodeDiskName, snsNodeCpuIndex=snsNodeCpuIndex, snsHA=snsHA, snsNodeTable=snsNodeTable, snsNbFaultyHALinks=snsNbFaultyHALinks, snsNodeDiskPosition=snsNodeDiskPosition, snsNodeCpuTemp=snsNodeCpuTemp, snsNbDeadNode=snsNbDeadNode, snsModel=snsModel, PYSNMP_MODULE_ID=snsHA, snsUptime=snsUptime, snsNbHALinks=snsNbHALinks, snsNodePowerSupplyTable=snsNodePowerSupplyTable, snsNodePowerSupplyPowered=snsNodePowerSupplyPowered, snsVersion=snsVersion, snsNodePowerSupplyEntry=snsNodePowerSupplyEntry, snsNodeDiskIsRaid=snsNodeDiskIsRaid, snsHAActive=snsHAActive, snsNbNode=snsNbNode, snsHAStatusForced=snsHAStatusForced, snsHAQuality=snsHAQuality, snsNodeDiskTable=snsNodeDiskTable, snsNodeCpuTable=snsNodeCpuTable)

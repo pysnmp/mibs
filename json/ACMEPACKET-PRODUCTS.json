@@ -10,19 +10,19 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Integer32",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
       "TimeTicks",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -179,8 +179,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-PRODUCTS",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:27 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:28:03 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ACMEPACKET-PRODUCTS"

@@ -8,13 +8,13 @@
       "ifIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisIdSubtype",
       "LldpChassisId",
-      "LldpPortId",
+      "LldpManAddrIfSubtype",
       "LldpManAddress",
       "LldpPortIdSubtype",
-      "LldpManAddrIfSubtype",
-      "LldpSystemCapabilitiesMap"
+      "LldpChassisIdSubtype",
+      "LldpSystemCapabilitiesMap",
+      "LldpPortId"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32",
@@ -24,25 +24,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
       "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -51,9 +51,9 @@
       "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-GLOBAL-MIB": [
+      "tmnxSRConfs",
       "tmnxSRNotifyPrefix",
       "tmnxSRObjs",
-      "tmnxSRConfs",
       "timetraSRMIBModules"
     ],
     "TIMETRA-TC-MIB": [
@@ -1599,8 +1599,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:43 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:28:24 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-LLDP-MIB"

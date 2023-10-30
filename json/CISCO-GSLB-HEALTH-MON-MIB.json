@@ -5,11 +5,11 @@
       "cgdAnswerId"
     ],
     "CISCO-GSLB-TC-MIB": [
-      "CiscoGslbKeepaliveRate",
-      "CiscoGslbKeepaliveMethod",
-      "CiscoGslbKalapType",
-      "CiscoGslbTerminationMethod",
       "CiscoGslbKeepaliveStatus",
+      "CiscoGslbKeepaliveRate",
+      "CiscoGslbTerminationMethod",
+      "CiscoGslbKalapType",
+      "CiscoGslbKeepaliveMethod",
       "CiscoGslbKeepaliveTargetType"
     ],
     "CISCO-SMI": [
@@ -17,42 +17,42 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Integer32",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "ciscoGslbHealthMonMIB": {
@@ -1370,8 +1370,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GSLB-HEALTH-MON-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:55 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:18:36 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-GSLB-HEALTH-MON-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module S5-TCS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-TCS-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:23:53 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:27:21 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 s5Tcs, = mibBuilder.importSymbols("S5-ROOT-MIB", "s5Tcs")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, NotificationType, Unsigned32, ModuleIdentity, Counter64, Counter32, MibIdentifier, Gauge32, TimeTicks, IpAddress, iso, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "NotificationType", "Unsigned32", "ModuleIdentity", "Counter64", "Counter32", "MibIdentifier", "Gauge32", "TimeTicks", "IpAddress", "iso", "ObjectIdentity")
+TimeTicks, IpAddress, Counter64, Bits, ObjectIdentity, iso, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter32, ModuleIdentity, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "Counter64", "Bits", "ObjectIdentity", "iso", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter32", "ModuleIdentity", "NotificationType", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 s5TcsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 17, 0))
 s5TcsMib.setRevisions(('2013-10-10 00:00', '2004-07-20 00:00',))
@@ -72,4 +72,4 @@ class AttId(TextualConvention, Integer32):
     status = 'current'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-255, 255)
 
-mibBuilder.exportSymbols("S5-TCS-MIB", AttId=AttId, BkChan=BkChan, FddiBkNetMode=FddiBkNetMode, TimeIntervalHrd=TimeIntervalHrd, s5TcsMib=s5TcsMib, TimeIntervalSec=TimeIntervalSec, SrcIndx=SrcIndx, LocChan=LocChan, MediaType=MediaType, BkNetId=BkNetId, PYSNMP_MODULE_ID=s5TcsMib, IpxAddress=IpxAddress)
+mibBuilder.exportSymbols("S5-TCS-MIB", s5TcsMib=s5TcsMib, IpxAddress=IpxAddress, BkNetId=BkNetId, LocChan=LocChan, TimeIntervalHrd=TimeIntervalHrd, FddiBkNetMode=FddiBkNetMode, TimeIntervalSec=TimeIntervalSec, AttId=AttId, PYSNMP_MODULE_ID=s5TcsMib, MediaType=MediaType, SrcIndx=SrcIndx, BkChan=BkChan)

@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
+      "VlanList3",
       "VlanList1",
       "VlanList2",
-      "VlanList4",
-      "VlanList3"
+      "VlanList4"
     ],
     "CISCOSB-MIB": [
-      "switch001",
-      "Percents"
+      "Percents",
+      "switch001"
     ],
     "CISCOSB-POLICY-MIB": [
       "StatisticsDPType",
       "StatisticsClearActionType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
       "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "Unsigned32",
       "Gauge32",
       "IpAddress",
-      "MibIdentifier"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
       "RowPointer",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlQosCliMib": {
@@ -5628,8 +5628,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-QOS-CLI-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:51 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:18:30 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-QOS-CLI-MIB"

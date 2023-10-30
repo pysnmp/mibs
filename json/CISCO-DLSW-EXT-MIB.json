@@ -11,47 +11,47 @@
       "SAPType"
     ],
     "DLSW-MIB": [
-      "dlswTConnOperState",
-      "dlswCircuitState",
-      "DlcType",
-      "dlswIfEntry",
       "dlswTConnTcpConfigEntry",
-      "dlswCircuitEntry",
       "dlswTConnConfigIndex",
+      "dlswTConnOperState",
       "TAddress",
-      "LFSize",
+      "dlswIfEntry",
+      "dlswCircuitEntry",
+      "dlswTConnOperEntry",
+      "DlcType",
       "dlswTConnConfigEntry",
+      "dlswCircuitState",
       "MacAddressNC",
-      "dlswTConnOperEntry"
+      "LFSize"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Integer32",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDlswExtMIB": {
@@ -1927,8 +1927,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DLSW-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:16:56 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:18:37 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-DLSW-EXT-MIB"

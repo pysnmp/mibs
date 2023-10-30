@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "HUAWEI-L2VPN-MIB": [
-      "hwL2vpnAcIfLinkType",
       "hwL2vpnAcIfJitterBufferStep",
-      "hwL2vpnAcIfMinJitterBuffer",
-      "hwL2vpnAcIfIndex",
-      "hwL2vpnAcIfMinIdleCode",
-      "hwL2vpnAcIfMaxEncapNum",
-      "hwL2vpnAcIfCfgTtpHeader",
-      "hwL2vpnAcIfMinEncapNum",
       "hwL2vpnAcIfMaxJitterBuffer",
-      "hwL2vpnAcIfPhyType",
       "hwL2vpnAcIfEncapStep",
+      "hwL2vpnAcIfMinJitterBuffer",
+      "hwL2vpnAcIfCfgTtpHeader",
+      "hwL2vpnAcIfLinkType",
+      "hwL2vpnAcIfPhyType",
+      "hwL2vpnAcIfMinIdleCode",
+      "hwL2vpnAcIfEncap",
+      "hwL2vpnAcIfMinEncapNum",
+      "hwL2vpnAcIfIndex",
       "hwL2vpnAcIfMaxIdleCode",
-      "hwL2vpnAcIfEncap"
+      "hwL2vpnAcIfMaxEncapNum"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "HUAWEI-VPLS-EXT-MIB": [
-      "HWL2VpnVcEncapsType",
       "hwL2vpnTunnelIndex",
       "HWL2VpnStateChangeReason",
       "hwL2vpnTnlType",
+      "HWL2VpnVcEncapsType",
       "HWEnableValue"
     ],
     "IF-MIB": [
@@ -37,35 +37,35 @@
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "BITS",
-      "Counter32",
-      "iso",
-      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
       "Counter64",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "BITS",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hwL2VpnPwe3": {
@@ -6206,8 +6206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PWE3-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:20:20 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:22:48 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-PWE3-MIB"

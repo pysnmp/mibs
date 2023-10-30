@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CM-TOPOLOGY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-TOPOLOGY-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:11:40 2023
-# On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Oct 30 02:12:03 2023
+# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 fsp150cm, = mibBuilder.importSymbols("ADVA-MIB", "fsp150cm")
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-slotIndex, neIndex, shelfIndex = mibBuilder.importSymbols("CM-ENTITY-MIB", "slotIndex", "neIndex", "shelfIndex")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-NotificationType, Gauge32, ModuleIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, MibIdentifier, TimeTicks, ObjectIdentity, Integer32, Counter32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "ModuleIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "MibIdentifier", "TimeTicks", "ObjectIdentity", "Integer32", "Counter32", "Bits", "iso")
-DisplayString, VariablePointer, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "VariablePointer", "DateAndTime", "TextualConvention")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+shelfIndex, slotIndex, neIndex = mibBuilder.importSymbols("CM-ENTITY-MIB", "shelfIndex", "slotIndex", "neIndex")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Gauge32, IpAddress, NotificationType, ObjectIdentity, TimeTicks, Counter32, MibIdentifier, Unsigned32, Counter64, ModuleIdentity, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "NotificationType", "ObjectIdentity", "TimeTicks", "Counter32", "MibIdentifier", "Unsigned32", "Counter64", "ModuleIdentity", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
+VariablePointer, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "VariablePointer", "DateAndTime", "TextualConvention", "DisplayString")
 cmTopologyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2544, 1, 12, 9))
 cmTopologyMIB.setRevisions(('2008-03-03 00:00',))
 if mibBuilder.loadTexts: cmTopologyMIB.setLastUpdated('200803030000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 cmTopologyObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2544, 1, 12, 9, 2, 2, 1)).setObjects(("CM-TOPOLOGY-MIB", "cmTopologyRegionId"), ("CM-TOPOLOGY-MIB", "cmTopologyRegionDescr"), ("CM-TOPOLOGY-MIB", "cmTopologyRegionLastUpdateTime"), ("CM-TOPOLOGY-MIB", "cmTopologyItemId"), ("CM-TOPOLOGY-MIB", "cmTopologyItemDescr"), ("CM-TOPOLOGY-MIB", "cmTopologyLinkId"), ("CM-TOPOLOGY-MIB", "cmTopologyLinkFromPort"), ("CM-TOPOLOGY-MIB", "cmTopologyLinkToPort"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cmTopologyObjectGroup = cmTopologyObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("CM-TOPOLOGY-MIB", cmTopologyItemDescr=cmTopologyItemDescr, cmTopologyMIB=cmTopologyMIB, cmTopologyLinkTable=cmTopologyLinkTable, cmTopologyRegionDescr=cmTopologyRegionDescr, cmTopologyLinkEntry=cmTopologyLinkEntry, cmTopologyGroups=cmTopologyGroups, cmTopologyItemId=cmTopologyItemId, cmTopologyLinkFromPort=cmTopologyLinkFromPort, cmTopologyItemTable=cmTopologyItemTable, cmTopologyItemEntry=cmTopologyItemEntry, cmTopologyLinkToPort=cmTopologyLinkToPort, PYSNMP_MODULE_ID=cmTopologyMIB, cmTopologyObjects=cmTopologyObjects, cmTopologyCompliances=cmTopologyCompliances, cmTopologyLinkId=cmTopologyLinkId, cmTopologyConformance=cmTopologyConformance, cmTopologyRegionId=cmTopologyRegionId, cmTopologyCompliance=cmTopologyCompliance, cmTopologyRegionLastUpdateTime=cmTopologyRegionLastUpdateTime, cmTopologyObjectGroup=cmTopologyObjectGroup)
+mibBuilder.exportSymbols("CM-TOPOLOGY-MIB", cmTopologyLinkToPort=cmTopologyLinkToPort, cmTopologyObjectGroup=cmTopologyObjectGroup, cmTopologyCompliances=cmTopologyCompliances, cmTopologyGroups=cmTopologyGroups, cmTopologyConformance=cmTopologyConformance, cmTopologyLinkTable=cmTopologyLinkTable, cmTopologyRegionDescr=cmTopologyRegionDescr, cmTopologyObjects=cmTopologyObjects, cmTopologyItemTable=cmTopologyItemTable, cmTopologyItemDescr=cmTopologyItemDescr, cmTopologyLinkId=cmTopologyLinkId, cmTopologyCompliance=cmTopologyCompliance, cmTopologyMIB=cmTopologyMIB, cmTopologyItemEntry=cmTopologyItemEntry, cmTopologyItemId=cmTopologyItemId, cmTopologyRegionId=cmTopologyRegionId, cmTopologyRegionLastUpdateTime=cmTopologyRegionLastUpdateTime, cmTopologyLinkFromPort=cmTopologyLinkFromPort, PYSNMP_MODULE_ID=cmTopologyMIB, cmTopologyLinkEntry=cmTopologyLinkEntry)

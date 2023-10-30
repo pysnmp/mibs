@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
       "enterprises",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "iso",
-      "Bits",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -40107,8 +40107,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/BLADE-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:16 2023",
-      "On host fv-az879-766 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:23:57 2023",
+      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADE-MIB"
