@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "mib-2",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64"
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "mib-2",
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -556,8 +556,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-PRINTER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:03:35 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:10:42 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IANA-PRINTER-MIB"

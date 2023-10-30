@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "mgmt",
+      "MibIdentifier",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Integer32",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "mgmt",
       "Gauge32",
       "enterprises",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mib_2": {
@@ -1034,8 +1034,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTELS100-NG-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:11:05 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:34 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTELS100-NG-MIB"

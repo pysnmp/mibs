@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
       "transmission",
       "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "Gauge32",
+      "Counter64",
+      "IpAddress",
       "TimeTicks",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fddi": {
@@ -2227,8 +2227,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FDDI-SMT73-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:04:07 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:14 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FDDI-SMT73-MIB"

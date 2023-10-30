@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysDescr",
       "sysLocation",
+      "sysDescr",
       "sysName",
       "sysContact"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
+      "Counter32",
       "TimeTicks",
       "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
       "DateAndTime",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "commonGroup",
-      "eventTimeStamp",
-      "Integer32d1",
-      "eventCounter",
-      "eventPriority",
-      "FloatString",
       "FaultOK",
       "commonVarbindsCompliance",
+      "eventPriority",
+      "Integer32d1",
+      "eventTimeStamp",
+      "eventCounter",
       "mibRelease",
-      "Integer32d2"
+      "Integer32d2",
+      "FloatString",
+      "commonGroup"
     ],
     "TWOWCOM-SMI": [
-      "decoder",
-      "dvbEncoder",
       "dvbDecoder",
-      "other",
-      "encoder"
+      "dvbEncoder",
+      "decoder",
+      "encoder",
+      "other"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:04:12 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:19 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

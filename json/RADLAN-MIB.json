@@ -5,25 +5,25 @@
       "Timeout",
       "dot1dBasePortEntry",
       "MacAddress",
-      "BridgeId",
-      "dot1dBasePort"
+      "dot1dBasePort",
+      "BridgeId"
     ],
     "IEEE8021-PAE-MIB": [
       "PaeControlledPortStatus",
-      "dot1xAuthSessionStatsEntry",
-      "dot1xPaePortNumber"
+      "dot1xPaePortNumber",
+      "dot1xAuthSessionStatsEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
       "PortList",
+      "dot1qFdbId",
       "VlanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -35,24 +35,24 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "OBJECT-TYPE",
       "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Gauge32",
-      "Bits",
+      "Integer32",
       "TimeTicks",
       "enterprises",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32",
-      "Unsigned32"
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-SMI-v1": [
-      "Integer-32",
       "Counter-32",
+      "Integer-32",
       "Unsigned-32"
     ],
     "SNMPv2-TC": [
@@ -60,13 +60,13 @@
       "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
-      "DateAndTime",
+      "RowPointer",
       "RowStatus",
       "PhysAddress",
-      "DisplayString",
-      "TruthValue",
       "TimeInterval",
-      "RowPointer"
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "Percents": {
@@ -8659,8 +8659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:10:45 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:16 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-MIB"

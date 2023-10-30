@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "ipCurCfgGwAddr",
-      "vrrpCurCfgVirtRtrIndx",
       "vrrpCurCfgIfPasswd",
       "ipCurCfgGwIndex",
+      "vrrpCurCfgVirtRtrAddr",
+      "ipCurCfgGwAddr",
       "vrrpCurCfgIfIndx",
-      "vrrpCurCfgVirtRtrAddr"
+      "vrrpCurCfgVirtRtrIndx"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
-      "agRackId",
       "agSlotNumber",
-      "agChassis"
+      "agChassis",
+      "agRackId"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysLocation",
       "sysName",
-      "sysContact",
-      "sysLocation"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "Integer32",
       "Counter32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "IpAddress",
-      "TRAP-TYPE",
-      "MibIdentifier",
       "Counter64",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "iso",
+      "TRAP-TYPE",
+      "Gauge32",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:15:18 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:19:50 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

@@ -6,37 +6,37 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddressType",
+      "InetAddressIPv6",
       "InetAddress"
     ],
     "LINKSYS-MIB": [
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "Gauge32",
-      "iso",
+      "Unsigned32",
       "TimeTicks",
       "NOTIFICATION-TYPE",
+      "iso",
       "MibIdentifier",
-      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Counter32",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
       "MacAddress"
     ]
@@ -84,8 +84,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCPv6",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:17:06 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:21:38 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-DHCPv6"

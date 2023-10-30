@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
       "dot1agCfmMepIdentifier",
       "dot1agCfmMaIndex",
+      "Dot1agCfmMepIdOrZero",
       "Dot1afCfmIndexIntegerNextFree",
-      "dot1agCfmMepEntry",
-      "dot1agCfmMdIndex"
+      "dot1agCfmMdIndex",
+      "dot1agCfmMepEntry"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PriorityValue"
     ],
     "MEF-SOAM-TC-MIB": [
-      "MefSoamTcDelayMeasurementBinType",
-      "MefSoamTcMeasurementPeriodType",
-      "MefSoamTcSessionType",
       "MefSoamTcOperationTimeType",
-      "MefSoamTcDataPatternType",
+      "MefSoamTcDelayMeasurementBinType",
+      "MefSoamTcSessionType",
       "MefSoamTcAvailabilityType",
+      "MefSoamTcMeasurementPeriodType",
       "MefSoamTcTestPatternType",
-      "MefSoamTcStatusType"
+      "MefSoamTcStatusType",
+      "MefSoamTcDataPatternType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -28,30 +28,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
+      "Counter32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "MibIdentifier",
       "Gauge32",
-      "enterprises",
-      "Counter64"
+      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "DisplayString",
       "TruthValue",
-      "MacAddress",
       "RowStatus",
-      "DateAndTime"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TimeInterval",
+      "MacAddress"
     ]
   },
   "mefSoamPmMib": {
@@ -6835,8 +6835,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MEF-SOAM-PM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:04:08 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:15 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MEF-SOAM-PM-MIB"

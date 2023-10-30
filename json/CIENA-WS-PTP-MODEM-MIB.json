@@ -9,41 +9,41 @@
       "cwsPtpDiagnosticsEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
+      "StringMaxl32",
+      "RecoverLinkDispersionType",
       "Decimal2Dig",
-      "ModemChannel",
-      "LineSysEnum",
+      "ChannelsNumber",
+      "OnOffEnum",
+      "StringSci",
       "ModemFrequency",
       "WlSpacing",
-      "ChannelsNumber",
-      "StringMaxl32",
-      "TxPowerLvl",
-      "EnabledDisabledEnum",
-      "RecoverLinkDispersionType",
       "Decimal1Dig",
+      "LineSysEnum",
+      "TxPowerLvl",
       "PtpId",
-      "StringSci",
-      "OnOffEnum"
+      "ModemChannel",
+      "EnabledDisabledEnum"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "Bits",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
       "iso",
-      "IpAddress",
-      "Integer32",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:06:56 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:13:53 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MODEM-MIB"

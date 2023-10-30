@@ -7,22 +7,22 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "OBJECT-TYPE",
       "iso",
-      "IpAddress",
+      "snmpModules",
+      "MibIdentifier",
       "Gauge32",
       "Counter64",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "TimeTicks",
-      "enterprises",
-      "snmpModules"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -54,8 +54,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emc/ONEFS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Oct 27 12:10:45 2023",
-      "On host fv-az642-142 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:14 2023",
+      "On host fv-az443-612 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ONEFS-MIB"
