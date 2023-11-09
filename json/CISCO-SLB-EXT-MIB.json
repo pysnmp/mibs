@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "CISCO-SLB-MIB": [
-      "SlbRealServerState",
-      "slbStatsTableEntry",
-      "slbEntity",
-      "slbServerFarmName",
-      "slbVirtualServerTableEntry",
-      "SlbServerString",
       "SlbConnectionState",
+      "slbServerFarmName",
+      "SlbRealServerState",
       "SlbPasswordString",
-      "slbServerFarmTableEntry"
+      "slbServerFarmTableEntry",
+      "slbStatsTableEntry",
+      "SlbServerString",
+      "slbVirtualServerTableEntry",
+      "slbEntity"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoPort",
       "CiscoIpProtocol",
+      "CiscoPort",
       "CiscoHTTPResponseStatusCode"
     ],
     "INET-ADDRESS-MIB": [
@@ -33,29 +33,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "iso",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MibIdentifier",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "TimeStamp",
-      "DateAndTime",
-      "DisplayString",
-      "TimeInterval",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
+      "TimeInterval",
       "StorageType"
     ]
   },
@@ -6322,8 +6322,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:18:34 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:13 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-SLB-EXT-MIB"

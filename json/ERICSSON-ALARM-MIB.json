@@ -1,0 +1,1919 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALARM-MIB": [
+      "ResourceId"
+    ],
+    "ERICSSON-ALARM-PC-MIB": [
+      "EriProbableCause"
+    ],
+    "ERICSSON-ALARM-TC-MIB": [
+      "EriLargeAdditionalInfo",
+      "EriAdditionalInfo",
+      "EriAlarmType",
+      "EriAlarmSpecificProblem",
+      "EriAlarmSequenceNumber",
+      "EriLargeAdditionalText",
+      "EriAdditionalText",
+      "EriAlarmRecordType",
+      "EriAlarmIndex"
+    ],
+    "ERICSSON-TC-MIB": [
+      "EriMO"
+    ],
+    "ERICSSON-TOP-MIB": [
+      "ericssonModules"
+    ],
+    "IANA-ITU-ALARM-TC-MIB": [
+      "IANAItuEventType"
+    ],
+    "ITU-ALARM-TC-MIB": [
+      "ItuPerceivedSeverity"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-NOTIFICATION-MIB": [
+      "snmpNotifyGroup"
+    ],
+    "SNMP-TARGET-MIB": [
+      "snmpTargetBasicGroup"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ericssonAlarmMIB": {
+    "name": "ericssonAlarmMIB",
+    "oid": "1.3.6.1.4.1.193.183.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-04-13 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 2.1 package."
+      },
+      {
+        "revision": "2016-06-24 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 2.0 package."
+      },
+      {
+        "revision": "2008-10-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "eriAlarmObjects": {
+    "name": "eriAlarmObjects",
+    "oid": "1.3.6.1.4.1.193.183.4.1",
+    "class": "objectidentity"
+  },
+  "eriAlarmNotifications": {
+    "name": "eriAlarmNotifications",
+    "oid": "1.3.6.1.4.1.193.183.4.2",
+    "class": "objectidentity"
+  },
+  "eriAlarmNotifsPrefix": {
+    "name": "eriAlarmNotifsPrefix",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0",
+    "class": "objectidentity"
+  },
+  "eriAlarmConformance": {
+    "name": "eriAlarmConformance",
+    "oid": "1.3.6.1.4.1.193.183.4.4",
+    "class": "objectidentity"
+  },
+  "eriAlarmSummary": {
+    "name": "eriAlarmSummary",
+    "oid": "1.3.6.1.4.1.193.183.4.1.1",
+    "class": "objectidentity"
+  },
+  "eriAlarmNotifObjects": {
+    "name": "eriAlarmNotifObjects",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2",
+    "class": "objectidentity"
+  },
+  "eriAlarmActiveAlarms": {
+    "name": "eriAlarmActiveAlarms",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3",
+    "class": "objectidentity"
+  },
+  "eriAlarmAlerts": {
+    "name": "eriAlarmAlerts",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4",
+    "class": "objectidentity"
+  },
+  "eriAlarmHeartBeat": {
+    "name": "eriAlarmHeartBeat",
+    "oid": "1.3.6.1.4.1.193.183.4.1.5",
+    "class": "objectidentity"
+  },
+  "eriAlarmSumIndeterminate": {
+    "name": "eriAlarmSumIndeterminate",
+    "oid": "1.3.6.1.4.1.193.183.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmSumCritical": {
+    "name": "eriAlarmSumCritical",
+    "oid": "1.3.6.1.4.1.193.183.4.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmSumMajor": {
+    "name": "eriAlarmSumMajor",
+    "oid": "1.3.6.1.4.1.193.183.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmSumMinor": {
+    "name": "eriAlarmSumMinor",
+    "oid": "1.3.6.1.4.1.193.183.4.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmSumWarning": {
+    "name": "eriAlarmSumWarning",
+    "oid": "1.3.6.1.4.1.193.183.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmNObjAdditionalText": {
+    "name": "eriAlarmNObjAdditionalText",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAdditionalText",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eriAlarmNObjMoreAdditionalText": {
+    "name": "eriAlarmNObjMoreAdditionalText",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eriAlarmNObjResourceId": {
+    "name": "eriAlarmNObjResourceId",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eriAlarmNObjAdditionalInfo": {
+    "name": "eriAlarmNObjAdditionalInfo",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAdditionalInfo",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eriAlarmNObjMoreAdditionalInfo": {
+    "name": "eriAlarmNObjMoreAdditionalInfo",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eriAlarmNObjRecordType": {
+    "name": "eriAlarmNObjRecordType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmRecordType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "eriAlarmActiveNumber": {
+    "name": "eriAlarmActiveNumber",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveLastChanged": {
+    "name": "eriAlarmActiveLastChanged",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveLastSequenceNo": {
+    "name": "eriAlarmActiveLastSequenceNo",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveTableURL": {
+    "name": "eriAlarmActiveTableURL",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveAlarmTable": {
+    "name": "eriAlarmActiveAlarmTable",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eriAlarmActiveAlarmEntry": {
+    "name": "eriAlarmActiveAlarmEntry",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmActiveIndex": {
+    "name": "eriAlarmActiveIndex",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eriAlarmActiveMajorType": {
+    "name": "eriAlarmActiveMajorType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveMinorType": {
+    "name": "eriAlarmActiveMinorType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveSpecificProblem": {
+    "name": "eriAlarmActiveSpecificProblem",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmSpecificProblem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveManagedObject": {
+    "name": "eriAlarmActiveManagedObject",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriMO",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveEventType": {
+    "name": "eriAlarmActiveEventType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveEventTime": {
+    "name": "eriAlarmActiveEventTime",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveOriginalEventTime": {
+    "name": "eriAlarmActiveOriginalEventTime",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveProbableCause": {
+    "name": "eriAlarmActiveProbableCause",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveSeverity": {
+    "name": "eriAlarmActiveSeverity",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveOriginalSeverity": {
+    "name": "eriAlarmActiveOriginalSeverity",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveAdditionalText": {
+    "name": "eriAlarmActiveAdditionalText",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriLargeAdditionalText",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveOrigAdditionalText": {
+    "name": "eriAlarmActiveOrigAdditionalText",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriLargeAdditionalText",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveResourceId": {
+    "name": "eriAlarmActiveResourceId",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmActiveAdditionalInfo": {
+    "name": "eriAlarmActiveAdditionalInfo",
+    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriLargeAdditionalInfo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertNumber": {
+    "name": "eriAlarmAlertNumber",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertLastChanged": {
+    "name": "eriAlarmAlertLastChanged",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertLastSequenceNo": {
+    "name": "eriAlarmAlertLastSequenceNo",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertTableURL": {
+    "name": "eriAlarmAlertTableURL",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertTable": {
+    "name": "eriAlarmAlertTable",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eriAlarmAlertEntry": {
+    "name": "eriAlarmAlertEntry",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAlertIndex": {
+    "name": "eriAlarmAlertIndex",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "eriAlarmAlertMajorType": {
+    "name": "eriAlarmAlertMajorType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertMinorType": {
+    "name": "eriAlarmAlertMinorType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertSpecificProblem": {
+    "name": "eriAlarmAlertSpecificProblem",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriAlarmSpecificProblem",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertManagedObject": {
+    "name": "eriAlarmAlertManagedObject",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriMO",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertEventType": {
+    "name": "eriAlarmAlertEventType",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertEventTime": {
+    "name": "eriAlarmAlertEventTime",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertProbableCause": {
+    "name": "eriAlarmAlertProbableCause",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertSeverity": {
+    "name": "eriAlarmAlertSeverity",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertAdditionalText": {
+    "name": "eriAlarmAlertAdditionalText",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriLargeAdditionalText",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertResourceId": {
+    "name": "eriAlarmAlertResourceId",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResourceId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmAlertAdditionalInfo": {
+    "name": "eriAlarmAlertAdditionalInfo",
+    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EriLargeAdditionalInfo",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eriAlarmHbInterval": {
+    "name": "eriAlarmHbInterval",
+    "oid": "1.3.6.1.4.1.193.183.4.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "eriAlarmIndeterminate": {
+    "name": "eriAlarmIndeterminate",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjRecordType"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmWarning": {
+    "name": "eriAlarmWarning",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjRecordType"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmMinor": {
+    "name": "eriAlarmMinor",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjRecordType"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmMajor": {
+    "name": "eriAlarmMajor",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjRecordType"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmCritical": {
+    "name": "eriAlarmCritical",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjRecordType"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmCleared": {
+    "name": "eriAlarmCleared",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAppendInfo": {
+    "name": "eriAlarmAppendInfo",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmIndAlert": {
+    "name": "eriAlarmIndAlert",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmWarnAlert": {
+    "name": "eriAlarmWarnAlert",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmMinorAlert": {
+    "name": "eriAlarmMinorAlert",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmMajorAlert": {
+    "name": "eriAlarmMajorAlert",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmCriticalAlert": {
+    "name": "eriAlarmCriticalAlert",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAppendAlertInfo": {
+    "name": "eriAlarmAppendAlertInfo",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmHeartBeatNotif": {
+    "name": "eriAlarmHeartBeatNotif",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastChanged"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAlarmListRebuilt": {
+    "name": "eriAlarmAlarmListRebuilt",
+    "oid": "1.3.6.1.4.1.193.183.4.2.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveTableURL"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmCompliances": {
+    "name": "eriAlarmCompliances",
+    "oid": "1.3.6.1.4.1.193.183.4.4.1",
+    "class": "objectidentity"
+  },
+  "eriAlarmBasicAlarmsCompliance": {
+    "name": "eriAlarmBasicAlarmsCompliance",
+    "oid": "1.3.6.1.4.1.193.183.4.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "eriAlarmSummaryGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmActiveAlarmsGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmHeartBeatGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmSimpleAlarmGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmHeartBeatNotifGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmAlertsGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmAlertNotifGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmChangeAlarmGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmAddAddInfoGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "eriAlarmSNMPResourceGroup",
+        "module": "ERICSSON-ALARM-MIB"
+      },
+      {
+        "object": "snmpTargetBasicGroup",
+        "module": "SNMP-TARGET-MIB"
+      },
+      {
+        "object": "snmpNotifyGroup",
+        "module": "SNMP-NOTIFICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmGroups": {
+    "name": "eriAlarmGroups",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2",
+    "class": "objectidentity"
+  },
+  "eriAlarmSummaryGroup": {
+    "name": "eriAlarmSummaryGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmSumIndeterminate"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmSumCritical"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmSumMajor"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmSumMinor"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmSumWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmActiveAlarmsGroup": {
+    "name": "eriAlarmActiveAlarmsGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveNumber"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastChanged"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveTableURL"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveSeverity"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjAdditionalInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjRecordType"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAlertsGroup": {
+    "name": "eriAlarmAlertsGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertNumber"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastChanged"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertLastSequenceNo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertTableURL"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMajorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertMinorType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSpecificProblem"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertManagedObject"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventType"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertProbableCause"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertSeverity"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmHeartBeatGroup": {
+    "name": "eriAlarmHeartBeatGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmHbInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmSNMPResourceGroup": {
+    "name": "eriAlarmSNMPResourceGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveResourceId"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlertResourceId"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmChangeAlarmGroup": {
+    "name": "eriAlarmChangeAlarmGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveOriginalEventTime"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveOriginalSeverity"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmActiveOrigAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalText"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmNObjMoreAdditionalInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmSimpleAlarmGroup": {
+    "name": "eriAlarmSimpleAlarmGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmIndeterminate"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmWarning"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmMinor"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmMajor"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmCritical"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmCleared"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAlarmListRebuilt"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAddAddInfoGroup": {
+    "name": "eriAlarmAddAddInfoGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAppendInfo"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmAppendAlertInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmAlertNotifGroup": {
+    "name": "eriAlarmAlertNotifGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmIndAlert"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmWarnAlert"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmMinorAlert"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmMajorAlert"
+      },
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmCriticalAlert"
+      }
+    ],
+    "status": "current"
+  },
+  "eriAlarmHeartBeatNotifGroup": {
+    "name": "eriAlarmHeartBeatNotifGroup",
+    "oid": "1.3.6.1.4.1.193.183.4.4.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ERICSSON-ALARM-MIB",
+        "object": "eriAlarmHeartBeatNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-MIB",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:47:02 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ERICSSON-ALARM-MIB"
+  }
+}

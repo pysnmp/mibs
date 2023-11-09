@@ -6,34 +6,34 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32",
       "IpAddress",
+      "transmission",
+      "MibIdentifier",
       "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Gauge32",
       "Integer32",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "transmission",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "MacAddress",
-      "RowStatus",
-      "TruthValue",
-      "TimeStamp",
       "DisplayString",
+      "RowStatus",
+      "TimeStamp",
+      "TimeInterval",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2586,8 +2586,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:35 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:43:15 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF-MIB"

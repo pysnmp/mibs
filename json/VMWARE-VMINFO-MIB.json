@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "iso",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "DisplayString",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION"
     ],
     "VMWARE-ENV-MIB": [
       "vmwESXNotifications"
     ],
     "VMWARE-ROOT-MIB": [
-      "vmwTraps",
-      "vmwVirtMachines"
+      "vmwVirtMachines",
+      "vmwTraps"
     ],
     "VMWARE-TC-MIB": [
       "VmwConnectedState"
@@ -999,8 +999,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VMINFO-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:32:45 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:53:31 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VMWARE-VMINFO-MIB"

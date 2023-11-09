@@ -19,25 +19,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "iso",
-      "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "zeroDotZero",
-      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "sleMplsTpPwStats": {
@@ -249,8 +249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-PW-STATISTICS-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:06 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:46:12 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-PW-STATISTICS-MIB"

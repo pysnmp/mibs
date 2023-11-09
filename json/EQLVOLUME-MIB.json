@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlGroupTaskIndex",
-      "eqlStorageGroupAdminAccountIndex",
-      "eqlLdapLoginAccessType",
       "eqlGroupId",
+      "eqlStorageGroupAdminAccountIndex",
+      "UTFString",
+      "eqlLdapLoginAccessType",
       "eqlLdapLoginAccessName",
-      "UTFString"
+      "eqlGroupTaskIndex"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
@@ -16,36 +16,36 @@
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
-      "enterprises",
       "OBJECT-IDENTITY",
       "Counter32",
       "Bits",
+      "Counter64",
       "iso",
+      "TimeTicks",
+      "Integer32",
+      "enterprises",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "IpAddress",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32"
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowPointer",
+      "DisplayString",
       "DateAndTime"
     ]
   },
@@ -12436,8 +12436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLUME-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:19:41 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:46:59 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLVOLUME-MIB"

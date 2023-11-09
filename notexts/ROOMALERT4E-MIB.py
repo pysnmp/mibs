@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ROOMALERT4E-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/ROOMALERT4E-MIB
-# Produced by pysmi-1.1.10 at Mon Oct 30 02:13:35 2023
-# On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Thu Nov  9 13:44:24 2023
+# On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, IpAddress, TimeTicks, NotificationType, Integer32, Gauge32, Unsigned32, MibIdentifier, iso, Bits, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "IpAddress", "TimeTicks", "NotificationType", "Integer32", "Gauge32", "Unsigned32", "MibIdentifier", "iso", "Bits", "ModuleIdentity", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, ObjectIdentity, Counter32, NotificationType, MibIdentifier, TimeTicks, enterprises, iso, ModuleIdentity, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ObjectIdentity", "Counter32", "NotificationType", "MibIdentifier", "TimeTicks", "enterprises", "iso", "ModuleIdentity", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "NotificationType", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 avtech = MibIdentifier((1, 3, 6, 1, 4, 1, 20916))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1))
 roomalert4E = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 6))
@@ -83,4 +83,4 @@ if mibBuilder.loadTexts: alarm2.setStatus('mandatory')
 alarmmessage = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 6, 3, 1), OctetString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: alarmmessage.setStatus('mandatory')
 room_alert_4e_snmp_trap = NotificationType((1, 3, 6, 1, 4, 1, 20916, 1, 6) + (0,2)).setLabel("room-alert-4e-snmp-trap").setObjects(("ROOMALERT4E-MIB", "alarmmessage"))
-mibBuilder.exportSymbols("ROOMALERT4E-MIB", digital=digital, digital_sen1_7=digital_sen1_7, internal_tempf=internal_tempf, digital_sen1_4=digital_sen1_4, digital_sen1_label=digital_sen1_label, traps=traps, digital_sen2=digital_sen2, digital_sen2_6=digital_sen2_6, alarmmessage=alarmmessage, digital_sen2_1=digital_sen2_1, digital_sen2_3=digital_sen2_3, signaltower=signaltower, sensors=sensors, room_alert_4e_snmp_trap=room_alert_4e_snmp_trap, digital_sen2_5=digital_sen2_5, digital_sen1_6=digital_sen1_6, digital_sen2_4=digital_sen2_4, digital_sen2_label=digital_sen2_label, label=label, digital_sen2_2=digital_sen2_2, avtech=avtech, red_led=red_led, green_led=green_led, internal_tempc=internal_tempc, switch_sen1=switch_sen1, digital_sen1=digital_sen1, alarm2=alarm2, digital_sen1_1=digital_sen1_1, amber_led=amber_led, internal_label=internal_label, switch=switch, digital_sen2_7=digital_sen2_7, switch_label=switch_label, digital_sen1_3=digital_sen1_3, internal=internal, white_led=white_led, blue_led=blue_led, alarm1=alarm1, digital_sen1_5=digital_sen1_5, temperature=temperature, products=products, digital_sen1_2=digital_sen1_2, roomalert4E=roomalert4E)
+mibBuilder.exportSymbols("ROOMALERT4E-MIB", avtech=avtech, digital_sen2_label=digital_sen2_label, alarm2=alarm2, digital_sen1_5=digital_sen1_5, amber_led=amber_led, digital_sen1_1=digital_sen1_1, products=products, digital_sen1=digital_sen1, digital_sen2_6=digital_sen2_6, digital_sen1_7=digital_sen1_7, internal_tempc=internal_tempc, label=label, digital=digital, internal_label=internal_label, traps=traps, digital_sen2_1=digital_sen2_1, temperature=temperature, digital_sen2_7=digital_sen2_7, switch=switch, digital_sen2_5=digital_sen2_5, red_led=red_led, digital_sen1_4=digital_sen1_4, digital_sen1_3=digital_sen1_3, sensors=sensors, green_led=green_led, alarm1=alarm1, roomalert4E=roomalert4E, internal_tempf=internal_tempf, digital_sen1_label=digital_sen1_label, digital_sen1_6=digital_sen1_6, digital_sen2=digital_sen2, digital_sen2_4=digital_sen2_4, digital_sen2_2=digital_sen2_2, internal=internal, switch_label=switch_label, digital_sen2_3=digital_sen2_3, digital_sen1_2=digital_sen1_2, signaltower=signaltower, switch_sen1=switch_sen1, white_led=white_led, alarmmessage=alarmmessage, blue_led=blue_led, room_alert_4e_snmp_trap=room_alert_4e_snmp_trap)

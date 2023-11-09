@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "IpAddress",
       "Integer32",
-      "MibIdentifier",
-      "Bits",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Counter32",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "enterprises",
       "Counter64",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY"
+      "iso",
+      "enterprises",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "iBoot_PDU_Agent": {
@@ -1027,8 +1027,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dataprobe/IBOOTPDU-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:17:30 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:45:46 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IBOOTPDU-MIB"

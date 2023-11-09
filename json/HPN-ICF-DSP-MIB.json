@@ -12,20 +12,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Counter32",
-      "TimeTicks",
-      "Integer32",
+      "Gauge32",
+      "IpAddress",
       "Bits",
-      "Counter64"
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -357,8 +357,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DSP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:13 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:51 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DSP-MIB"

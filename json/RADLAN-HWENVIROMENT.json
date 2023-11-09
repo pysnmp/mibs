@@ -5,28 +5,28 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "OBJECT-TYPE",
-      "iso",
+      "Gauge32",
+      "Counter64",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
       "TimeTicks",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Integer32",
       "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -233,8 +233,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-HWENVIROMENT",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:19:24 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:46:45 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-HWENVIROMENT"

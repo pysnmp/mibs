@@ -1,0 +1,195 @@
+{
+  "imports": {
+    "class": "imports",
+    "ERICSSON-TOP-MIB": [
+      "ericssonModules"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ericssonAlarmTCMIB": {
+    "name": "ericssonAlarmTCMIB",
+    "oid": "1.3.6.1.4.1.193.183.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-03-31 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 2.1 package."
+      },
+      {
+        "revision": "2016-06-24 00:00",
+        "description": "Updated as part of ERICSSON ALARM MIB 2.0 package."
+      },
+      {
+        "revision": "2008-10-17 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "EriAlarmType": {
+    "name": "EriAlarmType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EriAlarmIndex": {
+    "name": "EriAlarmIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EriAdditionalText": {
+    "name": "EriAdditionalText",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriLargeAdditionalText": {
+    "name": "EriLargeAdditionalText",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAlarmSpecificProblem": {
+    "name": "EriAlarmSpecificProblem",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAlarmSequenceNumber": {
+    "name": "EriAlarmSequenceNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "EriAdditionalInfo": {
+    "name": "EriAdditionalInfo",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriLargeAdditionalInfo": {
+    "name": "EriLargeAdditionalInfo",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "displayhint": "1a",
+    "status": "current"
+  },
+  "EriAlarmRecordType": {
+    "name": "EriAlarmRecordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmNew": 0,
+          "alarmChange": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-TC-MIB",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:47:02 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+    ],
+    "module": "ERICSSON-ALARM-TC-MIB"
+  }
+}

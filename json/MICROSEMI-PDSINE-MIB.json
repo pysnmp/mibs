@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Counter64",
-      "iso",
-      "enterprises",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "MibIdentifier",
       "Integer32",
-      "IpAddress",
       "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -638,8 +638,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/MICROSEMI-PDSINE-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:26:33 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:50:21 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MICROSEMI-PDSINE-MIB"

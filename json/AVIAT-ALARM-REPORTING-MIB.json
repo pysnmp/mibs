@@ -17,26 +17,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
       "Integer32",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
+      "iso",
       "IpAddress",
-      "Counter32",
-      "TimeTicks"
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "TruthValue"
     ],
     "STXN-GLOBALREGISTER-MIB": [
       "aviatModules"
@@ -807,8 +807,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-ALARM-REPORTING-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:13:33 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:44:24 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AVIAT-ALARM-REPORTING-MIB"

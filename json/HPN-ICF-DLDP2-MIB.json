@@ -5,34 +5,34 @@
       "hpnicfCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "iso",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "Integer32",
-      "Bits",
-      "Counter64"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "hpnicfDldp2": {
@@ -411,8 +411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DLDP2-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:13 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:51 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DLDP2-MIB"

@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
+      "IpAddress",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Gauge32",
-      "IpAddress"
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -189,8 +189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-DDMTEMPTHRESHOLD-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:32:05 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:53:17 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TPLINK-DDMTEMPTHRESHOLD-MIB"

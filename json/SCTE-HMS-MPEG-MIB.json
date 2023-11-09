@@ -5,43 +5,43 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SCTE-HMS-HEADENDIDENT-TC-MIB": [
       "HePIDValue",
       "ProgDataType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "TimeTicks",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Unsigned32",
+      "Counter64",
       "Integer32",
       "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
       "enterprises",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "AutonomousType",
-      "TruthValue",
       "DisplayString",
+      "DateAndTime",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "heMpegCommonMIB": {
@@ -2905,8 +2905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/scte/SCTE-HMS-MPEG-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:11:21 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:42:55 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SCTE-HMS-MPEG-MIB"

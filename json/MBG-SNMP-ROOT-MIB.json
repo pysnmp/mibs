@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "TimeTicks",
-      "enterprises",
-      "iso",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "OBJECT-TYPE",
       "MibIdentifier",
+      "Counter32",
       "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "enterprises",
       "Integer32",
-      "Bits"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -60,8 +60,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-ROOT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:26:28 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:50:19 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MBG-SNMP-ROOT-MIB"

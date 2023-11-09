@@ -5,40 +5,40 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "ServiceDomainIdx",
       "EnabledDisabledEnum",
-      "Decimal1Dig",
-      "ServiceIdx",
       "XcvrType",
-      "PortId",
-      "MacString",
       "PortName",
-      "DescriptionString"
+      "Decimal1Dig",
+      "ServiceDomainIdx",
+      "MacString",
+      "DescriptionString",
+      "ServiceIdx",
+      "PortId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
       "Counter64",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsPortMIB": {
@@ -3699,8 +3699,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PORT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:14:56 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:45:13 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PORT-MIB"

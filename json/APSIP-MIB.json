@@ -5,22 +5,22 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApPresence",
-      "ApRedundancyState",
-      "ApSipMethod",
       "ApPhyPortType",
       "ApServerStatus",
-      "ApHardwareModuleFamily"
+      "ApPresence",
+      "ApRedundancyState",
+      "ApHardwareModuleFamily",
+      "ApSipMethod"
     ],
     "APSYSMGMT-MIB": [
-      "apSysMgmtSipInterfaceIP",
-      "apSysMgmtSipInterfaceRealmName",
       "apSipSessionAgentStatsEntry",
+      "apSysMgmtSipInterfaceRealmName",
+      "apSysMgmtSipInterfaceIP",
       "apSigRealmStatsEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -28,25 +28,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
       "Bits",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
       "MibIdentifier",
+      "iso",
       "Integer32",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "apSipModule": {
@@ -3757,8 +3757,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSIP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:28:03 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:51:09 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APSIP-MIB"

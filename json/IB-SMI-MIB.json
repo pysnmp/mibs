@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
+      "iso",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
       "enterprises",
-      "Counter64",
       "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
+      "IpAddress",
       "MibIdentifier",
       "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "infoblox": {
@@ -283,8 +283,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-SMI-MIB",
-      "Produced by pysmi-1.1.10 at Mon Oct 30 02:24:33 2023",
-      "On host fv-az882-479 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:29 2023",
+      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IB-SMI-MIB"
