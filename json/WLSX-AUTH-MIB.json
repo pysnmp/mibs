@@ -5,46 +5,46 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaHashAlgorithms",
       "ArubaEncryptionMethods",
+      "ArubaEnableValue",
       "ArubaAuthServerType",
-      "ArubaAuthenticationMethods",
-      "ArubaEnableValue"
+      "ArubaHashAlgorithms",
+      "ArubaAuthenticationMethods"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
+      "Integer32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "iso",
-      "snmpModules"
+      "OBJECT-IDENTITY",
+      "snmpModules",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "TAddress",
-      "StorageType",
-      "TestAndIncr",
-      "DisplayString",
-      "TDomain",
       "TruthValue",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TAddress",
+      "TestAndIncr",
+      "PhysAddress",
       "RowStatus",
-      "TimeInterval"
+      "MacAddress",
+      "DisplayString",
+      "TDomain"
     ]
   },
   "wlsxAuthMIB": {
@@ -468,8 +468,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-AUTH-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:39:23 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:14:44 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WLSX-AUTH-MIB"

@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "AUDIOCODES-TYPES-MIB": [
-      "audioCodes",
       "acRegistrations",
-      "acProducts",
+      "acBoardMibs",
       "acGeneric",
-      "acBoardMibs"
+      "acProducts",
+      "audioCodes"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
       "MibIdentifier",
-      "enterprises",
-      "Counter64",
-      "Counter32",
+      "iso",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "enterprises",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
       "TAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "acPSTN": {
@@ -2184,8 +2184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-PSTN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:39:39 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:14:56 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AC-PSTN-MIB"

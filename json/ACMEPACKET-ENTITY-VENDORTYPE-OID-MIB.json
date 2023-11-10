@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "iso",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "acmepacketEntityVendortypeOIDMIB": {
@@ -656,8 +656,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ACMEPACKET-ENTITY-VENDORTYPE-OID-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:53:06 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:22:12 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ACMEPACKET-ENTITY-VENDORTYPE-OID-MIB"

@@ -12,33 +12,33 @@
       "ifCounterDiscontinuityGroup"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "iso"
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue",
-      "StorageType"
+      "TimeInterval",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021TpmrMib": {
@@ -936,8 +936,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-TPMR-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:37:44 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:13:26 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-TPMR-MIB"

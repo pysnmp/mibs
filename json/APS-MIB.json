@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -13,31 +13,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
+      "transmission",
       "Bits",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
-      "transmission",
-      "TimeTicks",
-      "MibIdentifier"
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
       "StorageType"
     ]
   },
@@ -1323,8 +1323,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/APS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:51:18 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:21:22 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "APS-MIB"

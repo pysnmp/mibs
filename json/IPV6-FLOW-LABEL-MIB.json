@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "MibIdentifier",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "mib-2",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "mib-2",
-      "TimeTicks"
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ipv6FlowLabelMIB": {
@@ -80,9 +80,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPV6-FLOW-LABEL-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:38:03 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPV6-FLOW-LABEL-MIB",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:22:37 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPV6-FLOW-LABEL-MIB"

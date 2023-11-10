@@ -5,35 +5,35 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisSSIDOrNone",
-      "ColubrisNotificationEnable"
+      "ColubrisNotificationEnable",
+      "ColubrisSSIDOrNone"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
       "Counter32",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "colubrisSatelliteManagementMIB": {
@@ -583,8 +583,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SATELLITE-MANAGEMENT-MIB.my",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:13 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:18:55 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-SATELLITE-MANAGEMENT-MIB"

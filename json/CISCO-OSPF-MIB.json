@@ -8,22 +8,22 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "OSPF-MIB": [
-      "ospfVirtIfEntry",
-      "Metric",
+      "ospfLsdbRouterId",
+      "HelloRange",
       "ospfLsdbLsid",
-      "ospfIfEntry",
+      "ospfAreaEntry",
       "AreaID",
+      "RouterID",
+      "ospfIfEntry",
+      "Metric",
       "ospfLsdbAreaId",
       "UpToMaxAge",
-      "RouterID",
-      "ospfAreaEntry",
-      "HelloRange",
-      "PositiveInteger",
-      "ospfLsdbRouterId"
+      "ospfVirtIfEntry",
+      "PositiveInteger"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -31,24 +31,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
+      "IpAddress",
       "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Counter64",
       "Counter32",
-      "IpAddress",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1771,8 +1771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OSPF-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:57 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:29 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-OSPF-MIB"

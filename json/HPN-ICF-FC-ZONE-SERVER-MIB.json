@@ -5,42 +5,42 @@
       "HpnicfFcNameId"
     ],
     "HPN-ICF-VSAN-MIB": [
-      "hpnicfVsanIndex",
-      "hpnicfSan"
+      "hpnicfSan",
+      "hpnicfVsanIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
       "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "T11-FC-ZONE-SERVER-MIB": [
-      "t11ZsActiveZoneMemberIndex",
-      "t11ZsActiveZoneIndex"
+      "t11ZsActiveZoneIndex",
+      "t11ZsActiveZoneMemberIndex"
     ]
   },
   "hpnicfFcZoneServer": {
@@ -1727,8 +1727,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FC-ZONE-SERVER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:49:48 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:22:37 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-FC-ZONE-SERVER-MIB"

@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module EQL-LLDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQL-LLDP-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 08:45:01 2023
-# On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 09:17:30 2023
+# On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 eqlGroupId, = mibBuilder.importSymbols("EQLGROUP-MIB", "eqlGroupId")
 eqlMemberIndex, = mibBuilder.importSymbols("EQLMEMBER-MIB", "eqlMemberIndex")
 equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, iso, Counter32, TimeTicks, ObjectIdentity, Bits, Gauge32, Counter64, MibIdentifier, Unsigned32, ModuleIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "iso", "Counter32", "TimeTicks", "ObjectIdentity", "Bits", "Gauge32", "Counter64", "MibIdentifier", "Unsigned32", "ModuleIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Integer32")
-MacAddress, TimeInterval, DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TimeInterval", "DisplayString", "TextualConvention", "TruthValue")
+MibIdentifier, ObjectIdentity, Bits, enterprises, ModuleIdentity, Counter32, Counter64, TimeTicks, IpAddress, Integer32, Unsigned32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "Bits", "enterprises", "ModuleIdentity", "Counter32", "Counter64", "TimeTicks", "IpAddress", "Integer32", "Unsigned32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Gauge32")
+MacAddress, DisplayString, TextualConvention, TruthValue, TimeInterval = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention", "TruthValue", "TimeInterval")
 eqlLldpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 21))
 eqlLldpMib.setRevisions(('2010-07-23 00:00',))
 
@@ -92,4 +92,4 @@ if mibBuilder.loadTexts: eqlLldpV2State.setDescription('The current LLDP state f
 eqlLldpV2RemMgmtAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 21, 1, 1, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eqlLldpV2RemMgmtAddr.setStatus('current')
 if mibBuilder.loadTexts: eqlLldpV2RemMgmtAddr.setDescription('The management address reported by the remote system.\n\n        If multiple addresses were reported, they are delimited by\n        commas.')
-mibBuilder.exportSymbols("EQL-LLDP-MIB", EqlLldpV2PortIdSubtype=EqlLldpV2PortIdSubtype, eqlLldpV2RemSysDesc=eqlLldpV2RemSysDesc, EqlLldpV2ChassisId=EqlLldpV2ChassisId, eqlLldpMib=eqlLldpMib, eqlLldpV2RemPortId=eqlLldpV2RemPortId, eqlLldpV2State=eqlLldpV2State, eqlLldpV2RemPortDesc=eqlLldpV2RemPortDesc, EqlLldpV2ChassisIdSubtype=EqlLldpV2ChassisIdSubtype, eqlLldpV2RemChassisId=eqlLldpV2RemChassisId, PYSNMP_MODULE_ID=eqlLldpMib, eqlLldpRemMacAddress=eqlLldpRemMacAddress, eqlLldpDynamicIfEntry=eqlLldpDynamicIfEntry, eqlLldpMIBObjects=eqlLldpMIBObjects, EqlLldpV2PortId=EqlLldpV2PortId, EqlLldpV2State=EqlLldpV2State, eqlLldpV2RemChassisIdSubtype=eqlLldpV2RemChassisIdSubtype, eqlLldpV2RemPortIdSubtype=eqlLldpV2RemPortIdSubtype, eqlLldpV2RemMgmtAddr=eqlLldpV2RemMgmtAddr, eqlLldpDynamicIfTable=eqlLldpDynamicIfTable, eqlLldpV2RemSysName=eqlLldpV2RemSysName)
+mibBuilder.exportSymbols("EQL-LLDP-MIB", eqlLldpV2RemMgmtAddr=eqlLldpV2RemMgmtAddr, eqlLldpV2RemPortId=eqlLldpV2RemPortId, eqlLldpDynamicIfEntry=eqlLldpDynamicIfEntry, eqlLldpV2State=eqlLldpV2State, eqlLldpMIBObjects=eqlLldpMIBObjects, eqlLldpMib=eqlLldpMib, EqlLldpV2ChassisId=EqlLldpV2ChassisId, eqlLldpV2RemPortIdSubtype=eqlLldpV2RemPortIdSubtype, EqlLldpV2ChassisIdSubtype=EqlLldpV2ChassisIdSubtype, eqlLldpV2RemChassisId=eqlLldpV2RemChassisId, eqlLldpV2RemSysDesc=eqlLldpV2RemSysDesc, EqlLldpV2State=EqlLldpV2State, PYSNMP_MODULE_ID=eqlLldpMib, eqlLldpDynamicIfTable=eqlLldpDynamicIfTable, eqlLldpV2RemPortDesc=eqlLldpV2RemPortDesc, EqlLldpV2PortId=EqlLldpV2PortId, eqlLldpRemMacAddress=eqlLldpRemMacAddress, eqlLldpV2RemChassisIdSubtype=eqlLldpV2RemChassisIdSubtype, EqlLldpV2PortIdSubtype=EqlLldpV2PortIdSubtype, eqlLldpV2RemSysName=eqlLldpV2RemSysName)

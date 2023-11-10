@@ -8,10 +8,10 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddressType",
+      "InetAddress",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressPrefixLength",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -21,27 +21,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
       "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "MacAddress"
     ]
   },
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LI-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:49:46 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:22:36 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LI-MIB"

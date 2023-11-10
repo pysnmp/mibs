@@ -4,37 +4,37 @@
     "Dell-BRIDGEMIBOBJECTS-MIB": [
       "VlanList4",
       "VlanList2",
-      "VlanList3",
-      "VlanList1"
+      "VlanList1",
+      "VlanList3"
     ],
     "Dell-MIB": [
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
       "TimeTicks",
       "NOTIFICATION-TYPE",
+      "Gauge32",
       "Bits",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
       "Counter32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rsTunning": {
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-Tuning",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:44 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:16:46 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-Tuning"

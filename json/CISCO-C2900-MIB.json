@@ -16,26 +16,26 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Bits",
       "Gauge32",
+      "TimeTicks",
       "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Counter64",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "Integer32",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "ciscoC2900MIB": {
@@ -2858,8 +2858,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-C2900-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:56 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:29 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-C2900-MIB"

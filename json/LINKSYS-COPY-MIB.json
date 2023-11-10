@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "LINKSYS-MIB": [
       "rndNotifications",
@@ -17,30 +17,30 @@
       "RlSecSdAccessType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlCopy": {
@@ -1666,8 +1666,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-COPY-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:51:42 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:21:06 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-COPY-MIB"

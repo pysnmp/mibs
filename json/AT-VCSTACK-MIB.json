@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
-      "iso",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
       "IpAddress",
       "Bits",
-      "Counter64",
-      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "MacAddress"
     ]
   },
   "vcstack": {
@@ -1127,8 +1127,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-VCSTACK-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:39:02 2023",
-      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:14:14 2023",
+      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AT-VCSTACK-MIB"
