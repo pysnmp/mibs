@@ -5,8 +5,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -16,20 +16,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter64",
+      "iso",
       "Counter32",
-      "Integer32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Counter64"
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -663,8 +663,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rndMng",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:36:21 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:14:43 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-rndMng"

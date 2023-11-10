@@ -5,31 +5,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "Bits",
       "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "mib-2"
+      "Integer32",
+      "Counter64",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "powerEthernetMIB": {
@@ -681,8 +681,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/POWER-ETHERNET-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:38:11 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:16:30 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "POWER-ETHERNET-MIB"

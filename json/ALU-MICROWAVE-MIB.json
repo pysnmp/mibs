@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARMIBModules",
       "aluSARNotifyPrefix",
       "aluSARObjs",
+      "aluSARMIBModules",
       "aluSARConfs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks",
-      "Counter64"
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "RowStatus",
-      "TimeStamp",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TruthValue",
+      "TimeStamp"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxChassisIndex"
@@ -46,10 +46,10 @@
       "TmnxPortOperStatus"
     ],
     "TIMETRA-TC-MIB": [
+      "TNamedItemOrEmpty",
       "TmnxActionType",
       "TmnxDisplayStringURL",
-      "TmnxPortID",
-      "TNamedItemOrEmpty"
+      "TmnxPortID"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:38:08 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:16:27 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

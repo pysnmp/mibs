@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-SLB-EXT-MIB": [
-      "cslbxServerProbes",
       "SlbFunctionNameString",
-      "SlbUrlString"
+      "SlbUrlString",
+      "cslbxServerProbes"
     ],
     "CISCO-SLB-MIB": [
-      "slbServerFarmName",
       "SlbServerString",
-      "slbEntity"
+      "slbEntity",
+      "slbServerFarmName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -26,33 +26,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "OBJECT-TYPE",
       "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DateAndTime",
-      "TimeInterval"
+      "TruthValue"
     ]
   },
   "ciscoSlbHealthMonMIB": {
@@ -2619,8 +2619,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-HEALTH-MON-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:32 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:13:53 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-SLB-HEALTH-MON-MIB"

@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "iso",
-      "enterprises",
-      "OBJECT-TYPE",
       "Counter64",
-      "TRAP-TYPE",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "enterprises",
+      "TimeTicks",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress"
+      "iso",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1527,8 +1527,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-SNMP-UPS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:32:26 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:10:48 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELL-SNMP-UPS-MIB"

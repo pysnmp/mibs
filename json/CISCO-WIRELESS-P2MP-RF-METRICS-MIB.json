@@ -5,48 +5,48 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrUpdateTime",
-      "CwrCollectionStatus",
-      "P2mpRadioSignalAttribute",
-      "CwrFixedPointScale",
       "CwrFixedPointValue",
-      "CwrThreshLimitType",
+      "CwrUpdateTime",
       "CwrFixedPointPrecision",
       "P2mpSnapshotAttribute",
-      "CwrCollectionAction"
+      "CwrFixedPointScale",
+      "CwrCollectionAction",
+      "CwrCollectionStatus",
+      "CwrThreshLimitType",
+      "P2mpRadioSignalAttribute"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "OwnerString"
+      "OwnerString",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
       "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "Counter32",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "MacAddress",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "TimeInterval"
+      "TruthValue"
     ]
   },
   "ciscoWirelessRfMetricsMIB": {
@@ -1671,8 +1671,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:38 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:13:58 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"

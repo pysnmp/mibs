@@ -8,30 +8,30 @@
       "mdsInterfaces"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "Bits",
+      "Counter32",
       "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "mdsIfCellMIB": {
@@ -924,8 +924,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-IF-CELL-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:33:52 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:12:16 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MDS-IF-CELL-MIB"

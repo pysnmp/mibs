@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "iso",
-      "Counter64",
-      "enterprises",
-      "TimeTicks",
       "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "iso",
+      "TimeTicks",
       "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "peplink": {
@@ -592,8 +592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/WAN",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:37:33 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:15:54 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WAN"

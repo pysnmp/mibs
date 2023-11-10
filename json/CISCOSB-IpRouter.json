@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "CISCOSB-IP": [
-      "ipRedundancy",
-      "ipRipFilter",
-      "ipSpec",
-      "rip2Spec",
+      "ipRouteLeaking",
       "rlIpRoutingProtPreference",
+      "rip2Spec",
+      "ipSpec",
       "rlOspf",
-      "ipRouteLeaking"
+      "ipRedundancy",
+      "ipRipFilter"
     ],
     "OSPF-MIB": [
-      "AreaID",
-      "ospfVirtIfEntry",
       "RouterID",
-      "ospfIfEntry"
+      "ospfIfEntry",
+      "ospfVirtIfEntry",
+      "AreaID"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "OBJECT-TYPE",
       "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlIpRouter": {
@@ -2215,8 +2215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IpRouter",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:38 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:13:58 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IpRouter"

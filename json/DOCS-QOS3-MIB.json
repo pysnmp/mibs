@@ -9,11 +9,11 @@
     ],
     "DOCS-IF3-MIB": [
       "AttrAggrRuleMask",
-      "ChSetId",
+      "ChId",
       "Dsid",
       "ChannelList",
-      "ChId",
-      "AttributeMask"
+      "AttributeMask",
+      "ChSetId"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
@@ -23,42 +23,42 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "Bits",
       "Unsigned32",
-      "IpAddress",
+      "MibIdentifier",
       "Gauge32",
-      "Integer32",
       "iso",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "DisplayString",
       "TruthValue",
       "MacAddress",
-      "StorageType",
-      "RowStatus",
-      "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "docsQos3Mib": {
@@ -5092,8 +5092,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-QOS3-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:29:30 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:07:47 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-QOS3-MIB"

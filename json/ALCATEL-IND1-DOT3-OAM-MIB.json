@@ -5,49 +5,49 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEventLogEventTotal",
-      "dot3OamEventLogType",
-      "dot3OamEventLogWindowLo",
-      "dot3OamEventLogThresholdLo",
-      "dot3OamEventLogOui",
-      "dot3OamEventLogRunningTotal",
-      "dot3OamEntry",
-      "dot3OamEventLogValue",
       "dot3OamEventLogThresholdHi",
+      "dot3OamEventLogThresholdLo",
+      "dot3OamEventLogType",
+      "dot3OamEntry",
       "dot3OamEventLogTimestamp",
+      "dot3OamEventLogOui",
       "dot3OamEventLogWindowHi",
       "dot3OamLoopbackEntry",
+      "dot3OamEventLogWindowLo",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogEventTotal",
+      "dot3OamEventLogLocation",
       "dot3OamStatsEntry",
-      "dot3OamEventLogLocation"
+      "dot3OamEventLogValue"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Integer32",
       "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE"
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "alcatelIND1Dot3OamMIB": {
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:38:10 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:16:28 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

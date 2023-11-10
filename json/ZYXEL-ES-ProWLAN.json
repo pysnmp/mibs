@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "Integer32",
       "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "TimeTicks",
       "Unsigned32",
-      "MibIdentifier",
-      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "ZYXEL-ES-SMI": [
       "esProductSpecific"
@@ -38,8 +38,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-ES-ProWLAN",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:39:49 2023",
-      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 11:18:14 2023",
+      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-ES-ProWLAN"
