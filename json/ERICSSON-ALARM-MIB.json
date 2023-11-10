@@ -8,14 +8,11 @@
       "EriProbableCause"
     ],
     "ERICSSON-ALARM-TC-MIB": [
-      "EriLargeAdditionalInfo",
-      "EriAdditionalInfo",
-      "EriAlarmType",
       "EriAlarmSpecificProblem",
+      "EriAdditionalText",
+      "EriAlarmType",
       "EriAlarmSequenceNumber",
       "EriLargeAdditionalText",
-      "EriAdditionalText",
-      "EriAlarmRecordType",
       "EriAlarmIndex"
     ],
     "ERICSSON-TC-MIB": [
@@ -45,26 +42,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
       "IpAddress",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter64",
       "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TruthValue"
     ]
   },
   "ericssonAlarmMIB": {
@@ -72,14 +69,6 @@
     "oid": "1.3.6.1.4.1.193.183.4",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2017-04-13 00:00",
-        "description": "Updated as part of ERICSSON ALARM MIB 2.1 package."
-      },
-      {
-        "revision": "2016-06-24 00:00",
-        "description": "Updated as part of ERICSSON ALARM MIB 2.0 package."
-      },
       {
         "revision": "2008-10-17 00:00",
         "description": "Initial version of this MIB module."
@@ -222,42 +211,6 @@
     "class": "objecttype",
     "syntax": {
       "type": "TruthValue",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "eriAlarmNObjAdditionalInfo": {
-    "name": "eriAlarmNObjAdditionalInfo",
-    "oid": "1.3.6.1.4.1.193.183.4.1.2.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "EriAdditionalInfo",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "eriAlarmNObjMoreAdditionalInfo": {
-    "name": "eriAlarmNObjMoreAdditionalInfo",
-    "oid": "1.3.6.1.4.1.193.183.4.1.2.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "maxaccess": "accessible-for-notify",
-    "status": "current"
-  },
-  "eriAlarmNObjRecordType": {
-    "name": "eriAlarmNObjRecordType",
-    "oid": "1.3.6.1.4.1.193.183.4.1.2.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "EriAlarmRecordType",
       "class": "type"
     },
     "maxaccess": "accessible-for-notify",
@@ -502,18 +455,6 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "eriAlarmActiveAdditionalInfo": {
-    "name": "eriAlarmActiveAdditionalInfo",
-    "oid": "1.3.6.1.4.1.193.183.4.1.3.5.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "EriLargeAdditionalInfo",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "eriAlarmAlertNumber": {
     "name": "eriAlarmAlertNumber",
     "oid": "1.3.6.1.4.1.193.183.4.1.4.1",
@@ -717,18 +658,6 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "eriAlarmAlertAdditionalInfo": {
-    "name": "eriAlarmAlertAdditionalInfo",
-    "oid": "1.3.6.1.4.1.193.183.4.1.4.5.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "EriLargeAdditionalInfo",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "eriAlarmHbInterval": {
     "name": "eriAlarmHbInterval",
     "oid": "1.3.6.1.4.1.193.183.4.1.5.1",
@@ -789,18 +718,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjRecordType"
       }
     ],
     "status": "current"
@@ -853,18 +770,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjRecordType"
       }
     ],
     "status": "current"
@@ -917,18 +822,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjRecordType"
       }
     ],
     "status": "current"
@@ -981,18 +874,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjRecordType"
       }
     ],
     "status": "current"
@@ -1045,18 +926,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjRecordType"
       }
     ],
     "status": "current"
@@ -1109,14 +978,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1145,10 +1006,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmActiveResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1201,14 +1058,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1261,14 +1110,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1321,14 +1162,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1381,14 +1214,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1441,14 +1266,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1477,10 +1294,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmAlertResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1674,23 +1487,11 @@
       },
       {
         "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmActiveAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjAdditionalText"
       },
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjResourceId"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjAdditionalInfo"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjRecordType"
       }
     ],
     "status": "current"
@@ -1751,10 +1552,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmAlertAdditionalText"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmAlertAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1807,10 +1604,6 @@
       {
         "module": "ERICSSON-ALARM-MIB",
         "object": "eriAlarmNObjMoreAdditionalText"
-      },
-      {
-        "module": "ERICSSON-ALARM-MIB",
-        "object": "eriAlarmNObjMoreAdditionalInfo"
       }
     ],
     "status": "current"
@@ -1910,8 +1703,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:47:02 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:41:13 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ERICSSON-ALARM-MIB"

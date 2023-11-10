@@ -24,26 +24,26 @@ ericssonTCMIB MODULE-IDENTITY
         LAST-UPDATED "201704130000Z"
         ORGANIZATION "Ericsson AB"
         CONTACT-INFO
-                "Email: <Enda.Murphy@ericsson.com> "
+                "Email: Enda.Murphy@ericsson.com "
         DESCRIPTION
                 "This MIB document includes textual conventions
                 that can be used by all of the Ericsson group.
                 The intention is to have shared definitions such
                 that integration and SNMP development are made
                 easier.
-                                Document number: 2/196 03-CXC 172 7549."
+				Document number: 2/196 03-CXC 172 7549."
         REVISION "201704130000Z"
         DESCRIPTION
                 "Updated as part of ERICSSON ALARM MIB 2.1 package."
-                REVISION      "201606240000Z"
+		REVISION      "201606240000Z"
         DESCRIPTION
                 "Updated version of this MIB module. Included XPath
-                                instance identifier."
-                REVISION      "200810170000Z"
+				instance identifier."
+		REVISION      "200810170000Z"
         DESCRIPTION
                 "Initial version of this MIB module."
-       
-        ::= { ericssonModules 1 }
+
+	::= { ericssonModules 1 }
 
 --=======================
 --==Textual conventions==
@@ -57,33 +57,32 @@ EriMO ::= TEXTUAL-CONVENTION
                 format for the managed object parameter.  Note
                 that the granularity MUST be sufficient to
                 guarantee unique alarm states and relevant
-                resource identification to the operator.  
-                                NOTE: The DN should be *relative* to the Managed 
-                                Element's *own* root."
+                resource identification to the operator.
+				NOTE: The DN should be *relative* to the Managed
+				Element's *own* root."
         REFERENCE
                 "3GPP TS 32.106-8 V3.2, Name convention for
                 Managed Objects"
-        SYNTAX OCTET STRING(SIZE(4..150))   
+        SYNTAX OCTET STRING(SIZE(4..150))
 
 EriPath ::= TEXTUAL-CONVENTION
         DISPLAY-HINT "1a"
         STATUS current
         DESCRIPTION
-                                "An Abridged YANG Instance-Identifier that references a 
-                                resource within the Managed Element. Prefixes used MUST 
-                                be the ones defined in the YANG module statement’s prefix 
-                                substatement. A prefix SHALL be omitted if it is the same 
-                                as the previous prefix on the ancestor axis.  
-                                For example: 
-                                /ex:system/server[ip='192.0.2.1'][port='80']
-                                See: YANG module ericsson-yang-types.
-                                See also: RFC 7950 Section 9.13.
-                                NOTE: The granularity must be good enough to guarantee 
-                                unique alarm states and relevant resource identification 
-                                to the operator."
+				"An Abridged YANG Instance-Identifier that references a
+				resource within the Managed Element. Prefixes used MUST
+				be the ones defined in the YANG module statement's prefix
+				substatement. A prefix SHALL be omitted if it is the same
+				as the previous prefix on the ancestor axis.
+				For example:
+				/ex:system/server[ip='192.0.2.1'][port='80']
+				See: YANG module ericsson-yang-types.
+				See also: RFC 7950 Section 9.13.
+				NOTE: The granularity must be good enough to guarantee
+				unique alarm states and relevant resource identification
+				to the operator."
         REFERENCE
                 "YANG module ericsson-yang-types;
-                                RFC 7950 , The YANG 1.1 Data Modeling Language"
-        SYNTAX OCTET STRING(SIZE(4..150))               
+				RFC 7950 , The YANG 1.1 Data Modeling Language"
+        SYNTAX OCTET STRING(SIZE(4..150))
 END
-

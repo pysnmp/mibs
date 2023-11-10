@@ -5,46 +5,46 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaAuthServerType",
-      "ArubaEnableValue",
-      "ArubaAuthenticationMethods",
       "ArubaEncryptionMethods",
-      "ArubaHashAlgorithms"
+      "ArubaEnableValue",
+      "ArubaHashAlgorithms",
+      "ArubaAuthServerType",
+      "ArubaAuthenticationMethods"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "snmpModules",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "snmpModules",
       "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
+      "Integer32",
+      "IpAddress",
       "TimeTicks",
       "Gauge32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TAddress",
-      "TimeInterval",
-      "TruthValue",
-      "RowStatus",
       "TDomain",
+      "TimeInterval",
+      "PhysAddress",
       "StorageType",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TAddress",
+      "RowStatus",
       "TestAndIncr",
-      "MacAddress",
-      "PhysAddress"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "wlsxAuthMIB": {
@@ -468,8 +468,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-AUTH-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:44:15 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:38:21 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WLSX-AUTH-MIB"

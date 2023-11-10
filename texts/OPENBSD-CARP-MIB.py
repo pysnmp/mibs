@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OPENBSD-CARP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-CARP-MIB
-# Produced by pysmi-1.1.10 at Thu Nov  9 13:50:59 2023
-# On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 07:45:09 2023
+# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 openBSD, = mibBuilder.importSymbols("OPENBSD-BASE-MIB", "openBSD")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, ObjectIdentity, Integer32, MibIdentifier, Counter32, TimeTicks, IpAddress, enterprises, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, ModuleIdentity, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "Integer32", "MibIdentifier", "Counter32", "TimeTicks", "IpAddress", "enterprises", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "ModuleIdentity", "Gauge32", "Unsigned32")
-DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
+TimeTicks, Counter64, IpAddress, Integer32, Gauge32, iso, Unsigned32, ObjectIdentity, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, enterprises, MibIdentifier, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "IpAddress", "Integer32", "Gauge32", "iso", "Unsigned32", "ObjectIdentity", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "enterprises", "MibIdentifier", "Counter32")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 carpMIBObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 30155, 6))
 carpMIBObjects.setRevisions(('2012-01-31 00:00',))
 
@@ -108,4 +108,4 @@ if mibBuilder.loadTexts: carpNoMemory.setDescription('Number of CARP advertiseme
 carpTransitionsToMaster = MibScalar((1, 3, 6, 1, 4, 1, 30155, 6, 3, 15), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: carpTransitionsToMaster.setStatus('current')
 if mibBuilder.loadTexts: carpTransitionsToMaster.setDescription('Number of times the host has transitioned to MASTER state\n\tfor any CARP group.')
-mibBuilder.exportSymbols("OPENBSD-CARP-MIB", PYSNMP_MODULE_ID=carpMIBObjects, carpIfTable=carpIfTable, carpIfEntry=carpIfEntry, carpTransitionsToMaster=carpTransitionsToMaster, carpPktDiscardsForBadVersion=carpPktDiscardsForBadVersion, carpPktDiscardsForBadVhid=carpPktDiscardsForBadVhid, carpIf=carpIf, carpIfDescr=carpIfDescr, carpPktDiscardsForBadAddressList=carpPktDiscardsForBadAddressList, carpIp6PktsRecv=carpIp6PktsRecv, carpLog=carpLog, carpIfVhid=carpIfVhid, carpIfDev=carpIfDev, carpIfNumber=carpIfNumber, carpMIBObjects=carpMIBObjects, carpPktDiscardsForBadChecksum=carpPktDiscardsForBadChecksum, carpPktDiscardsForBadAuth=carpPktDiscardsForBadAuth, carpAllow=carpAllow, carpNoMemory=carpNoMemory, carpPktDiscardsForTooShort=carpPktDiscardsForTooShort, carpSysctl=carpSysctl, carpIfIndex=carpIfIndex, carpIfAdvbase=carpIfAdvbase, carpIpPktsSent=carpIpPktsSent, carpIp6PktsSent=carpIp6PktsSent, carpIpPktsRecv=carpIpPktsRecv, carpPktShorterThanHeader=carpPktShorterThanHeader, carpIfState=carpIfState, carpPktDiscardsForWrongTtl=carpPktDiscardsForWrongTtl, carpIfAdvskew=carpIfAdvskew, carpPktDiscardsForBadInterface=carpPktDiscardsForBadInterface, carpStats=carpStats, carpPreempt=carpPreempt)
+mibBuilder.exportSymbols("OPENBSD-CARP-MIB", carpSysctl=carpSysctl, carpIfIndex=carpIfIndex, carpIfAdvskew=carpIfAdvskew, carpIpPktsRecv=carpIpPktsRecv, carpPktDiscardsForBadVersion=carpPktDiscardsForBadVersion, carpIp6PktsSent=carpIp6PktsSent, carpIfEntry=carpIfEntry, carpAllow=carpAllow, PYSNMP_MODULE_ID=carpMIBObjects, carpIfVhid=carpIfVhid, carpNoMemory=carpNoMemory, carpPktDiscardsForTooShort=carpPktDiscardsForTooShort, carpPktDiscardsForWrongTtl=carpPktDiscardsForWrongTtl, carpTransitionsToMaster=carpTransitionsToMaster, carpPktDiscardsForBadChecksum=carpPktDiscardsForBadChecksum, carpStats=carpStats, carpLog=carpLog, carpIfTable=carpIfTable, carpIfDev=carpIfDev, carpIf=carpIf, carpIpPktsSent=carpIpPktsSent, carpPktDiscardsForBadAuth=carpPktDiscardsForBadAuth, carpPreempt=carpPreempt, carpIp6PktsRecv=carpIp6PktsRecv, carpMIBObjects=carpMIBObjects, carpPktDiscardsForBadInterface=carpPktDiscardsForBadInterface, carpPktShorterThanHeader=carpPktShorterThanHeader, carpIfState=carpIfState, carpIfDescr=carpIfDescr, carpPktDiscardsForBadAddressList=carpPktDiscardsForBadAddressList, carpIfNumber=carpIfNumber, carpIfAdvbase=carpIfAdvbase, carpPktDiscardsForBadVhid=carpPktDiscardsForBadVhid)

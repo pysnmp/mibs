@@ -5,29 +5,29 @@
       "rapidstream"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "enterprises",
-      "IpAddress",
-      "Unsigned32",
+      "Bits",
+      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
       "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
       "Counter64",
       "MODULE-IDENTITY",
+      "Counter32",
       "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "iso",
-      "Bits"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rsInfoModule": {
@@ -174,8 +174,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-SYSTEM-STATISTICS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:51:12 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:45:22 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAPID-SYSTEM-STATISTICS-MIB"

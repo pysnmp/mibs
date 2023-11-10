@@ -11,8 +11,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,28 +23,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
       "Bits",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
+      "Unsigned32",
+      "iso",
       "TimeTicks",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter64",
       "MODULE-IDENTITY",
-      "iso"
+      "Counter64",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:42:57 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:37:02 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

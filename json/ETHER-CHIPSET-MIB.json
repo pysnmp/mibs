@@ -10,20 +10,20 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Bits",
-      "mib-2",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
+      "Counter32",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "iso"
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "mib-2",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -493,8 +493,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-CHIPSET-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:43:15 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:37:20 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ETHER-CHIPSET-MIB"

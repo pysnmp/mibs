@@ -5,29 +5,29 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "AGENT-CAPABILITIES",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
       "Integer32",
       "IpAddress",
       "Counter32",
-      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoAtmCellLayerCapability": {
@@ -69,8 +69,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-CELL-LAYER-CAPABILITY",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:18 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:31 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ATM-CELL-LAYER-CAPABILITY"

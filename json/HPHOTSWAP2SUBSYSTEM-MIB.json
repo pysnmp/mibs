@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "IpAddress",
+      "enterprises",
       "Bits",
       "Integer32",
-      "iso",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "enterprises"
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -428,8 +428,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPHOTSWAP2SUBSYSTEM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:50 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:43 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPHOTSWAP2SUBSYSTEM-MIB"

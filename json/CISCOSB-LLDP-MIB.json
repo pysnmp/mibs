@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
-      "rndNotifications",
-      "switch001"
+      "switch001",
+      "rndNotifications"
     ],
     "DIFFSERV-DSCP-TC": [
       "Dscp"
@@ -16,21 +16,21 @@
       "AddressFamilyNumbers"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetVersion",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "LLDP-EXT-MED-MIB": [
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
-      "lldpRemIndex",
-      "lldpPortConfigEntry",
-      "lldpRemEntry",
       "LldpPortList",
-      "lldpRemLocalPortNum",
+      "lldpRemIndex",
       "LldpPortNumber",
+      "lldpRemEntry",
+      "lldpRemLocalPortNum",
+      "LldpManAddress",
+      "lldpPortConfigEntry",
       "lldpRemTimeMark"
     ],
     "LLDP-V2-MIB": [
@@ -42,31 +42,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
       "Integer32",
       "IpAddress",
+      "MODULE-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress",
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlLldp": {
@@ -1226,8 +1226,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-LLDP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:18 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:32 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-LLDP-MIB"

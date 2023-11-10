@@ -9,13 +9,13 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressPrefixLength",
       "InetVersion",
+      "InetAddressPrefixLength",
+      "InetAddressType",
       "InetZoneIndex",
       "InetAddress"
     ],
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
       "Counter32",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "TimeTicks",
-      "Gauge32",
-      "mib-2",
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "iso"
+      "Integer32",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "StorageType"
+      "TimeStamp"
     ]
   },
   "ipMcastMIB": {
@@ -1855,8 +1855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMCAST-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:43:15 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:37:21 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPMCAST-MIB"

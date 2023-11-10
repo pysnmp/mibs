@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "MITEL-MIB": [
+      "mitelIdentification",
       "mitelConfCompliances",
-      "mitelConfGroups",
       "mitelPropCommon",
-      "mitelIdentification"
+      "mitelConfGroups"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Bits",
-      "OBJECT-TYPE"
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -326,8 +326,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-CMNALM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:50:26 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:44:37 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MITEL-CMNALM-MIB"

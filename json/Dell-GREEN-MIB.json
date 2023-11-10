@@ -11,29 +11,29 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "iso",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Bits"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rlGreenEth": {
@@ -306,8 +306,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-GREEN-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:46:16 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:40:24 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-GREEN-MIB"

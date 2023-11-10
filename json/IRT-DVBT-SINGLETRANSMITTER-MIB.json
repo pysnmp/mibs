@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventCounter",
       "eventTimeStamp",
       "eventPriority",
-      "mibRelease"
+      "mibRelease",
+      "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "Input1Input2",
-      "MuteOk",
-      "SFNMFN",
-      "WarningOK",
-      "OkNotOk",
-      "PresentNotPresent",
-      "SelectManualAuto",
-      "SelectOnOff",
-      "LocalRemote",
       "dvbT",
+      "MuteOk",
+      "SelectManualAuto",
+      "LocalRemote",
+      "OkNotOk",
+      "Input1Input2",
+      "PresentNotPresent",
+      "WarningOK",
+      "SelectOnOff",
+      "SFNMFN",
       "FaultOK"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
+      "sysDescr",
       "sysLocation",
-      "sysName",
-      "sysDescr"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:52:29 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:46:38 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

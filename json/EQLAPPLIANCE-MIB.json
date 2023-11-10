@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "eqlGroupId",
-      "UTFString"
+      "UTFString",
+      "eqlGroupId"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeEntry",
-      "eqliscsiVolumeTargetIscsiName"
+      "eqliscsiVolumeTargetIscsiName",
+      "eqliscsiVolumeEntry"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Bits",
-      "Counter64",
       "iso",
-      "TimeTicks",
-      "Integer32",
-      "enterprises",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "enterprises",
+      "Integer32",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
       "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowPointer",
-      "DisplayString",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "eqlApplianceModule": {
@@ -6066,8 +6066,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLAPPLIANCE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:46:59 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:41:10 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EQLAPPLIANCE-MIB"

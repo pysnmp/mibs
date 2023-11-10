@@ -5,70 +5,70 @@
       "ciscoMgmt"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "NHRP-MIB": [
-      "nhrpServerNhcNbmaSubaddr",
-      "nhrpServerInternetworkAddr",
-      "nhrpCacheNbmaSubaddr",
-      "nhrpServerNhcInternetworkAddr",
-      "nhrpCacheNextHopInternetworkAddr",
-      "nhrpClientIndex",
-      "nhrpCacheNbmaAddr",
-      "nhrpClientNhsInternetworkAddrType",
-      "nhrpCacheNbmaAddrType",
-      "nhrpServerNbmaAddr",
-      "nhrpClientNhsNbmaAddrType",
-      "nhrpServerInternetworkAddrType",
-      "nhrpServerStatEntry",
-      "nhrpServerNhcInternetworkAddrType",
-      "nhrpClientHoldTime",
-      "nhrpServerCacheUniqueness",
       "nhrpClientNbmaSubaddr",
-      "nhrpServerNhcPrefixLength",
-      "nhrpClientNhsInternetworkAddr",
-      "nhrpClientNhsNbmaAddr",
-      "nhrpClientRegUniqueness",
-      "nhrpServerNbmaSubaddr",
-      "nhrpCacheType",
       "nhrpClientInternetworkAddrType",
+      "nhrpServerNhcNbmaSubaddr",
+      "nhrpClientInternetworkAddr",
+      "nhrpClientNhsNbmaSubaddr",
       "nhrpServerNhcNbmaAddr",
-      "nhrpClientNbmaAddr",
-      "nhrpServerNbmaAddrType",
+      "nhrpCacheType",
+      "nhrpServerIndex",
+      "nhrpClientHoldTime",
       "nhrpServerNhcInUse",
+      "nhrpClientRegUniqueness",
+      "nhrpClientNhsInternetworkAddr",
+      "nhrpClientNbmaAddr",
+      "nhrpServerStatEntry",
+      "nhrpServerInternetworkAddrType",
+      "nhrpCacheNbmaSubaddr",
       "nhrpClientStatEntry",
+      "nhrpServerNhcInternetworkAddr",
+      "nhrpServerNhcInternetworkAddrType",
       "nhrpClientNhsInUse",
       "nhrpClientNbmaAddrType",
-      "nhrpServerIndex",
+      "nhrpClientNhsInternetworkAddrType",
+      "nhrpServerNbmaSubaddr",
+      "nhrpServerNhcPrefixLength",
+      "nhrpCacheNextHopInternetworkAddr",
+      "nhrpCacheNbmaAddrType",
+      "nhrpServerNbmaAddr",
+      "nhrpServerCacheUniqueness",
+      "nhrpServerNbmaAddrType",
+      "nhrpCacheNbmaAddr",
+      "nhrpClientNhsNbmaAddr",
+      "nhrpClientNhsNbmaAddrType",
+      "nhrpServerInternetworkAddr",
       "nhrpServerNhcNbmaAddrType",
-      "nhrpClientNhsNbmaSubaddr",
-      "nhrpClientInternetworkAddr"
+      "nhrpClientIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
       "Integer32",
       "IpAddress",
+      "MODULE-IDENTITY",
       "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
-      "TimeTicks"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoNhrpExtMIB": {
@@ -799,8 +799,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NHRP-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:49:14 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:28 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-NHRP-EXT-MIB"

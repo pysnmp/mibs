@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module COLUBRIS-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PRODUCTS-MIB.my
-# Produced by pysmi-1.1.10 at Thu Nov  9 13:48:10 2023
-# On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 07:42:21 2023
+# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-colubrisProducts, colubrisModules = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisProducts", "colubrisModules")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Integer32, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, ObjectIdentity, Gauge32, Counter64, ModuleIdentity, TimeTicks, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "ObjectIdentity", "Gauge32", "Counter64", "ModuleIdentity", "TimeTicks", "MibIdentifier", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+colubrisModules, colubrisProducts = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisModules", "colubrisProducts")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, Integer32, Unsigned32, ObjectIdentity, Gauge32, MibIdentifier, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, Counter32, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "Unsigned32", "ObjectIdentity", "Gauge32", "MibIdentifier", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "Counter32", "Bits", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubrisProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 4, 2))
 if mibBuilder.loadTexts: colubrisProductsMIB.setLastUpdated('200709060000Z')
 if mibBuilder.loadTexts: colubrisProductsMIB.setOrganization('Colubris Networks, Inc.')
@@ -49,4 +49,4 @@ colubris1300 = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 1, 33))
 colubris1500 = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 1, 34))
 colubrisMSC5100 = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 1, 35))
 colubrisMSM410 = MibIdentifier((1, 3, 6, 1, 4, 1, 8744, 1, 41))
-mibBuilder.exportSymbols("COLUBRIS-PRODUCTS-MIB", colubrisCN1550=colubrisCN1550, colubrisCN1000=colubrisCN1000, colubrisCN3100=colubrisCN3100, colubrisCN1050=colubrisCN1050, colubrisWCB200=colubrisWCB200, colubrisProductsMIB=colubrisProductsMIB, colubrisCN1500=colubrisCN1500, colubrisMSC5200=colubrisMSC5200, colubrisCN1150=colubrisCN1150, colubrisMSC5100=colubrisMSC5100, colubrisMSC5500=colubrisMSC5500, colubris1500=colubris1500, PYSNMP_MODULE_ID=colubrisProductsMIB, colubrisCN330=colubrisCN330, colubrisCN100HEREUARE=colubrisCN100HEREUARE, colubrisCN1200=colubrisCN1200, colubrisMAP630=colubrisMAP630, colubrisCN3000=colubrisCN3000, colubrisCN1000LIGHT=colubrisCN1000LIGHT, colubrisCN1000HEREUARE=colubrisCN1000HEREUARE, colubrisCN320=colubrisCN320, colubrisCN1054=colubrisCN1054, colubris1300=colubris1300, colubrisCN310=colubrisCN310, colubrisCN3200=colubrisCN3200, colubrisMAP330SENSOR=colubrisMAP330SENSOR, colubrisMSM410=colubrisMSM410, colubrisCN320SE=colubrisCN320SE, colubrisMAP625=colubrisMAP625, colubrisCN3300=colubrisCN3300, colubrisCN100TRAVELNET=colubrisCN100TRAVELNET, colubrisCN1250=colubrisCN1250, colubrisCN3500=colubrisCN3500, colubrisCN300=colubrisCN300, colubrisCN200=colubrisCN200, colubrisCN1220=colubrisCN1220)
+mibBuilder.exportSymbols("COLUBRIS-PRODUCTS-MIB", colubrisCN1220=colubrisCN1220, colubrisCN200=colubrisCN200, colubrisCN300=colubrisCN300, colubrisProductsMIB=colubrisProductsMIB, colubrisCN1150=colubrisCN1150, colubrisCN310=colubrisCN310, colubrisMAP330SENSOR=colubrisMAP330SENSOR, colubrisWCB200=colubrisWCB200, colubris1500=colubris1500, colubrisMAP630=colubrisMAP630, colubrisCN1000LIGHT=colubrisCN1000LIGHT, colubrisCN3000=colubrisCN3000, colubrisCN1050=colubrisCN1050, colubrisCN1550=colubrisCN1550, colubrisCN1500=colubrisCN1500, colubrisCN3300=colubrisCN3300, colubrisCN3100=colubrisCN3100, colubrisCN1250=colubrisCN1250, PYSNMP_MODULE_ID=colubrisProductsMIB, colubrisMSC5500=colubrisMSC5500, colubrisCN100HEREUARE=colubrisCN100HEREUARE, colubrisMSC5200=colubrisMSC5200, colubrisCN1054=colubrisCN1054, colubrisMSC5100=colubrisMSC5100, colubrisCN320=colubrisCN320, colubrisCN1000HEREUARE=colubrisCN1000HEREUARE, colubrisCN1200=colubrisCN1200, colubrisMAP625=colubrisMAP625, colubrisMSM410=colubrisMSM410, colubrisCN320SE=colubrisCN320SE, colubrisCN330=colubrisCN330, colubrisCN100TRAVELNET=colubrisCN100TRAVELNET, colubrisCN1000=colubrisCN1000, colubrisCN3200=colubrisCN3200, colubrisCN3500=colubrisCN3500, colubris1300=colubris1300)

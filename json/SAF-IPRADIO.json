@@ -9,27 +9,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "TRAP-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Gauge32",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "Counter64",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "MibIdentifier",
       "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "enterprises",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "saf": {
@@ -1961,8 +1961,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-IPRADIO",
-      "Produced by pysmi-1.1.10 at Thu Nov  9 13:52:33 2023",
-      "On host fv-az564-151 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 07:46:41 2023",
+      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SAF-IPRADIO"
