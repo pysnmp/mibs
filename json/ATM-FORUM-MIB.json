@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "enterprises",
       "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
       "Counter64",
+      "TimeTicks",
       "MibIdentifier",
-      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "IpAddress",
+      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Integer32",
+      "enterprises",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "atmForum": {
@@ -1587,8 +1587,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:13:19 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:07:29 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-MIB"

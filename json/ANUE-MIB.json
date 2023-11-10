@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "hcnumTC",
+      "CounterBasedGauge64",
       "ZeroBasedCounter64",
-      "CounterBasedGauge64"
+      "hcnumTC"
     ],
     "IF-MIB": [
       "ifEntry",
@@ -14,44 +14,44 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "Counter32",
+      "TimeTicks",
       "Integer32",
-      "MibIdentifier"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:24:11 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:14:16 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

@@ -3,20 +3,20 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "dot1dStpPortDesignatedRoot",
-      "dot1dStpPortState",
-      "dot1dStpRootCost",
       "dot1dStpRootPort",
-      "dot1dStpHelloTime",
-      "dot1dStpPortDesignatedBridge",
-      "dot1dStpForwardDelay",
       "dot1dStpPortDesignatedCost",
-      "dot1dStpPortDesignatedPort",
       "dot1dStpMaxAge",
-      "dot1dStpDesignatedRoot"
+      "dot1dStpPortDesignatedPort",
+      "dot1dStpRootCost",
+      "dot1dStpHelloTime",
+      "dot1dStpPortState",
+      "dot1dStpForwardDelay",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpPortDesignatedBridge"
     ],
     "IF-MIB": [
-      "ifInErrors",
       "ifOutDiscards",
+      "ifInErrors",
       "ifOutErrors"
     ],
     "SNMPv2-CONF": [
@@ -27,22 +27,22 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
-      "enterprises",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "TimeTicks",
-      "TRAP-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "MibIdentifier"
+      "TRAP-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:20:23 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:11:47 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CT-ELS10-MIB"

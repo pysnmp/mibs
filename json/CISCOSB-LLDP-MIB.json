@@ -6,8 +6,8 @@
       "rndErrorDesc"
     ],
     "CISCOSB-MIB": [
-      "rndNotifications",
-      "switch001"
+      "switch001",
+      "rndNotifications"
     ],
     "DIFFSERV-DSCP-TC": [
       "Dscp"
@@ -16,22 +16,22 @@
       "AddressFamilyNumbers"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetVersion",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "LLDP-EXT-MED-MIB": [
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
       "lldpRemLocalPortNum",
-      "lldpRemEntry",
       "LldpManAddress",
-      "LldpPortList",
-      "lldpRemTimeMark",
       "LldpPortNumber",
+      "lldpPortConfigEntry",
+      "lldpRemTimeMark",
       "lldpRemIndex",
-      "lldpPortConfigEntry"
+      "LldpPortList",
+      "lldpRemEntry"
     ],
     "LLDP-V2-MIB": [
       "lldpV2LocPortIfIndex",
@@ -41,32 +41,32 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
+      "Counter64",
+      "Integer32",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter32",
+      "Bits",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlLldp": {
@@ -1226,8 +1226,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-LLDP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:22 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:13:56 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-LLDP-MIB"

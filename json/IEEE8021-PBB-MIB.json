@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePort",
-      "ieee8021BridgeBasePortComponentId"
+      "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePort"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbServiceIdentifierOrUnassigned",
-      "IEEE8021PbbComponentIdentifier",
       "ieee802dot1mibs",
+      "IEEE8021PbbIngressEgress",
+      "IEEE8021PriorityCodePoint",
       "IEEE8021BridgePortNumber",
       "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PriorityCodePoint",
-      "IEEE8021PriorityValue",
-      "IEEE8021PbbIngressEgress"
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021PbbServiceIdentifierOrUnassigned",
+      "IEEE8021PriorityValue"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -26,33 +26,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-TYPE",
       "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "TruthValue",
+      "StorageType",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ieee8021PbbMib": {
@@ -1408,8 +1408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBB-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:13:30 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:07:34 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBB-MIB"

@@ -5,38 +5,38 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifOperStatus",
       "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndexOrZero",
+      "ifIndex",
+      "ifOperStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "MODULE-IDENTITY",
-      "transmission",
-      "Bits",
+      "Integer32",
       "Counter32",
+      "Bits",
+      "Counter64",
+      "iso",
       "Gauge32",
+      "MibIdentifier",
+      "transmission",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "dialControlMib": {
@@ -1651,8 +1651,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIAL-CONTROL-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:13:48 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:07:53 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DIAL-CONTROL-MIB"

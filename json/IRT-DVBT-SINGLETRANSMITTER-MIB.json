@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventTimeStamp",
-      "eventCounter",
       "eventPriority",
-      "mibRelease"
+      "mibRelease",
+      "eventTimeStamp",
+      "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
+      "Input1Input2",
+      "LocalRemote",
       "MuteOk",
       "SelectManualAuto",
-      "Input1Input2",
-      "dvbT",
-      "SFNMFN",
-      "LocalRemote",
       "SelectOnOff",
+      "dvbT",
+      "PresentNotPresent",
+      "SFNMFN",
       "FaultOK",
       "WarningOK",
-      "PresentNotPresent",
       "OkNotOk"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
+      "sysDescr",
       "sysName",
-      "sysDescr"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "MibIdentifier",
       "iso",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:28:39 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:17:02 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

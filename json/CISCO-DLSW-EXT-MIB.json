@@ -11,47 +11,47 @@
       "SAPType"
     ],
     "DLSW-MIB": [
-      "dlswCircuitState",
-      "dlswTConnOperState",
       "dlswTConnConfigEntry",
       "dlswTConnConfigIndex",
-      "DlcType",
-      "MacAddressNC",
-      "dlswTConnOperEntry",
-      "LFSize",
-      "dlswTConnTcpConfigEntry",
       "dlswCircuitEntry",
       "TAddress",
-      "dlswIfEntry"
+      "dlswTConnTcpConfigEntry",
+      "DlcType",
+      "dlswTConnOperState",
+      "dlswCircuitState",
+      "LFSize",
+      "dlswIfEntry",
+      "dlswTConnOperEntry",
+      "MacAddressNC"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "Unsigned32",
-      "IpAddress"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoDlswExtMIB": {
@@ -1927,8 +1927,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DLSW-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:17 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:13:52 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-DLSW-EXT-MIB"

@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "LLDP-MIB": [
-      "LldpPortNumber",
-      "lldpExtensions"
+      "lldpExtensions",
+      "LldpPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-TYPE",
       "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "iso",
       "Integer32",
       "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -1159,8 +1159,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DCBX-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:13:30 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:07:34 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DCBX-MIB"

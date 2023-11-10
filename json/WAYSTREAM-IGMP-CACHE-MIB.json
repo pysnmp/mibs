@@ -9,20 +9,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "Counter32",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -147,8 +147,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-IGMP-CACHE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:30:30 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:18:03 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WAYSTREAM-IGMP-CACHE-MIB"

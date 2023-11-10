@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "enterprises",
-      "iso",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -234,8 +234,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/controlbox/CONTROLBOX-TH332-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:17:09 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:09:48 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CONTROLBOX-TH332-MIB"

@@ -5,52 +5,52 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
-      "AdminState",
       "SecondaryState",
       "OperationalState",
+      "AdminState",
       "VlanEthertype",
+      "VlanId",
       "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "CM-PROTECTION-MIB": [
-      "CmProtUnitState",
-      "CmProtUnitType"
+      "CmProtUnitType",
+      "CmProtUnitState"
     ],
     "IEEE8021-CFM-MIB": [
       "Dot1agCfmMDLevel"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter64",
-      "iso",
+      "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "StorageType",
+      "MacAddress",
+      "TruthValue",
       "VariablePointer",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress",
-      "RowStatus"
+      "RowStatus",
+      "StorageType"
     ]
   },
   "f3ErpMIB": {
@@ -1605,8 +1605,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-ERP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:14:34 2023",
-      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:08:52 2023",
+      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-ERP-MIB"
