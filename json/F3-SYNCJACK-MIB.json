@@ -6,20 +6,20 @@
     ],
     "CM-COMMON-MIB": [
       "PerfCounter64",
-      "SecondaryState",
       "ScheduleType",
-      "CmPmBinAction",
-      "IpPriorityMapMode",
-      "CmPmIntervalType",
-      "IpVersion",
       "OperationalState",
+      "CmPmBinAction",
+      "CmPmIntervalType",
       "SchedActivityStatus",
       "PerfCounter32",
-      "AdminState"
+      "IpVersion",
+      "AdminState",
+      "IpPriorityMapMode",
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
-      "shelfIndex",
       "neIndex",
+      "shelfIndex",
       "slotIndex"
     ],
     "F3-PTP-MIB": [
@@ -29,35 +29,35 @@
       "SSMQualityLevel"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
       "iso",
+      "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "DateAndTime",
-      "MacAddress",
-      "VariablePointer",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
       "StorageType",
-      "TruthValue"
+      "MacAddress",
+      "DateAndTime",
+      "RowStatus",
+      "VariablePointer"
     ]
   },
   "f3SyncJMIB": {
@@ -7701,8 +7701,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SYNCJACK-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:08:44 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:20:02 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-SYNCJACK-MIB"

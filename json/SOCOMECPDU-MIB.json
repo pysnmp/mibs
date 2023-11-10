@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "TRAP-TYPE",
       "OBJECT-IDENTITY",
-      "IpAddress",
       "Gauge32",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "iso",
       "TimeTicks",
-      "Counter64",
-      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
-      "enterprises"
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1124,8 +1124,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/socomec/SOCOMECPDU-MIB.mib",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:17:13 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:28:31 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SOCOMECPDU-MIB"

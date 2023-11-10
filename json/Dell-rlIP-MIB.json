@@ -8,9 +8,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetVersion",
       "InetZoneIndex",
       "InetAddress"
     ],
@@ -19,38 +19,38 @@
       "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "mib-2",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "mib-2",
       "zeroDotZero",
+      "iso",
+      "Counter64",
+      "Integer32",
+      "Counter32",
+      "Bits",
       "OBJECT-TYPE",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TimeStamp",
-      "PhysAddress",
-      "DisplayString",
+      "RowPointer",
       "RowStatus",
       "TruthValue",
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "PhysAddress",
+      "StorageType",
+      "TestAndIncr",
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:10:47 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:22:03 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-rlIP-MIB"

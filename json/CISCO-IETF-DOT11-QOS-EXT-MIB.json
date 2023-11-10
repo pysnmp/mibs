@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "CISCO-IETF-DOT11-QOS-MIB": [
-      "cid11TrafficCategory",
       "Cid11QosTrafficCategory",
-      "cid11TrafficPriority"
+      "cid11TrafficPriority",
+      "cid11TrafficCategory"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -16,30 +16,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks"
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ciscoIetfDot11QosExtMIB": {
@@ -400,8 +400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-DOT11-QOS-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:13:52 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:25:09 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-DOT11-QOS-EXT-MIB"

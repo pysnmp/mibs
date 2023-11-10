@@ -6,13 +6,13 @@
       "InterfaceIndexOrZero"
     ],
     "RAPID-CITY": [
+      "rcLinkFlapDetect",
       "PortSet",
-      "rcMlt",
-      "rcL2Redundancy",
-      "EnableValue",
-      "rcStat",
       "IdList",
-      "rcLinkFlapDetect"
+      "EnableValue",
+      "rcL2Redundancy",
+      "rcMlt",
+      "rcStat"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -20,26 +20,26 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
       "Counter32",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rcMltMib": {
@@ -2042,8 +2042,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-MLT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:15:37 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:26:55 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RC-MLT-MIB"

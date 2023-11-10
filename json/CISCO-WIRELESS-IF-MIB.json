@@ -5,18 +5,18 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrCwDegradedMinute",
-      "CwrOscState",
-      "CwrCwErroredSecond",
-      "CwrRadioSignalAttribute",
       "CwrCwConsecutiveSevErrSecond",
-      "CwrCwErrorFreeSecond",
-      "CwrCollectionAction",
+      "CwrCwErroredSecond",
+      "CwrThreshLimitType",
       "CwrCwSeverelyErroredSecond",
+      "CwrCwDegradedMinute",
+      "CwrRadioSignalAttribute",
+      "CwrOscState",
+      "WirelessGauge64",
       "CwrCwDegradedSecond",
       "CwrCollectionStatus",
-      "CwrThreshLimitType",
-      "WirelessGauge64",
+      "CwrCwErrorFreeSecond",
+      "CwrCollectionAction",
       "CwrRFZeroIndex"
     ],
     "IF-MIB": [
@@ -26,31 +26,31 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MibIdentifier",
+      "Bits",
       "TimeTicks",
+      "Integer32",
       "iso"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "TruthValue"
     ]
   },
@@ -5487,8 +5487,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-IF-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:13:59 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:25:16 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-IF-MIB"

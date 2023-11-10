@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Bits",
-      "Integer32",
-      "Counter32",
-      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
       "Gauge32",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "iso",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Counter32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "jnxLsysSpSchedulerMIB": {
@@ -246,8 +246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-LSYSSP-SCHEDULER-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:15:03 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:26:22 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-LSYSSP-SCHEDULER-MIB"

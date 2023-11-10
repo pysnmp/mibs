@@ -10,24 +10,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
+      "iso",
       "Bits",
       "TimeTicks",
       "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
       "Gauge32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso",
       "MibIdentifier",
       "Counter64",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "deviceHealthCheckMIB": {
@@ -279,8 +279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-HEALTHCHECK-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:09:11 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:20:29 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLUECOAT-SG-HEALTHCHECK-MIB"

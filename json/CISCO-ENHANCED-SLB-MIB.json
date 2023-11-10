@@ -5,14 +5,14 @@
       "SlbUrlString"
     ],
     "CISCO-SLB-HEALTH-MON-MIB": [
-      "cslbxProbeName",
-      "CiscoProbeHealthMonState"
+      "CiscoProbeHealthMonState",
+      "cslbxProbeName"
     ],
     "CISCO-SLB-MIB": [
-      "SlbRealServerState",
-      "SlbServerString",
       "slbEntity",
-      "slbServerFarmName"
+      "SlbRealServerState",
+      "slbServerFarmName",
+      "SlbServerString"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -21,40 +21,40 @@
       "CiscoHTTPResponseStatusCode"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
       "MibIdentifier",
       "TimeTicks",
+      "Bits",
       "iso"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "StorageType",
       "TruthValue"
     ]
   },
@@ -2213,8 +2213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-SLB-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:13:52 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:25:09 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENHANCED-SLB-MIB"

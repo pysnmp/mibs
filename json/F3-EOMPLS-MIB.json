@@ -6,52 +6,52 @@
     ],
     "CM-COMMON-MIB": [
       "PerfCounter64",
-      "SecondaryState",
-      "CmPmBinAction",
-      "CmPmIntervalType",
       "VlanPriority",
       "VlanId",
       "OperationalState",
-      "AdminState"
+      "CmPmBinAction",
+      "CmPmIntervalType",
+      "AdminState",
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmFlowEntry",
-      "cmPrioMapV2PrioMappingCOSEntry",
-      "cmEthernetNetPortEntry"
+      "cmEthernetNetPortEntry",
+      "cmPrioMapV2PrioMappingCOSEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
       "iso",
+      "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "MacAddress",
       "DateAndTime",
       "RowStatus",
-      "DisplayString",
-      "MacAddress",
-      "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
-      "TruthValue"
+      "VariablePointer"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 11:08:43 2023",
-      "On host fv-az1251-57 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 13:20:01 2023",
+      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-EOMPLS-MIB"
