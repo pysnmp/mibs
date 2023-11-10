@@ -5,16 +5,16 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "Unsigned64",
+      "CiscoInetAddressMask",
       "TimeIntervalSec",
       "CiscoAlarmSeverity",
-      "Unsigned64",
-      "CiscoNetworkAddress",
-      "CiscoInetAddressMask"
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectId",
       "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -28,30 +28,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Counter64",
       "Counter32",
-      "Unsigned32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
       "iso",
+      "Gauge32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TimeStamp",
-      "DateAndTime",
-      "RowPointer",
-      "TruthValue",
       "DisplayString",
-      "TimeInterval"
+      "RowPointer",
+      "TimeInterval",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "cucsVersionObjects": {
@@ -216,8 +216,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-VERSION-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:28 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:45:47 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-VERSION-MIB"

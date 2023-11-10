@@ -5,28 +5,28 @@
       "ng7000managedswitch"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "iso",
       "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "fastPathBoxServices": {
@@ -832,8 +832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-BOXSERVICES-PRIVATE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:44:52 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:03 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-BOXSERVICES-PRIVATE-MIB"

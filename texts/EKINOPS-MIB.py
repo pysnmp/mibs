@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module EKINOPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 07:40:43 2023
-# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:43:12 2023
+# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Unsigned32, enterprises, Gauge32, Integer32, Counter64, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, NotificationType, TimeTicks, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "enterprises", "Gauge32", "Integer32", "Counter64", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "NotificationType", "TimeTicks", "ModuleIdentity", "iso")
+Unsigned32, Bits, Counter64, iso, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, ObjectIdentity, IpAddress, MibIdentifier, enterprises, Counter32, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "Counter64", "iso", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "ObjectIdentity", "IpAddress", "MibIdentifier", "enterprises", "Counter32", "TimeTicks", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ekinops = ModuleIdentity((1, 3, 6, 1, 4, 1, 20044))
 ekinops.setRevisions(('2004-08-18 00:00', '2005-04-04 00:00', '2005-06-08 00:00', '2006-01-19 00:00', '2006-10-26 00:00', '2007-05-24 00:00', '2009-03-16 00:00',))
@@ -85,4 +85,4 @@ class EkiLoadPermutMode(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("coldReset", 0), ("warmReset", 1))
 
-mibBuilder.exportSymbols("EKINOPS-MIB", EkiApiState=EkiApiState, EkiMode=EkiMode, EkiLoadPermutMode=EkiLoadPermutMode, EkiProtocol=EkiProtocol, EkiLoadState=EkiLoadState, ekinops=ekinops, EkiState=EkiState, EkiMeasureType=EkiMeasureType, PYSNMP_MODULE_ID=ekinops, EkiLoadGWSW=EkiLoadGWSW, EkiOnOff=EkiOnOff, EkiSynchroMode=EkiSynchroMode, EkiLoadPermutMethod=EkiLoadPermutMethod)
+mibBuilder.exportSymbols("EKINOPS-MIB", EkiProtocol=EkiProtocol, EkiSynchroMode=EkiSynchroMode, EkiLoadPermutMode=EkiLoadPermutMode, EkiState=EkiState, EkiApiState=EkiApiState, ekinops=ekinops, PYSNMP_MODULE_ID=ekinops, EkiOnOff=EkiOnOff, EkiLoadPermutMethod=EkiLoadPermutMethod, EkiMode=EkiMode, EkiMeasureType=EkiMeasureType, EkiLoadGWSW=EkiLoadGWSW, EkiLoadState=EkiLoadState)

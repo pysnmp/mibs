@@ -11,22 +11,22 @@
       "ruckusCTRLWLANModule"
     ],
     "RUCKUS-TC-MIB": [
-      "RuckusWPACipherType",
       "RuckusMeshRoles",
-      "RuckusSSID",
+      "RuckusdB",
       "RuckusSystemNodeStatus",
-      "RuckusAuthenticationType",
-      "RuckusSystemClusterStatus",
-      "RuckusWLANAuthMethodType",
+      "RuckusSSID",
       "RuckusWLANEncryptionType",
+      "RuckusChannelWidthType",
+      "RuckusUUID",
+      "RuckusAuthStatusType",
+      "RuckusAuthenticationType",
+      "RuckusWPACipherType",
       "RuckusUUIDType",
       "RuckusAdminStatus",
-      "RuckusUUID",
       "RuckusCountryCode",
-      "RuckusdB",
-      "RuckusChannelWidthType",
-      "RuckusAuthStatusType",
-      "RuckusRadioMode"
+      "RuckusWLANAuthMethodType",
+      "RuckusRadioMode",
+      "RuckusSystemClusterStatus"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -34,29 +34,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "IpAddress",
       "Gauge32",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
       "Integer32",
-      "IpAddress"
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "MacAddress",
+      "DisplayString",
       "RowStatus",
       "DateAndTime",
-      "MacAddress",
-      "TruthValue",
-      "PhysAddress",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ruckusCTRLWLANMIB": {
@@ -3692,8 +3692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-CTRL-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:46:40 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:48:42 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-CTRL-MIB"

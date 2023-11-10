@@ -7,25 +7,25 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Bits",
-      "iso",
       "Integer32",
-      "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "vecMIB": {
@@ -1350,8 +1350,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emerson/VEC-MIBv5-9",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:40:59 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:25 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VEC-MIBv5-9"

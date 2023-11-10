@@ -9,8 +9,8 @@
       "InetAddressType"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -18,25 +18,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Bits",
-      "Integer32"
+      "Integer32",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "sleSystemMaintenance": {
@@ -16953,8 +16953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-SYSTEMMAINTENANCE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:40:22 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:42:54 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-SYSTEMMAINTENANCE-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BEGEMOT-ATM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-ATM
-# Produced by pysmi-1.1.10 at Fri Nov 10 07:45:46 2023
-# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:47:53 2023
+# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 begemot, = mibBuilder.importSymbols("BEGEMOT-MIB", "begemot")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, ModuleIdentity, NotificationType, IpAddress, Integer32, Gauge32, Unsigned32, TimeTicks, MibIdentifier, iso, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "NotificationType", "IpAddress", "Integer32", "Gauge32", "Unsigned32", "TimeTicks", "MibIdentifier", "iso", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, ObjectIdentity, Counter64, Gauge32, ModuleIdentity, Bits, IpAddress, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "ObjectIdentity", "Counter64", "Gauge32", "ModuleIdentity", "Bits", "IpAddress", "NotificationType", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 begemotAtm = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 101))
 if mibBuilder.loadTexts: begemotAtm.setLastUpdated('200407190000Z')
@@ -89,4 +89,4 @@ begemotAtmHWSoftVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 101, 1, 3,
 if mibBuilder.loadTexts: begemotAtmHWSoftVersion.setStatus('current')
 if mibBuilder.loadTexts: begemotAtmHWSoftVersion.setDescription("The firmware version of the interface card or 0 if it doesn't\n\t    report a firmware version number.")
 begemotAtmSysGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 101, 1, 4))
-mibBuilder.exportSymbols("BEGEMOT-ATM-MIB", begemotAtmHWDevice=begemotAtmHWDevice, begemotAtmIfTableLastChange=begemotAtmIfTableLastChange, begemotAtmIfVciBits=begemotAtmIfVciBits, begemotAtmIfCarrierStatus=begemotAtmIfCarrierStatus, PYSNMP_MODULE_ID=begemotAtm, begemotAtmSysGroup=begemotAtmSysGroup, begemotAtm=begemotAtm, begemotAtmIfEsi=begemotAtmIfEsi, begemotAtmIfMedia=begemotAtmIfMedia, begemotAtmIfVpiBits=begemotAtmIfVpiBits, begemotAtmIfTable=begemotAtmIfTable, begemotAtmHWTable=begemotAtmHWTable, begemotAtmHWEntry=begemotAtmHWEntry, begemotAtmIfName=begemotAtmIfName, begemotAtmIfPcr=begemotAtmIfPcr, begemotAtmIfMaxVccs=begemotAtmIfMaxVccs, AtmESI=AtmESI, begemotAtmIfMaxVpcs=begemotAtmIfMaxVpcs, begemotAtmHWVersion=begemotAtmHWVersion, begemotAtmHWSoftVersion=begemotAtmHWSoftVersion, begemotAtmObjects=begemotAtmObjects, begemotAtmIfEntry=begemotAtmIfEntry, begemotAtmHWSerial=begemotAtmHWSerial, begemotAtmIfMode=begemotAtmIfMode, begemotAtmHWVendor=begemotAtmHWVendor)
+mibBuilder.exportSymbols("BEGEMOT-ATM-MIB", begemotAtmIfMaxVccs=begemotAtmIfMaxVccs, begemotAtmIfMaxVpcs=begemotAtmIfMaxVpcs, AtmESI=AtmESI, begemotAtmHWVersion=begemotAtmHWVersion, begemotAtmIfVpiBits=begemotAtmIfVpiBits, begemotAtmHWTable=begemotAtmHWTable, begemotAtmHWVendor=begemotAtmHWVendor, begemotAtmHWDevice=begemotAtmHWDevice, begemotAtmIfVciBits=begemotAtmIfVciBits, begemotAtmIfMode=begemotAtmIfMode, begemotAtmIfMedia=begemotAtmIfMedia, begemotAtmIfEsi=begemotAtmIfEsi, begemotAtmIfPcr=begemotAtmIfPcr, begemotAtmIfEntry=begemotAtmIfEntry, begemotAtmIfTable=begemotAtmIfTable, begemotAtmIfTableLastChange=begemotAtmIfTableLastChange, begemotAtmHWEntry=begemotAtmHWEntry, begemotAtmHWSoftVersion=begemotAtmHWSoftVersion, begemotAtmIfCarrierStatus=begemotAtmIfCarrierStatus, PYSNMP_MODULE_ID=begemotAtm, begemotAtmHWSerial=begemotAtmHWSerial, begemotAtmIfName=begemotAtmIfName, begemotAtmObjects=begemotAtmObjects, begemotAtm=begemotAtm, begemotAtmSysGroup=begemotAtmSysGroup)

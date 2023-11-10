@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "OMNITRON-TC-MIB": [
-      "OstPortNumber",
+      "icAgent",
       "omnitron",
       "OstModeType",
-      "icAgent",
       "OstVlanId",
+      "OstPortNumber",
       "OstPortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
       "Counter64",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
       "Integer32",
       "Gauge32",
+      "IpAddress",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "iso"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "omnitronMIB": {
@@ -6150,8 +6150,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:45:01 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:13 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OMNITRON-MIB"

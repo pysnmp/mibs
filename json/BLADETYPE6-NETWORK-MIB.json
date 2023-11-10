@@ -5,8 +5,8 @@
       "BridgeId"
     ],
     "HP-SWITCH-PL-MIB": [
-      "hpSwitchBladeType6-Mgmt",
-      "hpSwitchBladeType6-Products"
+      "hpSwitchBladeType6-Products",
+      "hpSwitchBladeType6-Mgmt"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -21,27 +21,27 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
       "Counter64",
+      "Bits",
+      "IpAddress",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "hpProLiant_GbE2c_10G_InterconnectSwitch": {
@@ -33718,8 +33718,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE6-NETWORK-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:43 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:46:11 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE6-NETWORK-MIB"

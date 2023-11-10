@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "BKTEL-HFC862-BASE-MIB": [
+      "modules",
+      "TruthValue",
+      "DisplayString",
       "NESlotValue",
       "ModuleWidthValue",
-      "TruthValue",
-      "PerceivedSeverityValue",
-      "modules",
-      "DisplayString"
+      "PerceivedSeverityValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "experimental",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
       "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
+      "enterprises",
+      "Counter64",
+      "OBJECT-TYPE",
       "iso",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "experimental",
+      "Gauge32",
       "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
@@ -1085,8 +1085,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bktel/BKTEL-HFC862-BES-V01-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:38:42 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:41:22 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BKTEL-HFC862-BES-V01-MIB"

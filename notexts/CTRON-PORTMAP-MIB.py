@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-PORTMAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PORTMAP-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 07:41:04 2023
-# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:43:31 2023
+# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 ctPortMap, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPortMap")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Gauge32, Unsigned32, Counter64, TimeTicks, NotificationType, ObjectIdentity, Integer32, IpAddress, ModuleIdentity, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "Unsigned32", "Counter64", "TimeTicks", "NotificationType", "ObjectIdentity", "Integer32", "IpAddress", "ModuleIdentity", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
+Counter32, MibIdentifier, Integer32, Counter64, NotificationType, ModuleIdentity, TimeTicks, Gauge32, iso, Bits, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibIdentifier", "Integer32", "Counter64", "NotificationType", "ModuleIdentity", "TimeTicks", "Gauge32", "iso", "Bits", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 portMap = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 16, 1))
 portMapTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 16, 1, 1), )
@@ -27,4 +27,4 @@ portMapOperationalMode = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 16, 1, 1
 if mibBuilder.loadTexts: portMapOperationalMode.setStatus('mandatory')
 portMapLastSeenSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 16, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readonly")
 if mibBuilder.loadTexts: portMapLastSeenSrcAddr.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-PORTMAP-MIB", portMap=portMap, portMapOperationalMode=portMapOperationalMode, portMapCapability=portMapCapability, portMapEntry=portMapEntry, portMapTable=portMapTable, portMapLastSeenSrcAddr=portMapLastSeenSrcAddr, portMapRepeater=portMapRepeater, portMapIndex=portMapIndex)
+mibBuilder.exportSymbols("CTRON-PORTMAP-MIB", portMapOperationalMode=portMapOperationalMode, portMapLastSeenSrcAddr=portMapLastSeenSrcAddr, portMapRepeater=portMapRepeater, portMapEntry=portMapEntry, portMap=portMap, portMapTable=portMapTable, portMapCapability=portMapCapability, portMapIndex=portMapIndex)

@@ -5,9 +5,9 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
       "PerfTotalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SL-MAIN-MIB": [
       "slmTrapLogId"
@@ -17,31 +17,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Opaque",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Bits",
       "MODULE-IDENTITY",
       "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "IpAddress",
       "Counter32",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Opaque",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "slOptApsMib": {
@@ -612,8 +612,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-OPT-APS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:45:30 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:37 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-OPT-APS-MIB"

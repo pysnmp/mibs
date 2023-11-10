@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VERITAS-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-TC.mib
-# Produced by pysmi-1.1.10 at Fri Nov 10 07:47:30 2023
-# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:49:28 2023
+# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, iso, Counter64, Opaque, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, Counter32, NotificationType, IpAddress, MibIdentifier, ModuleIdentity, TimeTicks, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "iso", "Counter64", "Opaque", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "Counter32", "NotificationType", "IpAddress", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Gauge32", "Unsigned32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, Integer32, Counter32, IpAddress, Opaque, Gauge32, ObjectIdentity, TimeTicks, enterprises, iso, NotificationType, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "Integer32", "Counter32", "IpAddress", "Opaque", "Gauge32", "ObjectIdentity", "TimeTicks", "enterprises", "iso", "NotificationType", "Unsigned32", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 veritasModules, = mibBuilder.importSymbols("VERITAS-REG", "veritasModules")
 veritastc = ModuleIdentity((1, 3, 6, 1, 4, 1, 1302, 5, 2))
 if mibBuilder.loadTexts: veritastc.setLastUpdated('0401082030Z')
@@ -45,4 +45,4 @@ class Int64ReadWrite(TextualConvention, OctetString):
     displayHint = '21a'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 21)
 
-mibBuilder.exportSymbols("VERITAS-TC", PYSNMP_MODULE_ID=veritastc, Uint64ReadOnly=Uint64ReadOnly, veritastc=veritastc, Int64ReadWrite=Int64ReadWrite, Float=Float, Utf8StringShort=Utf8StringShort, Utf8StringLong=Utf8StringLong)
+mibBuilder.exportSymbols("VERITAS-TC", Int64ReadWrite=Int64ReadWrite, Uint64ReadOnly=Uint64ReadOnly, Utf8StringShort=Utf8StringShort, PYSNMP_MODULE_ID=veritastc, Float=Float, veritastc=veritastc, Utf8StringLong=Utf8StringLong)

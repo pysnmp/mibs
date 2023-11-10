@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NETWORK-DIAGS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/NETWORK-DIAGS
-# Produced by pysmi-1.1.10 at Fri Nov 10 07:41:12 2023
-# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:43:38 2023
+# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 nwDiagnostics, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "nwDiagnostics")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, Bits, Counter32, TimeTicks, ObjectIdentity, Gauge32, ModuleIdentity, IpAddress, Integer32, NotificationType, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "Bits", "Counter32", "TimeTicks", "ObjectIdentity", "Gauge32", "ModuleIdentity", "IpAddress", "Integer32", "NotificationType", "Unsigned32", "MibIdentifier")
+Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, IpAddress, Unsigned32, MibIdentifier, Gauge32, Integer32, ObjectIdentity, ModuleIdentity, iso, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "IpAddress", "Unsigned32", "MibIdentifier", "Gauge32", "Integer32", "ObjectIdentity", "ModuleIdentity", "iso", "TimeTicks", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nwRevision = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 1, 1))
 nwInternet = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 1, 2))
@@ -82,4 +82,4 @@ if mibBuilder.loadTexts: nwIpTraceRouteHopNumber.setDescription('The hop number 
 nwIpTraceRouteHopIp = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 3, 1, 2, 2, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nwIpTraceRouteHopIp.setStatus('mandatory')
 if mibBuilder.loadTexts: nwIpTraceRouteHopIp.setDescription('The IP address of this next-hop gateway.')
-mibBuilder.exportSymbols("NETWORK-DIAGS", nwRevision=nwRevision, nwIpTraceRouteOwner=nwIpTraceRouteOwner, nwInternet=nwInternet, nwIpPing=nwIpPing, nwIpPingType=nwIpPingType, nwIpTraceRouteStatus=nwIpTraceRouteStatus, nwIpTraceRouteDestination=nwIpTraceRouteDestination, nwIpPingStatus=nwIpPingStatus, nwIpPingAction=nwIpPingAction, nwIpTraceRouteAction=nwIpTraceRouteAction, nwIpPingDestination=nwIpPingDestination, nwIpTraceRoute=nwIpTraceRoute, nwIpTraceRouteNextHops=nwIpTraceRouteNextHops, nwIpTraceRouteHopEntry=nwIpTraceRouteHopEntry, nwIpTraceRouteEntry=nwIpTraceRouteEntry, nwIpTraceRouteHopNumber=nwIpTraceRouteHopNumber, nwIpTraceRouteHopOwner=nwIpTraceRouteHopOwner, nwIpTraceRouteTable=nwIpTraceRouteTable, nwRevisionLevel=nwRevisionLevel, nwIpPingEntry=nwIpPingEntry, nwIpPingTable=nwIpPingTable, nwIpTraceRouteHopTable=nwIpTraceRouteHopTable, nwIpPingOwner=nwIpPingOwner, nwIpTraceRouteHopIp=nwIpTraceRouteHopIp, nwIpTraceRouteHopDestination=nwIpTraceRouteHopDestination, nwIpTraceRouteType=nwIpTraceRouteType)
+mibBuilder.exportSymbols("NETWORK-DIAGS", nwIpPingDestination=nwIpPingDestination, nwIpTraceRouteHopIp=nwIpTraceRouteHopIp, nwIpPingType=nwIpPingType, nwIpTraceRouteNextHops=nwIpTraceRouteNextHops, nwIpPingOwner=nwIpPingOwner, nwIpTraceRoute=nwIpTraceRoute, nwIpTraceRouteAction=nwIpTraceRouteAction, nwIpPingTable=nwIpPingTable, nwIpTraceRouteHopTable=nwIpTraceRouteHopTable, nwIpTraceRouteHopEntry=nwIpTraceRouteHopEntry, nwIpTraceRouteTable=nwIpTraceRouteTable, nwRevision=nwRevision, nwIpTraceRouteHopDestination=nwIpTraceRouteHopDestination, nwIpPingStatus=nwIpPingStatus, nwIpTraceRouteHopNumber=nwIpTraceRouteHopNumber, nwIpTraceRouteEntry=nwIpTraceRouteEntry, nwIpPingEntry=nwIpPingEntry, nwIpTraceRouteDestination=nwIpTraceRouteDestination, nwIpTraceRouteStatus=nwIpTraceRouteStatus, nwIpTraceRouteType=nwIpTraceRouteType, nwInternet=nwInternet, nwIpPing=nwIpPing, nwIpTraceRouteOwner=nwIpTraceRouteOwner, nwRevisionLevel=nwRevisionLevel, nwIpTraceRouteHopOwner=nwIpTraceRouteHopOwner, nwIpPingAction=nwIpPingAction)

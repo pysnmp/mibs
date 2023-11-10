@@ -6,9 +6,9 @@
     ],
     "CISCO-ST-TC": [
       "FcNameId",
+      "FcAddressId",
       "DomainId",
-      "VsanIndex",
-      "FcAddressId"
+      "VsanIndex"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
@@ -21,32 +21,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
+      "Counter64",
       "Counter32",
-      "Unsigned32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
       "iso",
-      "TimeTicks",
+      "Unsigned32",
       "Gauge32",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "DisplayString"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoIvrMIB": {
@@ -2606,8 +2606,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IVR-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:43:28 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:45:48 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IVR-MIB"

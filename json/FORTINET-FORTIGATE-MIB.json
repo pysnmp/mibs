@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fortinet",
       "fnSysSerial",
-      "fnAdminEntry",
       "FnBoolState",
+      "fnAdminEntry",
+      "fortinet",
       "FnIndex"
     ],
     "HCNUM-TC": [
@@ -13,14 +13,14 @@
     ],
     "IF-MIB": [
       "ifEntry",
-      "ifIndex",
-      "ifName"
+      "ifName",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressPrefixLength",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -34,26 +34,26 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "Integer32",
-      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "iso",
-      "Gauge32"
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "PhysAddress",
       "DisplayString"
     ]
   },
@@ -12888,8 +12888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:41:46 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:44:09 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"

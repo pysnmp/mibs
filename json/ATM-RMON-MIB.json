@@ -9,31 +9,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Bits",
-      "Counter64",
-      "iso",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "RowStatus"
+      "TimeStamp"
     ]
   },
   "atmRmon": {
@@ -2065,8 +2065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-RMON-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:36:56 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:39:45 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATM-RMON-MIB"

@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-SN-AGENT-MIB": [
-      "snAgentBrdIndex",
-      "snChasPwrSupplyIndex",
-      "snChasPwrSupplyDescription",
+      "snChasFanDescription",
       "snAgGblTrapMessage",
       "snChasFanIndex",
-      "snChasFanDescription"
+      "snChasPwrSupplyDescription",
+      "snChasPwrSupplyIndex",
+      "snAgentBrdIndex"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "foundry"
     ],
     "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
-      "snL4TrapLinkName",
-      "snL4TrapRealServerPort",
       "snL4TrapRealServerIP",
-      "snL4TrapRealServerName",
       "snL4TrapRealServerCurConnections",
       "snL4MaxSessionLimit",
+      "snL4TrapRealServerName",
+      "snL4TcpSynLimit",
+      "snL4TrapRealServerPort",
       "snL4LinkVirtualInterface",
-      "snL4TcpSynLimit"
+      "snL4TrapLinkName"
     ],
     "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
       "wgPnPIfIndex",
-      "wgPnPMacAddress",
-      "wgPnPStatus"
+      "wgPnPStatus",
+      "wgPnPMacAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Bits",
       "TRAP-TYPE",
       "Counter32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
       "MibIdentifier",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTrapL4MaxSessionLimitReached": {
@@ -1144,8 +1144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 07:41:36 2023",
-      "On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:44:00 2023",
+      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-TRAP-MIB"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SL-RADIUS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-RADIUS-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 07:45:25 2023
-# On host fv-az885-747 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:47:33 2023
+# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-ObjectIdentity, Counter32, Gauge32, ModuleIdentity, mib_2, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, NotificationType, iso, Integer32, TimeTicks, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter32", "Gauge32", "ModuleIdentity", "mib-2", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "NotificationType", "iso", "Integer32", "TimeTicks", "Bits", "MibIdentifier")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Unsigned32, MibIdentifier, iso, Counter64, ObjectIdentity, TimeTicks, ModuleIdentity, IpAddress, mib_2, Bits, Integer32, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "iso", "Counter64", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "IpAddress", "mib-2", "Bits", "Integer32", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
+TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
 slRadiusMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23))
 if mibBuilder.loadTexts: slRadiusMIB.setLastUpdated('200712060000Z')
 if mibBuilder.loadTexts: slRadiusMIB.setOrganization('PacketLight Networks Ltd.')
@@ -41,4 +41,4 @@ slRadiusTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 
 if mibBuilder.loadTexts: slRadiusTimeout.setStatus('current')
 slRadiusSharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 23, 1, 1, 2, 1, 6), SharedSecret()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: slRadiusSharedSecret.setStatus('current')
-mibBuilder.exportSymbols("SL-RADIUS-MIB", slRadiusMIB=slRadiusMIB, slRadiusEnabled=slRadiusEnabled, slRadiusServerTable=slRadiusServerTable, slRadiusClientMIBObjects=slRadiusClientMIBObjects, PYSNMP_MODULE_ID=slRadiusMIB, slRadiusSharedSecret=slRadiusSharedSecret, slRadiusServerAddress=slRadiusServerAddress, slRadiusClient=slRadiusClient, slRadiusServerAdminStatus=slRadiusServerAdminStatus, slRadiusTimeout=slRadiusTimeout, slRadiusTraps=slRadiusTraps, SharedSecret=SharedSecret, slRadiusServerPort=slRadiusServerPort, slRadiusServerIndex=slRadiusServerIndex, slRadiusServerEntry=slRadiusServerEntry)
+mibBuilder.exportSymbols("SL-RADIUS-MIB", slRadiusClient=slRadiusClient, PYSNMP_MODULE_ID=slRadiusMIB, slRadiusClientMIBObjects=slRadiusClientMIBObjects, slRadiusEnabled=slRadiusEnabled, slRadiusServerEntry=slRadiusServerEntry, slRadiusServerTable=slRadiusServerTable, slRadiusServerAddress=slRadiusServerAddress, slRadiusServerIndex=slRadiusServerIndex, slRadiusServerAdminStatus=slRadiusServerAdminStatus, SharedSecret=SharedSecret, slRadiusTimeout=slRadiusTimeout, slRadiusSharedSecret=slRadiusSharedSecret, slRadiusServerPort=slRadiusServerPort, slRadiusTraps=slRadiusTraps, slRadiusMIB=slRadiusMIB)
