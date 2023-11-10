@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "LLDP-MIB": [
+      "lldpRemLocalPortNum",
+      "lldpLocPortNum",
+      "lldpExtensions",
       "lldpRemTimeMark",
       "lldpRemIndex",
-      "lldpLocPortNum",
-      "lldpPortConfigEntry",
-      "lldpExtensions",
-      "lldpRemLocalPortNum"
+      "lldpPortConfigEntry"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -16,30 +16,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "Bits",
-      "MibIdentifier"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "lldpXdot1MIB": {
@@ -48,8 +48,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2008-06-25 00:00",
-        "description": "Published as part of IEEE Std 802.1AB-2004 initial version."
+        "revision": "2005-05-06 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2005 initial version."
       }
     ]
   },
@@ -390,7 +390,7 @@
       "constraints": {
         "size": [
           {
-            "min": 0,
+            "min": 1,
             "max": 32
           }
         ]
@@ -684,7 +684,7 @@
       "constraints": {
         "size": [
           {
-            "min": 0,
+            "min": 1,
             "max": 32
           }
         ]
@@ -888,9 +888,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_dot1.mib",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:18:42 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/LLDP-EXT-DOT1-MIB",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:19 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-MIB"

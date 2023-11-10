@@ -5,19 +5,19 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "VlanId",
+      "CmPmBinAction",
       "AdminState",
       "SecondaryState",
-      "VlanPriority",
-      "VlanId",
       "MepDestinationType",
       "OperationalState",
-      "CmPmBinAction"
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
-      "slotIndex",
       "shelfIndex",
-      "networkElementEntry",
-      "neIndex"
+      "slotIndex",
+      "neIndex",
+      "networkElementEntry"
     ],
     "CM-FACILITY-MIB": [
       "PolicerColorMode"
@@ -26,38 +26,38 @@
       "EsaProbePktIntervalType"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepEntry",
-      "Dot1agCfmMepIdOrZero"
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMepEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
+      "Counter32",
       "Gauge32",
-      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
       "Integer32",
       "Counter64",
+      "iso",
+      "Unsigned32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "StorageType",
       "VariablePointer",
       "DateAndTime",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "StorageType",
+      "MacAddress",
       "RowStatus"
     ]
   },
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:14:41 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:14:35 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CM-SAT-MIB"

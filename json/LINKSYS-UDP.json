@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteTos",
+      "ipCidrRouteNextHop",
+      "ipCidrRouteMask",
       "ipCidrRouteDest",
       "ipCidrRouteEntry",
-      "ipCidrRouteNextHop",
-      "ipCidrRouteMask"
+      "ipCidrRouteTos"
     ],
     "IP-MIB": [
       "ipAddrEntry"
@@ -23,26 +23,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter64",
-      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
       "iso",
-      "Bits",
-      "OBJECT-TYPE",
       "TimeTicks",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Gauge32",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rsUDP": {
@@ -278,8 +278,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-UDP",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:21:06 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:25:16 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-UDP"

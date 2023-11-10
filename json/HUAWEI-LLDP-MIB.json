@@ -11,46 +11,46 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpSystemCapabilitiesMap",
-      "LldpPortNumber",
-      "lldpPortConfigPortNum",
-      "LldpManAddress",
-      "lldpRemTimeMark",
-      "lldpLocSysCapSupported",
+      "LldpPortId",
       "lldpRemLocalPortNum",
-      "lldpLocSysCapEnabled",
-      "LldpManAddrIfSubtype",
-      "LldpChassisId",
+      "lldpRemTimeMark",
       "lldpRemIndex",
       "lldpRemEntry",
-      "LldpPortId"
+      "lldpPortConfigPortNum",
+      "LldpManAddress",
+      "LldpSystemCapabilitiesMap",
+      "LldpChassisId",
+      "LldpPortNumber",
+      "lldpLocSysCapSupported",
+      "lldpLocSysCapEnabled",
+      "LldpManAddrIfSubtype"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
-      "Counter32",
-      "Gauge32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
       "Integer32",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "hwLldpMIB": {
@@ -1289,8 +1289,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-LLDP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:41 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:22:44 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-LLDP-MIB"

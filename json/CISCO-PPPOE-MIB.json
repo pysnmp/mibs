@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVclVpi",
+      "atmVclVci",
       "atmVclEntry",
-      "atmVclVci"
+      "atmVclVpi"
     ],
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "CISCO-QOS-PIB-MIB": [
       "Percent"
@@ -21,35 +21,35 @@
       "ifDescr"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIndex"
+      "VlanIndex",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "Integer32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoPppoeMIB": {
@@ -1125,8 +1125,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PPPOE-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:31 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:22 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-PPPOE-MIB"

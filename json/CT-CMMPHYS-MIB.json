@@ -15,20 +15,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
       "Bits",
-      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
       "Counter64",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1302,8 +1302,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-CMMPHYS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:17:40 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:20:23 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CT-CMMPHYS-MIB"

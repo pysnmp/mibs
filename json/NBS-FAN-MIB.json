@@ -5,8 +5,8 @@
       "InterfaceIndex"
     ],
     "NBS-MIB": [
-      "NbsTcStatusSimple",
       "nbs",
+      "NbsTcStatusSimple",
       "NbsTcPartIndex"
     ],
     "SNMPv2-CONF": [
@@ -14,24 +14,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "iso",
       "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
       "MibIdentifier",
       "Unsigned32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsFanMib": {
@@ -278,8 +278,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-FAN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:21:34 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:25:40 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NBS-FAN-MIB"

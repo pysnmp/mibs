@@ -7,8 +7,8 @@
     ],
     "IF-MIB": [
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "MAU-MIB": [
       "JackType"
@@ -18,8 +18,8 @@
     ],
     "RADLAN-MIB": [
       "rndErrorDesc",
-      "rndNotifications",
       "rndErrorSeverity",
+      "rndNotifications",
       "rnd"
     ],
     "SNMPv2-CONF": [
@@ -27,27 +27,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
+      "Counter32",
+      "Bits",
       "Counter64",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TRAP-TYPE",
       "MibIdentifier",
-      "Counter32"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "RowStatus"
+      "PhysAddress"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1354,8 +1354,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:23:24 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:27:56 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-Physicaldescription-MIB"

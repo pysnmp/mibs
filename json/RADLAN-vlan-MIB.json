@@ -8,9 +8,9 @@
       "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
+      "dot1qVlanIndex",
       "VlanIndex",
-      "PortList",
-      "dot1qVlanIndex"
+      "PortList"
     ],
     "RADLAN-MIB": [
       "rndErrorDesc",
@@ -22,27 +22,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "Gauge32",
-      "Unsigned32",
+      "Counter32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
       "Counter64",
-      "Integer32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1291,8 +1291,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-vlan-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:23:24 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:27:56 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RADLAN-vlan-MIB"

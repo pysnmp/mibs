@@ -12,28 +12,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "mib-2",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
-      "iso"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "TimeStamp",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dasanShdslMIB": {
@@ -2128,8 +2128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-SHDSL-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:16:50 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:18:09 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DASAN-SHDSL-MIB"

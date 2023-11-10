@@ -12,12 +12,12 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-L3VPN-STD-MIB": [
-      "mplsL3VpnVrfConfMidRteThresh",
-      "mplsL3VpnVrfPerfCurrNumRoutes"
+      "mplsL3VpnVrfPerfCurrNumRoutes",
+      "mplsL3VpnVrfConfMidRteThresh"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -25,24 +25,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "Unsigned32",
       "iso",
+      "Counter32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter64",
       "Bits",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hwBgpMIB": {
@@ -3769,8 +3769,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BGP-VPN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 09:19:41 2023",
-      "On host fv-az1110-165 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 09:22:44 2023",
+      "On host fv-az444-987 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-BGP-VPN-MIB"
