@@ -2,63 +2,63 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepIdentifier",
+      "dot1agCfmMdIndex",
       "dot1agCfmMepEntry",
+      "Dot1afCfmIndexIntegerNextFree",
       "dot1agCfmMaIndex",
       "Dot1agCfmMepIdOrZero",
-      "Dot1afCfmIndexIntegerNextFree",
-      "dot1agCfmMdIndex"
+      "dot1agCfmMepIdentifier"
     ],
     "IEEE8021-TC-MIB": [
-      "ieee802dot1mibs",
       "IEEE8021VlanIndex",
-      "IEEE8021PriorityValue"
+      "IEEE8021PriorityValue",
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
     ],
     "LLDP-MIB": [
-      "LldpPortId",
       "LldpPortIdSubtype",
+      "LldpPortId",
       "LldpChassisIdSubtype",
       "LldpChassisId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "Gauge32",
+      "iso",
       "IpAddress",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TDomain",
-      "RowStatus",
-      "TAddress",
-      "MacAddress",
-      "DateAndTime",
       "TimeStamp",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TAddress",
       "TimeInterval",
-      "DisplayString"
+      "TDomain",
+      "MacAddress",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "jnxSoamPmMib": {
@@ -4808,8 +4808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-SOAM-PM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:02 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:51:18 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-SOAM-PM-MIB"

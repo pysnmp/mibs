@@ -3,40 +3,40 @@
     "class": "imports",
     "CISCO-ITP-TC-MIB": [
       "CItpTcQos",
-      "CItpTcRouteTableName",
+      "CItpTcLinksetId",
       "CItpTcTableLoadStatus",
       "CItpTcPointCode",
-      "CItpTcLinksetId"
+      "CItpTcRouteTableName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
       "Counter64",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoItpRtMIB": {
@@ -628,8 +628,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-RT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:45:50 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:59 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-RT-MIB"

@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
+      "HpnicfDot11RadioElementIndex",
       "hpnicfDot11APElementIndex",
-      "hpnicfDot11",
-      "HpnicfDot11RadioElementIndex"
+      "hpnicfDot11"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
       "Integer32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
       "Counter32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "MacAddress"
     ]
   },
   "hpnicfDot11sMesh": {
@@ -1238,8 +1238,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11S-MESH-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:46:12 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:49:47 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11S-MESH-MIB"

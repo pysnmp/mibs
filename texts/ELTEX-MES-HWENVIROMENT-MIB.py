@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ELTEX-MES-HWENVIROMENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-MES-HWENVIROMENT-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 08:43:19 2023
-# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:44:44 2023
+# On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
 rlEnvMonFanStatusEntry, RlEnvMonState = mibBuilder.importSymbols("RADLAN-HWENVIROMENT", "rlEnvMonFanStatusEntry", "RlEnvMonState")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, MibIdentifier, Counter32, TimeTicks, ModuleIdentity, Unsigned32, Gauge32, IpAddress, NotificationType, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibIdentifier", "Counter32", "TimeTicks", "ModuleIdentity", "Unsigned32", "Gauge32", "IpAddress", "NotificationType", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits")
+Counter64, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, iso, Gauge32, Integer32, IpAddress, TimeTicks, ObjectIdentity, NotificationType, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "iso", "Gauge32", "Integer32", "IpAddress", "TimeTicks", "ObjectIdentity", "NotificationType", "Unsigned32", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 eltMesEnv = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 11))
 eltMesEnv.setRevisions(('2018-07-27 00:00', '2017-10-11 00:00', '2015-06-11 00:00',))
@@ -51,4 +51,4 @@ if mibBuilder.loadTexts: eltEnvMonFanStatusEntry.setDescription('This table augm
 eltEnvMonFanSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 11, 3, 1, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: eltEnvMonFanSpeed.setStatus('current')
 if mibBuilder.loadTexts: eltEnvMonFanSpeed.setDescription('This parameter represents the speed of the fan in RPM')
-mibBuilder.exportSymbols("ELTEX-MES-HWENVIROMENT-MIB", PYSNMP_MODULE_ID=eltMesEnv, eltEnvMonBatteryStatusEntry=eltEnvMonBatteryStatusEntry, eltEnvMonBatteryState=eltEnvMonBatteryState, eltEnvMonBatteryStatusCharge=eltEnvMonBatteryStatusCharge, eltMesEnv=eltMesEnv, eltEnvMonBatteryStatusTable=eltEnvMonBatteryStatusTable, eltEnvMonFanStatusTable=eltEnvMonFanStatusTable, eltEnvMonBatteryStatusIndex=eltEnvMonBatteryStatusIndex, eltEnvResetButtonMode=eltEnvResetButtonMode, eltEnvMonFanSpeed=eltEnvMonFanSpeed, eltEnvMonFanStatusEntry=eltEnvMonFanStatusEntry)
+mibBuilder.exportSymbols("ELTEX-MES-HWENVIROMENT-MIB", eltEnvMonBatteryStatusTable=eltEnvMonBatteryStatusTable, eltEnvMonFanStatusTable=eltEnvMonFanStatusTable, PYSNMP_MODULE_ID=eltMesEnv, eltEnvMonBatteryStatusCharge=eltEnvMonBatteryStatusCharge, eltMesEnv=eltMesEnv, eltEnvResetButtonMode=eltEnvResetButtonMode, eltEnvMonFanSpeed=eltEnvMonFanSpeed, eltEnvMonBatteryStatusIndex=eltEnvMonBatteryStatusIndex, eltEnvMonFanStatusEntry=eltEnvMonFanStatusEntry, eltEnvMonBatteryStatusEntry=eltEnvMonBatteryStatusEntry, eltEnvMonBatteryState=eltEnvMonBatteryState)

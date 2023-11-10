@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "mcTrapID",
-      "mcTrapExState",
-      "mcTrapLParam2",
-      "elHardware",
-      "mcTrapLParam3",
       "mcTrapLParam1",
-      "mcTrapDescr"
+      "mcTrapLParam3",
+      "mcTrapID",
+      "mcTrapDescr",
+      "mcTrapExState",
+      "elHardware",
+      "mcTrapLParam2"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -17,34 +17,34 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
       "Integer32",
-      "Counter64"
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DisplayString",
       "TimeStamp",
       "RowStatus",
+      "TruthValue",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "ltp8x": {
@@ -18751,8 +18751,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-LTP8X",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:22 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:44:46 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ELTEX-LTP8X"

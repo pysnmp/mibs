@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ARRIS-C3-CMM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-CMM-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 08:40:57 2023
-# On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Fri Nov 10 08:39:19 2023
+# On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-docsIfCmtsCmStatusEntry, TenthdBmV, docsIfCmtsCmStatusDocsisRegMode, docsIfCmtsCmStatusIpAddress, docsIfCmtsCmStatusMacAddress = mibBuilder.importSymbols("DOCS-IF-MIB", "docsIfCmtsCmStatusEntry", "TenthdBmV", "docsIfCmtsCmStatusDocsisRegMode", "docsIfCmtsCmStatusIpAddress", "docsIfCmtsCmStatusMacAddress")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+TenthdBmV, docsIfCmtsCmStatusMacAddress, docsIfCmtsCmStatusDocsisRegMode, docsIfCmtsCmStatusIpAddress, docsIfCmtsCmStatusEntry = mibBuilder.importSymbols("DOCS-IF-MIB", "TenthdBmV", "docsIfCmtsCmStatusMacAddress", "docsIfCmtsCmStatusDocsisRegMode", "docsIfCmtsCmStatusIpAddress", "docsIfCmtsCmStatusEntry")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Gauge32, Bits, Counter64, ObjectIdentity, ModuleIdentity, MibIdentifier, iso, enterprises, Unsigned32, Counter32, IpAddress, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "Counter64", "ObjectIdentity", "ModuleIdentity", "MibIdentifier", "iso", "enterprises", "Unsigned32", "Counter32", "IpAddress", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType")
-MacAddress, TruthValue, DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TruthValue", "DisplayString", "DateAndTime", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ModuleIdentity, Counter64, IpAddress, Integer32, iso, TimeTicks, Gauge32, ObjectIdentity, Unsigned32, Bits, Counter32, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "IpAddress", "Integer32", "iso", "TimeTicks", "Gauge32", "ObjectIdentity", "Unsigned32", "Bits", "Counter32", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises")
+TextualConvention, DateAndTime, MacAddress, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "MacAddress", "DisplayString", "TruthValue")
 cmtsC3CMMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 5))
 cmtsC3CMMMIB.setRevisions(('2005-02-02 00:00',))
 
@@ -102,4 +102,4 @@ if mibBuilder.loadTexts: dcxCMMTrapReason.setDescription('Placeholder for the us
 dcxCMMTrap = NotificationType((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 5, 1, 4, 2)).setObjects(("ARRIS-C3-CMM-MIB", "dcxCMMTrapReason"))
 if mibBuilder.loadTexts: dcxCMMTrap.setStatus('current')
 if mibBuilder.loadTexts: dcxCMMTrap.setDescription('General CMM trap. The reason for the trap are described\n\t\t     in dcxCMMTrapReason.')
-mibBuilder.exportSymbols("ARRIS-C3-CMM-MIB", dcxCMMCmPrimaryDsSf=dcxCMMCmPrimaryDsSf, dcxCMMFlapCRC=dcxCMMFlapCRC, dcxCMMUpDisable=dcxCMMUpDisable, dcxCMMResetCounters=dcxCMMResetCounters, dcxCMMFlapInsertions=dcxCMMFlapInsertions, dcxCMMCmDebugLevel=dcxCMMCmDebugLevel, dcxCMMFlapMacAddr=dcxCMMFlapMacAddr, dcxCMMCmtsCmStatusEntry=dcxCMMCmtsCmStatusEntry, dcxCMMCmIp=dcxCMMCmIp, dcxCMMCmPrimaryUsSf=dcxCMMCmPrimaryUsSf, dcxCMMCmFlapEntry=dcxCMMCmFlapEntry, dcxCMMFlapCount=dcxCMMFlapCount, dcxCMMFlapMisses=dcxCMMFlapMisses, dcxCMMTrapReason=dcxCMMTrapReason, dcxCMMFlapHits=dcxCMMFlapHits, dcxCMMObjects=dcxCMMObjects, dcxCMMTrapGroup=dcxCMMTrapGroup, dcxCMMFlapTable=dcxCMMFlapTable, dcxCMMCmtsCmStatusTable=dcxCMMCmtsCmStatusTable, PYSNMP_MODULE_ID=cmtsC3CMMMIB, dcxCMMIpToCmTable=dcxCMMIpToCmTable, dcxCMMFlapTimeStamp=dcxCMMFlapTimeStamp, dcxCMMCmBpiState=dcxCMMCmBpiState, dcxCMMCmPtr=dcxCMMCmPtr, dcxCMMTrap=dcxCMMTrap, dcxCMMFlapUpstreamID=dcxCMMFlapUpstreamID, dcxCMMResetCm=dcxCMMResetCm, cmtsC3CMMMIB=cmtsC3CMMMIB, dcxCMMIpToCmEntry=dcxCMMIpToCmEntry)
+mibBuilder.exportSymbols("ARRIS-C3-CMM-MIB", dcxCMMCmtsCmStatusTable=dcxCMMCmtsCmStatusTable, dcxCMMCmPrimaryUsSf=dcxCMMCmPrimaryUsSf, dcxCMMFlapInsertions=dcxCMMFlapInsertions, dcxCMMUpDisable=dcxCMMUpDisable, dcxCMMObjects=dcxCMMObjects, dcxCMMTrapReason=dcxCMMTrapReason, dcxCMMCmIp=dcxCMMCmIp, dcxCMMFlapTimeStamp=dcxCMMFlapTimeStamp, dcxCMMCmPtr=dcxCMMCmPtr, dcxCMMFlapMisses=dcxCMMFlapMisses, dcxCMMResetCounters=dcxCMMResetCounters, dcxCMMFlapCRC=dcxCMMFlapCRC, dcxCMMFlapTable=dcxCMMFlapTable, dcxCMMCmtsCmStatusEntry=dcxCMMCmtsCmStatusEntry, dcxCMMCmPrimaryDsSf=dcxCMMCmPrimaryDsSf, dcxCMMTrap=dcxCMMTrap, dcxCMMFlapHits=dcxCMMFlapHits, dcxCMMIpToCmTable=dcxCMMIpToCmTable, dcxCMMTrapGroup=dcxCMMTrapGroup, PYSNMP_MODULE_ID=cmtsC3CMMMIB, dcxCMMResetCm=dcxCMMResetCm, cmtsC3CMMMIB=cmtsC3CMMMIB, dcxCMMCmFlapEntry=dcxCMMCmFlapEntry, dcxCMMFlapUpstreamID=dcxCMMFlapUpstreamID, dcxCMMFlapMacAddr=dcxCMMFlapMacAddr, dcxCMMFlapCount=dcxCMMFlapCount, dcxCMMCmBpiState=dcxCMMCmBpiState, dcxCMMCmDebugLevel=dcxCMMCmDebugLevel, dcxCMMIpToCmEntry=dcxCMMIpToCmEntry)

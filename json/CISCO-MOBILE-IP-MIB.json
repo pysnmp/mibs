@@ -8,9 +8,9 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -18,14 +18,14 @@
       "InetAddressPrefixLength"
     ],
     "MIP-MIB": [
-      "mnRegistrationEntry",
-      "mnHAEntry",
-      "mnRegCOA",
-      "RegistrationFlags",
-      "mnState",
+      "mnRegAgentAddress",
       "faCOAEntry",
+      "mnRegCOA",
+      "mnHAEntry",
       "haMobilityBindingEntry",
-      "mnRegAgentAddress"
+      "mnRegistrationEntry",
+      "RegistrationFlags",
+      "mnState"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -39,30 +39,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
       "Counter64",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Bits",
       "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeInterval",
-      "RowStatus",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "MacAddress",
-      "TruthValue"
+      "DateAndTime",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ciscoMobileIpMIB": {
@@ -8525,8 +8525,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MOBILE-IP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:45:49 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:43:59 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-MOBILE-IP-MIB"

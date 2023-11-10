@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
       "MibIdentifier",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
+      "iso",
+      "Gauge32",
       "Counter32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "OBJECT-TYPE",
       "enterprises",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dpsCellguard": {
@@ -399,8 +399,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-MIB-CG-V1",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:42:59 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:44:06 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DPS-MIB-CG-V1"

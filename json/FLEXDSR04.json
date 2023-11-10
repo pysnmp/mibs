@@ -6,51 +6,51 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysDescr",
       "sysLocation",
-      "sysName",
-      "sysContact"
+      "sysDescr",
+      "sysContact",
+      "sysName"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "IpAddress",
       "Bits",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Counter64",
       "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "DateAndTime"
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "mibRelease",
-      "commonGroup",
-      "eventPriority",
-      "commonVarbindsCompliance",
       "eventTimeStamp",
-      "FaultOK",
-      "Integer32d2",
-      "FloatString",
+      "commonVarbindsCompliance",
+      "Integer32d1",
       "eventCounter",
-      "Integer32d1"
+      "Integer32d2",
+      "commonGroup",
+      "FaultOK",
+      "mibRelease",
+      "FloatString",
+      "eventPriority"
     ],
     "TWOWCOM-SMI": [
       "decoder",
       "dvbEncoder",
       "encoder",
-      "dvbDecoder",
-      "other"
+      "other",
+      "dvbDecoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:40:12 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:38:07 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

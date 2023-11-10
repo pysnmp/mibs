@@ -9,40 +9,40 @@
       "InetAddress"
     ],
     "RAPID-CITY": [
-      "rcVrf",
       "EnableValue",
+      "rcVrf",
       "IdList"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "IpAddress",
+      "Counter32",
       "OBJECT-IDENTITY",
       "iso",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "mib-2",
       "Integer32",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "mib-2",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rcVrfMib": {
@@ -655,8 +655,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RC-VRF-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:31 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:52:38 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RC-VRF-MIB"

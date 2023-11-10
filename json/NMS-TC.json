@@ -5,28 +5,28 @@
       "nmsModules"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "Gauge32",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nmsTextualConventions": {
@@ -453,8 +453,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/NMS-TC",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:47:49 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:53:52 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NMS-TC"

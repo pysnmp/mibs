@@ -12,32 +12,32 @@
       "ruckusUnleashedWLANModule"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "IpAddress",
+      "Integer32",
+      "Unsigned32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "iso",
       "Counter64",
-      "Unsigned32",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
+      "MacAddress",
       "TruthValue"
     ]
   },
@@ -188,8 +188,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-UNLEASHED-WLAN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 08:48:42 2023",
-      "On host fv-az566-171 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 08:55:34 2023",
+      "On host fv-az447-590 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-UNLEASHED-WLAN-MIB"
