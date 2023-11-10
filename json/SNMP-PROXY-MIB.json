@@ -9,32 +9,32 @@
       "SnmpTagValue"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Counter32",
       "Counter64",
       "Bits",
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "snmpModules",
       "Unsigned32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
       "Integer32",
-      "IpAddress"
+      "iso",
+      "MODULE-IDENTITY",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "StorageType",
+      "DisplayString"
     ]
   },
   "snmpProxyMIB": {
@@ -292,8 +292,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-PROXY-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:07:54 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:29:30 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SNMP-PROXY-MIB"

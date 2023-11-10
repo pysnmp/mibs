@@ -8,35 +8,35 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
       "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
       "Bits",
       "Counter32",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "iso"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "MacAddress",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfDhcpRelay": {
@@ -792,8 +792,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DHCPRELAY-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:14:29 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:39 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DHCPRELAY-MIB"

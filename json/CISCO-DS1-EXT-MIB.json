@@ -9,51 +9,51 @@
       "BulkConfigResult"
     ],
     "DS1-MIB": [
-      "dsx1FarEndCurrentEntry",
       "dsx1ConfigEntry",
-      "dsx1FarEndIntervalEntry",
-      "dsx1CurrentEntry",
-      "dsx1IntervalEntry",
       "dsx1FarEndTotalEntry",
-      "dsx1TotalEntry"
+      "dsx1IntervalEntry",
+      "dsx1CurrentEntry",
+      "dsx1FarEndCurrentEntry",
+      "dsx1TotalEntry",
+      "dsx1FarEndIntervalEntry"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
       "PerfIntervalCount",
-      "PerfTotalCount"
+      "PerfTotalCount",
+      "PerfCurrentCount"
     ],
     "RMON-MIB": [
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
       "Unsigned32",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:13:53 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:31 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

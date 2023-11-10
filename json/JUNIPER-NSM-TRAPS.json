@@ -5,28 +5,28 @@
       "jnxNsm"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "iso",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "iso",
       "Counter64",
       "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DateAndTime",
+      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
@@ -1083,8 +1083,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-NSM-TRAPS",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:15:15 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:36:42 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-NSM-TRAPS"

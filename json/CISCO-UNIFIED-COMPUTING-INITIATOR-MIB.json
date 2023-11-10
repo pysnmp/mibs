@@ -5,26 +5,26 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
       "Unsigned64",
       "TimeIntervalSec",
+      "CiscoNetworkAddress",
       "CiscoInetAddressMask",
       "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsStorageAllocState",
-      "CucsFsmLifecycle",
-      "CucsInitiatorIScsiInitiatorEpProt",
-      "CucsStoragePathHA",
-      "CucsStorageProtocol",
-      "CucsInitiatorGroupType",
       "CucsInitiatorInitiatorEpPref",
-      "CucsInitiatorFcInitiatorEpProt"
+      "CucsInitiatorGroupType",
+      "CucsStoragePathHA",
+      "CucsInitiatorIScsiInitiatorEpProt",
+      "CucsStorageProtocol",
+      "CucsFsmLifecycle",
+      "CucsInitiatorFcInitiatorEpProt",
+      "CucsStorageAllocState"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -34,34 +34,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Counter32",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
+      "MacAddress",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "TimeStamp",
-      "MacAddress",
       "DateAndTime",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval"
     ]
   },
   "cucsInitiatorObjects": {
@@ -1143,8 +1143,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-INITIATOR-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:13:56 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:35 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-INITIATOR-MIB"

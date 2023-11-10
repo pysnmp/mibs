@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
-      "VlanList4",
+      "VlanList1",
       "VlanList2",
-      "VlanList1"
+      "VlanList4",
+      "VlanList3"
     ],
     "CISCOSB-MIB": [
       "switch001",
-      "VlanPriority",
-      "Percents"
+      "Percents",
+      "VlanPriority"
     ],
     "DIFF-SERV-MIB": [
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "Counter32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "MibIdentifier",
+      "Bits",
+      "iso",
       "IpAddress",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "zeroDotZero",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "RowPointer"
     ]
   },
   "InterfaceType": {
@@ -5421,8 +5421,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-POLICY-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:13:54 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:33 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-POLICY-MIB"

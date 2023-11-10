@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetVersion",
       "InetZoneIndex",
       "InetAddress",
-      "InetVersion",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
-      "IpAddressOriginTC",
-      "IpAddressStatusTC"
+      "IpAddressStatusTC",
+      "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "Counter32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
+      "mib-2",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "MibIdentifier",
+      "Bits",
+      "iso",
       "IpAddress",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
-      "Unsigned32",
-      "mib-2"
+      "OBJECT-IDENTITY",
+      "zeroDotZero",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TimeStamp",
-      "PhysAddress",
-      "TestAndIncr",
-      "RowPointer",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "PhysAddress",
+      "RowPointer",
+      "TimeStamp"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:13:53 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:32 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

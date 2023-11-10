@@ -5,35 +5,35 @@
       "hpnicfEpon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
       "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Counter32",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "iso"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "MacAddress",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfEponUni": {
@@ -2216,8 +2216,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EPON-UNI-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 10:14:28 2023",
-      "On host fv-az732-878 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Nov 10 10:35:38 2023",
+      "On host fv-az1153-970 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-EPON-UNI-MIB"
