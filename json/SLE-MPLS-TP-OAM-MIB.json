@@ -12,32 +12,32 @@
       "mplsStdMIB"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
       "TimeTicks",
-      "Counter64",
-      "zeroDotZero"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "zeroDotZero",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1528,8 +1528,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-OAM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:21:59 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:36:27 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-OAM-MIB"

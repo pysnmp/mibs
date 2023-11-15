@@ -12,24 +12,24 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
       "iso",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
+      "MODULE-IDENTITY",
       "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
       "Unsigned32",
+      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -205,8 +205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-HITLESS-AGGRL1-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:28:23 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:42:46 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SIAE-HITLESS-AGGRL1-MIB"

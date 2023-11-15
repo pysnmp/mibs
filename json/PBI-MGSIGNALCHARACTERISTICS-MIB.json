@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32",
       "IpAddress",
+      "Counter64",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "enterprises",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "mgSignalCharacteristics": {
@@ -722,8 +722,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbi/PBI-MGSIGNALCHARACTERISTICS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:27:09 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:41:33 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PBI-MGSIGNALCHARACTERISTICS-MIB"

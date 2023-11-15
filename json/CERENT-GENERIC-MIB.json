@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
-      "cerentGeneric",
       "cerentModules",
-      "cerentRequirements"
+      "cerentRequirements",
+      "cerentGeneric"
     ],
     "CERENT-TC": [
-      "CerentAlarmStatus",
-      "CerentMonitorType",
-      "CerentPeriod",
-      "CerentAlarmServiceAffecting",
-      "CerentAlarmSeverity",
-      "CerentNotificationClass",
       "CerentLocation",
-      "CerentPortNumber"
+      "CerentAlarmSeverity",
+      "CerentAlarmServiceAffecting",
+      "CerentNotificationClass",
+      "CerentAlarmStatus",
+      "CerentPortNumber",
+      "CerentPeriod",
+      "CerentMonitorType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "Integer32",
+      "IpAddress",
+      "Bits",
       "OBJECT-TYPE",
+      "Unsigned32",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
       "MibIdentifier",
-      "Bits",
+      "iso",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "iso"
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -53462,8 +53462,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-GENERIC-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:25:11 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:35 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CERENT-GENERIC-MIB"

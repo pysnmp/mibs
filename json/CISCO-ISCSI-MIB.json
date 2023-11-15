@@ -5,41 +5,41 @@
       "ciscoExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "Integer32",
+      "IpAddress",
+      "Bits",
       "OBJECT-TYPE",
+      "Unsigned32",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "Integer32",
       "MibIdentifier",
+      "Gauge32",
+      "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "iso"
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "AutonomousType",
+      "RowStatus",
       "DisplayString",
       "RowPointer",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "TimeStamp",
-      "AutonomousType",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoIscsiModule": {
@@ -3415,8 +3415,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ISCSI-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:25:16 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:39 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ISCSI-MIB"

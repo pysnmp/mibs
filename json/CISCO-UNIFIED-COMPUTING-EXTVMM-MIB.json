@@ -5,48 +5,48 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
       "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "Unsigned64",
       "CiscoAlarmSeverity",
-      "TimeIntervalSec",
-      "CiscoNetworkAddress"
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectId",
-      "CucsManagedObjectDn",
-      "ciscoUnifiedComputingMIBObjects"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsExtvmmSwitchDelTaskFsmTaskItem",
-      "CucsExtvmmNetworkSetsFsmStageName",
-      "CucsExtvmmKeyStoreFsmTaskItem",
-      "CucsExtvmmProviderFsmCurrentFsm",
-      "CucsExtvmmEpFsmCurrentFsm",
-      "CucsCommFilePathProtocol",
-      "CucsConditionRemoteInvRslt",
-      "CucsExtvmmEpFsmTaskItem",
-      "CucsFsmCompletion",
-      "CucsExtvmmEpFsmStageName",
-      "CucsExtvmmKeyStoreFsmCurrentFsm",
-      "CucsExtvmmProviderFsmTaskItem",
-      "CucsPolicyPolicyOwner",
       "CucsExtvmmNetworkSetsFsmCurrentFsm",
-      "CucsExtvmmSwitchDelTaskFsmStageName",
-      "CucsExtvmmMasterExtKeyFsmCurrentFsm",
-      "CucsExtvmmVnicType",
-      "CucsExtvmmKeyStoreFsmStageName",
-      "CucsExtvmmProviderVendorType",
-      "CucsExtvmmRefOperState",
-      "CucsExtvmmNetworkSetConfigQualifier",
-      "CucsExtvmmNetworkSetsFsmTaskItem",
-      "CucsFsmFsmStageStatus",
+      "CucsExtvmmProviderFsmTaskItem",
       "CucsExtvmmSwitchDelTaskFsmCurrentFsm",
-      "CucsExtvmmFabricNetworkType",
+      "CucsExtvmmRefOperState",
+      "CucsFsmCompletion",
       "CucsExtvmmProviderFsmStageName",
-      "CucsFsmFlags",
+      "CucsCommFilePathProtocol",
       "CucsExtvmmVcVersion",
+      "CucsExtvmmFabricNetworkType",
+      "CucsConditionRemoteInvRslt",
+      "CucsExtvmmEpFsmCurrentFsm",
+      "CucsExtvmmVnicType",
+      "CucsPolicyPolicyOwner",
+      "CucsExtvmmSwitchDelTaskFsmStageName",
+      "CucsExtvmmEpFsmStageName",
+      "CucsExtvmmNetworkSetsFsmTaskItem",
+      "CucsExtvmmNetworkSetsFsmStageName",
+      "CucsExtvmmNetworkSetConfigQualifier",
+      "CucsFsmFsmStageStatus",
+      "CucsExtvmmProviderFsmCurrentFsm",
+      "CucsExtvmmMasterExtKeyFsmTaskItem",
+      "CucsExtvmmKeyStoreFsmCurrentFsm",
+      "CucsExtvmmKeyStoreFsmStageName",
+      "CucsExtvmmMasterExtKeyFsmCurrentFsm",
       "CucsExtvmmMasterExtKeyFsmStageName",
-      "CucsExtvmmMasterExtKeyFsmTaskItem"
+      "CucsFsmFlags",
+      "CucsExtvmmEpFsmTaskItem",
+      "CucsExtvmmProviderVendorType",
+      "CucsExtvmmKeyStoreFsmTaskItem",
+      "CucsExtvmmSwitchDelTaskFsmTaskItem"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -56,34 +56,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
+      "IpAddress",
       "Bits",
-      "iso"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TimeStamp",
-      "TimeInterval",
       "TruthValue",
-      "MacAddress"
+      "TimeInterval",
+      "MacAddress",
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cucsExtvmmObjects": {
@@ -5447,8 +5447,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTVMM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:25:09 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:33 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-EXTVMM-MIB"

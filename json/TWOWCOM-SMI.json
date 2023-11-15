@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "IpAddress",
-      "enterprises",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "Counter64",
-      "Integer32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "Integer32",
       "Gauge32",
-      "iso"
+      "Unsigned32",
+      "TimeTicks",
+      "enterprises",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "twowcom": {
@@ -97,8 +97,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-SMI",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:19:10 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:33:39 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TWOWCOM-SMI"

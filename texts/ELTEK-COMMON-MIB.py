@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ELTEK-COMMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltek/ELTEK-COMMON-MIB
-# Produced by pysmi-1.1.10 at Fri Nov 10 13:22:24 2023
-# On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner
+# Produced by pysmi-1.1.10 at Wed Nov 15 02:36:52 2023
+# On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, MibIdentifier, enterprises, Counter32, Unsigned32, Gauge32, NotificationType, Bits, mib_2, IpAddress, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, iso, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "enterprises", "Counter32", "Unsigned32", "Gauge32", "NotificationType", "Bits", "mib-2", "IpAddress", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "iso", "ObjectIdentity")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibIdentifier, mib_2, Gauge32, Bits, NotificationType, Unsigned32, Integer32, Counter64, TimeTicks, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, enterprises, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "mib-2", "Gauge32", "Bits", "NotificationType", "Unsigned32", "Integer32", "Counter64", "TimeTicks", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "enterprises", "ModuleIdentity", "ObjectIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 eltek = ModuleIdentity((1, 3, 6, 1, 4, 1, 12148))
 eltek.setRevisions(('2015-01-03 08:25', '2010-10-29 08:29', '2009-03-12 15:15', '2008-01-30 11:49', '2007-06-22 11:27', '2005-09-07 12:38', '2005-06-28 11:30',))
@@ -20,4 +20,4 @@ if mibBuilder.loadTexts: eltek.setLastUpdated('201501030825Z')
 if mibBuilder.loadTexts: eltek.setOrganization('ELTEK dcSystem MIB Working Group')
 if mibBuilder.loadTexts: eltek.setContactInfo('Eltek R&D.\n\t\t      Postal: Eltek AS\n\t\t      P.O. Box 3043\n\t\t      N-3003 Drammen\n\t\t      Norway\n\t\t      Tel: +47-32 20 32 00\n\t\t      Fax: +47-32 20 31 20\n\t\t      web:  www.eltek.com')
 if mibBuilder.loadTexts: eltek.setDescription('An ongoing effort toward a generic MIB for all ELTEK products.\n\t\tBranch overview:\n\t\tAeongold branch will be 1\n\t\tAL175 branch will be 2\n\t\tAL6000 branch will be 3\n\t\tInternal used branch will be 4\n\t\tInternal used branch will be 5\n\t\tOEM Smartpack branch will be 6\n\t\tELTEK Common branch will be 7 (SmartPack, MCU, AEON w/WebPower sw V2.x)\n\t\tELTEK Distributed branch will be 8 (SmartPack w/WebPower sw V3.x)\n\t\tELTEK Distributed V2 branch will be 9 (SmartPack w/WebPower sw V4.0)\n\t\tELTEK Distributed V3 branch will be 9 (SmartPack w/WebPower sw V4.1)\n\t\tELTEK Distributed V4 branch will be 9 (SmartPack w/WebPower sw V4.1, V4.2, V4.3 and compack 1.xx)\n\t\tELTEK Distributed V5 branch will be 9 (SmartPack w/WebPower sw V4.6)\n\t\tELTEK Distributed V6 branch will be 9 (SmartPack w/WebPower sw V4.6, Smartpack2 V1.1)\n\t\tELTEK Distributed V7 branch will be 9 (SmartPack w/WebPower sw V4.7, V4.8, ComPack V1.04, Smartpack2 V1.1, V1.2)\n\t\tELTEK Distributed V8 branch will be 9 (SmartPack w/WebPower sw V4.9, ComPack V1.04, Smartpack2 V1.1, V1.2)')
-mibBuilder.exportSymbols("ELTEK-COMMON-MIB", PYSNMP_MODULE_ID=eltek, eltek=eltek)
+mibBuilder.exportSymbols("ELTEK-COMMON-MIB", eltek=eltek, PYSNMP_MODULE_ID=eltek)

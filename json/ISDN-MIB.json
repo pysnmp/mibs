@@ -9,34 +9,34 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "transmission",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
       "Bits",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "transmission",
-      "iso",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "TestAndIncr",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "isdnMib": {
@@ -1267,8 +1267,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ISDN-MIB",
-      "Produced by pysmi-1.1.10 at Fri Nov 10 13:19:05 2023",
-      "On host fv-az1435-737 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.10 at Wed Nov 15 02:33:34 2023",
+      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ISDN-MIB"
