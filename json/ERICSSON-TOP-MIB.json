@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "enterprises",
-      "Counter64",
       "IpAddress",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "Gauge32",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Integer32",
       "TimeTicks",
-      "iso"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ericsson": {
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-TOP-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:29:02 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:34:19 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ERICSSON-TOP-MIB"

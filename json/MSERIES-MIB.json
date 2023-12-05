@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MODULE-IDENTITY",
       "TimeTicks",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "enterprises",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
       "iso",
-      "Counter64"
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "smartoptics": {
@@ -47,8 +47,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:35:09 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:39:56 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MSERIES-MIB"

@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysDescr",
       "sysName",
-      "sysLocation",
-      "sysContact"
+      "sysContact",
+      "sysDescr",
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "iso",
       "Counter32",
       "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "Integer32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "eventCounter",
-      "eventTimeStamp",
-      "FloatString",
-      "eventPriority",
       "Integer32d1",
       "FaultOK",
-      "mibRelease",
-      "commonGroup",
+      "eventCounter",
       "Integer32d2",
-      "commonVarbindsCompliance"
+      "commonGroup",
+      "commonVarbindsCompliance",
+      "eventTimeStamp",
+      "eventPriority",
+      "mibRelease",
+      "FloatString"
     ],
     "TWOWCOM-SMI": [
-      "decoder",
+      "dvbEncoder",
       "dvbDecoder",
-      "encoder",
       "other",
-      "dvbEncoder"
+      "encoder",
+      "decoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:25:11 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:30:40 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

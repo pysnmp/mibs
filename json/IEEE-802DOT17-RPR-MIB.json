@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
-      "HCPerfCurrentCount",
+      "HCPerfIntervalCount",
       "HCPerfTotalCount",
-      "HCPerfIntervalCount"
+      "HCPerfCurrentCount"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Counter32",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
       "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:24:49 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:30:17 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

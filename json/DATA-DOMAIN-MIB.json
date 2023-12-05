@@ -11,21 +11,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "enterprises",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "IpAddress",
       "Counter64",
+      "Integer32",
+      "iso",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32"
+      "enterprises",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -21275,8 +21275,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/datadomain/DATA-DOMAIN-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:27:40 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:06 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DATA-DOMAIN-MIB"

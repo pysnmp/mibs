@@ -9,31 +9,31 @@
       "adIdentity"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Unsigned32",
       "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "Bits",
       "Counter32",
+      "Counter64",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "Bits",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "adGenAOSNetMonMib": {
@@ -5619,8 +5619,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-NETWORKMONITOR",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:25:18 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:30:47 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-NETWORKMONITOR"

@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "ZeroBasedCounter64",
       "CounterBasedGauge64",
-      "hcnumTC"
+      "hcnumTC",
+      "ZeroBasedCounter64"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifEntry",
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifTable"
+      "InterfaceIndex",
+      "ifTable",
+      "ifEntry",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Integer32",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
       "OBJECT-IDENTITY",
+      "enterprises",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
       "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "enterprises",
-      "Bits",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TruthValue",
       "DisplayString",
-      "DateAndTime"
+      "TruthValue",
+      "DateAndTime",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TM": [
       "snmpUDPDomain",
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:31:39 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:58 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

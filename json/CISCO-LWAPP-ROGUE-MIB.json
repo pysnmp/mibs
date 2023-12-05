@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
+      "cLApRogueDetectedChannel",
+      "cLApIfSmtDot11Bssid",
+      "cLApRogueApMacAddress",
       "cLApRogueMode",
+      "cLApDot11RadioChannelNumber",
       "cLApName",
       "cLApDot11IfType",
-      "cLApDot11RadioMACAddress",
-      "cLApRogueDetectedChannel",
-      "cLApRogueApMacAddress",
-      "cLApIfSmtDot11Bssid",
-      "cLApDot11RadioChannelNumber"
+      "cLApDot11RadioMACAddress"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
@@ -26,28 +26,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "Counter32",
       "Counter64",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
       "iso",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
       "IpAddress",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
       "MacAddress",
-      "StorageType"
+      "StorageType",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLwappRogueMIB": {
@@ -2521,8 +2521,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:30:51 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:38 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-ROGUE-MIB"

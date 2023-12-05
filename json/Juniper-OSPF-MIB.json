@@ -9,38 +9,38 @@
     ],
     "OSPF-MIB": [
       "ospfIfIpAddress",
-      "ospfVirtIfEntry",
-      "ospfAreaEntry",
-      "ospfIfEntry",
       "ospfNbrEntry",
-      "ospfAddressLessIf"
+      "ospfAreaEntry",
+      "ospfVirtIfEntry",
+      "ospfAddressLessIf",
+      "ospfIfEntry"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "OBJECT-TYPE",
       "Bits",
       "Gauge32",
-      "Counter32",
-      "Counter64",
-      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "Unsigned32"
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "juniOspfMIB": {
@@ -2099,8 +2099,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-OSPF-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:55 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:37:49 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-OSPF-MIB"

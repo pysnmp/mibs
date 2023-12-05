@@ -5,39 +5,39 @@
       "AtmAddr"
     ],
     "BGP4-MIB": [
-      "bgpPeerState",
       "bgpPeerLastError",
-      "bgpPeerRemoteAddr"
+      "bgpPeerRemoteAddr",
+      "bgpPeerState"
     ],
     "DIFFSERV-MIB": [
       "IndexInteger"
     ],
     "DVMRP-MIB": [
-      "dvmrpNeighborAddress",
       "dvmrpNeighborIfIndex",
       "dvmrpInterfaceOperState",
+      "dvmrpNeighborAddress",
       "dvmrpInterfaceIfIndex"
     ],
     "IEEE8021-SECY-MIB": [
       "secyIfEntry"
     ],
     "IF-MIB": [
-      "ifIndex",
       "ifOperStatus",
-      "ifAdminStatus"
+      "ifAdminStatus",
+      "ifIndex"
     ],
     "IGMP-MIB": [
+      "igmpInterfaceQuerier",
       "igmpCacheAddress",
       "igmpInterfaceIfIndex",
-      "igmpCacheIfIndex",
-      "igmpInterfaceQuerier"
+      "igmpCacheIfIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetPortNumber",
       "InetAddress",
-      "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetPortNumber"
+      "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
       "ipNetToMediaNetAddress",
@@ -57,30 +57,30 @@
     ],
     "IPV6-TC": [
       "Ipv6AddressPrefix",
-      "Ipv6IfIndex",
+      "Ipv6Address",
       "Ipv6IfIndexOrZero",
-      "Ipv6AddressIfIdentifier",
-      "Ipv6Address"
+      "Ipv6IfIndex",
+      "Ipv6AddressIfIdentifier"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
-      "LldpSystemCapabilitiesMap",
-      "lldpRemEntry",
       "LldpPortId",
-      "AddressFamilyNumbers",
-      "LldpPortIdSubtype"
+      "LldpManAddress",
+      "LldpPortIdSubtype",
+      "lldpRemEntry",
+      "LldpSystemCapabilitiesMap",
+      "AddressFamilyNumbers"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsTunnelInstanceIndex",
-      "MplsTunnelIndex",
+      "MplsLabel",
       "MplsExtendedTunnelId",
-      "MplsLSPID",
       "MplsLdpIdentifier",
-      "MplsLabel"
+      "MplsTunnelIndex",
+      "MplsLSPID",
+      "MplsTunnelInstanceIndex"
     ],
     "MSDP-MIB": [
-      "msdpSACacheEntry",
       "msdpPeerEntry",
+      "msdpSACacheEntry",
       "msdpPeerState",
       "msdpPeerFsmEstablishedTransitions"
     ],
@@ -89,43 +89,43 @@
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString",
-      "SnmpSecurityModel",
-      "SnmpSecurityLevel"
+      "SnmpSecurityLevel",
+      "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "enterprises",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
       "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "StorageType",
+      "RowStatus",
       "TimeStamp",
       "RowPointer",
-      "TruthValue",
-      "MacAddress",
-      "DateAndTime",
-      "RowStatus",
-      "PhysAddress",
+      "TimeInterval",
       "DisplayString",
-      "TimeInterval"
+      "PhysAddress",
+      "StorageType",
+      "DateAndTime",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -145635,8 +145635,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:33:14 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:38:23 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RAPID-CITY"

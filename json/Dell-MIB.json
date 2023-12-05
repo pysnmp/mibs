@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "iso",
+      "Counter32",
+      "Bits",
+      "Gauge32",
       "Integer32",
-      "iso"
+      "Counter64",
+      "TimeTicks",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "Percents": {
@@ -735,8 +735,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:12 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:34 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Dell-MIB"

@@ -13,20 +13,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
+      "Counter64",
+      "Unsigned32",
       "iso",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1583,8 +1583,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-CGNAT-STATS-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:26:24 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:31:54 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BENU-CGNAT-STATS-MIB"

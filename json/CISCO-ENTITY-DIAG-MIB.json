@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-DIAG-TC-MIB": [
-      "CeDiagErrorIdentifierOrZero",
-      "CeDiagJobIdentifier",
-      "CeDiagErrorIdentifier",
-      "CeDiagJobSuite",
-      "CeDiagDiagnosticMethod",
       "CeDiagPortList",
-      "CeDiagTestList",
       "CeDiagTestIdentifier",
-      "CeDiagDiagnosticLevel"
+      "CeDiagTestList",
+      "CeDiagErrorIdentifierOrZero",
+      "CeDiagDiagnosticLevel",
+      "CeDiagDiagnosticMethod",
+      "CeDiagJobIdentifier",
+      "CeDiagJobSuite",
+      "CeDiagErrorIdentifier"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -19,9 +19,9 @@
       "EntPhysicalIndexOrZero"
     ],
     "ENTITY-MIB": [
-      "entPhysicalDescr",
       "entPhysicalIndex",
-      "PhysicalIndex"
+      "PhysicalIndex",
+      "entPhysicalDescr"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,27 +32,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "Counter32",
       "Counter64",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits",
       "iso",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
+      "RowStatus",
       "DateAndTime",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoEntityDiagMIB": {
@@ -2117,8 +2117,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-DIAG-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:30:54 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:42 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENTITY-DIAG-MIB"

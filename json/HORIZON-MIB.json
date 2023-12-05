@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
       "enterprises",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
       "Counter64",
-      "TimeTicks",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
       "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
       "Bits",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -60,8 +60,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/HORIZON-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:22 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:42 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HORIZON-MIB"

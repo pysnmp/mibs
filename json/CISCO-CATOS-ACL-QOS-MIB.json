@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCO-QOS-PIB-MIB": [
-      "QosInterfaceQueueType",
       "QosLayer2Cos",
-      "Percent",
-      "Dscp"
+      "QosInterfaceQueueType",
+      "Dscp",
+      "Percent"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -14,8 +14,8 @@
       "cseFlowDataEntry"
     ],
     "CISCO-TC": [
-      "CiscoIpProtocol",
-      "CiscoPortList"
+      "CiscoPortList",
+      "CiscoIpProtocol"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -24,8 +24,8 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -41,28 +41,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "iso",
-      "TimeTicks",
-      "Integer32",
       "Gauge32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "DateAndTime",
+      "MacAddress",
       "RowStatus",
-      "MacAddress"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCatOSAclQosMIB": {
@@ -7537,8 +7537,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CATOS-ACL-QOS-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:30:55 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:43 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-CATOS-ACL-QOS-MIB"

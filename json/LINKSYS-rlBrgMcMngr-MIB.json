@@ -15,24 +15,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "Bits",
+      "MODULE-IDENTITY",
       "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rlBrgMcMngr": {
@@ -248,8 +248,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlBrgMcMngr-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:23 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:37:28 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-rlBrgMcMngr-MIB"

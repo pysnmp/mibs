@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Bits",
-      "Unsigned32",
-      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "iso",
+      "mib-2",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Integer32",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "Gauge32",
       "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "mib-2"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "TCP-MIB": [
-      "tcpConnRemAddress",
-      "tcpConnRemPort",
       "tcpConnLocalAddress",
-      "tcpConnLocalPort"
+      "tcpConnLocalPort",
+      "tcpConnRemPort",
+      "tcpConnRemAddress"
     ]
   },
   "ident": {
@@ -182,8 +182,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC1414-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:25:07 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:30:36 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RFC1414-MIB"

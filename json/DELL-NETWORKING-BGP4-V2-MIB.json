@@ -5,44 +5,44 @@
       "dellNetExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetPortNumber",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAutonomousSystemNumber",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
       "iso",
+      "Counter32",
+      "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "mib-2",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "StorageType",
       "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "RowPointer"
+      "StorageType",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dellNetBgpM2": {
@@ -4298,8 +4298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-BGP4-V2-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:12 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:34 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-BGP4-V2-MIB"

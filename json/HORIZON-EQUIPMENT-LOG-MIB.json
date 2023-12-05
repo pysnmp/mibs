@@ -5,31 +5,31 @@
       "horizon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
-      "Bits",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DateAndTime"
+      "RowStatus",
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "horizonEquipmentLogMib": {
@@ -746,8 +746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/HORIZON-EQUIPMENT-LOG-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:22 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:42 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HORIZON-EQUIPMENT-LOG-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -12,12 +12,12 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifAdminStatus",
       "ifOperStatus",
       "InterfaceIndexOrZero",
-      "ifDescr",
       "ifName",
+      "InterfaceIndex",
+      "ifAdminStatus",
+      "ifDescr",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
@@ -32,35 +32,35 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hwIFExtMib": {
@@ -10754,8 +10754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IF-EXT-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:31:11 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:30 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-IF-EXT-MIB"

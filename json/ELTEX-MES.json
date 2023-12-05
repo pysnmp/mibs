@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "eltexLtd",
-      "elHardware"
+      "elHardware",
+      "eltexLtd"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "iso",
-      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Counter32",
-      "Gauge32",
       "Bits",
       "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eltMes": {
@@ -239,8 +239,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-MES",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:42 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:34:03 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ELTEX-MES"

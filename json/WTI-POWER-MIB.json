@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter64",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Bits"
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "iso",
+      "IpAddress",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1636,8 +1636,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wti/WTI-POWER-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:35:58 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:40:44 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WTI-POWER-MIB"

@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "IpAddress",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "enterprises",
       "Gauge32",
-      "Counter32"
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -47,8 +47,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mcafee/MCAFEE-SMI",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:20 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:37:25 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MCAFEE-SMI"

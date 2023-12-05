@@ -5,29 +5,29 @@
       "pt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Bits",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
       "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
       "iso",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ptPM": {
@@ -226,8 +226,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-PM-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:29:02 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:34:19 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PT-PM-MIB"

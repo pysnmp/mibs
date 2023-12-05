@@ -5,40 +5,40 @@
       "hpnicfCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressIPv4"
+      "InetAddressType",
+      "InetAddressIPv4",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "IpAddress",
+      "Counter64",
       "Integer32",
-      "Gauge32"
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfPortal": {
@@ -1512,8 +1512,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-PORTAL-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:42 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:40 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-PORTAL-MIB"

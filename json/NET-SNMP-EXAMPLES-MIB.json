@@ -12,30 +12,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "Bits",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "netSnmpExamples": {
@@ -347,8 +347,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-EXAMPLES-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:55 2023",
-      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 08:37:55 2023",
+      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "NET-SNMP-EXAMPLES-MIB"
