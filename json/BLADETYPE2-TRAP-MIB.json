@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "ipCurCfgGwIndex",
-      "vrrpCurCfgVirtRtrIndx",
       "vrrpCurCfgIfIndx",
-      "ipCurCfgGwAddr",
       "vrrpCurCfgIfPasswd",
-      "vrrpCurCfgVirtRtrAddr"
+      "vrrpCurCfgVirtRtrAddr",
+      "vrrpCurCfgVirtRtrIndx",
+      "ipCurCfgGwAddr",
+      "ipCurCfgGwIndex"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
       "stgCurCfgIndex"
     ],
     "BLADETYPE2-SWITCH-MIB": [
+      "agSlotNumber",
       "agRackId",
-      "agChassis",
-      "agSlotNumber"
+      "agChassis"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
@@ -25,30 +25,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
+      "sysContact",
       "sysName",
-      "sysLocation",
-      "sysContact"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bt2Traps": {
@@ -78,12 +78,12 @@
   },
   "bt2SwPrimaryPowerSupplyFailure": {
     "name": "bt2SwPrimaryPowerSupplyFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.1",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.1",
     "class": "notificationtype"
   },
   "bt2SwDefGwUp": {
     "name": "bt2SwDefGwUp",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.2",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -110,7 +110,7 @@
   },
   "bt2SwDefGwDown": {
     "name": "bt2SwDefGwDown",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.3",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -137,7 +137,7 @@
   },
   "bt2SwDefGwInService": {
     "name": "bt2SwDefGwInService",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.4",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -164,7 +164,7 @@
   },
   "bt2SwDefGwNotInService": {
     "name": "bt2SwDefGwNotInService",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.5",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -191,7 +191,7 @@
   },
   "bt2SwVrrpNewMaster": {
     "name": "bt2SwVrrpNewMaster",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.16",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -218,7 +218,7 @@
   },
   "bt2SwVrrpNewBackup": {
     "name": "bt2SwVrrpNewBackup",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.17",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -245,7 +245,7 @@
   },
   "bt2SwVrrpAuthFailure": {
     "name": "bt2SwVrrpAuthFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.18",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -272,7 +272,7 @@
   },
   "bt2SwLoginFailure": {
     "name": "bt2SwLoginFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.19",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -295,7 +295,7 @@
   },
   "bt2SwTempExceedThreshold": {
     "name": "bt2SwTempExceedThreshold",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.22",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -318,7 +318,7 @@
   },
   "bt2SwRackLocationChange": {
     "name": "bt2SwRackLocationChange",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.26",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -349,7 +349,7 @@
   },
   "bt2SwApplyComplete": {
     "name": "bt2SwApplyComplete",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.27",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -372,7 +372,7 @@
   },
   "bt2SwSaveComplete": {
     "name": "bt2SwSaveComplete",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.28",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -395,7 +395,7 @@
   },
   "bt2SwFwDownloadSucess": {
     "name": "bt2SwFwDownloadSucess",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.29",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -418,7 +418,7 @@
   },
   "bt2SwFwDownloadFailure": {
     "name": "bt2SwFwDownloadFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.30",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -441,7 +441,7 @@
   },
   "bt2SwTempReturnThreshold": {
     "name": "bt2SwTempReturnThreshold",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.31",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -464,7 +464,7 @@
   },
   "bt2SwFanFailure": {
     "name": "bt2SwFanFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.32",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -487,7 +487,7 @@
   },
   "bt2SwFanFailureFixed": {
     "name": "bt2SwFanFailureFixed",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.33",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -510,7 +510,7 @@
   },
   "bt2SwUfdfoLtMFailure": {
     "name": "bt2SwUfdfoLtMFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.34",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -533,7 +533,7 @@
   },
   "bt2SwUfdfoLtMUP": {
     "name": "bt2SwUfdfoLtMUP",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.35",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -556,7 +556,7 @@
   },
   "bt2SwUfdfoGlobalEna": {
     "name": "bt2SwUfdfoGlobalEna",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.36",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -579,7 +579,7 @@
   },
   "bt2SwUfdfoGlobalDis": {
     "name": "bt2SwUfdfoGlobalDis",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.37",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -602,7 +602,7 @@
   },
   "bt2SwUfdfoLtDAutoEna": {
     "name": "bt2SwUfdfoLtDAutoEna",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.38",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -625,7 +625,7 @@
   },
   "bt2SwUfdfoLtDAutoDis": {
     "name": "bt2SwUfdfoLtDAutoDis",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.39",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -648,7 +648,7 @@
   },
   "bt2SwCubeInserted": {
     "name": "bt2SwCubeInserted",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.40",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -671,7 +671,7 @@
   },
   "bt2SwCubeRemoved": {
     "name": "bt2SwCubeRemoved",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.41",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -694,7 +694,7 @@
   },
   "bt2SwStgNewRoot": {
     "name": "bt2SwStgNewRoot",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.42",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.42",
     "class": "notificationtype",
     "objects": [
       {
@@ -721,7 +721,7 @@
   },
   "bt2SwCistNewRoot": {
     "name": "bt2SwCistNewRoot",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.43",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -744,7 +744,7 @@
   },
   "bt2SwStgTopologyChanged": {
     "name": "bt2SwStgTopologyChanged",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.44",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -771,7 +771,7 @@
   },
   "bt2SwCistTopologyChanged": {
     "name": "bt2SwCistTopologyChanged",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.45",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -794,7 +794,7 @@
   },
   "bt2SwHotlinksMasterUp": {
     "name": "bt2SwHotlinksMasterUp",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.46",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.46",
     "class": "notificationtype",
     "objects": [
       {
@@ -817,7 +817,7 @@
   },
   "bt2SwHotlinksMasterDn": {
     "name": "bt2SwHotlinksMasterDn",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.47",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.47",
     "class": "notificationtype",
     "objects": [
       {
@@ -840,7 +840,7 @@
   },
   "bt2SwHotlinksBackupUp": {
     "name": "bt2SwHotlinksBackupUp",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.48",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.48",
     "class": "notificationtype",
     "objects": [
       {
@@ -863,7 +863,7 @@
   },
   "bt2SwHotlinksBackupDn": {
     "name": "bt2SwHotlinksBackupDn",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.49",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.49",
     "class": "notificationtype",
     "objects": [
       {
@@ -886,7 +886,7 @@
   },
   "bt2SwHotlinksNone": {
     "name": "bt2SwHotlinksNone",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.70.50",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.1.2.7.0.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:41 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:42 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

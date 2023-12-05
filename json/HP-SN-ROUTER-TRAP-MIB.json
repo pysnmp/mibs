@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "HP-SN-OSPF-GROUP-MIB": [
-      "snOspfVirtIfStatusNeighbor",
-      "snOspfLsdbRouterId",
-      "snOspfVirtNbrRtrId",
-      "snOspfLsdbLsId",
-      "snOspfVirtNbrArea",
-      "snOspfLsdbAreaId",
-      "snOspfNbrRtrId",
-      "snOspfExtLsdbLimit",
-      "snOspfIfStatusIpAddress",
-      "snOspfPacketType",
-      "snOspfNbrState",
-      "snOspfPacketSrc",
-      "snOspfVirtIfStatusState",
-      "snOspfRouterId",
-      "snOspfVirtNbrState",
-      "snOspfNbrIpAddr",
       "snOspfVirtIfStatusAreaID",
+      "snOspfLsdbAreaId",
       "snOspfLsdbType",
+      "snOspfVirtNbrArea",
+      "snOspfRouterId",
+      "snOspfNbrState",
+      "snOspfLsdbRouterId",
+      "snOspfLsdbLsId",
+      "snOspfNbrRtrId",
       "snOspfIfStatusState",
-      "snOspfConfigErrorType"
+      "snOspfPacketSrc",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfVirtNbrState",
+      "snOspfVirtIfStatusState",
+      "snOspfPacketType",
+      "snOspfNbrIpAddr",
+      "snOspfVirtNbrRtrId",
+      "snOspfExtLsdbLimit",
+      "snOspfConfigErrorType",
+      "snOspfIfStatusIpAddress"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
@@ -32,29 +32,29 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTrapOspfIfStateChange": {
     "name": "snTrapOspfIfStateChange",
-    "oid": "1.3.6.1.4.1.110.3",
+    "oid": "1.3.6.1.4.1.11.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -73,7 +73,7 @@
   },
   "snTrapOspfVirtIfStateChange": {
     "name": "snTrapOspfVirtIfStateChange",
-    "oid": "1.3.6.1.4.1.110.4",
+    "oid": "1.3.6.1.4.1.11.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -96,7 +96,7 @@
   },
   "snOspfNbrStateChange": {
     "name": "snOspfNbrStateChange",
-    "oid": "1.3.6.1.4.1.110.5",
+    "oid": "1.3.6.1.4.1.11.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -119,7 +119,7 @@
   },
   "snOspfVirtNbrStateChange": {
     "name": "snOspfVirtNbrStateChange",
-    "oid": "1.3.6.1.4.1.110.6",
+    "oid": "1.3.6.1.4.1.11.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -142,7 +142,7 @@
   },
   "snOspfIfConfigError": {
     "name": "snOspfIfConfigError",
-    "oid": "1.3.6.1.4.1.110.7",
+    "oid": "1.3.6.1.4.1.11.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -169,7 +169,7 @@
   },
   "snOspfVirtIfConfigError": {
     "name": "snOspfVirtIfConfigError",
-    "oid": "1.3.6.1.4.1.110.8",
+    "oid": "1.3.6.1.4.1.11.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -196,7 +196,7 @@
   },
   "snOspfIfAuthFailure": {
     "name": "snOspfIfAuthFailure",
-    "oid": "1.3.6.1.4.1.110.9",
+    "oid": "1.3.6.1.4.1.11.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -223,7 +223,7 @@
   },
   "snOspfVirtIfAuthFailure": {
     "name": "snOspfVirtIfAuthFailure",
-    "oid": "1.3.6.1.4.1.110.10",
+    "oid": "1.3.6.1.4.1.11.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -250,7 +250,7 @@
   },
   "snOspfIfRxBadPacket": {
     "name": "snOspfIfRxBadPacket",
-    "oid": "1.3.6.1.4.1.110.11",
+    "oid": "1.3.6.1.4.1.11.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -273,7 +273,7 @@
   },
   "snOspfVirtIfRxBadPacket": {
     "name": "snOspfVirtIfRxBadPacket",
-    "oid": "1.3.6.1.4.1.110.12",
+    "oid": "1.3.6.1.4.1.11.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -296,7 +296,7 @@
   },
   "snOspfTxRetransmit": {
     "name": "snOspfTxRetransmit",
-    "oid": "1.3.6.1.4.1.110.13",
+    "oid": "1.3.6.1.4.1.11.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -331,7 +331,7 @@
   },
   "ospfVirtIfTxRetransmit": {
     "name": "ospfVirtIfTxRetransmit",
-    "oid": "1.3.6.1.4.1.110.14",
+    "oid": "1.3.6.1.4.1.11.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -366,7 +366,7 @@
   },
   "snOspfOriginateLsa": {
     "name": "snOspfOriginateLsa",
-    "oid": "1.3.6.1.4.1.110.15",
+    "oid": "1.3.6.1.4.1.11.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -393,7 +393,7 @@
   },
   "snOspfMaxAgeLsa": {
     "name": "snOspfMaxAgeLsa",
-    "oid": "1.3.6.1.4.1.110.16",
+    "oid": "1.3.6.1.4.1.11.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -420,7 +420,7 @@
   },
   "snOspfLsdbOverflow": {
     "name": "snOspfLsdbOverflow",
-    "oid": "1.3.6.1.4.1.110.17",
+    "oid": "1.3.6.1.4.1.11.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -435,7 +435,7 @@
   },
   "snOspfLsdbApproachingOverflow": {
     "name": "snOspfLsdbApproachingOverflow",
-    "oid": "1.3.6.1.4.1.110.18",
+    "oid": "1.3.6.1.4.1.11.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -451,8 +451,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:42 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:42 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HP-SN-ROUTER-TRAP-MIB"

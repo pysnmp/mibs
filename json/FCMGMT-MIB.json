@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "TRAP-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "experimental",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "TRAP-TYPE",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "Counter32"
+      "experimental"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "FcNameId": {
@@ -3243,7 +3243,7 @@
   },
   "connUnitStatusChange": {
     "name": "connUnitStatusChange",
-    "oid": "1.3.6.1.3.940.1",
+    "oid": "1.3.6.1.3.94.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3258,7 +3258,7 @@
   },
   "connUnitDeletedTrap": {
     "name": "connUnitDeletedTrap",
-    "oid": "1.3.6.1.3.940.3",
+    "oid": "1.3.6.1.3.94.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -3269,7 +3269,7 @@
   },
   "connUnitEventTrap": {
     "name": "connUnitEventTrap",
-    "oid": "1.3.6.1.3.940.4",
+    "oid": "1.3.6.1.3.94.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -3292,7 +3292,7 @@
   },
   "connUnitSensorStatusChange": {
     "name": "connUnitSensorStatusChange",
-    "oid": "1.3.6.1.3.940.5",
+    "oid": "1.3.6.1.3.94.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -3303,7 +3303,7 @@
   },
   "connUnitPortStatusChange": {
     "name": "connUnitPortStatusChange",
-    "oid": "1.3.6.1.3.940.6",
+    "oid": "1.3.6.1.3.94.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -3319,8 +3319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/draft-ietf-ipfc-fcmgmt-int-mib-04",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:33:34 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:25:07 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FCMGMT-MIB"

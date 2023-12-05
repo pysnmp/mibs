@@ -5,29 +5,29 @@
       "fastPath"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "IpAddress",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "iso",
       "MibIdentifier",
-      "Unsigned32",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1697,8 +1697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-INVENTORY-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:36:45 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:28 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-INVENTORY-MIB"

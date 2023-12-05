@@ -5,25 +5,25 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "AGENT-CAPABILITIES",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Counter64",
-      "Bits"
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -237,8 +237,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-PPP-CONF",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:40:46 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:56 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "Juniper-PPP-CONF"

@@ -6,23 +6,23 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
       "Counter64"
     ],
     "SNMPv2-TC": [
@@ -164,8 +164,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-ENVMON-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:42:50 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:35:08 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MSERIES-ENVMON-MIB"

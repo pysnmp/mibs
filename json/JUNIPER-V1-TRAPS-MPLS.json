@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "iso",
-      "Integer32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "enterprises",
       "Counter64",
-      "Bits"
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -65,7 +65,7 @@
   },
   "mplsLspUpV1": {
     "name": "mplsLspUpV1",
-    "oid": "1.3.6.1.4.1.26360.1",
+    "oid": "1.3.6.1.4.1.2636.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -80,7 +80,7 @@
   },
   "mplsLspDownV1": {
     "name": "mplsLspDownV1",
-    "oid": "1.3.6.1.4.1.26360.2",
+    "oid": "1.3.6.1.4.1.2636.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -95,7 +95,7 @@
   },
   "mplsLspChangeV1": {
     "name": "mplsLspChangeV1",
-    "oid": "1.3.6.1.4.1.26360.3",
+    "oid": "1.3.6.1.4.1.2636.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -111,8 +111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-V1-TRAPS-MPLS",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:40:46 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:55 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-V1-TRAPS-MPLS"

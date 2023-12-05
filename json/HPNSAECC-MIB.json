@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Bits",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hp": {
@@ -368,34 +368,34 @@
   },
   "hpnsaEccErrorCorrected": {
     "name": "hpnsaEccErrorCorrected",
-    "oid": "1.3.6.1.4.1.11.2.23.60.4353",
+    "oid": "1.3.6.1.4.1.11.2.23.6.0.4353",
     "class": "notificationtype"
   },
   "hpnsaEccSBEOverflow": {
     "name": "hpnsaEccSBEOverflow",
-    "oid": "1.3.6.1.4.1.11.2.23.60.4354",
+    "oid": "1.3.6.1.4.1.11.2.23.6.0.4354",
     "class": "notificationtype"
   },
   "hpnsaEccMemoryResize": {
     "name": "hpnsaEccMemoryResize",
-    "oid": "1.3.6.1.4.1.11.2.23.60.4355",
+    "oid": "1.3.6.1.4.1.11.2.23.6.0.4355",
     "class": "notificationtype"
   },
   "hpnsaEccMultiBitError": {
     "name": "hpnsaEccMultiBitError",
-    "oid": "1.3.6.1.4.1.11.2.23.60.4357",
+    "oid": "1.3.6.1.4.1.11.2.23.6.0.4357",
     "class": "notificationtype"
   },
   "hpnsaEccMultiBitErrorOverflow": {
     "name": "hpnsaEccMultiBitErrorOverflow",
-    "oid": "1.3.6.1.4.1.11.2.23.60.4358",
+    "oid": "1.3.6.1.4.1.11.2.23.6.0.4358",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSAECC-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:42 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:42 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPNSAECC-MIB"

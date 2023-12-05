@@ -8,30 +8,30 @@
       "rbnMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Integer32",
       "Gauge32",
-      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "IpAddress",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "rbnEnvMonMIB": {
@@ -987,8 +987,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/RBN-ENVMON-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:37:16 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:29:02 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RBN-ENVMON-MIB"

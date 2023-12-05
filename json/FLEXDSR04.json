@@ -6,51 +6,51 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
+      "sysDescr",
       "sysName",
       "sysLocation",
-      "sysContact",
-      "sysDescr"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Gauge32",
+      "Counter32",
+      "IpAddress",
       "TimeTicks",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
       "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
+      "eventCounter",
+      "eventTimeStamp",
+      "FloatString",
       "eventPriority",
-      "commonVarbindsCompliance",
+      "Integer32d1",
+      "FaultOK",
       "mibRelease",
       "commonGroup",
-      "eventCounter",
-      "FloatString",
       "Integer32d2",
-      "Integer32d1",
-      "eventTimeStamp",
-      "FaultOK"
+      "commonVarbindsCompliance"
     ],
     "TWOWCOM-SMI": [
-      "encoder",
       "decoder",
-      "dvbEncoder",
       "dvbDecoder",
-      "other"
+      "encoder",
+      "other",
+      "dvbEncoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:33:39 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:25:11 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

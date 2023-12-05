@@ -6,32 +6,32 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysContact",
+      "sysLocation",
       "sysDescr",
       "sysName",
-      "sysLocation"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "iso",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "TRAP-TYPE",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
       "Integer32",
+      "enterprises",
+      "Unsigned32",
       "Counter32",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rittal": {
@@ -4178,7 +4178,7 @@
   },
   "alarmSensorUnit1": {
     "name": "alarmSensorUnit1",
-    "oid": "1.3.6.1.4.1.2606.40.1",
+    "oid": "1.3.6.1.4.1.2606.4.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -4213,7 +4213,7 @@
   },
   "alarmSensorUnit2": {
     "name": "alarmSensorUnit2",
-    "oid": "1.3.6.1.4.1.2606.40.2",
+    "oid": "1.3.6.1.4.1.2606.4.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -4248,7 +4248,7 @@
   },
   "alarmSensorUnit3": {
     "name": "alarmSensorUnit3",
-    "oid": "1.3.6.1.4.1.2606.40.3",
+    "oid": "1.3.6.1.4.1.2606.4.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -4283,7 +4283,7 @@
   },
   "alarmSensorUnit4": {
     "name": "alarmSensorUnit4",
-    "oid": "1.3.6.1.4.1.2606.40.4",
+    "oid": "1.3.6.1.4.1.2606.4.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -4318,7 +4318,7 @@
   },
   "alarmUnit1": {
     "name": "alarmUnit1",
-    "oid": "1.3.6.1.4.1.2606.40.5",
+    "oid": "1.3.6.1.4.1.2606.4.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -4345,7 +4345,7 @@
   },
   "alarmUnit2": {
     "name": "alarmUnit2",
-    "oid": "1.3.6.1.4.1.2606.40.6",
+    "oid": "1.3.6.1.4.1.2606.4.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -4372,7 +4372,7 @@
   },
   "alarmUnit3": {
     "name": "alarmUnit3",
-    "oid": "1.3.6.1.4.1.2606.40.7",
+    "oid": "1.3.6.1.4.1.2606.4.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -4399,7 +4399,7 @@
   },
   "alarmUnit4": {
     "name": "alarmUnit4",
-    "oid": "1.3.6.1.4.1.2606.40.8",
+    "oid": "1.3.6.1.4.1.2606.4.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -4426,7 +4426,7 @@
   },
   "alarmValues": {
     "name": "alarmValues",
-    "oid": "1.3.6.1.4.1.2606.40.9",
+    "oid": "1.3.6.1.4.1.2606.4.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -4457,7 +4457,7 @@
   },
   "configChanged": {
     "name": "configChanged",
-    "oid": "1.3.6.1.4.1.2606.40.10",
+    "oid": "1.3.6.1.4.1.2606.4.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -4481,8 +4481,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-TC-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:42:26 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:34:39 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "RITTAL-CMC-TC-MIB"

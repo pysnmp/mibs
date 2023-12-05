@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Gauge32",
       "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "enterprises",
+      "Counter64",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "enterprises",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks"
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "miniLink": {
@@ -50,8 +50,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/MINI-LINK-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:37:16 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:29:01 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MINI-LINK-MIB"

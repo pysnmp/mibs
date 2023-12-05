@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
       "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "Counter64",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "TimeTicks",
       "Bits",
       "enterprises",
-      "Counter32",
-      "TRAP-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -496,94 +496,94 @@
   },
   "lostEthernetConnection": {
     "name": "lostEthernetConnection",
-    "oid": "1.3.6.1.4.1.25868.10.0",
+    "oid": "1.3.6.1.4.1.25868.1.0.0",
     "class": "notificationtype"
   },
   "masterPrimayPowerLost": {
     "name": "masterPrimayPowerLost",
-    "oid": "1.3.6.1.4.1.25868.10.1",
+    "oid": "1.3.6.1.4.1.25868.1.0.1",
     "class": "notificationtype"
   },
   "masterSecondaryPowerLost": {
     "name": "masterSecondaryPowerLost",
-    "oid": "1.3.6.1.4.1.25868.10.2",
+    "oid": "1.3.6.1.4.1.25868.1.0.2",
     "class": "notificationtype"
   },
   "gpsSignalLost": {
     "name": "gpsSignalLost",
-    "oid": "1.3.6.1.4.1.25868.10.3",
+    "oid": "1.3.6.1.4.1.25868.1.0.3",
     "class": "notificationtype"
   },
   "masterTempatureError": {
     "name": "masterTempatureError",
-    "oid": "1.3.6.1.4.1.25868.10.4",
+    "oid": "1.3.6.1.4.1.25868.1.0.4",
     "class": "notificationtype"
   },
   "masterCircuitBreakerTripCode": {
     "name": "masterCircuitBreakerTripCode",
-    "oid": "1.3.6.1.4.1.25868.10.5",
+    "oid": "1.3.6.1.4.1.25868.1.0.5",
     "class": "notificationtype"
   },
   "loginFailedAttempt": {
     "name": "loginFailedAttempt",
-    "oid": "1.3.6.1.4.1.25868.10.6",
+    "oid": "1.3.6.1.4.1.25868.1.0.6",
     "class": "notificationtype"
   },
   "settingsChanged": {
     "name": "settingsChanged",
-    "oid": "1.3.6.1.4.1.25868.10.7",
+    "oid": "1.3.6.1.4.1.25868.1.0.7",
     "class": "notificationtype"
   },
   "masterPrimaryPowerOK": {
     "name": "masterPrimaryPowerOK",
-    "oid": "1.3.6.1.4.1.25868.10.10",
+    "oid": "1.3.6.1.4.1.25868.1.0.10",
     "class": "notificationtype"
   },
   "masterSecondaryPowerOK": {
     "name": "masterSecondaryPowerOK",
-    "oid": "1.3.6.1.4.1.25868.10.20",
+    "oid": "1.3.6.1.4.1.25868.1.0.20",
     "class": "notificationtype"
   },
   "gpsSignalOK": {
     "name": "gpsSignalOK",
-    "oid": "1.3.6.1.4.1.25868.10.30",
+    "oid": "1.3.6.1.4.1.25868.1.0.30",
     "class": "notificationtype"
   },
   "tempatureOK": {
     "name": "tempatureOK",
-    "oid": "1.3.6.1.4.1.25868.10.40",
+    "oid": "1.3.6.1.4.1.25868.1.0.40",
     "class": "notificationtype"
   },
   "circuitBreakersOK": {
     "name": "circuitBreakersOK",
-    "oid": "1.3.6.1.4.1.25868.10.50",
+    "oid": "1.3.6.1.4.1.25868.1.0.50",
     "class": "notificationtype"
   },
   "masterAutoRestartCBCompletedOK": {
     "name": "masterAutoRestartCBCompletedOK",
-    "oid": "1.3.6.1.4.1.25868.10.52",
+    "oid": "1.3.6.1.4.1.25868.1.0.52",
     "class": "notificationtype"
   },
   "loginOK": {
     "name": "loginOK",
-    "oid": "1.3.6.1.4.1.25868.10.60",
+    "oid": "1.3.6.1.4.1.25868.1.0.60",
     "class": "notificationtype"
   },
   "resetComplete": {
     "name": "resetComplete",
-    "oid": "1.3.6.1.4.1.25868.10.80",
+    "oid": "1.3.6.1.4.1.25868.1.0.80",
     "class": "notificationtype"
   },
   "ethernetConnectionRestored": {
     "name": "ethernetConnectionRestored",
-    "oid": "1.3.6.1.4.1.25868.10.99",
+    "oid": "1.3.6.1.4.1.25868.1.0.99",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ctm/CTMMIBV2",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:35:33 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:27:13 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CTMMIB"

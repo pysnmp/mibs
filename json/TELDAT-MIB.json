@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Opaque",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "iso",
-      "enterprises",
+      "Integer32",
       "Bits",
+      "Opaque",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TRAP-TYPE",
+      "Gauge32",
+      "enterprises",
+      "IpAddress",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "teldat": {
@@ -4127,7 +4127,7 @@
   },
   "telTECircuitTrapUp": {
     "name": "telTECircuitTrapUp",
-    "oid": "1.3.6.1.4.1.2007.1.30.1",
+    "oid": "1.3.6.1.4.1.2007.1.3.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -4178,7 +4178,7 @@
   },
   "telTECircuitTrapBackup": {
     "name": "telTECircuitTrapBackup",
-    "oid": "1.3.6.1.4.1.2007.1.30.2",
+    "oid": "1.3.6.1.4.1.2007.1.3.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -4229,7 +4229,7 @@
   },
   "telTECircuitTrapDown": {
     "name": "telTECircuitTrapDown",
-    "oid": "1.3.6.1.4.1.2007.1.30.3",
+    "oid": "1.3.6.1.4.1.2007.1.3.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -5045,7 +5045,7 @@
   },
   "telSistemaEventos": {
     "name": "telSistemaEventos",
-    "oid": "1.3.6.1.4.1.20070.1",
+    "oid": "1.3.6.1.4.1.2007.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -5102,8 +5102,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:43:08 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:35:27 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TELDAT-MIB"

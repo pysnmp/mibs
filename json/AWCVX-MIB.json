@@ -13,19 +13,19 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Integer32",
-      "IpAddress",
-      "TRAP-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-SMI-v1": [
@@ -37,9 +37,9 @@
     ],
     "SNMPv2-TC-v1": [
       "DisplayString",
-      "MacAddress",
       "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "awcVx": {
@@ -9057,7 +9057,7 @@
   },
   "awcTrapLog": {
     "name": "awcTrapLog",
-    "oid": "1.3.6.1.4.1.5220.4",
+    "oid": "1.3.6.1.4.1.522.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -9221,8 +9221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/AWCVX-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:33 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:30:51 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "AWCVX-MIB"

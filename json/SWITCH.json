@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressType"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "enterprises",
-      "IpAddress",
-      "Counter32",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
-      "mib-2",
-      "Gauge32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "MibIdentifier",
-      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
       "iso",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "mib-2",
+      "Unsigned32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DateAndTime",
       "TestAndIncr",
-      "PhysAddress",
-      "DisplayString",
-      "RowStatus",
       "TimeStamp",
-      "MacAddress"
+      "DisplayString",
+      "DateAndTime",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "AutonomousType",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:38:05 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:30:20 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

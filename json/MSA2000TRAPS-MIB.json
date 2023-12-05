@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "FCMGMT-MIB": [
-      "connUnitEventType",
       "connUnitEventDescr",
+      "connUnitEventType",
       "connUnitEventId"
     ],
     "SNMPv2-CONF": [
@@ -11,26 +11,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Integer32"
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Bits",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hp": {
@@ -62,7 +62,7 @@
   },
   "msaEventInfoTrap": {
     "name": "msaEventInfoTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3001",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3001",
     "class": "notificationtype",
     "objects": [
       {
@@ -81,7 +81,7 @@
   },
   "msaEventWarningTrap": {
     "name": "msaEventWarningTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3002",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3002",
     "class": "notificationtype",
     "objects": [
       {
@@ -100,7 +100,7 @@
   },
   "msaEventErrorTrap": {
     "name": "msaEventErrorTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3003",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3003",
     "class": "notificationtype",
     "objects": [
       {
@@ -119,7 +119,7 @@
   },
   "msaEventCriticalTrap": {
     "name": "msaEventCriticalTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3004",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3004",
     "class": "notificationtype",
     "objects": [
       {
@@ -139,8 +139,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/MSA2000TRAPS-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:41 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:32:42 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MSA2000TRAPS-MIB"

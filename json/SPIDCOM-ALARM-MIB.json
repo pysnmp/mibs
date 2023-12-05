@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
+      "OBJECT-TYPE",
       "Counter64",
       "iso",
+      "TimeTicks",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
       "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
       "Integer32",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "neAlarm": {
@@ -509,8 +509,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPIDCOM-ALARM-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:35:10 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:26:45 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SPIDCOM-ALARM-MIB"

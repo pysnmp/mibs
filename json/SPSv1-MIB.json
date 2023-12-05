@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Unsigned32",
+      "iso",
+      "Integer32",
       "MibIdentifier",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
       "Counter32",
-      "Counter64",
       "Bits",
+      "enterprises",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "enterprises"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "powertek": {
@@ -4114,489 +4114,489 @@
   },
   "pduSystemColdBoot": {
     "name": "pduSystemColdBoot",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.1",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.1",
     "class": "notificationtype"
   },
   "pduSystemWarmBoot": {
     "name": "pduSystemWarmBoot",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.2",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.2",
     "class": "notificationtype"
   },
   "pduSystemRestart": {
     "name": "pduSystemRestart",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.3",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.3",
     "class": "notificationtype"
   },
   "pduResetToDefault": {
     "name": "pduResetToDefault",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.4",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.4",
     "class": "notificationtype"
   },
   "pduFirmUpgrade": {
     "name": "pduFirmUpgrade",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.5",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.5",
     "class": "notificationtype"
   },
   "pduSystemLogClear": {
     "name": "pduSystemLogClear",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.6",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.6",
     "class": "notificationtype"
   },
   "pduEventlogClear": {
     "name": "pduEventlogClear",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.7",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.7",
     "class": "notificationtype"
   },
   "pduInletHistoryClear": {
     "name": "pduInletHistoryClear",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.8",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.8",
     "class": "notificationtype"
   },
   "pduOutletHistoryClear": {
     "name": "pduOutletHistoryClear",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.9",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.9",
     "class": "notificationtype"
   },
   "pduSystemTimeChangeUser": {
     "name": "pduSystemTimeChangeUser",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.10",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.10",
     "class": "notificationtype"
   },
   "pduSystemTimeChangeNtp": {
     "name": "pduSystemTimeChangeNtp",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.11",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.11",
     "class": "notificationtype"
   },
   "pduSystemTimeChangeRtc": {
     "name": "pduSystemTimeChangeRtc",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.12",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.12",
     "class": "notificationtype"
   },
   "pduMailTestPass": {
     "name": "pduMailTestPass",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.13",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.13",
     "class": "notificationtype"
   },
   "pduMailTestFail": {
     "name": "pduMailTestFail",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.14",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.14",
     "class": "notificationtype"
   },
   "pduMailSentPass": {
     "name": "pduMailSentPass",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.15",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.15",
     "class": "notificationtype"
   },
   "pduMailSentFail": {
     "name": "pduMailSentFail",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.16",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.16",
     "class": "notificationtype"
   },
   "pduSystemCfgChange": {
     "name": "pduSystemCfgChange",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.17",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.17",
     "class": "notificationtype"
   },
   "pduSystemParamImport": {
     "name": "pduSystemParamImport",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.18",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.18",
     "class": "notificationtype"
   },
   "pduInletCommLost": {
     "name": "pduInletCommLost",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.19",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.19",
     "class": "notificationtype"
   },
   "pduInletCommRestore": {
     "name": "pduInletCommRestore",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.20",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.20",
     "class": "notificationtype"
   },
   "pduOutletCommLost": {
     "name": "pduOutletCommLost",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.21",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.21",
     "class": "notificationtype"
   },
   "pduOutletCommRestore": {
     "name": "pduOutletCommRestore",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.22",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.22",
     "class": "notificationtype"
   },
   "pduOutletOnUser": {
     "name": "pduOutletOnUser",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.23",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.23",
     "class": "notificationtype"
   },
   "pduOutletOnSchedule": {
     "name": "pduOutletOnSchedule",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.24",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.24",
     "class": "notificationtype"
   },
   "pduOutletOffUser": {
     "name": "pduOutletOffUser",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.25",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.25",
     "class": "notificationtype"
   },
   "pduOutletOffSchedule": {
     "name": "pduOutletOffSchedule",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.26",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.26",
     "class": "notificationtype"
   },
   "pduOutletRebootUser": {
     "name": "pduOutletRebootUser",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.27",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.27",
     "class": "notificationtype"
   },
   "pduOutletRebootSchedule": {
     "name": "pduOutletRebootSchedule",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.28",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.28",
     "class": "notificationtype"
   },
   "pduInletEnergyReset": {
     "name": "pduInletEnergyReset",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.29",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.29",
     "class": "notificationtype"
   },
   "pduOutletEnergyReset": {
     "name": "pduOutletEnergyReset",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.30",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.30",
     "class": "notificationtype"
   },
   "pduSetUser": {
     "name": "pduSetUser",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.31",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.31",
     "class": "notificationtype"
   },
   "pduDeletUser": {
     "name": "pduDeletUser",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.32",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.32",
     "class": "notificationtype"
   },
   "pduUpgradeInletSuccess": {
     "name": "pduUpgradeInletSuccess",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.33",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.33",
     "class": "notificationtype"
   },
   "pduUpgradeInletFail": {
     "name": "pduUpgradeInletFail",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.34",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.34",
     "class": "notificationtype"
   },
   "pduUpgradeOutletSuccess": {
     "name": "pduUpgradeOutletSuccess",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.35",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.35",
     "class": "notificationtype"
   },
   "pduUpgradeOutletFail": {
     "name": "pduUpgradeOutletFail",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.36",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.36",
     "class": "notificationtype"
   },
   "pduEmdTempHighWarnToNormal": {
     "name": "pduEmdTempHighWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.101",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.101",
     "class": "notificationtype"
   },
   "pduEmdTempHighWarn": {
     "name": "pduEmdTempHighWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.102",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.102",
     "class": "notificationtype"
   },
   "pduEmdTempLowWarnToNormal": {
     "name": "pduEmdTempLowWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.103",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.103",
     "class": "notificationtype"
   },
   "pduEmdTempLowWarn": {
     "name": "pduEmdTempLowWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.104",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.104",
     "class": "notificationtype"
   },
   "pduEmdTempHighCritToWarn": {
     "name": "pduEmdTempHighCritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.105",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.105",
     "class": "notificationtype"
   },
   "pduEmdTempHighCritical": {
     "name": "pduEmdTempHighCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.106",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.106",
     "class": "notificationtype"
   },
   "pduEmdTempLowCritToWarn": {
     "name": "pduEmdTempLowCritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.107",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.107",
     "class": "notificationtype"
   },
   "pduEmdTempLowCritical": {
     "name": "pduEmdTempLowCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.108",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.108",
     "class": "notificationtype"
   },
   "pduEmdHumiHighWarnToNormal": {
     "name": "pduEmdHumiHighWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.109",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.109",
     "class": "notificationtype"
   },
   "pduEmdHumiHighWarn": {
     "name": "pduEmdHumiHighWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.110",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.110",
     "class": "notificationtype"
   },
   "pduEmdHumiLowWarnToNormal": {
     "name": "pduEmdHumiLowWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.111",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.111",
     "class": "notificationtype"
   },
   "pduEmdHumiLowWarn": {
     "name": "pduEmdHumiLowWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.112",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.112",
     "class": "notificationtype"
   },
   "pduEmdHumiHighCritToWarn": {
     "name": "pduEmdHumiHighCritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.113",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.113",
     "class": "notificationtype"
   },
   "pduEmdHumiHighCritical": {
     "name": "pduEmdHumiHighCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.114",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.114",
     "class": "notificationtype"
   },
   "pduEmdHumiLowCritToWarn": {
     "name": "pduEmdHumiLowCritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.115",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.115",
     "class": "notificationtype"
   },
   "pduEmdHumiLowCritical": {
     "name": "pduEmdHumiLowCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.116",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.116",
     "class": "notificationtype"
   },
   "pduEmdAlarm1NotActive": {
     "name": "pduEmdAlarm1NotActive",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.117",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.117",
     "class": "notificationtype"
   },
   "pduEmdAlarm1Active": {
     "name": "pduEmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.118",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.118",
     "class": "notificationtype"
   },
   "pduEmdAlarm2NotActive": {
     "name": "pduEmdAlarm2NotActive",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.119",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.119",
     "class": "notificationtype"
   },
   "pduEmdAlarm2Active": {
     "name": "pduEmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.120",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.120",
     "class": "notificationtype"
   },
   "pduRs485Online": {
     "name": "pduRs485Online",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.121",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.121",
     "class": "notificationtype"
   },
   "pduRs485Offline": {
     "name": "pduRs485Offline",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.122",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.122",
     "class": "notificationtype"
   },
   "pduInletLoadCritToWarn": {
     "name": "pduInletLoadCritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.123",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.123",
     "class": "notificationtype"
   },
   "pduInletLoadCritical": {
     "name": "pduInletLoadCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.124",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.124",
     "class": "notificationtype"
   },
   "pduInletLoadWarnToNormal": {
     "name": "pduInletLoadWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.125",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.125",
     "class": "notificationtype"
   },
   "pduInletLoadWarn": {
     "name": "pduInletLoadWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.126",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.126",
     "class": "notificationtype"
   },
   "pduInletCurrPhase1CritToWarn": {
     "name": "pduInletCurrPhase1CritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.127",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.127",
     "class": "notificationtype"
   },
   "pduInletCurrPhase1Critical": {
     "name": "pduInletCurrPhase1Critical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.128",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.128",
     "class": "notificationtype"
   },
   "pduInletCurrPhase1WarnToNormal": {
     "name": "pduInletCurrPhase1WarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.129",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.129",
     "class": "notificationtype"
   },
   "pduInletCurrPhase1Warn": {
     "name": "pduInletCurrPhase1Warn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.130",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.130",
     "class": "notificationtype"
   },
   "pduInletCurrPhase2CritToWarn": {
     "name": "pduInletCurrPhase2CritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.131",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.131",
     "class": "notificationtype"
   },
   "pduInletCurrPhase2Critical": {
     "name": "pduInletCurrPhase2Critical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.132",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.132",
     "class": "notificationtype"
   },
   "pduInletCurrPhase2WarnToNormal": {
     "name": "pduInletCurrPhase2WarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.133",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.133",
     "class": "notificationtype"
   },
   "pduInletCurrPhase2Warn": {
     "name": "pduInletCurrPhase2Warn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.134",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.134",
     "class": "notificationtype"
   },
   "pduInletCurrPhase3CritToWarn": {
     "name": "pduInletCurrPhase3CritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.135",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.135",
     "class": "notificationtype"
   },
   "pduInletCurrPhase3Critical": {
     "name": "pduInletCurrPhase3Critical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.136",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.136",
     "class": "notificationtype"
   },
   "pduInletCurrPhase3WarnToNormal": {
     "name": "pduInletCurrPhase3WarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.137",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.137",
     "class": "notificationtype"
   },
   "pduInletCurrPhase3Warn": {
     "name": "pduInletCurrPhase3Warn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.138",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.138",
     "class": "notificationtype"
   },
   "pduInletVoltPhase1CritToWarn": {
     "name": "pduInletVoltPhase1CritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.139",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.139",
     "class": "notificationtype"
   },
   "pduInletVoltPhase1Critical": {
     "name": "pduInletVoltPhase1Critical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.140",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.140",
     "class": "notificationtype"
   },
   "pduInletVoltPhase1WarnToNormal": {
     "name": "pduInletVoltPhase1WarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.141",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.141",
     "class": "notificationtype"
   },
   "pduInletVoltPhase1Warn": {
     "name": "pduInletVoltPhase1Warn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.142",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.142",
     "class": "notificationtype"
   },
   "pduInletVoltPhase2CritToWarn": {
     "name": "pduInletVoltPhase2CritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.143",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.143",
     "class": "notificationtype"
   },
   "pduInletVoltPhase2Critical": {
     "name": "pduInletVoltPhase2Critical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.144",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.144",
     "class": "notificationtype"
   },
   "pduInletVoltPhase2WarnToNormal": {
     "name": "pduInletVoltPhase2WarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.145",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.145",
     "class": "notificationtype"
   },
   "pduInletVoltPhase2Warn": {
     "name": "pduInletVoltPhase2Warn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.146",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.146",
     "class": "notificationtype"
   },
   "pduInletVoltPhase3CritToWarn": {
     "name": "pduInletVoltPhase3CritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.147",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.147",
     "class": "notificationtype"
   },
   "pduInletVoltPhase3Critical": {
     "name": "pduInletVoltPhase3Critical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.148",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.148",
     "class": "notificationtype"
   },
   "pduInletVoltPhase3WarnToNormal": {
     "name": "pduInletVoltPhase3WarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.149",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.149",
     "class": "notificationtype"
   },
   "pduInletVoltPhase3Warn": {
     "name": "pduInletVoltPhase3Warn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.150",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.150",
     "class": "notificationtype"
   },
   "pduOutletCurrCritToWarn": {
     "name": "pduOutletCurrCritToWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.151",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.151",
     "class": "notificationtype"
   },
   "pduOutletCurrCritical": {
     "name": "pduOutletCurrCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.152",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.152",
     "class": "notificationtype"
   },
   "pduOutletCurrWarnToNormal": {
     "name": "pduOutletCurrWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.153",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.153",
     "class": "notificationtype"
   },
   "pduOutletCurrWarn": {
     "name": "pduOutletCurrWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.154",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.154",
     "class": "notificationtype"
   },
   "pduOutletPwrCritTOWarn": {
     "name": "pduOutletPwrCritTOWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.155",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.155",
     "class": "notificationtype"
   },
   "pduOutletPwrCritical": {
     "name": "pduOutletPwrCritical",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.156",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.156",
     "class": "notificationtype"
   },
   "pduOutletPwrWarnToNormal": {
     "name": "pduOutletPwrWarnToNormal",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.157",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.157",
     "class": "notificationtype"
   },
   "pduOutletPwrWarn": {
     "name": "pduOutletPwrWarn",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.158",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.158",
     "class": "notificationtype"
   },
   "pduAlarm1Disabled": {
     "name": "pduAlarm1Disabled",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.159",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.159",
     "class": "notificationtype"
   },
   "pduAlarm2Disabled": {
     "name": "pduAlarm2Disabled",
-    "oid": "1.3.6.1.4.1.42610.1.4.4.20.160",
+    "oid": "1.3.6.1.4.1.42610.1.4.4.2.0.160",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bladeshelter/SPSv1-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:34:54 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:26:28 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SPSv1-MIB"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Gauge32",
-      "TRAP-TYPE",
       "TimeTicks",
-      "Integer32",
-      "enterprises",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter64",
+      "TRAP-TYPE",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1852,22 +1852,22 @@
   },
   "breakerTrap": {
     "name": "breakerTrap",
-    "oid": "1.3.6.1.4.1.186420.0",
+    "oid": "1.3.6.1.4.1.18642.0.0",
     "class": "notificationtype"
   },
   "fuseTrap": {
     "name": "fuseTrap",
-    "oid": "1.3.6.1.4.1.186420.1",
+    "oid": "1.3.6.1.4.1.18642.0.1",
     "class": "notificationtype"
   },
   "batteryDisconnectTrap": {
     "name": "batteryDisconnectTrap",
-    "oid": "1.3.6.1.4.1.186420.2",
+    "oid": "1.3.6.1.4.1.18642.0.2",
     "class": "notificationtype"
   },
   "programmableTrap": {
     "name": "programmableTrap",
-    "oid": "1.3.6.1.4.1.186420.3",
+    "oid": "1.3.6.1.4.1.18642.0.3",
     "class": "notificationtype"
   },
   "systemAlarms": {
@@ -1877,92 +1877,92 @@
   },
   "highVoltageTrap": {
     "name": "highVoltageTrap",
-    "oid": "1.3.6.1.4.1.186420.4",
+    "oid": "1.3.6.1.4.1.18642.0.4",
     "class": "notificationtype"
   },
   "lowVoltageTrap": {
     "name": "lowVoltageTrap",
-    "oid": "1.3.6.1.4.1.186420.5",
+    "oid": "1.3.6.1.4.1.18642.0.5",
     "class": "notificationtype"
   },
   "loadOverCurrentTrap": {
     "name": "loadOverCurrentTrap",
-    "oid": "1.3.6.1.4.1.186420.6",
+    "oid": "1.3.6.1.4.1.18642.0.6",
     "class": "notificationtype"
   },
   "batteryFloatCurrentTrap": {
     "name": "batteryFloatCurrentTrap",
-    "oid": "1.3.6.1.4.1.186420.7",
+    "oid": "1.3.6.1.4.1.18642.0.7",
     "class": "notificationtype"
   },
   "loadDisconnect1VoltageTrap": {
     "name": "loadDisconnect1VoltageTrap",
-    "oid": "1.3.6.1.4.1.186420.8",
+    "oid": "1.3.6.1.4.1.18642.0.8",
     "class": "notificationtype"
   },
   "loadDisconnect2VoltageTrap": {
     "name": "loadDisconnect2VoltageTrap",
-    "oid": "1.3.6.1.4.1.186420.9",
+    "oid": "1.3.6.1.4.1.18642.0.9",
     "class": "notificationtype"
   },
   "loadDisconnect3VoltageTrap": {
     "name": "loadDisconnect3VoltageTrap",
-    "oid": "1.3.6.1.4.1.186420.10",
+    "oid": "1.3.6.1.4.1.18642.0.10",
     "class": "notificationtype"
   },
   "loadDisconnect1TemperatureTrap": {
     "name": "loadDisconnect1TemperatureTrap",
-    "oid": "1.3.6.1.4.1.186420.11",
+    "oid": "1.3.6.1.4.1.18642.0.11",
     "class": "notificationtype"
   },
   "loadDisconnect2TemperatureTrap": {
     "name": "loadDisconnect2TemperatureTrap",
-    "oid": "1.3.6.1.4.1.186420.12",
+    "oid": "1.3.6.1.4.1.18642.0.12",
     "class": "notificationtype"
   },
   "loadDisconnect3TemperatureTrap": {
     "name": "loadDisconnect3TemperatureTrap",
-    "oid": "1.3.6.1.4.1.186420.13",
+    "oid": "1.3.6.1.4.1.18642.0.13",
     "class": "notificationtype"
   },
   "rectifierFailureTrap": {
     "name": "rectifierFailureTrap",
-    "oid": "1.3.6.1.4.1.186420.14",
+    "oid": "1.3.6.1.4.1.18642.0.14",
     "class": "notificationtype"
   },
   "fanFailureTrap": {
     "name": "fanFailureTrap",
-    "oid": "1.3.6.1.4.1.186420.15",
+    "oid": "1.3.6.1.4.1.18642.0.15",
     "class": "notificationtype"
   },
   "acFailureTrap": {
     "name": "acFailureTrap",
-    "oid": "1.3.6.1.4.1.186420.16",
+    "oid": "1.3.6.1.4.1.18642.0.16",
     "class": "notificationtype"
   },
   "majorFailureTrap": {
     "name": "majorFailureTrap",
-    "oid": "1.3.6.1.4.1.186420.17",
+    "oid": "1.3.6.1.4.1.18642.0.17",
     "class": "notificationtype"
   },
   "batteryResistanceTrap": {
     "name": "batteryResistanceTrap",
-    "oid": "1.3.6.1.4.1.186420.18",
+    "oid": "1.3.6.1.4.1.18642.0.18",
     "class": "notificationtype"
   },
   "batteryTestAbort1Trap": {
     "name": "batteryTestAbort1Trap",
-    "oid": "1.3.6.1.4.1.186420.19",
+    "oid": "1.3.6.1.4.1.18642.0.19",
     "class": "notificationtype"
   },
   "batteryTestAbort2Trap": {
     "name": "batteryTestAbort2Trap",
-    "oid": "1.3.6.1.4.1.186420.20",
+    "oid": "1.3.6.1.4.1.18642.0.20",
     "class": "notificationtype"
   },
   "batteryTestAbort3Trap": {
     "name": "batteryTestAbort3Trap",
-    "oid": "1.3.6.1.4.1.186420.21",
+    "oid": "1.3.6.1.4.1.18642.0.21",
     "class": "notificationtype"
   },
   "digitalSensorAlarmClears": {
@@ -1972,22 +1972,22 @@
   },
   "breakerTrapClear": {
     "name": "breakerTrapClear",
-    "oid": "1.3.6.1.4.1.186420.100",
+    "oid": "1.3.6.1.4.1.18642.0.100",
     "class": "notificationtype"
   },
   "fuseTrapClear": {
     "name": "fuseTrapClear",
-    "oid": "1.3.6.1.4.1.186420.101",
+    "oid": "1.3.6.1.4.1.18642.0.101",
     "class": "notificationtype"
   },
   "batteryDisconnectTrapClear": {
     "name": "batteryDisconnectTrapClear",
-    "oid": "1.3.6.1.4.1.186420.102",
+    "oid": "1.3.6.1.4.1.18642.0.102",
     "class": "notificationtype"
   },
   "programmableTrapClear": {
     "name": "programmableTrapClear",
-    "oid": "1.3.6.1.4.1.186420.103",
+    "oid": "1.3.6.1.4.1.18642.0.103",
     "class": "notificationtype"
   },
   "systemAlarmClears": {
@@ -1997,99 +1997,99 @@
   },
   "highVoltageTrapClear": {
     "name": "highVoltageTrapClear",
-    "oid": "1.3.6.1.4.1.186420.104",
+    "oid": "1.3.6.1.4.1.18642.0.104",
     "class": "notificationtype"
   },
   "lowVoltageTrapClear": {
     "name": "lowVoltageTrapClear",
-    "oid": "1.3.6.1.4.1.186420.105",
+    "oid": "1.3.6.1.4.1.18642.0.105",
     "class": "notificationtype"
   },
   "loadOverCurrentTrapClear": {
     "name": "loadOverCurrentTrapClear",
-    "oid": "1.3.6.1.4.1.186420.106",
+    "oid": "1.3.6.1.4.1.18642.0.106",
     "class": "notificationtype"
   },
   "batteryFloatCurrentTrapClear": {
     "name": "batteryFloatCurrentTrapClear",
-    "oid": "1.3.6.1.4.1.186420.107",
+    "oid": "1.3.6.1.4.1.18642.0.107",
     "class": "notificationtype"
   },
   "loadDisconnect1VoltageTrapClear": {
     "name": "loadDisconnect1VoltageTrapClear",
-    "oid": "1.3.6.1.4.1.186420.108",
+    "oid": "1.3.6.1.4.1.18642.0.108",
     "class": "notificationtype"
   },
   "loadDisconnect2VoltageTrapClear": {
     "name": "loadDisconnect2VoltageTrapClear",
-    "oid": "1.3.6.1.4.1.186420.109",
+    "oid": "1.3.6.1.4.1.18642.0.109",
     "class": "notificationtype"
   },
   "loadDisconnect3VoltageTrapClear": {
     "name": "loadDisconnect3VoltageTrapClear",
-    "oid": "1.3.6.1.4.1.186420.110",
+    "oid": "1.3.6.1.4.1.18642.0.110",
     "class": "notificationtype"
   },
   "loadDisconnect1TemperatureTrapClear": {
     "name": "loadDisconnect1TemperatureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.111",
+    "oid": "1.3.6.1.4.1.18642.0.111",
     "class": "notificationtype"
   },
   "loadDisconnect2TemperatureTrapClear": {
     "name": "loadDisconnect2TemperatureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.112",
+    "oid": "1.3.6.1.4.1.18642.0.112",
     "class": "notificationtype"
   },
   "loadDisconnect3TemperatureTrapClear": {
     "name": "loadDisconnect3TemperatureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.113",
+    "oid": "1.3.6.1.4.1.18642.0.113",
     "class": "notificationtype"
   },
   "rectifierFailureTrapClear": {
     "name": "rectifierFailureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.114",
+    "oid": "1.3.6.1.4.1.18642.0.114",
     "class": "notificationtype"
   },
   "fanFailureTrapClear": {
     "name": "fanFailureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.115",
+    "oid": "1.3.6.1.4.1.18642.0.115",
     "class": "notificationtype"
   },
   "acFailureTrapClear": {
     "name": "acFailureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.116",
+    "oid": "1.3.6.1.4.1.18642.0.116",
     "class": "notificationtype"
   },
   "majorFailureTrapClear": {
     "name": "majorFailureTrapClear",
-    "oid": "1.3.6.1.4.1.186420.117",
+    "oid": "1.3.6.1.4.1.18642.0.117",
     "class": "notificationtype"
   },
   "batteryResistanceTrapClear": {
     "name": "batteryResistanceTrapClear",
-    "oid": "1.3.6.1.4.1.186420.118",
+    "oid": "1.3.6.1.4.1.18642.0.118",
     "class": "notificationtype"
   },
   "batteryTestAbort1TrapClear": {
     "name": "batteryTestAbort1TrapClear",
-    "oid": "1.3.6.1.4.1.186420.119",
+    "oid": "1.3.6.1.4.1.18642.0.119",
     "class": "notificationtype"
   },
   "batteryTestAbort2TrapClear": {
     "name": "batteryTestAbort2TrapClear",
-    "oid": "1.3.6.1.4.1.186420.120",
+    "oid": "1.3.6.1.4.1.18642.0.120",
     "class": "notificationtype"
   },
   "batteryTestAbort3TrapClear": {
     "name": "batteryTestAbort3TrapClear",
-    "oid": "1.3.6.1.4.1.186420.121",
+    "oid": "1.3.6.1.4.1.18642.0.121",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ccpower/CCPOWER-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:35:02 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:26:37 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CCPOWER-MIB"

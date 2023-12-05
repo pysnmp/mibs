@@ -6,10 +6,10 @@
     ],
     "SL-ALARM-MIB": [
       "slAlarmActive",
-      "slAlarmSeverity",
       "slAlarmIfIndex",
       "slAlarmServiceAffect",
-      "slAlarmType"
+      "slAlarmType",
+      "slAlarmSeverity"
     ],
     "SL-EDFA-MIB": [
       "edfaStatus",
@@ -17,19 +17,19 @@
       "edfaIfIndex"
     ],
     "SL-EVENT-MIB": [
+      "slEventIfIndex",
+      "slEventInventoryAction",
+      "slEventUser",
       "slGenEventVal",
+      "slEventInventorySerial",
+      "slEventVal",
+      "slGenEventType",
+      "slEventType",
       "slEventInventoryType",
       "slGenEventIfIndex",
-      "slGenEventType",
+      "slEventInventoryPartnum",
       "slEventInventoryIfIndex",
-      "slEventType",
-      "slEventIfIndex",
-      "slEventInventorySerial",
-      "slEventUser",
-      "slEventVal",
-      "slGenEventUser",
-      "slEventInventoryAction",
-      "slEventInventoryPartnum"
+      "slGenEventUser"
     ],
     "SL-NE-MIB": [
       "packetlight"
@@ -39,29 +39,29 @@
       "optApsConfigUserWorkingIndex"
     ],
     "SL-TESTS-MIB": [
-      "slTestsIfLoopIfIndex",
+      "slTestsTrapsLoopbackActive",
       "slTestsIfLoopType",
-      "slTestsTrapsLoopbackActive"
+      "slTestsIfLoopIfIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "iso",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -70,7 +70,7 @@
   },
   "slAlarmTrapV1": {
     "name": "slAlarmTrapV1",
-    "oid": "1.3.6.1.4.1.45150.101",
+    "oid": "1.3.6.1.4.1.4515.0.101",
     "class": "notificationtype",
     "objects": [
       {
@@ -97,7 +97,7 @@
   },
   "slTestsTrapsLoopbackTableChangedV1": {
     "name": "slTestsTrapsLoopbackTableChangedV1",
-    "oid": "1.3.6.1.4.1.45150.122",
+    "oid": "1.3.6.1.4.1.4515.0.122",
     "class": "notificationtype",
     "objects": [
       {
@@ -116,7 +116,7 @@
   },
   "edfaStatusChangeV1": {
     "name": "edfaStatusChangeV1",
-    "oid": "1.3.6.1.4.1.45150.128",
+    "oid": "1.3.6.1.4.1.4515.0.128",
     "class": "notificationtype",
     "objects": [
       {
@@ -131,7 +131,7 @@
   },
   "edfaControlModeChangeV1": {
     "name": "edfaControlModeChangeV1",
-    "oid": "1.3.6.1.4.1.45150.129",
+    "oid": "1.3.6.1.4.1.4515.0.129",
     "class": "notificationtype",
     "objects": [
       {
@@ -146,7 +146,7 @@
   },
   "optApsTrapSwitchoverV1": {
     "name": "optApsTrapSwitchoverV1",
-    "oid": "1.3.6.1.4.1.45150.130",
+    "oid": "1.3.6.1.4.1.4515.0.130",
     "class": "notificationtype",
     "objects": [
       {
@@ -161,7 +161,7 @@
   },
   "slEventTrapV1": {
     "name": "slEventTrapV1",
-    "oid": "1.3.6.1.4.1.45150.131",
+    "oid": "1.3.6.1.4.1.4515.0.131",
     "class": "notificationtype",
     "objects": [
       {
@@ -184,7 +184,7 @@
   },
   "tftpStatusChangeTrapV1": {
     "name": "tftpStatusChangeTrapV1",
-    "oid": "1.3.6.1.4.1.45150.132",
+    "oid": "1.3.6.1.4.1.4515.0.132",
     "class": "notificationtype",
     "objects": [
       {
@@ -195,7 +195,7 @@
   },
   "slEventInventoryTrapV1": {
     "name": "slEventInventoryTrapV1",
-    "oid": "1.3.6.1.4.1.45150.133",
+    "oid": "1.3.6.1.4.1.4515.0.133",
     "class": "notificationtype",
     "objects": [
       {
@@ -222,7 +222,7 @@
   },
   "slGenEventTrapV1": {
     "name": "slGenEventTrapV1",
-    "oid": "1.3.6.1.4.1.45150.134",
+    "oid": "1.3.6.1.4.1.4515.0.134",
     "class": "notificationtype",
     "objects": [
       {
@@ -246,8 +246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:41:24 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:33:39 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SL-TRAP-MIB"

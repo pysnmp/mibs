@@ -5,63 +5,63 @@
       "epon"
     ],
     "FD-OLT-MIB": [
-      "onuIdExhaust",
       "linkOnLineStatus",
-      "linkIdExhaust"
+      "linkIdExhaust",
+      "onuIdExhaust"
     ],
     "FD-ONU-MIB": [
-      "uniPortRstpState",
       "uniPortLink",
-      "onuOnLineStatus"
+      "onuOnLineStatus",
+      "uniPortRstpState"
     ],
     "FD-PERFORMANCE-MIB": [
+      "onuTrafficChangeVal",
       "swSniPortTrafficChangeVal",
-      "oltTrafficChangeVal",
-      "onuTrafficChangeVal"
+      "oltTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
-      "sfpPlugStauts",
-      "swPortLinkState"
+      "swPortLinkState",
+      "sfpPlugStauts"
     ],
     "FD-SYSTEM-MIB": [
-      "ponCardRunningStatus",
-      "userName",
-      "userPassword",
-      "userPermission",
-      "userAccessDeviceMap",
-      "loginTimeout",
-      "userEntryRowStatus",
-      "fanStatusBit",
-      "powerStatusBit",
       "userId",
-      "nonAuthOnuMac"
+      "userName",
+      "loginTimeout",
+      "userPermission",
+      "nonAuthOnuMac",
+      "userAccessDeviceMap",
+      "powerStatusBit",
+      "ponCardRunningStatus",
+      "userEntryRowStatus",
+      "userPassword",
+      "fanStatusBit"
     ],
     "RMON-MIB": [
       "alarmValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Counter64",
       "iso",
-      "IpAddress",
-      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Bits",
+      "MibIdentifier",
+      "IpAddress",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eponTraps": {
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:35:10 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:26:45 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FD-TRAP-MIB"

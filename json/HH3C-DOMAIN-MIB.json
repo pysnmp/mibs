@@ -12,29 +12,29 @@
       "Ipv6AddressPrefix"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
       "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Counter32",
       "IpAddress",
-      "Bits",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
       "TruthValue"
     ]
   },
@@ -2416,8 +2416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOMAIN-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:35:57 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:27:34 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-DOMAIN-MIB"

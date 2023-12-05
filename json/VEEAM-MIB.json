@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "TRAP-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "enterprises",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
+      "enterprises",
+      "MODULE-IDENTITY",
       "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "TRAP-TYPE",
+      "Bits",
       "Unsigned32",
-      "iso"
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -50,7 +50,7 @@
   },
   "onBackupJobCompleted": {
     "name": "onBackupJobCompleted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.1",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -73,7 +73,7 @@
   },
   "onVmBackupCompleted": {
     "name": "onVmBackupCompleted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.2",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -100,7 +100,7 @@
   },
   "onLinuxFLRMountStarted": {
     "name": "onLinuxFLRMountStarted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.3",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -131,7 +131,7 @@
   },
   "onLinuxFLRCopyToStarted": {
     "name": "onLinuxFLRCopyToStarted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.4",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -170,7 +170,7 @@
   },
   "onLinuxFLRToOriginalStarted": {
     "name": "onLinuxFLRToOriginalStarted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.5",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -201,7 +201,7 @@
   },
   "onLinuxFLRCopyToFinished": {
     "name": "onLinuxFLRCopyToFinished",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.6",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -260,7 +260,7 @@
   },
   "onLinuxFLRToOriginalFinished": {
     "name": "onLinuxFLRToOriginalFinished",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.7",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -311,7 +311,7 @@
   },
   "onWinFLRMountStarted": {
     "name": "onWinFLRMountStarted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.8",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -342,7 +342,7 @@
   },
   "onWinFLRToOriginalStarted": {
     "name": "onWinFLRToOriginalStarted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.9",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -369,7 +369,7 @@
   },
   "onWinFLRCopyToStarted": {
     "name": "onWinFLRCopyToStarted",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.10",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -400,7 +400,7 @@
   },
   "onWinFLRToOriginalFinished": {
     "name": "onWinFLRToOriginalFinished",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.11",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -443,7 +443,7 @@
   },
   "onWinFLRCopyToFinished": {
     "name": "onWinFLRCopyToFinished",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.12",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -490,7 +490,7 @@
   },
   "onWebDownloadStart": {
     "name": "onWebDownloadStart",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.13",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -517,7 +517,7 @@
   },
   "onWebDownloadFinished": {
     "name": "onWebDownloadFinished",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.14",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -556,7 +556,7 @@
   },
   "onSobrOffloadFinished": {
     "name": "onSobrOffloadFinished",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.15",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -579,7 +579,7 @@
   },
   "onCdpRpoReport": {
     "name": "onCdpRpoReport",
-    "oid": "1.3.6.1.4.1.31023.1.1.10.16",
+    "oid": "1.3.6.1.4.1.31023.1.1.1.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -1254,8 +1254,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veeam/VEEAM-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:43:21 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:35:41 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VEEAM-MIB"

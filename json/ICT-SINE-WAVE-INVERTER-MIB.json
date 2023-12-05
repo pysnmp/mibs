@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
+      "TRAP-TYPE",
+      "iso",
+      "Counter64",
       "Gauge32",
-      "TRAP-TYPE"
+      "OBJECT-TYPE",
+      "enterprises",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -198,79 +198,79 @@
   },
   "undervoltageAlarmTrap": {
     "name": "undervoltageAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.120.101",
+    "oid": "1.3.6.1.4.1.39145.12.0.101",
     "class": "notificationtype"
   },
   "overvoltageAlarmTrap": {
     "name": "overvoltageAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.120.102",
+    "oid": "1.3.6.1.4.1.39145.12.0.102",
     "class": "notificationtype"
   },
   "overtemperatureAlarmTrap": {
     "name": "overtemperatureAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.120.103",
+    "oid": "1.3.6.1.4.1.39145.12.0.103",
     "class": "notificationtype"
   },
   "outputFaultAlarmTrap": {
     "name": "outputFaultAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.120.104",
+    "oid": "1.3.6.1.4.1.39145.12.0.104",
     "class": "notificationtype"
   },
   "systemFaultAlarmTrap": {
     "name": "systemFaultAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.120.105",
+    "oid": "1.3.6.1.4.1.39145.12.0.105",
     "class": "notificationtype"
   },
   "remoteSwitchAlarmTrap": {
     "name": "remoteSwitchAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.120.106",
+    "oid": "1.3.6.1.4.1.39145.12.0.106",
     "class": "notificationtype"
   },
   "undervoltageAlarmClear": {
     "name": "undervoltageAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.120.111",
+    "oid": "1.3.6.1.4.1.39145.12.0.111",
     "class": "notificationtype"
   },
   "overvoltageAlarmClear": {
     "name": "overvoltageAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.120.112",
+    "oid": "1.3.6.1.4.1.39145.12.0.112",
     "class": "notificationtype"
   },
   "overtemperatureAlarmClear": {
     "name": "overtemperatureAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.120.113",
+    "oid": "1.3.6.1.4.1.39145.12.0.113",
     "class": "notificationtype"
   },
   "outputFaultAlarmClear": {
     "name": "outputFaultAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.120.114",
+    "oid": "1.3.6.1.4.1.39145.12.0.114",
     "class": "notificationtype"
   },
   "systemFaultAlarmClear": {
     "name": "systemFaultAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.120.115",
+    "oid": "1.3.6.1.4.1.39145.12.0.115",
     "class": "notificationtype"
   },
   "remoteSwitchAlarmClear": {
     "name": "remoteSwitchAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.120.116",
+    "oid": "1.3.6.1.4.1.39145.12.0.116",
     "class": "notificationtype"
   },
   "inverterPowerTrap": {
     "name": "inverterPowerTrap",
-    "oid": "1.3.6.1.4.1.39145.120.121",
+    "oid": "1.3.6.1.4.1.39145.12.0.121",
     "class": "notificationtype"
   },
   "gridPowerTrap": {
     "name": "gridPowerTrap",
-    "oid": "1.3.6.1.4.1.39145.120.122",
+    "oid": "1.3.6.1.4.1.39145.12.0.122",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ict/ICT-SINE-WAVE-INVERTER-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:33 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:31:15 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ICT-SINE-WAVE-INVERTER-MIB"

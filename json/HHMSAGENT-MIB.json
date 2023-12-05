@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Gauge32",
-      "TRAP-TYPE",
-      "Counter64",
-      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "iso",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
       "Unsigned32",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "akcp": {
@@ -2416,32 +2416,32 @@
   },
   "hhmsUnknownStatus": {
     "name": "hhmsUnknownStatus",
-    "oid": "1.3.6.1.4.1.3854.10.0",
+    "oid": "1.3.6.1.4.1.3854.1.0.0",
     "class": "notificationtype"
   },
   "hhmsNormalStatus": {
     "name": "hhmsNormalStatus",
-    "oid": "1.3.6.1.4.1.3854.10.1",
+    "oid": "1.3.6.1.4.1.3854.1.0.1",
     "class": "notificationtype"
   },
   "hhmsWarningStatus": {
     "name": "hhmsWarningStatus",
-    "oid": "1.3.6.1.4.1.3854.10.2",
+    "oid": "1.3.6.1.4.1.3854.1.0.2",
     "class": "notificationtype"
   },
   "hhmsCriticalStatus": {
     "name": "hhmsCriticalStatus",
-    "oid": "1.3.6.1.4.1.3854.10.3",
+    "oid": "1.3.6.1.4.1.3854.1.0.3",
     "class": "notificationtype"
   },
   "hhmsDownStatus": {
     "name": "hhmsDownStatus",
-    "oid": "1.3.6.1.4.1.3854.10.4",
+    "oid": "1.3.6.1.4.1.3854.1.0.4",
     "class": "notificationtype"
   },
   "hhmsTemperatureStatus": {
     "name": "hhmsTemperatureStatus",
-    "oid": "1.3.6.1.4.1.3854.10.10",
+    "oid": "1.3.6.1.4.1.3854.1.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -2472,7 +2472,7 @@
   },
   "hhmsHumidityStatus": {
     "name": "hhmsHumidityStatus",
-    "oid": "1.3.6.1.4.1.3854.10.20",
+    "oid": "1.3.6.1.4.1.3854.1.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -2503,7 +2503,7 @@
   },
   "hhmsSwitchStatus": {
     "name": "hhmsSwitchStatus",
-    "oid": "1.3.6.1.4.1.3854.10.30",
+    "oid": "1.3.6.1.4.1.3854.1.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -2534,7 +2534,7 @@
   },
   "hhmsPowerMonitorStatus": {
     "name": "hhmsPowerMonitorStatus",
-    "oid": "1.3.6.1.4.1.3854.10.40",
+    "oid": "1.3.6.1.4.1.3854.1.0.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -2566,8 +2566,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/akcp/HHMSAGENT-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:33:57 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:25:31 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HHMSAGENT-MIB"

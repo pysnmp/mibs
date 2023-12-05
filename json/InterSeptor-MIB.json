@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter32",
       "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "enterprises",
+      "TimeTicks",
+      "Counter64",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "iso"
+      "MODULE-IDENTITY",
+      "enterprises",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2300,119 +2300,119 @@
   },
   "inSeptCommunicationRestored": {
     "name": "inSeptCommunicationRestored",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.1",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.1",
     "class": "notificationtype"
   },
   "inSeptCommunicationLost": {
     "name": "inSeptCommunicationLost",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.2",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.2",
     "class": "notificationtype"
   },
   "inSeptAlarm1Inactive": {
     "name": "inSeptAlarm1Inactive",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.3",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.3",
     "class": "notificationtype"
   },
   "inSeptAlarm1Active": {
     "name": "inSeptAlarm1Active",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.4",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.4",
     "class": "notificationtype"
   },
   "inSeptAlarm2Inactive": {
     "name": "inSeptAlarm2Inactive",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.5",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.5",
     "class": "notificationtype"
   },
   "inSeptAlarm2Active": {
     "name": "inSeptAlarm2Active",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.6",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.6",
     "class": "notificationtype"
   },
   "inSeptTemperatureNotHighWarning": {
     "name": "inSeptTemperatureNotHighWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.7",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.7",
     "class": "notificationtype"
   },
   "inSeptTemperatureHighWarning": {
     "name": "inSeptTemperatureHighWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.8",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.8",
     "class": "notificationtype"
   },
   "inSeptTemperatureNotLowWarning": {
     "name": "inSeptTemperatureNotLowWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.9",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.9",
     "class": "notificationtype"
   },
   "inSeptTemperatureLowWarning": {
     "name": "inSeptTemperatureLowWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.10",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.10",
     "class": "notificationtype"
   },
   "inSeptTemperatureNotHighCritical": {
     "name": "inSeptTemperatureNotHighCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.11",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.11",
     "class": "notificationtype"
   },
   "inSeptTemperatureHighCritical": {
     "name": "inSeptTemperatureHighCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.12",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.12",
     "class": "notificationtype"
   },
   "inSeptTemperatureNotLowCritical": {
     "name": "inSeptTemperatureNotLowCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.13",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.13",
     "class": "notificationtype"
   },
   "inSeptTemperatureLowCritical": {
     "name": "inSeptTemperatureLowCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.14",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.14",
     "class": "notificationtype"
   },
   "inSeptHumidityNotHighWarning": {
     "name": "inSeptHumidityNotHighWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.15",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.15",
     "class": "notificationtype"
   },
   "inSeptHumidityHighWarning": {
     "name": "inSeptHumidityHighWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.16",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.16",
     "class": "notificationtype"
   },
   "inSeptHumidityNotLowWarning": {
     "name": "inSeptHumidityNotLowWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.17",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.17",
     "class": "notificationtype"
   },
   "inSeptHumidityLowWarning": {
     "name": "inSeptHumidityLowWarning",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.18",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.18",
     "class": "notificationtype"
   },
   "inSeptHumidityNotHighCritical": {
     "name": "inSeptHumidityNotHighCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.19",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.19",
     "class": "notificationtype"
   },
   "inSeptHumidityHighCritical": {
     "name": "inSeptHumidityHighCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.20",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.20",
     "class": "notificationtype"
   },
   "inSeptHumidityNotLowCritical": {
     "name": "inSeptHumidityNotLowCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.21",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.21",
     "class": "notificationtype"
   },
   "inSeptHumidityLowCritical": {
     "name": "inSeptHumidityLowCritical",
-    "oid": "1.3.6.1.4.1.19011.1.3.1.20.22",
+    "oid": "1.3.6.1.4.1.19011.1.3.1.2.0.22",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacarta/InterSeptor-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:53 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:31:41 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "InterSeptor-MIB"

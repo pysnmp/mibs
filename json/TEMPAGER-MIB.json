@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "enterprises",
-      "TRAP-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MibIdentifier",
-      "iso",
+      "TRAP-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter64",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Bits",
+      "iso",
       "IpAddress",
-      "Integer32"
+      "enterprises",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "avtech": {
@@ -477,7 +477,7 @@
   },
   "alarmstart1_t4": {
     "name": "alarmstart1_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.1",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -496,7 +496,7 @@
   },
   "tempager_snmp_trap": {
     "name": "tempager_snmp_trap",
-    "oid": "1.3.6.1.4.1.20916.1.10.2",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -539,7 +539,7 @@
   },
   "alarmstart2_t4": {
     "name": "alarmstart2_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.3",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -558,7 +558,7 @@
   },
   "alarmclear2_t4": {
     "name": "alarmclear2_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.4",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -577,7 +577,7 @@
   },
   "alarmstart3_t4": {
     "name": "alarmstart3_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.5",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -596,7 +596,7 @@
   },
   "alarmclear3_t4": {
     "name": "alarmclear3_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.6",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -615,7 +615,7 @@
   },
   "alarmstart4_t4": {
     "name": "alarmstart4_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.7",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -634,7 +634,7 @@
   },
   "alarmclear4_t4": {
     "name": "alarmclear4_t4",
-    "oid": "1.3.6.1.4.1.20916.1.10.8",
+    "oid": "1.3.6.1.4.1.20916.1.1.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -654,8 +654,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/TEMPAGER-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:34:46 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:26:20 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TEMPAGER-MIB"

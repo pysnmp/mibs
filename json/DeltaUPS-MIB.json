@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
       "NOTIFICATION-TYPE",
+      "Integer32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "TRAP-TYPE",
-      "Counter32",
-      "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "enterprises",
-      "Integer32",
+      "IpAddress",
+      "Bits",
       "TimeTicks",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Gauge32",
-      "iso"
+      "enterprises",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2033,274 +2033,274 @@
   },
   "dupsCommunicationLost": {
     "name": "dupsCommunicationLost",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.1",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.1",
     "class": "notificationtype"
   },
   "dupsCommunicationEstablished": {
     "name": "dupsCommunicationEstablished",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.2",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.2",
     "class": "notificationtype"
   },
   "dupsPowerFail": {
     "name": "dupsPowerFail",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.3",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.3",
     "class": "notificationtype"
   },
   "dupsPowerRestored": {
     "name": "dupsPowerRestored",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.4",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.4",
     "class": "notificationtype"
   },
   "dupsLowBattery": {
     "name": "dupsLowBattery",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.5",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.5",
     "class": "notificationtype"
   },
   "dupsReturnFromLowBattery": {
     "name": "dupsReturnFromLowBattery",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.6",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.6",
     "class": "notificationtype"
   },
   "dupsLoadWarning": {
     "name": "dupsLoadWarning",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.7",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.7",
     "class": "notificationtype"
   },
   "dupsNoLongerLoadWarning": {
     "name": "dupsNoLongerLoadWarning",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.8",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.8",
     "class": "notificationtype"
   },
   "dupsLoadSeverity": {
     "name": "dupsLoadSeverity",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.9",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.9",
     "class": "notificationtype"
   },
   "dupsNoLongerLoadSeverity": {
     "name": "dupsNoLongerLoadSeverity",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.10",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.10",
     "class": "notificationtype"
   },
   "dupsLoadOnBypass": {
     "name": "dupsLoadOnBypass",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.11",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.11",
     "class": "notificationtype"
   },
   "dupsNoLongerLoadOnBypass": {
     "name": "dupsNoLongerLoadOnBypass",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.12",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.12",
     "class": "notificationtype"
   },
   "dupsUPSFault": {
     "name": "dupsUPSFault",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.13",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.13",
     "class": "notificationtype"
   },
   "dupsReturnFromUPSFault": {
     "name": "dupsReturnFromUPSFault",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.14",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.14",
     "class": "notificationtype"
   },
   "dupsBatteryGroundFault": {
     "name": "dupsBatteryGroundFault",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.15",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.15",
     "class": "notificationtype"
   },
   "dupsNoLongerBatteryFault": {
     "name": "dupsNoLongerBatteryFault",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.16",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.16",
     "class": "notificationtype"
   },
   "dupsTestInProgress": {
     "name": "dupsTestInProgress",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.17",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.17",
     "class": "notificationtype"
   },
   "dupsBatteryTestFail": {
     "name": "dupsBatteryTestFail",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.18",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.18",
     "class": "notificationtype"
   },
   "dupsFuseFailure": {
     "name": "dupsFuseFailure",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.19",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.19",
     "class": "notificationtype"
   },
   "dupsFuseRecovered": {
     "name": "dupsFuseRecovered",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.20",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.20",
     "class": "notificationtype"
   },
   "dupsOutputOverload": {
     "name": "dupsOutputOverload",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.21",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.21",
     "class": "notificationtype"
   },
   "dupsNoLongerOverload": {
     "name": "dupsNoLongerOverload",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.22",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.22",
     "class": "notificationtype"
   },
   "dupsOutputOverCurrent": {
     "name": "dupsOutputOverCurrent",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.23",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.23",
     "class": "notificationtype"
   },
   "dupsNoLongerOutputOverCurrent": {
     "name": "dupsNoLongerOutputOverCurrent",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.24",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.24",
     "class": "notificationtype"
   },
   "dupsInverterAbnormal": {
     "name": "dupsInverterAbnormal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.25",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.25",
     "class": "notificationtype"
   },
   "dupsInverterRecovered": {
     "name": "dupsInverterRecovered",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.26",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.26",
     "class": "notificationtype"
   },
   "dupsRectifierAbnormal": {
     "name": "dupsRectifierAbnormal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.27",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.27",
     "class": "notificationtype"
   },
   "dupsRectifierRecovered": {
     "name": "dupsRectifierRecovered",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.28",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.28",
     "class": "notificationtype"
   },
   "dupsReserveAbnormal": {
     "name": "dupsReserveAbnormal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.29",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.29",
     "class": "notificationtype"
   },
   "dupsReserveRecovered": {
     "name": "dupsReserveRecovered",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.30",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.30",
     "class": "notificationtype"
   },
   "dupsLoadOnReserve": {
     "name": "dupsLoadOnReserve",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.31",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.31",
     "class": "notificationtype"
   },
   "dupsNoLongerLoadOnReserve": {
     "name": "dupsNoLongerLoadOnReserve",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.32",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.32",
     "class": "notificationtype"
   },
   "dupsEnvOverTemperature": {
     "name": "dupsEnvOverTemperature",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.33",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.33",
     "class": "notificationtype"
   },
   "dupsNoLongerEnvOverTemperature": {
     "name": "dupsNoLongerEnvOverTemperature",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.34",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.34",
     "class": "notificationtype"
   },
   "dupsEnvOverHumidity": {
     "name": "dupsEnvOverHumidity",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.35",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.35",
     "class": "notificationtype"
   },
   "dupsNoLongerEnvOverHumidity": {
     "name": "dupsNoLongerEnvOverHumidity",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.36",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.36",
     "class": "notificationtype"
   },
   "dupsEnvRelay1Alarm": {
     "name": "dupsEnvRelay1Alarm",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.37",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.37",
     "class": "notificationtype"
   },
   "dupsEnvRelay1Normal": {
     "name": "dupsEnvRelay1Normal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.38",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.38",
     "class": "notificationtype"
   },
   "dupsEnvRelay2Alarm": {
     "name": "dupsEnvRelay2Alarm",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.39",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.39",
     "class": "notificationtype"
   },
   "dupsEnvRelay2Normal": {
     "name": "dupsEnvRelay2Normal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.40",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.40",
     "class": "notificationtype"
   },
   "dupsEnvRelay3Alarm": {
     "name": "dupsEnvRelay3Alarm",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.41",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.41",
     "class": "notificationtype"
   },
   "dupsEnvRelay3Normal": {
     "name": "dupsEnvRelay3Normal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.42",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.42",
     "class": "notificationtype"
   },
   "dupsEnvRelay4Alarm": {
     "name": "dupsEnvRelay4Alarm",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.43",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.43",
     "class": "notificationtype"
   },
   "dupsEnvRelay4Normal": {
     "name": "dupsEnvRelay4Normal",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.44",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.44",
     "class": "notificationtype"
   },
   "dupsSmartShutdown": {
     "name": "dupsSmartShutdown",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.45",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.45",
     "class": "notificationtype"
   },
   "dupsCancelShutdown": {
     "name": "dupsCancelShutdown",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.46",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.46",
     "class": "notificationtype"
   },
   "dupsTestCompleted": {
     "name": "dupsTestCompleted",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.47",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.47",
     "class": "notificationtype"
   },
   "dupsEPOON": {
     "name": "dupsEPOON",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.48",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.48",
     "class": "notificationtype"
   },
   "dupsEPOOFF": {
     "name": "dupsEPOOFF",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.49",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.49",
     "class": "notificationtype"
   },
   "dupsOverTemperature": {
     "name": "dupsOverTemperature",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.50",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.50",
     "class": "notificationtype"
   },
   "dupsNormalTemperature": {
     "name": "dupsNormalTemperature",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.51",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.51",
     "class": "notificationtype"
   },
   "dupsBattReplace": {
     "name": "dupsBattReplace",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.52",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.52",
     "class": "notificationtype"
   },
   "dupsReturnFromBattReplace": {
     "name": "dupsReturnFromBattReplace",
-    "oid": "1.3.6.1.4.1.2254.2.4.200.53",
+    "oid": "1.3.6.1.4.1.2254.2.4.20.0.53",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/DeltaUPS-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:36:15 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:27:55 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DeltaUPS-MIB"

@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
-      "chAlarmVarSlot",
+      "chAlarmVarString",
       "chAlarmVarPort",
-      "chAlarmVarInteger",
-      "chAlarmVarString"
+      "chAlarmVarSlot",
+      "chAlarmVarInteger"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
+      "F10ChassisType",
       "F10HundredthdB",
+      "F10SSeriesPortType",
       "F10MfgDate",
       "F10SwDate",
-      "F10ProcessorModuleType",
-      "F10SSeriesPortType",
-      "F10ChassisType"
+      "F10ProcessorModuleType"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "MacAddress",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ]
   },
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:36:30 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:11 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

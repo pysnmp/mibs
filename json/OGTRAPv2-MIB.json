@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
-      "MibIdentifier",
       "Counter32",
-      "Unsigned32"
+      "TRAP-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "enterprises",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -467,7 +467,7 @@
   },
   "ogSerialSignalNotification": {
     "name": "ogSerialSignalNotification",
-    "oid": "1.3.6.1.4.1.250490.1",
+    "oid": "1.3.6.1.4.1.25049.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -542,7 +542,7 @@
   },
   "ogSerialPatternNotification": {
     "name": "ogSerialPatternNotification",
-    "oid": "1.3.6.1.4.1.250490.2",
+    "oid": "1.3.6.1.4.1.25049.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -613,7 +613,7 @@
   },
   "ogSerialUserNotification": {
     "name": "ogSerialUserNotification",
-    "oid": "1.3.6.1.4.1.250490.3",
+    "oid": "1.3.6.1.4.1.25049.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -688,7 +688,7 @@
   },
   "ogHostPingNotification": {
     "name": "ogHostPingNotification",
-    "oid": "1.3.6.1.4.1.250490.4",
+    "oid": "1.3.6.1.4.1.25049.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -743,7 +743,7 @@
   },
   "ogHostServiceNotification": {
     "name": "ogHostServiceNotification",
-    "oid": "1.3.6.1.4.1.250490.5",
+    "oid": "1.3.6.1.4.1.25049.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -798,7 +798,7 @@
   },
   "ogHostUserNotification": {
     "name": "ogHostUserNotification",
-    "oid": "1.3.6.1.4.1.250490.6",
+    "oid": "1.3.6.1.4.1.25049.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -873,7 +873,7 @@
   },
   "ogWebUserNotification": {
     "name": "ogWebUserNotification",
-    "oid": "1.3.6.1.4.1.250490.7",
+    "oid": "1.3.6.1.4.1.25049.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -948,7 +948,7 @@
   },
   "ogEmdTemperatureNotification": {
     "name": "ogEmdTemperatureNotification",
-    "oid": "1.3.6.1.4.1.250490.8",
+    "oid": "1.3.6.1.4.1.25049.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -1003,7 +1003,7 @@
   },
   "ogEmdHumidityNotification": {
     "name": "ogEmdHumidityNotification",
-    "oid": "1.3.6.1.4.1.250490.9",
+    "oid": "1.3.6.1.4.1.25049.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -1058,7 +1058,7 @@
   },
   "ogEmdDioNotification": {
     "name": "ogEmdDioNotification",
-    "oid": "1.3.6.1.4.1.250490.10",
+    "oid": "1.3.6.1.4.1.25049.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -1133,7 +1133,7 @@
   },
   "ogPowerSupplyInputNotification": {
     "name": "ogPowerSupplyInputNotification",
-    "oid": "1.3.6.1.4.1.250490.11",
+    "oid": "1.3.6.1.4.1.25049.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -1192,7 +1192,7 @@
   },
   "ogPowerSupplyOutputNotification": {
     "name": "ogPowerSupplyOutputNotification",
-    "oid": "1.3.6.1.4.1.250490.12",
+    "oid": "1.3.6.1.4.1.25049.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -1251,7 +1251,7 @@
   },
   "ogPowerSupplyTempNotification": {
     "name": "ogPowerSupplyTempNotification",
-    "oid": "1.3.6.1.4.1.250490.13",
+    "oid": "1.3.6.1.4.1.25049.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -1330,7 +1330,7 @@
   },
   "ogUpsNotification": {
     "name": "ogUpsNotification",
-    "oid": "1.3.6.1.4.1.250490.14",
+    "oid": "1.3.6.1.4.1.25049.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -1389,7 +1389,7 @@
   },
   "ogUpsBatteryNotification": {
     "name": "ogUpsBatteryNotification",
-    "oid": "1.3.6.1.4.1.250490.15",
+    "oid": "1.3.6.1.4.1.25049.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -1448,7 +1448,7 @@
   },
   "ogUpsInputNotification": {
     "name": "ogUpsInputNotification",
-    "oid": "1.3.6.1.4.1.250490.16",
+    "oid": "1.3.6.1.4.1.25049.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -1507,7 +1507,7 @@
   },
   "ogUpsOutputNotification": {
     "name": "ogUpsOutputNotification",
-    "oid": "1.3.6.1.4.1.250490.17",
+    "oid": "1.3.6.1.4.1.25049.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -1586,7 +1586,7 @@
   },
   "ogRpcInputNotification": {
     "name": "ogRpcInputNotification",
-    "oid": "1.3.6.1.4.1.250490.18",
+    "oid": "1.3.6.1.4.1.25049.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -1645,7 +1645,7 @@
   },
   "ogRpcOutputNotification": {
     "name": "ogRpcOutputNotification",
-    "oid": "1.3.6.1.4.1.250490.19",
+    "oid": "1.3.6.1.4.1.25049.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -1704,7 +1704,7 @@
   },
   "ogRpcOutletNotification": {
     "name": "ogRpcOutletNotification",
-    "oid": "1.3.6.1.4.1.250490.20",
+    "oid": "1.3.6.1.4.1.25049.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -1783,7 +1783,7 @@
   },
   "ogNetInterfaceNotification": {
     "name": "ogNetInterfaceNotification",
-    "oid": "1.3.6.1.4.1.250490.21",
+    "oid": "1.3.6.1.4.1.25049.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -1858,7 +1858,7 @@
   },
   "ogCellDataNotification": {
     "name": "ogCellDataNotification",
-    "oid": "1.3.6.1.4.1.250490.22",
+    "oid": "1.3.6.1.4.1.25049.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -1917,7 +1917,7 @@
   },
   "ogCellMessageNotification": {
     "name": "ogCellMessageNotification",
-    "oid": "1.3.6.1.4.1.250490.23",
+    "oid": "1.3.6.1.4.1.25049.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -1976,7 +1976,7 @@
   },
   "ogCellSignalNotification": {
     "name": "ogCellSignalNotification",
-    "oid": "1.3.6.1.4.1.250490.24",
+    "oid": "1.3.6.1.4.1.25049.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -2035,7 +2035,7 @@
   },
   "ogCellApnNotification": {
     "name": "ogCellApnNotification",
-    "oid": "1.3.6.1.4.1.250490.25",
+    "oid": "1.3.6.1.4.1.25049.0.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -2094,7 +2094,7 @@
   },
   "ogCellTowerNotification": {
     "name": "ogCellTowerNotification",
-    "oid": "1.3.6.1.4.1.250490.26",
+    "oid": "1.3.6.1.4.1.25049.0.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -2153,7 +2153,7 @@
   },
   "ogCellNetworkNotification": {
     "name": "ogCellNetworkNotification",
-    "oid": "1.3.6.1.4.1.250490.27",
+    "oid": "1.3.6.1.4.1.25049.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -2232,7 +2232,7 @@
   },
   "ogWifiClientConnectNotification": {
     "name": "ogWifiClientConnectNotification",
-    "oid": "1.3.6.1.4.1.250490.28",
+    "oid": "1.3.6.1.4.1.25049.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -2291,7 +2291,7 @@
   },
   "ogWifiClientSignalNotification": {
     "name": "ogWifiClientSignalNotification",
-    "oid": "1.3.6.1.4.1.250490.29",
+    "oid": "1.3.6.1.4.1.25049.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -2350,7 +2350,7 @@
   },
   "ogWifiApAssociationNotification": {
     "name": "ogWifiApAssociationNotification",
-    "oid": "1.3.6.1.4.1.250490.30",
+    "oid": "1.3.6.1.4.1.25049.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -2409,7 +2409,7 @@
   },
   "ogWifiApAuthNotification": {
     "name": "ogWifiApAuthNotification",
-    "oid": "1.3.6.1.4.1.250490.31",
+    "oid": "1.3.6.1.4.1.25049.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -2488,7 +2488,7 @@
   },
   "ogDialPoolHealthNotification": {
     "name": "ogDialPoolHealthNotification",
-    "oid": "1.3.6.1.4.1.250490.32",
+    "oid": "1.3.6.1.4.1.25049.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -2567,7 +2567,7 @@
   },
   "ogCustomNotification": {
     "name": "ogCustomNotification",
-    "oid": "1.3.6.1.4.1.250490.33",
+    "oid": "1.3.6.1.4.1.25049.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -2646,7 +2646,7 @@
   },
   "ogCliUserNotification": {
     "name": "ogCliUserNotification",
-    "oid": "1.3.6.1.4.1.250490.34",
+    "oid": "1.3.6.1.4.1.25049.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -2702,8 +2702,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OGTRAPv2-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:41:06 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:33:26 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "OGTRAPv2-MIB"

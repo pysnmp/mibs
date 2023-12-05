@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteTempUpperLimit",
-      "xupsContactDescr",
-      "xupsEnvRemoteHumidity",
       "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactIndex",
-      "xupsEnvRemoteHumidityLowerLimit",
       "xupsEnvRemoteTempLowerLimit",
-      "xupsContactState",
+      "xupsContactType",
+      "xupsEnvRemoteTempUpperLimit",
       "xupsEnvRemoteTemp",
-      "xupsContactType"
+      "xupsEnvRemoteHumidity",
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactState",
+      "xupsContactDescr",
+      "xupsContactIndex"
     ],
     "EATON-OIDS": [
-      "eaton",
-      "xupsEnvironment"
+      "xupsEnvironment",
+      "eaton"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "iso",
       "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:36:40 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:28:21 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "XUPS-MIB"

@@ -5,14 +5,14 @@
       "ciscoExperiment"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -21,27 +21,27 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Integer32",
-      "IpAddress",
-      "Bits",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "DisplayString",
-      "RowPointer",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TruthValue",
+      "RowPointer",
+      "PhysAddress"
     ]
   },
   "ciscoIetfIpMIB": {
@@ -1383,8 +1383,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-IP-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:33 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:30:53 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-IP-MIB"

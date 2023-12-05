@@ -5,25 +5,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
       "Counter64",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "iso",
       "IpAddress",
-      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
       "Counter32",
+      "TRAP-TYPE",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Bits"
     ],
     "SNMPv2-SMI-v1": [
       "enterprises"
@@ -833,7 +833,7 @@
   },
   "ibmServeRaidNoControllers": {
     "name": "ibmServeRaidNoControllers",
-    "oid": "1.3.6.1.4.1.2.6.167.20.201",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.201",
     "class": "notificationtype",
     "objects": [
       {
@@ -844,7 +844,7 @@
   },
   "ibmServeRaidControllerFail": {
     "name": "ibmServeRaidControllerFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.202",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.202",
     "class": "notificationtype",
     "objects": [
       {
@@ -859,7 +859,7 @@
   },
   "ibmServeRaidDeadBattery": {
     "name": "ibmServeRaidDeadBattery",
-    "oid": "1.3.6.1.4.1.2.6.167.20.203",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.203",
     "class": "notificationtype",
     "objects": [
       {
@@ -874,7 +874,7 @@
   },
   "ibmServeRaidDeadBatteryCache": {
     "name": "ibmServeRaidDeadBatteryCache",
-    "oid": "1.3.6.1.4.1.2.6.167.20.204",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.204",
     "class": "notificationtype",
     "objects": [
       {
@@ -893,7 +893,7 @@
   },
   "ibmServeRaidPollingFail": {
     "name": "ibmServeRaidPollingFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.205",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.205",
     "class": "notificationtype",
     "objects": [
       {
@@ -912,7 +912,7 @@
   },
   "ibmServeRaidConfigFail": {
     "name": "ibmServeRaidConfigFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.206",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.206",
     "class": "notificationtype",
     "objects": [
       {
@@ -923,7 +923,7 @@
   },
   "ibmServeRaidControllerAdded": {
     "name": "ibmServeRaidControllerAdded",
-    "oid": "1.3.6.1.4.1.2.6.167.20.207",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.207",
     "class": "notificationtype",
     "objects": [
       {
@@ -938,7 +938,7 @@
   },
   "ibmServeRaidControllerReplaced": {
     "name": "ibmServeRaidControllerReplaced",
-    "oid": "1.3.6.1.4.1.2.6.167.20.208",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.208",
     "class": "notificationtype",
     "objects": [
       {
@@ -953,7 +953,7 @@
   },
   "ibmServeRaidControllerFailover": {
     "name": "ibmServeRaidControllerFailover",
-    "oid": "1.3.6.1.4.1.2.6.167.20.209",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.209",
     "class": "notificationtype",
     "objects": [
       {
@@ -968,7 +968,7 @@
   },
   "ibmServeRaidLogicalDriveCritical": {
     "name": "ibmServeRaidLogicalDriveCritical",
-    "oid": "1.3.6.1.4.1.2.6.167.20.301",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.301",
     "class": "notificationtype",
     "objects": [
       {
@@ -987,7 +987,7 @@
   },
   "ibmServeRaidLogicalDriveBlocked": {
     "name": "ibmServeRaidLogicalDriveBlocked",
-    "oid": "1.3.6.1.4.1.2.6.167.20.302",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.302",
     "class": "notificationtype",
     "objects": [
       {
@@ -1006,7 +1006,7 @@
   },
   "ibmServeRaidLogicalDriveOffLine": {
     "name": "ibmServeRaidLogicalDriveOffLine",
-    "oid": "1.3.6.1.4.1.2.6.167.20.303",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.303",
     "class": "notificationtype",
     "objects": [
       {
@@ -1025,7 +1025,7 @@
   },
   "ibmServeRaidRebuildDetected": {
     "name": "ibmServeRaidRebuildDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.304",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.304",
     "class": "notificationtype",
     "objects": [
       {
@@ -1044,7 +1044,7 @@
   },
   "ibmServeRaidRebuildComplete": {
     "name": "ibmServeRaidRebuildComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.305",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.305",
     "class": "notificationtype",
     "objects": [
       {
@@ -1063,7 +1063,7 @@
   },
   "ibmServeRaidRebuildFail": {
     "name": "ibmServeRaidRebuildFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.306",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.306",
     "class": "notificationtype",
     "objects": [
       {
@@ -1086,7 +1086,7 @@
   },
   "ibmServeRaidSyncDetected": {
     "name": "ibmServeRaidSyncDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.307",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.307",
     "class": "notificationtype",
     "objects": [
       {
@@ -1105,7 +1105,7 @@
   },
   "ibmServeRaidSyncComplete": {
     "name": "ibmServeRaidSyncComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.308",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.308",
     "class": "notificationtype",
     "objects": [
       {
@@ -1124,7 +1124,7 @@
   },
   "ibmServeRaidSyncFail": {
     "name": "ibmServeRaidSyncFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.309",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.309",
     "class": "notificationtype",
     "objects": [
       {
@@ -1147,7 +1147,7 @@
   },
   "ibmServeRaidMigrationDetected": {
     "name": "ibmServeRaidMigrationDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.310",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.310",
     "class": "notificationtype",
     "objects": [
       {
@@ -1166,7 +1166,7 @@
   },
   "ibmServeRaidMigrationComplete": {
     "name": "ibmServeRaidMigrationComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.311",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.311",
     "class": "notificationtype",
     "objects": [
       {
@@ -1185,7 +1185,7 @@
   },
   "ibmServeRaidMigrationFail": {
     "name": "ibmServeRaidMigrationFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.312",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.312",
     "class": "notificationtype",
     "objects": [
       {
@@ -1208,7 +1208,7 @@
   },
   "ibmServeRaidCompressionDetected": {
     "name": "ibmServeRaidCompressionDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.313",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.313",
     "class": "notificationtype",
     "objects": [
       {
@@ -1227,7 +1227,7 @@
   },
   "ibmServeRaidCompressionComplete": {
     "name": "ibmServeRaidCompressionComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.314",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.314",
     "class": "notificationtype",
     "objects": [
       {
@@ -1246,7 +1246,7 @@
   },
   "ibmServeRaidcompressionFail": {
     "name": "ibmServeRaidcompressionFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.315",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.315",
     "class": "notificationtype",
     "objects": [
       {
@@ -1269,7 +1269,7 @@
   },
   "ibmServeRaidDecompressionDetected": {
     "name": "ibmServeRaidDecompressionDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.316",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.316",
     "class": "notificationtype",
     "objects": [
       {
@@ -1288,7 +1288,7 @@
   },
   "ibmServeRaidDecompressionComplete": {
     "name": "ibmServeRaidDecompressionComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.317",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.317",
     "class": "notificationtype",
     "objects": [
       {
@@ -1307,7 +1307,7 @@
   },
   "ibmServeRaidDecompressionFail": {
     "name": "ibmServeRaidDecompressionFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.318",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.318",
     "class": "notificationtype",
     "objects": [
       {
@@ -1330,7 +1330,7 @@
   },
   "ibmServeRaidFlashCopyDetected": {
     "name": "ibmServeRaidFlashCopyDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.319",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.319",
     "class": "notificationtype",
     "objects": [
       {
@@ -1349,7 +1349,7 @@
   },
   "ibmServeRaidFlashCopyComplete": {
     "name": "ibmServeRaidFlashCopyComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.320",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.320",
     "class": "notificationtype",
     "objects": [
       {
@@ -1368,7 +1368,7 @@
   },
   "ibmServeRaidFlashCopyFail": {
     "name": "ibmServeRaidFlashCopyFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.321",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.321",
     "class": "notificationtype",
     "objects": [
       {
@@ -1391,7 +1391,7 @@
   },
   "ibmServeRaidArrayRebuildDetected": {
     "name": "ibmServeRaidArrayRebuildDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.322",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.322",
     "class": "notificationtype",
     "objects": [
       {
@@ -1410,7 +1410,7 @@
   },
   "ibmServeRaidArrayRebuildComplete": {
     "name": "ibmServeRaidArrayRebuildComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.323",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.323",
     "class": "notificationtype",
     "objects": [
       {
@@ -1429,7 +1429,7 @@
   },
   "ibmServeRaidArrayRebuildFail": {
     "name": "ibmServeRaidArrayRebuildFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.324",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.324",
     "class": "notificationtype",
     "objects": [
       {
@@ -1452,7 +1452,7 @@
   },
   "ibmServeRaidArraySyncDetected": {
     "name": "ibmServeRaidArraySyncDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.325",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.325",
     "class": "notificationtype",
     "objects": [
       {
@@ -1471,7 +1471,7 @@
   },
   "ibmServeRaidArraySyncComplete": {
     "name": "ibmServeRaidArraySyncComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.326",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.326",
     "class": "notificationtype",
     "objects": [
       {
@@ -1490,7 +1490,7 @@
   },
   "ibmServeRaidArraySyncFail": {
     "name": "ibmServeRaidArraySyncFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.327",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.327",
     "class": "notificationtype",
     "objects": [
       {
@@ -1513,7 +1513,7 @@
   },
   "ibmServeRaidArrayFlashCopyDetected": {
     "name": "ibmServeRaidArrayFlashCopyDetected",
-    "oid": "1.3.6.1.4.1.2.6.167.20.328",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.328",
     "class": "notificationtype",
     "objects": [
       {
@@ -1532,7 +1532,7 @@
   },
   "ibmServeRaidArrayFlashCopyComplete": {
     "name": "ibmServeRaidArrayFlashCopyComplete",
-    "oid": "1.3.6.1.4.1.2.6.167.20.329",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.329",
     "class": "notificationtype",
     "objects": [
       {
@@ -1551,7 +1551,7 @@
   },
   "ibmServeRaidArrayFlashCopyFail": {
     "name": "ibmServeRaidArrayFlashCopyFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.330",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.330",
     "class": "notificationtype",
     "objects": [
       {
@@ -1574,7 +1574,7 @@
   },
   "ibmServeRaidLogicalDriveUnblocked": {
     "name": "ibmServeRaidLogicalDriveUnblocked",
-    "oid": "1.3.6.1.4.1.2.6.167.20.331",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.331",
     "class": "notificationtype",
     "objects": [
       {
@@ -1593,7 +1593,7 @@
   },
   "ibmServeRaidDefunctDrive": {
     "name": "ibmServeRaidDefunctDrive",
-    "oid": "1.3.6.1.4.1.2.6.167.20.401",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.401",
     "class": "notificationtype",
     "objects": [
       {
@@ -1616,7 +1616,7 @@
   },
   "ibmServeRaidPfaDrive": {
     "name": "ibmServeRaidPfaDrive",
-    "oid": "1.3.6.1.4.1.2.6.167.20.402",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.402",
     "class": "notificationtype",
     "objects": [
       {
@@ -1639,7 +1639,7 @@
   },
   "ibmServeRaidDefunctReplaced": {
     "name": "ibmServeRaidDefunctReplaced",
-    "oid": "1.3.6.1.4.1.2.6.167.20.403",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.403",
     "class": "notificationtype",
     "objects": [
       {
@@ -1662,7 +1662,7 @@
   },
   "ibmServeRaidDefunctDriveFru": {
     "name": "ibmServeRaidDefunctDriveFru",
-    "oid": "1.3.6.1.4.1.2.6.167.20.404",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.404",
     "class": "notificationtype",
     "objects": [
       {
@@ -1689,7 +1689,7 @@
   },
   "ibmServeRaidPfaDriveFru": {
     "name": "ibmServeRaidPfaDriveFru",
-    "oid": "1.3.6.1.4.1.2.6.167.20.405",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.405",
     "class": "notificationtype",
     "objects": [
       {
@@ -1716,7 +1716,7 @@
   },
   "ibmServeRaidUnsupportedDrive": {
     "name": "ibmServeRaidUnsupportedDrive",
-    "oid": "1.3.6.1.4.1.2.6.167.20.406",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.406",
     "class": "notificationtype",
     "objects": [
       {
@@ -1739,7 +1739,7 @@
   },
   "ibmServeRaidEnclosureOK": {
     "name": "ibmServeRaidEnclosureOK",
-    "oid": "1.3.6.1.4.1.2.6.167.20.501",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.501",
     "class": "notificationtype",
     "objects": [
       {
@@ -1758,7 +1758,7 @@
   },
   "ibmServeRaidEnclosureFail": {
     "name": "ibmServeRaidEnclosureFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.502",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.502",
     "class": "notificationtype",
     "objects": [
       {
@@ -1777,7 +1777,7 @@
   },
   "ibmServeRaidFanOk": {
     "name": "ibmServeRaidFanOk",
-    "oid": "1.3.6.1.4.1.2.6.167.20.503",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.503",
     "class": "notificationtype",
     "objects": [
       {
@@ -1800,7 +1800,7 @@
   },
   "ibmServeRaidFanFail": {
     "name": "ibmServeRaidFanFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.504",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.504",
     "class": "notificationtype",
     "objects": [
       {
@@ -1823,7 +1823,7 @@
   },
   "ibmServeRaidFanInstalled": {
     "name": "ibmServeRaidFanInstalled",
-    "oid": "1.3.6.1.4.1.2.6.167.20.505",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.505",
     "class": "notificationtype",
     "objects": [
       {
@@ -1846,7 +1846,7 @@
   },
   "ibmServeRaidFanRemoved": {
     "name": "ibmServeRaidFanRemoved",
-    "oid": "1.3.6.1.4.1.2.6.167.20.506",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.506",
     "class": "notificationtype",
     "objects": [
       {
@@ -1869,7 +1869,7 @@
   },
   "ibmServeRaidTempOk": {
     "name": "ibmServeRaidTempOk",
-    "oid": "1.3.6.1.4.1.2.6.167.20.507",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.507",
     "class": "notificationtype",
     "objects": [
       {
@@ -1888,7 +1888,7 @@
   },
   "ibmServeRaidTempFail": {
     "name": "ibmServeRaidTempFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.508",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.508",
     "class": "notificationtype",
     "objects": [
       {
@@ -1907,7 +1907,7 @@
   },
   "ibmServeRaidPowerSupplyOk": {
     "name": "ibmServeRaidPowerSupplyOk",
-    "oid": "1.3.6.1.4.1.2.6.167.20.509",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.509",
     "class": "notificationtype",
     "objects": [
       {
@@ -1930,7 +1930,7 @@
   },
   "ibmServeRaidPowerSupplyFail": {
     "name": "ibmServeRaidPowerSupplyFail",
-    "oid": "1.3.6.1.4.1.2.6.167.20.510",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.510",
     "class": "notificationtype",
     "objects": [
       {
@@ -1953,7 +1953,7 @@
   },
   "ibmServeRaidPowerSupplyInstalled": {
     "name": "ibmServeRaidPowerSupplyInstalled",
-    "oid": "1.3.6.1.4.1.2.6.167.20.511",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.511",
     "class": "notificationtype",
     "objects": [
       {
@@ -1976,7 +1976,7 @@
   },
   "ibmServeRaidPowerSupplyRemoved": {
     "name": "ibmServeRaidPowerSupplyRemoved",
-    "oid": "1.3.6.1.4.1.2.6.167.20.512",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.512",
     "class": "notificationtype",
     "objects": [
       {
@@ -1999,7 +1999,7 @@
   },
   "ibmServeRaidTestTrap": {
     "name": "ibmServeRaidTestTrap",
-    "oid": "1.3.6.1.4.1.2.6.167.20.601",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0.601",
     "class": "notificationtype",
     "objects": [
       {
@@ -2046,8 +2046,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-SERVERAID-MIB",
-      "Produced by pysmi-1.1.10 at Wed Nov 15 02:39:31 2023",
-      "On host fv-az661-425 platform Linux version 6.2.0-1015-azure by user runner",
+      "Produced by pysmi-1.1.11 at Tue Dec  5 02:31:40 2023",
+      "On host fv-az1535-909 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IBM-SERVERAID-MIB"
