@@ -7,30 +7,30 @@
     ],
     "SNMPv2-SMI": [
       "enterprises",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "Unsigned32",
       "iso",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "Bits",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "RowStatus",
+      "TruthValue",
       "AutonomousType",
-      "TestAndIncr",
-      "PhysAddress"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "PhysAddress",
+      "TestAndIncr"
     ]
   },
   "citrix": {
@@ -4480,8 +4480,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/CITRIX-NetScaler-SD-WAN-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:32:25 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 02:59:13 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CITRIX-NetScaler-SD-WAN-MIB"

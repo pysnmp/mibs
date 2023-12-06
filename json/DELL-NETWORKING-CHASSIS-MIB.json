@@ -5,15 +5,15 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
-      "DellNetHundredthdB",
       "DellNetProcessorModuleType",
-      "DellNetPEOperStatus",
-      "DellNetSystemCardType",
-      "DellNetChassisType",
       "DellNetCardOperStatus",
-      "DellNetMfgDate",
-      "DellNetDeviceType",
       "DellNetIfType",
+      "DellNetMfgDate",
+      "DellNetHundredthdB",
+      "DellNetChassisType",
+      "DellNetSystemCardType",
+      "DellNetPEOperStatus",
+      "DellNetDeviceType",
       "DellNetSwDate"
     ],
     "IF-MIB": [
@@ -21,31 +21,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Bits",
-      "Gauge32",
       "Integer32",
+      "MibIdentifier",
       "TimeTicks",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "MibIdentifier"
+      "iso",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress",
-      "DateAndTime"
+      "MacAddress"
     ]
   },
   "dellNetChassisMib": {
@@ -4673,8 +4673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:33 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 03:00:20 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"

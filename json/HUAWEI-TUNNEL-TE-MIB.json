@@ -11,41 +11,41 @@
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
+      "MplsExtendedTunnelId",
       "MplsTunnelInstanceIndex",
-      "MplsTunnelIndex",
-      "MplsExtendedTunnelId"
+      "MplsTunnelIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "BITS",
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
       "iso",
-      "TimeTicks"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "BITS"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "TruthValue",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "hwTunnelTeMib": {
@@ -2987,8 +2987,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TUNNEL-TE-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:28 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 03:03:13 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-TUNNEL-TE-MIB"

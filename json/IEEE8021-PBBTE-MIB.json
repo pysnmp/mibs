@@ -8,16 +8,16 @@
       "ieee8021QBridgeVlanCurrentComponentId"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021PbbTeProtectionGroupActiveRequests",
+      "IEEE8021BridgePortNumber",
       "IEEE8021PbbTeProtectionGroupId",
       "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021PbbTeProtectionGroupActiveRequests",
       "ieee802dot1mibs",
-      "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PbbTeEsp",
       "IEEE8021PbbTeProtectionGroupConfigAdmin",
       "IEEE8021PbbTeTSidId",
+      "IEEE8021PbbTeEsp",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumber"
+      "IEEE8021PbbServiceIdentifier"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -28,27 +28,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
       "IpAddress",
-      "Counter32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "StorageType",
       "DisplayString",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ieee8021PbbTeMib": {
@@ -1079,8 +1079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:30:17 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 02:57:07 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBBTE-MIB"

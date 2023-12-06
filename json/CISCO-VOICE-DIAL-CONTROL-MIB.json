@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "CISCO-DIAL-CONTROL-MIB": [
-      "cCallHistoryIndex",
-      "cCallHistoryCallOrigin"
+      "cCallHistoryCallOrigin",
+      "cCallHistoryIndex"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
-      "CvcCoderTypeRate",
+      "CvcSpeechCoderRate",
       "CvcFaxTransmitRate",
-      "CvcCallReferenceIdOrZero",
       "cvCommonDcCallHistoryCoderTypeRate",
+      "CvcCoderTypeRate",
+      "CvcCallReferenceIdOrZero",
       "CvcInBandSignaling",
-      "CvcGUid",
-      "CvcSpeechCoderRate"
+      "CvcGUid"
     ],
     "CISCO-VOICE-DNIS-MIB": [
       "DnisMapname"
     ],
     "DIAL-CONTROL-MIB": [
       "callActivePeerAddress",
-      "AbsoluteCounter32",
-      "callActivePeerId",
       "callActiveIndex",
+      "callActivePeerId",
+      "AbsoluteCounter32",
       "callActiveSetupTime"
     ],
     "IF-MIB": [
@@ -47,29 +47,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "TimeTicks",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Bits",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "PhysAddress",
       "RowStatus",
-      "DateAndTime",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TruthValue"
     ]
   },
   "ciscoVoiceDialControlMIB": {
@@ -8939,8 +8939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VOICE-DIAL-CONTROL-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:36:40 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 03:03:15 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-VOICE-DIAL-CONTROL-MIB"

@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpDesignatedRoot",
-      "dot1dStpRootCost",
-      "dot1dStpRootPort",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpPortState",
-      "dot1dStpForwardDelay",
-      "dot1dStpPortDesignatedRoot",
+      "dot1dStpPortDesignatedBridge",
       "dot1dStpPortDesignatedCost",
-      "dot1dStpMaxAge",
+      "dot1dStpPortDesignatedRoot",
+      "dot1dStpForwardDelay",
+      "dot1dStpRootPort",
       "dot1dStpHelloTime",
-      "dot1dStpPortDesignatedBridge"
+      "dot1dStpPortDesignatedPort",
+      "dot1dStpMaxAge",
+      "dot1dStpPortState",
+      "dot1dStpDesignatedRoot",
+      "dot1dStpRootCost"
     ],
     "IF-MIB": [
-      "ifInErrors",
+      "ifOutErrors",
       "ifOutDiscards",
-      "ifOutErrors"
+      "ifInErrors"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -27,27 +27,27 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TRAP-TYPE",
+      "iso",
       "Integer32",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
       "enterprises",
-      "TRAP-TYPE",
-      "iso"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sigma": {
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:34:26 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 03:01:14 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CT-ELS10-MIB"

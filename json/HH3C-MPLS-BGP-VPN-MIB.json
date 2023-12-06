@@ -21,27 +21,27 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "experimental",
       "OBJECT-TYPE",
       "iso",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "experimental",
-      "OBJECT-IDENTITY",
       "Bits",
+      "MibIdentifier",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "TimeTicks",
-      "Unsigned32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "StorageType",
       "TimeStamp",
-      "DisplayString",
       "TruthValue",
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -758,8 +758,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-MPLS-VPN-MIB",
-      "Produced by pysmi-1.1.11 at Tue Dec  5 08:33:01 2023",
-      "On host fv-az1433-65 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Dec  6 02:59:47 2023",
+      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HH3C-MPLS-BGP-VPN-MIB"
