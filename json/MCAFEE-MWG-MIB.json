@@ -5,32 +5,32 @@
       "mcafeeGATEWAY"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
       "Counter64",
-      "TRAP-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "iso",
-      "Bits",
       "enterprises",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
       "mib-2",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "mwg": {
@@ -1136,8 +1136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mcafee/MCAFEE-MWG-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:04:19 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:40:13 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MCAFEE-MWG-MIB"

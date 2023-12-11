@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "TRAP-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "enterprises",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "Integer32",
       "iso",
-      "enterprises",
-      "Gauge32"
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "proteon": {
@@ -1045,7 +1045,7 @@
   },
   "proElsTrapV1": {
     "name": "proElsTrapV1",
-    "oid": "1.3.6.1.4.1.1.0.1",
+    "oid": "1.3.6.1.4.1.10.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1064,7 +1064,7 @@
   },
   "proElsTrapV2": {
     "name": "proElsTrapV2",
-    "oid": "1.3.6.1.4.1.1.0.2",
+    "oid": "1.3.6.1.4.1.10.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1347,8 +1347,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/PROTEON-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:03:24 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:39:31 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "PROTEON-MIB"

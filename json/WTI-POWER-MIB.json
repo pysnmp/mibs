@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "IpAddress",
-      "iso",
+      "Counter32",
       "Gauge32",
       "Integer32",
-      "TimeTicks",
-      "enterprises",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
+      "iso",
       "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1230,7 +1230,7 @@
   },
   "testTrap": {
     "name": "testTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.2.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.20.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1246,7 +1246,7 @@
   },
   "overCurrentInitialSetTrap": {
     "name": "overCurrentInitialSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.4.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.40.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1257,7 +1257,7 @@
   },
   "overCurrentInitialClearTrap": {
     "name": "overCurrentInitialClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.4.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.40.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1273,7 +1273,7 @@
   },
   "overCurrentCriticalSetTrap": {
     "name": "overCurrentCriticalSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.5.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.50.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1284,7 +1284,7 @@
   },
   "overCurrentCriticalClearTrap": {
     "name": "overCurrentCriticalClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.5.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.50.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1300,7 +1300,7 @@
   },
   "overTemperatureInitialSetTrap": {
     "name": "overTemperatureInitialSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.6.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.60.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1311,7 +1311,7 @@
   },
   "overTemperatureInitialClearTrap": {
     "name": "overTemperatureInitialClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.6.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.60.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1327,7 +1327,7 @@
   },
   "overTemperatureCriticalSetTrap": {
     "name": "overTemperatureCriticalSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.7.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.70.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1338,7 +1338,7 @@
   },
   "overTemperatureCriticalClearTrap": {
     "name": "overTemperatureCriticalClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.7.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.70.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1354,7 +1354,7 @@
   },
   "circuitBreakerOpenSetTrap": {
     "name": "circuitBreakerOpenSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.8.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.80.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1365,7 +1365,7 @@
   },
   "circuitBreakerOpenClearTrap": {
     "name": "circuitBreakerOpenClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.8.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.80.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1381,7 +1381,7 @@
   },
   "lostCommSetTrap": {
     "name": "lostCommSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.9.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.90.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1392,7 +1392,7 @@
   },
   "lostCommClearTrap": {
     "name": "lostCommClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.9.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.90.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1408,7 +1408,7 @@
   },
   "lostVoltageSetTrap": {
     "name": "lostVoltageSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.10.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.100.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1419,7 +1419,7 @@
   },
   "lostVoltageClearTrap": {
     "name": "lostVoltageClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.10.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.100.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1435,7 +1435,7 @@
   },
   "pingNoAnswerSetTrap": {
     "name": "pingNoAnswerSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.11.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.110.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1446,7 +1446,7 @@
   },
   "pingNoAnswerClearTrap": {
     "name": "pingNoAnswerClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.11.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.110.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1462,7 +1462,7 @@
   },
   "lockoutSetTrap": {
     "name": "lockoutSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.12.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.120.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1473,7 +1473,7 @@
   },
   "lockoutClearTrap": {
     "name": "lockoutClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.12.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.120.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1489,7 +1489,7 @@
   },
   "powercycleSetTrap": {
     "name": "powercycleSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.13.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.130.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1505,7 +1505,7 @@
   },
   "alarmInputSetTrap": {
     "name": "alarmInputSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.14.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.140.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1516,7 +1516,7 @@
   },
   "alarmInputClearTrap": {
     "name": "alarmInputClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.14.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.140.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1532,7 +1532,7 @@
   },
   "plugCurrentSetTrap": {
     "name": "plugCurrentSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.15.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.150.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1543,7 +1543,7 @@
   },
   "plugCurrentClearTrap": {
     "name": "plugCurrentClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.15.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.150.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1559,7 +1559,7 @@
   },
   "lostOptoVoltageSetTrap": {
     "name": "lostOptoVoltageSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.16.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.160.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1570,7 +1570,7 @@
   },
   "lostOptoVoltageClearTrap": {
     "name": "lostOptoVoltageClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.16.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.160.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1586,7 +1586,7 @@
   },
   "emergencyShutoffSetTrap": {
     "name": "emergencyShutoffSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.17.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.170.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1597,7 +1597,7 @@
   },
   "emergencyShutoffClearTrap": {
     "name": "emergencyShutoffClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.17.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.170.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1613,7 +1613,7 @@
   },
   "noDialtoneSetTrap": {
     "name": "noDialtoneSetTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.18.0.1",
+    "oid": "1.3.6.1.4.1.2634.3.300.180.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1624,7 +1624,7 @@
   },
   "noDialtoneClearTrap": {
     "name": "noDialtoneClearTrap",
-    "oid": "1.3.6.1.4.1.2634.3.300.18.0.2",
+    "oid": "1.3.6.1.4.1.2634.3.300.180.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1636,8 +1636,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wti/WTI-POWER-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:07:32 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:43:31 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "WTI-POWER-MIB"

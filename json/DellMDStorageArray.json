@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "OBJECT-TYPE",
       "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
       "Counter64",
       "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dellMDStorageArrayMIB": {
@@ -251,7 +251,7 @@
   },
   "storageArrayCritical": {
     "name": "storageArrayCritical",
-    "oid": "1.3.6.1.4.1.674.10893.2.30.0.1",
+    "oid": "1.3.6.1.4.1.674.10893.2.300.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -290,7 +290,7 @@
   },
   "storageArrayWarning": {
     "name": "storageArrayWarning",
-    "oid": "1.3.6.1.4.1.674.10893.2.30.0.2",
+    "oid": "1.3.6.1.4.1.674.10893.2.300.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -329,7 +329,7 @@
   },
   "storageArrayInformational": {
     "name": "storageArrayInformational",
-    "oid": "1.3.6.1.4.1.674.10893.2.30.0.3",
+    "oid": "1.3.6.1.4.1.674.10893.2.300.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -368,7 +368,7 @@
   },
   "storageArrayDebug": {
     "name": "storageArrayDebug",
-    "oid": "1.3.6.1.4.1.674.10893.2.30.0.4",
+    "oid": "1.3.6.1.4.1.674.10893.2.300.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DellMDStorageArray-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:00:20 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:36:24 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DellMDStorageArray"

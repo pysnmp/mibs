@@ -5,37 +5,37 @@
       "jnxExperiment"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "transmission",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "transmission",
-      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
       "iso",
-      "Bits"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "StorageType"
+      "StorageType",
+      "DisplayString",
+      "RowStatus"
     ],
     "VPLS-GENERIC-DRAFT-01-MIB": [
-      "jnxVplsPwBindIndex",
-      "jnxVplsConfigIndex"
+      "jnxVplsConfigIndex",
+      "jnxVplsPwBindIndex"
     ]
   },
   "jnxVplsLdpDraft01MIB": {
@@ -172,8 +172,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/VPLS-LDP-DRAFT-01-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:04:40 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:40:41 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "VPLS-LDP-DRAFT-01-MIB"

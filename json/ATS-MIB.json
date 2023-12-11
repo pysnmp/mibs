@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
       "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
       "enterprises",
       "TRAP-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "UPS-MIB": [
-      "NonNegativeInteger",
-      "PositiveInteger"
+      "PositiveInteger",
+      "NonNegativeInteger"
     ]
   },
   "ats": {
@@ -1687,167 +1687,167 @@
   },
   "atsAtsAlarm": {
     "name": "atsAtsAlarm",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.1",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.1",
     "class": "notificationtype"
   },
   "atsSourceAvoltageAbnormal": {
     "name": "atsSourceAvoltageAbnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.2",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.2",
     "class": "notificationtype"
   },
   "atsSourceBvoltageAbnormal": {
     "name": "atsSourceBvoltageAbnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.3",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.3",
     "class": "notificationtype"
   },
   "atsSourceAfrequencyAbnormal": {
     "name": "atsSourceAfrequencyAbnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.4",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.4",
     "class": "notificationtype"
   },
   "atsSourceBfrequencyAbnormal": {
     "name": "atsSourceBfrequencyAbnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.5",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.5",
     "class": "notificationtype"
   },
   "atsOutputOverLoad": {
     "name": "atsOutputOverLoad",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.6",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.6",
     "class": "notificationtype"
   },
   "atsWorkPowerAabnormal": {
     "name": "atsWorkPowerAabnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.7",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.7",
     "class": "notificationtype"
   },
   "atsWorkPowerBabnormal": {
     "name": "atsWorkPowerBabnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.8",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.8",
     "class": "notificationtype"
   },
   "atsOverTemperature": {
     "name": "atsOverTemperature",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.9",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.9",
     "class": "notificationtype"
   },
   "atsDcOffsetAbnormal": {
     "name": "atsDcOffsetAbnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.10",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.10",
     "class": "notificationtype"
   },
   "atsEepromAbnormal": {
     "name": "atsEepromAbnormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.11",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.11",
     "class": "notificationtype"
   },
   "atsLcdNotConnect": {
     "name": "atsLcdNotConnect",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.12",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.12",
     "class": "notificationtype"
   },
   "atsOutputExceedsOverloadTime": {
     "name": "atsOutputExceedsOverloadTime",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.13",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.13",
     "class": "notificationtype"
   },
   "atsInputPhaseDifference": {
     "name": "atsInputPhaseDifference",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.14",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.14",
     "class": "notificationtype"
   },
   "atsUserSetOverLoad": {
     "name": "atsUserSetOverLoad",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.15",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.15",
     "class": "notificationtype"
   },
   "atsAtsAlarmToNormal": {
     "name": "atsAtsAlarmToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.16",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.16",
     "class": "notificationtype"
   },
   "atsSourceAvoltageAbnormalToNormal": {
     "name": "atsSourceAvoltageAbnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.17",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.17",
     "class": "notificationtype"
   },
   "atsSourceBvoltageAbnormalToNormal": {
     "name": "atsSourceBvoltageAbnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.18",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.18",
     "class": "notificationtype"
   },
   "atsSourceAfrequencyAbnormalToNormal": {
     "name": "atsSourceAfrequencyAbnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.19",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.19",
     "class": "notificationtype"
   },
   "atsSourceBfrequencyAbnormalToNormal": {
     "name": "atsSourceBfrequencyAbnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.20",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.20",
     "class": "notificationtype"
   },
   "atsOutputOverLoadToNormal": {
     "name": "atsOutputOverLoadToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.21",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.21",
     "class": "notificationtype"
   },
   "atsWorkPowerAabnormalToNormal": {
     "name": "atsWorkPowerAabnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.22",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.22",
     "class": "notificationtype"
   },
   "atsWorkPowerBabnormalToNormal": {
     "name": "atsWorkPowerBabnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.23",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.23",
     "class": "notificationtype"
   },
   "atsOverTemperatureToNormal": {
     "name": "atsOverTemperatureToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.24",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.24",
     "class": "notificationtype"
   },
   "atsDcOffsetAbnormalToNormal": {
     "name": "atsDcOffsetAbnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.25",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.25",
     "class": "notificationtype"
   },
   "atsEepromAbnormalToNormal": {
     "name": "atsEepromAbnormalToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.26",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.26",
     "class": "notificationtype"
   },
   "atsLcdNotConnectToNormal": {
     "name": "atsLcdNotConnectToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.27",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.27",
     "class": "notificationtype"
   },
   "atsOutputExceedsOverloadTimeToNormal": {
     "name": "atsOutputExceedsOverloadTimeToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.28",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.28",
     "class": "notificationtype"
   },
   "atsInputPhaseDifferenceToNormal": {
     "name": "atsInputPhaseDifferenceToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.29",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.29",
     "class": "notificationtype"
   },
   "atsUserSetOverLoadToNormal": {
     "name": "atsUserSetOverLoadToNormal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.30",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.30",
     "class": "notificationtype"
   },
   "atsCommunicationLost": {
     "name": "atsCommunicationLost",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.31",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.31",
     "class": "notificationtype"
   },
   "atsCommunicationEstablished": {
     "name": "atsCommunicationEstablished",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.32",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.32",
     "class": "notificationtype"
   },
   "emdTemperatureNotHigh": {
     "name": "emdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.33",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -1866,7 +1866,7 @@
   },
   "emdTemperatureTooHigh": {
     "name": "emdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.34",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -1885,7 +1885,7 @@
   },
   "emdTemperatureNotLow": {
     "name": "emdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.35",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -1904,7 +1904,7 @@
   },
   "emdTemperatureTooLow": {
     "name": "emdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.36",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -1923,7 +1923,7 @@
   },
   "emdHumidityNotHigh": {
     "name": "emdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.37",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -1942,7 +1942,7 @@
   },
   "emdHumidityTooHigh": {
     "name": "emdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.38",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -1961,7 +1961,7 @@
   },
   "emdHumidityNotLow": {
     "name": "emdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.39",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -1980,7 +1980,7 @@
   },
   "emdHumidityTooLow": {
     "name": "emdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.40",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -1999,7 +1999,7 @@
   },
   "emdAlarm1Normal": {
     "name": "emdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.41",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -2014,7 +2014,7 @@
   },
   "emdAlarm1Active": {
     "name": "emdAlarm1Active",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.42",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.42",
     "class": "notificationtype",
     "objects": [
       {
@@ -2029,7 +2029,7 @@
   },
   "emdAlarm2Normal": {
     "name": "emdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.43",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -2044,7 +2044,7 @@
   },
   "emdAlarm2Active": {
     "name": "emdAlarm2Active",
-    "oid": "1.3.6.1.4.1.37662.1.2.2.1.2.0.44",
+    "oid": "1.3.6.1.4.1.37662.1.2.2.1.20.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -2060,8 +2060,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ats/ATS-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 02:58:28 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:34:28 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ATS-MIB"

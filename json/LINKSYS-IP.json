@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteDest",
-      "ipCidrRouteMask",
-      "ipCidrRouteNextHop",
+      "ipCidrRouteEntry",
       "ipCidrRouteTos",
-      "ipCidrRouteEntry"
+      "ipCidrRouteDest",
+      "ipCidrRouteNextHop",
+      "ipCidrRouteMask"
     ],
     "IP-MIB": [
       "ipAddrEntry"
@@ -26,27 +26,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
       "Counter64",
-      "Integer32"
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "PhysAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "PhysAddress"
     ]
   },
   "ipSpec": {
@@ -1484,8 +1484,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IP",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:04:23 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:40:19 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IP"

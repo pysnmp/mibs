@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "TRAP-TYPE",
       "enterprises",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
       "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ingrasys": {
@@ -4978,7 +4978,7 @@
   },
   "ipmInletVoltageTooHigh": {
     "name": "ipmInletVoltageTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.1",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -5001,7 +5001,7 @@
   },
   "ipmInletVoltageNotTooHigh": {
     "name": "ipmInletVoltageNotTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.2",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -5024,7 +5024,7 @@
   },
   "ipmInletVoltageTooLow": {
     "name": "ipmInletVoltageTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.3",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -5047,7 +5047,7 @@
   },
   "ipmInletVoltageNotTooLow": {
     "name": "ipmInletVoltageNotTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.4",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -5070,7 +5070,7 @@
   },
   "ipmInletCurrentTooHigh": {
     "name": "ipmInletCurrentTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.5",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -5093,7 +5093,7 @@
   },
   "ipmInletCurrentNotTooHigh": {
     "name": "ipmInletCurrentNotTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.6",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -5116,7 +5116,7 @@
   },
   "ipmInletFrequencyTooHigh": {
     "name": "ipmInletFrequencyTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.7",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -5139,7 +5139,7 @@
   },
   "ipmInletFrequencyNotTooHigh": {
     "name": "ipmInletFrequencyNotTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.8",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -5162,7 +5162,7 @@
   },
   "ipmInletFrequencyTooLow": {
     "name": "ipmInletFrequencyTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.9",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -5185,7 +5185,7 @@
   },
   "ipmInletFrequencyNotTooLow": {
     "name": "ipmInletFrequencyNotTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.10",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -5208,7 +5208,7 @@
   },
   "ipmOutletCurrentTooHigh": {
     "name": "ipmOutletCurrentTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.11",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -5231,7 +5231,7 @@
   },
   "ipmOutletCurrentNotTooHigh": {
     "name": "ipmOutletCurrentNotTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.12",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -5254,7 +5254,7 @@
   },
   "ipmOutletStateChanged": {
     "name": "ipmOutletStateChanged",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.13",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -5273,7 +5273,7 @@
   },
   "ipmEmdTemperatureNotHigh": {
     "name": "ipmEmdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.14",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -5292,7 +5292,7 @@
   },
   "ipmEmdTemperatureTooHigh": {
     "name": "ipmEmdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.15",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -5311,7 +5311,7 @@
   },
   "ipmEmdTemperatureNotLow": {
     "name": "ipmEmdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.16",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -5330,7 +5330,7 @@
   },
   "ipmEmdTemperatureTooLow": {
     "name": "ipmEmdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.17",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -5349,7 +5349,7 @@
   },
   "ipmEmdHumidityNotHigh": {
     "name": "ipmEmdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.18",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -5368,7 +5368,7 @@
   },
   "ipmEmdHumidityTooHigh": {
     "name": "ipmEmdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.19",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -5387,7 +5387,7 @@
   },
   "ipmEmdHumidityNotLow": {
     "name": "ipmEmdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.20",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -5406,7 +5406,7 @@
   },
   "ipmEmdHumidityTooLow": {
     "name": "ipmEmdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.21",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -5425,7 +5425,7 @@
   },
   "ipmEmdAlarm1Normal": {
     "name": "ipmEmdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.22",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -5440,7 +5440,7 @@
   },
   "ipmEmdAlarm1Active": {
     "name": "ipmEmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.23",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -5455,7 +5455,7 @@
   },
   "ipmEmdAlarm2Normal": {
     "name": "ipmEmdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.24",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -5470,7 +5470,7 @@
   },
   "ipmEmdAlarm2Active": {
     "name": "ipmEmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.25",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -5485,634 +5485,634 @@
   },
   "ipmSlave01Inlet01OverHigh": {
     "name": "ipmSlave01Inlet01OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.26",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.26",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet01NotOverHigh": {
     "name": "ipmSlave01Inlet01NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.27",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.27",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet02OverHigh": {
     "name": "ipmSlave01Inlet02OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.28",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.28",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet02NotOverHigh": {
     "name": "ipmSlave01Inlet02NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.29",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.29",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet01UnderLow": {
     "name": "ipmSlave01Inlet01UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.30",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.30",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet01NotUnderLow": {
     "name": "ipmSlave01Inlet01NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.31",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.31",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet02UnderLow": {
     "name": "ipmSlave01Inlet02UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.32",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.32",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet02NotUnderLow": {
     "name": "ipmSlave01Inlet02NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.33",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.33",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet01CurrentOverTh": {
     "name": "ipmSlave01Inlet01CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.34",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.34",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet01NotCurrentOverTh": {
     "name": "ipmSlave01Inlet01NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.35",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.35",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet02CurrentOverTh": {
     "name": "ipmSlave01Inlet02CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.36",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.36",
     "class": "notificationtype"
   },
   "ipmSlave01Inlet02NotCurrentOverTh": {
     "name": "ipmSlave01Inlet02NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.37",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.37",
     "class": "notificationtype"
   },
   "ipmSlave01EmdTemperatureNotHigh": {
     "name": "ipmSlave01EmdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.38",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.38",
     "class": "notificationtype"
   },
   "ipmSlave01EmdTemperatureTooHigh": {
     "name": "ipmSlave01EmdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.39",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.39",
     "class": "notificationtype"
   },
   "ipmSlave01EmdTemperatureNotLow": {
     "name": "ipmSlave01EmdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.40",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.40",
     "class": "notificationtype"
   },
   "ipmSlave01EmdTemperatureTooLow": {
     "name": "ipmSlave01EmdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.41",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.41",
     "class": "notificationtype"
   },
   "ipmSlave01EmdHumidityNotHigh": {
     "name": "ipmSlave01EmdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.42",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.42",
     "class": "notificationtype"
   },
   "ipmSlave01EmdHumidityTooHigh": {
     "name": "ipmSlave01EmdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.43",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.43",
     "class": "notificationtype"
   },
   "ipmSlave01EmdHumidityNotLow": {
     "name": "ipmSlave01EmdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.44",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.44",
     "class": "notificationtype"
   },
   "ipmSlave01EmdHumidityTooLow": {
     "name": "ipmSlave01EmdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.45",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.45",
     "class": "notificationtype"
   },
   "ipmSlave01EmdAlarm1Normal": {
     "name": "ipmSlave01EmdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.46",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.46",
     "class": "notificationtype"
   },
   "ipmSlave01EmdAlarm1Active": {
     "name": "ipmSlave01EmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.47",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.47",
     "class": "notificationtype"
   },
   "ipmSlave01EmdAlarm2Normal": {
     "name": "ipmSlave01EmdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.48",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.48",
     "class": "notificationtype"
   },
   "ipmSlave01EmdAlarm2Active": {
     "name": "ipmSlave01EmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.49",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.49",
     "class": "notificationtype"
   },
   "ipmSlave01OutletCurrentOverTh": {
     "name": "ipmSlave01OutletCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.50",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.50",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet01OverHigh": {
     "name": "ipmSlave02Inlet01OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.51",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.51",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet01NotOverHigh": {
     "name": "ipmSlave02Inlet01NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.52",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.52",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet02OverHigh": {
     "name": "ipmSlave02Inlet02OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.53",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.53",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet02NotOverHigh": {
     "name": "ipmSlave02Inlet02NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.54",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.54",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet01UnderLow": {
     "name": "ipmSlave02Inlet01UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.55",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.55",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet01NotUnderLow": {
     "name": "ipmSlave02Inlet01NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.56",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.56",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet02UnderLow": {
     "name": "ipmSlave02Inlet02UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.57",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.57",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet02NotUnderLow": {
     "name": "ipmSlave02Inlet02NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.58",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.58",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet01CurrentOverTh": {
     "name": "ipmSlave02Inlet01CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.59",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.59",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet01NotCurrentOverTh": {
     "name": "ipmSlave02Inlet01NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.60",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.60",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet02CurrentOverTh": {
     "name": "ipmSlave02Inlet02CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.61",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.61",
     "class": "notificationtype"
   },
   "ipmSlave02Inlet02NotCurrentOverTh": {
     "name": "ipmSlave02Inlet02NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.62",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.62",
     "class": "notificationtype"
   },
   "ipmSlave02EmdTemperatureNotHigh": {
     "name": "ipmSlave02EmdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.63",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.63",
     "class": "notificationtype"
   },
   "ipmSlave02EmdTemperatureTooHigh": {
     "name": "ipmSlave02EmdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.64",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.64",
     "class": "notificationtype"
   },
   "ipmSlave02EmdTemperatureNotLow": {
     "name": "ipmSlave02EmdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.65",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.65",
     "class": "notificationtype"
   },
   "ipmSlave02EmdTemperatureTooLow": {
     "name": "ipmSlave02EmdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.66",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.66",
     "class": "notificationtype"
   },
   "ipmSlave02EmdHumidityNotHigh": {
     "name": "ipmSlave02EmdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.67",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.67",
     "class": "notificationtype"
   },
   "ipmSlave02EmdHumidityTooHigh": {
     "name": "ipmSlave02EmdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.68",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.68",
     "class": "notificationtype"
   },
   "ipmSlave02EmdHumidityNotLow": {
     "name": "ipmSlave02EmdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.69",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.69",
     "class": "notificationtype"
   },
   "ipmSlave02EmdHumidityTooLow": {
     "name": "ipmSlave02EmdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.70",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.70",
     "class": "notificationtype"
   },
   "ipmSlave02EmdAlarm1Normal": {
     "name": "ipmSlave02EmdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.71",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.71",
     "class": "notificationtype"
   },
   "ipmSlave02EmdAlarm1Active": {
     "name": "ipmSlave02EmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.72",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.72",
     "class": "notificationtype"
   },
   "ipmSlave02EmdAlarm2Normal": {
     "name": "ipmSlave02EmdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.73",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.73",
     "class": "notificationtype"
   },
   "ipmSlave02EmdAlarm2Active": {
     "name": "ipmSlave02EmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.74",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.74",
     "class": "notificationtype"
   },
   "ipmSlave02OutletCurrentOverTh": {
     "name": "ipmSlave02OutletCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.75",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.75",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet01OverHigh": {
     "name": "ipmSlave03Inlet01OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.76",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.76",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet01NotOverHigh": {
     "name": "ipmSlave03Inlet01NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.77",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.77",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet02OverHigh": {
     "name": "ipmSlave03Inlet02OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.78",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.78",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet02NotOverHigh": {
     "name": "ipmSlave03Inlet02NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.79",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.79",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet01UnderLow": {
     "name": "ipmSlave03Inlet01UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.80",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.80",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet01NotUnderLow": {
     "name": "ipmSlave03Inlet01NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.81",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.81",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet02UnderLow": {
     "name": "ipmSlave03Inlet02UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.82",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.82",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet02NotUnderLow": {
     "name": "ipmSlave03Inlet02NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.83",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.83",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet01CurrentOverTh": {
     "name": "ipmSlave03Inlet01CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.84",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.84",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet01NotCurrentOverTh": {
     "name": "ipmSlave03Inlet01NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.85",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.85",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet02CurrentOverTh": {
     "name": "ipmSlave03Inlet02CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.86",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.86",
     "class": "notificationtype"
   },
   "ipmSlave03Inlet02NotCurrentOverTh": {
     "name": "ipmSlave03Inlet02NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.87",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.87",
     "class": "notificationtype"
   },
   "ipmSlave03EmdTemperatureNotHigh": {
     "name": "ipmSlave03EmdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.88",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.88",
     "class": "notificationtype"
   },
   "ipmSlave03EmdTemperatureTooHigh": {
     "name": "ipmSlave03EmdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.89",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.89",
     "class": "notificationtype"
   },
   "ipmSlave03EmdTemperatureNotLow": {
     "name": "ipmSlave03EmdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.90",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.90",
     "class": "notificationtype"
   },
   "ipmSlave03EmdTemperatureTooLow": {
     "name": "ipmSlave03EmdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.91",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.91",
     "class": "notificationtype"
   },
   "ipmSlave03EmdHumidityNotHigh": {
     "name": "ipmSlave03EmdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.92",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.92",
     "class": "notificationtype"
   },
   "ipmSlave03EmdHumidityTooHigh": {
     "name": "ipmSlave03EmdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.93",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.93",
     "class": "notificationtype"
   },
   "ipmSlave03EmdHumidityNotLow": {
     "name": "ipmSlave03EmdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.94",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.94",
     "class": "notificationtype"
   },
   "ipmSlave03EmdHumidityTooLow": {
     "name": "ipmSlave03EmdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.95",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.95",
     "class": "notificationtype"
   },
   "ipmSlave03EmdAlarm1Normal": {
     "name": "ipmSlave03EmdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.96",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.96",
     "class": "notificationtype"
   },
   "ipmSlave03EmdAlarm1Active": {
     "name": "ipmSlave03EmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.97",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.97",
     "class": "notificationtype"
   },
   "ipmSlave03EmdAlarm2Normal": {
     "name": "ipmSlave03EmdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.98",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.98",
     "class": "notificationtype"
   },
   "ipmSlave03EmdAlarm2Active": {
     "name": "ipmSlave03EmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.99",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.99",
     "class": "notificationtype"
   },
   "ipmSlave03OutletCurrentOverTh": {
     "name": "ipmSlave03OutletCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.100",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.100",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet01OverHigh": {
     "name": "ipmSlave04Inlet01OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.101",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.101",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet01NotOverHigh": {
     "name": "ipmSlave04Inlet01NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.102",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.102",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet02OverHigh": {
     "name": "ipmSlave04Inlet02OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.103",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.103",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet02NotOverHigh": {
     "name": "ipmSlave04Inlet02NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.104",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.104",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet01UnderLow": {
     "name": "ipmSlave04Inlet01UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.105",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.105",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet01NotUnderLow": {
     "name": "ipmSlave04Inlet01NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.106",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.106",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet02UnderLow": {
     "name": "ipmSlave04Inlet02UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.107",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.107",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet02NotUnderLow": {
     "name": "ipmSlave04Inlet02NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.108",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.108",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet01CurrentOverTh": {
     "name": "ipmSlave04Inlet01CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.109",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.109",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet01NotCurrentOverTh": {
     "name": "ipmSlave04Inlet01NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.110",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.110",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet02CurrentOverTh": {
     "name": "ipmSlave04Inlet02CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.111",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.111",
     "class": "notificationtype"
   },
   "ipmSlave04Inlet02NotCurrentOverTh": {
     "name": "ipmSlave04Inlet02NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.112",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.112",
     "class": "notificationtype"
   },
   "ipmSlave04EmdTemperatureNotHigh": {
     "name": "ipmSlave04EmdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.113",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.113",
     "class": "notificationtype"
   },
   "ipmSlave04EmdTemperatureTooHigh": {
     "name": "ipmSlave04EmdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.114",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.114",
     "class": "notificationtype"
   },
   "ipmSlave04EmdTemperatureNotLow": {
     "name": "ipmSlave04EmdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.115",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.115",
     "class": "notificationtype"
   },
   "ipmSlave04EmdTemperatureTooLow": {
     "name": "ipmSlave04EmdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.116",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.116",
     "class": "notificationtype"
   },
   "ipmSlave04EmdHumidityNotHigh": {
     "name": "ipmSlave04EmdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.117",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.117",
     "class": "notificationtype"
   },
   "ipmSlave04EmdHumidityTooHigh": {
     "name": "ipmSlave04EmdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.118",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.118",
     "class": "notificationtype"
   },
   "ipmSlave04EmdHumidityNotLow": {
     "name": "ipmSlave04EmdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.119",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.119",
     "class": "notificationtype"
   },
   "ipmSlave04EmdHumidityTooLow": {
     "name": "ipmSlave04EmdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.120",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.120",
     "class": "notificationtype"
   },
   "ipmSlave04EmdAlarm1Normal": {
     "name": "ipmSlave04EmdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.121",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.121",
     "class": "notificationtype"
   },
   "ipmSlave04EmdAlarm1Active": {
     "name": "ipmSlave04EmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.122",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.122",
     "class": "notificationtype"
   },
   "ipmSlave04EmdAlarm2Normal": {
     "name": "ipmSlave04EmdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.123",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.123",
     "class": "notificationtype"
   },
   "ipmSlave04EmdAlarm2Active": {
     "name": "ipmSlave04EmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.124",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.124",
     "class": "notificationtype"
   },
   "ipmSlave04OutletCurrentOverTh": {
     "name": "ipmSlave04OutletCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.125",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.125",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet01OverHigh": {
     "name": "ipmSlave05Inlet01OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.126",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.126",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet01NotOverHigh": {
     "name": "ipmSlave05Inlet01NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.127",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.127",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet02OverHigh": {
     "name": "ipmSlave05Inlet02OverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.128",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.128",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet02NotOverHigh": {
     "name": "ipmSlave05Inlet02NotOverHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.129",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.129",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet01UnderLow": {
     "name": "ipmSlave05Inlet01UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.130",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.130",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet01NotUnderLow": {
     "name": "ipmSlave05Inlet01NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.131",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.131",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet02UnderLow": {
     "name": "ipmSlave05Inlet02UnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.132",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.132",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet02NotUnderLow": {
     "name": "ipmSlave05Inlet02NotUnderLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.133",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.133",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet01CurrentOverTh": {
     "name": "ipmSlave05Inlet01CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.134",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.134",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet01NotCurrentOverTh": {
     "name": "ipmSlave05Inlet01NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.135",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.135",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet02CurrentOverTh": {
     "name": "ipmSlave05Inlet02CurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.136",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.136",
     "class": "notificationtype"
   },
   "ipmSlave05Inlet02NotCurrentOverTh": {
     "name": "ipmSlave05Inlet02NotCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.137",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.137",
     "class": "notificationtype"
   },
   "ipmSlave05EmdTemperatureNotHigh": {
     "name": "ipmSlave05EmdTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.138",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.138",
     "class": "notificationtype"
   },
   "ipmSlave05EmdTemperatureTooHigh": {
     "name": "ipmSlave05EmdTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.139",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.139",
     "class": "notificationtype"
   },
   "ipmSlave05EmdTemperatureNotLow": {
     "name": "ipmSlave05EmdTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.140",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.140",
     "class": "notificationtype"
   },
   "ipmSlave05EmdTemperatureTooLow": {
     "name": "ipmSlave05EmdTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.141",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.141",
     "class": "notificationtype"
   },
   "ipmSlave05EmdHumidityNotHigh": {
     "name": "ipmSlave05EmdHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.142",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.142",
     "class": "notificationtype"
   },
   "ipmSlave05EmdHumidityTooHigh": {
     "name": "ipmSlave05EmdHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.143",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.143",
     "class": "notificationtype"
   },
   "ipmSlave05EmdHumidityNotLow": {
     "name": "ipmSlave05EmdHumidityNotLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.144",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.144",
     "class": "notificationtype"
   },
   "ipmSlave05EmdHumidityTooLow": {
     "name": "ipmSlave05EmdHumidityTooLow",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.145",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.145",
     "class": "notificationtype"
   },
   "ipmSlave05EmdAlarm1Normal": {
     "name": "ipmSlave05EmdAlarm1Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.146",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.146",
     "class": "notificationtype"
   },
   "ipmSlave05EmdAlarm1Active": {
     "name": "ipmSlave05EmdAlarm1Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.147",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.147",
     "class": "notificationtype"
   },
   "ipmSlave05EmdAlarm2Normal": {
     "name": "ipmSlave05EmdAlarm2Normal",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.148",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.148",
     "class": "notificationtype"
   },
   "ipmSlave05EmdAlarm2Active": {
     "name": "ipmSlave05EmdAlarm2Active",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.149",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.149",
     "class": "notificationtype"
   },
   "ipmSlave05OutletCurrentOverTh": {
     "name": "ipmSlave05OutletCurrentOverTh",
-    "oid": "1.3.6.1.4.1.2468.1.4.2.2.0.150",
+    "oid": "1.3.6.1.4.1.2468.1.4.2.20.150",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ingrasys/IPOMANII-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:03:35 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:39:41 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IPOMANII-MIB"

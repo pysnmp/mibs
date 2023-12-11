@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "enterprises",
       "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "IpAddress",
-      "Counter32"
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
+      "AutonomousType",
       "DisplayString",
       "TimeStamp",
       "TimeInterval",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION",
-      "TestAndIncr"
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "PositiveInteger": {
@@ -1735,229 +1735,229 @@
   },
   "upsTrapFault": {
     "name": "upsTrapFault",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.1",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.1",
     "class": "notificationtype"
   },
   "upsTrapFaultClear": {
     "name": "upsTrapFaultClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.2",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.2",
     "class": "notificationtype"
   },
   "upsTrapOnBattery": {
     "name": "upsTrapOnBattery",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.3",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.3",
     "class": "notificationtype"
   },
   "upsTrapOnBatteryClear": {
     "name": "upsTrapOnBatteryClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.4",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.4",
     "class": "notificationtype"
   },
   "upsTrapBatteryLow": {
     "name": "upsTrapBatteryLow",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.5",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.5",
     "class": "notificationtype"
   },
   "upsTrapBatteryLowClear": {
     "name": "upsTrapBatteryLowClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.6",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.6",
     "class": "notificationtype"
   },
   "upsTrapBatteryDepleted": {
     "name": "upsTrapBatteryDepleted",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.7",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.7",
     "class": "notificationtype"
   },
   "upsTrapBatteryDepletedClear": {
     "name": "upsTrapBatteryDepletedClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.8",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.8",
     "class": "notificationtype"
   },
   "upsTrapBatteryOverheat": {
     "name": "upsTrapBatteryOverheat",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.9",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.9",
     "class": "notificationtype"
   },
   "upsTrapBatteryOverheatClear": {
     "name": "upsTrapBatteryOverheatClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.10",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.10",
     "class": "notificationtype"
   },
   "upsTrapBatteryVoltageAbnormal": {
     "name": "upsTrapBatteryVoltageAbnormal",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.11",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.11",
     "class": "notificationtype"
   },
   "upsTrapBatteryVoltageAbnormalClear": {
     "name": "upsTrapBatteryVoltageAbnormalClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.12",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.12",
     "class": "notificationtype"
   },
   "upsTrapUPSOverheat": {
     "name": "upsTrapUPSOverheat",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.13",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.13",
     "class": "notificationtype"
   },
   "upsTrapUPSOverheatClear": {
     "name": "upsTrapUPSOverheatClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.14",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.14",
     "class": "notificationtype"
   },
   "upsTrapPowerFailure": {
     "name": "upsTrapPowerFailure",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.15",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.15",
     "class": "notificationtype"
   },
   "upsTrapPowerFailureClear": {
     "name": "upsTrapPowerFailureClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.16",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.16",
     "class": "notificationtype"
   },
   "upsTrapUPSOverload": {
     "name": "upsTrapUPSOverload",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.17",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.17",
     "class": "notificationtype"
   },
   "upsTrapUPSOverloadClear": {
     "name": "upsTrapUPSOverloadClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.18",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.18",
     "class": "notificationtype"
   },
   "upsTrapUserDefinedOverloadWarning": {
     "name": "upsTrapUserDefinedOverloadWarning",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.19",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.19",
     "class": "notificationtype"
   },
   "upsTrapUserDefinedOverloadWarningClear": {
     "name": "upsTrapUserDefinedOverloadWarningClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.20",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.20",
     "class": "notificationtype"
   },
   "upsTrapOnBypass": {
     "name": "upsTrapOnBypass",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.21",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.21",
     "class": "notificationtype"
   },
   "upsTrapOnBypassClear": {
     "name": "upsTrapOnBypassClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.22",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.22",
     "class": "notificationtype"
   },
   "upsTrapOutputOff": {
     "name": "upsTrapOutputOff",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.23",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.23",
     "class": "notificationtype"
   },
   "upsTrapOutputOffClear": {
     "name": "upsTrapOutputOffClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.24",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.24",
     "class": "notificationtype"
   },
   "upsTrapAsyncOperation": {
     "name": "upsTrapAsyncOperation",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.25",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.25",
     "class": "notificationtype"
   },
   "upsTrapAsyncOperationClear": {
     "name": "upsTrapAsyncOperationClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.26",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.26",
     "class": "notificationtype"
   },
   "upsTrapDCBusOverCurrent": {
     "name": "upsTrapDCBusOverCurrent",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.27",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.27",
     "class": "notificationtype"
   },
   "upsTrapDCBusOverCurrentClear": {
     "name": "upsTrapDCBusOverCurrentClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.28",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.28",
     "class": "notificationtype"
   },
   "upsTrapDCBusOverVoltage": {
     "name": "upsTrapDCBusOverVoltage",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.29",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.29",
     "class": "notificationtype"
   },
   "upsTrapDCBusOverVoltageClear": {
     "name": "upsTrapDCBusOverVoltageClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.30",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.30",
     "class": "notificationtype"
   },
   "upsTrapDCBusUnderVoltage": {
     "name": "upsTrapDCBusUnderVoltage",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.31",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.31",
     "class": "notificationtype"
   },
   "upsTrapDCBusUnderVoltageClear": {
     "name": "upsTrapDCBusUnderVoltageClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.32",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.32",
     "class": "notificationtype"
   },
   "upsTrapDCBusImbalance": {
     "name": "upsTrapDCBusImbalance",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.33",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.33",
     "class": "notificationtype"
   },
   "upsTrapDCBusImbalanceClear": {
     "name": "upsTrapDCBusImbalanceClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.34",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.34",
     "class": "notificationtype"
   },
   "upsTrapOutputUnderVoltage": {
     "name": "upsTrapOutputUnderVoltage",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.35",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.35",
     "class": "notificationtype"
   },
   "upsTrapOutputUnderVoltageClear": {
     "name": "upsTrapOutputUnderVoltageClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.36",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.36",
     "class": "notificationtype"
   },
   "upsTrapOutputOverVoltage": {
     "name": "upsTrapOutputOverVoltage",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.37",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.37",
     "class": "notificationtype"
   },
   "upsTrapOutputOverVoltageClear": {
     "name": "upsTrapOutputOverVoltageClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.38",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.38",
     "class": "notificationtype"
   },
   "upsTrapInverterOverload": {
     "name": "upsTrapInverterOverload",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.39",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.39",
     "class": "notificationtype"
   },
   "upsTrapInverterOverloadClear": {
     "name": "upsTrapInverterOverloadClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.40",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.40",
     "class": "notificationtype"
   },
   "upsTrapInverterOvercurrent": {
     "name": "upsTrapInverterOvercurrent",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.41",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.41",
     "class": "notificationtype"
   },
   "upsTrapInverterOvercurrentClear": {
     "name": "upsTrapInverterOvercurrentClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.42",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.42",
     "class": "notificationtype"
   },
   "upsTrapRemotEyeCommError": {
     "name": "upsTrapRemotEyeCommError",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.43",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.43",
     "class": "notificationtype"
   },
   "upsTrapRemotEyeCommErrorClear": {
     "name": "upsTrapRemotEyeCommErrorClear",
-    "oid": "1.3.6.1.4.1.186.1.19.2.5.1.0.44",
+    "oid": "1.3.6.1.4.1.186.1.19.2.5.10.44",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/toshiba/TIC-RMTI4-G9000-G2020-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:07:08 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:43:05 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "TIC-RMTI4-G9000-G2020-MIB"

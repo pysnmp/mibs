@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "enterprises",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "TimeTicks",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
       "TRAP-TYPE",
+      "enterprises",
       "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "iso",
+      "MODULE-IDENTITY",
       "Integer32",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -67,7 +67,7 @@
   },
   "hpTempHighWarning752": {
     "name": "hpTempHighWarning752",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.752",
+    "oid": "1.3.6.1.4.1.11.2.23.450.752",
     "class": "notificationtype",
     "objects": [
       {
@@ -78,7 +78,7 @@
   },
   "hpTempHighCritical753": {
     "name": "hpTempHighCritical753",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.753",
+    "oid": "1.3.6.1.4.1.11.2.23.450.753",
     "class": "notificationtype",
     "objects": [
       {
@@ -89,7 +89,7 @@
   },
   "hpTempHighNonRecoverable754": {
     "name": "hpTempHighNonRecoverable754",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.754",
+    "oid": "1.3.6.1.4.1.11.2.23.450.754",
     "class": "notificationtype",
     "objects": [
       {
@@ -100,7 +100,7 @@
   },
   "hpTemperature4": {
     "name": "hpTemperature4",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.4",
+    "oid": "1.3.6.1.4.1.11.2.23.450.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -111,7 +111,7 @@
   },
   "hpTemperature5": {
     "name": "hpTemperature5",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.5",
+    "oid": "1.3.6.1.4.1.11.2.23.450.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -122,7 +122,7 @@
   },
   "hpTemperature6": {
     "name": "hpTemperature6",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.6",
+    "oid": "1.3.6.1.4.1.11.2.23.450.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -133,7 +133,7 @@
   },
   "hpTemperature755": {
     "name": "hpTemperature755",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.755",
+    "oid": "1.3.6.1.4.1.11.2.23.450.755",
     "class": "notificationtype",
     "objects": [
       {
@@ -144,7 +144,7 @@
   },
   "hpTemperature756": {
     "name": "hpTemperature756",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.756",
+    "oid": "1.3.6.1.4.1.11.2.23.450.756",
     "class": "notificationtype",
     "objects": [
       {
@@ -155,7 +155,7 @@
   },
   "hpEnvironment8": {
     "name": "hpEnvironment8",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.8",
+    "oid": "1.3.6.1.4.1.11.2.23.450.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -166,7 +166,7 @@
   },
   "hpEnvironment9": {
     "name": "hpEnvironment9",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.9",
+    "oid": "1.3.6.1.4.1.11.2.23.450.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -177,7 +177,7 @@
   },
   "hpEnvironment10": {
     "name": "hpEnvironment10",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.10",
+    "oid": "1.3.6.1.4.1.11.2.23.450.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -188,7 +188,7 @@
   },
   "hpEnvironment12": {
     "name": "hpEnvironment12",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.12",
+    "oid": "1.3.6.1.4.1.11.2.23.450.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -199,7 +199,7 @@
   },
   "hpEnvironment704": {
     "name": "hpEnvironment704",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.704",
+    "oid": "1.3.6.1.4.1.11.2.23.450.704",
     "class": "notificationtype",
     "objects": [
       {
@@ -210,7 +210,7 @@
   },
   "hpEnvironment728": {
     "name": "hpEnvironment728",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.728",
+    "oid": "1.3.6.1.4.1.11.2.23.450.728",
     "class": "notificationtype",
     "objects": [
       {
@@ -221,7 +221,7 @@
   },
   "hpEnvironment705": {
     "name": "hpEnvironment705",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.705",
+    "oid": "1.3.6.1.4.1.11.2.23.450.705",
     "class": "notificationtype",
     "objects": [
       {
@@ -232,7 +232,7 @@
   },
   "hpEnvironment706": {
     "name": "hpEnvironment706",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.706",
+    "oid": "1.3.6.1.4.1.11.2.23.450.706",
     "class": "notificationtype",
     "objects": [
       {
@@ -243,7 +243,7 @@
   },
   "hpEnvironment707": {
     "name": "hpEnvironment707",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.707",
+    "oid": "1.3.6.1.4.1.11.2.23.450.707",
     "class": "notificationtype",
     "objects": [
       {
@@ -254,7 +254,7 @@
   },
   "hpFan710": {
     "name": "hpFan710",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.710",
+    "oid": "1.3.6.1.4.1.11.2.23.450.710",
     "class": "notificationtype",
     "objects": [
       {
@@ -265,7 +265,7 @@
   },
   "hpChassis26": {
     "name": "hpChassis26",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.26",
+    "oid": "1.3.6.1.4.1.11.2.23.450.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -276,7 +276,7 @@
   },
   "hpBmcFirmware730": {
     "name": "hpBmcFirmware730",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.730",
+    "oid": "1.3.6.1.4.1.11.2.23.450.730",
     "class": "notificationtype",
     "objects": [
       {
@@ -287,7 +287,7 @@
   },
   "hpRedundantPower720": {
     "name": "hpRedundantPower720",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.720",
+    "oid": "1.3.6.1.4.1.11.2.23.450.720",
     "class": "notificationtype",
     "objects": [
       {
@@ -298,7 +298,7 @@
   },
   "hpRedundantPower732": {
     "name": "hpRedundantPower732",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.732",
+    "oid": "1.3.6.1.4.1.11.2.23.450.732",
     "class": "notificationtype",
     "objects": [
       {
@@ -309,7 +309,7 @@
   },
   "hpRedundantPower722": {
     "name": "hpRedundantPower722",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.722",
+    "oid": "1.3.6.1.4.1.11.2.23.450.722",
     "class": "notificationtype",
     "objects": [
       {
@@ -320,7 +320,7 @@
   },
   "hpRedundantPower757": {
     "name": "hpRedundantPower757",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.757",
+    "oid": "1.3.6.1.4.1.11.2.23.450.757",
     "class": "notificationtype",
     "objects": [
       {
@@ -331,7 +331,7 @@
   },
   "hpRedundantPower758": {
     "name": "hpRedundantPower758",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.758",
+    "oid": "1.3.6.1.4.1.11.2.23.450.758",
     "class": "notificationtype",
     "objects": [
       {
@@ -342,7 +342,7 @@
   },
   "hpPowerSupply731": {
     "name": "hpPowerSupply731",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.731",
+    "oid": "1.3.6.1.4.1.11.2.23.450.731",
     "class": "notificationtype",
     "objects": [
       {
@@ -353,7 +353,7 @@
   },
   "hpPowerSupply726": {
     "name": "hpPowerSupply726",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.726",
+    "oid": "1.3.6.1.4.1.11.2.23.450.726",
     "class": "notificationtype",
     "objects": [
       {
@@ -364,7 +364,7 @@
   },
   "hpSystemHW733": {
     "name": "hpSystemHW733",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.733",
+    "oid": "1.3.6.1.4.1.11.2.23.450.733",
     "class": "notificationtype",
     "objects": [
       {
@@ -375,7 +375,7 @@
   },
   "hpSystemHW734": {
     "name": "hpSystemHW734",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.734",
+    "oid": "1.3.6.1.4.1.11.2.23.450.734",
     "class": "notificationtype",
     "objects": [
       {
@@ -386,7 +386,7 @@
   },
   "hpECCMemory518": {
     "name": "hpECCMemory518",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.518",
+    "oid": "1.3.6.1.4.1.11.2.23.450.518",
     "class": "notificationtype",
     "objects": [
       {
@@ -397,7 +397,7 @@
   },
   "hpSystemFW700": {
     "name": "hpSystemFW700",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.700",
+    "oid": "1.3.6.1.4.1.11.2.23.450.700",
     "class": "notificationtype",
     "objects": [
       {
@@ -408,7 +408,7 @@
   },
   "hpSystemHW744": {
     "name": "hpSystemHW744",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.744",
+    "oid": "1.3.6.1.4.1.11.2.23.450.744",
     "class": "notificationtype",
     "objects": [
       {
@@ -419,7 +419,7 @@
   },
   "hpSystemHW735": {
     "name": "hpSystemHW735",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.735",
+    "oid": "1.3.6.1.4.1.11.2.23.450.735",
     "class": "notificationtype",
     "objects": [
       {
@@ -430,7 +430,7 @@
   },
   "hpSystemHW729": {
     "name": "hpSystemHW729",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.729",
+    "oid": "1.3.6.1.4.1.11.2.23.450.729",
     "class": "notificationtype",
     "objects": [
       {
@@ -441,7 +441,7 @@
   },
   "hpSystemHW745": {
     "name": "hpSystemHW745",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.745",
+    "oid": "1.3.6.1.4.1.11.2.23.450.745",
     "class": "notificationtype",
     "objects": [
       {
@@ -452,7 +452,7 @@
   },
   "hpSystemHW746": {
     "name": "hpSystemHW746",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.746",
+    "oid": "1.3.6.1.4.1.11.2.23.450.746",
     "class": "notificationtype",
     "objects": [
       {
@@ -463,7 +463,7 @@
   },
   "hpSystemHW751": {
     "name": "hpSystemHW751",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.751",
+    "oid": "1.3.6.1.4.1.11.2.23.450.751",
     "class": "notificationtype",
     "objects": [
       {
@@ -474,7 +474,7 @@
   },
   "hpSystemHW747": {
     "name": "hpSystemHW747",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.747",
+    "oid": "1.3.6.1.4.1.11.2.23.450.747",
     "class": "notificationtype",
     "objects": [
       {
@@ -485,7 +485,7 @@
   },
   "hpSystemFW699": {
     "name": "hpSystemFW699",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.699",
+    "oid": "1.3.6.1.4.1.11.2.23.450.699",
     "class": "notificationtype",
     "objects": [
       {
@@ -496,7 +496,7 @@
   },
   "hpSystemHW113": {
     "name": "hpSystemHW113",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.113",
+    "oid": "1.3.6.1.4.1.11.2.23.450.113",
     "class": "notificationtype",
     "objects": [
       {
@@ -507,7 +507,7 @@
   },
   "hpSystemHW748": {
     "name": "hpSystemHW748",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.748",
+    "oid": "1.3.6.1.4.1.11.2.23.450.748",
     "class": "notificationtype",
     "objects": [
       {
@@ -518,7 +518,7 @@
   },
   "hpSystemHW749": {
     "name": "hpSystemHW749",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.749",
+    "oid": "1.3.6.1.4.1.11.2.23.450.749",
     "class": "notificationtype",
     "objects": [
       {
@@ -529,7 +529,7 @@
   },
   "hpSystemHW736": {
     "name": "hpSystemHW736",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.736",
+    "oid": "1.3.6.1.4.1.11.2.23.450.736",
     "class": "notificationtype",
     "objects": [
       {
@@ -540,7 +540,7 @@
   },
   "hpSystemHW737": {
     "name": "hpSystemHW737",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.737",
+    "oid": "1.3.6.1.4.1.11.2.23.450.737",
     "class": "notificationtype",
     "objects": [
       {
@@ -551,7 +551,7 @@
   },
   "hpSystemHW738": {
     "name": "hpSystemHW738",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.738",
+    "oid": "1.3.6.1.4.1.11.2.23.450.738",
     "class": "notificationtype",
     "objects": [
       {
@@ -562,7 +562,7 @@
   },
   "hpSystemHW739": {
     "name": "hpSystemHW739",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.739",
+    "oid": "1.3.6.1.4.1.11.2.23.450.739",
     "class": "notificationtype",
     "objects": [
       {
@@ -573,7 +573,7 @@
   },
   "hpSystemHW740": {
     "name": "hpSystemHW740",
-    "oid": "1.3.6.1.4.1.11.2.23.45.0.740",
+    "oid": "1.3.6.1.4.1.11.2.23.450.740",
     "class": "notificationtype",
     "objects": [
       {
@@ -585,8 +585,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPIPF02TRAP-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:03:53 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:39:38 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "HPIPF02TRAP-MIB"

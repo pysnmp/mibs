@@ -9,39 +9,39 @@
       "docsDevEvId"
     ],
     "DOCS-IF3-MIB": [
-      "docsIf3CmtsCmRegStatusId",
-      "CmtsCmRegState"
+      "CmtsCmRegState",
+      "docsIf3CmtsCmRegStatusId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
       "iso",
-      "Counter64",
+      "TimeTicks",
       "IpAddress",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
       "Gauge32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "docsDiagMib": {
@@ -879,8 +879,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-DIAG-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 02:57:25 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:33:24 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-DIAG-MIB"

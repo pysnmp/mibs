@@ -6,20 +6,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Integer32",
-      "Bits",
+      "iso",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "iso",
+      "Counter32",
       "IpAddress",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2431,199 +2431,199 @@
   },
   "trapFanNormal": {
     "name": "trapFanNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.101",
+    "oid": "1.3.6.1.4.1.10876.100.30.101",
     "class": "notificationtype"
   },
   "trapFanWarning": {
     "name": "trapFanWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.102",
+    "oid": "1.3.6.1.4.1.10876.100.30.102",
     "class": "notificationtype"
   },
   "trapFanCritical": {
     "name": "trapFanCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.103",
+    "oid": "1.3.6.1.4.1.10876.100.30.103",
     "class": "notificationtype"
   },
   "trapVoltageNormal": {
     "name": "trapVoltageNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.201",
+    "oid": "1.3.6.1.4.1.10876.100.30.201",
     "class": "notificationtype"
   },
   "trapVoltageWarning": {
     "name": "trapVoltageWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.202",
+    "oid": "1.3.6.1.4.1.10876.100.30.202",
     "class": "notificationtype"
   },
   "trapVoltageCritical": {
     "name": "trapVoltageCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.203",
+    "oid": "1.3.6.1.4.1.10876.100.30.203",
     "class": "notificationtype"
   },
   "trapTemperatureNormal": {
     "name": "trapTemperatureNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.301",
+    "oid": "1.3.6.1.4.1.10876.100.30.301",
     "class": "notificationtype"
   },
   "trapTemperatureWarning": {
     "name": "trapTemperatureWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.302",
+    "oid": "1.3.6.1.4.1.10876.100.30.302",
     "class": "notificationtype"
   },
   "trapTemperatureCritical": {
     "name": "trapTemperatureCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.303",
+    "oid": "1.3.6.1.4.1.10876.100.30.303",
     "class": "notificationtype"
   },
   "trapChassisIntrusionCleared": {
     "name": "trapChassisIntrusionCleared",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.401",
+    "oid": "1.3.6.1.4.1.10876.100.30.401",
     "class": "notificationtype"
   },
   "trapChassisIntrusion": {
     "name": "trapChassisIntrusion",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.403",
+    "oid": "1.3.6.1.4.1.10876.100.30.403",
     "class": "notificationtype"
   },
   "trapStorageSMARTCheckNormal": {
     "name": "trapStorageSMARTCheckNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.601",
+    "oid": "1.3.6.1.4.1.10876.100.30.601",
     "class": "notificationtype"
   },
   "trapStorageSMARTCheckWarning": {
     "name": "trapStorageSMARTCheckWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.602",
+    "oid": "1.3.6.1.4.1.10876.100.30.602",
     "class": "notificationtype"
   },
   "trapStorageSMARTCheckCritical": {
     "name": "trapStorageSMARTCheckCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.603",
+    "oid": "1.3.6.1.4.1.10876.100.30.603",
     "class": "notificationtype"
   },
   "trapPowerSupplyNormal": {
     "name": "trapPowerSupplyNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.701",
+    "oid": "1.3.6.1.4.1.10876.100.30.701",
     "class": "notificationtype"
   },
   "trapPowerSupplyWarning": {
     "name": "trapPowerSupplyWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.702",
+    "oid": "1.3.6.1.4.1.10876.100.30.702",
     "class": "notificationtype"
   },
   "trapPowerSupplyCritical": {
     "name": "trapPowerSupplyCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.703",
+    "oid": "1.3.6.1.4.1.10876.100.30.703",
     "class": "notificationtype"
   },
   "trapMemoryCeccNormal": {
     "name": "trapMemoryCeccNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.801",
+    "oid": "1.3.6.1.4.1.10876.100.30.801",
     "class": "notificationtype"
   },
   "trapMemoryCeccWarning": {
     "name": "trapMemoryCeccWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.802",
+    "oid": "1.3.6.1.4.1.10876.100.30.802",
     "class": "notificationtype"
   },
   "trapMemoryCeccCritical": {
     "name": "trapMemoryCeccCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.803",
+    "oid": "1.3.6.1.4.1.10876.100.30.803",
     "class": "notificationtype"
   },
   "trapMemoryUeccNormal": {
     "name": "trapMemoryUeccNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.901",
+    "oid": "1.3.6.1.4.1.10876.100.30.901",
     "class": "notificationtype"
   },
   "trapMemoryUeccWarning": {
     "name": "trapMemoryUeccWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.902",
+    "oid": "1.3.6.1.4.1.10876.100.30.902",
     "class": "notificationtype"
   },
   "trapMemoryUeccCritical": {
     "name": "trapMemoryUeccCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.903",
+    "oid": "1.3.6.1.4.1.10876.100.30.903",
     "class": "notificationtype"
   },
   "trapGenericNormal": {
     "name": "trapGenericNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1001",
+    "oid": "1.3.6.1.4.1.10876.100.30.1001",
     "class": "notificationtype"
   },
   "trapGenericWarning": {
     "name": "trapGenericWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1002",
+    "oid": "1.3.6.1.4.1.10876.100.30.1002",
     "class": "notificationtype"
   },
   "trapGenericCritical": {
     "name": "trapGenericCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1003",
+    "oid": "1.3.6.1.4.1.10876.100.30.1003",
     "class": "notificationtype"
   },
   "trapBbpStatusNormal": {
     "name": "trapBbpStatusNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1101",
+    "oid": "1.3.6.1.4.1.10876.100.30.1101",
     "class": "notificationtype"
   },
   "trapBbpStatusWarning": {
     "name": "trapBbpStatusWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1102",
+    "oid": "1.3.6.1.4.1.10876.100.30.1102",
     "class": "notificationtype"
   },
   "trapBbpStatusCritical": {
     "name": "trapBbpStatusCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1103",
+    "oid": "1.3.6.1.4.1.10876.100.30.1103",
     "class": "notificationtype"
   },
   "trapCpuFaultNormal": {
     "name": "trapCpuFaultNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1201",
+    "oid": "1.3.6.1.4.1.10876.100.30.1201",
     "class": "notificationtype"
   },
   "trapCpuFaultWarning": {
     "name": "trapCpuFaultWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1202",
+    "oid": "1.3.6.1.4.1.10876.100.30.1202",
     "class": "notificationtype"
   },
   "trapCpuFaultCritical": {
     "name": "trapCpuFaultCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1203",
+    "oid": "1.3.6.1.4.1.10876.100.30.1203",
     "class": "notificationtype"
   },
   "trapStorageAdapterStatusNormal": {
     "name": "trapStorageAdapterStatusNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1301",
+    "oid": "1.3.6.1.4.1.10876.100.30.1301",
     "class": "notificationtype"
   },
   "trapStorageAdapterStatusWarning": {
     "name": "trapStorageAdapterStatusWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1302",
+    "oid": "1.3.6.1.4.1.10876.100.30.1302",
     "class": "notificationtype"
   },
   "trapStorageAdapterStatusCritical": {
     "name": "trapStorageAdapterStatusCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1303",
+    "oid": "1.3.6.1.4.1.10876.100.30.1303",
     "class": "notificationtype"
   },
   "trapBatteryStatusNormal": {
     "name": "trapBatteryStatusNormal",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1401",
+    "oid": "1.3.6.1.4.1.10876.100.30.1401",
     "class": "notificationtype"
   },
   "trapBatteryStatusWarning": {
     "name": "trapBatteryStatusWarning",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1402",
+    "oid": "1.3.6.1.4.1.10876.100.30.1402",
     "class": "notificationtype"
   },
   "trapBatteryStatusCritical": {
     "name": "trapBatteryStatusCritical",
-    "oid": "1.3.6.1.4.1.10876.100.3.0.1403",
+    "oid": "1.3.6.1.4.1.10876.100.30.1403",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/supermicro/SUPERMICRO-SD5-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:06:58 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:42:56 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "SUPERMICRO-SD5-MIB"

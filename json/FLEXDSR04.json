@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysContact",
       "sysName",
       "sysDescr",
-      "sysContact",
       "sysLocation"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
+      "Counter64",
       "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
       "TimeTicks",
       "Gauge32",
-      "MibIdentifier",
       "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
       "IpAddress",
-      "Bits",
-      "OBJECT-TYPE"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -34,21 +34,21 @@
       "DateAndTime"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "eventCounter",
-      "eventTimeStamp",
       "FaultOK",
+      "eventTimeStamp",
       "mibRelease",
-      "commonVarbindsCompliance",
+      "eventCounter",
       "eventPriority",
-      "Integer32d2",
       "FloatString",
-      "commonGroup",
-      "Integer32d1"
+      "commonVarbindsCompliance",
+      "Integer32d1",
+      "Integer32d2",
+      "commonGroup"
     ],
     "TWOWCOM-SMI": [
-      "encoder",
-      "other",
       "dvbDecoder",
+      "other",
+      "encoder",
       "dvbEncoder",
       "decoder"
     ]
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 02:57:30 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:33:29 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

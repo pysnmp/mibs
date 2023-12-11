@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
       "Counter64",
       "IpAddress",
-      "Counter32",
-      "enterprises",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "DmiInteger": {
@@ -3653,7 +3653,7 @@
   },
   "dmtfAlert260": {
     "name": "dmtfAlert260",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.260",
+    "oid": "1.3.6.1.4.1.674.10890.10.260",
     "class": "notificationtype",
     "objects": [
       {
@@ -3680,7 +3680,7 @@
   },
   "dmtfAlert261": {
     "name": "dmtfAlert261",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.261",
+    "oid": "1.3.6.1.4.1.674.10890.10.261",
     "class": "notificationtype",
     "objects": [
       {
@@ -3707,7 +3707,7 @@
   },
   "dmtfAlert300": {
     "name": "dmtfAlert300",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.300",
+    "oid": "1.3.6.1.4.1.674.10890.10.300",
     "class": "notificationtype",
     "objects": [
       {
@@ -3734,7 +3734,7 @@
   },
   "dmtfAlert301": {
     "name": "dmtfAlert301",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.301",
+    "oid": "1.3.6.1.4.1.674.10890.10.301",
     "class": "notificationtype",
     "objects": [
       {
@@ -3761,7 +3761,7 @@
   },
   "dmtfAlert268": {
     "name": "dmtfAlert268",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.268",
+    "oid": "1.3.6.1.4.1.674.10890.10.268",
     "class": "notificationtype",
     "objects": [
       {
@@ -3788,7 +3788,7 @@
   },
   "dmtfAlert269": {
     "name": "dmtfAlert269",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.269",
+    "oid": "1.3.6.1.4.1.674.10890.10.269",
     "class": "notificationtype",
     "objects": [
       {
@@ -3815,7 +3815,7 @@
   },
   "dmtfAlert304": {
     "name": "dmtfAlert304",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.304",
+    "oid": "1.3.6.1.4.1.674.10890.10.304",
     "class": "notificationtype",
     "objects": [
       {
@@ -3842,7 +3842,7 @@
   },
   "dmtfAlert305": {
     "name": "dmtfAlert305",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.305",
+    "oid": "1.3.6.1.4.1.674.10890.10.305",
     "class": "notificationtype",
     "objects": [
       {
@@ -3869,7 +3869,7 @@
   },
   "dmtfAlert272": {
     "name": "dmtfAlert272",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.272",
+    "oid": "1.3.6.1.4.1.674.10890.10.272",
     "class": "notificationtype",
     "objects": [
       {
@@ -3896,7 +3896,7 @@
   },
   "dmtfAlert273": {
     "name": "dmtfAlert273",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.273",
+    "oid": "1.3.6.1.4.1.674.10890.10.273",
     "class": "notificationtype",
     "objects": [
       {
@@ -3923,7 +3923,7 @@
   },
   "dmtfAlert302": {
     "name": "dmtfAlert302",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.302",
+    "oid": "1.3.6.1.4.1.674.10890.10.302",
     "class": "notificationtype",
     "objects": [
       {
@@ -3950,7 +3950,7 @@
   },
   "dmtfAlert303": {
     "name": "dmtfAlert303",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.303",
+    "oid": "1.3.6.1.4.1.674.10890.10.303",
     "class": "notificationtype",
     "objects": [
       {
@@ -3977,7 +3977,7 @@
   },
   "dmtfAlert306": {
     "name": "dmtfAlert306",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.306",
+    "oid": "1.3.6.1.4.1.674.10890.10.306",
     "class": "notificationtype",
     "objects": [
       {
@@ -4004,7 +4004,7 @@
   },
   "dmtfAlert307": {
     "name": "dmtfAlert307",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.307",
+    "oid": "1.3.6.1.4.1.674.10890.10.307",
     "class": "notificationtype",
     "objects": [
       {
@@ -4031,7 +4031,7 @@
   },
   "dmtfAlert308": {
     "name": "dmtfAlert308",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.308",
+    "oid": "1.3.6.1.4.1.674.10890.10.308",
     "class": "notificationtype",
     "objects": [
       {
@@ -4058,7 +4058,7 @@
   },
   "dmtfAlert309": {
     "name": "dmtfAlert309",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.309",
+    "oid": "1.3.6.1.4.1.674.10890.10.309",
     "class": "notificationtype",
     "objects": [
       {
@@ -4085,7 +4085,7 @@
   },
   "dmtfAlert310": {
     "name": "dmtfAlert310",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.310",
+    "oid": "1.3.6.1.4.1.674.10890.10.310",
     "class": "notificationtype",
     "objects": [
       {
@@ -4112,7 +4112,7 @@
   },
   "dmtfAlert311": {
     "name": "dmtfAlert311",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.311",
+    "oid": "1.3.6.1.4.1.674.10890.10.311",
     "class": "notificationtype",
     "objects": [
       {
@@ -4139,7 +4139,7 @@
   },
   "dmtfAlert312": {
     "name": "dmtfAlert312",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.312",
+    "oid": "1.3.6.1.4.1.674.10890.10.312",
     "class": "notificationtype",
     "objects": [
       {
@@ -4166,7 +4166,7 @@
   },
   "dmtfAlert313": {
     "name": "dmtfAlert313",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.313",
+    "oid": "1.3.6.1.4.1.674.10890.10.313",
     "class": "notificationtype",
     "objects": [
       {
@@ -4193,7 +4193,7 @@
   },
   "dmtfAlert314": {
     "name": "dmtfAlert314",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.314",
+    "oid": "1.3.6.1.4.1.674.10890.10.314",
     "class": "notificationtype",
     "objects": [
       {
@@ -4220,7 +4220,7 @@
   },
   "dmtfAlert315": {
     "name": "dmtfAlert315",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.315",
+    "oid": "1.3.6.1.4.1.674.10890.10.315",
     "class": "notificationtype",
     "objects": [
       {
@@ -4247,7 +4247,7 @@
   },
   "dmtfAlert320": {
     "name": "dmtfAlert320",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.320",
+    "oid": "1.3.6.1.4.1.674.10890.10.320",
     "class": "notificationtype",
     "objects": [
       {
@@ -4274,7 +4274,7 @@
   },
   "dmtfAlert321": {
     "name": "dmtfAlert321",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.321",
+    "oid": "1.3.6.1.4.1.674.10890.10.321",
     "class": "notificationtype",
     "objects": [
       {
@@ -4301,7 +4301,7 @@
   },
   "dmtfAlert330": {
     "name": "dmtfAlert330",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.330",
+    "oid": "1.3.6.1.4.1.674.10890.10.330",
     "class": "notificationtype",
     "objects": [
       {
@@ -4328,7 +4328,7 @@
   },
   "dmtfAlert323": {
     "name": "dmtfAlert323",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.323",
+    "oid": "1.3.6.1.4.1.674.10890.10.323",
     "class": "notificationtype",
     "objects": [
       {
@@ -4355,7 +4355,7 @@
   },
   "dmtfAlert325": {
     "name": "dmtfAlert325",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.325",
+    "oid": "1.3.6.1.4.1.674.10890.10.325",
     "class": "notificationtype",
     "objects": [
       {
@@ -4382,7 +4382,7 @@
   },
   "dmtfAlert326": {
     "name": "dmtfAlert326",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.326",
+    "oid": "1.3.6.1.4.1.674.10890.10.326",
     "class": "notificationtype",
     "objects": [
       {
@@ -4409,7 +4409,7 @@
   },
   "dmtfAlert327": {
     "name": "dmtfAlert327",
-    "oid": "1.3.6.1.4.1.674.10890.1.0.327",
+    "oid": "1.3.6.1.4.1.674.10890.10.327",
     "class": "notificationtype",
     "objects": [
       {
@@ -4437,8 +4437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLBASEBOARDMIF-MIB",
-      "Produced by pysmi-1.1.11 at Wed Dec  6 03:00:20 2023",
-      "On host fv-az520-882 platform Linux version 6.2.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Dec 11 02:36:24 2023",
+      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DELLBASEBOARDMIF-MIB"
