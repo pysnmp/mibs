@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "CISCO-IP-ADDRESS-POOL-TC-MIB": [
-      "IpAddrPoolInstanceIdentifierOrZero",
       "IpAddressPoolNameOrNull",
-      "IpAddressPoolGroupName",
       "IpAddressPoolThresholdUnits",
+      "IpAddressPoolGroupName",
       "IpAddrPoolInstanceIdentifier",
+      "IpAddrPoolInstanceIdentifierOrZero",
       "IpAddressPoolGroupNameOrNull"
     ],
     "CISCO-SMI": [
@@ -14,8 +14,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -23,29 +23,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
       "iso",
-      "Counter32"
+      "IpAddress",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "StorageType",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ciscoIpAddressPoolMIB": {
@@ -1677,8 +1677,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-ADDRESS-POOL-MIB",
-      "Produced by pysmi-1.1.10 at Mon Dec 11 02:39:23 2023",
-      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Feb 12 02:24:30 2024",
+      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-IP-ADDRESS-POOL-MIB"

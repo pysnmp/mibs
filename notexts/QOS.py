@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module QOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/QOS
-# Produced by pysmi-1.1.10 at Mon Dec 11 02:37:17 2023
-# On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner
+# Produced by pysmi-1.1.10 at Mon Feb 12 02:22:21 2024
+# On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner
 # Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 radioConfig, = mibBuilder.importSymbols("ExaltComProducts", "radioConfig")
 VlanIdT, QosTagT, EnableStatusT = mibBuilder.importSymbols("ExaltComm", "VlanIdT", "QosTagT", "EnableStatusT")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Integer32, iso, Counter32, ObjectIdentity, Counter64, Bits, Unsigned32, IpAddress, TimeTicks, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "iso", "Counter32", "ObjectIdentity", "Counter64", "Bits", "Unsigned32", "IpAddress", "TimeTicks", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, TimeTicks, Gauge32, Bits, ModuleIdentity, Counter64, MibIdentifier, ObjectIdentity, Integer32, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "TimeTicks", "Gauge32", "Bits", "ModuleIdentity", "Counter64", "MibIdentifier", "ObjectIdentity", "Integer32", "IpAddress", "Counter32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class QosPriorityT(TextualConvention, Integer32):
     status = 'current'
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
@@ -116,4 +116,4 @@ qosCos0Weight = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 8, 7, 5), QosCos
 if mibBuilder.loadTexts: qosCos0Weight.setStatus('current')
 commitQosSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 8, 1000), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitQosSettings.setStatus('current')
-mibBuilder.exportSymbols("QOS", QosPriorityT=QosPriorityT, qosDefaultQueue=qosDefaultQueue, portEth2Status=portEth2Status, qosPortETH2Conf=qosPortETH2Conf, qosScheduleMode=qosScheduleMode, qosCos2Weight=qosCos2Weight, qosDiffServEntry=qosDiffServEntry, qosEth2m802dot1pList=qosEth2m802dot1pList, qosCos0Weight=qosCos0Weight, qosCos1Weight=qosCos1Weight, advSystemConfig=advSystemConfig, tagEth1Priority=tagEth1Priority, qosPortETH1Conf=qosPortETH1Conf, extAirG2QoS=extAirG2QoS, portEth2Priority=portEth2Priority, diffServValue=diffServValue, qosEth2Mode=qosEth2Mode, QosCos3WeightT=QosCos3WeightT, qosScheduler=qosScheduler, qosEth1m802dot1pList=qosEth1m802dot1pList, qosEth1PortEntry=qosEth1PortEntry, qosEth1PortList=qosEth1PortList, QosCos0WeightT=QosCos0WeightT, qosEth2PortList=qosEth2PortList, QosScheduleModeT=QosScheduleModeT, qosEth2m802dot1pEntry=qosEth2m802dot1pEntry, qosCos3Weight=qosCos3Weight, qosEth1Mode=qosEth1Mode, portEth1Status=portEth1Status, tagEth1Status=tagEth1Status, tagEth2Priority=tagEth2Priority, qosDiffServList=qosDiffServList, commitQosSettings=commitQosSettings, QosCos1WeightT=QosCos1WeightT, diffServPriority=diffServPriority, tagEth2Status=tagEth2Status, portEth1Priority=portEth1Priority, QosCos2WeightT=QosCos2WeightT, qosEth2PortEntry=qosEth2PortEntry, QosModeT=QosModeT, qosEth1m802dot1pEntry=qosEth1m802dot1pEntry, diffServEnable=diffServEnable)
+mibBuilder.exportSymbols("QOS", diffServEnable=diffServEnable, qosEth2m802dot1pEntry=qosEth2m802dot1pEntry, portEth2Priority=portEth2Priority, qosPortETH2Conf=qosPortETH2Conf, tagEth1Priority=tagEth1Priority, QosModeT=QosModeT, qosEth2Mode=qosEth2Mode, qosEth1PortList=qosEth1PortList, qosEth1m802dot1pList=qosEth1m802dot1pList, qosEth2PortList=qosEth2PortList, advSystemConfig=advSystemConfig, QosCos2WeightT=QosCos2WeightT, QosCos0WeightT=QosCos0WeightT, qosDefaultQueue=qosDefaultQueue, qosEth1Mode=qosEth1Mode, portEth1Status=portEth1Status, diffServPriority=diffServPriority, tagEth2Priority=tagEth2Priority, qosEth2m802dot1pList=qosEth2m802dot1pList, qosPortETH1Conf=qosPortETH1Conf, QosPriorityT=QosPriorityT, QosScheduleModeT=QosScheduleModeT, extAirG2QoS=extAirG2QoS, tagEth1Status=tagEth1Status, qosEth1PortEntry=qosEth1PortEntry, portEth2Status=portEth2Status, qosEth2PortEntry=qosEth2PortEntry, qosCos3Weight=qosCos3Weight, commitQosSettings=commitQosSettings, qosDiffServEntry=qosDiffServEntry, QosCos1WeightT=QosCos1WeightT, QosCos3WeightT=QosCos3WeightT, qosEth1m802dot1pEntry=qosEth1m802dot1pEntry, qosScheduleMode=qosScheduleMode, qosCos0Weight=qosCos0Weight, tagEth2Status=tagEth2Status, diffServValue=diffServValue, qosScheduler=qosScheduler, qosCos1Weight=qosCos1Weight, qosDiffServList=qosDiffServList, portEth1Priority=portEth1Priority, qosCos2Weight=qosCos2Weight)

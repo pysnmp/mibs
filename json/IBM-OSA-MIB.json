@@ -10,21 +10,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Bits",
       "enterprises",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "iso",
       "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Counter32"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4101,8 +4101,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-OSA-MIB",
-      "Produced by pysmi-1.1.10 at Mon Dec 11 02:39:29 2023",
-      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Feb 12 02:24:31 2024",
+      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "IBM-OSA-MIB"

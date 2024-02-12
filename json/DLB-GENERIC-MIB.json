@@ -12,24 +12,24 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "TimeTicks",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Unsigned32",
-      "iso",
       "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Bits",
+      "Gauge32",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dlbGenericMIB": {
@@ -85,8 +85,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/deliberant/DLB-GENERIC-MIB.mib",
-      "Produced by pysmi-1.1.10 at Mon Dec 11 02:36:04 2023",
-      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Feb 12 02:21:08 2024",
+      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DLB-GENERIC-MIB"

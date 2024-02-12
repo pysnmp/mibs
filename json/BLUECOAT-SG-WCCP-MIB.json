@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Counter32",
       "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "Unsigned32",
-      "Integer32"
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "deviceWccpMIB": {
@@ -235,8 +235,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-WCCP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Dec 11 02:34:49 2023",
-      "On host fv-az1498-759 platform Linux version 6.2.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Feb 12 02:19:55 2024",
+      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "BLUECOAT-SG-WCCP-MIB"
