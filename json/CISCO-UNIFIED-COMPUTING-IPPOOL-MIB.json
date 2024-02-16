@@ -5,61 +5,61 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoAlarmSeverity",
       "TimeIntervalSec",
-      "CiscoNetworkAddress",
-      "Unsigned64"
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
+      "Unsigned64",
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectId",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsPolicyPolicyOwner",
-      "CucsIppoolManagementMode",
-      "CucsIppoolDHCPMode",
       "CucsIppoolNetBIOSMode",
+      "CucsPolicyPolicyOwner",
+      "CucsIppoolDHCPMode",
       "CucsIppoolPoolAssignmentOrder",
+      "CucsIppoolManagementMode",
       "CucsPoolElementOwner"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
-      "Counter64",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
+      "Counter64",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
       "TimeTicks",
-      "Integer32"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TimeInterval",
-      "RowPointer",
-      "DateAndTime",
+      "DisplayString",
       "MacAddress",
-      "TruthValue"
+      "TimeStamp",
+      "DateAndTime",
+      "TimeInterval",
+      "RowPointer"
     ]
   },
   "cucsIppoolObjects": {
@@ -1333,8 +1333,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-IPPOOL-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 12 02:24:26 2024",
-      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Feb 16 02:37:45 2024",
+      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-IPPOOL-MIB"

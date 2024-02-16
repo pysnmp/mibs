@@ -9,10 +9,10 @@
       "InterfaceIndex"
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList4",
       "VlanList2",
+      "VlanList1",
       "VlanList3",
-      "VlanList1"
+      "VlanList4"
     ],
     "LINKSYS-MIB": [
       "rnd",
@@ -28,27 +28,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
-      "Bits",
       "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
       "MibIdentifier",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "zeroDotZero",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "RowPointer",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -5400,8 +5400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-POLICY-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 12 02:25:23 2024",
-      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Feb 16 02:39:18 2024",
+      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-POLICY-MIB"

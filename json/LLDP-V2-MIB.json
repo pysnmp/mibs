@@ -5,19 +5,19 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "ifGeneralInformationGroup",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifGeneralInformationGroup"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2PortId",
-      "LldpV2DestAddressTableIndex",
-      "ieee802dot1mibs",
+      "LldpV2ChassisIdSubtype",
       "LldpV2ManAddress",
-      "LldpV2SystemCapabilitiesMap",
+      "LldpV2PortId",
       "LldpV2ChassisId",
-      "LldpV2PortIdSubtype",
+      "ieee802dot1mibs",
+      "LldpV2SystemCapabilitiesMap",
+      "LldpV2DestAddressTableIndex",
       "LldpV2ManAddrIfSubtype",
-      "LldpV2ChassisIdSubtype"
+      "LldpV2PortIdSubtype"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32",
@@ -32,28 +32,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "Integer32",
       "TimeTicks",
-      "MibIdentifier",
       "Counter32",
+      "Unsigned32",
+      "Gauge32",
       "Counter64",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp",
-      "MacAddress",
       "TruthValue",
-      "RowStatus"
+      "TimeStamp",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 12 02:18:14 2024",
-      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Feb 16 02:31:42 2024",
+      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

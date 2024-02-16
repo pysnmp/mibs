@@ -8,8 +8,8 @@
       "VlanId"
     ],
     "CM-IP-MIB": [
-      "IpSourceAddrType",
       "IpManagementTunnelEncapsulationType",
+      "IpSourceAddrType",
       "IpManagementTunnelType"
     ],
     "SNMPv2-CONF": [
@@ -18,29 +18,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "iso",
       "Bits",
       "Gauge32",
-      "Integer32"
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "RowStatus",
       "DisplayString",
+      "DateAndTime",
+      "VariablePointer",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "StorageType"
+      "RowStatus"
     ]
   },
   "f3AMPMIB": {
@@ -983,8 +983,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-AMP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 12 02:19:30 2024",
-      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Feb 16 02:32:57 2024",
+      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "F3-AMP-MIB"

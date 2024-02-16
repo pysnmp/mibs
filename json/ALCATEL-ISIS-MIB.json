@@ -8,48 +8,48 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "ISIS-MIB": [
-      "isisISAdjState",
-      "isisSysL1State",
-      "isisISAdjEntry",
+      "SystemID",
       "isisManAreaAddrExistState",
-      "SNPAAddress",
+      "isisSysL1State",
       "isisSysInstance",
+      "SNPAAddress",
+      "isisISAdjEntry",
       "isisSysL2State",
-      "SystemID"
+      "isisISAdjState"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
       "Counter32",
-      "IpAddress",
-      "Counter64",
       "TimeTicks",
       "Unsigned32",
-      "Integer32"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "TimeStamp",
-      "RowStatus",
-      "TimeInterval"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "timetraIsisMIBModule": {
@@ -5754,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-ISIS-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 12 02:27:07 2024",
-      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Feb 16 02:41:18 2024",
+      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-ISIS-MIB"

@@ -8,43 +8,43 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlRateLimitMode",
+      "MwlRxTxOption",
       "MwlEnableDisableOption",
-      "MwlEncapsulationType",
-      "MwlPacketCaptureMode",
+      "MwlRateLimitMode",
       "MwlOnOffSwitch",
-      "MwlRxTxOption"
+      "MwlEncapsulationType",
+      "MwlPacketCaptureMode"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "iso",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
+      "Bits",
+      "Counter32",
       "Gauge32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
       "Counter64",
+      "MibIdentifier",
+      "Integer32",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "enterprises",
-      "Integer32"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
+      "MacAddress",
+      "DisplayString",
+      "TimeInterval",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TimeInterval",
-      "TimeStamp",
-      "DisplayString",
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "mwConfigPacketCapture": {
@@ -338,8 +338,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-PACKETCAPTURE-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 12 02:22:45 2024",
-      "On host fv-az1251-48 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Fri Feb 16 02:36:27 2024",
+      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-PACKETCAPTURE-MIB"
