@@ -11,7 +11,7 @@ pysnmp-pysmi = "^1.1.10"
 
 
 [tool.poetry.dev-dependencies]
-pre-commit = "^3.5.0"
+pre-commit = "^3.6.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
