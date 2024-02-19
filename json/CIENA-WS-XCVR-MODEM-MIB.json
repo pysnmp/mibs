@@ -5,38 +5,38 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "Decimal2Dig",
       "XcvrId",
+      "EnabledDisabledEnum",
       "YesNoEnum",
-      "EnabledDisabledEnum"
+      "Decimal2Dig"
     ],
     "CIENA-WS-XCVR-MIB": [
       "cwsXcvrVendorDiagnosticMonitoringEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
+      "Bits",
       "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Integer32",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "Gauge32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsXcvrModemMIB": {
@@ -888,8 +888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-MODEM-MIB",
-      "Produced by pysmi-1.1.10 at Fri Feb 16 02:33:59 2024",
-      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Feb 19 02:55:03 2024",
+      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-XCVR-MODEM-MIB"

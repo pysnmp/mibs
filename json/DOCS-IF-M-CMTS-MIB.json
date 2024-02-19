@@ -11,18 +11,18 @@
       "docsQosServiceFlowId"
     ],
     "ENTITY-MIB": [
-      "entityMappingGroup",
+      "entPhysicalClass",
       "entPhysicalSerialNum",
       "entityPhysical2Group",
-      "entPhysicalClass",
-      "PhysicalIndex",
       "entityPhysicalGroup",
+      "PhysicalIndexOrZero",
+      "entPhysicalAlias",
+      "entPhysicalAssetID",
+      "PhysicalIndex",
       "entityGeneralGroup",
       "entityLogical2Group",
       "entityPhysical3Group",
-      "PhysicalIndexOrZero",
-      "entPhysicalAlias",
-      "entPhysicalAssetID"
+      "entityMappingGroup"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -41,34 +41,34 @@
       "SnmpTagValue"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "MODULE-IDENTITY",
       "Integer32",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
       "iso",
-      "Unsigned32",
-      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "TimeTicks"
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "AutonomousType",
       "RowStatus",
+      "TimeStamp",
       "TruthValue",
-      "StorageType"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "AutonomousType"
     ]
   },
   "docsIfMCmtsMib": {
@@ -2953,8 +2953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-M-CMTS-MIB",
-      "Produced by pysmi-1.1.10 at Fri Feb 16 02:32:00 2024",
-      "On host fv-az1055-471 platform Linux version 6.2.0-1019-azure by user runner",
+      "Produced by pysmi-1.1.10 at Mon Feb 19 02:53:10 2024",
+      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
       "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF-M-CMTS-MIB"
