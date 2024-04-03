@@ -5,24 +5,24 @@
       "juniperUniAdmin"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "IpAddress",
-      "Unsigned32",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -121,8 +121,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-Registry",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:47:54 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:02:04 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Juniper-Registry"

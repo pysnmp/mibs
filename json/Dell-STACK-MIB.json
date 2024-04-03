@@ -8,29 +8,29 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
       "iso",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
       "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "Integer32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Integer32",
       "Bits",
-      "MibIdentifier",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rlStack": {
@@ -169,8 +169,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-STACK-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:41 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:57:46 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Dell-STACK-MIB"

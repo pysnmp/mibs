@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "enterprises",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
       "TRAP-TYPE",
       "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
       "TimeInterval",
-      "AutonomousType"
+      "AutonomousType",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
     ]
   },
   "PositiveInteger": {
@@ -1956,8 +1956,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/toshiba/TIC-RMTI4-G9000-G2020-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:50:22 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:04:30 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "TIC-RMTI4-G9000-G2020-MIB"

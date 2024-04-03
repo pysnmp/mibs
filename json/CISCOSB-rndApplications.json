@@ -10,34 +10,34 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
-      "Bits",
+      "Counter64",
       "Gauge32",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "Counter64"
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "rndApplications": {
@@ -1675,8 +1675,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rndApplications",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:46 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:00:41 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-rndApplications"

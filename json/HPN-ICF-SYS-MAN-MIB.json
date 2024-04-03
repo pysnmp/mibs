@@ -5,36 +5,36 @@
       "hpnicfCommon"
     ],
     "SNMP-TARGET-MIB": [
-      "SnmpTagValue",
-      "SnmpTagList"
+      "SnmpTagList",
+      "SnmpTagValue"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
       "Integer32",
       "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "hpnicfSystemMan": {
@@ -2484,8 +2484,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-SYS-MAN-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:45 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:01:13 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-SYS-MAN-MIB"

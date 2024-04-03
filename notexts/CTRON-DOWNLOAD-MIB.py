@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-DOWNLOAD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-DOWNLOAD-MIB
-# Produced by pysmi-1.1.11 at Wed Apr  3 13:44:19 2024
-# On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner
+# Produced by pysmi-1.1.11 at Wed Apr  3 13:58:24 2024
+# On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 ctDownLoad, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctDownLoad")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, ObjectIdentity, Counter64, ModuleIdentity, NotificationType, Gauge32, Integer32, Bits, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "Counter64", "ModuleIdentity", "NotificationType", "Gauge32", "Integer32", "Bits", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, MibIdentifier, Counter64, Gauge32, iso, Counter32, Unsigned32, TimeTicks, IpAddress, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "MibIdentifier", "Counter64", "Gauge32", "iso", "Counter32", "Unsigned32", "TimeTicks", "IpAddress", "Bits", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctDL = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 8, 1))
 ctDLForceOnBoot = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 8, 1, 1), Integer32()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctDLForceOnBoot.setStatus('obsolete')
@@ -59,4 +59,4 @@ ctDLBlockCount = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 8, 1, 22), Integer32(
 if mibBuilder.loadTexts: ctDLBlockCount.setStatus('mandatory')
 ctDLBootPartitionStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 8, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("good", 1), ("bad", 2), ("inProgress", 3)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctDLBootPartitionStatus.setStatus('obsolete')
-mibBuilder.exportSymbols("CTRON-DOWNLOAD-MIB", ctDLForceOnBoot=ctDLForceOnBoot, ctDLBlockCount=ctDLBlockCount, ctDLFirmwareStart=ctDLFirmwareStart, ctDLOnLineDownLoad=ctDLOnLineDownLoad, ctDLFlashCount=ctDLFlashCount, ctDLLastServerIPAddress=ctDLLastServerIPAddress, ctDLTftpServerGatewayIPAddress=ctDLTftpServerGatewayIPAddress, ctDLForceBootp=ctDLForceBootp, ctDLLastImageFilename=ctDLLastImageFilename, ctDLCommitRAMToFlash=ctDLCommitRAMToFlash, ctDLErrorString=ctDLErrorString, ctDLFirmwareTop=ctDLFirmwareTop, ctDLServerName=ctDLServerName, ctDLFirmwareBase=ctDLFirmwareBase, ctDLInitiateColdBoot=ctDLInitiateColdBoot, ctDLBootPartitionStatus=ctDLBootPartitionStatus, ctDL=ctDL, ctDLNetAddress=ctDLNetAddress, ctDLTFTPRequest=ctDLTFTPRequest, ctDLFlashSize=ctDLFlashSize, ctDLTFTPRequestHost=ctDLTFTPRequestHost, ctDLOperStatus=ctDLOperStatus, ctDLFileName=ctDLFileName, ctDLBootRev=ctDLBootRev)
+mibBuilder.exportSymbols("CTRON-DOWNLOAD-MIB", ctDLFirmwareStart=ctDLFirmwareStart, ctDLOperStatus=ctDLOperStatus, ctDLOnLineDownLoad=ctDLOnLineDownLoad, ctDLCommitRAMToFlash=ctDLCommitRAMToFlash, ctDLBootPartitionStatus=ctDLBootPartitionStatus, ctDLForceBootp=ctDLForceBootp, ctDLFirmwareTop=ctDLFirmwareTop, ctDLBootRev=ctDLBootRev, ctDLTFTPRequest=ctDLTFTPRequest, ctDLFileName=ctDLFileName, ctDL=ctDL, ctDLTftpServerGatewayIPAddress=ctDLTftpServerGatewayIPAddress, ctDLBlockCount=ctDLBlockCount, ctDLForceOnBoot=ctDLForceOnBoot, ctDLFirmwareBase=ctDLFirmwareBase, ctDLNetAddress=ctDLNetAddress, ctDLInitiateColdBoot=ctDLInitiateColdBoot, ctDLFlashCount=ctDLFlashCount, ctDLLastImageFilename=ctDLLastImageFilename, ctDLTFTPRequestHost=ctDLTFTPRequestHost, ctDLServerName=ctDLServerName, ctDLLastServerIPAddress=ctDLLastServerIPAddress, ctDLFlashSize=ctDLFlashSize, ctDLErrorString=ctDLErrorString)

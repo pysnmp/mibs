@@ -5,45 +5,45 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
-      "InetAddressType",
       "InetAddressPrefixLength",
+      "InetZoneIndex",
       "InetAddress",
-      "InetZoneIndex"
+      "InetVersion",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "zeroDotZero",
+      "Gauge32",
+      "IpAddress",
       "iso",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "mib-2",
+      "MibIdentifier",
+      "Counter32",
       "Unsigned32",
       "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "zeroDotZero",
-      "IpAddress"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "TestAndIncr",
       "RowStatus",
       "DisplayString",
+      "StorageType",
       "RowPointer",
-      "TimeStamp"
+      "PhysAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TruthValue"
     ]
   },
   "ipMIB": {
@@ -4777,9 +4777,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IP-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:42 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IP-MIB",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:54:50 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IP-MIB"

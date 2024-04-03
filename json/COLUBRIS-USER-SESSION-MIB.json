@@ -8,29 +8,29 @@
       "ColubrisSSIDOrNone"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "colubrisUserSessionMIB": {
@@ -580,8 +580,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-USER-SESSION-MIB.my",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:45:34 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:59:42 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-USER-SESSION-MIB"

@@ -5,48 +5,48 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
+      "ifName",
       "InterfaceIndex",
-      "ifIndex",
-      "ifName"
+      "ifIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter32",
       "Integer32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Unsigned32",
       "iso",
-      "TimeTicks"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ],
     "VRRP-MIB": [
-      "vrrpOperState",
-      "vrrpOperPrimaryIpAddr",
       "vrrpOperMasterIpAddr",
-      "VrId"
+      "vrrpOperState",
+      "VrId",
+      "vrrpOperPrimaryIpAddr"
     ]
   },
   "hwVrrpExt": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VRRP-EXT-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:36 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:00:38 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VRRP-EXT-MIB"

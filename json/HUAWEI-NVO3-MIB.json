@@ -11,30 +11,30 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
       "Integer32",
+      "TimeTicks",
+      "Bits",
       "Counter32",
-      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Unsigned32",
       "iso",
-      "TimeTicks"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwNvo3Mgmt": {
@@ -844,8 +844,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-NVO3-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:36 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:00:38 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-NVO3-MIB"

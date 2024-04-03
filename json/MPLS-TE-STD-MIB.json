@@ -14,54 +14,54 @@
     ],
     "MPLS-TC-STD-MIB": [
       "MplsPathIndex",
-      "MplsBurstSize",
-      "TeHopAddressType",
-      "MplsTunnelAffinity",
-      "TeHopAddressUnnum",
-      "MplsBitRate",
       "MplsOwner",
-      "MplsExtendedTunnelId",
-      "mplsStdMIB",
-      "TeHopAddress",
-      "MplsTunnelIndex",
+      "MplsBitRate",
       "TeHopAddressAS",
+      "TeHopAddress",
+      "MplsTunnelAffinity",
+      "MplsExtendedTunnelId",
       "MplsPathIndexOrZero",
+      "TeHopAddressUnnum",
+      "MplsTunnelIndex",
+      "MplsTunnelInstanceIndex",
+      "MplsBurstSize",
       "MplsLSPID",
-      "MplsTunnelInstanceIndex"
+      "TeHopAddressType",
+      "mplsStdMIB"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
+      "MODULE-IDENTITY",
       "zeroDotZero",
       "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "Integer32",
       "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter32",
-      "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowPointer",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
       "StorageType",
-      "RowStatus"
+      "RowPointer",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "mplsTeStdMIB": {
@@ -2338,9 +2338,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-TE-STD-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:40 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-TE-STD-MIB",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:54:50 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MPLS-TE-STD-MIB"

@@ -8,36 +8,36 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysLocation",
       "sysContact",
-      "sysName",
-      "sysLocation"
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Bits",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Gauge32",
-      "Bits",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
       "NOTIFICATION-TYPE",
-      "enterprises"
+      "Counter64",
+      "Integer32",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "hp": {
@@ -148,8 +148,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SWITCH-PL-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:47 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:01:16 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HP-SWITCH-PL-MIB"

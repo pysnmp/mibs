@@ -5,35 +5,35 @@
       "lecIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Gauge32",
       "IpAddress",
-      "enterprises",
-      "Counter64",
       "iso",
-      "Bits",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Integer32",
       "TimeTicks",
-      "MibIdentifier"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TimeInterval",
-      "TruthValue",
-      "RowStatus"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "mpoaMIB": {
@@ -4569,8 +4569,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPOA-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:40:48 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:54:49 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MPOA-MIB"

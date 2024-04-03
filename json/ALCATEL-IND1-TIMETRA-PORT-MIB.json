@@ -2,64 +2,64 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-CHASSIS-MIB": [
-      "tmnxHwNotification",
-      "tmnxChassisIndex",
-      "tmnxChassisNotifyChassisId",
-      "TmnxPortAdminStatus",
       "tmnxHwConformance",
-      "TmnxAlarmState",
+      "tmnxChassisNotifyChassisId",
+      "tmnxChassisIndex",
       "TmnxMDAChanType",
-      "tmnxHwObjs"
+      "tmnxHwObjs",
+      "TmnxPortAdminStatus",
+      "tmnxHwNotification",
+      "TmnxAlarmState"
     ],
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxOperState",
-      "TItemDescription",
+      "TItemLongDescription",
       "TmnxActionType",
-      "TPortSchedulerCIR",
-      "TFCName",
-      "TPortSchedulerPIR",
       "TmnxPortID",
       "TNamedItemOrEmpty",
       "TSecondaryShaper10GPIRRate",
-      "TNamedItem",
       "TQueueId",
-      "TItemLongDescription",
-      "TMlpppQoSProfileId"
+      "TFCName",
+      "TMlpppQoSProfileId",
+      "TItemDescription",
+      "TPortSchedulerCIR",
+      "TPortSchedulerPIR",
+      "TNamedItem",
+      "TmnxOperState"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64",
       "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
       "Counter32",
       "OBJECT-TYPE",
-      "Gauge32",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
       "TimeStamp",
+      "TimeInterval",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "RowPointer",
-      "TimeInterval",
-      "MacAddress",
-      "TruthValue",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "tmnxPortMIBModule": {
@@ -16076,8 +16076,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-PORT-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:49:18 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:03:29 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-PORT-MIB"

@@ -5,36 +5,36 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoIpProtocol",
-      "CiscoPort"
+      "CiscoPort",
+      "CiscoIpProtocol"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
       "Counter32",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "Counter64",
       "Gauge32",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
       "Bits",
       "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ciscoCasaMIB": {
@@ -1170,8 +1170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CASA-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:47 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:00:42 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-CASA-MIB"

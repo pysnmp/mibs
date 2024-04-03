@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "HH3C-FC-TC-MIB": [
-      "Hh3cFcBbCredit",
-      "Hh3cFcAddressId",
       "Hh3cFcNameId",
+      "Hh3cFcClassOfServices",
+      "Hh3cFcBbCredit",
       "Hh3cFcRxMTU",
-      "Hh3cFcClassOfServices"
+      "Hh3cFcAddressId"
     ],
     "HH3C-VSAN-MIB": [
       "hh3cVsanIndex",
@@ -16,29 +16,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
+      "Integer32",
+      "Gauge32",
       "iso",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cFcFLogin": {
@@ -225,8 +225,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FC-FLOGIN-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:10 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:57:13 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HH3C-FC-FLOGIN-MIB"

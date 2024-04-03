@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "Integer32",
-      "Counter64",
       "Unsigned32",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ],
     "VMWARE-PRODUCTS-MIB": [
       "vmwESX"
@@ -35,13 +35,13 @@
       "vmwProductSpecific"
     ],
     "VMWARE-TC-MIB": [
-      "VmwLongSnmpAdminString",
-      "VmwSubsystemTypes",
-      "VmwCIMAlertFormat",
-      "VmwSubsystemStatus",
       "VmwCIMSeverity",
       "VmwCimName",
-      "VmwCIMAlertTypes"
+      "VmwCIMAlertFormat",
+      "VmwSubsystemTypes",
+      "VmwCIMAlertTypes",
+      "VmwLongSnmpAdminString",
+      "VmwSubsystemStatus"
     ]
   },
   "vmwEnvironmentalMIB": {
@@ -1629,8 +1629,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ENV-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:50:41 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:04:49 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "VMWARE-ENV-MIB"

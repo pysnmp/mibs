@@ -5,33 +5,33 @@
       "acdProducts"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "Integer32",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "iso",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Counter64"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -740,8 +740,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-DESC-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:40:59 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:54:59 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ACD-DESC-MIB"

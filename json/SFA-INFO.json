@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
       "enterprises",
-      "IpAddress",
+      "Unsigned32",
+      "iso",
       "OBJECT-TYPE",
-      "Counter64",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -711,8 +711,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ddn/SFA-INFO",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:18 2024",
-      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:57:21 2024",
+      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SFA-INFO"
