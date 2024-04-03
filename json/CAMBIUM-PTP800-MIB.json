@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "iso",
-      "Gauge32",
       "MibIdentifier",
       "Counter32",
+      "Integer32",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "enterprises",
       "Counter64",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cambium": {
@@ -5540,7 +5540,7 @@
   },
   "dataPortStatusTrap": {
     "name": "dataPortStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.3",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -5551,7 +5551,7 @@
   },
   "linkNameMismatchTrap": {
     "name": "linkNameMismatchTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.9",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -5562,7 +5562,7 @@
   },
   "alignmentModeTrap": {
     "name": "alignmentModeTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.10",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -5573,7 +5573,7 @@
   },
   "unitOutOfCalibrationTrap": {
     "name": "unitOutOfCalibrationTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.11",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -5584,7 +5584,7 @@
   },
   "encryptionEnabledMismatchTrap": {
     "name": "encryptionEnabledMismatchTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.13",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -5595,7 +5595,7 @@
   },
   "dataPortDisabledWarningTrap": {
     "name": "dataPortDisabledWarningTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.17",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -5606,7 +5606,7 @@
   },
   "dataPortFiberStatusTrap": {
     "name": "dataPortFiberStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.18",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -5617,7 +5617,7 @@
   },
   "dataPortConfigurationMismatchTrap": {
     "name": "dataPortConfigurationMismatchTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.19",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -5628,7 +5628,7 @@
   },
   "softwareVersionRemoteCompatibilityTrap": {
     "name": "softwareVersionRemoteCompatibilityTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.20",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -5639,7 +5639,7 @@
   },
   "sNTPSyncTrap": {
     "name": "sNTPSyncTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.21",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -5650,7 +5650,7 @@
   },
   "managementPortStatusTrap": {
     "name": "managementPortStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.23",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -5661,7 +5661,7 @@
   },
   "managementPortDisabledWarningTrap": {
     "name": "managementPortDisabledWarningTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.24",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -5672,7 +5672,7 @@
   },
   "rFUStatusTrap": {
     "name": "rFUStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.27",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -5683,7 +5683,7 @@
   },
   "managementPortConfigurationMismatchTrap": {
     "name": "managementPortConfigurationMismatchTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.28",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -5694,7 +5694,7 @@
   },
   "wirelessLinkStatusTrap": {
     "name": "wirelessLinkStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.29",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -5705,7 +5705,7 @@
   },
   "protectionAvailabilityStatusTrap": {
     "name": "protectionAvailabilityStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.31",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -5716,7 +5716,7 @@
   },
   "protectionConfigurationStatusTrap": {
     "name": "protectionConfigurationStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.32",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -5727,7 +5727,7 @@
   },
   "protectionStateTrap": {
     "name": "protectionStateTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.33",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -5738,7 +5738,7 @@
   },
   "wirelessReceiveSignalStatusTrap": {
     "name": "wirelessReceiveSignalStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.34",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -5749,7 +5749,7 @@
   },
   "licensedTransmitCapacityStatusTrap": {
     "name": "licensedTransmitCapacityStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.36",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -5760,7 +5760,7 @@
   },
   "dataPortEthernetSpeedStatusTrap": {
     "name": "dataPortEthernetSpeedStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.37",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -5771,7 +5771,7 @@
   },
   "managementPortEthernetSpeedStatusTrap": {
     "name": "managementPortEthernetSpeedStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.38",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -5782,7 +5782,7 @@
   },
   "protectionInterfaceStatusTrap": {
     "name": "protectionInterfaceStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.39",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -5793,7 +5793,7 @@
   },
   "syslogStateTrap": {
     "name": "syslogStateTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.40",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -5804,17 +5804,17 @@
   },
   "syslogLocalNearlyFullTrap": {
     "name": "syslogLocalNearlyFullTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.41",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.41",
     "class": "notificationtype"
   },
   "syslogLocalWrappedTrap": {
     "name": "syslogLocalWrappedTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.42",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.42",
     "class": "notificationtype"
   },
   "secureModeAlarmTrap": {
     "name": "secureModeAlarmTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.43",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -5825,7 +5825,7 @@
   },
   "endWirelessReceiveSignalStatusTrap": {
     "name": "endWirelessReceiveSignalStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.44",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -5836,7 +5836,7 @@
   },
   "rxDiversityDataPortStatusTrap": {
     "name": "rxDiversityDataPortStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.45",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -5847,7 +5847,7 @@
   },
   "rxDiversityAvailabilityStatusTrap": {
     "name": "rxDiversityAvailabilityStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.46",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.46",
     "class": "notificationtype",
     "objects": [
       {
@@ -5858,7 +5858,7 @@
   },
   "rxDiversityConfigurationStatusTrap": {
     "name": "rxDiversityConfigurationStatusTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.47",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.47",
     "class": "notificationtype",
     "objects": [
       {
@@ -5869,7 +5869,7 @@
   },
   "rFUPowerButtonPressedTrap": {
     "name": "rFUPowerButtonPressedTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.48",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.48",
     "class": "notificationtype",
     "objects": [
       {
@@ -5880,7 +5880,7 @@
   },
   "syslogClientTrap": {
     "name": "syslogClientTrap",
-    "oid": "1.3.6.1.4.1.17713.8.990.49",
+    "oid": "1.3.6.1.4.1.17713.8.99.0.49",
     "class": "notificationtype",
     "objects": [
       {
@@ -5892,9 +5892,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/CAMBIUM-PTP800-V1-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:54:42 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:42:21 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CAMBIUM-PTP800-MIB"
   }

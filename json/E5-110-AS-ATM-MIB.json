@@ -12,29 +12,29 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "Integer32",
       "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "asMaxNumOfChannels": {
@@ -682,9 +682,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-110-AS-ATM-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:54:44 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:42:22 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "E5-110-AS-ATM-MIB"
   }

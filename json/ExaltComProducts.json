@@ -3,25 +3,25 @@
     "class": "imports",
     "ExaltComm": [
       "EthPortMode",
-      "Te1LoopBackModeT",
-      "EnableStatusT",
-      "Led4ColorT",
-      "AlarmLevelT",
-      "Te1LboT",
-      "VlanStatusT",
-      "exaltcommunications",
-      "Te1LineCodeT",
-      "Te1StatusT",
       "EthMainStatusT",
+      "TimeZoneT",
+      "Te1StatusT",
+      "AlarmLevelT",
       "VlanGroupT",
-      "FileTransferStartT",
-      "AcmModulationT",
       "EthAuxStatusT",
-      "FileTransferTypeT",
-      "NtpClientEnableT",
       "ExaltEnableT",
+      "Led4ColorT",
+      "FileTransferStartT",
+      "exaltcommunications",
+      "NtpClientEnableT",
+      "VlanStatusT",
+      "EnableStatusT",
+      "Te1LoopBackModeT",
       "AuxNmsMode",
-      "TimeZoneT"
+      "Te1LboT",
+      "FileTransferTypeT",
+      "AcmModulationT",
+      "Te1LineCodeT"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -29,20 +29,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "iso",
-      "MibIdentifier",
-      "IpAddress",
       "Gauge32",
-      "Bits"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2951,9 +2951,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:56:58 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:44:36 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"
   }

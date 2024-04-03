@@ -5,28 +5,28 @@
       "bcnModules"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32"
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bcnTCMIB": {
@@ -63,9 +63,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-TC-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:54:30 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:42:09 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "BCN-TC-MIB"
   }

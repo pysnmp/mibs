@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,37 +18,37 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "mib-2",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
       "enterprises",
       "TimeTicks",
-      "Counter64"
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "mib-2",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "MacAddress",
-      "PhysAddress",
-      "TimeStamp",
       "TruthValue",
+      "PhysAddress",
+      "TestAndIncr",
+      "DisplayString",
+      "DateAndTime",
+      "TimeStamp",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "AutonomousType",
       "RowStatus"
     ],
@@ -93201,9 +93201,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:57:37 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:45:12 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SWITCH"
   }

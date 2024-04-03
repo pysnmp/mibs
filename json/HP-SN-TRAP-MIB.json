@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "HP-SN-AGENT-MIB": [
-      "snChasPwrSupplyDescription",
-      "snChasPwrSupplyIndex",
       "snAgGblTrapMessage",
+      "snChasFanIndex",
+      "snChasPwrSupplyDescription",
       "snChasFanDescription",
       "snChasPwrSupplyStatus",
-      "snChasFanIndex",
+      "snChasPwrSupplyIndex",
       "snAgentBrdIndex"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
+      "snL4TrapRealServerCurConnections",
       "snL4TrapRealServerName",
       "snL4TrapRealServerPort",
-      "snL4TrapRealServerCurConnections",
       "snL4TcpSynLimit",
-      "snL4TrapRealServerIP",
-      "snL4MaxSessionLimit"
+      "snL4MaxSessionLimit",
+      "snL4TrapRealServerIP"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
@@ -30,30 +30,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TRAP-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Integer32",
-      "IpAddress"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTrapChasPwrSupply": {
     "name": "snTrapChasPwrSupply",
-    "oid": "1.3.6.1.4.1.110.1",
+    "oid": "1.3.6.1.4.1.11.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -64,7 +64,7 @@
   },
   "snTrapLockedAddressViolation": {
     "name": "snTrapLockedAddressViolation",
-    "oid": "1.3.6.1.4.1.110.2",
+    "oid": "1.3.6.1.4.1.11.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -79,7 +79,7 @@
   },
   "snTrapL4MaxSessionLimitReached": {
     "name": "snTrapL4MaxSessionLimitReached",
-    "oid": "1.3.6.1.4.1.110.19",
+    "oid": "1.3.6.1.4.1.11.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -90,7 +90,7 @@
   },
   "snTrapL4TcpSynLimitReached": {
     "name": "snTrapL4TcpSynLimitReached",
-    "oid": "1.3.6.1.4.1.110.20",
+    "oid": "1.3.6.1.4.1.11.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -101,7 +101,7 @@
   },
   "snTrapL4RealServerUp": {
     "name": "snTrapL4RealServerUp",
-    "oid": "1.3.6.1.4.1.110.21",
+    "oid": "1.3.6.1.4.1.11.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -116,7 +116,7 @@
   },
   "snTrapL4RealServerDown": {
     "name": "snTrapL4RealServerDown",
-    "oid": "1.3.6.1.4.1.110.22",
+    "oid": "1.3.6.1.4.1.11.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -131,7 +131,7 @@
   },
   "snTrapL4RealServerPortUp": {
     "name": "snTrapL4RealServerPortUp",
-    "oid": "1.3.6.1.4.1.110.23",
+    "oid": "1.3.6.1.4.1.11.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -150,7 +150,7 @@
   },
   "snTrapL4RealServerPortDown": {
     "name": "snTrapL4RealServerPortDown",
-    "oid": "1.3.6.1.4.1.110.24",
+    "oid": "1.3.6.1.4.1.11.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -169,7 +169,7 @@
   },
   "snTrapL4RealServerMaxConnectionLimitReached": {
     "name": "snTrapL4RealServerMaxConnectionLimitReached",
-    "oid": "1.3.6.1.4.1.110.25",
+    "oid": "1.3.6.1.4.1.11.0.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -188,17 +188,17 @@
   },
   "snTrapL4BecomeStandby": {
     "name": "snTrapL4BecomeStandby",
-    "oid": "1.3.6.1.4.1.110.26",
+    "oid": "1.3.6.1.4.1.11.0.26",
     "class": "notificationtype"
   },
   "snTrapL4BecomeActive": {
     "name": "snTrapL4BecomeActive",
-    "oid": "1.3.6.1.4.1.110.27",
+    "oid": "1.3.6.1.4.1.11.0.27",
     "class": "notificationtype"
   },
   "snTrapModuleInserted": {
     "name": "snTrapModuleInserted",
-    "oid": "1.3.6.1.4.1.110.28",
+    "oid": "1.3.6.1.4.1.11.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -209,7 +209,7 @@
   },
   "snTrapModuleRemoved": {
     "name": "snTrapModuleRemoved",
-    "oid": "1.3.6.1.4.1.110.29",
+    "oid": "1.3.6.1.4.1.11.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -220,7 +220,7 @@
   },
   "snTrapChasPwrSupplyFailed": {
     "name": "snTrapChasPwrSupplyFailed",
-    "oid": "1.3.6.1.4.1.110.30",
+    "oid": "1.3.6.1.4.1.11.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -235,7 +235,7 @@
   },
   "snTrapChasFanFailed": {
     "name": "snTrapChasFanFailed",
-    "oid": "1.3.6.1.4.1.110.31",
+    "oid": "1.3.6.1.4.1.11.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -250,7 +250,7 @@
   },
   "snTrapLockedAddressViolation2": {
     "name": "snTrapLockedAddressViolation2",
-    "oid": "1.3.6.1.4.1.110.32",
+    "oid": "1.3.6.1.4.1.11.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -261,7 +261,7 @@
   },
   "snTrapFsrpIfStateChange": {
     "name": "snTrapFsrpIfStateChange",
-    "oid": "1.3.6.1.4.1.110.33",
+    "oid": "1.3.6.1.4.1.11.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -272,7 +272,7 @@
   },
   "snTrapVrrpIfStateChange": {
     "name": "snTrapVrrpIfStateChange",
-    "oid": "1.3.6.1.4.1.110.34",
+    "oid": "1.3.6.1.4.1.11.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -283,7 +283,7 @@
   },
   "snTrapMgmtModuleRedunStateChange": {
     "name": "snTrapMgmtModuleRedunStateChange",
-    "oid": "1.3.6.1.4.1.110.35",
+    "oid": "1.3.6.1.4.1.11.0.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -294,7 +294,7 @@
   },
   "snTrapTemperatureWarning": {
     "name": "snTrapTemperatureWarning",
-    "oid": "1.3.6.1.4.1.110.36",
+    "oid": "1.3.6.1.4.1.11.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -305,7 +305,7 @@
   },
   "snTrapAccessListDeny": {
     "name": "snTrapAccessListDeny",
-    "oid": "1.3.6.1.4.1.110.37",
+    "oid": "1.3.6.1.4.1.11.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -316,7 +316,7 @@
   },
   "snTrapMacFilterDeny": {
     "name": "snTrapMacFilterDeny",
-    "oid": "1.3.6.1.4.1.110.38",
+    "oid": "1.3.6.1.4.1.11.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -327,7 +327,7 @@
   },
   "snTrapL4GslbRemoteUp": {
     "name": "snTrapL4GslbRemoteUp",
-    "oid": "1.3.6.1.4.1.110.39",
+    "oid": "1.3.6.1.4.1.11.0.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -338,7 +338,7 @@
   },
   "snTrapL4GslbRemoteDown": {
     "name": "snTrapL4GslbRemoteDown",
-    "oid": "1.3.6.1.4.1.110.40",
+    "oid": "1.3.6.1.4.1.11.0.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -349,7 +349,7 @@
   },
   "snTrapL4GslbRemoteControllerUp": {
     "name": "snTrapL4GslbRemoteControllerUp",
-    "oid": "1.3.6.1.4.1.110.41",
+    "oid": "1.3.6.1.4.1.11.0.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -360,7 +360,7 @@
   },
   "snTrapL4GslbRemoteControllerDown": {
     "name": "snTrapL4GslbRemoteControllerDown",
-    "oid": "1.3.6.1.4.1.110.42",
+    "oid": "1.3.6.1.4.1.11.0.42",
     "class": "notificationtype",
     "objects": [
       {
@@ -371,7 +371,7 @@
   },
   "snTrapL4GslbHealthCheckIpUp": {
     "name": "snTrapL4GslbHealthCheckIpUp",
-    "oid": "1.3.6.1.4.1.110.43",
+    "oid": "1.3.6.1.4.1.11.0.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -382,7 +382,7 @@
   },
   "snTrapL4GslbHealthCheckIpDown": {
     "name": "snTrapL4GslbHealthCheckIpDown",
-    "oid": "1.3.6.1.4.1.110.44",
+    "oid": "1.3.6.1.4.1.11.0.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -393,7 +393,7 @@
   },
   "snTrapL4GslbHealthCheckIpPortUp": {
     "name": "snTrapL4GslbHealthCheckIpPortUp",
-    "oid": "1.3.6.1.4.1.110.45",
+    "oid": "1.3.6.1.4.1.11.0.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -404,7 +404,7 @@
   },
   "snTrapL4GslbHealthCheckIpPortDown": {
     "name": "snTrapL4GslbHealthCheckIpPortDown",
-    "oid": "1.3.6.1.4.1.110.46",
+    "oid": "1.3.6.1.4.1.11.0.46",
     "class": "notificationtype",
     "objects": [
       {
@@ -415,27 +415,27 @@
   },
   "snTrapL4FirewallBecomeStandby": {
     "name": "snTrapL4FirewallBecomeStandby",
-    "oid": "1.3.6.1.4.1.110.47",
+    "oid": "1.3.6.1.4.1.11.0.47",
     "class": "notificationtype"
   },
   "snTrapL4FirewallBecomeActive": {
     "name": "snTrapL4FirewallBecomeActive",
-    "oid": "1.3.6.1.4.1.110.48",
+    "oid": "1.3.6.1.4.1.11.0.48",
     "class": "notificationtype"
   },
   "snTrapL4FirewallPathUp": {
     "name": "snTrapL4FirewallPathUp",
-    "oid": "1.3.6.1.4.1.110.49",
+    "oid": "1.3.6.1.4.1.11.0.49",
     "class": "notificationtype"
   },
   "snTrapL4FirewallPathDown": {
     "name": "snTrapL4FirewallPathDown",
-    "oid": "1.3.6.1.4.1.110.50",
+    "oid": "1.3.6.1.4.1.11.0.50",
     "class": "notificationtype"
   },
   "snTrapIcmpLocalExceedBurst": {
     "name": "snTrapIcmpLocalExceedBurst",
-    "oid": "1.3.6.1.4.1.110.51",
+    "oid": "1.3.6.1.4.1.11.0.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -446,7 +446,7 @@
   },
   "snTrapIcmpTransitExceedBurst": {
     "name": "snTrapIcmpTransitExceedBurst",
-    "oid": "1.3.6.1.4.1.110.52",
+    "oid": "1.3.6.1.4.1.11.0.52",
     "class": "notificationtype",
     "objects": [
       {
@@ -457,7 +457,7 @@
   },
   "snTrapTcpLocalExceedBurst": {
     "name": "snTrapTcpLocalExceedBurst",
-    "oid": "1.3.6.1.4.1.110.53",
+    "oid": "1.3.6.1.4.1.11.0.53",
     "class": "notificationtype",
     "objects": [
       {
@@ -468,7 +468,7 @@
   },
   "snTrapTcpTransitExceedBurst": {
     "name": "snTrapTcpTransitExceedBurst",
-    "oid": "1.3.6.1.4.1.110.54",
+    "oid": "1.3.6.1.4.1.11.0.54",
     "class": "notificationtype",
     "objects": [
       {
@@ -479,37 +479,37 @@
   },
   "snTrapL4ContentVerification": {
     "name": "snTrapL4ContentVerification",
-    "oid": "1.3.6.1.4.1.110.55",
+    "oid": "1.3.6.1.4.1.11.0.55",
     "class": "notificationtype"
   },
   "snTrapDuplicateIp": {
     "name": "snTrapDuplicateIp",
-    "oid": "1.3.6.1.4.1.110.56",
+    "oid": "1.3.6.1.4.1.11.0.56",
     "class": "notificationtype"
   },
   "snTrapMplsProblem": {
     "name": "snTrapMplsProblem",
-    "oid": "1.3.6.1.4.1.110.57",
+    "oid": "1.3.6.1.4.1.11.0.57",
     "class": "notificationtype"
   },
   "snTrapMplsException": {
     "name": "snTrapMplsException",
-    "oid": "1.3.6.1.4.1.110.58",
+    "oid": "1.3.6.1.4.1.11.0.58",
     "class": "notificationtype"
   },
   "snTrapMplsAudit": {
     "name": "snTrapMplsAudit",
-    "oid": "1.3.6.1.4.1.110.59",
+    "oid": "1.3.6.1.4.1.11.0.59",
     "class": "notificationtype"
   },
   "snTrapMplsDeveloper": {
     "name": "snTrapMplsDeveloper",
-    "oid": "1.3.6.1.4.1.110.60",
+    "oid": "1.3.6.1.4.1.11.0.60",
     "class": "notificationtype"
   },
   "snTrapNoBmFreeQueue": {
     "name": "snTrapNoBmFreeQueue",
-    "oid": "1.3.6.1.4.1.110.61",
+    "oid": "1.3.6.1.4.1.11.0.61",
     "class": "notificationtype",
     "objects": [
       {
@@ -520,7 +520,7 @@
   },
   "snTrapSmcDmaDrop": {
     "name": "snTrapSmcDmaDrop",
-    "oid": "1.3.6.1.4.1.110.62",
+    "oid": "1.3.6.1.4.1.11.0.62",
     "class": "notificationtype",
     "objects": [
       {
@@ -531,7 +531,7 @@
   },
   "snTrapSmcBpDrop": {
     "name": "snTrapSmcBpDrop",
-    "oid": "1.3.6.1.4.1.110.63",
+    "oid": "1.3.6.1.4.1.11.0.63",
     "class": "notificationtype",
     "objects": [
       {
@@ -542,7 +542,7 @@
   },
   "snTrapBmWriteSeqDrop": {
     "name": "snTrapBmWriteSeqDrop",
-    "oid": "1.3.6.1.4.1.110.64",
+    "oid": "1.3.6.1.4.1.11.0.64",
     "class": "notificationtype",
     "objects": [
       {
@@ -553,7 +553,7 @@
   },
   "snTrapBgpPeerUp": {
     "name": "snTrapBgpPeerUp",
-    "oid": "1.3.6.1.4.1.110.65",
+    "oid": "1.3.6.1.4.1.11.0.65",
     "class": "notificationtype",
     "objects": [
       {
@@ -564,7 +564,7 @@
   },
   "snTrapBgpPeerDown": {
     "name": "snTrapBgpPeerDown",
-    "oid": "1.3.6.1.4.1.110.66",
+    "oid": "1.3.6.1.4.1.11.0.66",
     "class": "notificationtype",
     "objects": [
       {
@@ -575,7 +575,7 @@
   },
   "snTrapL4RealServerResponseTimeLowerLimit": {
     "name": "snTrapL4RealServerResponseTimeLowerLimit",
-    "oid": "1.3.6.1.4.1.110.67",
+    "oid": "1.3.6.1.4.1.11.0.67",
     "class": "notificationtype",
     "objects": [
       {
@@ -586,7 +586,7 @@
   },
   "snTrapL4RealServerResponseTimeUpperLimit": {
     "name": "snTrapL4RealServerResponseTimeUpperLimit",
-    "oid": "1.3.6.1.4.1.110.68",
+    "oid": "1.3.6.1.4.1.11.0.68",
     "class": "notificationtype",
     "objects": [
       {
@@ -597,7 +597,7 @@
   },
   "snTrapL4TcpAttackRateExceedMax": {
     "name": "snTrapL4TcpAttackRateExceedMax",
-    "oid": "1.3.6.1.4.1.110.69",
+    "oid": "1.3.6.1.4.1.11.0.69",
     "class": "notificationtype",
     "objects": [
       {
@@ -608,7 +608,7 @@
   },
   "snTrapL4TcpAttackRateExceedThreshold": {
     "name": "snTrapL4TcpAttackRateExceedThreshold",
-    "oid": "1.3.6.1.4.1.110.70",
+    "oid": "1.3.6.1.4.1.11.0.70",
     "class": "notificationtype",
     "objects": [
       {
@@ -619,7 +619,7 @@
   },
   "snTrapL4ConnectionRateExceedMax": {
     "name": "snTrapL4ConnectionRateExceedMax",
-    "oid": "1.3.6.1.4.1.110.71",
+    "oid": "1.3.6.1.4.1.11.0.71",
     "class": "notificationtype",
     "objects": [
       {
@@ -630,7 +630,7 @@
   },
   "snTrapL4ConnectionRateExceedThreshold": {
     "name": "snTrapL4ConnectionRateExceedThreshold",
-    "oid": "1.3.6.1.4.1.110.72",
+    "oid": "1.3.6.1.4.1.11.0.72",
     "class": "notificationtype",
     "objects": [
       {
@@ -641,7 +641,7 @@
   },
   "snTrapRunningConfigChanged": {
     "name": "snTrapRunningConfigChanged",
-    "oid": "1.3.6.1.4.1.110.73",
+    "oid": "1.3.6.1.4.1.11.0.73",
     "class": "notificationtype",
     "objects": [
       {
@@ -652,7 +652,7 @@
   },
   "snTrapStartupConfigChanged": {
     "name": "snTrapStartupConfigChanged",
-    "oid": "1.3.6.1.4.1.110.74",
+    "oid": "1.3.6.1.4.1.11.0.74",
     "class": "notificationtype",
     "objects": [
       {
@@ -663,7 +663,7 @@
   },
   "snTrapUserLogin": {
     "name": "snTrapUserLogin",
-    "oid": "1.3.6.1.4.1.110.75",
+    "oid": "1.3.6.1.4.1.11.0.75",
     "class": "notificationtype",
     "objects": [
       {
@@ -674,7 +674,7 @@
   },
   "snTrapUserLogout": {
     "name": "snTrapUserLogout",
-    "oid": "1.3.6.1.4.1.110.76",
+    "oid": "1.3.6.1.4.1.11.0.76",
     "class": "notificationtype",
     "objects": [
       {
@@ -685,7 +685,7 @@
   },
   "snTrapPortSecurityViolation": {
     "name": "snTrapPortSecurityViolation",
-    "oid": "1.3.6.1.4.1.110.77",
+    "oid": "1.3.6.1.4.1.11.0.77",
     "class": "notificationtype",
     "objects": [
       {
@@ -696,7 +696,7 @@
   },
   "snTrapPortSecurityShutdown": {
     "name": "snTrapPortSecurityShutdown",
-    "oid": "1.3.6.1.4.1.110.78",
+    "oid": "1.3.6.1.4.1.11.0.78",
     "class": "notificationtype",
     "objects": [
       {
@@ -707,7 +707,7 @@
   },
   "snTrapMrpStateChange": {
     "name": "snTrapMrpStateChange",
-    "oid": "1.3.6.1.4.1.110.79",
+    "oid": "1.3.6.1.4.1.11.0.79",
     "class": "notificationtype",
     "objects": [
       {
@@ -718,7 +718,7 @@
   },
   "snTrapMrpCamError": {
     "name": "snTrapMrpCamError",
-    "oid": "1.3.6.1.4.1.110.80",
+    "oid": "1.3.6.1.4.1.11.0.80",
     "class": "notificationtype",
     "objects": [
       {
@@ -729,7 +729,7 @@
   },
   "snTrapChasPwrSupplyOK": {
     "name": "snTrapChasPwrSupplyOK",
-    "oid": "1.3.6.1.4.1.110.81",
+    "oid": "1.3.6.1.4.1.11.0.81",
     "class": "notificationtype",
     "objects": [
       {
@@ -744,7 +744,7 @@
   },
   "snTrapVrrpeIfStateChange": {
     "name": "snTrapVrrpeIfStateChange",
-    "oid": "1.3.6.1.4.1.110.82",
+    "oid": "1.3.6.1.4.1.11.0.82",
     "class": "notificationtype",
     "objects": [
       {
@@ -755,7 +755,7 @@
   },
   "snTrapVsrpIfStateChange": {
     "name": "snTrapVsrpIfStateChange",
-    "oid": "1.3.6.1.4.1.110.83",
+    "oid": "1.3.6.1.4.1.11.0.83",
     "class": "notificationtype",
     "objects": [
       {
@@ -767,9 +767,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:59:11 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:45 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HP-SN-TRAP-MIB"
   }

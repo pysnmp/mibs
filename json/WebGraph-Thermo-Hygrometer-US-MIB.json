@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "TRAP-TYPE",
+      "IpAddress",
       "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
       "MibIdentifier",
-      "iso",
+      "Bits",
+      "Unsigned32",
       "enterprises",
-      "Counter64",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "DisplayString",
+      "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -3191,7 +3191,7 @@
   },
   "wtWebGraphThermoHygroAlert1": {
     "name": "wtWebGraphThermoHygroAlert1",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.31",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -3202,7 +3202,7 @@
   },
   "wtWebGraphThermoHygroAlert2": {
     "name": "wtWebGraphThermoHygroAlert2",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.32",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -3213,7 +3213,7 @@
   },
   "wtWebGraphThermoHygroAlert3": {
     "name": "wtWebGraphThermoHygroAlert3",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.33",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -3224,7 +3224,7 @@
   },
   "wtWebGraphThermoHygroAlert4": {
     "name": "wtWebGraphThermoHygroAlert4",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.34",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -3235,7 +3235,7 @@
   },
   "wtWebGraphThermoHygroAlert5": {
     "name": "wtWebGraphThermoHygroAlert5",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.35",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -3246,7 +3246,7 @@
   },
   "wtWebGraphThermoHygroAlert6": {
     "name": "wtWebGraphThermoHygroAlert6",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.36",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -3257,7 +3257,7 @@
   },
   "wtWebGraphThermoHygroAlert7": {
     "name": "wtWebGraphThermoHygroAlert7",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.37",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -3268,7 +3268,7 @@
   },
   "wtWebGraphThermoHygroAlert8": {
     "name": "wtWebGraphThermoHygroAlert8",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.38",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -3279,7 +3279,7 @@
   },
   "wtWebGraphThermoHygroAlert9": {
     "name": "wtWebGraphThermoHygroAlert9",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.91",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.91",
     "class": "notificationtype",
     "objects": [
       {
@@ -3290,7 +3290,7 @@
   },
   "wtWebGraphThermoHygroAlert10": {
     "name": "wtWebGraphThermoHygroAlert10",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.92",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.92",
     "class": "notificationtype",
     "objects": [
       {
@@ -3301,7 +3301,7 @@
   },
   "wtWebGraphThermoHygroAlert11": {
     "name": "wtWebGraphThermoHygroAlert11",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.93",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.93",
     "class": "notificationtype",
     "objects": [
       {
@@ -3312,7 +3312,7 @@
   },
   "wtWebGraphThermoHygroAlert12": {
     "name": "wtWebGraphThermoHygroAlert12",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.94",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.94",
     "class": "notificationtype",
     "objects": [
       {
@@ -3323,7 +3323,7 @@
   },
   "wtWebGraphThermoHygroAlert13": {
     "name": "wtWebGraphThermoHygroAlert13",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.95",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.95",
     "class": "notificationtype",
     "objects": [
       {
@@ -3334,7 +3334,7 @@
   },
   "wtWebGraphThermoHygroAlert14": {
     "name": "wtWebGraphThermoHygroAlert14",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.96",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.96",
     "class": "notificationtype",
     "objects": [
       {
@@ -3345,7 +3345,7 @@
   },
   "wtWebGraphThermoHygroAlert15": {
     "name": "wtWebGraphThermoHygroAlert15",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.97",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.97",
     "class": "notificationtype",
     "objects": [
       {
@@ -3356,7 +3356,7 @@
   },
   "wtWebGraphThermoHygroAlert16": {
     "name": "wtWebGraphThermoHygroAlert16",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.98",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.98",
     "class": "notificationtype",
     "objects": [
       {
@@ -3367,7 +3367,7 @@
   },
   "wtWebGraphThermoHygroAlertDiag": {
     "name": "wtWebGraphThermoHygroAlertDiag",
-    "oid": "1.3.6.1.4.1.5040.1.2.420.110",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.0.110",
     "class": "notificationtype",
     "objects": [
       {
@@ -3383,9 +3383,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wut/WebGraph-Thermo-Hygrometer-US-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 03:03:07 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:50:50 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "WebGraph-Thermo-Hygrometer-US-MIB"
   }

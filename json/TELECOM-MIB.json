@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TRAP-TYPE",
       "Integer32",
-      "iso",
-      "IpAddress",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Counter32",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "enterprises"
+      "iso",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "enterprises",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1429,7 +1429,7 @@
   },
   "matInvFault": {
     "name": "matInvFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.1",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1440,7 +1440,7 @@
   },
   "matReturnFromInvFault": {
     "name": "matReturnFromInvFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.2",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1451,7 +1451,7 @@
   },
   "matInvOverLoad": {
     "name": "matInvOverLoad",
-    "oid": "1.3.6.1.4.1.935.10.2.20.3",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -1462,7 +1462,7 @@
   },
   "matReturnFromInvOverLoad": {
     "name": "matReturnFromInvOverLoad",
-    "oid": "1.3.6.1.4.1.935.10.2.20.4",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -1473,7 +1473,7 @@
   },
   "matInvFanFault": {
     "name": "matInvFanFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.5",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -1484,7 +1484,7 @@
   },
   "matReturnFromInvFanFault": {
     "name": "matReturnFromInvFanFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.6",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -1495,7 +1495,7 @@
   },
   "matInvTempPowerLimit": {
     "name": "matInvTempPowerLimit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.7",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -1506,7 +1506,7 @@
   },
   "matReturnFromInvTempPowerLimit": {
     "name": "matReturnFromInvTempPowerLimit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.8",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -1517,7 +1517,7 @@
   },
   "matInvInputAbnormal": {
     "name": "matInvInputAbnormal",
-    "oid": "1.3.6.1.4.1.935.10.2.20.9",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -1528,7 +1528,7 @@
   },
   "matReturnFromInvInputAbnormal": {
     "name": "matReturnFromInvInputAbnormal",
-    "oid": "1.3.6.1.4.1.935.10.2.20.10",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -1539,7 +1539,7 @@
   },
   "matInvLowInputShutdown": {
     "name": "matInvLowInputShutdown",
-    "oid": "1.3.6.1.4.1.935.10.2.20.11",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -1550,7 +1550,7 @@
   },
   "matReturnFromInvLowInputShutdown": {
     "name": "matReturnFromInvLowInputShutdown",
-    "oid": "1.3.6.1.4.1.935.10.2.20.12",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -1561,7 +1561,7 @@
   },
   "matInvNotRespond": {
     "name": "matInvNotRespond",
-    "oid": "1.3.6.1.4.1.935.10.2.20.13",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -1572,7 +1572,7 @@
   },
   "matReturnFromInvNotRespond": {
     "name": "matReturnFromInvNotRespond",
-    "oid": "1.3.6.1.4.1.935.10.2.20.14",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -1583,7 +1583,7 @@
   },
   "matInvBusVoltageOverLimit": {
     "name": "matInvBusVoltageOverLimit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.15",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -1594,7 +1594,7 @@
   },
   "matReturnFromInvBusVoltOverLimit": {
     "name": "matReturnFromInvBusVoltOverLimit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.16",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -1605,7 +1605,7 @@
   },
   "matInvBusVoltageUnderLimit": {
     "name": "matInvBusVoltageUnderLimit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.17",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -1616,7 +1616,7 @@
   },
   "matReturnFromInvBusVoltUnderLimit": {
     "name": "matReturnFromInvBusVoltUnderLimit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.18",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -1627,7 +1627,7 @@
   },
   "matInvBusSoftFail": {
     "name": "matInvBusSoftFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.19",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -1638,7 +1638,7 @@
   },
   "matReturnFromInvBusSoftFail": {
     "name": "matReturnFromInvBusSoftFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.20",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -1649,7 +1649,7 @@
   },
   "matInvOutputShort": {
     "name": "matInvOutputShort",
-    "oid": "1.3.6.1.4.1.935.10.2.20.21",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -1660,7 +1660,7 @@
   },
   "matReturnFromInvOutputShort": {
     "name": "matReturnFromInvOutputShort",
-    "oid": "1.3.6.1.4.1.935.10.2.20.22",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -1671,7 +1671,7 @@
   },
   "matInvOutputVoltLow": {
     "name": "matInvOutputVoltLow",
-    "oid": "1.3.6.1.4.1.935.10.2.20.23",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -1682,7 +1682,7 @@
   },
   "matReturnFromInvOutputVoltLow": {
     "name": "matReturnFromInvOutputVoltLow",
-    "oid": "1.3.6.1.4.1.935.10.2.20.24",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -1693,7 +1693,7 @@
   },
   "matInvOutputVoltHigh": {
     "name": "matInvOutputVoltHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.25",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -1704,7 +1704,7 @@
   },
   "matReturnFromInvOutputVoltHigh": {
     "name": "matReturnFromInvOutputVoltHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.26",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -1715,7 +1715,7 @@
   },
   "matInvTemperatureHigh": {
     "name": "matInvTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.27",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -1726,7 +1726,7 @@
   },
   "matReturnFromInvTemperatureHigh": {
     "name": "matReturnFromInvTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.28",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -1737,7 +1737,7 @@
   },
   "matInvNegativePowerProtect": {
     "name": "matInvNegativePowerProtect",
-    "oid": "1.3.6.1.4.1.935.10.2.20.29",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -1748,7 +1748,7 @@
   },
   "matReturnFromInvNegativePowerProtect": {
     "name": "matReturnFromInvNegativePowerProtect",
-    "oid": "1.3.6.1.4.1.935.10.2.20.30",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -1759,7 +1759,7 @@
   },
   "matInvPulseFault": {
     "name": "matInvPulseFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.31",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -1770,12 +1770,12 @@
   },
   "matReturnFromInvPulseFault": {
     "name": "matReturnFromInvPulseFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.32",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.32",
     "class": "notificationtype"
   },
   "matInvEPOShutdown": {
     "name": "matInvEPOShutdown",
-    "oid": "1.3.6.1.4.1.935.10.2.20.33",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -1786,7 +1786,7 @@
   },
   "matReturnFromInvEPOShutdown": {
     "name": "matReturnFromInvEPOShutdown",
-    "oid": "1.3.6.1.4.1.935.10.2.20.34",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -1797,7 +1797,7 @@
   },
   "matInvSoftStartFail": {
     "name": "matInvSoftStartFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.35",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -1808,7 +1808,7 @@
   },
   "matReturnFromInvSoftStartFail": {
     "name": "matReturnFromInvSoftStartFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.36",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -1819,7 +1819,7 @@
   },
   "matInvEEPROMFault": {
     "name": "matInvEEPROMFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.37",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -1830,7 +1830,7 @@
   },
   "matReturnFromInvEEPROMFault": {
     "name": "matReturnFromInvEEPROMFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.38",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -1841,7 +1841,7 @@
   },
   "matInvBypassSCRShort": {
     "name": "matInvBypassSCRShort",
-    "oid": "1.3.6.1.4.1.935.10.2.20.39",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -1852,7 +1852,7 @@
   },
   "matReturnFromInvBypassSCRShort": {
     "name": "matReturnFromInvBypassSCRShort",
-    "oid": "1.3.6.1.4.1.935.10.2.20.40",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -1863,7 +1863,7 @@
   },
   "matInvMBSPosError": {
     "name": "matInvMBSPosError",
-    "oid": "1.3.6.1.4.1.935.10.2.20.41",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -1874,7 +1874,7 @@
   },
   "matReturnFromInvMBSPosError": {
     "name": "matReturnFromInvMBSPosError",
-    "oid": "1.3.6.1.4.1.935.10.2.20.42",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.42",
     "class": "notificationtype",
     "objects": [
       {
@@ -1885,7 +1885,7 @@
   },
   "matInvBackfeedRelayOpen": {
     "name": "matInvBackfeedRelayOpen",
-    "oid": "1.3.6.1.4.1.935.10.2.20.43",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -1896,7 +1896,7 @@
   },
   "matReturnFromInvBackfeedRelayOpen": {
     "name": "matReturnFromInvBackfeedRelayOpen",
-    "oid": "1.3.6.1.4.1.935.10.2.20.44",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -1907,7 +1907,7 @@
   },
   "matInvHardwareError": {
     "name": "matInvHardwareError",
-    "oid": "1.3.6.1.4.1.935.10.2.20.45",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -1918,7 +1918,7 @@
   },
   "matReturnFromInvHardwareError": {
     "name": "matReturnFromInvHardwareError",
-    "oid": "1.3.6.1.4.1.935.10.2.20.46",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.46",
     "class": "notificationtype",
     "objects": [
       {
@@ -1929,7 +1929,7 @@
   },
   "matInvMainUnavailable": {
     "name": "matInvMainUnavailable",
-    "oid": "1.3.6.1.4.1.935.10.2.20.47",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.47",
     "class": "notificationtype",
     "objects": [
       {
@@ -1940,7 +1940,7 @@
   },
   "matReturnFromInvMainUnavailable": {
     "name": "matReturnFromInvMainUnavailable",
-    "oid": "1.3.6.1.4.1.935.10.2.20.48",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.48",
     "class": "notificationtype",
     "objects": [
       {
@@ -1951,7 +1951,7 @@
   },
   "matInvMaintenaceBypass": {
     "name": "matInvMaintenaceBypass",
-    "oid": "1.3.6.1.4.1.935.10.2.20.49",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.49",
     "class": "notificationtype",
     "objects": [
       {
@@ -1962,7 +1962,7 @@
   },
   "matReturnFromInvMaintenaceBypass": {
     "name": "matReturnFromInvMaintenaceBypass",
-    "oid": "1.3.6.1.4.1.935.10.2.20.50",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -1973,7 +1973,7 @@
   },
   "matStsBypassUnavailable": {
     "name": "matStsBypassUnavailable",
-    "oid": "1.3.6.1.4.1.935.10.2.20.51",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -1984,7 +1984,7 @@
   },
   "matReturnFromStsBypassUnavailable": {
     "name": "matReturnFromStsBypassUnavailable",
-    "oid": "1.3.6.1.4.1.935.10.2.20.52",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.52",
     "class": "notificationtype",
     "objects": [
       {
@@ -1995,7 +1995,7 @@
   },
   "matStsBackfeedRelayOpen": {
     "name": "matStsBackfeedRelayOpen",
-    "oid": "1.3.6.1.4.1.935.10.2.20.53",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.53",
     "class": "notificationtype",
     "objects": [
       {
@@ -2006,7 +2006,7 @@
   },
   "matReturnFromStsBackfeedRelayOpen": {
     "name": "matReturnFromStsBackfeedRelayOpen",
-    "oid": "1.3.6.1.4.1.935.10.2.20.54",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.54",
     "class": "notificationtype",
     "objects": [
       {
@@ -2017,7 +2017,7 @@
   },
   "matStsScr1ShortCurcuit": {
     "name": "matStsScr1ShortCurcuit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.55",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.55",
     "class": "notificationtype",
     "objects": [
       {
@@ -2028,7 +2028,7 @@
   },
   "matReturnFromStsScr1ShortCurcuit": {
     "name": "matReturnFromStsScr1ShortCurcuit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.56",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.56",
     "class": "notificationtype",
     "objects": [
       {
@@ -2039,7 +2039,7 @@
   },
   "matStsScr2ShortCurcuit": {
     "name": "matStsScr2ShortCurcuit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.57",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.57",
     "class": "notificationtype",
     "objects": [
       {
@@ -2050,7 +2050,7 @@
   },
   "matReturnFromStsScr2ShortCurcuit": {
     "name": "matReturnFromStsScr2ShortCurcuit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.58",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.58",
     "class": "notificationtype",
     "objects": [
       {
@@ -2061,7 +2061,7 @@
   },
   "matStsFaultMode": {
     "name": "matStsFaultMode",
-    "oid": "1.3.6.1.4.1.935.10.2.20.59",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.59",
     "class": "notificationtype",
     "objects": [
       {
@@ -2072,7 +2072,7 @@
   },
   "matReturnFromStsFaultMode": {
     "name": "matReturnFromStsFaultMode",
-    "oid": "1.3.6.1.4.1.935.10.2.20.60",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.60",
     "class": "notificationtype",
     "objects": [
       {
@@ -2083,7 +2083,7 @@
   },
   "matStsFanFault": {
     "name": "matStsFanFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.61",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.61",
     "class": "notificationtype",
     "objects": [
       {
@@ -2094,7 +2094,7 @@
   },
   "matReturnFromStsFanFault": {
     "name": "matReturnFromStsFanFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.62",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.62",
     "class": "notificationtype",
     "objects": [
       {
@@ -2105,7 +2105,7 @@
   },
   "matStsEEPROMFault": {
     "name": "matStsEEPROMFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.63",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.63",
     "class": "notificationtype",
     "objects": [
       {
@@ -2116,7 +2116,7 @@
   },
   "matReturnFromStsEEPROMFault": {
     "name": "matReturnFromStsEEPROMFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.64",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.64",
     "class": "notificationtype",
     "objects": [
       {
@@ -2127,7 +2127,7 @@
   },
   "matStsInvFail": {
     "name": "matStsInvFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.65",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.65",
     "class": "notificationtype",
     "objects": [
       {
@@ -2138,7 +2138,7 @@
   },
   "matReturnFromStsInvFail": {
     "name": "matReturnFromStsInvFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.66",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.66",
     "class": "notificationtype",
     "objects": [
       {
@@ -2149,7 +2149,7 @@
   },
   "matStsMainsFail": {
     "name": "matStsMainsFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.67",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.67",
     "class": "notificationtype",
     "objects": [
       {
@@ -2160,7 +2160,7 @@
   },
   "matReturnFromStsMainFail": {
     "name": "matReturnFromStsMainFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.68",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.68",
     "class": "notificationtype",
     "objects": [
       {
@@ -2171,7 +2171,7 @@
   },
   "matStsOverLoad": {
     "name": "matStsOverLoad",
-    "oid": "1.3.6.1.4.1.935.10.2.20.69",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.69",
     "class": "notificationtype",
     "objects": [
       {
@@ -2182,7 +2182,7 @@
   },
   "matReturnFromStsOverLoad": {
     "name": "matReturnFromStsOverLoad",
-    "oid": "1.3.6.1.4.1.935.10.2.20.70",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.70",
     "class": "notificationtype",
     "objects": [
       {
@@ -2193,7 +2193,7 @@
   },
   "matStsOutputShortCircuit": {
     "name": "matStsOutputShortCircuit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.71",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.71",
     "class": "notificationtype",
     "objects": [
       {
@@ -2204,7 +2204,7 @@
   },
   "matReturnFromStsOutputShortCircuit": {
     "name": "matReturnFromStsOutputShortCircuit",
-    "oid": "1.3.6.1.4.1.935.10.2.20.72",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.72",
     "class": "notificationtype",
     "objects": [
       {
@@ -2215,7 +2215,7 @@
   },
   "matStsInvBypassMode": {
     "name": "matStsInvBypassMode",
-    "oid": "1.3.6.1.4.1.935.10.2.20.73",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.73",
     "class": "notificationtype",
     "objects": [
       {
@@ -2226,7 +2226,7 @@
   },
   "matReturnFromStsInvBypassMode": {
     "name": "matReturnFromStsInvBypassMode",
-    "oid": "1.3.6.1.4.1.935.10.2.20.74",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.74",
     "class": "notificationtype",
     "objects": [
       {
@@ -2237,7 +2237,7 @@
   },
   "matStsTemperatureHigh": {
     "name": "matStsTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.75",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.75",
     "class": "notificationtype",
     "objects": [
       {
@@ -2248,7 +2248,7 @@
   },
   "matReturnFromStsTemperatureHigh": {
     "name": "matReturnFromStsTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.76",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.76",
     "class": "notificationtype",
     "objects": [
       {
@@ -2259,7 +2259,7 @@
   },
   "matStsMBSPosFault": {
     "name": "matStsMBSPosFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.77",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.77",
     "class": "notificationtype",
     "objects": [
       {
@@ -2270,7 +2270,7 @@
   },
   "matReturnFromStsMBSPosFault": {
     "name": "matReturnFromStsMBSPosFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.78",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.78",
     "class": "notificationtype",
     "objects": [
       {
@@ -2281,7 +2281,7 @@
   },
   "matStsControlPowerFail": {
     "name": "matStsControlPowerFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.79",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.79",
     "class": "notificationtype",
     "objects": [
       {
@@ -2292,7 +2292,7 @@
   },
   "matReturnFromStsControlPowerFail": {
     "name": "matReturnFromStsControlPowerFail",
-    "oid": "1.3.6.1.4.1.935.10.2.20.80",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.80",
     "class": "notificationtype",
     "objects": [
       {
@@ -2303,7 +2303,7 @@
   },
   "matStsNotRespond": {
     "name": "matStsNotRespond",
-    "oid": "1.3.6.1.4.1.935.10.2.20.81",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.81",
     "class": "notificationtype",
     "objects": [
       {
@@ -2314,7 +2314,7 @@
   },
   "matReturnFromStsNotRespond": {
     "name": "matReturnFromStsNotRespond",
-    "oid": "1.3.6.1.4.1.935.10.2.20.82",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.82",
     "class": "notificationtype",
     "objects": [
       {
@@ -2325,7 +2325,7 @@
   },
   "matStsOutputAbnormal": {
     "name": "matStsOutputAbnormal",
-    "oid": "1.3.6.1.4.1.935.10.2.20.83",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.83",
     "class": "notificationtype",
     "objects": [
       {
@@ -2336,7 +2336,7 @@
   },
   "matReturnFromStsOutputAbnormal": {
     "name": "matReturnFromStsOutputAbnormal",
-    "oid": "1.3.6.1.4.1.935.10.2.20.84",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.84",
     "class": "notificationtype",
     "objects": [
       {
@@ -2347,7 +2347,7 @@
   },
   "matStsMaintenanceBypass": {
     "name": "matStsMaintenanceBypass",
-    "oid": "1.3.6.1.4.1.935.10.2.20.85",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.85",
     "class": "notificationtype",
     "objects": [
       {
@@ -2358,7 +2358,7 @@
   },
   "matReturnFromStsMaintenanceBypass": {
     "name": "matReturnFromStsMaintenanceBypass",
-    "oid": "1.3.6.1.4.1.935.10.2.20.86",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.86",
     "class": "notificationtype",
     "objects": [
       {
@@ -2369,7 +2369,7 @@
   },
   "matConBatteryLow": {
     "name": "matConBatteryLow",
-    "oid": "1.3.6.1.4.1.935.10.2.20.87",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.87",
     "class": "notificationtype",
     "objects": [
       {
@@ -2380,7 +2380,7 @@
   },
   "matReturnFromConBatteryLow": {
     "name": "matReturnFromConBatteryLow",
-    "oid": "1.3.6.1.4.1.935.10.2.20.88",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.88",
     "class": "notificationtype",
     "objects": [
       {
@@ -2391,7 +2391,7 @@
   },
   "matConTemperatureHigh": {
     "name": "matConTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.89",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.89",
     "class": "notificationtype",
     "objects": [
       {
@@ -2402,7 +2402,7 @@
   },
   "matReturnFromConTemperatureHigh": {
     "name": "matReturnFromConTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.90",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.90",
     "class": "notificationtype",
     "objects": [
       {
@@ -2413,7 +2413,7 @@
   },
   "matConEEPROMFault": {
     "name": "matConEEPROMFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.91",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.91",
     "class": "notificationtype",
     "objects": [
       {
@@ -2424,7 +2424,7 @@
   },
   "matReturnFromConEEPROMFault": {
     "name": "matReturnFromConEEPROMFault",
-    "oid": "1.3.6.1.4.1.935.10.2.20.92",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.92",
     "class": "notificationtype",
     "objects": [
       {
@@ -2435,7 +2435,7 @@
   },
   "matConBatteryVoltHigh": {
     "name": "matConBatteryVoltHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.93",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.93",
     "class": "notificationtype",
     "objects": [
       {
@@ -2446,7 +2446,7 @@
   },
   "matReturnFromConBatteryVoltHigh": {
     "name": "matReturnFromConBatteryVoltHigh",
-    "oid": "1.3.6.1.4.1.935.10.2.20.94",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.94",
     "class": "notificationtype",
     "objects": [
       {
@@ -2457,7 +2457,7 @@
   },
   "matConCanBusOff": {
     "name": "matConCanBusOff",
-    "oid": "1.3.6.1.4.1.935.10.2.20.95",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.95",
     "class": "notificationtype",
     "objects": [
       {
@@ -2468,7 +2468,7 @@
   },
   "matReturnFromConCanBusOff": {
     "name": "matReturnFromConCanBusOff",
-    "oid": "1.3.6.1.4.1.935.10.2.20.96",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.96",
     "class": "notificationtype",
     "objects": [
       {
@@ -2479,7 +2479,7 @@
   },
   "matConCommunicationLost": {
     "name": "matConCommunicationLost",
-    "oid": "1.3.6.1.4.1.935.10.2.20.97",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.97",
     "class": "notificationtype",
     "objects": [
       {
@@ -2490,7 +2490,7 @@
   },
   "matReturnFromCommunicationLost": {
     "name": "matReturnFromCommunicationLost",
-    "oid": "1.3.6.1.4.1.935.10.2.20.98",
+    "oid": "1.3.6.1.4.1.935.10.2.2.0.98",
     "class": "notificationtype",
     "objects": [
       {
@@ -2502,9 +2502,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/TELECOM-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:56:12 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:50 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "TELECOM-MIB"
   }

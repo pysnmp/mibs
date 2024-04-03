@@ -5,28 +5,28 @@
       "hwDatacomm"
     ],
     "IEEE-802DOT17-RPR-MIB": [
-      "rprTopoImageIfIndex",
-      "rprTopoImageWestProtectionStatus",
-      "rprIfIndex",
-      "rprIfWrapConfig",
       "RprSpan",
-      "rprTopoImageRinglet0Hops",
-      "rprSpanTotalRingletReservedRate",
-      "rprSpanIfIndex",
-      "rprTopoImageStationIfIndex",
-      "rprTopoImageEastProtectionStatus",
-      "rprTopoImageStatus",
-      "rprTopoImageMacAddress",
-      "rprIfCurrentStatus",
       "rprSpanId",
+      "rprTopoImageMacAddress",
+      "rprIfWrapConfig",
+      "rprIfCurrentStatus",
+      "rprSpanTotalRingletReservedRate",
+      "rprTopoImageIfIndex",
+      "rprTopoImageStationIfIndex",
+      "rprTopoImageStatus",
       "rprTopoImageRinglet1Hops",
-      "rprIfRingOperModes"
+      "rprTopoImageRinglet0Hops",
+      "rprIfIndex",
+      "rprTopoImageWestProtectionStatus",
+      "rprIfRingOperModes",
+      "rprTopoImageEastProtectionStatus",
+      "rprSpanIfIndex"
     ],
     "IF-MIB": [
-      "ifName",
+      "InterfaceIndex",
       "ifPhysAddress",
       "ifIndex",
-      "InterfaceIndex"
+      "ifName"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -34,24 +34,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Counter64",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
       "Bits",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "iso",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwRPR": {
@@ -618,9 +618,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-RPR-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:58:56 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:36 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-RPR-MIB"
   }

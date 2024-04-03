@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
+      "cpqHoTrapFlags",
       "cpqHoGUIDCanonical",
-      "compaq",
-      "cpqHoTrapFlags"
+      "compaq"
     ],
     "CPQSINFO-MIB": [
       "cpqSiMemModuleSize",
@@ -18,26 +18,26 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "enterprises",
-      "TRAP-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Integer32",
-      "IpAddress"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cpqHealth": {
@@ -5273,7 +5273,7 @@
   },
   "cpqHeCorrectableMemoryError": {
     "name": "cpqHeCorrectableMemoryError",
-    "oid": "1.3.6.1.4.1.232.60.1",
+    "oid": "1.3.6.1.4.1.232.6.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -5284,7 +5284,7 @@
   },
   "cpqHeCorrectableMemoryLogDisabled": {
     "name": "cpqHeCorrectableMemoryLogDisabled",
-    "oid": "1.3.6.1.4.1.232.60.2",
+    "oid": "1.3.6.1.4.1.232.6.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -5295,7 +5295,7 @@
   },
   "cpqHe2CorrectableMemoryError": {
     "name": "cpqHe2CorrectableMemoryError",
-    "oid": "1.3.6.1.4.1.2320.6001",
+    "oid": "1.3.6.1.4.1.232.0.6001",
     "class": "notificationtype",
     "objects": [
       {
@@ -5306,7 +5306,7 @@
   },
   "cpqHe2CorrectableMemoryLogDisabled": {
     "name": "cpqHe2CorrectableMemoryLogDisabled",
-    "oid": "1.3.6.1.4.1.2320.6002",
+    "oid": "1.3.6.1.4.1.232.0.6002",
     "class": "notificationtype",
     "objects": [
       {
@@ -5317,12 +5317,12 @@
   },
   "cpqHeThermalTempFailed": {
     "name": "cpqHeThermalTempFailed",
-    "oid": "1.3.6.1.4.1.2320.6003",
+    "oid": "1.3.6.1.4.1.232.0.6003",
     "class": "notificationtype"
   },
   "cpqHeThermalTempDegraded": {
     "name": "cpqHeThermalTempDegraded",
-    "oid": "1.3.6.1.4.1.2320.6004",
+    "oid": "1.3.6.1.4.1.232.0.6004",
     "class": "notificationtype",
     "objects": [
       {
@@ -5333,12 +5333,12 @@
   },
   "cpqHeThermalTempOk": {
     "name": "cpqHeThermalTempOk",
-    "oid": "1.3.6.1.4.1.2320.6005",
+    "oid": "1.3.6.1.4.1.232.0.6005",
     "class": "notificationtype"
   },
   "cpqHeThermalSystemFanFailed": {
     "name": "cpqHeThermalSystemFanFailed",
-    "oid": "1.3.6.1.4.1.2320.6006",
+    "oid": "1.3.6.1.4.1.232.0.6006",
     "class": "notificationtype",
     "objects": [
       {
@@ -5349,47 +5349,47 @@
   },
   "cpqHeThermalSystemFanDegraded": {
     "name": "cpqHeThermalSystemFanDegraded",
-    "oid": "1.3.6.1.4.1.2320.6007",
+    "oid": "1.3.6.1.4.1.232.0.6007",
     "class": "notificationtype"
   },
   "cpqHeThermalSystemFanOk": {
     "name": "cpqHeThermalSystemFanOk",
-    "oid": "1.3.6.1.4.1.2320.6008",
+    "oid": "1.3.6.1.4.1.232.0.6008",
     "class": "notificationtype"
   },
   "cpqHeThermalCpuFanFailed": {
     "name": "cpqHeThermalCpuFanFailed",
-    "oid": "1.3.6.1.4.1.2320.6009",
+    "oid": "1.3.6.1.4.1.232.0.6009",
     "class": "notificationtype"
   },
   "cpqHeThermalCpuFanOk": {
     "name": "cpqHeThermalCpuFanOk",
-    "oid": "1.3.6.1.4.1.2320.6010",
+    "oid": "1.3.6.1.4.1.232.0.6010",
     "class": "notificationtype"
   },
   "cpqHeAsrConfirmation": {
     "name": "cpqHeAsrConfirmation",
-    "oid": "1.3.6.1.4.1.2320.6011",
+    "oid": "1.3.6.1.4.1.232.0.6011",
     "class": "notificationtype"
   },
   "cpqHeThermalConfirmation": {
     "name": "cpqHeThermalConfirmation",
-    "oid": "1.3.6.1.4.1.2320.6012",
+    "oid": "1.3.6.1.4.1.232.0.6012",
     "class": "notificationtype"
   },
   "cpqHePostError": {
     "name": "cpqHePostError",
-    "oid": "1.3.6.1.4.1.2320.6013",
+    "oid": "1.3.6.1.4.1.232.0.6013",
     "class": "notificationtype"
   },
   "cpqHeFltTolPwrSupplyDegraded": {
     "name": "cpqHeFltTolPwrSupplyDegraded",
-    "oid": "1.3.6.1.4.1.2320.6014",
+    "oid": "1.3.6.1.4.1.232.0.6014",
     "class": "notificationtype"
   },
   "cpqHe3CorrectableMemoryError": {
     "name": "cpqHe3CorrectableMemoryError",
-    "oid": "1.3.6.1.4.1.2320.6015",
+    "oid": "1.3.6.1.4.1.232.0.6015",
     "class": "notificationtype",
     "objects": [
       {
@@ -5408,7 +5408,7 @@
   },
   "cpqHe3CorrectableMemoryLogDisabled": {
     "name": "cpqHe3CorrectableMemoryLogDisabled",
-    "oid": "1.3.6.1.4.1.2320.6016",
+    "oid": "1.3.6.1.4.1.232.0.6016",
     "class": "notificationtype",
     "objects": [
       {
@@ -5427,7 +5427,7 @@
   },
   "cpqHe3ThermalTempFailed": {
     "name": "cpqHe3ThermalTempFailed",
-    "oid": "1.3.6.1.4.1.2320.6017",
+    "oid": "1.3.6.1.4.1.232.0.6017",
     "class": "notificationtype",
     "objects": [
       {
@@ -5442,7 +5442,7 @@
   },
   "cpqHe3ThermalTempDegraded": {
     "name": "cpqHe3ThermalTempDegraded",
-    "oid": "1.3.6.1.4.1.2320.6018",
+    "oid": "1.3.6.1.4.1.232.0.6018",
     "class": "notificationtype",
     "objects": [
       {
@@ -5461,7 +5461,7 @@
   },
   "cpqHe3ThermalTempOk": {
     "name": "cpqHe3ThermalTempOk",
-    "oid": "1.3.6.1.4.1.2320.6019",
+    "oid": "1.3.6.1.4.1.232.0.6019",
     "class": "notificationtype",
     "objects": [
       {
@@ -5476,7 +5476,7 @@
   },
   "cpqHe3ThermalSystemFanFailed": {
     "name": "cpqHe3ThermalSystemFanFailed",
-    "oid": "1.3.6.1.4.1.2320.6020",
+    "oid": "1.3.6.1.4.1.232.0.6020",
     "class": "notificationtype",
     "objects": [
       {
@@ -5495,7 +5495,7 @@
   },
   "cpqHe3ThermalSystemFanDegraded": {
     "name": "cpqHe3ThermalSystemFanDegraded",
-    "oid": "1.3.6.1.4.1.2320.6021",
+    "oid": "1.3.6.1.4.1.232.0.6021",
     "class": "notificationtype",
     "objects": [
       {
@@ -5510,7 +5510,7 @@
   },
   "cpqHe3ThermalSystemFanOk": {
     "name": "cpqHe3ThermalSystemFanOk",
-    "oid": "1.3.6.1.4.1.2320.6022",
+    "oid": "1.3.6.1.4.1.232.0.6022",
     "class": "notificationtype",
     "objects": [
       {
@@ -5525,7 +5525,7 @@
   },
   "cpqHe3ThermalCpuFanFailed": {
     "name": "cpqHe3ThermalCpuFanFailed",
-    "oid": "1.3.6.1.4.1.2320.6023",
+    "oid": "1.3.6.1.4.1.232.0.6023",
     "class": "notificationtype",
     "objects": [
       {
@@ -5540,7 +5540,7 @@
   },
   "cpqHe3ThermalCpuFanOk": {
     "name": "cpqHe3ThermalCpuFanOk",
-    "oid": "1.3.6.1.4.1.2320.6024",
+    "oid": "1.3.6.1.4.1.232.0.6024",
     "class": "notificationtype",
     "objects": [
       {
@@ -5555,7 +5555,7 @@
   },
   "cpqHe3AsrConfirmation": {
     "name": "cpqHe3AsrConfirmation",
-    "oid": "1.3.6.1.4.1.2320.6025",
+    "oid": "1.3.6.1.4.1.232.0.6025",
     "class": "notificationtype",
     "objects": [
       {
@@ -5570,7 +5570,7 @@
   },
   "cpqHe3ThermalConfirmation": {
     "name": "cpqHe3ThermalConfirmation",
-    "oid": "1.3.6.1.4.1.2320.6026",
+    "oid": "1.3.6.1.4.1.232.0.6026",
     "class": "notificationtype",
     "objects": [
       {
@@ -5585,7 +5585,7 @@
   },
   "cpqHe3PostError": {
     "name": "cpqHe3PostError",
-    "oid": "1.3.6.1.4.1.2320.6027",
+    "oid": "1.3.6.1.4.1.232.0.6027",
     "class": "notificationtype",
     "objects": [
       {
@@ -5600,7 +5600,7 @@
   },
   "cpqHe3FltTolPwrSupplyDegraded": {
     "name": "cpqHe3FltTolPwrSupplyDegraded",
-    "oid": "1.3.6.1.4.1.2320.6028",
+    "oid": "1.3.6.1.4.1.232.0.6028",
     "class": "notificationtype",
     "objects": [
       {
@@ -5615,7 +5615,7 @@
   },
   "cpqHe3CorrMemReplaceMemModule": {
     "name": "cpqHe3CorrMemReplaceMemModule",
-    "oid": "1.3.6.1.4.1.2320.6029",
+    "oid": "1.3.6.1.4.1.232.0.6029",
     "class": "notificationtype",
     "objects": [
       {
@@ -5630,7 +5630,7 @@
   },
   "cpqHe3FltTolPowerSupplyDegraded": {
     "name": "cpqHe3FltTolPowerSupplyDegraded",
-    "oid": "1.3.6.1.4.1.2320.6030",
+    "oid": "1.3.6.1.4.1.232.0.6030",
     "class": "notificationtype",
     "objects": [
       {
@@ -5653,7 +5653,7 @@
   },
   "cpqHe3FltTolPowerSupplyFailed": {
     "name": "cpqHe3FltTolPowerSupplyFailed",
-    "oid": "1.3.6.1.4.1.2320.6031",
+    "oid": "1.3.6.1.4.1.232.0.6031",
     "class": "notificationtype",
     "objects": [
       {
@@ -5676,7 +5676,7 @@
   },
   "cpqHe3FltTolPowerRedundancyLost": {
     "name": "cpqHe3FltTolPowerRedundancyLost",
-    "oid": "1.3.6.1.4.1.2320.6032",
+    "oid": "1.3.6.1.4.1.232.0.6032",
     "class": "notificationtype",
     "objects": [
       {
@@ -5695,7 +5695,7 @@
   },
   "cpqHe3FltTolPowerSupplyInserted": {
     "name": "cpqHe3FltTolPowerSupplyInserted",
-    "oid": "1.3.6.1.4.1.2320.6033",
+    "oid": "1.3.6.1.4.1.232.0.6033",
     "class": "notificationtype",
     "objects": [
       {
@@ -5718,7 +5718,7 @@
   },
   "cpqHe3FltTolPowerSupplyRemoved": {
     "name": "cpqHe3FltTolPowerSupplyRemoved",
-    "oid": "1.3.6.1.4.1.2320.6034",
+    "oid": "1.3.6.1.4.1.232.0.6034",
     "class": "notificationtype",
     "objects": [
       {
@@ -5741,7 +5741,7 @@
   },
   "cpqHe3FltTolFanDegraded": {
     "name": "cpqHe3FltTolFanDegraded",
-    "oid": "1.3.6.1.4.1.2320.6035",
+    "oid": "1.3.6.1.4.1.232.0.6035",
     "class": "notificationtype",
     "objects": [
       {
@@ -5764,7 +5764,7 @@
   },
   "cpqHe3FltTolFanFailed": {
     "name": "cpqHe3FltTolFanFailed",
-    "oid": "1.3.6.1.4.1.2320.6036",
+    "oid": "1.3.6.1.4.1.232.0.6036",
     "class": "notificationtype",
     "objects": [
       {
@@ -5787,7 +5787,7 @@
   },
   "cpqHe3FltTolFanRedundancyLost": {
     "name": "cpqHe3FltTolFanRedundancyLost",
-    "oid": "1.3.6.1.4.1.2320.6037",
+    "oid": "1.3.6.1.4.1.232.0.6037",
     "class": "notificationtype",
     "objects": [
       {
@@ -5806,7 +5806,7 @@
   },
   "cpqHe3FltTolFanInserted": {
     "name": "cpqHe3FltTolFanInserted",
-    "oid": "1.3.6.1.4.1.2320.6038",
+    "oid": "1.3.6.1.4.1.232.0.6038",
     "class": "notificationtype",
     "objects": [
       {
@@ -5829,7 +5829,7 @@
   },
   "cpqHe3FltTolFanRemoved": {
     "name": "cpqHe3FltTolFanRemoved",
-    "oid": "1.3.6.1.4.1.2320.6039",
+    "oid": "1.3.6.1.4.1.232.0.6039",
     "class": "notificationtype",
     "objects": [
       {
@@ -5852,7 +5852,7 @@
   },
   "cpqHe3TemperatureFailed": {
     "name": "cpqHe3TemperatureFailed",
-    "oid": "1.3.6.1.4.1.2320.6040",
+    "oid": "1.3.6.1.4.1.232.0.6040",
     "class": "notificationtype",
     "objects": [
       {
@@ -5875,7 +5875,7 @@
   },
   "cpqHe3TemperatureDegraded": {
     "name": "cpqHe3TemperatureDegraded",
-    "oid": "1.3.6.1.4.1.2320.6041",
+    "oid": "1.3.6.1.4.1.232.0.6041",
     "class": "notificationtype",
     "objects": [
       {
@@ -5902,7 +5902,7 @@
   },
   "cpqHe3TemperatureOk": {
     "name": "cpqHe3TemperatureOk",
-    "oid": "1.3.6.1.4.1.2320.6042",
+    "oid": "1.3.6.1.4.1.232.0.6042",
     "class": "notificationtype",
     "objects": [
       {
@@ -5925,7 +5925,7 @@
   },
   "cpqHe3PowerConverterDegraded": {
     "name": "cpqHe3PowerConverterDegraded",
-    "oid": "1.3.6.1.4.1.2320.6043",
+    "oid": "1.3.6.1.4.1.232.0.6043",
     "class": "notificationtype",
     "objects": [
       {
@@ -5952,7 +5952,7 @@
   },
   "cpqHe3PowerConverterFailed": {
     "name": "cpqHe3PowerConverterFailed",
-    "oid": "1.3.6.1.4.1.2320.6044",
+    "oid": "1.3.6.1.4.1.232.0.6044",
     "class": "notificationtype",
     "objects": [
       {
@@ -5979,7 +5979,7 @@
   },
   "cpqHe3PowerConverterRedundancyLost": {
     "name": "cpqHe3PowerConverterRedundancyLost",
-    "oid": "1.3.6.1.4.1.2320.6045",
+    "oid": "1.3.6.1.4.1.232.0.6045",
     "class": "notificationtype",
     "objects": [
       {
@@ -5998,7 +5998,7 @@
   },
   "cpqHe3CacheAccelParityError": {
     "name": "cpqHe3CacheAccelParityError",
-    "oid": "1.3.6.1.4.1.2320.6046",
+    "oid": "1.3.6.1.4.1.232.0.6046",
     "class": "notificationtype",
     "objects": [
       {
@@ -6013,7 +6013,7 @@
   },
   "cpqHeResilientMemOnlineSpareEngaged": {
     "name": "cpqHeResilientMemOnlineSpareEngaged",
-    "oid": "1.3.6.1.4.1.2320.6047",
+    "oid": "1.3.6.1.4.1.232.0.6047",
     "class": "notificationtype",
     "objects": [
       {
@@ -6028,7 +6028,7 @@
   },
   "cpqHe4FltTolPowerSupplyOk": {
     "name": "cpqHe4FltTolPowerSupplyOk",
-    "oid": "1.3.6.1.4.1.2320.6048",
+    "oid": "1.3.6.1.4.1.232.0.6048",
     "class": "notificationtype",
     "objects": [
       {
@@ -6079,7 +6079,7 @@
   },
   "cpqHe4FltTolPowerSupplyDegraded": {
     "name": "cpqHe4FltTolPowerSupplyDegraded",
-    "oid": "1.3.6.1.4.1.2320.6049",
+    "oid": "1.3.6.1.4.1.232.0.6049",
     "class": "notificationtype",
     "objects": [
       {
@@ -6130,7 +6130,7 @@
   },
   "cpqHe4FltTolPowerSupplyFailed": {
     "name": "cpqHe4FltTolPowerSupplyFailed",
-    "oid": "1.3.6.1.4.1.2320.6050",
+    "oid": "1.3.6.1.4.1.232.0.6050",
     "class": "notificationtype",
     "objects": [
       {
@@ -6181,7 +6181,7 @@
   },
   "cpqHeResilientMemMirroredMemoryEngaged": {
     "name": "cpqHeResilientMemMirroredMemoryEngaged",
-    "oid": "1.3.6.1.4.1.2320.6051",
+    "oid": "1.3.6.1.4.1.232.0.6051",
     "class": "notificationtype",
     "objects": [
       {
@@ -6196,7 +6196,7 @@
   },
   "cpqHeResilientAdvancedECCMemoryEngaged": {
     "name": "cpqHeResilientAdvancedECCMemoryEngaged",
-    "oid": "1.3.6.1.4.1.2320.6052",
+    "oid": "1.3.6.1.4.1.232.0.6052",
     "class": "notificationtype",
     "objects": [
       {
@@ -6211,7 +6211,7 @@
   },
   "cpqHeResilientMemXorMemoryEngaged": {
     "name": "cpqHeResilientMemXorMemoryEngaged",
-    "oid": "1.3.6.1.4.1.2320.6053",
+    "oid": "1.3.6.1.4.1.232.0.6053",
     "class": "notificationtype",
     "objects": [
       {
@@ -6226,7 +6226,7 @@
   },
   "cpqHe3FltTolPowerRedundancyRestored": {
     "name": "cpqHe3FltTolPowerRedundancyRestored",
-    "oid": "1.3.6.1.4.1.2320.6054",
+    "oid": "1.3.6.1.4.1.232.0.6054",
     "class": "notificationtype",
     "objects": [
       {
@@ -6245,7 +6245,7 @@
   },
   "cpqHe3FltTolFanRedundancyRestored": {
     "name": "cpqHe3FltTolFanRedundancyRestored",
-    "oid": "1.3.6.1.4.1.2320.6055",
+    "oid": "1.3.6.1.4.1.232.0.6055",
     "class": "notificationtype",
     "objects": [
       {
@@ -6264,7 +6264,7 @@
   },
   "cpqHe4CorrMemReplaceMemModule": {
     "name": "cpqHe4CorrMemReplaceMemModule",
-    "oid": "1.3.6.1.4.1.2320.6056",
+    "oid": "1.3.6.1.4.1.232.0.6056",
     "class": "notificationtype",
     "objects": [
       {
@@ -6299,7 +6299,7 @@
   },
   "cpqHeResMemBoardRemoved": {
     "name": "cpqHeResMemBoardRemoved",
-    "oid": "1.3.6.1.4.1.2320.6057",
+    "oid": "1.3.6.1.4.1.232.0.6057",
     "class": "notificationtype",
     "objects": [
       {
@@ -6318,7 +6318,7 @@
   },
   "cpqHeResMemBoardInserted": {
     "name": "cpqHeResMemBoardInserted",
-    "oid": "1.3.6.1.4.1.2320.6058",
+    "oid": "1.3.6.1.4.1.232.0.6058",
     "class": "notificationtype",
     "objects": [
       {
@@ -6337,7 +6337,7 @@
   },
   "cpqHeResMemBoardBusError": {
     "name": "cpqHeResMemBoardBusError",
-    "oid": "1.3.6.1.4.1.2320.6059",
+    "oid": "1.3.6.1.4.1.232.0.6059",
     "class": "notificationtype",
     "objects": [
       {
@@ -6356,7 +6356,7 @@
   },
   "cpqHeEventOccurred": {
     "name": "cpqHeEventOccurred",
-    "oid": "1.3.6.1.4.1.2320.6060",
+    "oid": "1.3.6.1.4.1.232.0.6060",
     "class": "notificationtype",
     "objects": [
       {
@@ -6387,7 +6387,7 @@
   },
   "cpqHeManagementProcInReset": {
     "name": "cpqHeManagementProcInReset",
-    "oid": "1.3.6.1.4.1.2320.6061",
+    "oid": "1.3.6.1.4.1.232.0.6061",
     "class": "notificationtype",
     "objects": [
       {
@@ -6402,7 +6402,7 @@
   },
   "cpqHeManagementProcReady": {
     "name": "cpqHeManagementProcReady",
-    "oid": "1.3.6.1.4.1.2320.6062",
+    "oid": "1.3.6.1.4.1.232.0.6062",
     "class": "notificationtype",
     "objects": [
       {
@@ -6417,7 +6417,7 @@
   },
   "cpqHeManagementProcFailedReset": {
     "name": "cpqHeManagementProcFailedReset",
-    "oid": "1.3.6.1.4.1.2320.6063",
+    "oid": "1.3.6.1.4.1.232.0.6063",
     "class": "notificationtype",
     "objects": [
       {
@@ -6432,7 +6432,7 @@
   },
   "cpqHe5CorrMemReplaceMemModule": {
     "name": "cpqHe5CorrMemReplaceMemModule",
-    "oid": "1.3.6.1.4.1.2320.6064",
+    "oid": "1.3.6.1.4.1.232.0.6064",
     "class": "notificationtype",
     "objects": [
       {
@@ -6475,7 +6475,7 @@
   },
   "cpqHe5ResMemBoardRemoved": {
     "name": "cpqHe5ResMemBoardRemoved",
-    "oid": "1.3.6.1.4.1.2320.6065",
+    "oid": "1.3.6.1.4.1.232.0.6065",
     "class": "notificationtype",
     "objects": [
       {
@@ -6502,7 +6502,7 @@
   },
   "cpqHe5ResMemBoardInserted": {
     "name": "cpqHe5ResMemBoardInserted",
-    "oid": "1.3.6.1.4.1.2320.6066",
+    "oid": "1.3.6.1.4.1.232.0.6066",
     "class": "notificationtype",
     "objects": [
       {
@@ -6529,7 +6529,7 @@
   },
   "cpqHe5ResMemBoardBusError": {
     "name": "cpqHe5ResMemBoardBusError",
-    "oid": "1.3.6.1.4.1.2320.6067",
+    "oid": "1.3.6.1.4.1.232.0.6067",
     "class": "notificationtype",
     "objects": [
       {
@@ -6556,7 +6556,7 @@
   },
   "cpqHeResilientMemLockStepMemoryEngaged": {
     "name": "cpqHeResilientMemLockStepMemoryEngaged",
-    "oid": "1.3.6.1.4.1.2320.6068",
+    "oid": "1.3.6.1.4.1.232.0.6068",
     "class": "notificationtype",
     "objects": [
       {
@@ -6571,7 +6571,7 @@
   },
   "cpqHe4FltTolPowerSupplyACpowerloss": {
     "name": "cpqHe4FltTolPowerSupplyACpowerloss",
-    "oid": "1.3.6.1.4.1.2320.6069",
+    "oid": "1.3.6.1.4.1.232.0.6069",
     "class": "notificationtype",
     "objects": [
       {
@@ -6622,7 +6622,7 @@
   },
   "cpqHeSysBatteryFailed": {
     "name": "cpqHeSysBatteryFailed",
-    "oid": "1.3.6.1.4.1.2320.6070",
+    "oid": "1.3.6.1.4.1.232.0.6070",
     "class": "notificationtype",
     "objects": [
       {
@@ -6665,7 +6665,7 @@
   },
   "cpqHeSysBatteryRemoved": {
     "name": "cpqHeSysBatteryRemoved",
-    "oid": "1.3.6.1.4.1.2320.6071",
+    "oid": "1.3.6.1.4.1.232.0.6071",
     "class": "notificationtype",
     "objects": [
       {
@@ -6692,7 +6692,7 @@
   },
   "cpqHeSysPwrAllocationNotOptimized": {
     "name": "cpqHeSysPwrAllocationNotOptimized",
-    "oid": "1.3.6.1.4.1.2320.6072",
+    "oid": "1.3.6.1.4.1.232.0.6072",
     "class": "notificationtype",
     "objects": [
       {
@@ -6711,7 +6711,7 @@
   },
   "cpqHeSysPwrOnDenied": {
     "name": "cpqHeSysPwrOnDenied",
-    "oid": "1.3.6.1.4.1.2320.6073",
+    "oid": "1.3.6.1.4.1.232.0.6073",
     "class": "notificationtype",
     "objects": [
       {
@@ -6734,7 +6734,7 @@
   },
   "cpqHePowerFailureError": {
     "name": "cpqHePowerFailureError",
-    "oid": "1.3.6.1.4.1.2320.6074",
+    "oid": "1.3.6.1.4.1.232.0.6074",
     "class": "notificationtype",
     "objects": [
       {
@@ -6777,7 +6777,7 @@
   },
   "cpqHeInterlockFailureError": {
     "name": "cpqHeInterlockFailureError",
-    "oid": "1.3.6.1.4.1.2320.6075",
+    "oid": "1.3.6.1.4.1.232.0.6075",
     "class": "notificationtype",
     "objects": [
       {
@@ -6809,9 +6809,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQHLTH-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:59:11 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:45 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CPQHLTH-MIB"
   }

@@ -5,26 +5,26 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "Gauge32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
       "enterprises",
-      "TimeTicks"
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -740,17 +740,17 @@
   },
   "innoColdStart": {
     "name": "innoColdStart",
-    "oid": "1.3.6.1.4.1.66660.0",
+    "oid": "1.3.6.1.4.1.6666.0.0",
     "class": "notificationtype"
   },
   "innoWarmStart": {
     "name": "innoWarmStart",
-    "oid": "1.3.6.1.4.1.66660.1",
+    "oid": "1.3.6.1.4.1.6666.0.1",
     "class": "notificationtype"
   },
   "innoLinkDown": {
     "name": "innoLinkDown",
-    "oid": "1.3.6.1.4.1.66660.2",
+    "oid": "1.3.6.1.4.1.6666.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -761,7 +761,7 @@
   },
   "innoLinkUp": {
     "name": "innoLinkUp",
-    "oid": "1.3.6.1.4.1.66660.3",
+    "oid": "1.3.6.1.4.1.6666.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -772,12 +772,12 @@
   },
   "innoAuthenticationFailure": {
     "name": "innoAuthenticationFailure",
-    "oid": "1.3.6.1.4.1.66660.4",
+    "oid": "1.3.6.1.4.1.6666.0.4",
     "class": "notificationtype"
   },
   "innoIsdnFailure": {
     "name": "innoIsdnFailure",
-    "oid": "1.3.6.1.4.1.66660.5",
+    "oid": "1.3.6.1.4.1.6666.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -792,7 +792,7 @@
   },
   "innoDiagAlarm": {
     "name": "innoDiagAlarm",
-    "oid": "1.3.6.1.4.1.66660.6",
+    "oid": "1.3.6.1.4.1.6666.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -815,7 +815,7 @@
   },
   "innoDiagAlarmClear": {
     "name": "innoDiagAlarmClear",
-    "oid": "1.3.6.1.4.1.66660.7",
+    "oid": "1.3.6.1.4.1.6666.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -831,9 +831,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/innovaphone/INNO-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:59:17 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:58 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "INNO-MIB"
   }

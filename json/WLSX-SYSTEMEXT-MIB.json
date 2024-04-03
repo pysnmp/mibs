@@ -5,44 +5,44 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaActiveState",
       "ArubaCardType",
-      "ArubaSwitchRole"
+      "ArubaSwitchRole",
+      "ArubaActiveState"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "snmpModules",
-      "Integer32",
-      "OBJECT-TYPE",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "MibIdentifier",
+      "iso",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "snmpModules",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TAddress",
-      "RowStatus",
-      "StorageType",
-      "TestAndIncr",
-      "TruthValue",
       "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "StorageType",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TAddress",
+      "TruthValue",
       "TDomain",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "wlsxSystemExtMIB": {
@@ -1671,9 +1671,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SYSTEMEXT-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:54:09 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:41:48 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "WLSX-SYSTEMEXT-MIB"
   }

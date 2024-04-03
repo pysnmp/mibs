@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
+      "cpqHoTrapFlags",
       "cpqHoVersion",
       "cpqHoOsType",
-      "compaq",
-      "cpqHoTrapFlags"
+      "compaq"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -15,25 +15,25 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TRAP-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
       "Integer32",
-      "IpAddress"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cpqRackInfo": {
@@ -5156,7 +5156,7 @@
   },
   "cpqRackNameChanged": {
     "name": "cpqRackNameChanged",
-    "oid": "1.3.6.1.4.1.2320.22001",
+    "oid": "1.3.6.1.4.1.232.0.22001",
     "class": "notificationtype",
     "objects": [
       {
@@ -5187,7 +5187,7 @@
   },
   "cpqRackEnclosureNameChanged": {
     "name": "cpqRackEnclosureNameChanged",
-    "oid": "1.3.6.1.4.1.2320.22002",
+    "oid": "1.3.6.1.4.1.232.0.22002",
     "class": "notificationtype",
     "objects": [
       {
@@ -5230,7 +5230,7 @@
   },
   "cpqRackEnclosureRemoved": {
     "name": "cpqRackEnclosureRemoved",
-    "oid": "1.3.6.1.4.1.2320.22003",
+    "oid": "1.3.6.1.4.1.232.0.22003",
     "class": "notificationtype",
     "objects": [
       {
@@ -5273,7 +5273,7 @@
   },
   "cpqRackEnclosureInserted": {
     "name": "cpqRackEnclosureInserted",
-    "oid": "1.3.6.1.4.1.2320.22004",
+    "oid": "1.3.6.1.4.1.232.0.22004",
     "class": "notificationtype",
     "objects": [
       {
@@ -5316,7 +5316,7 @@
   },
   "cpqRackEnclosureTempFailed": {
     "name": "cpqRackEnclosureTempFailed",
-    "oid": "1.3.6.1.4.1.2320.22005",
+    "oid": "1.3.6.1.4.1.232.0.22005",
     "class": "notificationtype",
     "objects": [
       {
@@ -5359,7 +5359,7 @@
   },
   "cpqRackEnclosureTempDegraded": {
     "name": "cpqRackEnclosureTempDegraded",
-    "oid": "1.3.6.1.4.1.2320.22006",
+    "oid": "1.3.6.1.4.1.232.0.22006",
     "class": "notificationtype",
     "objects": [
       {
@@ -5402,7 +5402,7 @@
   },
   "cpqRackEnclosureTempOk": {
     "name": "cpqRackEnclosureTempOk",
-    "oid": "1.3.6.1.4.1.2320.22007",
+    "oid": "1.3.6.1.4.1.232.0.22007",
     "class": "notificationtype",
     "objects": [
       {
@@ -5445,7 +5445,7 @@
   },
   "cpqRackEnclosureFanFailed": {
     "name": "cpqRackEnclosureFanFailed",
-    "oid": "1.3.6.1.4.1.2320.22008",
+    "oid": "1.3.6.1.4.1.232.0.22008",
     "class": "notificationtype",
     "objects": [
       {
@@ -5488,7 +5488,7 @@
   },
   "cpqRackEnclosureFanDegraded": {
     "name": "cpqRackEnclosureFanDegraded",
-    "oid": "1.3.6.1.4.1.2320.22009",
+    "oid": "1.3.6.1.4.1.232.0.22009",
     "class": "notificationtype",
     "objects": [
       {
@@ -5531,7 +5531,7 @@
   },
   "cpqRackEnclosureFanOk": {
     "name": "cpqRackEnclosureFanOk",
-    "oid": "1.3.6.1.4.1.2320.22010",
+    "oid": "1.3.6.1.4.1.232.0.22010",
     "class": "notificationtype",
     "objects": [
       {
@@ -5574,7 +5574,7 @@
   },
   "cpqRackEnclosureFanRemoved": {
     "name": "cpqRackEnclosureFanRemoved",
-    "oid": "1.3.6.1.4.1.2320.22011",
+    "oid": "1.3.6.1.4.1.232.0.22011",
     "class": "notificationtype",
     "objects": [
       {
@@ -5617,7 +5617,7 @@
   },
   "cpqRackEnclosureFanInserted": {
     "name": "cpqRackEnclosureFanInserted",
-    "oid": "1.3.6.1.4.1.2320.22012",
+    "oid": "1.3.6.1.4.1.232.0.22012",
     "class": "notificationtype",
     "objects": [
       {
@@ -5660,7 +5660,7 @@
   },
   "cpqRackPowerSupplyFailed": {
     "name": "cpqRackPowerSupplyFailed",
-    "oid": "1.3.6.1.4.1.2320.22013",
+    "oid": "1.3.6.1.4.1.232.0.22013",
     "class": "notificationtype",
     "objects": [
       {
@@ -5711,7 +5711,7 @@
   },
   "cpqRackPowerSupplyDegraded": {
     "name": "cpqRackPowerSupplyDegraded",
-    "oid": "1.3.6.1.4.1.2320.22014",
+    "oid": "1.3.6.1.4.1.232.0.22014",
     "class": "notificationtype",
     "objects": [
       {
@@ -5762,7 +5762,7 @@
   },
   "cpqRackPowerSupplyOk": {
     "name": "cpqRackPowerSupplyOk",
-    "oid": "1.3.6.1.4.1.2320.22015",
+    "oid": "1.3.6.1.4.1.232.0.22015",
     "class": "notificationtype",
     "objects": [
       {
@@ -5813,7 +5813,7 @@
   },
   "cpqRackPowerSupplyRemoved": {
     "name": "cpqRackPowerSupplyRemoved",
-    "oid": "1.3.6.1.4.1.2320.22016",
+    "oid": "1.3.6.1.4.1.232.0.22016",
     "class": "notificationtype",
     "objects": [
       {
@@ -5864,7 +5864,7 @@
   },
   "cpqRackPowerSupplyInserted": {
     "name": "cpqRackPowerSupplyInserted",
-    "oid": "1.3.6.1.4.1.2320.22017",
+    "oid": "1.3.6.1.4.1.232.0.22017",
     "class": "notificationtype",
     "objects": [
       {
@@ -5915,7 +5915,7 @@
   },
   "cpqRackPowerSubsystemNotRedundant": {
     "name": "cpqRackPowerSubsystemNotRedundant",
-    "oid": "1.3.6.1.4.1.2320.22018",
+    "oid": "1.3.6.1.4.1.232.0.22018",
     "class": "notificationtype",
     "objects": [
       {
@@ -5950,7 +5950,7 @@
   },
   "cpqRackPowerSubsystemLineVoltageProblem": {
     "name": "cpqRackPowerSubsystemLineVoltageProblem",
-    "oid": "1.3.6.1.4.1.2320.22019",
+    "oid": "1.3.6.1.4.1.232.0.22019",
     "class": "notificationtype",
     "objects": [
       {
@@ -6001,7 +6001,7 @@
   },
   "cpqRackPowerSubsystemOverloadCondition": {
     "name": "cpqRackPowerSubsystemOverloadCondition",
-    "oid": "1.3.6.1.4.1.2320.22020",
+    "oid": "1.3.6.1.4.1.232.0.22020",
     "class": "notificationtype",
     "objects": [
       {
@@ -6040,7 +6040,7 @@
   },
   "cpqRackPowerShedAutoShutdown": {
     "name": "cpqRackPowerShedAutoShutdown",
-    "oid": "1.3.6.1.4.1.2320.22021",
+    "oid": "1.3.6.1.4.1.232.0.22021",
     "class": "notificationtype",
     "objects": [
       {
@@ -6083,7 +6083,7 @@
   },
   "cpqRackServerPowerOnFailedNotRedundant": {
     "name": "cpqRackServerPowerOnFailedNotRedundant",
-    "oid": "1.3.6.1.4.1.2320.22022",
+    "oid": "1.3.6.1.4.1.232.0.22022",
     "class": "notificationtype",
     "objects": [
       {
@@ -6126,7 +6126,7 @@
   },
   "cpqRackServerPowerOnFailedNotEnoughPower": {
     "name": "cpqRackServerPowerOnFailedNotEnoughPower",
-    "oid": "1.3.6.1.4.1.2320.22023",
+    "oid": "1.3.6.1.4.1.232.0.22023",
     "class": "notificationtype",
     "objects": [
       {
@@ -6169,7 +6169,7 @@
   },
   "cpqRackServerPowerOnFailedEnclosureNotFound": {
     "name": "cpqRackServerPowerOnFailedEnclosureNotFound",
-    "oid": "1.3.6.1.4.1.2320.22024",
+    "oid": "1.3.6.1.4.1.232.0.22024",
     "class": "notificationtype",
     "objects": [
       {
@@ -6212,7 +6212,7 @@
   },
   "cpqRackServerPowerOnFailedPowerChassisNotFound": {
     "name": "cpqRackServerPowerOnFailedPowerChassisNotFound",
-    "oid": "1.3.6.1.4.1.2320.22025",
+    "oid": "1.3.6.1.4.1.232.0.22025",
     "class": "notificationtype",
     "objects": [
       {
@@ -6255,7 +6255,7 @@
   },
   "cpqRackServerPowerOnManualOverride": {
     "name": "cpqRackServerPowerOnManualOverride",
-    "oid": "1.3.6.1.4.1.2320.22026",
+    "oid": "1.3.6.1.4.1.232.0.22026",
     "class": "notificationtype",
     "objects": [
       {
@@ -6298,7 +6298,7 @@
   },
   "cpqRackFuseOpen": {
     "name": "cpqRackFuseOpen",
-    "oid": "1.3.6.1.4.1.2320.22027",
+    "oid": "1.3.6.1.4.1.232.0.22027",
     "class": "notificationtype",
     "objects": [
       {
@@ -6341,7 +6341,7 @@
   },
   "cpqRackServerBladeRemoved": {
     "name": "cpqRackServerBladeRemoved",
-    "oid": "1.3.6.1.4.1.2320.22028",
+    "oid": "1.3.6.1.4.1.232.0.22028",
     "class": "notificationtype",
     "objects": [
       {
@@ -6388,7 +6388,7 @@
   },
   "cpqRackServerBladeInserted": {
     "name": "cpqRackServerBladeInserted",
-    "oid": "1.3.6.1.4.1.2320.22029",
+    "oid": "1.3.6.1.4.1.232.0.22029",
     "class": "notificationtype",
     "objects": [
       {
@@ -6435,7 +6435,7 @@
   },
   "cpqRackPowerChassisNotLoadBalanced": {
     "name": "cpqRackPowerChassisNotLoadBalanced",
-    "oid": "1.3.6.1.4.1.2320.22030",
+    "oid": "1.3.6.1.4.1.232.0.22030",
     "class": "notificationtype",
     "objects": [
       {
@@ -6474,7 +6474,7 @@
   },
   "cpqRackPowerChassisDcPowerProblem": {
     "name": "cpqRackPowerChassisDcPowerProblem",
-    "oid": "1.3.6.1.4.1.2320.22031",
+    "oid": "1.3.6.1.4.1.232.0.22031",
     "class": "notificationtype",
     "objects": [
       {
@@ -6513,7 +6513,7 @@
   },
   "cpqRackPowerChassisAcFacilityPowerExceeded": {
     "name": "cpqRackPowerChassisAcFacilityPowerExceeded",
-    "oid": "1.3.6.1.4.1.2320.22032",
+    "oid": "1.3.6.1.4.1.232.0.22032",
     "class": "notificationtype",
     "objects": [
       {
@@ -6552,7 +6552,7 @@
   },
   "cpqRackPowerUnknownPowerConsumption": {
     "name": "cpqRackPowerUnknownPowerConsumption",
-    "oid": "1.3.6.1.4.1.2320.22033",
+    "oid": "1.3.6.1.4.1.232.0.22033",
     "class": "notificationtype",
     "objects": [
       {
@@ -6583,7 +6583,7 @@
   },
   "cpqRackPowerChassisLoadBalancingWireMissing": {
     "name": "cpqRackPowerChassisLoadBalancingWireMissing",
-    "oid": "1.3.6.1.4.1.2320.22034",
+    "oid": "1.3.6.1.4.1.232.0.22034",
     "class": "notificationtype",
     "objects": [
       {
@@ -6622,7 +6622,7 @@
   },
   "cpqRackPowerChassisTooManyPowerChassis": {
     "name": "cpqRackPowerChassisTooManyPowerChassis",
-    "oid": "1.3.6.1.4.1.2320.22035",
+    "oid": "1.3.6.1.4.1.232.0.22035",
     "class": "notificationtype",
     "objects": [
       {
@@ -6657,7 +6657,7 @@
   },
   "cpqRackPowerChassisConfigError": {
     "name": "cpqRackPowerChassisConfigError",
-    "oid": "1.3.6.1.4.1.2320.22036",
+    "oid": "1.3.6.1.4.1.232.0.22036",
     "class": "notificationtype",
     "objects": [
       {
@@ -6696,7 +6696,7 @@
   },
   "cpqRackEnclosureManagerDegraded": {
     "name": "cpqRackEnclosureManagerDegraded",
-    "oid": "1.3.6.1.4.1.2320.22037",
+    "oid": "1.3.6.1.4.1.232.0.22037",
     "class": "notificationtype",
     "objects": [
       {
@@ -6743,7 +6743,7 @@
   },
   "cpqRackEnclosureManagerOk": {
     "name": "cpqRackEnclosureManagerOk",
-    "oid": "1.3.6.1.4.1.2320.22038",
+    "oid": "1.3.6.1.4.1.232.0.22038",
     "class": "notificationtype",
     "objects": [
       {
@@ -6790,7 +6790,7 @@
   },
   "cpqRackEnclosureManagerRemoved": {
     "name": "cpqRackEnclosureManagerRemoved",
-    "oid": "1.3.6.1.4.1.2320.22039",
+    "oid": "1.3.6.1.4.1.232.0.22039",
     "class": "notificationtype",
     "objects": [
       {
@@ -6837,7 +6837,7 @@
   },
   "cpqRackEnclosureManagerInserted": {
     "name": "cpqRackEnclosureManagerInserted",
-    "oid": "1.3.6.1.4.1.2320.22040",
+    "oid": "1.3.6.1.4.1.232.0.22040",
     "class": "notificationtype",
     "objects": [
       {
@@ -6884,7 +6884,7 @@
   },
   "cpqRackManagerPrimaryRole": {
     "name": "cpqRackManagerPrimaryRole",
-    "oid": "1.3.6.1.4.1.2320.22041",
+    "oid": "1.3.6.1.4.1.232.0.22041",
     "class": "notificationtype",
     "objects": [
       {
@@ -6931,7 +6931,7 @@
   },
   "cpqRackServerBladeEKeyingFailed": {
     "name": "cpqRackServerBladeEKeyingFailed",
-    "oid": "1.3.6.1.4.1.2320.22042",
+    "oid": "1.3.6.1.4.1.232.0.22042",
     "class": "notificationtype",
     "objects": [
       {
@@ -6978,7 +6978,7 @@
   },
   "cpqRackServerBladeEKeyingOK": {
     "name": "cpqRackServerBladeEKeyingOK",
-    "oid": "1.3.6.1.4.1.2320.22043",
+    "oid": "1.3.6.1.4.1.232.0.22043",
     "class": "notificationtype",
     "objects": [
       {
@@ -7025,7 +7025,7 @@
   },
   "cpqRackNetConnectorRemoved": {
     "name": "cpqRackNetConnectorRemoved",
-    "oid": "1.3.6.1.4.1.2320.22044",
+    "oid": "1.3.6.1.4.1.232.0.22044",
     "class": "notificationtype",
     "objects": [
       {
@@ -7072,7 +7072,7 @@
   },
   "cpqRackNetConnectorInserted": {
     "name": "cpqRackNetConnectorInserted",
-    "oid": "1.3.6.1.4.1.2320.22045",
+    "oid": "1.3.6.1.4.1.232.0.22045",
     "class": "notificationtype",
     "objects": [
       {
@@ -7119,7 +7119,7 @@
   },
   "cpqRackNetConnectorFailed": {
     "name": "cpqRackNetConnectorFailed",
-    "oid": "1.3.6.1.4.1.2320.22046",
+    "oid": "1.3.6.1.4.1.232.0.22046",
     "class": "notificationtype",
     "objects": [
       {
@@ -7166,7 +7166,7 @@
   },
   "cpqRackNetConnectorDegraded": {
     "name": "cpqRackNetConnectorDegraded",
-    "oid": "1.3.6.1.4.1.2320.22047",
+    "oid": "1.3.6.1.4.1.232.0.22047",
     "class": "notificationtype",
     "objects": [
       {
@@ -7213,7 +7213,7 @@
   },
   "cpqRackNetConnectorOk": {
     "name": "cpqRackNetConnectorOk",
-    "oid": "1.3.6.1.4.1.2320.22048",
+    "oid": "1.3.6.1.4.1.232.0.22048",
     "class": "notificationtype",
     "objects": [
       {
@@ -7260,7 +7260,7 @@
   },
   "cpqRackServerBladeToLowPower": {
     "name": "cpqRackServerBladeToLowPower",
-    "oid": "1.3.6.1.4.1.2320.22049",
+    "oid": "1.3.6.1.4.1.232.0.22049",
     "class": "notificationtype",
     "objects": [
       {
@@ -7307,7 +7307,7 @@
   },
   "cpqRackServerBladeRemoved2": {
     "name": "cpqRackServerBladeRemoved2",
-    "oid": "1.3.6.1.4.1.2320.22050",
+    "oid": "1.3.6.1.4.1.232.0.22050",
     "class": "notificationtype",
     "objects": [
       {
@@ -7362,7 +7362,7 @@
   },
   "cpqRackServerBladeInserted2": {
     "name": "cpqRackServerBladeInserted2",
-    "oid": "1.3.6.1.4.1.2320.22051",
+    "oid": "1.3.6.1.4.1.232.0.22051",
     "class": "notificationtype",
     "objects": [
       {
@@ -7417,7 +7417,7 @@
   },
   "cpqRackServerBladeStatusRepaired": {
     "name": "cpqRackServerBladeStatusRepaired",
-    "oid": "1.3.6.1.4.1.2320.22052",
+    "oid": "1.3.6.1.4.1.232.0.22052",
     "class": "notificationtype",
     "objects": [
       {
@@ -7476,7 +7476,7 @@
   },
   "cpqRackServerBladeStatusDegraded": {
     "name": "cpqRackServerBladeStatusDegraded",
-    "oid": "1.3.6.1.4.1.2320.22053",
+    "oid": "1.3.6.1.4.1.232.0.22053",
     "class": "notificationtype",
     "objects": [
       {
@@ -7547,7 +7547,7 @@
   },
   "cpqRackServerBladeStatusCritical": {
     "name": "cpqRackServerBladeStatusCritical",
-    "oid": "1.3.6.1.4.1.2320.22054",
+    "oid": "1.3.6.1.4.1.232.0.22054",
     "class": "notificationtype",
     "objects": [
       {
@@ -7618,7 +7618,7 @@
   },
   "cpqRackServerBladeGrpCapTimeout": {
     "name": "cpqRackServerBladeGrpCapTimeout",
-    "oid": "1.3.6.1.4.1.2320.22055",
+    "oid": "1.3.6.1.4.1.232.0.22055",
     "class": "notificationtype",
     "objects": [
       {
@@ -7665,7 +7665,7 @@
   },
   "cpqRackServerBladeUnexpectedShutdown": {
     "name": "cpqRackServerBladeUnexpectedShutdown",
-    "oid": "1.3.6.1.4.1.2320.22056",
+    "oid": "1.3.6.1.4.1.232.0.22056",
     "class": "notificationtype",
     "objects": [
       {
@@ -7720,7 +7720,7 @@
   },
   "cpqRackServerBladeMangementControllerFirmwareUpdating": {
     "name": "cpqRackServerBladeMangementControllerFirmwareUpdating",
-    "oid": "1.3.6.1.4.1.2320.22057",
+    "oid": "1.3.6.1.4.1.232.0.22057",
     "class": "notificationtype",
     "objects": [
       {
@@ -7779,7 +7779,7 @@
   },
   "cpqRackServerBladeMangementControllerFirmwareUpdateComplete": {
     "name": "cpqRackServerBladeMangementControllerFirmwareUpdateComplete",
-    "oid": "1.3.6.1.4.1.2320.22058",
+    "oid": "1.3.6.1.4.1.232.0.22058",
     "class": "notificationtype",
     "objects": [
       {
@@ -7838,7 +7838,7 @@
   },
   "cpqRackServerBladeSystemBIOSFirmwareUpdating": {
     "name": "cpqRackServerBladeSystemBIOSFirmwareUpdating",
-    "oid": "1.3.6.1.4.1.2320.22059",
+    "oid": "1.3.6.1.4.1.232.0.22059",
     "class": "notificationtype",
     "objects": [
       {
@@ -7897,7 +7897,7 @@
   },
   "cpqRackServerBladeSystemBIOSFirmwareUpdateCompleted": {
     "name": "cpqRackServerBladeSystemBIOSFirmwareUpdateCompleted",
-    "oid": "1.3.6.1.4.1.2320.22060",
+    "oid": "1.3.6.1.4.1.232.0.22060",
     "class": "notificationtype",
     "objects": [
       {
@@ -7956,7 +7956,7 @@
   },
   "cpqRackServerBladeFrontIOBlankingActive": {
     "name": "cpqRackServerBladeFrontIOBlankingActive",
-    "oid": "1.3.6.1.4.1.2320.22061",
+    "oid": "1.3.6.1.4.1.232.0.22061",
     "class": "notificationtype",
     "objects": [
       {
@@ -8015,7 +8015,7 @@
   },
   "cpqRackServerBladeRemoteFrontIOBlankingInactive": {
     "name": "cpqRackServerBladeRemoteFrontIOBlankingInactive",
-    "oid": "1.3.6.1.4.1.2320.22062",
+    "oid": "1.3.6.1.4.1.232.0.22062",
     "class": "notificationtype",
     "objects": [
       {
@@ -8074,7 +8074,7 @@
   },
   "cpqRackServerBladeDiagnosticAdaptorInserted": {
     "name": "cpqRackServerBladeDiagnosticAdaptorInserted",
-    "oid": "1.3.6.1.4.1.2320.22063",
+    "oid": "1.3.6.1.4.1.232.0.22063",
     "class": "notificationtype",
     "objects": [
       {
@@ -8133,7 +8133,7 @@
   },
   "cpqRackServerBladeDiagnosticAdaptorRemoved": {
     "name": "cpqRackServerBladeDiagnosticAdaptorRemoved",
-    "oid": "1.3.6.1.4.1.2320.22064",
+    "oid": "1.3.6.1.4.1.232.0.22064",
     "class": "notificationtype",
     "objects": [
       {
@@ -8192,7 +8192,7 @@
   },
   "cpqRackServerBladeEnteredPXEBootMode": {
     "name": "cpqRackServerBladeEnteredPXEBootMode",
-    "oid": "1.3.6.1.4.1.2320.22065",
+    "oid": "1.3.6.1.4.1.232.0.22065",
     "class": "notificationtype",
     "objects": [
       {
@@ -8251,7 +8251,7 @@
   },
   "cpqRackServerBladeExitedPXEBootMode": {
     "name": "cpqRackServerBladeExitedPXEBootMode",
-    "oid": "1.3.6.1.4.1.2320.22066",
+    "oid": "1.3.6.1.4.1.232.0.22066",
     "class": "notificationtype",
     "objects": [
       {
@@ -8310,7 +8310,7 @@
   },
   "cpqRackServerBladeWarmReset": {
     "name": "cpqRackServerBladeWarmReset",
-    "oid": "1.3.6.1.4.1.2320.22067",
+    "oid": "1.3.6.1.4.1.232.0.22067",
     "class": "notificationtype",
     "objects": [
       {
@@ -8369,7 +8369,7 @@
   },
   "cpqRackServerBladePOSTCompleted": {
     "name": "cpqRackServerBladePOSTCompleted",
-    "oid": "1.3.6.1.4.1.2320.22068",
+    "oid": "1.3.6.1.4.1.232.0.22068",
     "class": "notificationtype",
     "objects": [
       {
@@ -8428,7 +8428,7 @@
   },
   "cpqRackServerBladePoweredOn": {
     "name": "cpqRackServerBladePoweredOn",
-    "oid": "1.3.6.1.4.1.2320.22069",
+    "oid": "1.3.6.1.4.1.232.0.22069",
     "class": "notificationtype",
     "objects": [
       {
@@ -8487,7 +8487,7 @@
   },
   "cpqRackServerBladePoweredOff": {
     "name": "cpqRackServerBladePoweredOff",
-    "oid": "1.3.6.1.4.1.2320.22070",
+    "oid": "1.3.6.1.4.1.232.0.22070",
     "class": "notificationtype",
     "objects": [
       {
@@ -8546,7 +8546,7 @@
   },
   "cpqRackInformationalEAETrap": {
     "name": "cpqRackInformationalEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22071",
+    "oid": "1.3.6.1.4.1.232.0.22071",
     "class": "notificationtype",
     "objects": [
       {
@@ -8581,7 +8581,7 @@
   },
   "cpqRackMinorEAETrap": {
     "name": "cpqRackMinorEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22072",
+    "oid": "1.3.6.1.4.1.232.0.22072",
     "class": "notificationtype",
     "objects": [
       {
@@ -8616,7 +8616,7 @@
   },
   "cpqRackMajorEAETrap": {
     "name": "cpqRackMajorEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22073",
+    "oid": "1.3.6.1.4.1.232.0.22073",
     "class": "notificationtype",
     "objects": [
       {
@@ -8651,7 +8651,7 @@
   },
   "cpqRackCriticalEAETrap": {
     "name": "cpqRackCriticalEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22074",
+    "oid": "1.3.6.1.4.1.232.0.22074",
     "class": "notificationtype",
     "objects": [
       {
@@ -8686,7 +8686,7 @@
   },
   "cpqRackPowerMinorEAETrap": {
     "name": "cpqRackPowerMinorEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22075",
+    "oid": "1.3.6.1.4.1.232.0.22075",
     "class": "notificationtype",
     "objects": [
       {
@@ -8721,7 +8721,7 @@
   },
   "cpqRackPowerMajorEAETrap": {
     "name": "cpqRackPowerMajorEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22076",
+    "oid": "1.3.6.1.4.1.232.0.22076",
     "class": "notificationtype",
     "objects": [
       {
@@ -8756,7 +8756,7 @@
   },
   "cpqRackPowerCriticalEAETrap": {
     "name": "cpqRackPowerCriticalEAETrap",
-    "oid": "1.3.6.1.4.1.2320.22077",
+    "oid": "1.3.6.1.4.1.232.0.22077",
     "class": "notificationtype",
     "objects": [
       {
@@ -8791,7 +8791,7 @@
   },
   "cpqRackServerBladePartitionChange": {
     "name": "cpqRackServerBladePartitionChange",
-    "oid": "1.3.6.1.4.1.2320.22078",
+    "oid": "1.3.6.1.4.1.232.0.22078",
     "class": "notificationtype",
     "objects": [
       {
@@ -8846,7 +8846,7 @@
   },
   "cpqRackInformationalWSMANTrap": {
     "name": "cpqRackInformationalWSMANTrap",
-    "oid": "1.3.6.1.4.1.2320.22079",
+    "oid": "1.3.6.1.4.1.232.0.22079",
     "class": "notificationtype",
     "objects": [
       {
@@ -9057,7 +9057,7 @@
   },
   "cpqRackMinorWSMANTrap": {
     "name": "cpqRackMinorWSMANTrap",
-    "oid": "1.3.6.1.4.1.2320.22080",
+    "oid": "1.3.6.1.4.1.232.0.22080",
     "class": "notificationtype",
     "objects": [
       {
@@ -9268,7 +9268,7 @@
   },
   "cpqRackMajorWSMANTrap": {
     "name": "cpqRackMajorWSMANTrap",
-    "oid": "1.3.6.1.4.1.2320.22081",
+    "oid": "1.3.6.1.4.1.232.0.22081",
     "class": "notificationtype",
     "objects": [
       {
@@ -9479,7 +9479,7 @@
   },
   "cpqRackCriticalWSMANTrap": {
     "name": "cpqRackCriticalWSMANTrap",
-    "oid": "1.3.6.1.4.1.2320.22082",
+    "oid": "1.3.6.1.4.1.232.0.22082",
     "class": "notificationtype",
     "objects": [
       {
@@ -9690,7 +9690,7 @@
   },
   "cpqRackEnclosureManagerLinkDown": {
     "name": "cpqRackEnclosureManagerLinkDown",
-    "oid": "1.3.6.1.4.1.2320.22083",
+    "oid": "1.3.6.1.4.1.232.0.22083",
     "class": "notificationtype",
     "objects": [
       {
@@ -9737,7 +9737,7 @@
   },
   "cpqRackEnclosureManagerLinkUp": {
     "name": "cpqRackEnclosureManagerLinkUp",
-    "oid": "1.3.6.1.4.1.2320.22084",
+    "oid": "1.3.6.1.4.1.232.0.22084",
     "class": "notificationtype",
     "objects": [
       {
@@ -9784,7 +9784,7 @@
   },
   "cpqRackErsCommFailure": {
     "name": "cpqRackErsCommFailure",
-    "oid": "1.3.6.1.4.1.2320.22085",
+    "oid": "1.3.6.1.4.1.232.0.22085",
     "class": "notificationtype",
     "objects": [
       {
@@ -9835,7 +9835,7 @@
   },
   "cpqRackPowerSubsystemOverloadConditionRepaired": {
     "name": "cpqRackPowerSubsystemOverloadConditionRepaired",
-    "oid": "1.3.6.1.4.1.2320.22086",
+    "oid": "1.3.6.1.4.1.232.0.22086",
     "class": "notificationtype",
     "objects": [
       {
@@ -9875,9 +9875,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQRACK-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:59:11 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:46:45 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CPQRACK-MIB"
   }

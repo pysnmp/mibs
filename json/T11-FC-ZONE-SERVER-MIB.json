@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "fcmInstanceIndex",
-      "FcDomainIdOrZero",
+      "FcNameIdOrZero",
       "fcmSwitchIndex",
-      "FcNameIdOrZero"
+      "fcmInstanceIndex",
+      "FcDomainIdOrZero"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -14,34 +14,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
+      "Counter32",
+      "Bits",
       "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "TimeTicks",
       "Gauge32",
-      "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Counter32",
-      "mib-2",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "mib-2",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
-      "TimeStamp",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "RowStatus"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
@@ -2474,10 +2474,10 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-ZONE-SERVER-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:53:10 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/T11-FC-ZONE-SERVER-MIB",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:11 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "T11-FC-ZONE-SERVER-MIB"
   }

@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "iso",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "enterprises",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
       "Counter32",
       "Gauge32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
+      "Bits",
+      "IpAddress",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "enterprises",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "wiredformgmt": {
@@ -45,465 +45,465 @@
   },
   "asfTrapIPMIAlertTest": {
     "name": "asfTrapIPMIAlertTest",
-    "oid": "1.3.6.1.4.1.3183.1.10.1001",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1001",
     "class": "notificationtype"
   },
   "asfTrapFanSpeedWarning": {
     "name": "asfTrapFanSpeedWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.262400",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.262400",
     "class": "notificationtype"
   },
   "asfTrapFanSPeedWarningCleared": {
     "name": "asfTrapFanSPeedWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.262528",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.262528",
     "class": "notificationtype"
   },
   "asfTrapFanSpeedProblem": {
     "name": "asfTrapFanSpeedProblem",
-    "oid": "1.3.6.1.4.1.3183.1.10.262402",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.262402",
     "class": "notificationtype"
   },
   "asfTrapFanSPeedProblemCleared": {
     "name": "asfTrapFanSPeedProblemCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.262530",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.262530",
     "class": "notificationtype"
   },
   "asfTrapBatteryLowWarning": {
     "name": "asfTrapBatteryLowWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.2715392",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2715392",
     "class": "notificationtype"
   },
   "asfTrapBatteryLowWarningCleared": {
     "name": "asfTrapBatteryLowWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.2715520",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2715520",
     "class": "notificationtype"
   },
   "asfTrapBatteryFailure": {
     "name": "asfTrapBatteryFailure",
-    "oid": "1.3.6.1.4.1.3183.1.10.2715393",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2715393",
     "class": "notificationtype"
   },
   "asfTrapBatteryFailCleared": {
     "name": "asfTrapBatteryFailCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.2715521",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2715521",
     "class": "notificationtype"
   },
   "asfTrapUnderVoltageWarning": {
     "name": "asfTrapUnderVoltageWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.131328",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131328",
     "class": "notificationtype"
   },
   "asfTrapUnderVoltageWarningCleared": {
     "name": "asfTrapUnderVoltageWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.131456",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131456",
     "class": "notificationtype"
   },
   "asfTrapUnderVoltage": {
     "name": "asfTrapUnderVoltage",
-    "oid": "1.3.6.1.4.1.3183.1.10.131330",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131330",
     "class": "notificationtype"
   },
   "asfTrapUnderVoltageCleared": {
     "name": "asfTrapUnderVoltageCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.131458",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131458",
     "class": "notificationtype"
   },
   "asfTrapOverVoltageWarning": {
     "name": "asfTrapOverVoltageWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.131335",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131335",
     "class": "notificationtype"
   },
   "asfTrapOverVoltageWarningCleared": {
     "name": "asfTrapOverVoltageWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.131463",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131463",
     "class": "notificationtype"
   },
   "asfTrapOverVoltage": {
     "name": "asfTrapOverVoltage",
-    "oid": "1.3.6.1.4.1.3183.1.10.131337",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131337",
     "class": "notificationtype"
   },
   "asfTrapVoltageCleared": {
     "name": "asfTrapVoltageCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.131465",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131465",
     "class": "notificationtype"
   },
   "asfTrapCriticalDiscreteVoltage": {
     "name": "asfTrapCriticalDiscreteVoltage",
-    "oid": "1.3.6.1.4.1.3183.1.10.131841",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131841",
     "class": "notificationtype"
   },
   "asfTrapCriticalDiscreteVoltageCleared": {
     "name": "asfTrapCriticalDiscreteVoltageCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.131840",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.131840",
     "class": "notificationtype"
   },
   "asfTrapUnderTemperatureWarning": {
     "name": "asfTrapUnderTemperatureWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.65792",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65792",
     "class": "notificationtype"
   },
   "asfTrapUnderTemperatureWarningCleared": {
     "name": "asfTrapUnderTemperatureWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.65920",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65920",
     "class": "notificationtype"
   },
   "asfTrapUnderTemperature": {
     "name": "asfTrapUnderTemperature",
-    "oid": "1.3.6.1.4.1.3183.1.10.65794",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65794",
     "class": "notificationtype"
   },
   "asfTrapUnderTemperatureCleared": {
     "name": "asfTrapUnderTemperatureCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.65922",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65922",
     "class": "notificationtype"
   },
   "asfTrapOverTemperatureWarning": {
     "name": "asfTrapOverTemperatureWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.65799",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65799",
     "class": "notificationtype"
   },
   "asfTrapOverTemperatureWarningCleared": {
     "name": "asfTrapOverTemperatureWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.65927",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65927",
     "class": "notificationtype"
   },
   "asfTrapOverTemperature": {
     "name": "asfTrapOverTemperature",
-    "oid": "1.3.6.1.4.1.3183.1.10.65801",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65801",
     "class": "notificationtype"
   },
   "asfTrapOverTemperatureCleared": {
     "name": "asfTrapOverTemperatureCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.65929",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.65929",
     "class": "notificationtype"
   },
   "asfTrapCaseIntrusion": {
     "name": "asfTrapCaseIntrusion",
-    "oid": "1.3.6.1.4.1.3183.1.10.356096",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.356096",
     "class": "notificationtype"
   },
   "asfTrapCaseIntrusionCleared": {
     "name": "asfTrapCaseIntrusionCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.356224",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.356224",
     "class": "notificationtype"
   },
   "asfTrapFanRedundancyDegraded": {
     "name": "asfTrapFanRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.3183.1.10.264962",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.264962",
     "class": "notificationtype"
   },
   "asfTrapFanRedundancyLost": {
     "name": "asfTrapFanRedundancyLost",
-    "oid": "1.3.6.1.4.1.3183.1.10.264961",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.264961",
     "class": "notificationtype"
   },
   "asfTrapFanFullRedundancy": {
     "name": "asfTrapFanFullRedundancy",
-    "oid": "1.3.6.1.4.1.3183.1.10.264960",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.264960",
     "class": "notificationtype"
   },
   "asfTrapPSRedundancyDegraded": {
     "name": "asfTrapPSRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.3183.1.10.527106",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.527106",
     "class": "notificationtype"
   },
   "asfTrapPSRedundancyLost": {
     "name": "asfTrapPSRedundancyLost",
-    "oid": "1.3.6.1.4.1.3183.1.10.527105",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.527105",
     "class": "notificationtype"
   },
   "asfTrapPSFullRedundancy": {
     "name": "asfTrapPSFullRedundancy",
-    "oid": "1.3.6.1.4.1.3183.1.10.527104",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.527104",
     "class": "notificationtype"
   },
   "asfTrapCpuThermalTrip": {
     "name": "asfTrapCpuThermalTrip",
-    "oid": "1.3.6.1.4.1.3183.1.10.487169",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487169",
     "class": "notificationtype"
   },
   "asfTrapCpuThermalTripCleared": {
     "name": "asfTrapCpuThermalTripCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.487297",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487297",
     "class": "notificationtype"
   },
   "asfTrapCpuBistError": {
     "name": "asfTrapCpuBistError",
-    "oid": "1.3.6.1.4.1.3183.1.10.487170",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487170",
     "class": "notificationtype"
   },
   "asfTrapCpuBistErrorCleared": {
     "name": "asfTrapCpuBistErrorCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.487298",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487298",
     "class": "notificationtype"
   },
   "asfTrapCpuIErr": {
     "name": "asfTrapCpuIErr",
-    "oid": "1.3.6.1.4.1.3183.1.10.487168",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487168",
     "class": "notificationtype"
   },
   "asfTrapCpuIErrCleared": {
     "name": "asfTrapCpuIErrCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.487296",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487296",
     "class": "notificationtype"
   },
   "asfTrapCpuConfigError": {
     "name": "asfTrapCpuConfigError",
-    "oid": "1.3.6.1.4.1.3183.1.10.487173",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487173",
     "class": "notificationtype"
   },
   "asfTrapCpuDisabled": {
     "name": "asfTrapCpuDisabled",
-    "oid": "1.3.6.1.4.1.3183.1.10.487176",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487176",
     "class": "notificationtype"
   },
   "asfTrapCpuEnabled": {
     "name": "asfTrapCpuEnabled",
-    "oid": "1.3.6.1.4.1.3183.1.10.487304",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487304",
     "class": "notificationtype"
   },
   "asfTrapCpuConfigErrorCleared": {
     "name": "asfTrapCpuConfigErrorCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.487301",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487301",
     "class": "notificationtype"
   },
   "asfTrapCpuPresence": {
     "name": "asfTrapCpuPresence",
-    "oid": "1.3.6.1.4.1.3183.1.10.487175",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487175",
     "class": "notificationtype"
   },
   "asfTrapCpuNotPresent": {
     "name": "asfTrapCpuNotPresent",
-    "oid": "1.3.6.1.4.1.3183.1.10.487303",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487303",
     "class": "notificationtype"
   },
   "asfTrapCpuThrottle": {
     "name": "asfTrapCpuThrottle",
-    "oid": "1.3.6.1.4.1.3183.1.10.487178",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487178",
     "class": "notificationtype"
   },
   "asfTrapCpuThrottleCleared": {
     "name": "asfTrapCpuThrottleCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.487306",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.487306",
     "class": "notificationtype"
   },
   "asfTrapPsPresenceDeteced": {
     "name": "asfTrapPsPresenceDeteced",
-    "oid": "1.3.6.1.4.1.3183.1.10.552704",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552704",
     "class": "notificationtype"
   },
   "asfTrapPsPresenceRemoved": {
     "name": "asfTrapPsPresenceRemoved",
-    "oid": "1.3.6.1.4.1.3183.1.10.552832",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552832",
     "class": "notificationtype"
   },
   "asfTrapPsFailure": {
     "name": "asfTrapPsFailure",
-    "oid": "1.3.6.1.4.1.3183.1.10.552705",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552705",
     "class": "notificationtype"
   },
   "asfTrapPsFailureCleared": {
     "name": "asfTrapPsFailureCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.552833",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552833",
     "class": "notificationtype"
   },
   "asfTrapPsPredictiveFailure": {
     "name": "asfTrapPsPredictiveFailure",
-    "oid": "1.3.6.1.4.1.3183.1.10.552706",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552706",
     "class": "notificationtype"
   },
   "asfTrapPsPredictiveFailureCleared": {
     "name": "asfTrapPsPredictiveFailureCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.552834",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552834",
     "class": "notificationtype"
   },
   "asfTrapPsAcLost": {
     "name": "asfTrapPsAcLost",
-    "oid": "1.3.6.1.4.1.3183.1.10.552707",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552707",
     "class": "notificationtype"
   },
   "asfTrapPsAcBack": {
     "name": "asfTrapPsAcBack",
-    "oid": "1.3.6.1.4.1.3183.1.10.552835",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552835",
     "class": "notificationtype"
   },
   "asfTrapSelCleared": {
     "name": "asfTrapSelCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.1076994",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1076994",
     "class": "notificationtype"
   },
   "asfTrapSelFull": {
     "name": "asfTrapSelFull",
-    "oid": "1.3.6.1.4.1.3183.1.10.1076996",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1076996",
     "class": "notificationtype"
   },
   "asfTrapASRTimeout": {
     "name": "asfTrapASRTimeout",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322176",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322176",
     "class": "notificationtype"
   },
   "asfTrapASROsReset": {
     "name": "asfTrapASROsReset",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322177",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322177",
     "class": "notificationtype"
   },
   "asfTrapASRPowerDown": {
     "name": "asfTrapASRPowerDown",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322178",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322178",
     "class": "notificationtype"
   },
   "asfTrapASRPowerCycle": {
     "name": "asfTrapASRPowerCycle",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322179",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322179",
     "class": "notificationtype"
   },
   "asfTrapOverSystemPowerWarning": {
     "name": "asfTrapOverSystemPowerWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322180",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322180",
     "class": "notificationtype"
   },
   "asfTrapOverSystemPowerWarningCleared": {
     "name": "asfTrapOverSystemPowerWarningCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322181",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322181",
     "class": "notificationtype"
   },
   "asfTrapOverSystemPowerCritical": {
     "name": "asfTrapOverSystemPowerCritical",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322182",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322182",
     "class": "notificationtype"
   },
   "asfTrapOverSystemPowerCriticalCleared": {
     "name": "asfTrapOverSystemPowerCriticalCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.2322183",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.2322183",
     "class": "notificationtype"
   },
   "asfTrapPSUMismatch": {
     "name": "asfTrapPSUMismatch",
-    "oid": "1.3.6.1.4.1.3183.1.10.552710",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552710",
     "class": "notificationtype"
   },
   "asfTrapPSUMismatchNormal": {
     "name": "asfTrapPSUMismatchNormal",
-    "oid": "1.3.6.1.4.1.3183.1.10.552838",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552838",
     "class": "notificationtype"
   },
   "asfTrapSystemPowerExceedsWarning": {
     "name": "asfTrapSystemPowerExceedsWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.552711",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552711",
     "class": "notificationtype"
   },
   "asfTrapSystemPowerNormal": {
     "name": "asfTrapSystemPowerNormal",
-    "oid": "1.3.6.1.4.1.3183.1.10.552839",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.552839",
     "class": "notificationtype"
   },
   "asfTrapSystemPowerExceedsError": {
     "name": "asfTrapSystemPowerExceedsError",
-    "oid": "1.3.6.1.4.1.3183.1.10.12611334",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.12611334",
     "class": "notificationtype"
   },
   "asfTrapSystemPowerExceedsCleared": {
     "name": "asfTrapSystemPowerExceedsCleared",
-    "oid": "1.3.6.1.4.1.3183.1.10.12611462",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.12611462",
     "class": "notificationtype"
   },
   "asfTrapModuleSDCardFailedError": {
     "name": "asfTrapModuleSDCardFailedError",
-    "oid": "1.3.6.1.4.1.3183.1.10.1404932",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1404932",
     "class": "notificationtype"
   },
   "asfTrapModuleSDWriteProtectWarning": {
     "name": "asfTrapModuleSDWriteProtectWarning",
-    "oid": "1.3.6.1.4.1.3183.1.10.1404935",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1404935",
     "class": "notificationtype"
   },
   "asfTrapModuleSDCardPresence": {
     "name": "asfTrapModuleSDCardPresence",
-    "oid": "1.3.6.1.4.1.3183.1.10.1405056",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1405056",
     "class": "notificationtype"
   },
   "asfTrapModuleSDCardNotPresent": {
     "name": "asfTrapModuleSDCardNotPresent",
-    "oid": "1.3.6.1.4.1.3183.1.10.1404928",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1404928",
     "class": "notificationtype"
   },
   "asfTrapSDRedundancyDegraded": {
     "name": "asfTrapSDRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.3183.1.10.1379074",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1379074",
     "class": "notificationtype"
   },
   "asfTrapSDRedundancyLost": {
     "name": "asfTrapSDRedundancyLost",
-    "oid": "1.3.6.1.4.1.3183.1.10.1379073",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1379073",
     "class": "notificationtype"
   },
   "asfTrapSDFullRedundancy": {
     "name": "asfTrapSDFullRedundancy",
-    "oid": "1.3.6.1.4.1.3183.1.10.1379072",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.1379072",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModulePresent": {
     "name": "asfTrapInternalDualSDModulePresent",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201152",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201152",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleAbsent": {
     "name": "asfTrapInternalDualSDModuleAbsent",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201280",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201280",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleOffline": {
     "name": "asfTrapInternalDualSDModuleOffline",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201153",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201153",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleOnline": {
     "name": "asfTrapInternalDualSDModuleOnline",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201281",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201281",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleFailure": {
     "name": "asfTrapInternalDualSDModuleFailure",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201154",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201154",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleNormal": {
     "name": "asfTrapInternalDualSDModuleNormal",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201282",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201282",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleWriteProtected": {
     "name": "asfTrapInternalDualSDModuleWriteProtected",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201155",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201155",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleWriteable": {
     "name": "asfTrapInternalDualSDModuleWriteable",
-    "oid": "1.3.6.1.4.1.3183.1.10.13201283",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13201283",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleRedundant": {
     "name": "asfTrapInternalDualSDModuleRedundant",
-    "oid": "1.3.6.1.4.1.3183.1.10.13175552",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13175552",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleRedundancyLost": {
     "name": "asfTrapInternalDualSDModuleRedundancyLost",
-    "oid": "1.3.6.1.4.1.3183.1.10.13175553",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13175553",
     "class": "notificationtype"
   },
   "asfTrapInternalDualSDModuleNotRedundant": {
     "name": "asfTrapInternalDualSDModuleNotRedundant",
-    "oid": "1.3.6.1.4.1.3183.1.10.13175555",
+    "oid": "1.3.6.1.4.1.3183.1.1.0.13175555",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-ASF-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:56:04 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:42 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DELL-ASF-MIB"
   }

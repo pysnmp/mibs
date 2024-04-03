@@ -1,0 +1,2007 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "oracle": {
+    "name": "oracle",
+    "oid": "1.3.6.1.4.1.111",
+    "class": "objectidentity"
+  },
+  "oraEM4": {
+    "name": "oraEM4",
+    "oid": "1.3.6.1.4.1.111.15",
+    "class": "objectidentity"
+  },
+  "oraEM4Objects": {
+    "name": "oraEM4Objects",
+    "oid": "1.3.6.1.4.1.111.15.1",
+    "class": "objectidentity"
+  },
+  "oraEM4AlertTable": {
+    "name": "oraEM4AlertTable",
+    "oid": "1.3.6.1.4.1.111.15.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oraEM4AlertEntry": {
+    "name": "oraEM4AlertEntry",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oraEM4AlertIndex": {
+    "name": "oraEM4AlertIndex",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertTargetName": {
+    "name": "oraEM4AlertTargetName",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertTargetType": {
+    "name": "oraEM4AlertTargetType",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertHostName": {
+    "name": "oraEM4AlertHostName",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertMetricName": {
+    "name": "oraEM4AlertMetricName",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertKeyName": {
+    "name": "oraEM4AlertKeyName",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertKeyValue": {
+    "name": "oraEM4AlertKeyValue",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertTimeStamp": {
+    "name": "oraEM4AlertTimeStamp",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertSeverity": {
+    "name": "oraEM4AlertSeverity",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertMessage": {
+    "name": "oraEM4AlertMessage",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertRuleName": {
+    "name": "oraEM4AlertRuleName",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertRuleOwner": {
+    "name": "oraEM4AlertRuleOwner",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertMetricValue": {
+    "name": "oraEM4AlertMetricValue",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertContext": {
+    "name": "oraEM4AlertContext",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertCycleGuid": {
+    "name": "oraEM4AlertCycleGuid",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertRepeatCount": {
+    "name": "oraEM4AlertRepeatCount",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertUDTargetProperties": {
+    "name": "oraEM4AlertUDTargetProperties",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertAck": {
+    "name": "oraEM4AlertAck",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertAckBy": {
+    "name": "oraEM4AlertAckBy",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertNotifType": {
+    "name": "oraEM4AlertNotifType",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4AlertViolationGuid": {
+    "name": "oraEM4AlertViolationGuid",
+    "oid": "1.3.6.1.4.1.111.15.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4Traps": {
+    "name": "oraEM4Traps",
+    "oid": "1.3.6.1.4.1.111.15.2",
+    "class": "objectidentity"
+  },
+  "oraEM4Alert": {
+    "name": "oraEM4Alert",
+    "oid": "1.3.6.1.4.1.111.15.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertTargetName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertTargetType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertHostName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertMetricName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertKeyName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertKeyValue"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertTimeStamp"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertSeverity"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertMessage"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertRuleName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertRuleOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertMetricValue"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertContext"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertCycleGuid"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertRepeatCount"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertUDTargetProperties"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertAck"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertAckBy"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertNotifType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4AlertViolationGuid"
+      }
+    ]
+  },
+  "oraEM4JobAlertTable": {
+    "name": "oraEM4JobAlertTable",
+    "oid": "1.3.6.1.4.1.111.15.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertEntry": {
+    "name": "oraEM4JobAlertEntry",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertIndex": {
+    "name": "oraEM4JobAlertIndex",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertJobName": {
+    "name": "oraEM4JobAlertJobName",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertJobOwner": {
+    "name": "oraEM4JobAlertJobOwner",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertJobType": {
+    "name": "oraEM4JobAlertJobType",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertJobStatus": {
+    "name": "oraEM4JobAlertJobStatus",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertTargets": {
+    "name": "oraEM4JobAlertTargets",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertTimeStamp": {
+    "name": "oraEM4JobAlertTimeStamp",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertRuleName": {
+    "name": "oraEM4JobAlertRuleName",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertRuleOwner": {
+    "name": "oraEM4JobAlertRuleOwner",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertMetricName": {
+    "name": "oraEM4JobAlertMetricName",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertMetricValue": {
+    "name": "oraEM4JobAlertMetricValue",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertContext": {
+    "name": "oraEM4JobAlertContext",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertKeyName": {
+    "name": "oraEM4JobAlertKeyName",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertKeyValue": {
+    "name": "oraEM4JobAlertKeyValue",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertSeverity": {
+    "name": "oraEM4JobAlertSeverity",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertJobId": {
+    "name": "oraEM4JobAlertJobId",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlertJobExecId": {
+    "name": "oraEM4JobAlertJobExecId",
+    "oid": "1.3.6.1.4.1.111.15.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEM4JobAlert": {
+    "name": "oraEM4JobAlert",
+    "oid": "1.3.6.1.4.1.111.15.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertJobName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertJobOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertJobType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertJobStatus"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertTargets"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertTimeStamp"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertRuleName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertRuleOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertMetricName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertMetricValue"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertContext"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertKeyName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertKeyValue"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertSeverity"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertJobId"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEM4JobAlertJobExecId"
+      }
+    ]
+  },
+  "oraEMNGObjects": {
+    "name": "oraEMNGObjects",
+    "oid": "1.3.6.1.4.1.111.15.3",
+    "class": "objectidentity"
+  },
+  "oraEMNGEventTable": {
+    "name": "oraEMNGEventTable",
+    "oid": "1.3.6.1.4.1.111.15.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "oraEMNGEventEntry": {
+    "name": "oraEMNGEventEntry",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "oraEMNGEventIndex": {
+    "name": "oraEMNGEventIndex",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventNotifType": {
+    "name": "oraEMNGEventNotifType",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventMessage": {
+    "name": "oraEMNGEventMessage",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventMessageURL": {
+    "name": "oraEMNGEventMessageURL",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSeverity": {
+    "name": "oraEMNGEventSeverity",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSeverityCode": {
+    "name": "oraEMNGEventSeverityCode",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventRepeatCount": {
+    "name": "oraEMNGEventRepeatCount",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventActionMsg": {
+    "name": "oraEMNGEventActionMsg",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventOccurrenceTime": {
+    "name": "oraEMNGEventOccurrenceTime",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventReportedTime": {
+    "name": "oraEMNGEventReportedTime",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCategories": {
+    "name": "oraEMNGEventCategories",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCategoryCodes": {
+    "name": "oraEMNGEventCategoryCodes",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventType": {
+    "name": "oraEMNGEventType",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventName": {
+    "name": "oraEMNGEventName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGAssocIncidentId": {
+    "name": "oraEMNGAssocIncidentId",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGAssocIncidentOwner": {
+    "name": "oraEMNGAssocIncidentOwner",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGAssocIncidentAcked": {
+    "name": "oraEMNGAssocIncidentAcked",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGAssocIncidentStatus": {
+    "name": "oraEMNGAssocIncidentStatus",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGAssocIncidentPriority": {
+    "name": "oraEMNGAssocIncidentPriority",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGAssocIncidentEscLevel": {
+    "name": "oraEMNGAssocIncidentEscLevel",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTargetName": {
+    "name": "oraEMNGEventTargetName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTargetNameURL": {
+    "name": "oraEMNGEventTargetNameURL",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTargetType": {
+    "name": "oraEMNGEventTargetType",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventHostName": {
+    "name": "oraEMNGEventHostName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTargetOwner": {
+    "name": "oraEMNGEventTargetOwner",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTgtLifeCycleStatus": {
+    "name": "oraEMNGEventTgtLifeCycleStatus",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTargetVersion": {
+    "name": "oraEMNGEventTargetVersion",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventUserDefinedTgtProp": {
+    "name": "oraEMNGEventUserDefinedTgtProp",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSourceObjName": {
+    "name": "oraEMNGEventSourceObjName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSourceObjNameURL": {
+    "name": "oraEMNGEventSourceObjNameURL",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSourceObjType": {
+    "name": "oraEMNGEventSourceObjType",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSourceObjSubType": {
+    "name": "oraEMNGEventSourceObjSubType",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSourceObjOwner": {
+    "name": "oraEMNGEventSourceObjOwner",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCAJobName": {
+    "name": "oraEMNGEventCAJobName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCAJobStatus": {
+    "name": "oraEMNGEventCAJobStatus",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCAJobOwner": {
+    "name": "oraEMNGEventCAJobOwner",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCAJobStepOutput": {
+    "name": "oraEMNGEventCAJobStepOutput",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCAJobType": {
+    "name": "oraEMNGEventCAJobType",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventRuleSetName": {
+    "name": "oraEMNGEventRuleSetName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventRuleName": {
+    "name": "oraEMNGEventRuleName",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventRuleOwner": {
+    "name": "oraEMNGEventRuleOwner",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventSequenceId": {
+    "name": "oraEMNGEventSequenceId",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventRCADetails": {
+    "name": "oraEMNGEventRCADetails",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventContextAttrs": {
+    "name": "oraEMNGEventContextAttrs",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventUserComments": {
+    "name": "oraEMNGEventUserComments",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventUpdates": {
+    "name": "oraEMNGEventUpdates",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTotalOccurrenceCount": {
+    "name": "oraEMNGEventTotalOccurrenceCount",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCurrOccurrenceCount": {
+    "name": "oraEMNGEventCurrOccurrenceCount",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCurrFirstOccurDate": {
+    "name": "oraEMNGEventCurrFirstOccurDate",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventCurrLastOccurDate": {
+    "name": "oraEMNGEventCurrLastOccurDate",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventRCAStatus": {
+    "name": "oraEMNGEventRCAStatus",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventReportedState": {
+    "name": "oraEMNGEventReportedState",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr1": {
+    "name": "oraEMNGEventTypeAttr1",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr2": {
+    "name": "oraEMNGEventTypeAttr2",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr3": {
+    "name": "oraEMNGEventTypeAttr3",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr4": {
+    "name": "oraEMNGEventTypeAttr4",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr5": {
+    "name": "oraEMNGEventTypeAttr5",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr6": {
+    "name": "oraEMNGEventTypeAttr6",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr7": {
+    "name": "oraEMNGEventTypeAttr7",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr8": {
+    "name": "oraEMNGEventTypeAttr8",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr9": {
+    "name": "oraEMNGEventTypeAttr9",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr10": {
+    "name": "oraEMNGEventTypeAttr10",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr11": {
+    "name": "oraEMNGEventTypeAttr11",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr12": {
+    "name": "oraEMNGEventTypeAttr12",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr13": {
+    "name": "oraEMNGEventTypeAttr13",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr14": {
+    "name": "oraEMNGEventTypeAttr14",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr15": {
+    "name": "oraEMNGEventTypeAttr15",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr16": {
+    "name": "oraEMNGEventTypeAttr16",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr17": {
+    "name": "oraEMNGEventTypeAttr17",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr18": {
+    "name": "oraEMNGEventTypeAttr18",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr19": {
+    "name": "oraEMNGEventTypeAttr19",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr20": {
+    "name": "oraEMNGEventTypeAttr20",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr21": {
+    "name": "oraEMNGEventTypeAttr21",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr22": {
+    "name": "oraEMNGEventTypeAttr22",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr23": {
+    "name": "oraEMNGEventTypeAttr23",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr24": {
+    "name": "oraEMNGEventTypeAttr24",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEventTypeAttr25": {
+    "name": "oraEMNGEventTypeAttr25",
+    "oid": "1.3.6.1.4.1.111.15.3.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "oraEMNGEvent": {
+    "name": "oraEMNGEvent",
+    "oid": "1.3.6.1.4.1.111.15.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventNotifType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventMessage"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventMessageURL"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSeverity"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSeverityCode"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventRepeatCount"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventActionMsg"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventOccurrenceTime"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventReportedTime"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCategories"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCategoryCodes"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGAssocIncidentId"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGAssocIncidentOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGAssocIncidentAcked"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGAssocIncidentStatus"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGAssocIncidentPriority"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGAssocIncidentEscLevel"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTargetName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTargetNameURL"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTargetType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventHostName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTargetOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTgtLifeCycleStatus"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTargetVersion"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventUserDefinedTgtProp"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSourceObjName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSourceObjNameURL"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSourceObjType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSourceObjSubType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSourceObjOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCAJobName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCAJobStatus"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCAJobOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCAJobStepOutput"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCAJobType"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventRuleSetName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventRuleName"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventRuleOwner"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventSequenceId"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventRCADetails"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventContextAttrs"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventUserComments"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventUpdates"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTotalOccurrenceCount"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCurrOccurrenceCount"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCurrFirstOccurDate"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventCurrLastOccurDate"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventRCAStatus"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr1"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr2"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr3"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr4"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr5"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr6"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr7"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr8"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr9"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr10"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr11"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr12"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr13"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr14"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr15"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr16"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr17"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr18"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr19"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr20"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr21"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr22"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr23"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr24"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventTypeAttr25"
+      },
+      {
+        "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB",
+        "object": "oraEMNGEventReportedState"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ORACLE-ENTERPRISE-MANAGER-4-MIB",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:48:25 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+    ],
+    "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB"
+  }
+}

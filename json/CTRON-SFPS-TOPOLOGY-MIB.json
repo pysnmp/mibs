@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsTopologyServerTest",
       "sfpsDapiNvramStats",
-      "sfpsTAPITestIn",
-      "sfpsRestrictedMobility",
-      "sfpsDirViolation",
-      "sfpsDirLockConfig",
-      "sfpsRATopologyAgent",
-      "sfpsDirViolationAPI",
-      "sfpsTopologyPortManager",
-      "sfpsDirLockStats",
-      "sfpsTopologyAgentCommon",
-      "sfpsTopologyServerPortEventRelay",
+      "sfpsVLANTopAgentPortTableAPIIn",
       "sfpsTopologyServerTestIn",
-      "sfpsDirViolationDeltaAPI",
+      "sfpsTopologyServerPortEventRelay",
+      "sfpsTAPITestOut",
+      "sfpsRATopologyAgent",
+      "sfpsDirLockConfig",
       "sfpsRATopAgentPortTableAPIOut",
-      "sfpsVLANTopologyAgent",
-      "sfpsESPTopologyAgent",
-      "sfpsRestrictedMobilityAPI",
-      "sfpsTPMPortTableAPIIn",
       "sfpsTopologyVNSNeighbors",
+      "sfpsTopologyFCL",
+      "sfpsTPMPortTableAPIOut",
+      "sfpsTPMPortTableAPIIn",
+      "sfpsRestrictedMobilityAPI",
+      "sfpsTAPITestIn",
+      "sfpsDirViolationDeltaAPI",
+      "sfpsESPTopologyAgent",
+      "sfpsTopologyServerTest",
+      "sfpsDirViolationAPI",
+      "sfpsDirViolation",
+      "sfpsRATopAgentPortTableAPIIn",
+      "sfpsServiceCenter",
+      "sfpsRestrictedMobility",
+      "sfpsNeighborEvents",
       "sfpsDirRestriction",
       "sfpsVMTopologyServer",
-      "sfpsRATopAgentPortTableAPIIn",
-      "sfpsTPMPortTableAPIOut",
-      "sfpsNeighborEvents",
-      "sfpsVLANTopAgentPortTableAPIIn",
-      "sfpsTopologyFCL",
-      "sfpsServiceCenter",
-      "sfpsTAPITestOut"
+      "sfpsTopologyPortManager",
+      "sfpsTopologyAgentCommon",
+      "sfpsDirLockStats",
+      "sfpsVLANTopologyAgent"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "HexInteger": {
@@ -4097,9 +4097,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-TOPOLOGY-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:56:55 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:44:33 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-TOPOLOGY-MIB"
   }

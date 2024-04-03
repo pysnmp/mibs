@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-CHASSIS-MIB": [
-      "tmnxCardSlotNum",
+      "tmnxChassisIndex",
       "tmnxMDASlotNum",
-      "tmnxChassisIndex"
+      "tmnxCardSlotNum"
     ],
     "ALCATEL-IND1-TIMETRA-FILTER-MIB": [
       "TFilterID"
@@ -13,105 +13,105 @@
       "timetraSRMIBModules"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
-      "tmnxSvcObjs",
-      "BridgeId",
-      "tlsDhcpPacketProblem",
-      "svcDhcpCoAError",
-      "VpnId",
-      "MvplsPruneState",
-      "svcTlsStpDesignatedRoot",
-      "svcDhcpSubAuthError",
-      "TdmOptionsSigPkts",
-      "ServObjDesc",
-      "L2RouteOrigin",
-      "tmnxOtherBridgeId",
-      "TdmOptionsCasTrunkFraming",
-      "L2ptProtocols",
-      "custId",
-      "TlsLimitMacMove",
-      "tmnxOldSdpBindTlsStpPortState",
-      "SdpId",
-      "svcDhcpLseStateNewCiAddr",
-      "svcDhcpLseStateNewChAddr",
-      "SdpBindVcType",
       "TStpPortState",
-      "ServObjName",
-      "SdpBindTlsBpduTranslation",
+      "SdpBFHundredthsOfPercent",
       "tmnxServObjs",
-      "ConfigStatus",
-      "LspIdList",
       "svcDhcpLseStateOldChAddr",
-      "TlsLimitMacMoveLevel",
-      "tmnxServConformance",
-      "StpProtocol",
-      "svcDhcpProxyError",
+      "StpExceptionCondition",
+      "tmnxOldSdpBindTlsStpPortState",
       "svcDhcpPacketProblem",
-      "PWTemplateId",
+      "SdpBindTlsBpduTranslation",
       "tmnxServNotifications",
-      "svcDhcpLseStatePopulateError",
-      "svcId",
+      "TlsLimitMacMove",
+      "SdpBindVcType",
+      "tlsDhcpPacketProblem",
+      "svcDhcpClientLease",
+      "TdmOptionsCasTrunkFraming",
+      "svcDhcpLseStateNewCiAddr",
+      "PWTemplateId",
       "svcVpnId",
       "StpPortRole",
-      "StpExceptionCondition",
-      "SdpBFHundredthsOfPercent",
-      "SdpBindBandwidth",
+      "StpProtocol",
+      "TlsLimitMacMoveLevel",
       "tmnxCustomerBridgeId",
+      "svcDhcpCoAError",
+      "L2RouteOrigin",
+      "ConfigStatus",
+      "custId",
+      "SdpId",
+      "VpnId",
+      "LspIdList",
+      "TdmOptionsSigPkts",
+      "BridgeId",
+      "tmnxSvcObjs",
+      "ServObjDesc",
+      "MvplsPruneState",
+      "svcId",
+      "tmnxOtherBridgeId",
+      "svcDhcpProxyError",
+      "SdpBindBandwidth",
+      "tmnxServConformance",
+      "svcTlsStpDesignatedRoot",
       "tmnxCustomerRootBridgeId",
-      "svcTlsMacMoveMaxRate",
       "svcDhcpLseStateOldCiAddr",
-      "tstpTraps",
-      "svcDhcpClientLease"
+      "svcDhcpLseStatePopulateError",
+      "svcTlsMacMoveMaxRate",
+      "svcDhcpSubAuthError",
+      "ServObjName",
+      "L2ptProtocols",
+      "svcDhcpLseStateNewChAddr",
+      "tstpTraps"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "SdpBindId",
       "TmnxIgmpVersion",
+      "TmnxOperState",
       "TItemDescription",
-      "TmnxCustId",
-      "TNamedItemOrEmpty",
-      "TmnxServId",
       "ServiceAdminStatus",
       "TmnxVRtrMplsLspID",
       "TmnxEnabledDisabled",
+      "TmnxServId",
+      "SdpBindId",
+      "TmnxCustId",
+      "TNamedItemOrEmpty",
       "TNamedItem",
-      "TmnxOperState",
-      "TmnxVPNRouteDistinguisher",
-      "TPolicyStatementNameOrEmpty"
+      "TPolicyStatementNameOrEmpty",
+      "TmnxVPNRouteDistinguisher"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
       "Bits",
-      "Counter32",
       "Counter64",
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "MacAddress",
       "TruthValue",
-      "DisplayString",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "timetraServicesSdpMIBModule": {
@@ -8441,9 +8441,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-SDP-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 03:01:40 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:49:21 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-SDP-MIB"
   }

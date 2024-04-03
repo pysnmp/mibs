@@ -6,29 +6,29 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "enterprises",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "Counter64",
-      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "enterprises",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dellMDStorageArrayMIB": {
@@ -251,7 +251,7 @@
   },
   "storageArrayCritical": {
     "name": "storageArrayCritical",
-    "oid": "1.3.6.1.4.1.674.10893.2.300.1",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -290,7 +290,7 @@
   },
   "storageArrayWarning": {
     "name": "storageArrayWarning",
-    "oid": "1.3.6.1.4.1.674.10893.2.300.2",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -329,7 +329,7 @@
   },
   "storageArrayInformational": {
     "name": "storageArrayInformational",
-    "oid": "1.3.6.1.4.1.674.10893.2.300.3",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -368,7 +368,7 @@
   },
   "storageArrayDebug": {
     "name": "storageArrayDebug",
-    "oid": "1.3.6.1.4.1.674.10893.2.300.4",
+    "oid": "1.3.6.1.4.1.674.10893.2.30.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -408,9 +408,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DellMDStorageArray-MIB",
-      "Produced by pysmi-1.1.10 at Mon Feb 19 02:56:04 2024",
-      "On host fv-az1016-227 platform Linux version 6.2.0-1019-azure by user runner",
-      "Using Python version 3.10.13 (main, Aug 28 2023, 08:28:42) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.11 at Wed Apr  3 13:43:42 2024",
+      "On host fv-az1499-203 platform Linux version 6.5.0-1016-azure by user runner",
+      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DellMDStorageArray"
   }
