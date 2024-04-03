@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFTimeZone",
-      "FourRFImageStatus",
-      "FourRFWebUserEnabled",
-      "FourRFFileSize",
-      "FourRFResetType",
-      "FourRFSerialNumber",
-      "FourRFProcessResultType",
-      "FourRFImageType",
-      "FourRFImageVersion",
       "FourRFTftpFileName",
-      "FourRFWebUserGroup"
+      "FourRFImageStatus",
+      "FourRFFileSize",
+      "FourRFProcessResultType",
+      "FourRFImageVersion",
+      "FourRFSerialNumber",
+      "FourRFWebUserGroup",
+      "FourRFTimeZone",
+      "FourRFResetType",
+      "FourRFImageType",
+      "FourRFWebUserEnabled"
     ],
     "MIB-4RF": [
       "fourRFGeneric",
@@ -22,30 +22,30 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
       "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "IpAddress",
+      "Bits",
       "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 14:47:15 2024",
-      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 15:10:50 2024",
+      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "COMMON-4RF"

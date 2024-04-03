@@ -10,9 +10,9 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
+      "PerfCurrentCount",
       "PerfIntervalCount",
-      "PerfTotalCount",
-      "PerfCurrentCount"
+      "PerfTotalCount"
     ],
     "SL-ENTITY-MIB": [
       "CleiCode"
@@ -24,31 +24,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
+      "IpAddress",
       "TimeTicks",
       "Unsigned32",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits"
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "slSfp": {
@@ -2400,8 +2400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SFP-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 14:55:06 2024",
-      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 15:19:17 2024",
+      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SL-SFP-MIB"

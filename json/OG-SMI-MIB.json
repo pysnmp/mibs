@@ -6,19 +6,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
+      "Gauge32",
+      "Counter32",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "TimeTicks",
+      "enterprises",
+      "Integer32",
       "Counter64",
       "MibIdentifier",
-      "enterprises",
-      "TimeTicks",
-      "Counter32",
+      "Unsigned32",
       "Bits",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "iso"
     ],
@@ -129,8 +129,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SMI-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 14:54:54 2024",
-      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 15:19:02 2024",
+      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "OG-SMI-MIB"

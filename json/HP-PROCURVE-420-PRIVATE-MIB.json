@@ -5,26 +5,26 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "enterprises",
-      "Bits",
-      "Integer32",
-      "mgmt",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "IpAddress",
       "Gauge32",
       "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "Bits",
       "Counter32",
-      "Unsigned32"
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "enterprises",
+      "MibIdentifier",
+      "mgmt"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1507,8 +1507,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-PROCURVE-420-PRIVATE-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 14:54:07 2024",
-      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 15:18:19 2024",
+      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HP-PROCURVE-420-PRIVATE-MIB"
