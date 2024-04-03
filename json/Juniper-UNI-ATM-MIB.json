@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "ATM-FORUM-SNMP-M4-MIB": [
-      "atmfM4VpTestType",
-      "atmfM4VcTestId",
       "atmfM4VpTestObject",
+      "atmfM4VpTestCode",
       "atmfM4VcTestCode",
+      "atmfM4VpTestType",
+      "atmfM4VpTestId",
       "atmfM4VcTestType",
       "atmfM4VcTestResult",
-      "atmfM4VpTestResult",
-      "atmfM4VpTestCode",
       "atmfM4VcTestObject",
-      "atmfM4VpTestId"
+      "atmfM4VcTestId",
+      "atmfM4VpTestResult"
     ],
     "ATM-MIB": [
+      "atmVplVpi",
       "atmVclVci",
-      "atmVclVpi",
-      "atmVplVpi"
+      "atmVclVpi"
     ],
     "ATM-TC-MIB": [
       "AtmVcIdentifier",
-      "AtmAddr",
       "AtmVorXAdminStatus",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmAddr"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -42,32 +42,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32",
       "IpAddress",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "iso",
-      "OBJECT-TYPE"
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "juniAtmMIB": {
@@ -10205,8 +10205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-UNI-ATM-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 14:02:03 2024",
-      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:54:30 2024",
+      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Juniper-UNI-ATM-MIB"

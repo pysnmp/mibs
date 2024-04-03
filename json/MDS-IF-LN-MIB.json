@@ -8,31 +8,31 @@
       "mdsInterfaces"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "iso",
       "Integer32",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
       "OBJECT-IDENTITY",
       "Bits",
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "mdsIfLnMIB": {
@@ -1637,8 +1637,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-IF-LN-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:59:11 2024",
-      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:51:28 2024",
+      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MDS-IF-LN-MIB"

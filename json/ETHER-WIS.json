@@ -6,44 +6,44 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
+      "Counter64",
       "iso",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "transmission",
       "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
-      "transmission",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SONET-MIB": [
-      "sonetSectionStuff2",
-      "sonetMediumStuff2",
       "sonetMediumCircuitIdentifier",
+      "sonetMediumLineCoding",
+      "sonetSectionStuff2",
+      "sonetMediumLineType",
+      "sonetPathStuff2",
       "sonetFarEndPathStuff2",
-      "sonetFarEndLineStuff2",
       "sonetPathCurrentWidth",
       "sonetMediumType",
-      "sonetSESthresholdSet",
-      "sonetLineStuff2",
-      "sonetPathStuff2",
-      "sonetMediumLineCoding",
       "sonetMediumLoopbackConfig",
-      "sonetMediumLineType"
+      "sonetMediumStuff2",
+      "sonetSESthresholdSet",
+      "sonetFarEndLineStuff2",
+      "sonetLineStuff2"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-WIS",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:54:49 2024",
-      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:47:08 2024",
+      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ETHER-WIS"

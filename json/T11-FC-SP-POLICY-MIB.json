@@ -7,8 +7,8 @@
       "FcNameIdOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
+      "InetAddress",
       "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -16,46 +16,46 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
+      "mib-2",
       "iso",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Integer32",
       "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
       "StorageType",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TimeStamp",
+      "RowStatus"
     ],
     "T11-FC-NAME-SERVER-MIB": [
       "T11NsGs4RejectReasonCode"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpPolicyNameType",
-      "T11FcSpPolicyObjectType",
-      "T11FcSpAlphaNumName",
-      "T11FcSpPolicyHashFormat",
-      "T11FcSpAlphaNumNameOrAbsent",
-      "T11FcSpPolicyHashValue",
       "T11FcSpPolicyName",
-      "T11FcSpHashCalculationStatus"
+      "T11FcSpPolicyNameType",
+      "T11FcSpPolicyHashValue",
+      "T11FcSpPolicyObjectType",
+      "T11FcSpAlphaNumNameOrAbsent",
+      "T11FcSpPolicyHashFormat",
+      "T11FcSpHashCalculationStatus",
+      "T11FcSpAlphaNumName"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -3776,8 +3776,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-POLICY-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 13:54:50 2024",
-      "On host fv-az1200-481 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.11 at Wed Apr  3 14:47:09 2024",
+      "On host fv-az1198-695 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-POLICY-MIB"
