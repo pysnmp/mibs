@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Integer32",
+      "enterprises",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "iso",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "enterprises",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
+      "TimeTicks",
+      "Bits",
       "Counter32",
-      "OBJECT-TYPE",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alvarion": {
@@ -8190,8 +8190,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alvarion/ALVARION-DOT11-WLAN-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:34:51 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:34:56 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ALVARION-DOT11-WLAN-MIB"

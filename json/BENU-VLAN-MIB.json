@@ -5,27 +5,27 @@
       "benuWAG"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
       "Unsigned32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "Bits",
-      "iso",
-      "Counter32",
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -552,8 +552,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-VLAN-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:35:32 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:35:38 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "BENU-VLAN-MIB"

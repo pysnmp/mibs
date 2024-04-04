@@ -6,37 +6,37 @@
       "cienaCesNotifications"
     ],
     "CIENA-TC": [
-      "CienaStatsClear",
-      "CienaGlobalState"
+      "CienaGlobalState",
+      "CienaStatsClear"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter64",
       "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
+      "MibIdentifier",
       "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "cienaCesDhcpv6ClientMIB": {
@@ -2523,8 +2523,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DHCPV6-CLIENT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:36:10 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:36:17 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-DHCPV6-CLIENT-MIB"

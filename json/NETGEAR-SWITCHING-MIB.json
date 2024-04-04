@@ -5,9 +5,9 @@
       "IANAifType"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -19,37 +19,37 @@
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
-      "dot1qFdbId",
       "dot1qVlanIndex",
-      "VlanIndex"
+      "VlanIndex",
+      "dot1qFdbId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
       "IpAddress",
-      "MibIdentifier",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
       "TimeTicks",
-      "Counter32"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "DateAndTime",
-      "PhysAddress",
+      "TruthValue",
       "MacAddress",
+      "PhysAddress",
+      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:26 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:47 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"

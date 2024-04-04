@@ -3,8 +3,8 @@
     "class": "imports",
     "CISCO-NAC-TC-MIB": [
       "CnnEouState",
-      "CnnEouDeviceType",
       "CnnEouAuthType",
+      "CnnEouDeviceType",
       "CnnEouPostureToken",
       "CnnEouPostureTokenString"
     ],
@@ -19,47 +19,47 @@
     ],
     "IF-MIB": [
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength",
-      "InetPortNumber",
+      "InetAddressType",
       "InetAddress",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Integer32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "StorageType",
       "MacAddress",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoNacNadMIB": {
@@ -2343,8 +2343,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NAC-NAD-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:10 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:17 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-NAC-NAD-MIB"

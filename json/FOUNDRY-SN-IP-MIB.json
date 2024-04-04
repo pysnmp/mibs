@@ -5,13 +5,13 @@
       "DisplayString"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
-      "snGblRt",
-      "snLoopbackIf",
       "snRip",
-      "router",
-      "snFsrp",
       "snPim",
-      "snDvmrp"
+      "snLoopbackIf",
+      "snFsrp",
+      "snDvmrp",
+      "router",
+      "snGblRt"
     ],
     "FOUNDRY-SN-SWITCH-GROUP-MIB": [
       "PortMask"
@@ -25,28 +25,28 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
       "MODULE-IDENTITY",
+      "Counter64",
       "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MibIdentifier",
+      "Gauge32",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snIp": {
@@ -6721,8 +6721,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-IP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:38:18 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:38:28 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-IP-MIB"

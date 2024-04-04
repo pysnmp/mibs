@@ -10,19 +10,19 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "iso",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
       "Counter32",
-      "IpAddress",
-      "Unsigned32",
       "Bits",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Counter64"
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1288,8 +1288,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-ATS2-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:19 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:27 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "EATON-ATS2-MIB"

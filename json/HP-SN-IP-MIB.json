@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "HP-SN-ROOT-MIB": [
+      "snDvmrp",
       "snFsrp",
       "snPim",
+      "snIp",
       "snLoopbackIf",
-      "snGblRt",
       "snRip",
-      "snDvmrp",
-      "snIp"
+      "snGblRt"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "TimeTicks",
-      "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "Gauge32",
       "Unsigned32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Integer32"
+      "IpAddress",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "DisplayString": {
@@ -6244,8 +6244,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:16 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:50 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HP-SN-IP-MIB"

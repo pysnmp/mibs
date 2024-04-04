@@ -8,40 +8,40 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
       "IpAddress",
+      "Counter32",
+      "Counter64",
       "Integer32",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "dellNetOpenFlow": {
@@ -1670,8 +1670,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-OPENFLOW-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:10 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:18 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-OPENFLOW-MIB"

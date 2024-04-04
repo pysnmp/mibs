@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSConformance",
-      "adGenAOSCommon"
+      "adGenAOSCommon",
+      "adGenAOSConformance"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfCurrentCount",
-      "HCPerfInvalidIntervals",
-      "HCPerfTimeElapsed",
       "HCPerfTotalCount",
+      "HCPerfInvalidIntervals",
+      "HCPerfCurrentCount",
+      "HCPerfIntervalCount",
       "HCPerfValidIntervals",
-      "HCPerfIntervalCount"
+      "HCPerfTimeElapsed"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
       "Counter32",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAosIfPerfHistoryMib": {
@@ -1170,8 +1170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-IF-PERF-HISTORY-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:34:27 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:34:31 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-IF-PERF-HISTORY-MIB"

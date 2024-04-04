@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "iso",
-      "MibIdentifier",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Bits",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "DateAndTime",
       "MacAddress",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "ZYXEL-ES-SMI": [
@@ -500,8 +500,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-ES-WIRELESS",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:44:28 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:45:00 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-ES-WIRELESS"

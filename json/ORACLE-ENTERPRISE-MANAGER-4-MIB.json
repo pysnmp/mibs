@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "Bits",
       "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
       "Counter32",
       "Gauge32",
-      "TRAP-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
+      "Counter64",
       "Unsigned32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "enterprises",
-      "TimeTicks",
-      "OBJECT-TYPE"
+      "iso",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "oracle": {
@@ -1998,8 +1998,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/ORACLE-ENTERPRISE-MANAGER-4-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:51 2024",
-      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:42:14 2024",
+      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ORACLE-ENTERPRISE-MANAGER-4-MIB"
