@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
       "Bits",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
       "TimeTicks",
-      "Gauge32",
+      "MibIdentifier",
       "iso",
-      "OBJECT-TYPE"
+      "enterprises",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1280,8 +1280,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pulse/PULSESECURE-PSG-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:22:25 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:12:23 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "PULSESECURE-PSG-MIB"

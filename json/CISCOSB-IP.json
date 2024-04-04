@@ -10,22 +10,22 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetVersion",
       "InetAddressPrefixLength",
       "InetZoneIndex",
-      "InetAddress"
+      "InetAddress",
+      "InetVersion"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteEntry",
       "ipCidrRouteDest",
+      "ipCidrRouteEntry",
+      "ipCidrRouteTos",
       "ipCidrRouteNextHop",
-      "ipCidrRouteMask",
-      "ipCidrRouteTos"
+      "ipCidrRouteMask"
     ],
     "IP-MIB": [
       "IpAddressStatusTC",
-      "ipAddrEntry",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "ipAddrEntry"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
@@ -37,31 +37,31 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "zeroDotZero",
-      "IpAddress",
       "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
       "Integer32",
+      "iso",
+      "Counter64",
       "Bits",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "zeroDotZero",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "PhysAddress",
       "StorageType",
-      "TimeStamp",
-      "TruthValue",
-      "DisplayString",
+      "PhysAddress",
       "RowPointer",
       "TestAndIncr",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ipSpec": {
@@ -1900,8 +1900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IP",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:19:59 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:10:09 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IP"

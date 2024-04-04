@@ -5,22 +5,22 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAutonomousSystemNumber",
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
+      "ipAddressEntry",
       "ipv6RouterAdvertEntry",
       "ipNetToPhysicalEntry",
-      "ipAddressEntry",
       "ipv6InterfaceEntry"
     ],
     "LINKSYS-IP": [
@@ -34,29 +34,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
       "Integer32",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "zeroDotZero",
+      "mib-2",
+      "Gauge32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "iso",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "IpAddress",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
       "TimeInterval",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:21:03 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:10:57 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"

@@ -13,20 +13,20 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
       "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
       "Integer32",
+      "iso",
+      "Counter64",
       "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "enterprises",
-      "MibIdentifier"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -185,8 +185,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/SA-MTA-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:19:58 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:10:12 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SA-MTA-MIB"

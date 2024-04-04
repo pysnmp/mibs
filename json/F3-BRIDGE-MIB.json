@@ -8,16 +8,16 @@
       "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
-      "slotIndex",
       "shelfIndex",
       "networkElementEntry",
+      "slotIndex",
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
+      "cmFlowIndex",
       "cmFlowEntry",
       "cmMPFlowIndex",
-      "cmEthernetAccPortIndex",
-      "cmFlowIndex"
+      "cmEthernetAccPortIndex"
     ],
     "CM-PERFORMANCE-MIB": [
       "cmFlowStatsEntry",
@@ -29,29 +29,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
       "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DisplayString",
       "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "StorageType",
       "RowStatus",
-      "MacAddress"
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3BridgeMIB": {
@@ -1479,8 +1479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:15:04 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:05:12 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "F3-BRIDGE-MIB"

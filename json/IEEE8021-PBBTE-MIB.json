@@ -8,46 +8,46 @@
       "ieee8021QBridgeVlanCurrentComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbComponentIdentifier",
-      "IEEE8021PbbTeProtectionGroupId",
       "IEEE8021PbbTeProtectionGroupActiveRequests",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbTeEsp",
+      "IEEE8021PbbTeProtectionGroupConfigAdmin",
       "IEEE8021PbbTeTSidId",
+      "IEEE8021VlanIndexOrWildcard",
       "ieee802dot1mibs",
       "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PbbTeEsp",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021PbbTeProtectionGroupConfigAdmin"
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021PbbTeProtectionGroupId"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
       "TimeTicks",
+      "IpAddress",
+      "Integer32",
       "Counter32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "iso",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32"
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
       "StorageType"
     ]
   },
@@ -1079,8 +1079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:13:48 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:04:00 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBBTE-MIB"

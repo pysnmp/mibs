@@ -8,34 +8,34 @@
       "cwsPtpTxStatusEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "PtpId",
-      "ChannelsNumber"
+      "ChannelsNumber",
+      "PtpId"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Bits",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
       "Counter64",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "cienaWsPtpPluggableMIB": {
@@ -157,8 +157,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-PLUGGABLE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 09:16:01 2024",
-      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:06:08 2024",
+      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-PLUGGABLE-MIB"
