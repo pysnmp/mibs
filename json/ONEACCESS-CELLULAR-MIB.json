@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "ONEACCESS-GLOBAL-REG": [
-      "oacMIBModules",
-      "oacExpIMCellRadio"
+      "oacExpIMCellRadio",
+      "oacMIBModules"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
       "iso",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "MibIdentifier"
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -622,8 +622,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oneaccess/ONEACCESS-CELLULAR-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:18:07 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:36 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ONEACCESS-CELLULAR-MIB"

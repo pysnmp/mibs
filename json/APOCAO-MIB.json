@@ -8,29 +8,29 @@
       "apEMSModule"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "Counter32",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "Bits",
       "Unsigned32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Bits",
-      "Counter32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -355,8 +355,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APOCAO-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:18:18 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:51 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "APOCAO-MIB"

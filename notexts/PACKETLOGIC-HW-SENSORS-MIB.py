@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module PACKETLOGIC-HW-SENSORS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-HW-SENSORS-MIB
-# Produced by pysmi-1.1.12 at Thu Apr  4 13:18:51 2024
-# On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 13:42:26 2024
+# On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, Bits, TimeTicks, iso, NotificationType, MibIdentifier, ModuleIdentity, Counter32, Unsigned32, ObjectIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "Bits", "TimeTicks", "iso", "NotificationType", "MibIdentifier", "ModuleIdentity", "Counter32", "Unsigned32", "ObjectIdentity", "Gauge32")
-TextualConvention, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "DateAndTime")
+Gauge32, IpAddress, ModuleIdentity, Counter32, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, MibIdentifier, NotificationType, TimeTicks, ObjectIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "IpAddress", "ModuleIdentity", "Counter32", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "MibIdentifier", "NotificationType", "TimeTicks", "ObjectIdentity", "Bits")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 sensors = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 3))
 sensors.setRevisions(('2019-09-12 15:00',))
 if mibBuilder.loadTexts: sensors.setLastUpdated('201909121500Z')
@@ -46,4 +46,4 @@ fanSensorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 3, 4, 1, 3), D
 if mibBuilder.loadTexts: fanSensorStatus.setStatus('current')
 fanSensorUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 3, 4, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: fanSensorUnit.setStatus('current')
-mibBuilder.exportSymbols("PACKETLOGIC-HW-SENSORS-MIB", fanSensorStatus=fanSensorStatus, sensors=sensors, fanSensorEntry=fanSensorEntry, tempSensors=tempSensors, tempSensorId=tempSensorId, tempSensorEntry=tempSensorEntry, fanSensorId=fanSensorId, fanSensorSpeed=fanSensorSpeed, PYSNMP_MODULE_ID=sensors, tempSensorStatus=tempSensorStatus, tempSensorUnit=tempSensorUnit, fanSensorUnit=fanSensorUnit, fanSensorEntryIndex=fanSensorEntryIndex, fanSensors=fanSensors, tempSensorReading=tempSensorReading, tempSensorEntryIndex=tempSensorEntryIndex)
+mibBuilder.exportSymbols("PACKETLOGIC-HW-SENSORS-MIB", PYSNMP_MODULE_ID=sensors, fanSensorEntry=fanSensorEntry, sensors=sensors, fanSensorSpeed=fanSensorSpeed, tempSensorUnit=tempSensorUnit, tempSensorEntryIndex=tempSensorEntryIndex, fanSensors=fanSensors, tempSensorReading=tempSensorReading, tempSensors=tempSensors, fanSensorStatus=fanSensorStatus, tempSensorStatus=tempSensorStatus, tempSensorEntry=tempSensorEntry, fanSensorId=fanSensorId, fanSensorEntryIndex=fanSensorEntryIndex, fanSensorUnit=fanSensorUnit, tempSensorId=tempSensorId)

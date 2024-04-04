@@ -9,20 +9,20 @@
       "bfdSessEntry"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
-      "SecondaryState",
       "OperationalState",
       "VlanId",
+      "AdminState",
+      "SecondaryState",
       "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
-      "f3L3TrafficBgpPeerEntry",
-      "f3L3TrafficIPInterfaceEntry",
       "f3VrfEntry",
-      "f3L3TrafficOspfInterfaceEntry"
+      "f3L3TrafficOspfInterfaceEntry",
+      "f3L3TrafficIPInterfaceEntry",
+      "f3L3TrafficBgpPeerEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -37,26 +37,26 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Counter64",
-      "Counter32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
+      "VariablePointer",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
-      "VariablePointer",
       "StorageType"
     ]
   },
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:11:00 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:35:12 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"

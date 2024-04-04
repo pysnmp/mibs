@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Bits",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rndDeviceParams": {
@@ -947,8 +947,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DEVICEPARAMS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:13:06 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:10 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Dell-DEVICEPARAMS-MIB"

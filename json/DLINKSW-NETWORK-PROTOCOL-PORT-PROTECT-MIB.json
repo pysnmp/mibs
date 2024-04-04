@@ -5,25 +5,25 @@
       "dlinkIndustrialCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "TimeTicks",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -91,8 +91,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-NETWORK-PROTOCOL-PORT-PROTECT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:13:04 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:10 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-NETWORK-PROTOCOL-PORT-PROTECT-MIB"

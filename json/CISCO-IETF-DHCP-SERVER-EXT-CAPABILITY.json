@@ -5,25 +5,25 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES"
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Integer32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -62,8 +62,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-DHCP-SERVER-EXT-CAPABILITY",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:15:49 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:03 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-DHCP-SERVER-EXT-CAPABILITY"

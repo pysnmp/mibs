@@ -8,26 +8,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
       "Integer32",
-      "IpAddress",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "mib-2",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "mib-2",
       "Counter64",
-      "Gauge32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -188,8 +188,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-RADIUS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:18:24 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:42:01 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SL-RADIUS-MIB"

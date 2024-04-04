@@ -5,28 +5,28 @@
       "sysinfo"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "Bits",
       "TimeTicks",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "IpAddress"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -164,8 +164,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-VLAN-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:10:34 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:34:46 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "AT-VLAN-MIB"

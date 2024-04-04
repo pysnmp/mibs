@@ -16,30 +16,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "ciscoCidsMIB": {
@@ -2743,8 +2743,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CIDS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:15:54 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:05 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-CIDS-MIB"

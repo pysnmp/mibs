@@ -13,24 +13,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Bits",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
       "IpAddress",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
       "MibIdentifier",
-      "Unsigned32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsSyslogServerMib": {
@@ -213,8 +213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SYSLOG-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:17:30 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:17 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "NBS-SYSLOG-SERVER-MIB"

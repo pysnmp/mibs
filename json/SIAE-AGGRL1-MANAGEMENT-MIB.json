@@ -5,8 +5,8 @@
       "InterfaceIndexOrZero"
     ],
     "SIAE-ALARM-MIB": [
-      "AlarmStatus",
-      "AlarmSeverityCode"
+      "AlarmSeverityCode",
+      "AlarmStatus"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
@@ -16,26 +16,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "Unsigned32",
       "iso",
-      "MibIdentifier",
-      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "StorageType",
-      "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "aggregationL1": {
@@ -430,8 +430,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-AGGRL1-MANAGEMENT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:19:46 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:43:21 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SIAE-AGGRL1-MANAGEMENT-MIB"

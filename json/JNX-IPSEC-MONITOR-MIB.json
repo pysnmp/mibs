@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxDiffHellmanGrp",
-      "JnxIkePeerType",
-      "JnxEncryptAlgo",
       "JnxIkePeerRole",
+      "JnxRemotePeerType",
+      "JnxIkeHashAlgo",
       "JnxEncapMode",
+      "JnxIkePeerType",
       "JnxKeyType",
       "JnxIkeNegoMode",
-      "JnxIkeAuthMethod",
-      "JnxIkeHashAlgo",
+      "JnxEncryptAlgo",
+      "JnxDiffHellmanGrp",
       "JnxSAType",
       "JnxAuthAlgo",
-      "JnxRemotePeerType"
+      "JnxIkeAuthMethod"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -26,29 +26,29 @@
       "jnxSpSvcSetName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "Bits",
       "Integer32",
-      "iso"
+      "Counter32",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeInterval"
+      "DisplayString"
     ]
   },
   "jnxIpSecMonitorMIB": {
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:17:43 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:41:25 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

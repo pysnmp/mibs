@@ -5,22 +5,22 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "CmPmIntervalType",
-      "PerfCounter64",
-      "CmPmBinAction",
-      "AdminState",
-      "SecondaryState",
       "OperationalState",
       "VlanId",
-      "VlanPriority"
+      "CmPmIntervalType",
+      "PerfCounter64",
+      "AdminState",
+      "SecondaryState",
+      "VlanPriority",
+      "CmPmBinAction"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmFlowEntry",
-      "cmPrioMapV2PrioMappingCOSEntry",
-      "cmEthernetNetPortEntry"
+      "cmEthernetNetPortEntry",
+      "cmPrioMapV2PrioMappingCOSEntry"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -29,29 +29,29 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Counter64",
-      "Counter32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "VariablePointer",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
-      "VariablePointer",
       "DateAndTime",
-      "StorageType",
-      "MacAddress"
+      "StorageType"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:11:00 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:35:12 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "F3-EOMPLS-MIB"

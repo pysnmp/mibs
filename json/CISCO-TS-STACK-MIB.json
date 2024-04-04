@@ -5,45 +5,45 @@
       "Timeout"
     ],
     "CISCO-SMI": [
-      "workgroup",
-      "cisco"
+      "cisco",
+      "workgroup"
     ],
     "IF-MIB": [
       "ifName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
-      "sysLocation"
+      "sysLocation",
+      "sysName"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "iso",
-      "IpAddress",
-      "enterprises",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "enterprises",
       "TRAP-TYPE",
-      "Bits",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "ringStationMacAddress",
-      "ringStationIfIndex"
+      "ringStationIfIndex",
+      "ringStationMacAddress"
     ]
   },
   "tsStack": {
@@ -3718,8 +3718,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TS-STACK-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:15:50 2024",
-      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:12 2024",
+      "On host fv-az984-576 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-TS-STACK-MIB"
