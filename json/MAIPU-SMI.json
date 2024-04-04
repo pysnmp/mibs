@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "MibIdentifier",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Gauge32",
       "iso",
-      "Counter64",
-      "Unsigned32",
       "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
-      "Integer32",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "IpAddress",
+      "enterprises",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -119,8 +119,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/maipu/MAIPU-SMI",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:09:38 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:55 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MAIPU-SMI"

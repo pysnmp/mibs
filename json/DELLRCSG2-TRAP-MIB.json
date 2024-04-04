@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
       "enterprises",
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Integer32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress"
+      "TRAP-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dell": {
@@ -750,7 +750,7 @@
   },
   "dellrcsg2RebootStartedTrap": {
     "name": "dellrcsg2RebootStartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.1",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -761,7 +761,7 @@
   },
   "dellrcsg2UserLoginTrap": {
     "name": "dellrcsg2UserLoginTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.2",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -772,7 +772,7 @@
   },
   "dellrcsg2UserLogoutTrap": {
     "name": "dellrcsg2UserLogoutTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.3",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -783,7 +783,7 @@
   },
   "dellrcsg2TargetSessionStartedTrap": {
     "name": "dellrcsg2TargetSessionStartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.4",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -806,7 +806,7 @@
   },
   "dellrcsg2TargetSessionStoppedTrap": {
     "name": "dellrcsg2TargetSessionStoppedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.5",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -829,7 +829,7 @@
   },
   "dellrcsg2TargetSessionTerminatedTrap": {
     "name": "dellrcsg2TargetSessionTerminatedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.6",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -856,7 +856,7 @@
   },
   "dellrcsg2LocalPortSessionStartedTrap": {
     "name": "dellrcsg2LocalPortSessionStartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.7",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -867,7 +867,7 @@
   },
   "dellrcsg2LocalPortSessionStoppedTrap": {
     "name": "dellrcsg2LocalPortSessionStoppedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.8",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -878,7 +878,7 @@
   },
   "dellrcsg2LocalPortSessionTerminatedTrap": {
     "name": "dellrcsg2LocalPortSessionTerminatedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.9",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -893,7 +893,7 @@
   },
   "dellrcsg2ImageFileUpgradeStarted": {
     "name": "dellrcsg2ImageFileUpgradeStarted",
-    "oid": "1.3.6.1.4.1.10418.18.210.10",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -916,7 +916,7 @@
   },
   "dellrcsg2ImageFileUpgradeResultsTrap": {
     "name": "dellrcsg2ImageFileUpgradeResultsTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.11",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -927,7 +927,7 @@
   },
   "dellrcsg2UserAddedTrap": {
     "name": "dellrcsg2UserAddedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.12",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -942,7 +942,7 @@
   },
   "dellrcsg2UserDeletedTrap": {
     "name": "dellrcsg2UserDeletedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.13",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -957,7 +957,7 @@
   },
   "dellrcsg2UserModifiedTrap": {
     "name": "dellrcsg2UserModifiedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.14",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -972,7 +972,7 @@
   },
   "dellrcsg2UserLockedTrap": {
     "name": "dellrcsg2UserLockedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.15",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -987,7 +987,7 @@
   },
   "dellrcsg2UserUnlockedTrap": {
     "name": "dellrcsg2UserUnlockedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.16",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -1006,7 +1006,7 @@
   },
   "dellrcsg2UserAuthenticationFailureTrap": {
     "name": "dellrcsg2UserAuthenticationFailureTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.17",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -1017,7 +1017,7 @@
   },
   "dellrcsg2SIPAddedTrap": {
     "name": "dellrcsg2SIPAddedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.18",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -1028,7 +1028,7 @@
   },
   "dellrcsg2SIPRemovedTrap": {
     "name": "dellrcsg2SIPRemovedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.19",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -1039,7 +1039,7 @@
   },
   "dellrcsg2SIPMovedTrap": {
     "name": "dellrcsg2SIPMovedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.20",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -1062,7 +1062,7 @@
   },
   "dellrcsg2TargetDeviceNameChangedTrap": {
     "name": "dellrcsg2TargetDeviceNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.21",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -1081,7 +1081,7 @@
   },
   "dellrcsg2TieredSwitchAddedTrap": {
     "name": "dellrcsg2TieredSwitchAddedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.22",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -1096,7 +1096,7 @@
   },
   "dellrcsg2TieredSwitchRemovedTrap": {
     "name": "dellrcsg2TieredSwitchRemovedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.23",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -1111,7 +1111,7 @@
   },
   "dellrcsg2TieredSwitchNameChangedTrap": {
     "name": "dellrcsg2TieredSwitchNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.24",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -1130,7 +1130,7 @@
   },
   "dellrcsg2ConfigurationFileLoadedTrap": {
     "name": "dellrcsg2ConfigurationFileLoadedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.25",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -1145,7 +1145,7 @@
   },
   "dellrcsg2UserDatabaseFileLoadedTrap": {
     "name": "dellrcsg2UserDatabaseFileLoadedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.26",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -1160,7 +1160,7 @@
   },
   "dellrcsg2CaCertificateLoaded": {
     "name": "dellrcsg2CaCertificateLoaded",
-    "oid": "1.3.6.1.4.1.10418.18.210.27",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -1171,7 +1171,7 @@
   },
   "dellrcsg2SIPImageUpgradeStarted": {
     "name": "dellrcsg2SIPImageUpgradeStarted",
-    "oid": "1.3.6.1.4.1.10418.18.210.28",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -1202,7 +1202,7 @@
   },
   "dellrcsg2SIPImageUpgradeResultTrap": {
     "name": "dellrcsg2SIPImageUpgradeResultTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.29",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -1237,7 +1237,7 @@
   },
   "dellrcsg2SIPRestartedTrap": {
     "name": "dellrcsg2SIPRestartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.30",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -1252,7 +1252,7 @@
   },
   "dellrcsg2VirtualMediaSessionStartedTrap": {
     "name": "dellrcsg2VirtualMediaSessionStartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.31",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -1275,7 +1275,7 @@
   },
   "dellrcsg2VirtualMediaSessionStoppedTrap": {
     "name": "dellrcsg2VirtualMediaSessionStoppedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.32",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -1294,7 +1294,7 @@
   },
   "dellrcsg2VirtualMediaSessionTerminatedTrap": {
     "name": "dellrcsg2VirtualMediaSessionTerminatedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.33",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -1317,7 +1317,7 @@
   },
   "dellrcsg2VirtualMediaSessionReservedTrap": {
     "name": "dellrcsg2VirtualMediaSessionReservedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.34",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -1336,7 +1336,7 @@
   },
   "dellrcsg2VirtualMediaSessionUnreservedTrap": {
     "name": "dellrcsg2VirtualMediaSessionUnreservedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.35",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -1355,7 +1355,7 @@
   },
   "dellrcsg2VirtualMediaDriveMapped": {
     "name": "dellrcsg2VirtualMediaDriveMapped",
-    "oid": "1.3.6.1.4.1.10418.18.210.36",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -1382,7 +1382,7 @@
   },
   "dellrcsg2VirtualMediaDriveUnmapped": {
     "name": "dellrcsg2VirtualMediaDriveUnmapped",
-    "oid": "1.3.6.1.4.1.10418.18.210.37",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -1409,7 +1409,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaSessionStartedTrap": {
     "name": "dellrcsg2LocalPortVirtualMediaSessionStartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.38",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -1428,7 +1428,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaSessionStoppedTrap": {
     "name": "dellrcsg2LocalPortVirtualMediaSessionStoppedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.39",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -1443,7 +1443,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaSessionTerminatedTrap": {
     "name": "dellrcsg2LocalPortVirtualMediaSessionTerminatedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.40",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -1458,7 +1458,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaDriveMapped": {
     "name": "dellrcsg2LocalPortVirtualMediaDriveMapped",
-    "oid": "1.3.6.1.4.1.10418.18.210.41",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -1477,7 +1477,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaDriveUnmapped": {
     "name": "dellrcsg2LocalPortVirtualMediaDriveUnmapped",
-    "oid": "1.3.6.1.4.1.10418.18.210.42",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.42",
     "class": "notificationtype",
     "objects": [
       {
@@ -1496,7 +1496,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaSessionReservedTrap": {
     "name": "dellrcsg2LocalPortVirtualMediaSessionReservedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.43",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -1507,7 +1507,7 @@
   },
   "dellrcsg2LocalPortVirtualMediaSessionUnreservedTrap": {
     "name": "dellrcsg2LocalPortVirtualMediaSessionUnreservedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.44",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -1518,7 +1518,7 @@
   },
   "dellrcsg2ScreenResolutionChangedTrap": {
     "name": "dellrcsg2ScreenResolutionChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.45",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -1545,7 +1545,7 @@
   },
   "dellrcsg2AggregatedTargetDeviceStatusChangedTrap": {
     "name": "dellrcsg2AggregatedTargetDeviceStatusChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.46",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.46",
     "class": "notificationtype",
     "objects": [
       {
@@ -1556,12 +1556,12 @@
   },
   "dellrcsg2FactoryDefaultsSetTrap": {
     "name": "dellrcsg2FactoryDefaultsSetTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.47",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.47",
     "class": "notificationtype"
   },
   "dellrcsg2PowerSupplyFailureTrap": {
     "name": "dellrcsg2PowerSupplyFailureTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.48",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.48",
     "class": "notificationtype",
     "objects": [
       {
@@ -1572,7 +1572,7 @@
   },
   "dellrcsg2PowerSupplyRestoredTrap": {
     "name": "dellrcsg2PowerSupplyRestoredTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.49",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.49",
     "class": "notificationtype",
     "objects": [
       {
@@ -1583,7 +1583,7 @@
   },
   "dellrcsg2PduDeviceOnlineTrap": {
     "name": "dellrcsg2PduDeviceOnlineTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.50",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -1598,7 +1598,7 @@
   },
   "dellrcsg2PduDeviceOfflineTrap": {
     "name": "dellrcsg2PduDeviceOfflineTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.51",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -1613,7 +1613,7 @@
   },
   "dellrcsg2PduOutletOnCommandTrap": {
     "name": "dellrcsg2PduOutletOnCommandTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.52",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.52",
     "class": "notificationtype",
     "objects": [
       {
@@ -1640,7 +1640,7 @@
   },
   "dellrcsg2PduOutletOffCommandTrap": {
     "name": "dellrcsg2PduOutletOffCommandTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.53",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.53",
     "class": "notificationtype",
     "objects": [
       {
@@ -1667,7 +1667,7 @@
   },
   "dellrcsg2PduOutletRebootCommandTrap": {
     "name": "dellrcsg2PduOutletRebootCommandTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.54",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.54",
     "class": "notificationtype",
     "objects": [
       {
@@ -1694,7 +1694,7 @@
   },
   "dellrcsg2PduOutletOnSenseFailTrap": {
     "name": "dellrcsg2PduOutletOnSenseFailTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.55",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.55",
     "class": "notificationtype",
     "objects": [
       {
@@ -1717,7 +1717,7 @@
   },
   "dellrcsg2PduOutletOffSenseFailTrap": {
     "name": "dellrcsg2PduOutletOffSenseFailTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.56",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.56",
     "class": "notificationtype",
     "objects": [
       {
@@ -1740,7 +1740,7 @@
   },
   "dellrcsg2PduStatusOutletOnTrap": {
     "name": "dellrcsg2PduStatusOutletOnTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.57",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.57",
     "class": "notificationtype",
     "objects": [
       {
@@ -1763,7 +1763,7 @@
   },
   "dellrcsg2PduStatusOutletOffTrap": {
     "name": "dellrcsg2PduStatusOutletOffTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.58",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.58",
     "class": "notificationtype",
     "objects": [
       {
@@ -1786,7 +1786,7 @@
   },
   "dellrcsg2PduPortNameChangedTrap": {
     "name": "dellrcsg2PduPortNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.59",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.59",
     "class": "notificationtype",
     "objects": [
       {
@@ -1809,7 +1809,7 @@
   },
   "dellrcsg2PduOutletNameChangedTrap": {
     "name": "dellrcsg2PduOutletNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.60",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.60",
     "class": "notificationtype",
     "objects": [
       {
@@ -1836,7 +1836,7 @@
   },
   "dellrcsg2PduInletTotalLoadHighTrap": {
     "name": "dellrcsg2PduInletTotalLoadHighTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.61",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.61",
     "class": "notificationtype",
     "objects": [
       {
@@ -1855,7 +1855,7 @@
   },
   "dellrcsg2PduInletTotalLoadLowTrap": {
     "name": "dellrcsg2PduInletTotalLoadLowTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.62",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.62",
     "class": "notificationtype",
     "objects": [
       {
@@ -1874,7 +1874,7 @@
   },
   "dellrcsg2PduDeviceNameChangedTrap": {
     "name": "dellrcsg2PduDeviceNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.63",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.63",
     "class": "notificationtype",
     "objects": [
       {
@@ -1897,7 +1897,7 @@
   },
   "dellrcsg2PduInletNameChangedTrap": {
     "name": "dellrcsg2PduInletNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.64",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.64",
     "class": "notificationtype",
     "objects": [
       {
@@ -1924,7 +1924,7 @@
   },
   "dellrcsg2PduOutletLockCommandTrap": {
     "name": "dellrcsg2PduOutletLockCommandTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.65",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.65",
     "class": "notificationtype",
     "objects": [
       {
@@ -1951,7 +1951,7 @@
   },
   "dellrcsg2PduOutletUnlockCommandTrap": {
     "name": "dellrcsg2PduOutletUnlockCommandTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.66",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.66",
     "class": "notificationtype",
     "objects": [
       {
@@ -1978,7 +1978,7 @@
   },
   "dellrcsg2PduStatusOutletLockTrap": {
     "name": "dellrcsg2PduStatusOutletLockTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.67",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.67",
     "class": "notificationtype",
     "objects": [
       {
@@ -2001,7 +2001,7 @@
   },
   "dellrcsg2PduStatusOutletUnlockTrap": {
     "name": "dellrcsg2PduStatusOutletUnlockTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.68",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.68",
     "class": "notificationtype",
     "objects": [
       {
@@ -2024,7 +2024,7 @@
   },
   "dellrcsg2PduImageFileUpgradeStartedTrap": {
     "name": "dellrcsg2PduImageFileUpgradeStartedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.69",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.69",
     "class": "notificationtype",
     "objects": [
       {
@@ -2055,7 +2055,7 @@
   },
   "dellrcsg2PduImageFileUpgradeResultTrap": {
     "name": "dellrcsg2PduImageFileUpgradeResultTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.70",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.70",
     "class": "notificationtype",
     "objects": [
       {
@@ -2090,7 +2090,7 @@
   },
   "dellrcsg2PduCircuitNameChangedTrap": {
     "name": "dellrcsg2PduCircuitNameChangedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.71",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.71",
     "class": "notificationtype",
     "objects": [
       {
@@ -2117,7 +2117,7 @@
   },
   "dellrcsg2PduDeviceTotalLoadHighTrap": {
     "name": "dellrcsg2PduDeviceTotalLoadHighTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.72",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.72",
     "class": "notificationtype",
     "objects": [
       {
@@ -2132,7 +2132,7 @@
   },
   "dellrcsg2PduCircuitTotalLoadHighTrap": {
     "name": "dellrcsg2PduCircuitTotalLoadHighTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.73",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.73",
     "class": "notificationtype",
     "objects": [
       {
@@ -2151,7 +2151,7 @@
   },
   "dellrcsg2PduOutletTotalLoadHighTrap": {
     "name": "dellrcsg2PduOutletTotalLoadHighTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.74",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.74",
     "class": "notificationtype",
     "objects": [
       {
@@ -2170,17 +2170,17 @@
   },
   "dellrcsg2FanFailureTrap": {
     "name": "dellrcsg2FanFailureTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.75",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.75",
     "class": "notificationtype"
   },
   "dellrcsg2TemperatureRangeTrap": {
     "name": "dellrcsg2TemperatureRangeTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.76",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.76",
     "class": "notificationtype"
   },
   "dellrcsg2SmartCardInsertedTrap": {
     "name": "dellrcsg2SmartCardInsertedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.77",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.77",
     "class": "notificationtype",
     "objects": [
       {
@@ -2199,7 +2199,7 @@
   },
   "dellrcsg2SmartCardRemovedTrap": {
     "name": "dellrcsg2SmartCardRemovedTrap",
-    "oid": "1.3.6.1.4.1.10418.18.210.78",
+    "oid": "1.3.6.1.4.1.10418.18.21.0.78",
     "class": "notificationtype",
     "objects": [
       {
@@ -2219,8 +2219,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLRCSG2-TRAP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:05:48 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:17:00 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DELLRCSG2-TRAP-MIB"

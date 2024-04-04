@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "enterprises",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
       "TRAP-TYPE",
       "Counter32",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mib_AN_Dcz_SDS": {
@@ -384,7 +384,7 @@
   },
   "opto1_trap": {
     "name": "opto1_trap",
-    "oid": "1.3.6.1.4.1.332830.100",
+    "oid": "1.3.6.1.4.1.33283.0.100",
     "class": "notificationtype",
     "objects": [
       {
@@ -395,7 +395,7 @@
   },
   "opto2_trap": {
     "name": "opto2_trap",
-    "oid": "1.3.6.1.4.1.332830.101",
+    "oid": "1.3.6.1.4.1.33283.0.101",
     "class": "notificationtype",
     "objects": [
       {
@@ -406,7 +406,7 @@
   },
   "opto3_trap": {
     "name": "opto3_trap",
-    "oid": "1.3.6.1.4.1.332830.102",
+    "oid": "1.3.6.1.4.1.33283.0.102",
     "class": "notificationtype",
     "objects": [
       {
@@ -417,7 +417,7 @@
   },
   "sdsRE1state_trap": {
     "name": "sdsRE1state_trap",
-    "oid": "1.3.6.1.4.1.332830.150",
+    "oid": "1.3.6.1.4.1.33283.0.150",
     "class": "notificationtype",
     "objects": [
       {
@@ -428,7 +428,7 @@
   },
   "sdsRE2state_trap": {
     "name": "sdsRE2state_trap",
-    "oid": "1.3.6.1.4.1.332830.153",
+    "oid": "1.3.6.1.4.1.33283.0.153",
     "class": "notificationtype",
     "objects": [
       {
@@ -439,7 +439,7 @@
   },
   "sdsTempSensValue_trap": {
     "name": "sdsTempSensValue_trap",
-    "oid": "1.3.6.1.4.1.332830.222",
+    "oid": "1.3.6.1.4.1.33283.0.222",
     "class": "notificationtype",
     "objects": [
       {
@@ -450,7 +450,7 @@
   },
   "sdsTempSensName_trap": {
     "name": "sdsTempSensName_trap",
-    "oid": "1.3.6.1.4.1.332830.223",
+    "oid": "1.3.6.1.4.1.33283.0.223",
     "class": "notificationtype",
     "objects": [
       {
@@ -461,7 +461,7 @@
   },
   "sdsMaximumLoad_trap": {
     "name": "sdsMaximumLoad_trap",
-    "oid": "1.3.6.1.4.1.332830.401",
+    "oid": "1.3.6.1.4.1.33283.0.401",
     "class": "notificationtype",
     "objects": [
       {
@@ -472,7 +472,7 @@
   },
   "sdsAlarmText_trap": {
     "name": "sdsAlarmText_trap",
-    "oid": "1.3.6.1.4.1.332830.402",
+    "oid": "1.3.6.1.4.1.33283.0.402",
     "class": "notificationtype",
     "objects": [
       {
@@ -483,7 +483,7 @@
   },
   "sdsOutputVoltage1_trap": {
     "name": "sdsOutputVoltage1_trap",
-    "oid": "1.3.6.1.4.1.332830.403",
+    "oid": "1.3.6.1.4.1.33283.0.403",
     "class": "notificationtype",
     "objects": [
       {
@@ -494,7 +494,7 @@
   },
   "sdsOutputVoltage2_trap": {
     "name": "sdsOutputVoltage2_trap",
-    "oid": "1.3.6.1.4.1.332830.404",
+    "oid": "1.3.6.1.4.1.33283.0.404",
     "class": "notificationtype",
     "objects": [
       {
@@ -505,7 +505,7 @@
   },
   "sdsOutputCurrent_trap": {
     "name": "sdsOutputCurrent_trap",
-    "oid": "1.3.6.1.4.1.332830.405",
+    "oid": "1.3.6.1.4.1.33283.0.405",
     "class": "notificationtype",
     "objects": [
       {
@@ -516,7 +516,7 @@
   },
   "sdsBatteryCapacity_trap": {
     "name": "sdsBatteryCapacity_trap",
-    "oid": "1.3.6.1.4.1.332830.406",
+    "oid": "1.3.6.1.4.1.33283.0.406",
     "class": "notificationtype",
     "objects": [
       {
@@ -527,7 +527,7 @@
   },
   "sdsLoad_trap": {
     "name": "sdsLoad_trap",
-    "oid": "1.3.6.1.4.1.332830.407",
+    "oid": "1.3.6.1.4.1.33283.0.407",
     "class": "notificationtype",
     "objects": [
       {
@@ -538,7 +538,7 @@
   },
   "sdsCapTestTime_trap": {
     "name": "sdsCapTestTime_trap",
-    "oid": "1.3.6.1.4.1.332830.408",
+    "oid": "1.3.6.1.4.1.33283.0.408",
     "class": "notificationtype",
     "objects": [
       {
@@ -550,8 +550,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/imco/IMCO-LS110-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:50 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:10 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IMCO-LS110-MIB"

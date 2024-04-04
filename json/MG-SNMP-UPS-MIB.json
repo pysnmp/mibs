@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
       "enterprises",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "iso",
+      "TRAP-TYPE",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "TimeTicks",
-      "Integer32",
+      "Bits",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "IpAddress",
-      "iso",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "merlinGerin": {
@@ -3221,27 +3221,27 @@
   },
   "upsmgBatteryFault": {
     "name": "upsmgBatteryFault",
-    "oid": "1.3.6.1.4.1.705.1.110.1",
+    "oid": "1.3.6.1.4.1.705.1.11.0.1",
     "class": "notificationtype"
   },
   "upsmgBatteryOK": {
     "name": "upsmgBatteryOK",
-    "oid": "1.3.6.1.4.1.705.1.110.2",
+    "oid": "1.3.6.1.4.1.705.1.11.0.2",
     "class": "notificationtype"
   },
   "upsmgBatteryReplacementIndicated": {
     "name": "upsmgBatteryReplacementIndicated",
-    "oid": "1.3.6.1.4.1.705.1.110.3",
+    "oid": "1.3.6.1.4.1.705.1.11.0.3",
     "class": "notificationtype"
   },
   "upsmgBatteryReplaceNotIndicated": {
     "name": "upsmgBatteryReplaceNotIndicated",
-    "oid": "1.3.6.1.4.1.705.1.110.4",
+    "oid": "1.3.6.1.4.1.705.1.11.0.4",
     "class": "notificationtype"
   },
   "upsmgAtLowBattery": {
     "name": "upsmgAtLowBattery",
-    "oid": "1.3.6.1.4.1.705.1.110.5",
+    "oid": "1.3.6.1.4.1.705.1.11.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -3256,7 +3256,7 @@
   },
   "upsmgFromLowBattery": {
     "name": "upsmgFromLowBattery",
-    "oid": "1.3.6.1.4.1.705.1.110.6",
+    "oid": "1.3.6.1.4.1.705.1.11.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -3271,17 +3271,17 @@
   },
   "upsmgChargerFault": {
     "name": "upsmgChargerFault",
-    "oid": "1.3.6.1.4.1.705.1.110.7",
+    "oid": "1.3.6.1.4.1.705.1.11.0.7",
     "class": "notificationtype"
   },
   "upsmgChargerOK": {
     "name": "upsmgChargerOK",
-    "oid": "1.3.6.1.4.1.705.1.110.8",
+    "oid": "1.3.6.1.4.1.705.1.11.0.8",
     "class": "notificationtype"
   },
   "upsmgAtLowCondition": {
     "name": "upsmgAtLowCondition",
-    "oid": "1.3.6.1.4.1.705.1.110.9",
+    "oid": "1.3.6.1.4.1.705.1.11.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -3296,7 +3296,7 @@
   },
   "upsmgFromLowCondition": {
     "name": "upsmgFromLowCondition",
-    "oid": "1.3.6.1.4.1.705.1.110.10",
+    "oid": "1.3.6.1.4.1.705.1.11.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -3311,7 +3311,7 @@
   },
   "upsmgOnBattery": {
     "name": "upsmgOnBattery",
-    "oid": "1.3.6.1.4.1.705.1.110.11",
+    "oid": "1.3.6.1.4.1.705.1.11.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -3326,7 +3326,7 @@
   },
   "upsmgReturnFromBattery": {
     "name": "upsmgReturnFromBattery",
-    "oid": "1.3.6.1.4.1.705.1.110.12",
+    "oid": "1.3.6.1.4.1.705.1.11.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -3341,67 +3341,67 @@
   },
   "upsmgOnByPass": {
     "name": "upsmgOnByPass",
-    "oid": "1.3.6.1.4.1.705.1.110.13",
+    "oid": "1.3.6.1.4.1.705.1.11.0.13",
     "class": "notificationtype"
   },
   "upsmgReturnFromByPass": {
     "name": "upsmgReturnFromByPass",
-    "oid": "1.3.6.1.4.1.705.1.110.14",
+    "oid": "1.3.6.1.4.1.705.1.11.0.14",
     "class": "notificationtype"
   },
   "upsmgByPassUnavailable": {
     "name": "upsmgByPassUnavailable",
-    "oid": "1.3.6.1.4.1.705.1.110.15",
+    "oid": "1.3.6.1.4.1.705.1.11.0.15",
     "class": "notificationtype"
   },
   "upsmgByPassAvailable": {
     "name": "upsmgByPassAvailable",
-    "oid": "1.3.6.1.4.1.705.1.110.16",
+    "oid": "1.3.6.1.4.1.705.1.11.0.16",
     "class": "notificationtype"
   },
   "upsmgUtilityFailure": {
     "name": "upsmgUtilityFailure",
-    "oid": "1.3.6.1.4.1.705.1.110.17",
+    "oid": "1.3.6.1.4.1.705.1.11.0.17",
     "class": "notificationtype"
   },
   "upsmgUtilityRestored": {
     "name": "upsmgUtilityRestored",
-    "oid": "1.3.6.1.4.1.705.1.110.18",
+    "oid": "1.3.6.1.4.1.705.1.11.0.18",
     "class": "notificationtype"
   },
   "upsmgOnBoost": {
     "name": "upsmgOnBoost",
-    "oid": "1.3.6.1.4.1.705.1.110.19",
+    "oid": "1.3.6.1.4.1.705.1.11.0.19",
     "class": "notificationtype"
   },
   "upsmgReturnFromBoost": {
     "name": "upsmgReturnFromBoost",
-    "oid": "1.3.6.1.4.1.705.1.110.20",
+    "oid": "1.3.6.1.4.1.705.1.11.0.20",
     "class": "notificationtype"
   },
   "upsmgOverLoad": {
     "name": "upsmgOverLoad",
-    "oid": "1.3.6.1.4.1.705.1.110.21",
+    "oid": "1.3.6.1.4.1.705.1.11.0.21",
     "class": "notificationtype"
   },
   "upsmgLoadOK": {
     "name": "upsmgLoadOK",
-    "oid": "1.3.6.1.4.1.705.1.110.22",
+    "oid": "1.3.6.1.4.1.705.1.11.0.22",
     "class": "notificationtype"
   },
   "upsmgOverTemperature": {
     "name": "upsmgOverTemperature",
-    "oid": "1.3.6.1.4.1.705.1.110.23",
+    "oid": "1.3.6.1.4.1.705.1.11.0.23",
     "class": "notificationtype"
   },
   "upsmgTemperatureOK": {
     "name": "upsmgTemperatureOK",
-    "oid": "1.3.6.1.4.1.705.1.110.24",
+    "oid": "1.3.6.1.4.1.705.1.11.0.24",
     "class": "notificationtype"
   },
   "upsmgOnToStart": {
     "name": "upsmgOnToStart",
-    "oid": "1.3.6.1.4.1.705.1.110.25",
+    "oid": "1.3.6.1.4.1.705.1.11.0.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -3424,7 +3424,7 @@
   },
   "upsmgOnAbort": {
     "name": "upsmgOnAbort",
-    "oid": "1.3.6.1.4.1.705.1.110.26",
+    "oid": "1.3.6.1.4.1.705.1.11.0.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -3439,7 +3439,7 @@
   },
   "upsmgOnInProgress": {
     "name": "upsmgOnInProgress",
-    "oid": "1.3.6.1.4.1.705.1.110.27",
+    "oid": "1.3.6.1.4.1.705.1.11.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -3458,7 +3458,7 @@
   },
   "upsmgOnComplete": {
     "name": "upsmgOnComplete",
-    "oid": "1.3.6.1.4.1.705.1.110.28",
+    "oid": "1.3.6.1.4.1.705.1.11.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -3473,7 +3473,7 @@
   },
   "upsmgOffToStart": {
     "name": "upsmgOffToStart",
-    "oid": "1.3.6.1.4.1.705.1.110.29",
+    "oid": "1.3.6.1.4.1.705.1.11.0.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -3500,7 +3500,7 @@
   },
   "upsmgOffAbort": {
     "name": "upsmgOffAbort",
-    "oid": "1.3.6.1.4.1.705.1.110.30",
+    "oid": "1.3.6.1.4.1.705.1.11.0.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -3515,7 +3515,7 @@
   },
   "upsmgOffInProgress": {
     "name": "upsmgOffInProgress",
-    "oid": "1.3.6.1.4.1.705.1.110.31",
+    "oid": "1.3.6.1.4.1.705.1.11.0.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -3534,7 +3534,7 @@
   },
   "upsmgOffComplete": {
     "name": "upsmgOffComplete",
-    "oid": "1.3.6.1.4.1.705.1.110.32",
+    "oid": "1.3.6.1.4.1.705.1.11.0.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -3549,7 +3549,7 @@
   },
   "upsmgToggleToStart": {
     "name": "upsmgToggleToStart",
-    "oid": "1.3.6.1.4.1.705.1.110.33",
+    "oid": "1.3.6.1.4.1.705.1.11.0.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -3564,7 +3564,7 @@
   },
   "upsmgToggleAbort": {
     "name": "upsmgToggleAbort",
-    "oid": "1.3.6.1.4.1.705.1.110.34",
+    "oid": "1.3.6.1.4.1.705.1.11.0.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -3579,7 +3579,7 @@
   },
   "upsmgToggleInProgress": {
     "name": "upsmgToggleInProgress",
-    "oid": "1.3.6.1.4.1.705.1.110.35",
+    "oid": "1.3.6.1.4.1.705.1.11.0.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -3594,7 +3594,7 @@
   },
   "upsmgToggleComplete": {
     "name": "upsmgToggleComplete",
-    "oid": "1.3.6.1.4.1.705.1.110.36",
+    "oid": "1.3.6.1.4.1.705.1.11.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -3609,37 +3609,37 @@
   },
   "upsmgCommunicationFailure": {
     "name": "upsmgCommunicationFailure",
-    "oid": "1.3.6.1.4.1.705.1.110.37",
+    "oid": "1.3.6.1.4.1.705.1.11.0.37",
     "class": "notificationtype"
   },
   "upsmgCommunicationRestored": {
     "name": "upsmgCommunicationRestored",
-    "oid": "1.3.6.1.4.1.705.1.110.38",
+    "oid": "1.3.6.1.4.1.705.1.11.0.38",
     "class": "notificationtype"
   },
   "upsmgInputBad": {
     "name": "upsmgInputBad",
-    "oid": "1.3.6.1.4.1.705.1.110.39",
+    "oid": "1.3.6.1.4.1.705.1.11.0.39",
     "class": "notificationtype"
   },
   "upsmgInputOK": {
     "name": "upsmgInputOK",
-    "oid": "1.3.6.1.4.1.705.1.110.40",
+    "oid": "1.3.6.1.4.1.705.1.11.0.40",
     "class": "notificationtype"
   },
   "upsmgBatteryUnavailable": {
     "name": "upsmgBatteryUnavailable",
-    "oid": "1.3.6.1.4.1.705.1.110.41",
+    "oid": "1.3.6.1.4.1.705.1.11.0.41",
     "class": "notificationtype"
   },
   "upsmgBatteryAvailable": {
     "name": "upsmgBatteryAvailable",
-    "oid": "1.3.6.1.4.1.705.1.110.42",
+    "oid": "1.3.6.1.4.1.705.1.11.0.42",
     "class": "notificationtype"
   },
   "upsmgAtLowRecharge": {
     "name": "upsmgAtLowRecharge",
-    "oid": "1.3.6.1.4.1.705.1.110.43",
+    "oid": "1.3.6.1.4.1.705.1.11.0.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -3654,7 +3654,7 @@
   },
   "upsmgFromLowRecharge": {
     "name": "upsmgFromLowRecharge",
-    "oid": "1.3.6.1.4.1.705.1.110.44",
+    "oid": "1.3.6.1.4.1.705.1.11.0.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -3669,27 +3669,27 @@
   },
   "upsmgDiagnosticTestFail": {
     "name": "upsmgDiagnosticTestFail",
-    "oid": "1.3.6.1.4.1.705.1.110.45",
+    "oid": "1.3.6.1.4.1.705.1.11.0.45",
     "class": "notificationtype"
   },
   "upsmgDiagnosticTestOK": {
     "name": "upsmgDiagnosticTestOK",
-    "oid": "1.3.6.1.4.1.705.1.110.46",
+    "oid": "1.3.6.1.4.1.705.1.11.0.46",
     "class": "notificationtype"
   },
   "upsmgBatteryTestOK": {
     "name": "upsmgBatteryTestOK",
-    "oid": "1.3.6.1.4.1.705.1.110.47",
+    "oid": "1.3.6.1.4.1.705.1.11.0.47",
     "class": "notificationtype"
   },
   "upsmgBatteryTestFail": {
     "name": "upsmgBatteryTestFail",
-    "oid": "1.3.6.1.4.1.705.1.110.48",
+    "oid": "1.3.6.1.4.1.705.1.11.0.48",
     "class": "notificationtype"
   },
   "upsmgExternalAlarmActive": {
     "name": "upsmgExternalAlarmActive",
-    "oid": "1.3.6.1.4.1.705.1.110.49",
+    "oid": "1.3.6.1.4.1.705.1.11.0.49",
     "class": "notificationtype",
     "objects": [
       {
@@ -3704,7 +3704,7 @@
   },
   "upsmgExternalAlarmInactive": {
     "name": "upsmgExternalAlarmInactive",
-    "oid": "1.3.6.1.4.1.705.1.110.50",
+    "oid": "1.3.6.1.4.1.705.1.11.0.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -3719,92 +3719,92 @@
   },
   "upsmgOnBuck": {
     "name": "upsmgOnBuck",
-    "oid": "1.3.6.1.4.1.705.1.110.51",
+    "oid": "1.3.6.1.4.1.705.1.11.0.51",
     "class": "notificationtype"
   },
   "upsmgReturnFromBuck": {
     "name": "upsmgReturnFromBuck",
-    "oid": "1.3.6.1.4.1.705.1.110.52",
+    "oid": "1.3.6.1.4.1.705.1.11.0.52",
     "class": "notificationtype"
   },
   "upsmgEnvironComFailure": {
     "name": "upsmgEnvironComFailure",
-    "oid": "1.3.6.1.4.1.705.1.110.53",
+    "oid": "1.3.6.1.4.1.705.1.11.0.53",
     "class": "notificationtype"
   },
   "upsmgEnvironComOK": {
     "name": "upsmgEnvironComOK",
-    "oid": "1.3.6.1.4.1.705.1.110.54",
+    "oid": "1.3.6.1.4.1.705.1.11.0.54",
     "class": "notificationtype"
   },
   "upsmgEnvironTemperatureLow": {
     "name": "upsmgEnvironTemperatureLow",
-    "oid": "1.3.6.1.4.1.705.1.110.55",
+    "oid": "1.3.6.1.4.1.705.1.11.0.55",
     "class": "notificationtype"
   },
   "upsmgEnvironTemperatureHigh": {
     "name": "upsmgEnvironTemperatureHigh",
-    "oid": "1.3.6.1.4.1.705.1.110.56",
+    "oid": "1.3.6.1.4.1.705.1.11.0.56",
     "class": "notificationtype"
   },
   "upsmgEnvironTemperatureOK": {
     "name": "upsmgEnvironTemperatureOK",
-    "oid": "1.3.6.1.4.1.705.1.110.57",
+    "oid": "1.3.6.1.4.1.705.1.11.0.57",
     "class": "notificationtype"
   },
   "upsmgEnvironHumidityLow": {
     "name": "upsmgEnvironHumidityLow",
-    "oid": "1.3.6.1.4.1.705.1.110.58",
+    "oid": "1.3.6.1.4.1.705.1.11.0.58",
     "class": "notificationtype"
   },
   "upsmgEnvironHumidityHigh": {
     "name": "upsmgEnvironHumidityHigh",
-    "oid": "1.3.6.1.4.1.705.1.110.59",
+    "oid": "1.3.6.1.4.1.705.1.11.0.59",
     "class": "notificationtype"
   },
   "upsmgEnvironHumidityOK": {
     "name": "upsmgEnvironHumidityOK",
-    "oid": "1.3.6.1.4.1.705.1.110.60",
+    "oid": "1.3.6.1.4.1.705.1.11.0.60",
     "class": "notificationtype"
   },
   "upsmgEnvironInput1Closed": {
     "name": "upsmgEnvironInput1Closed",
-    "oid": "1.3.6.1.4.1.705.1.110.61",
+    "oid": "1.3.6.1.4.1.705.1.11.0.61",
     "class": "notificationtype"
   },
   "upsmgEnvironInput1Open": {
     "name": "upsmgEnvironInput1Open",
-    "oid": "1.3.6.1.4.1.705.1.110.62",
+    "oid": "1.3.6.1.4.1.705.1.11.0.62",
     "class": "notificationtype"
   },
   "upsmgEnvironInput2Closed": {
     "name": "upsmgEnvironInput2Closed",
-    "oid": "1.3.6.1.4.1.705.1.110.63",
+    "oid": "1.3.6.1.4.1.705.1.11.0.63",
     "class": "notificationtype"
   },
   "upsmgEnvironInput2Open": {
     "name": "upsmgEnvironInput2Open",
-    "oid": "1.3.6.1.4.1.705.1.110.64",
+    "oid": "1.3.6.1.4.1.705.1.11.0.64",
     "class": "notificationtype"
   },
   "upsRedundancyLost": {
     "name": "upsRedundancyLost",
-    "oid": "1.3.6.1.4.1.705.1.110.65",
+    "oid": "1.3.6.1.4.1.705.1.11.0.65",
     "class": "notificationtype"
   },
   "upsRedundancyOK": {
     "name": "upsRedundancyOK",
-    "oid": "1.3.6.1.4.1.705.1.110.66",
+    "oid": "1.3.6.1.4.1.705.1.11.0.66",
     "class": "notificationtype"
   },
   "upsProtectionLost": {
     "name": "upsProtectionLost",
-    "oid": "1.3.6.1.4.1.705.1.110.67",
+    "oid": "1.3.6.1.4.1.705.1.11.0.67",
     "class": "notificationtype"
   },
   "upsProtectionOK": {
     "name": "upsProtectionOK",
-    "oid": "1.3.6.1.4.1.705.1.110.68",
+    "oid": "1.3.6.1.4.1.705.1.11.0.68",
     "class": "notificationtype"
   },
   "upsmgAgentIpaddress": {
@@ -4097,8 +4097,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/MG-SNMP-UPS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:05:57 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:17:11 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MG-SNMP-UPS-MIB"

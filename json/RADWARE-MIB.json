@@ -8,32 +8,32 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
       "iso",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "MibIdentifier",
       "IpAddress",
       "Integer32",
-      "Bits"
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "PhysAddress",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "TruthValue": {
@@ -6439,7 +6439,7 @@
   },
   "routeTableOverflow": {
     "name": "routeTableOverflow",
-    "oid": "1.3.6.1.4.1.890.5",
+    "oid": "1.3.6.1.4.1.89.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -6454,7 +6454,7 @@
   },
   "fanNotWorking": {
     "name": "fanNotWorking",
-    "oid": "1.3.6.1.4.1.890.7",
+    "oid": "1.3.6.1.4.1.89.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -6469,7 +6469,7 @@
   },
   "resetRequired": {
     "name": "resetRequired",
-    "oid": "1.3.6.1.4.1.890.10",
+    "oid": "1.3.6.1.4.1.89.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -6484,7 +6484,7 @@
   },
   "endTftp": {
     "name": "endTftp",
-    "oid": "1.3.6.1.4.1.890.12",
+    "oid": "1.3.6.1.4.1.89.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -6499,7 +6499,7 @@
   },
   "abortTftp": {
     "name": "abortTftp",
-    "oid": "1.3.6.1.4.1.890.13",
+    "oid": "1.3.6.1.4.1.89.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -6514,7 +6514,7 @@
   },
   "startTftp": {
     "name": "startTftp",
-    "oid": "1.3.6.1.4.1.890.14",
+    "oid": "1.3.6.1.4.1.89.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -6529,7 +6529,7 @@
   },
   "deviceTemperatureNormal": {
     "name": "deviceTemperatureNormal",
-    "oid": "1.3.6.1.4.1.890.15",
+    "oid": "1.3.6.1.4.1.89.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -6544,7 +6544,7 @@
   },
   "deviceTemperatureHigh": {
     "name": "deviceTemperatureHigh",
-    "oid": "1.3.6.1.4.1.890.16",
+    "oid": "1.3.6.1.4.1.89.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -6559,7 +6559,7 @@
   },
   "deviceTemperatureCritical": {
     "name": "deviceTemperatureCritical",
-    "oid": "1.3.6.1.4.1.890.17",
+    "oid": "1.3.6.1.4.1.89.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -6574,7 +6574,7 @@
   },
   "ipxRipTblOverflow": {
     "name": "ipxRipTblOverflow",
-    "oid": "1.3.6.1.4.1.890.36",
+    "oid": "1.3.6.1.4.1.89.0.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -6589,7 +6589,7 @@
   },
   "ipxSapTblOverflow": {
     "name": "ipxSapTblOverflow",
-    "oid": "1.3.6.1.4.1.890.37",
+    "oid": "1.3.6.1.4.1.89.0.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -6604,7 +6604,7 @@
   },
   "facsAccessVoilation": {
     "name": "facsAccessVoilation",
-    "oid": "1.3.6.1.4.1.890.49",
+    "oid": "1.3.6.1.4.1.89.0.49",
     "class": "notificationtype",
     "objects": [
       {
@@ -6619,7 +6619,7 @@
   },
   "autoConfigurationCompleted": {
     "name": "autoConfigurationCompleted",
-    "oid": "1.3.6.1.4.1.890.50",
+    "oid": "1.3.6.1.4.1.89.0.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -6634,7 +6634,7 @@
   },
   "forwardingTabOverflow": {
     "name": "forwardingTabOverflow",
-    "oid": "1.3.6.1.4.1.890.51",
+    "oid": "1.3.6.1.4.1.89.0.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -6649,7 +6649,7 @@
   },
   "errorsDuringInit": {
     "name": "errorsDuringInit",
-    "oid": "1.3.6.1.4.1.890.61",
+    "oid": "1.3.6.1.4.1.89.0.61",
     "class": "notificationtype",
     "objects": [
       {
@@ -6664,7 +6664,7 @@
   },
   "vlanDynPortAdded": {
     "name": "vlanDynPortAdded",
-    "oid": "1.3.6.1.4.1.890.66",
+    "oid": "1.3.6.1.4.1.89.0.66",
     "class": "notificationtype",
     "objects": [
       {
@@ -6679,7 +6679,7 @@
   },
   "vlanDynPortRemoved": {
     "name": "vlanDynPortRemoved",
-    "oid": "1.3.6.1.4.1.890.67",
+    "oid": "1.3.6.1.4.1.89.0.67",
     "class": "notificationtype",
     "objects": [
       {
@@ -6694,7 +6694,7 @@
   },
   "rsSDclientsTableOverflow": {
     "name": "rsSDclientsTableOverflow",
-    "oid": "1.3.6.1.4.1.890.68",
+    "oid": "1.3.6.1.4.1.89.0.68",
     "class": "notificationtype",
     "objects": [
       {
@@ -6709,7 +6709,7 @@
   },
   "rsSDinactiveServer": {
     "name": "rsSDinactiveServer",
-    "oid": "1.3.6.1.4.1.890.69",
+    "oid": "1.3.6.1.4.1.89.0.69",
     "class": "notificationtype",
     "objects": [
       {
@@ -6724,7 +6724,7 @@
   },
   "rsIpZhrConnectionsTableOverflow": {
     "name": "rsIpZhrConnectionsTableOverflow",
-    "oid": "1.3.6.1.4.1.890.70",
+    "oid": "1.3.6.1.4.1.89.0.70",
     "class": "notificationtype",
     "objects": [
       {
@@ -6739,7 +6739,7 @@
   },
   "rsIpZhrReqStaticConnNotAccepted": {
     "name": "rsIpZhrReqStaticConnNotAccepted",
-    "oid": "1.3.6.1.4.1.890.71",
+    "oid": "1.3.6.1.4.1.89.0.71",
     "class": "notificationtype",
     "objects": [
       {
@@ -6754,7 +6754,7 @@
   },
   "rsIpZhrVirtualIpAsSource": {
     "name": "rsIpZhrVirtualIpAsSource",
-    "oid": "1.3.6.1.4.1.890.72",
+    "oid": "1.3.6.1.4.1.89.0.72",
     "class": "notificationtype",
     "objects": [
       {
@@ -6769,7 +6769,7 @@
   },
   "rsIpZhrNotAllocVirtualIp": {
     "name": "rsIpZhrNotAllocVirtualIp",
-    "oid": "1.3.6.1.4.1.890.73",
+    "oid": "1.3.6.1.4.1.89.0.73",
     "class": "notificationtype",
     "objects": [
       {
@@ -6784,7 +6784,7 @@
   },
   "rsSnmpSetRequestInSpecialCfgState": {
     "name": "rsSnmpSetRequestInSpecialCfgState",
-    "oid": "1.3.6.1.4.1.890.74",
+    "oid": "1.3.6.1.4.1.89.0.74",
     "class": "notificationtype",
     "objects": [
       {
@@ -6799,7 +6799,7 @@
   },
   "rsConfigurationAuditEvent": {
     "name": "rsConfigurationAuditEvent",
-    "oid": "1.3.6.1.4.1.890.75",
+    "oid": "1.3.6.1.4.1.89.0.75",
     "class": "notificationtype",
     "objects": [
       {
@@ -6814,7 +6814,7 @@
   },
   "rdwrFanNotWorking": {
     "name": "rdwrFanNotWorking",
-    "oid": "1.3.6.1.4.1.890.76",
+    "oid": "1.3.6.1.4.1.89.0.76",
     "class": "notificationtype",
     "objects": [
       {
@@ -6829,7 +6829,7 @@
   },
   "rdwrFanInfo": {
     "name": "rdwrFanInfo",
-    "oid": "1.3.6.1.4.1.890.77",
+    "oid": "1.3.6.1.4.1.89.0.77",
     "class": "notificationtype",
     "objects": [
       {
@@ -6844,7 +6844,7 @@
   },
   "rdwrCertExpiration": {
     "name": "rdwrCertExpiration",
-    "oid": "1.3.6.1.4.1.890.78",
+    "oid": "1.3.6.1.4.1.89.0.78",
     "class": "notificationtype",
     "objects": [
       {
@@ -6859,7 +6859,7 @@
   },
   "cdeResyncronizing": {
     "name": "cdeResyncronizing",
-    "oid": "1.3.6.1.4.1.890.79",
+    "oid": "1.3.6.1.4.1.89.0.79",
     "class": "notificationtype",
     "objects": [
       {
@@ -6874,7 +6874,7 @@
   },
   "cdeCannotSync": {
     "name": "cdeCannotSync",
-    "oid": "1.3.6.1.4.1.890.80",
+    "oid": "1.3.6.1.4.1.89.0.80",
     "class": "notificationtype",
     "objects": [
       {
@@ -6889,7 +6889,7 @@
   },
   "cdeConnected": {
     "name": "cdeConnected",
-    "oid": "1.3.6.1.4.1.890.81",
+    "oid": "1.3.6.1.4.1.89.0.81",
     "class": "notificationtype",
     "objects": [
       {
@@ -6904,7 +6904,7 @@
   },
   "cdeConfigUpdateFailed": {
     "name": "cdeConfigUpdateFailed",
-    "oid": "1.3.6.1.4.1.890.82",
+    "oid": "1.3.6.1.4.1.89.0.82",
     "class": "notificationtype",
     "objects": [
       {
@@ -6919,7 +6919,7 @@
   },
   "cdeSlaveReboot": {
     "name": "cdeSlaveReboot",
-    "oid": "1.3.6.1.4.1.890.83",
+    "oid": "1.3.6.1.4.1.89.0.83",
     "class": "notificationtype",
     "objects": [
       {
@@ -6934,7 +6934,7 @@
   },
   "cdeSlaveRebootFailed": {
     "name": "cdeSlaveRebootFailed",
-    "oid": "1.3.6.1.4.1.890.84",
+    "oid": "1.3.6.1.4.1.89.0.84",
     "class": "notificationtype",
     "objects": [
       {
@@ -6949,7 +6949,7 @@
   },
   "cdeEnterOutOfSync": {
     "name": "cdeEnterOutOfSync",
-    "oid": "1.3.6.1.4.1.890.85",
+    "oid": "1.3.6.1.4.1.89.0.85",
     "class": "notificationtype",
     "objects": [
       {
@@ -6964,7 +6964,7 @@
   },
   "cdeSlaveRebootPending": {
     "name": "cdeSlaveRebootPending",
-    "oid": "1.3.6.1.4.1.890.86",
+    "oid": "1.3.6.1.4.1.89.0.86",
     "class": "notificationtype",
     "objects": [
       {
@@ -6979,7 +6979,7 @@
   },
   "cdeDisconnected": {
     "name": "cdeDisconnected",
-    "oid": "1.3.6.1.4.1.890.87",
+    "oid": "1.3.6.1.4.1.89.0.87",
     "class": "notificationtype",
     "objects": [
       {
@@ -6994,7 +6994,7 @@
   },
   "cdeInSync": {
     "name": "cdeInSync",
-    "oid": "1.3.6.1.4.1.890.88",
+    "oid": "1.3.6.1.4.1.89.0.88",
     "class": "notificationtype",
     "objects": [
       {
@@ -7009,7 +7009,7 @@
   },
   "cdeIncompatible": {
     "name": "cdeIncompatible",
-    "oid": "1.3.6.1.4.1.890.89",
+    "oid": "1.3.6.1.4.1.89.0.89",
     "class": "notificationtype",
     "objects": [
       {
@@ -7024,7 +7024,7 @@
   },
   "cdeNoMaster": {
     "name": "cdeNoMaster",
-    "oid": "1.3.6.1.4.1.890.90",
+    "oid": "1.3.6.1.4.1.89.0.90",
     "class": "notificationtype",
     "objects": [
       {
@@ -7039,7 +7039,7 @@
   },
   "cdeMasterConnected": {
     "name": "cdeMasterConnected",
-    "oid": "1.3.6.1.4.1.890.91",
+    "oid": "1.3.6.1.4.1.89.0.91",
     "class": "notificationtype",
     "objects": [
       {
@@ -7054,7 +7054,7 @@
   },
   "rsWSDRedundancySwitch": {
     "name": "rsWSDRedundancySwitch",
-    "oid": "1.3.6.1.4.1.890.141",
+    "oid": "1.3.6.1.4.1.89.0.141",
     "class": "notificationtype",
     "objects": [
       {
@@ -17344,7 +17344,7 @@
   },
   "rsWSDConnectionLimitReached": {
     "name": "rsWSDConnectionLimitReached",
-    "oid": "1.3.6.1.4.1.89.35.10.1",
+    "oid": "1.3.6.1.4.1.89.35.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -17359,7 +17359,7 @@
   },
   "rsWSDReadyForShutDown": {
     "name": "rsWSDReadyForShutDown",
-    "oid": "1.3.6.1.4.1.89.35.10.2",
+    "oid": "1.3.6.1.4.1.89.35.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -17374,7 +17374,7 @@
   },
   "rsWSDIllegalReport": {
     "name": "rsWSDIllegalReport",
-    "oid": "1.3.6.1.4.1.89.35.10.3",
+    "oid": "1.3.6.1.4.1.89.35.1.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -17389,7 +17389,7 @@
   },
   "rsWSDRemoteWSDUnavailable": {
     "name": "rsWSDRemoteWSDUnavailable",
-    "oid": "1.3.6.1.4.1.89.35.10.4",
+    "oid": "1.3.6.1.4.1.89.35.1.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -17404,7 +17404,7 @@
   },
   "rsWSDCapacityLimitReached": {
     "name": "rsWSDCapacityLimitReached",
-    "oid": "1.3.6.1.4.1.89.35.10.5",
+    "oid": "1.3.6.1.4.1.89.35.1.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -17419,7 +17419,7 @@
   },
   "rsWSDStatusMonitoring": {
     "name": "rsWSDStatusMonitoring",
-    "oid": "1.3.6.1.4.1.89.35.10.6",
+    "oid": "1.3.6.1.4.1.89.35.1.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -17434,7 +17434,7 @@
   },
   "rsWSDWrongPassword": {
     "name": "rsWSDWrongPassword",
-    "oid": "1.3.6.1.4.1.89.35.10.7",
+    "oid": "1.3.6.1.4.1.89.35.1.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -17449,7 +17449,7 @@
   },
   "rsWSDInternalTableOverflow": {
     "name": "rsWSDInternalTableOverflow",
-    "oid": "1.3.6.1.4.1.89.35.10.8",
+    "oid": "1.3.6.1.4.1.89.35.1.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -17464,7 +17464,7 @@
   },
   "rsWSDServerUp": {
     "name": "rsWSDServerUp",
-    "oid": "1.3.6.1.4.1.89.35.10.9",
+    "oid": "1.3.6.1.4.1.89.35.1.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -17479,7 +17479,7 @@
   },
   "rsWSDPoliciesUpdated": {
     "name": "rsWSDPoliciesUpdated",
-    "oid": "1.3.6.1.4.1.89.35.10.10",
+    "oid": "1.3.6.1.4.1.89.35.1.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -17494,7 +17494,7 @@
   },
   "rsWSDIntrusionDetected": {
     "name": "rsWSDIntrusionDetected",
-    "oid": "1.3.6.1.4.1.89.35.10.11",
+    "oid": "1.3.6.1.4.1.89.35.1.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -17509,7 +17509,7 @@
   },
   "rsWSDUserLocked": {
     "name": "rsWSDUserLocked",
-    "oid": "1.3.6.1.4.1.89.35.10.12",
+    "oid": "1.3.6.1.4.1.89.35.1.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -17524,7 +17524,7 @@
   },
   "rsWSDAuthenticationSuccess": {
     "name": "rsWSDAuthenticationSuccess",
-    "oid": "1.3.6.1.4.1.89.35.10.13",
+    "oid": "1.3.6.1.4.1.89.35.1.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -17539,7 +17539,7 @@
   },
   "rsRadwareNTPUpdateProblem": {
     "name": "rsRadwareNTPUpdateProblem",
-    "oid": "1.3.6.1.4.1.89.35.10.14",
+    "oid": "1.3.6.1.4.1.89.35.1.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -17554,7 +17554,7 @@
   },
   "rsRadwareVrrpErrors": {
     "name": "rsRadwareVrrpErrors",
-    "oid": "1.3.6.1.4.1.89.35.10.15",
+    "oid": "1.3.6.1.4.1.89.35.1.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -17569,7 +17569,7 @@
   },
   "rdwrDualPowerSupplyProblem": {
     "name": "rdwrDualPowerSupplyProblem",
-    "oid": "1.3.6.1.4.1.89.35.10.16",
+    "oid": "1.3.6.1.4.1.89.35.1.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -17584,7 +17584,7 @@
   },
   "rdwrDualPowerSupplyUp": {
     "name": "rdwrDualPowerSupplyUp",
-    "oid": "1.3.6.1.4.1.89.35.10.17",
+    "oid": "1.3.6.1.4.1.89.35.1.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -17599,7 +17599,7 @@
   },
   "rdwrMngmntPortDisabled": {
     "name": "rdwrMngmntPortDisabled",
-    "oid": "1.3.6.1.4.1.89.35.10.18",
+    "oid": "1.3.6.1.4.1.89.35.1.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -17614,7 +17614,7 @@
   },
   "rdwrUnauthorizedSourceIP": {
     "name": "rdwrUnauthorizedSourceIP",
-    "oid": "1.3.6.1.4.1.89.35.10.19",
+    "oid": "1.3.6.1.4.1.89.35.1.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -17629,7 +17629,7 @@
   },
   "rsSSLCertificateSyncProblem": {
     "name": "rsSSLCertificateSyncProblem",
-    "oid": "1.3.6.1.4.1.89.35.10.20",
+    "oid": "1.3.6.1.4.1.89.35.1.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -17644,7 +17644,7 @@
   },
   "rsARPTableIpConflict": {
     "name": "rsARPTableIpConflict",
-    "oid": "1.3.6.1.4.1.890.21",
+    "oid": "1.3.6.1.4.1.89.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -17659,7 +17659,7 @@
   },
   "rsWSDAuthenticationServerSuccess": {
     "name": "rsWSDAuthenticationServerSuccess",
-    "oid": "1.3.6.1.4.1.89.35.10.22",
+    "oid": "1.3.6.1.4.1.89.35.1.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -17674,7 +17674,7 @@
   },
   "rsWSDAuthenticationServerFail": {
     "name": "rsWSDAuthenticationServerFail",
-    "oid": "1.3.6.1.4.1.89.35.10.23",
+    "oid": "1.3.6.1.4.1.89.35.1.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -18174,7 +18174,7 @@
   },
   "rsStpPortStateTrap": {
     "name": "rsStpPortStateTrap",
-    "oid": "1.3.6.1.4.1.89.300.1",
+    "oid": "1.3.6.1.4.1.89.30.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -18490,8 +18490,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radware/RADWARE-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:11:42 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:22:48 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RADWARE-MIB"

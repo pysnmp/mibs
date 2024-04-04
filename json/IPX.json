@@ -6,27 +6,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "MibIdentifier",
-      "enterprises",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "TRAP-TYPE",
-      "Counter32"
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "PhysAddress"
+      "DisplayString"
     ]
   },
   "novell": {
@@ -1779,7 +1779,7 @@
   },
   "ipxTrapCircuitDown": {
     "name": "ipxTrapCircuitDown",
-    "oid": "1.3.6.1.4.1.23.2.5.50.1",
+    "oid": "1.3.6.1.4.1.23.2.5.5.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1794,7 +1794,7 @@
   },
   "ipxTrapCircuitUp": {
     "name": "ipxTrapCircuitUp",
-    "oid": "1.3.6.1.4.1.23.2.5.50.2",
+    "oid": "1.3.6.1.4.1.23.2.5.5.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1810,8 +1810,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/IPX",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:11:33 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:22:45 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IPX"

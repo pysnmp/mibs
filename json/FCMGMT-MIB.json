@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "experimental",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Unsigned32",
-      "TRAP-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "iso",
+      "TRAP-TYPE",
+      "Counter32",
+      "IpAddress",
+      "experimental",
+      "OBJECT-TYPE",
       "Integer32",
-      "Gauge32",
-      "Counter32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "FcNameId": {
@@ -3243,7 +3243,7 @@
   },
   "connUnitStatusChange": {
     "name": "connUnitStatusChange",
-    "oid": "1.3.6.1.3.940.1",
+    "oid": "1.3.6.1.3.94.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3258,7 +3258,7 @@
   },
   "connUnitDeletedTrap": {
     "name": "connUnitDeletedTrap",
-    "oid": "1.3.6.1.3.940.3",
+    "oid": "1.3.6.1.3.94.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -3269,7 +3269,7 @@
   },
   "connUnitEventTrap": {
     "name": "connUnitEventTrap",
-    "oid": "1.3.6.1.3.940.4",
+    "oid": "1.3.6.1.3.94.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -3292,7 +3292,7 @@
   },
   "connUnitSensorStatusChange": {
     "name": "connUnitSensorStatusChange",
-    "oid": "1.3.6.1.3.940.5",
+    "oid": "1.3.6.1.3.94.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -3303,7 +3303,7 @@
   },
   "connUnitPortStatusChange": {
     "name": "connUnitPortStatusChange",
-    "oid": "1.3.6.1.3.940.6",
+    "oid": "1.3.6.1.3.94.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -3319,8 +3319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/draft-ietf-ipfc-fcmgmt-int-mib-04",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:54 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:14:06 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "FCMGMT-MIB"

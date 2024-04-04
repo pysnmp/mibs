@@ -6,44 +6,44 @@
     ],
     "ARUBA-TC": [
       "ArubaEncryptionMethods",
-      "ArubaMeshRole",
-      "ArubaPhyType"
+      "ArubaPhyType",
+      "ArubaMeshRole"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "Integer32",
-      "snmpModules",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
       "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "snmpModules",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TDomain",
       "PhysAddress",
-      "TAddress",
-      "TestAndIncr",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
       "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "DateAndTime",
+      "MacAddress",
+      "TAddress",
+      "StorageType",
+      "TestAndIncr"
     ],
     "WLSX-WLAN-MIB": [
       "wlanAPMacAddress"
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MESH-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:03:53 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:15:05 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "WLSX-MESH-MIB"

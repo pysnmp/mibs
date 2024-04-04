@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TRAP-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter32",
       "enterprises",
-      "iso",
+      "TRAP-TYPE",
       "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "avtech": {
@@ -7152,7 +7152,7 @@
   },
   "tempalarm1_26w": {
     "name": "tempalarm1_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.1",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -7163,7 +7163,7 @@
   },
   "room_alert_26w_snmp_trap": {
     "name": "room_alert_26w_snmp_trap",
-    "oid": "1.3.6.1.4.1.20916.1.40.2",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -7174,7 +7174,7 @@
   },
   "tempalarm2_26w": {
     "name": "tempalarm2_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.3",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -7185,7 +7185,7 @@
   },
   "tempclear2_26w": {
     "name": "tempclear2_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.4",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -7196,7 +7196,7 @@
   },
   "tempalarm3_26w": {
     "name": "tempalarm3_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.5",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -7207,7 +7207,7 @@
   },
   "tempclear3_26w": {
     "name": "tempclear3_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.6",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -7218,7 +7218,7 @@
   },
   "humidityalarm1_26w": {
     "name": "humidityalarm1_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.7",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -7229,7 +7229,7 @@
   },
   "humidityclear1_26w": {
     "name": "humidityclear1_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.8",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -7240,7 +7240,7 @@
   },
   "humidityalarm2_26w": {
     "name": "humidityalarm2_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.9",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -7251,7 +7251,7 @@
   },
   "humidityclear2_26w": {
     "name": "humidityclear2_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.10",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -7262,7 +7262,7 @@
   },
   "humidityalarm3_26w": {
     "name": "humidityalarm3_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.11",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -7273,7 +7273,7 @@
   },
   "humidityclear3_26w": {
     "name": "humidityclear3_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.12",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -7284,7 +7284,7 @@
   },
   "switchalarm1_26w": {
     "name": "switchalarm1_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.13",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -7295,7 +7295,7 @@
   },
   "switchclear1_26w": {
     "name": "switchclear1_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.14",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -7306,7 +7306,7 @@
   },
   "switchalarm2_26w": {
     "name": "switchalarm2_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.15",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -7317,7 +7317,7 @@
   },
   "switchclear2_26w": {
     "name": "switchclear2_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.16",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -7328,7 +7328,7 @@
   },
   "switchalarm3_26w": {
     "name": "switchalarm3_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.17",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -7339,7 +7339,7 @@
   },
   "switchclear3_26w": {
     "name": "switchclear3_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.18",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -7350,7 +7350,7 @@
   },
   "switchalarm4_26w": {
     "name": "switchalarm4_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.19",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -7361,7 +7361,7 @@
   },
   "switchclear4_26w": {
     "name": "switchclear4_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.20",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -7372,7 +7372,7 @@
   },
   "switchalarm5_26w": {
     "name": "switchalarm5_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.21",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -7383,7 +7383,7 @@
   },
   "switchclear5_26w": {
     "name": "switchclear5_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.22",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -7394,7 +7394,7 @@
   },
   "switchalarm6_26w": {
     "name": "switchalarm6_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.23",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -7405,7 +7405,7 @@
   },
   "switchclear6_26w": {
     "name": "switchclear6_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.24",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -7416,7 +7416,7 @@
   },
   "switchalarm7_26w": {
     "name": "switchalarm7_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.25",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -7427,7 +7427,7 @@
   },
   "switchclear7_26w": {
     "name": "switchclear7_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.26",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -7438,7 +7438,7 @@
   },
   "switchalarm8_26w": {
     "name": "switchalarm8_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.27",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -7449,7 +7449,7 @@
   },
   "switchclear8_26w": {
     "name": "switchclear8_26w",
-    "oid": "1.3.6.1.4.1.20916.1.40.28",
+    "oid": "1.3.6.1.4.1.20916.1.4.0.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -7461,8 +7461,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/ROOMALERT26W-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:04:05 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:15:17 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ROOMALERT26W-MIB"

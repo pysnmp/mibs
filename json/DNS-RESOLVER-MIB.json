@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "DNS-SERVER-MIB": [
-      "DnsQType",
-      "DnsNameAsIndex",
-      "DnsQClass",
-      "DnsName",
-      "DnsType",
+      "DnsClass",
       "DnsTime",
       "DnsOpCode",
-      "DnsClass",
+      "DnsQType",
+      "DnsType",
+      "DnsQClass",
       "DnsRespCode",
-      "dns"
+      "dns",
+      "DnsNameAsIndex",
+      "DnsName"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Counter64",
-      "MibIdentifier",
-      "IpAddress",
+      "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Bits",
-      "Unsigned32",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "Counter32"
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "dnsResMIB": {
@@ -1440,8 +1440,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DNS-RESOLVER-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:54 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:14:06 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DNS-RESOLVER-MIB"

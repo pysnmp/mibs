@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter32",
-      "IpAddress",
-      "enterprises",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter64",
       "TRAP-TYPE",
-      "Gauge32"
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -95,7 +95,7 @@
   },
   "eventTrap": {
     "name": "eventTrap",
-    "oid": "1.3.6.1.4.1.15597.1.1.1.10.1",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -130,7 +130,7 @@
   },
   "testEventTrap": {
     "name": "testEventTrap",
-    "oid": "1.3.6.1.4.1.15597.1.1.1.10.2",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.1.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -273,7 +273,7 @@
   },
   "burmActivityTrap": {
     "name": "burmActivityTrap",
-    "oid": "1.3.6.1.4.1.15597.1.1.2.10.1",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.1.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -771,8 +771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avamar/AVAMAR-MCS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:03:58 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:15:11 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "AVAMAR-MCS-MIB"

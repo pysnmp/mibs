@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "BASIS-GENERIC-MIB": [
-      "functionModuleType",
       "moduleSlotNumber",
-      "moduleTrapAlarmSeverity"
+      "moduleTrapAlarmSeverity",
+      "functionModuleType"
     ],
     "BASIS-MIB": [
       "basis"
@@ -14,29 +14,29 @@
       "shelfNodeName"
     ],
     "CISCO-VISM-ATM-TRUNK-MIB": [
+      "vismAal2CidAdminState",
       "vismAal2CidNum",
       "vismAal2CidFailReason",
       "vismAal2CidLcn",
-      "vismAal2CidState",
-      "vismAal2CidAdminState"
+      "vismAal2CidState"
     ],
     "CISCO-VISM-CAC-MIB": [
       "networkCacConfigState",
       "vismChanNum"
     ],
     "CISCO-VISM-CAS-MIB": [
+      "vismCasFileName",
       "vismCasVariantName",
-      "vismCasVariantState",
-      "vismCasFileName"
+      "vismCasVariantState"
     ],
     "CISCO-VISM-CONN-MIB": [
-      "vismChanActivityState",
-      "vismChanReroute",
-      "vismChanPortNum",
-      "vismCnfChanNum",
       "vismChanLockingState",
+      "vismChanReroute",
+      "vismChanRowStatus",
+      "vismCnfChanNum",
       "vismChanStatusBitMap",
-      "vismChanRowStatus"
+      "vismChanActivityState",
+      "vismChanPortNum"
     ],
     "CISCO-VISM-DSX0-MIB": [
       "vismFreeDs0Count"
@@ -45,63 +45,63 @@
       "vismHdlcChanNum"
     ],
     "CISCO-VISM-MODULE-MIB": [
-      "vismAppliedTemplate",
-      "vismAal2SubcellMuxing",
-      "vismCPUUtilizationThreshold",
-      "vismConfigChangeTypeBitMap",
-      "vismMemoryUtilization",
-      "vismCPUUtilization",
-      "vismFreeDs0Threshold",
-      "vismTrapIntIndex1",
       "vismTrapIntIndex2",
+      "vismCPUUtilization",
+      "vismCPUUtilizationThreshold",
       "vismTrapStrIndex1",
       "vismMode",
       "vismFeatureBitMap",
+      "vismConfigChangeTypeBitMap",
       "vismMemoryUtilizationThreshold",
+      "vismFreeDs0Threshold",
+      "vismTrapIntIndex1",
+      "vismAppliedTemplate",
+      "vismAal2SubcellMuxing",
+      "vismMemoryUtilization",
       "vismIpAddress"
     ],
     "CISCO-VISM-PORT-MIB": [
-      "vismPortNum",
       "vismPortType",
+      "vismPortState",
       "vismPortDs0ConfigBitMap",
-      "vismPortState"
+      "vismPortNum"
     ],
     "CISCO-VISM-SESSION-MIB": [
+      "vismRudpSessionNum",
       "vismSessionSetNum",
+      "vismSessionSetState",
       "vismSessionGrpState",
       "vismSessionGrpNum",
-      "vismSessionSetState",
-      "vismRudpSessionState",
-      "vismRudpSessionNum"
+      "vismRudpSessionState"
     ],
     "CISCO-VOICE-CAS-MODULE-MIB": [
       "cvcmCasTemplateName"
     ],
     "CISCO-WAN-ANNOUNCEMENT-MIB": [
       "cwAnnFileName",
-      "cwAnnFileCodec",
-      "cwAnnFileStatus"
+      "cwAnnFileStatus",
+      "cwAnnFileCodec"
     ],
     "CISCO-WAN-LAPD-TRUNK-MIB": [
-      "vismLapdDlcIndex",
       "vismLapdDlcLinkState",
-      "vismLapdIndex",
-      "vismLapdDlcSapi",
       "vismLapdDlcTei",
-      "vismLapdTrunkState"
+      "vismLapdDlcIndex",
+      "vismLapdTrunkState",
+      "vismLapdDlcSapi",
+      "vismLapdIndex"
     ],
     "CISCO-WAN-MG-MIB": [
+      "mgEndpointLineNumber",
+      "mgDomainName",
+      "mgcResolutionCommState",
+      "mgEndpointState",
+      "mgcResolutionName",
+      "mgDnsResolutionType",
       "mgEndpointChannelMap",
       "mgcName",
-      "mgcAssociationState",
-      "mgcResolutionName",
-      "mgcResolutionCommState",
-      "mgDnsResolutionType",
-      "mgEndpointLineNumber",
-      "mgEndpointState",
-      "mgDomainName",
       "mgAdministrativeState",
-      "mgcResolutionIpAddress"
+      "mgcResolutionIpAddress",
+      "mgcAssociationState"
     ],
     "CISCO-WAN-MGC-REDUN-MIB": [
       "mgcRedundancyGrpActState"
@@ -110,21 +110,21 @@
       "persistentXgcpEventName"
     ],
     "CISCO-WAN-RTP-CONN-MIB": [
-      "vismRtpConnAlarmState",
+      "vismRtpLcn",
       "vismRtpFailReason",
-      "vismRtpLcn"
+      "vismRtpConnAlarmState"
     ],
     "CISCO-WAN-SRCP-MIB": [
       "srcpPeerTimeSinceHeartbeat",
       "srcpPeerGrpTimeSinceHeartbeat"
     ],
     "CISCO-WAN-VISM-TONE-PLAN-MIB": [
-      "vismEventCode",
-      "tonePlanFileName",
-      "vismFrequency2",
       "vismFrequency1",
       "tonePlanRegionName",
-      "tonePlanVersionNumber"
+      "tonePlanVersionNumber",
+      "tonePlanFileName",
+      "vismEventCode",
+      "vismFrequency2"
     ],
     "GENERICOBJECT-MIB": [
       "genericTimeStamp",
@@ -135,34 +135,34 @@
       "intSrvFlowStatus"
     ],
     "RSVP-MIB": [
-      "rsvpSessionDestAddr",
-      "rsvpResvStatus",
       "rsvpResvFwdStatus",
-      "rsvpSenderStatus"
+      "rsvpSessionDestAddr",
+      "rsvpSenderStatus",
+      "rsvpResvStatus"
     ],
     "RTM-MIB": [
       "lastSequenceNumber"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
       "Unsigned32",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "IpAddress",
+      "Counter32",
       "Counter64",
-      "IpAddress"
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TRAP-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -171,7 +171,7 @@
   },
   "trapVismIpAddressChanged": {
     "name": "trapVismIpAddressChanged",
-    "oid": "1.3.6.1.4.1.351.1100.50700",
+    "oid": "1.3.6.1.4.1.351.110.0.50700",
     "class": "notificationtype",
     "objects": [
       {
@@ -210,7 +210,7 @@
   },
   "trapVismChanActive": {
     "name": "trapVismChanActive",
-    "oid": "1.3.6.1.4.1.351.1100.50709",
+    "oid": "1.3.6.1.4.1.351.110.0.50709",
     "class": "notificationtype",
     "objects": [
       {
@@ -257,7 +257,7 @@
   },
   "trapVismChanDeleted": {
     "name": "trapVismChanDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50710",
+    "oid": "1.3.6.1.4.1.351.110.0.50710",
     "class": "notificationtype",
     "objects": [
       {
@@ -304,7 +304,7 @@
   },
   "trapVismPortAdded": {
     "name": "trapVismPortAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50711",
+    "oid": "1.3.6.1.4.1.351.110.0.50711",
     "class": "notificationtype",
     "objects": [
       {
@@ -359,7 +359,7 @@
   },
   "trapVismPortActive": {
     "name": "trapVismPortActive",
-    "oid": "1.3.6.1.4.1.351.1100.50712",
+    "oid": "1.3.6.1.4.1.351.110.0.50712",
     "class": "notificationtype",
     "objects": [
       {
@@ -414,7 +414,7 @@
   },
   "trapVismPortFailed": {
     "name": "trapVismPortFailed",
-    "oid": "1.3.6.1.4.1.351.1100.50713",
+    "oid": "1.3.6.1.4.1.351.110.0.50713",
     "class": "notificationtype",
     "objects": [
       {
@@ -473,7 +473,7 @@
   },
   "trapProtectedChanActive": {
     "name": "trapProtectedChanActive",
-    "oid": "1.3.6.1.4.1.351.1100.50714",
+    "oid": "1.3.6.1.4.1.351.110.0.50714",
     "class": "notificationtype",
     "objects": [
       {
@@ -524,7 +524,7 @@
   },
   "trapProtectedChanStandby": {
     "name": "trapProtectedChanStandby",
-    "oid": "1.3.6.1.4.1.351.1100.50715",
+    "oid": "1.3.6.1.4.1.351.110.0.50715",
     "class": "notificationtype",
     "objects": [
       {
@@ -575,7 +575,7 @@
   },
   "trapProtectedChanFailed": {
     "name": "trapProtectedChanFailed",
-    "oid": "1.3.6.1.4.1.351.1100.50716",
+    "oid": "1.3.6.1.4.1.351.110.0.50716",
     "class": "notificationtype",
     "objects": [
       {
@@ -626,7 +626,7 @@
   },
   "trapProtectedChanLocked": {
     "name": "trapProtectedChanLocked",
-    "oid": "1.3.6.1.4.1.351.1100.50717",
+    "oid": "1.3.6.1.4.1.351.110.0.50717",
     "class": "notificationtype",
     "objects": [
       {
@@ -677,7 +677,7 @@
   },
   "trapProtectedChanUnlocked": {
     "name": "trapProtectedChanUnlocked",
-    "oid": "1.3.6.1.4.1.351.1100.50718",
+    "oid": "1.3.6.1.4.1.351.110.0.50718",
     "class": "notificationtype",
     "objects": [
       {
@@ -728,7 +728,7 @@
   },
   "trapVismCasVariantAdded": {
     "name": "trapVismCasVariantAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50739",
+    "oid": "1.3.6.1.4.1.351.110.0.50739",
     "class": "notificationtype",
     "objects": [
       {
@@ -775,7 +775,7 @@
   },
   "trapVismCasVariantDeleted": {
     "name": "trapVismCasVariantDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50740",
+    "oid": "1.3.6.1.4.1.351.110.0.50740",
     "class": "notificationtype",
     "objects": [
       {
@@ -814,7 +814,7 @@
   },
   "trapVismCasVariantConfigured": {
     "name": "trapVismCasVariantConfigured",
-    "oid": "1.3.6.1.4.1.351.1100.50741",
+    "oid": "1.3.6.1.4.1.351.110.0.50741",
     "class": "notificationtype",
     "objects": [
       {
@@ -853,7 +853,7 @@
   },
   "trapVismCasVariantNotConfigured": {
     "name": "trapVismCasVariantNotConfigured",
-    "oid": "1.3.6.1.4.1.351.1100.50742",
+    "oid": "1.3.6.1.4.1.351.110.0.50742",
     "class": "notificationtype",
     "objects": [
       {
@@ -892,7 +892,7 @@
   },
   "trapVismScalarChange": {
     "name": "trapVismScalarChange",
-    "oid": "1.3.6.1.4.1.351.1100.50745",
+    "oid": "1.3.6.1.4.1.351.110.0.50745",
     "class": "notificationtype",
     "objects": [
       {
@@ -931,7 +931,7 @@
   },
   "trapVismTableChange": {
     "name": "trapVismTableChange",
-    "oid": "1.3.6.1.4.1.351.1100.50746",
+    "oid": "1.3.6.1.4.1.351.110.0.50746",
     "class": "notificationtype",
     "objects": [
       {
@@ -982,7 +982,7 @@
   },
   "trapVismCodecTemplateChanged": {
     "name": "trapVismCodecTemplateChanged",
-    "oid": "1.3.6.1.4.1.351.1100.50743",
+    "oid": "1.3.6.1.4.1.351.110.0.50743",
     "class": "notificationtype",
     "objects": [
       {
@@ -1021,7 +1021,7 @@
   },
   "trapVismModeChanged": {
     "name": "trapVismModeChanged",
-    "oid": "1.3.6.1.4.1.351.1100.50744",
+    "oid": "1.3.6.1.4.1.351.110.0.50744",
     "class": "notificationtype",
     "objects": [
       {
@@ -1060,7 +1060,7 @@
   },
   "trapVismAal2CidAdded": {
     "name": "trapVismAal2CidAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50747",
+    "oid": "1.3.6.1.4.1.351.110.0.50747",
     "class": "notificationtype",
     "objects": [
       {
@@ -1103,7 +1103,7 @@
   },
   "trapVismAal2CidDeleted": {
     "name": "trapVismAal2CidDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50748",
+    "oid": "1.3.6.1.4.1.351.110.0.50748",
     "class": "notificationtype",
     "objects": [
       {
@@ -1146,7 +1146,7 @@
   },
   "trapVismHdlcChanAdded": {
     "name": "trapVismHdlcChanAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50752",
+    "oid": "1.3.6.1.4.1.351.110.0.50752",
     "class": "notificationtype",
     "objects": [
       {
@@ -1185,7 +1185,7 @@
   },
   "trapVismHdlcChanDeleted": {
     "name": "trapVismHdlcChanDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50753",
+    "oid": "1.3.6.1.4.1.351.110.0.50753",
     "class": "notificationtype",
     "objects": [
       {
@@ -1224,7 +1224,7 @@
   },
   "trapVismPortDeleted": {
     "name": "trapVismPortDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50754",
+    "oid": "1.3.6.1.4.1.351.110.0.50754",
     "class": "notificationtype",
     "objects": [
       {
@@ -1279,7 +1279,7 @@
   },
   "trapVismChanAdded": {
     "name": "trapVismChanAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50755",
+    "oid": "1.3.6.1.4.1.351.110.0.50755",
     "class": "notificationtype",
     "objects": [
       {
@@ -1326,7 +1326,7 @@
   },
   "trapVismChanFailed": {
     "name": "trapVismChanFailed",
-    "oid": "1.3.6.1.4.1.351.1100.50756",
+    "oid": "1.3.6.1.4.1.351.110.0.50756",
     "class": "notificationtype",
     "objects": [
       {
@@ -1377,7 +1377,7 @@
   },
   "trapVismConDown": {
     "name": "trapVismConDown",
-    "oid": "1.3.6.1.4.1.351.1100.50757",
+    "oid": "1.3.6.1.4.1.351.110.0.50757",
     "class": "notificationtype",
     "objects": [
       {
@@ -1428,7 +1428,7 @@
   },
   "trapVismConUp": {
     "name": "trapVismConUp",
-    "oid": "1.3.6.1.4.1.351.1100.50758",
+    "oid": "1.3.6.1.4.1.351.110.0.50758",
     "class": "notificationtype",
     "objects": [
       {
@@ -1479,7 +1479,7 @@
   },
   "trapVismChanReroute": {
     "name": "trapVismChanReroute",
-    "oid": "1.3.6.1.4.1.351.1100.50759",
+    "oid": "1.3.6.1.4.1.351.110.0.50759",
     "class": "notificationtype",
     "objects": [
       {
@@ -1526,7 +1526,7 @@
   },
   "trapVismAal2Muxing": {
     "name": "trapVismAal2Muxing",
-    "oid": "1.3.6.1.4.1.351.1100.50760",
+    "oid": "1.3.6.1.4.1.351.110.0.50760",
     "class": "notificationtype",
     "objects": [
       {
@@ -1565,7 +1565,7 @@
   },
   "trapVismCidState": {
     "name": "trapVismCidState",
-    "oid": "1.3.6.1.4.1.351.1100.50785",
+    "oid": "1.3.6.1.4.1.351.110.0.50785",
     "class": "notificationtype",
     "objects": [
       {
@@ -1616,7 +1616,7 @@
   },
   "trapNetworkCacConfigState": {
     "name": "trapNetworkCacConfigState",
-    "oid": "1.3.6.1.4.1.351.1100.50788",
+    "oid": "1.3.6.1.4.1.351.110.0.50788",
     "class": "notificationtype",
     "objects": [
       {
@@ -1659,7 +1659,7 @@
   },
   "trapVismFeatureChanged": {
     "name": "trapVismFeatureChanged",
-    "oid": "1.3.6.1.4.1.351.1100.50790",
+    "oid": "1.3.6.1.4.1.351.110.0.50790",
     "class": "notificationtype",
     "objects": [
       {
@@ -1698,7 +1698,7 @@
   },
   "trapAvailFreeDs0Low": {
     "name": "trapAvailFreeDs0Low",
-    "oid": "1.3.6.1.4.1.351.1100.50680",
+    "oid": "1.3.6.1.4.1.351.110.0.50680",
     "class": "notificationtype",
     "objects": [
       {
@@ -1745,7 +1745,7 @@
   },
   "trapCpuUtilExceeded": {
     "name": "trapCpuUtilExceeded",
-    "oid": "1.3.6.1.4.1.351.1100.50681",
+    "oid": "1.3.6.1.4.1.351.110.0.50681",
     "class": "notificationtype",
     "objects": [
       {
@@ -1792,7 +1792,7 @@
   },
   "trapMemoryUtilExceeded": {
     "name": "trapMemoryUtilExceeded",
-    "oid": "1.3.6.1.4.1.351.1100.50682",
+    "oid": "1.3.6.1.4.1.351.110.0.50682",
     "class": "notificationtype",
     "objects": [
       {
@@ -1839,7 +1839,7 @@
   },
   "mgAdministrativeStateLocked": {
     "name": "mgAdministrativeStateLocked",
-    "oid": "1.3.6.1.4.1.351.1100.50719",
+    "oid": "1.3.6.1.4.1.351.110.0.50719",
     "class": "notificationtype",
     "objects": [
       {
@@ -1878,7 +1878,7 @@
   },
   "mgAdministrativeStateUnlocked": {
     "name": "mgAdministrativeStateUnlocked",
-    "oid": "1.3.6.1.4.1.351.1100.50720",
+    "oid": "1.3.6.1.4.1.351.110.0.50720",
     "class": "notificationtype",
     "objects": [
       {
@@ -1917,7 +1917,7 @@
   },
   "mgAdministrativeStateShuttingDown": {
     "name": "mgAdministrativeStateShuttingDown",
-    "oid": "1.3.6.1.4.1.351.1100.50721",
+    "oid": "1.3.6.1.4.1.351.110.0.50721",
     "class": "notificationtype",
     "objects": [
       {
@@ -1956,7 +1956,7 @@
   },
   "mgcAssociated": {
     "name": "mgcAssociated",
-    "oid": "1.3.6.1.4.1.351.1100.50722",
+    "oid": "1.3.6.1.4.1.351.110.0.50722",
     "class": "notificationtype",
     "objects": [
       {
@@ -2003,7 +2003,7 @@
   },
   "mgcUnassociated": {
     "name": "mgcUnassociated",
-    "oid": "1.3.6.1.4.1.351.1100.50723",
+    "oid": "1.3.6.1.4.1.351.110.0.50723",
     "class": "notificationtype",
     "objects": [
       {
@@ -2050,7 +2050,7 @@
   },
   "mgcAssociatedCommLoss": {
     "name": "mgcAssociatedCommLoss",
-    "oid": "1.3.6.1.4.1.351.1100.50724",
+    "oid": "1.3.6.1.4.1.351.110.0.50724",
     "class": "notificationtype",
     "objects": [
       {
@@ -2097,7 +2097,7 @@
   },
   "mgcCommStateActive": {
     "name": "mgcCommStateActive",
-    "oid": "1.3.6.1.4.1.351.1100.50725",
+    "oid": "1.3.6.1.4.1.351.110.0.50725",
     "class": "notificationtype",
     "objects": [
       {
@@ -2144,7 +2144,7 @@
   },
   "mgcCommStateInactive": {
     "name": "mgcCommStateInactive",
-    "oid": "1.3.6.1.4.1.351.1100.50726",
+    "oid": "1.3.6.1.4.1.351.110.0.50726",
     "class": "notificationtype",
     "objects": [
       {
@@ -2191,7 +2191,7 @@
   },
   "mgEndpointCreated": {
     "name": "mgEndpointCreated",
-    "oid": "1.3.6.1.4.1.351.1100.50727",
+    "oid": "1.3.6.1.4.1.351.110.0.50727",
     "class": "notificationtype",
     "objects": [
       {
@@ -2238,7 +2238,7 @@
   },
   "mgEndpointDeleted": {
     "name": "mgEndpointDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50728",
+    "oid": "1.3.6.1.4.1.351.110.0.50728",
     "class": "notificationtype",
     "objects": [
       {
@@ -2285,7 +2285,7 @@
   },
   "mgEndpointActive": {
     "name": "mgEndpointActive",
-    "oid": "1.3.6.1.4.1.351.1100.50729",
+    "oid": "1.3.6.1.4.1.351.110.0.50729",
     "class": "notificationtype",
     "objects": [
       {
@@ -2336,7 +2336,7 @@
   },
   "mgEndpointFailed": {
     "name": "mgEndpointFailed",
-    "oid": "1.3.6.1.4.1.351.1100.50730",
+    "oid": "1.3.6.1.4.1.351.110.0.50730",
     "class": "notificationtype",
     "objects": [
       {
@@ -2387,7 +2387,7 @@
   },
   "mgcAdded": {
     "name": "mgcAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50731",
+    "oid": "1.3.6.1.4.1.351.110.0.50731",
     "class": "notificationtype",
     "objects": [
       {
@@ -2430,7 +2430,7 @@
   },
   "mgcDeleted": {
     "name": "mgcDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50732",
+    "oid": "1.3.6.1.4.1.351.110.0.50732",
     "class": "notificationtype",
     "objects": [
       {
@@ -2473,7 +2473,7 @@
   },
   "mgcProtocolAdded": {
     "name": "mgcProtocolAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50733",
+    "oid": "1.3.6.1.4.1.351.110.0.50733",
     "class": "notificationtype",
     "objects": [
       {
@@ -2516,7 +2516,7 @@
   },
   "mgcProtocolDeleted": {
     "name": "mgcProtocolDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50734",
+    "oid": "1.3.6.1.4.1.351.110.0.50734",
     "class": "notificationtype",
     "objects": [
       {
@@ -2559,7 +2559,7 @@
   },
   "mgcResolutionAdded": {
     "name": "mgcResolutionAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50735",
+    "oid": "1.3.6.1.4.1.351.110.0.50735",
     "class": "notificationtype",
     "objects": [
       {
@@ -2606,7 +2606,7 @@
   },
   "mgcResolutionDeleted": {
     "name": "mgcResolutionDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50736",
+    "oid": "1.3.6.1.4.1.351.110.0.50736",
     "class": "notificationtype",
     "objects": [
       {
@@ -2653,7 +2653,7 @@
   },
   "peerHeartbeatLost": {
     "name": "peerHeartbeatLost",
-    "oid": "1.3.6.1.4.1.351.1100.50737",
+    "oid": "1.3.6.1.4.1.351.110.0.50737",
     "class": "notificationtype",
     "objects": [
       {
@@ -2696,7 +2696,7 @@
   },
   "peerHeartbeatDetected": {
     "name": "peerHeartbeatDetected",
-    "oid": "1.3.6.1.4.1.351.1100.50738",
+    "oid": "1.3.6.1.4.1.351.110.0.50738",
     "class": "notificationtype",
     "objects": [
       {
@@ -2739,7 +2739,7 @@
   },
   "trapLapdAdded": {
     "name": "trapLapdAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50761",
+    "oid": "1.3.6.1.4.1.351.110.0.50761",
     "class": "notificationtype",
     "objects": [
       {
@@ -2778,7 +2778,7 @@
   },
   "trapLapdDeleted": {
     "name": "trapLapdDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50762",
+    "oid": "1.3.6.1.4.1.351.110.0.50762",
     "class": "notificationtype",
     "objects": [
       {
@@ -2817,7 +2817,7 @@
   },
   "trapSessionSetAdded": {
     "name": "trapSessionSetAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50763",
+    "oid": "1.3.6.1.4.1.351.110.0.50763",
     "class": "notificationtype",
     "objects": [
       {
@@ -2856,7 +2856,7 @@
   },
   "trapSessionSetDeleted": {
     "name": "trapSessionSetDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50764",
+    "oid": "1.3.6.1.4.1.351.110.0.50764",
     "class": "notificationtype",
     "objects": [
       {
@@ -2895,7 +2895,7 @@
   },
   "trapSessionGrpAdded": {
     "name": "trapSessionGrpAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50765",
+    "oid": "1.3.6.1.4.1.351.110.0.50765",
     "class": "notificationtype",
     "objects": [
       {
@@ -2934,7 +2934,7 @@
   },
   "trapSessionGrpDeleted": {
     "name": "trapSessionGrpDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50766",
+    "oid": "1.3.6.1.4.1.351.110.0.50766",
     "class": "notificationtype",
     "objects": [
       {
@@ -2973,7 +2973,7 @@
   },
   "trapRudpSessionAdded": {
     "name": "trapRudpSessionAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50767",
+    "oid": "1.3.6.1.4.1.351.110.0.50767",
     "class": "notificationtype",
     "objects": [
       {
@@ -3012,7 +3012,7 @@
   },
   "trapRudpSessionDeleted": {
     "name": "trapRudpSessionDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50768",
+    "oid": "1.3.6.1.4.1.351.110.0.50768",
     "class": "notificationtype",
     "objects": [
       {
@@ -3051,7 +3051,7 @@
   },
   "trapRudpSessionOos": {
     "name": "trapRudpSessionOos",
-    "oid": "1.3.6.1.4.1.351.1100.50769",
+    "oid": "1.3.6.1.4.1.351.110.0.50769",
     "class": "notificationtype",
     "objects": [
       {
@@ -3094,7 +3094,7 @@
   },
   "trapRudpSessionIs": {
     "name": "trapRudpSessionIs",
-    "oid": "1.3.6.1.4.1.351.1100.50770",
+    "oid": "1.3.6.1.4.1.351.110.0.50770",
     "class": "notificationtype",
     "objects": [
       {
@@ -3137,7 +3137,7 @@
   },
   "trapRudpSessionPrimaryIs": {
     "name": "trapRudpSessionPrimaryIs",
-    "oid": "1.3.6.1.4.1.351.1100.50771",
+    "oid": "1.3.6.1.4.1.351.110.0.50771",
     "class": "notificationtype",
     "objects": [
       {
@@ -3180,7 +3180,7 @@
   },
   "trapRudpSessionActive": {
     "name": "trapRudpSessionActive",
-    "oid": "1.3.6.1.4.1.351.1100.50772",
+    "oid": "1.3.6.1.4.1.351.110.0.50772",
     "class": "notificationtype",
     "objects": [
       {
@@ -3223,7 +3223,7 @@
   },
   "trapSessionGrpOos": {
     "name": "trapSessionGrpOos",
-    "oid": "1.3.6.1.4.1.351.1100.50773",
+    "oid": "1.3.6.1.4.1.351.110.0.50773",
     "class": "notificationtype",
     "objects": [
       {
@@ -3266,7 +3266,7 @@
   },
   "trapSessionGrpIs": {
     "name": "trapSessionGrpIs",
-    "oid": "1.3.6.1.4.1.351.1100.50774",
+    "oid": "1.3.6.1.4.1.351.110.0.50774",
     "class": "notificationtype",
     "objects": [
       {
@@ -3309,7 +3309,7 @@
   },
   "trapSessionSetOos": {
     "name": "trapSessionSetOos",
-    "oid": "1.3.6.1.4.1.351.1100.50775",
+    "oid": "1.3.6.1.4.1.351.110.0.50775",
     "class": "notificationtype",
     "objects": [
       {
@@ -3352,7 +3352,7 @@
   },
   "trapSessionSetActiveIs": {
     "name": "trapSessionSetActiveIs",
-    "oid": "1.3.6.1.4.1.351.1100.50776",
+    "oid": "1.3.6.1.4.1.351.110.0.50776",
     "class": "notificationtype",
     "objects": [
       {
@@ -3395,7 +3395,7 @@
   },
   "trapSessionSetStandbyIs": {
     "name": "trapSessionSetStandbyIs",
-    "oid": "1.3.6.1.4.1.351.1100.50777",
+    "oid": "1.3.6.1.4.1.351.110.0.50777",
     "class": "notificationtype",
     "objects": [
       {
@@ -3438,7 +3438,7 @@
   },
   "trapSessionSetFullIs": {
     "name": "trapSessionSetFullIs",
-    "oid": "1.3.6.1.4.1.351.1100.50778",
+    "oid": "1.3.6.1.4.1.351.110.0.50778",
     "class": "notificationtype",
     "objects": [
       {
@@ -3481,7 +3481,7 @@
   },
   "trapLapdDlcAdded": {
     "name": "trapLapdDlcAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50779",
+    "oid": "1.3.6.1.4.1.351.110.0.50779",
     "class": "notificationtype",
     "objects": [
       {
@@ -3528,7 +3528,7 @@
   },
   "trapLapdDlcDeleted": {
     "name": "trapLapdDlcDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50780",
+    "oid": "1.3.6.1.4.1.351.110.0.50780",
     "class": "notificationtype",
     "objects": [
       {
@@ -3575,7 +3575,7 @@
   },
   "trapLapdDlcUp": {
     "name": "trapLapdDlcUp",
-    "oid": "1.3.6.1.4.1.351.1100.50781",
+    "oid": "1.3.6.1.4.1.351.110.0.50781",
     "class": "notificationtype",
     "objects": [
       {
@@ -3626,7 +3626,7 @@
   },
   "trapLapdDlcDown": {
     "name": "trapLapdDlcDown",
-    "oid": "1.3.6.1.4.1.351.1100.50782",
+    "oid": "1.3.6.1.4.1.351.110.0.50782",
     "class": "notificationtype",
     "objects": [
       {
@@ -3677,7 +3677,7 @@
   },
   "persistentXgcpEventCreated": {
     "name": "persistentXgcpEventCreated",
-    "oid": "1.3.6.1.4.1.351.1100.50786",
+    "oid": "1.3.6.1.4.1.351.110.0.50786",
     "class": "notificationtype",
     "objects": [
       {
@@ -3720,7 +3720,7 @@
   },
   "persistentXgcpEventDeleted": {
     "name": "persistentXgcpEventDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50787",
+    "oid": "1.3.6.1.4.1.351.110.0.50787",
     "class": "notificationtype",
     "objects": [
       {
@@ -3763,7 +3763,7 @@
   },
   "mgDomainNameAdded": {
     "name": "mgDomainNameAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50791",
+    "oid": "1.3.6.1.4.1.351.110.0.50791",
     "class": "notificationtype",
     "objects": [
       {
@@ -3810,7 +3810,7 @@
   },
   "mgDomainNameDeleted": {
     "name": "mgDomainNameDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50789",
+    "oid": "1.3.6.1.4.1.351.110.0.50789",
     "class": "notificationtype",
     "objects": [
       {
@@ -3849,7 +3849,7 @@
   },
   "vismTonePlanAdded": {
     "name": "vismTonePlanAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50798",
+    "oid": "1.3.6.1.4.1.351.110.0.50798",
     "class": "notificationtype",
     "objects": [
       {
@@ -3900,7 +3900,7 @@
   },
   "vismTonePlanDeleted": {
     "name": "vismTonePlanDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50799",
+    "oid": "1.3.6.1.4.1.351.110.0.50799",
     "class": "notificationtype",
     "objects": [
       {
@@ -3951,7 +3951,7 @@
   },
   "vismRtpConnAdded": {
     "name": "vismRtpConnAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50650",
+    "oid": "1.3.6.1.4.1.351.110.0.50650",
     "class": "notificationtype",
     "objects": [
       {
@@ -3994,7 +3994,7 @@
   },
   "vismRtpConnDeleted": {
     "name": "vismRtpConnDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50651",
+    "oid": "1.3.6.1.4.1.351.110.0.50651",
     "class": "notificationtype",
     "objects": [
       {
@@ -4037,7 +4037,7 @@
   },
   "vismRtpConnStateChg": {
     "name": "vismRtpConnStateChg",
-    "oid": "1.3.6.1.4.1.351.1100.50652",
+    "oid": "1.3.6.1.4.1.351.110.0.50652",
     "class": "notificationtype",
     "objects": [
       {
@@ -4088,7 +4088,7 @@
   },
   "vismLapdTrStateIs": {
     "name": "vismLapdTrStateIs",
-    "oid": "1.3.6.1.4.1.351.1100.50653",
+    "oid": "1.3.6.1.4.1.351.110.0.50653",
     "class": "notificationtype",
     "objects": [
       {
@@ -4131,7 +4131,7 @@
   },
   "vismLapdTrStateOos": {
     "name": "vismLapdTrStateOos",
-    "oid": "1.3.6.1.4.1.351.1100.50654",
+    "oid": "1.3.6.1.4.1.351.110.0.50654",
     "class": "notificationtype",
     "objects": [
       {
@@ -4174,7 +4174,7 @@
   },
   "vismLapdTrunkAdded": {
     "name": "vismLapdTrunkAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50655",
+    "oid": "1.3.6.1.4.1.351.110.0.50655",
     "class": "notificationtype",
     "objects": [
       {
@@ -4213,7 +4213,7 @@
   },
   "vismLapdTrunkDeleted": {
     "name": "vismLapdTrunkDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50656",
+    "oid": "1.3.6.1.4.1.351.110.0.50656",
     "class": "notificationtype",
     "objects": [
       {
@@ -4252,7 +4252,7 @@
   },
   "mgcRedundancyGrpAdded": {
     "name": "mgcRedundancyGrpAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50657",
+    "oid": "1.3.6.1.4.1.351.110.0.50657",
     "class": "notificationtype",
     "objects": [
       {
@@ -4295,7 +4295,7 @@
   },
   "mgcRedundancyGrpDeleted": {
     "name": "mgcRedundancyGrpDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50658",
+    "oid": "1.3.6.1.4.1.351.110.0.50658",
     "class": "notificationtype",
     "objects": [
       {
@@ -4338,7 +4338,7 @@
   },
   "mgcRedundancyGrpCommOk": {
     "name": "mgcRedundancyGrpCommOk",
-    "oid": "1.3.6.1.4.1.351.1100.50659",
+    "oid": "1.3.6.1.4.1.351.110.0.50659",
     "class": "notificationtype",
     "objects": [
       {
@@ -4377,7 +4377,7 @@
   },
   "mgcRedundancyGrpCommLoss": {
     "name": "mgcRedundancyGrpCommLoss",
-    "oid": "1.3.6.1.4.1.351.1100.50660",
+    "oid": "1.3.6.1.4.1.351.110.0.50660",
     "class": "notificationtype",
     "objects": [
       {
@@ -4416,7 +4416,7 @@
   },
   "mgcActiveInGrp": {
     "name": "mgcActiveInGrp",
-    "oid": "1.3.6.1.4.1.351.1100.50665",
+    "oid": "1.3.6.1.4.1.351.110.0.50665",
     "class": "notificationtype",
     "objects": [
       {
@@ -4463,7 +4463,7 @@
   },
   "mgcInactiveInGrp": {
     "name": "mgcInactiveInGrp",
-    "oid": "1.3.6.1.4.1.351.1100.50666",
+    "oid": "1.3.6.1.4.1.351.110.0.50666",
     "class": "notificationtype",
     "objects": [
       {
@@ -4510,7 +4510,7 @@
   },
   "mgcRedundancyGrpProtocolAdded": {
     "name": "mgcRedundancyGrpProtocolAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50661",
+    "oid": "1.3.6.1.4.1.351.110.0.50661",
     "class": "notificationtype",
     "objects": [
       {
@@ -4553,7 +4553,7 @@
   },
   "mgcRedundancyGrpProtocolDeleted": {
     "name": "mgcRedundancyGrpProtocolDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50662",
+    "oid": "1.3.6.1.4.1.351.110.0.50662",
     "class": "notificationtype",
     "objects": [
       {
@@ -4596,7 +4596,7 @@
   },
   "peerGrpHeartbeatLost": {
     "name": "peerGrpHeartbeatLost",
-    "oid": "1.3.6.1.4.1.351.1100.50663",
+    "oid": "1.3.6.1.4.1.351.110.0.50663",
     "class": "notificationtype",
     "objects": [
       {
@@ -4639,7 +4639,7 @@
   },
   "peerGrpHeartbeatDetected": {
     "name": "peerGrpHeartbeatDetected",
-    "oid": "1.3.6.1.4.1.351.1100.50664",
+    "oid": "1.3.6.1.4.1.351.110.0.50664",
     "class": "notificationtype",
     "objects": [
       {
@@ -4682,7 +4682,7 @@
   },
   "mgcRedundancyGrpParamEntryAdded": {
     "name": "mgcRedundancyGrpParamEntryAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50668",
+    "oid": "1.3.6.1.4.1.351.110.0.50668",
     "class": "notificationtype",
     "objects": [
       {
@@ -4721,7 +4721,7 @@
   },
   "mgcRedundancyGrpParamEntryDeleted": {
     "name": "mgcRedundancyGrpParamEntryDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50669",
+    "oid": "1.3.6.1.4.1.351.110.0.50669",
     "class": "notificationtype",
     "objects": [
       {
@@ -4760,7 +4760,7 @@
   },
   "srcpPeerGrpParamEntryAdded": {
     "name": "srcpPeerGrpParamEntryAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50670",
+    "oid": "1.3.6.1.4.1.351.110.0.50670",
     "class": "notificationtype",
     "objects": [
       {
@@ -4799,7 +4799,7 @@
   },
   "srcpPeerGrpParamEntryDeleted": {
     "name": "srcpPeerGrpParamEntryDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50671",
+    "oid": "1.3.6.1.4.1.351.110.0.50671",
     "class": "notificationtype",
     "objects": [
       {
@@ -4838,7 +4838,7 @@
   },
   "cwAnnFileAddStarted": {
     "name": "cwAnnFileAddStarted",
-    "oid": "1.3.6.1.4.1.351.1100.50674",
+    "oid": "1.3.6.1.4.1.351.110.0.50674",
     "class": "notificationtype",
     "objects": [
       {
@@ -4889,7 +4889,7 @@
   },
   "cwAnnFileLoadComplete": {
     "name": "cwAnnFileLoadComplete",
-    "oid": "1.3.6.1.4.1.351.1100.50675",
+    "oid": "1.3.6.1.4.1.351.110.0.50675",
     "class": "notificationtype",
     "objects": [
       {
@@ -4940,7 +4940,7 @@
   },
   "cwAnnFileLoadFailed": {
     "name": "cwAnnFileLoadFailed",
-    "oid": "1.3.6.1.4.1.351.1100.50676",
+    "oid": "1.3.6.1.4.1.351.110.0.50676",
     "class": "notificationtype",
     "objects": [
       {
@@ -4991,7 +4991,7 @@
   },
   "cwAnnFileDeleted": {
     "name": "cwAnnFileDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50677",
+    "oid": "1.3.6.1.4.1.351.110.0.50677",
     "class": "notificationtype",
     "objects": [
       {
@@ -5030,7 +5030,7 @@
   },
   "newFlow": {
     "name": "newFlow",
-    "oid": "1.3.6.1.4.1.351.1100.50672",
+    "oid": "1.3.6.1.4.1.351.110.0.50672",
     "class": "notificationtype",
     "objects": [
       {
@@ -5085,7 +5085,7 @@
   },
   "lostFlow": {
     "name": "lostFlow",
-    "oid": "1.3.6.1.4.1.351.1100.50673",
+    "oid": "1.3.6.1.4.1.351.110.0.50673",
     "class": "notificationtype",
     "objects": [
       {
@@ -5140,7 +5140,7 @@
   },
   "dspRASEndpointFailed": {
     "name": "dspRASEndpointFailed",
-    "oid": "1.3.6.1.4.1.351.1100.50678",
+    "oid": "1.3.6.1.4.1.351.110.0.50678",
     "class": "notificationtype",
     "objects": [
       {
@@ -5187,7 +5187,7 @@
   },
   "dspRASEndpointActive": {
     "name": "dspRASEndpointActive",
-    "oid": "1.3.6.1.4.1.351.1100.50679",
+    "oid": "1.3.6.1.4.1.351.110.0.50679",
     "class": "notificationtype",
     "objects": [
       {
@@ -5234,7 +5234,7 @@
   },
   "vismConfigToneDetectAdded": {
     "name": "vismConfigToneDetectAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50683",
+    "oid": "1.3.6.1.4.1.351.110.0.50683",
     "class": "notificationtype",
     "objects": [
       {
@@ -5285,7 +5285,7 @@
   },
   "vismConfigToneDetectDeleted": {
     "name": "vismConfigToneDetectDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50684",
+    "oid": "1.3.6.1.4.1.351.110.0.50684",
     "class": "notificationtype",
     "objects": [
       {
@@ -5336,7 +5336,7 @@
   },
   "trapCidAdministrativeStateChange": {
     "name": "trapCidAdministrativeStateChange",
-    "oid": "1.3.6.1.4.1.351.1100.50784",
+    "oid": "1.3.6.1.4.1.351.110.0.50784",
     "class": "notificationtype",
     "objects": [
       {
@@ -5383,7 +5383,7 @@
   },
   "vismCasTransTblAdded": {
     "name": "vismCasTransTblAdded",
-    "oid": "1.3.6.1.4.1.351.1100.50685",
+    "oid": "1.3.6.1.4.1.351.110.0.50685",
     "class": "notificationtype",
     "objects": [
       {
@@ -5430,7 +5430,7 @@
   },
   "vismCasTranTblDeleted": {
     "name": "vismCasTranTblDeleted",
-    "oid": "1.3.6.1.4.1.351.1100.50686",
+    "oid": "1.3.6.1.4.1.351.110.0.50686",
     "class": "notificationtype",
     "objects": [
       {
@@ -5478,8 +5478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-TRAPS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:36 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:00 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-VISM-TRAPS-MIB"

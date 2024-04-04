@@ -6,45 +6,45 @@
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
       "StringMaxl32",
-      "TraceTxOperMode",
-      "Decimal2Dig",
-      "EnabledDisabledEnum",
-      "TraceMismatchFailMode",
-      "XcvrId",
-      "Decimal1Dig",
-      "Decimal2DigSmall",
-      "ChannelsNumber",
-      "EnabledDisabledNaEnum",
-      "NameString",
-      "PtpId",
       "StringMaxl15",
+      "PtpId",
+      "NameString",
+      "Decimal2Dig",
+      "Decimal1Dig",
+      "EnabledDisabledNaEnum",
+      "EnabledDisabledEnum",
+      "ChannelsNumber",
+      "XcvrId",
+      "TraceTxOperMode",
+      "Decimal2DigSmall",
+      "TraceMismatchFailMode",
       "XcvrType",
       "TraceMismatchMode"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32",
       "iso",
-      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:04:48 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:16:02 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MIB"

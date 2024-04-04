@@ -8,37 +8,37 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifName",
+      "InterfaceIndex",
       "ifIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
+      "MibIdentifier",
       "TimeTicks",
+      "Integer32",
       "Gauge32",
-      "Unsigned32"
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -5079,8 +5079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MSTP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:34 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:19:49 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MSTP-MIB"

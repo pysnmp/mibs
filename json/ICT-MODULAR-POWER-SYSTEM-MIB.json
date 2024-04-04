@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "iso",
       "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Integer32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
+      "Counter64",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "enterprises",
-      "Counter64"
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -450,7 +450,7 @@
   },
   "moduleAlarmTrap": {
     "name": "moduleAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.130.101",
+    "oid": "1.3.6.1.4.1.39145.13.0.101",
     "class": "notificationtype",
     "objects": [
       {
@@ -461,7 +461,7 @@
   },
   "alarmInputTrap": {
     "name": "alarmInputTrap",
-    "oid": "1.3.6.1.4.1.39145.130.102",
+    "oid": "1.3.6.1.4.1.39145.13.0.102",
     "class": "notificationtype",
     "objects": [
       {
@@ -472,17 +472,17 @@
   },
   "acFailAlarmTrap": {
     "name": "acFailAlarmTrap",
-    "oid": "1.3.6.1.4.1.39145.130.103",
+    "oid": "1.3.6.1.4.1.39145.13.0.103",
     "class": "notificationtype"
   },
   "sysCurrentLimitTrap": {
     "name": "sysCurrentLimitTrap",
-    "oid": "1.3.6.1.4.1.39145.130.104",
+    "oid": "1.3.6.1.4.1.39145.13.0.104",
     "class": "notificationtype"
   },
   "moduleAlarmClear": {
     "name": "moduleAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.130.111",
+    "oid": "1.3.6.1.4.1.39145.13.0.111",
     "class": "notificationtype",
     "objects": [
       {
@@ -493,7 +493,7 @@
   },
   "alarmInputClear": {
     "name": "alarmInputClear",
-    "oid": "1.3.6.1.4.1.39145.130.112",
+    "oid": "1.3.6.1.4.1.39145.13.0.112",
     "class": "notificationtype",
     "objects": [
       {
@@ -504,44 +504,44 @@
   },
   "acFailAlarmClear": {
     "name": "acFailAlarmClear",
-    "oid": "1.3.6.1.4.1.39145.130.113",
+    "oid": "1.3.6.1.4.1.39145.13.0.113",
     "class": "notificationtype"
   },
   "sysCurrentLimitClear": {
     "name": "sysCurrentLimitClear",
-    "oid": "1.3.6.1.4.1.39145.130.114",
+    "oid": "1.3.6.1.4.1.39145.13.0.114",
     "class": "notificationtype"
   },
   "batteryTestStart": {
     "name": "batteryTestStart",
-    "oid": "1.3.6.1.4.1.39145.130.121",
+    "oid": "1.3.6.1.4.1.39145.13.0.121",
     "class": "notificationtype"
   },
   "batteryTestComplete": {
     "name": "batteryTestComplete",
-    "oid": "1.3.6.1.4.1.39145.130.122",
+    "oid": "1.3.6.1.4.1.39145.13.0.122",
     "class": "notificationtype"
   },
   "batteryTestFail": {
     "name": "batteryTestFail",
-    "oid": "1.3.6.1.4.1.39145.130.123",
+    "oid": "1.3.6.1.4.1.39145.13.0.123",
     "class": "notificationtype"
   },
   "batteryEqualiseStart": {
     "name": "batteryEqualiseStart",
-    "oid": "1.3.6.1.4.1.39145.130.124",
+    "oid": "1.3.6.1.4.1.39145.13.0.124",
     "class": "notificationtype"
   },
   "batteryEqualiseComplete": {
     "name": "batteryEqualiseComplete",
-    "oid": "1.3.6.1.4.1.39145.130.125",
+    "oid": "1.3.6.1.4.1.39145.13.0.125",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ict/ICT-MODULAR-POWER-SYSTEM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:45 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:02 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ICT-MODULAR-POWER-SYSTEM-MIB"

@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "LINKSYS-IP": [
-      "rip2Spec",
-      "ipRouteLeaking",
-      "ipRedundancy",
       "rlOspf",
-      "ipRipFilter",
+      "rlIpRoutingProtPreference",
+      "ipRedundancy",
       "ipSpec",
-      "rlIpRoutingProtPreference"
+      "ipRipFilter",
+      "rip2Spec",
+      "ipRouteLeaking"
     ],
     "OSPF-MIB": [
-      "RouterID",
       "ospfIfEntry",
-      "ospfVirtIfEntry",
-      "AreaID"
+      "AreaID",
+      "RouterID",
+      "ospfVirtIfEntry"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
-      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlIpRouter": {
@@ -2215,8 +2215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IpRouter",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:09:44 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:21:02 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IpRouter"

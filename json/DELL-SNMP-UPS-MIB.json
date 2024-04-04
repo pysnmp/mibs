@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
       "enterprises",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
       "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "iso",
+      "TRAP-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dell": {
@@ -994,307 +994,307 @@
   },
   "trapInverterOverVoltage": {
     "name": "trapInverterOverVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.1",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.1",
     "class": "notificationtype"
   },
   "trapInverterOverVoltageOk": {
     "name": "trapInverterOverVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.2",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.2",
     "class": "notificationtype"
   },
   "trapInverterUnderVoltage": {
     "name": "trapInverterUnderVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.3",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.3",
     "class": "notificationtype"
   },
   "trapInverterUnderVoltageOk": {
     "name": "trapInverterUnderVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.4",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.4",
     "class": "notificationtype"
   },
   "trapBypassFrequencyOutOfRange": {
     "name": "trapBypassFrequencyOutOfRange",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.5",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.5",
     "class": "notificationtype"
   },
   "trapBypassFrequencyOutOfRangeOk": {
     "name": "trapBypassFrequencyOutOfRangeOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.6",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.6",
     "class": "notificationtype"
   },
   "trapOnBuck": {
     "name": "trapOnBuck",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.7",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.7",
     "class": "notificationtype"
   },
   "trapReturnFromBuck": {
     "name": "trapReturnFromBuck",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.8",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.8",
     "class": "notificationtype"
   },
   "trapOnBoost": {
     "name": "trapOnBoost",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.9",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.9",
     "class": "notificationtype"
   },
   "trapReturnFromBoost": {
     "name": "trapReturnFromBoost",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.10",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.10",
     "class": "notificationtype"
   },
   "trapInputOverVoltage": {
     "name": "trapInputOverVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.11",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.11",
     "class": "notificationtype"
   },
   "trapInputOverVoltageOk": {
     "name": "trapInputOverVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.12",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.12",
     "class": "notificationtype"
   },
   "trapInputUnderVoltage": {
     "name": "trapInputUnderVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.13",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.13",
     "class": "notificationtype"
   },
   "trapInputUnderVoltageOk": {
     "name": "trapInputUnderVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.14",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.14",
     "class": "notificationtype"
   },
   "trapInputFrequencyOutOfRange": {
     "name": "trapInputFrequencyOutOfRange",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.15",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.15",
     "class": "notificationtype"
   },
   "trapInputFrequencyOutOfRangeOk": {
     "name": "trapInputFrequencyOutOfRangeOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.16",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.16",
     "class": "notificationtype"
   },
   "trapRemoteEmergencyPowerOff": {
     "name": "trapRemoteEmergencyPowerOff",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.17",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.17",
     "class": "notificationtype"
   },
   "trapReturnFromEmergencyPowerOff": {
     "name": "trapReturnFromEmergencyPowerOff",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.18",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.18",
     "class": "notificationtype"
   },
   "trapLevel1Overload": {
     "name": "trapLevel1Overload",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.19",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.19",
     "class": "notificationtype"
   },
   "trapLevel1OverloadOk": {
     "name": "trapLevel1OverloadOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.20",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.20",
     "class": "notificationtype"
   },
   "trapLevel2Overload": {
     "name": "trapLevel2Overload",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.21",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.21",
     "class": "notificationtype"
   },
   "trapLevel2OverloadOk": {
     "name": "trapLevel2OverloadOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.22",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.22",
     "class": "notificationtype"
   },
   "trapLevel3Overload": {
     "name": "trapLevel3Overload",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.23",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.23",
     "class": "notificationtype"
   },
   "trapLevel3OverloadOk": {
     "name": "trapLevel3OverloadOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.24",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.24",
     "class": "notificationtype"
   },
   "trapPosDCLinkOverVoltage": {
     "name": "trapPosDCLinkOverVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.25",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.25",
     "class": "notificationtype"
   },
   "trapPosDCLinkOverVoltageOk": {
     "name": "trapPosDCLinkOverVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.26",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.26",
     "class": "notificationtype"
   },
   "trapPosDCLinkUnderVoltage": {
     "name": "trapPosDCLinkUnderVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.27",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.27",
     "class": "notificationtype"
   },
   "trapPosDCLinkUnderVoltageOk": {
     "name": "trapPosDCLinkUnderVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.28",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.28",
     "class": "notificationtype"
   },
   "trapNegDCLinkOverVoltage": {
     "name": "trapNegDCLinkOverVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.29",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.29",
     "class": "notificationtype"
   },
   "trapNegDCLinkOverVoltageOk": {
     "name": "trapNegDCLinkOverVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.30",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.30",
     "class": "notificationtype"
   },
   "trapNegDCLinkUnderVoltage": {
     "name": "trapNegDCLinkUnderVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.31",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.31",
     "class": "notificationtype"
   },
   "trapNegDCLinkUnderVoltageOk": {
     "name": "trapNegDCLinkUnderVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.32",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.32",
     "class": "notificationtype"
   },
   "trapRectifierFault": {
     "name": "trapRectifierFault",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.33",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.33",
     "class": "notificationtype"
   },
   "trapRectifierOk": {
     "name": "trapRectifierOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.34",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.34",
     "class": "notificationtype"
   },
   "trapInverterFault": {
     "name": "trapInverterFault",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.35",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.35",
     "class": "notificationtype"
   },
   "trapInverterOk": {
     "name": "trapInverterOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.36",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.36",
     "class": "notificationtype"
   },
   "trapChargerFailure": {
     "name": "trapChargerFailure",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.37",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.37",
     "class": "notificationtype"
   },
   "trapChargerOk": {
     "name": "trapChargerOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.38",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.38",
     "class": "notificationtype"
   },
   "trapEepromFailure": {
     "name": "trapEepromFailure",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.39",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.39",
     "class": "notificationtype"
   },
   "trapEepromOk": {
     "name": "trapEepromOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.40",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.40",
     "class": "notificationtype"
   },
   "trapShutdownImminent": {
     "name": "trapShutdownImminent",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.41",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.41",
     "class": "notificationtype"
   },
   "trapShutdownImminentOver": {
     "name": "trapShutdownImminentOver",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.42",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.42",
     "class": "notificationtype"
   },
   "trapBatteryLow": {
     "name": "trapBatteryLow",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.43",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.43",
     "class": "notificationtype"
   },
   "trapBatteryOk": {
     "name": "trapBatteryOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.44",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.44",
     "class": "notificationtype"
   },
   "trapOutputShortCircuit": {
     "name": "trapOutputShortCircuit",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.45",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.45",
     "class": "notificationtype"
   },
   "trapOutputReturnFromShortCircuit": {
     "name": "trapOutputReturnFromShortCircuit",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.46",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.46",
     "class": "notificationtype"
   },
   "trapUtilityNotPresent": {
     "name": "trapUtilityNotPresent",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.47",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.47",
     "class": "notificationtype"
   },
   "trapUtilityPresent": {
     "name": "trapUtilityPresent",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.48",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.48",
     "class": "notificationtype"
   },
   "trapBatteryOverVoltage": {
     "name": "trapBatteryOverVoltage",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.49",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.49",
     "class": "notificationtype"
   },
   "trapBatteryOverVoltageOk": {
     "name": "trapBatteryOverVoltageOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.50",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.50",
     "class": "notificationtype"
   },
   "trapHeatsinkOvertemperature": {
     "name": "trapHeatsinkOvertemperature",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.51",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.51",
     "class": "notificationtype"
   },
   "trapHeatsinkOvertemperatureOk": {
     "name": "trapHeatsinkOvertemperatureOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.52",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.52",
     "class": "notificationtype"
   },
   "trapBypassNotAvailable": {
     "name": "trapBypassNotAvailable",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.53",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.53",
     "class": "notificationtype"
   },
   "trapBypassNotAvailableOk": {
     "name": "trapBypassNotAvailableOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.54",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.54",
     "class": "notificationtype"
   },
   "trapOnManualBypass": {
     "name": "trapOnManualBypass",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.55",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.55",
     "class": "notificationtype"
   },
   "trapUPSOnBattery": {
     "name": "trapUPSOnBattery",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.57",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.57",
     "class": "notificationtype"
   },
   "trapUPSReturnFromBattery": {
     "name": "trapUPSReturnFromBattery",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.58",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.58",
     "class": "notificationtype"
   },
   "trapUPSOnBypass": {
     "name": "trapUPSOnBypass",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.59",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.59",
     "class": "notificationtype"
   },
   "trapUPSReturnFromBypass": {
     "name": "trapUPSReturnFromBypass",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.60",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.60",
     "class": "notificationtype"
   },
   "trapBatteryTestInProgress": {
     "name": "trapBatteryTestInProgress",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.61",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.61",
     "class": "notificationtype"
   },
   "trapBatteryTestDone": {
     "name": "trapBatteryTestDone",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.62",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.62",
     "class": "notificationtype",
     "objects": [
       {
@@ -1305,67 +1305,67 @@
   },
   "trapBatteryNeedReplacement": {
     "name": "trapBatteryNeedReplacement",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.63",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.63",
     "class": "notificationtype"
   },
   "trapBatteryReplacementDone": {
     "name": "trapBatteryReplacementDone",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.64",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.64",
     "class": "notificationtype"
   },
   "trapFanFailure": {
     "name": "trapFanFailure",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.65",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.65",
     "class": "notificationtype"
   },
   "trapFanOk": {
     "name": "trapFanOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.66",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.66",
     "class": "notificationtype"
   },
   "trapSiteWiringFault": {
     "name": "trapSiteWiringFault",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.67",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.67",
     "class": "notificationtype"
   },
   "trapSiteWiringOk": {
     "name": "trapSiteWiringOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.68",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.68",
     "class": "notificationtype"
   },
   "trapBatteryDisconnected": {
     "name": "trapBatteryDisconnected",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.69",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.69",
     "class": "notificationtype"
   },
   "trapBatteryConnected": {
     "name": "trapBatteryConnected",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.70",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.70",
     "class": "notificationtype"
   },
   "trapUPSOff": {
     "name": "trapUPSOff",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.71",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.71",
     "class": "notificationtype"
   },
   "trapUPSOn": {
     "name": "trapUPSOn",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.72",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.72",
     "class": "notificationtype"
   },
   "trapDCLinkImbalance": {
     "name": "trapDCLinkImbalance",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.73",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.73",
     "class": "notificationtype"
   },
   "trapDCLinkImbalanceOk": {
     "name": "trapDCLinkImbalanceOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.74",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.74",
     "class": "notificationtype"
   },
   "trapABMOn": {
     "name": "trapABMOn",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.79",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.79",
     "class": "notificationtype",
     "objects": [
       {
@@ -1376,159 +1376,159 @@
   },
   "trapABMOff": {
     "name": "trapABMOff",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.80",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.80",
     "class": "notificationtype"
   },
   "trapLoadSegment1Off": {
     "name": "trapLoadSegment1Off",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.81",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.81",
     "class": "notificationtype"
   },
   "trapLoadSegment1On": {
     "name": "trapLoadSegment1On",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.82",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.82",
     "class": "notificationtype"
   },
   "trapLoadSegment2Off": {
     "name": "trapLoadSegment2Off",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.83",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.83",
     "class": "notificationtype"
   },
   "trapLoadSegment2On": {
     "name": "trapLoadSegment2On",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.84",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.84",
     "class": "notificationtype"
   },
   "trapInHighEfficiencyMode": {
     "name": "trapInHighEfficiencyMode",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.85",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.85",
     "class": "notificationtype"
   },
   "trapReturnFromHighEfficiencyMode": {
     "name": "trapReturnFromHighEfficiencyMode",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.86",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.86",
     "class": "notificationtype"
   },
   "trapRectifierOverload": {
     "name": "trapRectifierOverload",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.87",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.87",
     "class": "notificationtype"
   },
   "trapRectifierOverloadOk": {
     "name": "trapRectifierOverloadOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.88",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.88",
     "class": "notificationtype"
   },
   "trapInverterOverload": {
     "name": "trapInverterOverload",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.89",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.89",
     "class": "notificationtype"
   },
   "trapInverterOverloadOk": {
     "name": "trapInverterOverloadOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.90",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.90",
     "class": "notificationtype"
   },
   "trapBypassVoltageOutOfRange": {
     "name": "trapBypassVoltageOutOfRange",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.91",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.91",
     "class": "notificationtype"
   },
   "trapBypassVoltageOutOfRangeOk": {
     "name": "trapBypassVoltageOutOfRangeOk",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.92",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.92",
     "class": "notificationtype"
   },
   "trapServiceBattery": {
     "name": "trapServiceBattery",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.93",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.93",
     "class": "notificationtype"
   },
   "trapToBypassCommand": {
     "name": "trapToBypassCommand",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.94",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.94",
     "class": "notificationtype"
   },
   "trapFromBypassCommand": {
     "name": "trapFromBypassCommand",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.95",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.95",
     "class": "notificationtype"
   },
   "trapCommunicationLost": {
     "name": "trapCommunicationLost",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.96",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.96",
     "class": "notificationtype"
   },
   "trapCommunicationRestored": {
     "name": "trapCommunicationRestored",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.97",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.97",
     "class": "notificationtype"
   },
   "trapEnvironComFailure": {
     "name": "trapEnvironComFailure",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.98",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.98",
     "class": "notificationtype"
   },
   "trapEnvironComOK": {
     "name": "trapEnvironComOK",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.99",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.99",
     "class": "notificationtype"
   },
   "trapEnvironTemperatureLow": {
     "name": "trapEnvironTemperatureLow",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.100",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.100",
     "class": "notificationtype"
   },
   "trapEnvironTemperatureHigh": {
     "name": "trapEnvironTemperatureHigh",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.102",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.102",
     "class": "notificationtype"
   },
   "trapEnvironTemperatureOK": {
     "name": "trapEnvironTemperatureOK",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.103",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.103",
     "class": "notificationtype"
   },
   "trapEnvironHumidityLow": {
     "name": "trapEnvironHumidityLow",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.104",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.104",
     "class": "notificationtype"
   },
   "trapEnvironHumidityHigh": {
     "name": "trapEnvironHumidityHigh",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.106",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.106",
     "class": "notificationtype"
   },
   "trapEnvironHumidityOK": {
     "name": "trapEnvironHumidityOK",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.107",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.107",
     "class": "notificationtype"
   },
   "trapEnvironInput1Closed": {
     "name": "trapEnvironInput1Closed",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.108",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.108",
     "class": "notificationtype"
   },
   "trapEnvironInput1Open": {
     "name": "trapEnvironInput1Open",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.109",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.109",
     "class": "notificationtype"
   },
   "trapEnvironInput2Closed": {
     "name": "trapEnvironInput2Closed",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.110",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.110",
     "class": "notificationtype"
   },
   "trapEnvironInput2Open": {
     "name": "trapEnvironInput2Open",
-    "oid": "1.3.6.1.4.1.674.10902.2.1400.111",
+    "oid": "1.3.6.1.4.1.674.10902.2.140.0.111",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-SNMP-UPS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:05:48 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:17:00 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DELL-SNMP-UPS-MIB"

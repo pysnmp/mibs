@@ -13,27 +13,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysContact",
       "sysDescr",
-      "sysLocation",
       "sysName",
-      "sysContact"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Unsigned32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "TRAP-TYPE"
+      "Counter32",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -12079,7 +12079,7 @@
   },
   "trapCritical": {
     "name": "trapCritical",
-    "oid": "1.3.6.1.4.1.232.1650.1",
+    "oid": "1.3.6.1.4.1.232.165.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -12110,7 +12110,7 @@
   },
   "trapWarning": {
     "name": "trapWarning",
-    "oid": "1.3.6.1.4.1.232.1650.2",
+    "oid": "1.3.6.1.4.1.232.165.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -12141,7 +12141,7 @@
   },
   "trapInformation": {
     "name": "trapInformation",
-    "oid": "1.3.6.1.4.1.232.1650.3",
+    "oid": "1.3.6.1.4.1.232.165.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -12172,7 +12172,7 @@
   },
   "trapCleared": {
     "name": "trapCleared",
-    "oid": "1.3.6.1.4.1.232.1650.4",
+    "oid": "1.3.6.1.4.1.232.165.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -12203,7 +12203,7 @@
   },
   "trapTest": {
     "name": "trapTest",
-    "oid": "1.3.6.1.4.1.232.1650.5",
+    "oid": "1.3.6.1.4.1.232.165.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -12234,7 +12234,7 @@
   },
   "deviceTrapInitialization": {
     "name": "deviceTrapInitialization",
-    "oid": "1.3.6.1.4.1.232.1650.6",
+    "oid": "1.3.6.1.4.1.232.165.0.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -12250,8 +12250,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQPOWER-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:10:06 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:27 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CPQPOWER-MIB"

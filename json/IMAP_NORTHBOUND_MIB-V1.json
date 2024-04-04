@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Counter32",
+      "Counter64",
+      "enterprises",
+      "Bits",
+      "TRAP-TYPE",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Counter64",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "enterprises",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
+      "TimeTicks",
       "Integer32",
-      "IpAddress",
       "Gauge32",
+      "IpAddress",
+      "iso",
       "Unsigned32",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "iMAP": {
@@ -944,7 +944,7 @@
   },
   "iMAPNorthboundFaultAlarmReportNotificationType": {
     "name": "iMAPNorthboundFaultAlarmReportNotificationType",
-    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.30.1",
+    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.3.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1155,12 +1155,12 @@
   },
   "iMAPNorthboundFaultAlarmQueryBeginNotificationType": {
     "name": "iMAPNorthboundFaultAlarmQueryBeginNotificationType",
-    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.30.2",
+    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.3.0.2",
     "class": "notificationtype"
   },
   "iMAPNorthboundFaultAlarmQueryNotificationType": {
     "name": "iMAPNorthboundFaultAlarmQueryNotificationType",
-    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.30.3",
+    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.3.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -1371,12 +1371,12 @@
   },
   "iMAPNorthboundFaultAlarmQueryEndNotificationType": {
     "name": "iMAPNorthboundFaultAlarmQueryEndNotificationType",
-    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.30.4",
+    "oid": "1.3.6.1.4.1.2011.2.15.2.4.3.3.0.4",
     "class": "notificationtype"
   },
   "iMAPNorthboundHeartbeatNotificationType": {
     "name": "iMAPNorthboundHeartbeatNotificationType",
-    "oid": "1.3.6.1.4.1.2011.2.15.2.1.2.1.1.10.5",
+    "oid": "1.3.6.1.4.1.2011.2.15.2.1.2.1.1.1.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -1396,8 +1396,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/IMAP_NORTHBOUND_MIB-V1",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:35 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:19:50 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IMAP_NORTHBOUND_MIB-V1"

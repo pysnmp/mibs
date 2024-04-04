@@ -5,9 +5,9 @@
       "cisco"
     ],
     "IF-MIB": [
+      "ifDescr",
       "ifType",
-      "ifIndex",
-      "ifDescr"
+      "ifIndex"
     ],
     "OLD-CISCO-INTERFACES-MIB": [
       "locIfReason"
@@ -22,36 +22,36 @@
       "loctcpConnOutBytes"
     ],
     "OLD-CISCO-TS-MIB": [
-      "tsLineUser",
-      "tslineSesType"
+      "tslineSesType",
+      "tsLineUser"
     ],
     "RFC1213-MIB": [
       "egpNeighAddr"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysUpTime",
-      "snmp"
+      "snmp",
+      "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Gauge32",
       "Unsigned32",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "IpAddress",
+      "Counter32",
       "Counter64",
-      "IpAddress"
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TRAP-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -63,7 +63,7 @@
   },
   "coldStart": {
     "name": "coldStart",
-    "oid": "1.3.6.1.2.1.110.0",
+    "oid": "1.3.6.1.2.1.11.0.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -78,7 +78,7 @@
   },
   "linkDown": {
     "name": "linkDown",
-    "oid": "1.3.6.1.2.1.110.2",
+    "oid": "1.3.6.1.2.1.11.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -101,7 +101,7 @@
   },
   "linkUp": {
     "name": "linkUp",
-    "oid": "1.3.6.1.2.1.110.3",
+    "oid": "1.3.6.1.2.1.11.0.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -124,7 +124,7 @@
   },
   "authenticationFailure": {
     "name": "authenticationFailure",
-    "oid": "1.3.6.1.2.1.110.4",
+    "oid": "1.3.6.1.2.1.11.0.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -135,7 +135,7 @@
   },
   "egpNeighborLoss": {
     "name": "egpNeighborLoss",
-    "oid": "1.3.6.1.2.1.110.5",
+    "oid": "1.3.6.1.2.1.11.0.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -146,7 +146,7 @@
   },
   "reload": {
     "name": "reload",
-    "oid": "1.3.6.1.4.1.90.0",
+    "oid": "1.3.6.1.4.1.9.0.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -161,7 +161,7 @@
   },
   "tcpConnectionClose": {
     "name": "tcpConnectionClose",
-    "oid": "1.3.6.1.4.1.90.1",
+    "oid": "1.3.6.1.4.1.9.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -193,8 +193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOTRAP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:31 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:19:57 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCOTRAP-MIB"

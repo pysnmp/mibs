@@ -5,26 +5,26 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "OBJECT-TYPE",
       "Bits",
+      "enterprises",
+      "TRAP-TYPE",
+      "Gauge32",
+      "Counter64",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
       "Integer32",
-      "TimeTicks",
-      "TRAP-TYPE",
       "MODULE-IDENTITY",
-      "enterprises",
-      "Counter64"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3747,7 +3747,7 @@
   },
   "externalAlarmInPort1Alarm": {
     "name": "externalAlarmInPort1Alarm",
-    "oid": "1.3.6.1.4.1.4458.10000.105",
+    "oid": "1.3.6.1.4.1.4458.1000.0.105",
     "class": "notificationtype",
     "objects": [
       {
@@ -3778,7 +3778,7 @@
   },
   "externalAlarmInPort2Alarm": {
     "name": "externalAlarmInPort2Alarm",
-    "oid": "1.3.6.1.4.1.4458.10000.106",
+    "oid": "1.3.6.1.4.1.4458.1000.0.106",
     "class": "notificationtype",
     "objects": [
       {
@@ -3809,7 +3809,7 @@
   },
   "bitFailedAlarm": {
     "name": "bitFailedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.107",
+    "oid": "1.3.6.1.4.1.4458.1000.0.107",
     "class": "notificationtype",
     "objects": [
       {
@@ -3840,7 +3840,7 @@
   },
   "wrongConfigurationLoadedAlarm": {
     "name": "wrongConfigurationLoadedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.108",
+    "oid": "1.3.6.1.4.1.4458.1000.0.108",
     "class": "notificationtype",
     "objects": [
       {
@@ -3871,7 +3871,7 @@
   },
   "lanPort1DisconnectedAlarm": {
     "name": "lanPort1DisconnectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.109",
+    "oid": "1.3.6.1.4.1.4458.1000.0.109",
     "class": "notificationtype",
     "objects": [
       {
@@ -3902,7 +3902,7 @@
   },
   "lanPort2DisconnectedAlarm": {
     "name": "lanPort2DisconnectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.110",
+    "oid": "1.3.6.1.4.1.4458.1000.0.110",
     "class": "notificationtype",
     "objects": [
       {
@@ -3933,7 +3933,7 @@
   },
   "mngPortDisconnectedAlarm": {
     "name": "mngPortDisconnectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.111",
+    "oid": "1.3.6.1.4.1.4458.1000.0.111",
     "class": "notificationtype",
     "objects": [
       {
@@ -3964,7 +3964,7 @@
   },
   "externalAlarmInPort3Alarm": {
     "name": "externalAlarmInPort3Alarm",
-    "oid": "1.3.6.1.4.1.4458.10000.112",
+    "oid": "1.3.6.1.4.1.4458.1000.0.112",
     "class": "notificationtype",
     "objects": [
       {
@@ -3995,7 +3995,7 @@
   },
   "externalAlarmInPort4Alarm": {
     "name": "externalAlarmInPort4Alarm",
-    "oid": "1.3.6.1.4.1.4458.10000.113",
+    "oid": "1.3.6.1.4.1.4458.1000.0.113",
     "class": "notificationtype",
     "objects": [
       {
@@ -4026,7 +4026,7 @@
   },
   "swVersionsMismatchFullCompatibilityAlarm": {
     "name": "swVersionsMismatchFullCompatibilityAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.114",
+    "oid": "1.3.6.1.4.1.4458.1000.0.114",
     "class": "notificationtype",
     "objects": [
       {
@@ -4057,7 +4057,7 @@
   },
   "swVersionsMismatchRestrictedCompatibilityAlarm": {
     "name": "swVersionsMismatchRestrictedCompatibilityAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.115",
+    "oid": "1.3.6.1.4.1.4458.1000.0.115",
     "class": "notificationtype",
     "objects": [
       {
@@ -4088,7 +4088,7 @@
   },
   "swVersionsMismatchSoftwareUpgradeRequired": {
     "name": "swVersionsMismatchSoftwareUpgradeRequired",
-    "oid": "1.3.6.1.4.1.4458.10000.116",
+    "oid": "1.3.6.1.4.1.4458.1000.0.116",
     "class": "notificationtype",
     "objects": [
       {
@@ -4119,7 +4119,7 @@
   },
   "swVersionsIncompatible": {
     "name": "swVersionsIncompatible",
-    "oid": "1.3.6.1.4.1.4458.10000.117",
+    "oid": "1.3.6.1.4.1.4458.1000.0.117",
     "class": "notificationtype",
     "objects": [
       {
@@ -4150,7 +4150,7 @@
   },
   "hssMultipleSourcesDetectedAlarm": {
     "name": "hssMultipleSourcesDetectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.118",
+    "oid": "1.3.6.1.4.1.4458.1000.0.118",
     "class": "notificationtype",
     "objects": [
       {
@@ -4181,7 +4181,7 @@
   },
   "hssSyncToProperSourceStoppedAlarm": {
     "name": "hssSyncToProperSourceStoppedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.119",
+    "oid": "1.3.6.1.4.1.4458.1000.0.119",
     "class": "notificationtype",
     "objects": [
       {
@@ -4212,7 +4212,7 @@
   },
   "hssSyncPulseDetectedAlarm": {
     "name": "hssSyncPulseDetectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.120",
+    "oid": "1.3.6.1.4.1.4458.1000.0.120",
     "class": "notificationtype",
     "objects": [
       {
@@ -4243,7 +4243,7 @@
   },
   "tdmBackupAlarm": {
     "name": "tdmBackupAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.121",
+    "oid": "1.3.6.1.4.1.4458.1000.0.121",
     "class": "notificationtype",
     "objects": [
       {
@@ -4274,7 +4274,7 @@
   },
   "linkLockUnauthorizedRemoteODU": {
     "name": "linkLockUnauthorizedRemoteODU",
-    "oid": "1.3.6.1.4.1.4458.10000.122",
+    "oid": "1.3.6.1.4.1.4458.1000.0.122",
     "class": "notificationtype",
     "objects": [
       {
@@ -4305,7 +4305,7 @@
   },
   "linkLockUnauthorizedODU": {
     "name": "linkLockUnauthorizedODU",
-    "oid": "1.3.6.1.4.1.4458.10000.123",
+    "oid": "1.3.6.1.4.1.4458.1000.0.123",
     "class": "notificationtype",
     "objects": [
       {
@@ -4336,7 +4336,7 @@
   },
   "hotStandbyAlarm": {
     "name": "hotStandbyAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.124",
+    "oid": "1.3.6.1.4.1.4458.1000.0.124",
     "class": "notificationtype",
     "objects": [
       {
@@ -4367,7 +4367,7 @@
   },
   "sfpInsertion": {
     "name": "sfpInsertion",
-    "oid": "1.3.6.1.4.1.4458.10000.126",
+    "oid": "1.3.6.1.4.1.4458.1000.0.126",
     "class": "notificationtype",
     "objects": [
       {
@@ -4398,7 +4398,7 @@
   },
   "sfpPort1DisconnectedAlarm": {
     "name": "sfpPort1DisconnectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.127",
+    "oid": "1.3.6.1.4.1.4458.1000.0.127",
     "class": "notificationtype",
     "objects": [
       {
@@ -4429,7 +4429,7 @@
   },
   "ringRplStateActiveAlarm": {
     "name": "ringRplStateActiveAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.128",
+    "oid": "1.3.6.1.4.1.4458.1000.0.128",
     "class": "notificationtype",
     "objects": [
       {
@@ -4460,7 +4460,7 @@
   },
   "desiredRatioCanNotBeAppliedAlarm": {
     "name": "desiredRatioCanNotBeAppliedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.129",
+    "oid": "1.3.6.1.4.1.4458.1000.0.129",
     "class": "notificationtype",
     "objects": [
       {
@@ -4491,7 +4491,7 @@
   },
   "cbwMismatch": {
     "name": "cbwMismatch",
-    "oid": "1.3.6.1.4.1.4458.10000.130",
+    "oid": "1.3.6.1.4.1.4458.1000.0.130",
     "class": "notificationtype",
     "objects": [
       {
@@ -4522,7 +4522,7 @@
   },
   "gpsNotSynchronized": {
     "name": "gpsNotSynchronized",
-    "oid": "1.3.6.1.4.1.4458.10000.131",
+    "oid": "1.3.6.1.4.1.4458.1000.0.131",
     "class": "notificationtype",
     "objects": [
       {
@@ -4553,7 +4553,7 @@
   },
   "pdTooHighDueCbwLimitations": {
     "name": "pdTooHighDueCbwLimitations",
-    "oid": "1.3.6.1.4.1.4458.10000.132",
+    "oid": "1.3.6.1.4.1.4458.1000.0.132",
     "class": "notificationtype",
     "objects": [
       {
@@ -4584,7 +4584,7 @@
   },
   "hbsEncryptionAlarm": {
     "name": "hbsEncryptionAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.133",
+    "oid": "1.3.6.1.4.1.4458.1000.0.133",
     "class": "notificationtype",
     "objects": [
       {
@@ -4615,7 +4615,7 @@
   },
   "hbsEhServiceClosedToHsu": {
     "name": "hbsEhServiceClosedToHsu",
-    "oid": "1.3.6.1.4.1.4458.10000.134",
+    "oid": "1.3.6.1.4.1.4458.1000.0.134",
     "class": "notificationtype",
     "objects": [
       {
@@ -4646,7 +4646,7 @@
   },
   "hbsUnsynchronizedHsuAlarm": {
     "name": "hbsUnsynchronizedHsuAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.135",
+    "oid": "1.3.6.1.4.1.4458.1000.0.135",
     "class": "notificationtype",
     "objects": [
       {
@@ -4677,7 +4677,7 @@
   },
   "hbsInactiveHbsAlarm": {
     "name": "hbsInactiveHbsAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.136",
+    "oid": "1.3.6.1.4.1.4458.1000.0.136",
     "class": "notificationtype",
     "objects": [
       {
@@ -4708,7 +4708,7 @@
   },
   "incompatibleHsu": {
     "name": "incompatibleHsu",
-    "oid": "1.3.6.1.4.1.4458.10000.137",
+    "oid": "1.3.6.1.4.1.4458.1000.0.137",
     "class": "notificationtype",
     "objects": [
       {
@@ -4739,7 +4739,7 @@
   },
   "hsuUnsupportedBeacon": {
     "name": "hsuUnsupportedBeacon",
-    "oid": "1.3.6.1.4.1.4458.10000.138",
+    "oid": "1.3.6.1.4.1.4458.1000.0.138",
     "class": "notificationtype",
     "objects": [
       {
@@ -4770,7 +4770,7 @@
   },
   "lanPortDisconnectedAlarm": {
     "name": "lanPortDisconnectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.139",
+    "oid": "1.3.6.1.4.1.4458.1000.0.139",
     "class": "notificationtype",
     "objects": [
       {
@@ -4801,7 +4801,7 @@
   },
   "poePortDisconnectedAlarm": {
     "name": "poePortDisconnectedAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.140",
+    "oid": "1.3.6.1.4.1.4458.1000.0.140",
     "class": "notificationtype",
     "objects": [
       {
@@ -4832,7 +4832,7 @@
   },
   "poePowerConsumptionAlarm": {
     "name": "poePowerConsumptionAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.141",
+    "oid": "1.3.6.1.4.1.4458.1000.0.141",
     "class": "notificationtype",
     "objects": [
       {
@@ -4863,7 +4863,7 @@
   },
   "hobupFaultyStateAlarm": {
     "name": "hobupFaultyStateAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.149",
+    "oid": "1.3.6.1.4.1.4458.1000.0.149",
     "class": "notificationtype",
     "objects": [
       {
@@ -4894,7 +4894,7 @@
   },
   "gpsOverCurrentAlarm": {
     "name": "gpsOverCurrentAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.150",
+    "oid": "1.3.6.1.4.1.4458.1000.0.150",
     "class": "notificationtype",
     "objects": [
       {
@@ -4925,7 +4925,7 @@
   },
   "gpsCommunicationFailiureAlarm": {
     "name": "gpsCommunicationFailiureAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.151",
+    "oid": "1.3.6.1.4.1.4458.1000.0.151",
     "class": "notificationtype",
     "objects": [
       {
@@ -4956,7 +4956,7 @@
   },
   "temperatureThresholdAlarm": {
     "name": "temperatureThresholdAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.152",
+    "oid": "1.3.6.1.4.1.4458.1000.0.152",
     "class": "notificationtype",
     "objects": [
       {
@@ -4987,7 +4987,7 @@
   },
   "localRouterDiscoveryStatus": {
     "name": "localRouterDiscoveryStatus",
-    "oid": "1.3.6.1.4.1.4458.10000.153",
+    "oid": "1.3.6.1.4.1.4458.1000.0.153",
     "class": "notificationtype",
     "objects": [
       {
@@ -5018,7 +5018,7 @@
   },
   "trackRouterDiscoveryStatus": {
     "name": "trackRouterDiscoveryStatus",
-    "oid": "1.3.6.1.4.1.4458.10000.154",
+    "oid": "1.3.6.1.4.1.4458.1000.0.154",
     "class": "notificationtype",
     "objects": [
       {
@@ -5049,7 +5049,7 @@
   },
   "lastUserSnmpAccessOverHourAgo": {
     "name": "lastUserSnmpAccessOverHourAgo",
-    "oid": "1.3.6.1.4.1.4458.10000.155",
+    "oid": "1.3.6.1.4.1.4458.1000.0.155",
     "class": "notificationtype",
     "objects": [
       {
@@ -5080,7 +5080,7 @@
   },
   "btsTargetUnreachable": {
     "name": "btsTargetUnreachable",
-    "oid": "1.3.6.1.4.1.4458.10000.156",
+    "oid": "1.3.6.1.4.1.4458.1000.0.156",
     "class": "notificationtype",
     "objects": [
       {
@@ -5111,7 +5111,7 @@
   },
   "tdmServiceClear": {
     "name": "tdmServiceClear",
-    "oid": "1.3.6.1.4.1.4458.10000.200",
+    "oid": "1.3.6.1.4.1.4458.1000.0.200",
     "class": "notificationtype",
     "objects": [
       {
@@ -5142,7 +5142,7 @@
   },
   "ethServiceOpened": {
     "name": "ethServiceOpened",
-    "oid": "1.3.6.1.4.1.4458.10000.201",
+    "oid": "1.3.6.1.4.1.4458.1000.0.201",
     "class": "notificationtype",
     "objects": [
       {
@@ -5173,7 +5173,7 @@
   },
   "encryptionClear": {
     "name": "encryptionClear",
-    "oid": "1.3.6.1.4.1.4458.10000.203",
+    "oid": "1.3.6.1.4.1.4458.1000.0.203",
     "class": "notificationtype",
     "objects": [
       {
@@ -5204,7 +5204,7 @@
   },
   "changeLinkPasswordClear": {
     "name": "changeLinkPasswordClear",
-    "oid": "1.3.6.1.4.1.4458.10000.204",
+    "oid": "1.3.6.1.4.1.4458.1000.0.204",
     "class": "notificationtype",
     "objects": [
       {
@@ -5235,7 +5235,7 @@
   },
   "externalAlarmInPort1Clear": {
     "name": "externalAlarmInPort1Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.205",
+    "oid": "1.3.6.1.4.1.4458.1000.0.205",
     "class": "notificationtype",
     "objects": [
       {
@@ -5266,7 +5266,7 @@
   },
   "externalAlarmInPort2Clear": {
     "name": "externalAlarmInPort2Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.206",
+    "oid": "1.3.6.1.4.1.4458.1000.0.206",
     "class": "notificationtype",
     "objects": [
       {
@@ -5297,7 +5297,7 @@
   },
   "lanPort1Clear": {
     "name": "lanPort1Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.209",
+    "oid": "1.3.6.1.4.1.4458.1000.0.209",
     "class": "notificationtype",
     "objects": [
       {
@@ -5328,7 +5328,7 @@
   },
   "lanPort2Clear": {
     "name": "lanPort2Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.210",
+    "oid": "1.3.6.1.4.1.4458.1000.0.210",
     "class": "notificationtype",
     "objects": [
       {
@@ -5359,7 +5359,7 @@
   },
   "mngPortClear": {
     "name": "mngPortClear",
-    "oid": "1.3.6.1.4.1.4458.10000.211",
+    "oid": "1.3.6.1.4.1.4458.1000.0.211",
     "class": "notificationtype",
     "objects": [
       {
@@ -5390,7 +5390,7 @@
   },
   "externalAlarmInPort3Clear": {
     "name": "externalAlarmInPort3Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.212",
+    "oid": "1.3.6.1.4.1.4458.1000.0.212",
     "class": "notificationtype",
     "objects": [
       {
@@ -5421,7 +5421,7 @@
   },
   "externalAlarmInPort4Clear": {
     "name": "externalAlarmInPort4Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.213",
+    "oid": "1.3.6.1.4.1.4458.1000.0.213",
     "class": "notificationtype",
     "objects": [
       {
@@ -5452,7 +5452,7 @@
   },
   "swVersionsMatchFullCompatibilityClear": {
     "name": "swVersionsMatchFullCompatibilityClear",
-    "oid": "1.3.6.1.4.1.4458.10000.214",
+    "oid": "1.3.6.1.4.1.4458.1000.0.214",
     "class": "notificationtype",
     "objects": [
       {
@@ -5483,7 +5483,7 @@
   },
   "swVersionsMatchRestrictedCompatibilityClear": {
     "name": "swVersionsMatchRestrictedCompatibilityClear",
-    "oid": "1.3.6.1.4.1.4458.10000.215",
+    "oid": "1.3.6.1.4.1.4458.1000.0.215",
     "class": "notificationtype",
     "objects": [
       {
@@ -5514,7 +5514,7 @@
   },
   "swVersionsMatchSoftwareUpgradeRequiredClear": {
     "name": "swVersionsMatchSoftwareUpgradeRequiredClear",
-    "oid": "1.3.6.1.4.1.4458.10000.216",
+    "oid": "1.3.6.1.4.1.4458.1000.0.216",
     "class": "notificationtype",
     "objects": [
       {
@@ -5545,7 +5545,7 @@
   },
   "swVersionsCompatibleClear": {
     "name": "swVersionsCompatibleClear",
-    "oid": "1.3.6.1.4.1.4458.10000.217",
+    "oid": "1.3.6.1.4.1.4458.1000.0.217",
     "class": "notificationtype",
     "objects": [
       {
@@ -5576,7 +5576,7 @@
   },
   "hssMultipleSourcesDisappearedClear": {
     "name": "hssMultipleSourcesDisappearedClear",
-    "oid": "1.3.6.1.4.1.4458.10000.218",
+    "oid": "1.3.6.1.4.1.4458.1000.0.218",
     "class": "notificationtype",
     "objects": [
       {
@@ -5607,7 +5607,7 @@
   },
   "hssSyncToProperSourceAchievedClear": {
     "name": "hssSyncToProperSourceAchievedClear",
-    "oid": "1.3.6.1.4.1.4458.10000.219",
+    "oid": "1.3.6.1.4.1.4458.1000.0.219",
     "class": "notificationtype",
     "objects": [
       {
@@ -5638,7 +5638,7 @@
   },
   "hssSyncPulseDisappearedClear": {
     "name": "hssSyncPulseDisappearedClear",
-    "oid": "1.3.6.1.4.1.4458.10000.220",
+    "oid": "1.3.6.1.4.1.4458.1000.0.220",
     "class": "notificationtype",
     "objects": [
       {
@@ -5669,7 +5669,7 @@
   },
   "tdmBackupClear": {
     "name": "tdmBackupClear",
-    "oid": "1.3.6.1.4.1.4458.10000.221",
+    "oid": "1.3.6.1.4.1.4458.1000.0.221",
     "class": "notificationtype",
     "objects": [
       {
@@ -5700,7 +5700,7 @@
   },
   "linkLockAuthorizedRemoteODU": {
     "name": "linkLockAuthorizedRemoteODU",
-    "oid": "1.3.6.1.4.1.4458.10000.222",
+    "oid": "1.3.6.1.4.1.4458.1000.0.222",
     "class": "notificationtype",
     "objects": [
       {
@@ -5731,7 +5731,7 @@
   },
   "linkLockAuthorizedODU": {
     "name": "linkLockAuthorizedODU",
-    "oid": "1.3.6.1.4.1.4458.10000.223",
+    "oid": "1.3.6.1.4.1.4458.1000.0.223",
     "class": "notificationtype",
     "objects": [
       {
@@ -5762,7 +5762,7 @@
   },
   "linkAuthenticationDisabled": {
     "name": "linkAuthenticationDisabled",
-    "oid": "1.3.6.1.4.1.4458.10000.224",
+    "oid": "1.3.6.1.4.1.4458.1000.0.224",
     "class": "notificationtype",
     "objects": [
       {
@@ -5793,7 +5793,7 @@
   },
   "hotStandbyClear": {
     "name": "hotStandbyClear",
-    "oid": "1.3.6.1.4.1.4458.10000.225",
+    "oid": "1.3.6.1.4.1.4458.1000.0.225",
     "class": "notificationtype",
     "objects": [
       {
@@ -5824,7 +5824,7 @@
   },
   "sfpExtraction": {
     "name": "sfpExtraction",
-    "oid": "1.3.6.1.4.1.4458.10000.226",
+    "oid": "1.3.6.1.4.1.4458.1000.0.226",
     "class": "notificationtype",
     "objects": [
       {
@@ -5855,7 +5855,7 @@
   },
   "sfpPort1Clear": {
     "name": "sfpPort1Clear",
-    "oid": "1.3.6.1.4.1.4458.10000.227",
+    "oid": "1.3.6.1.4.1.4458.1000.0.227",
     "class": "notificationtype",
     "objects": [
       {
@@ -5886,7 +5886,7 @@
   },
   "compatibleIdus": {
     "name": "compatibleIdus",
-    "oid": "1.3.6.1.4.1.4458.10000.228",
+    "oid": "1.3.6.1.4.1.4458.1000.0.228",
     "class": "notificationtype",
     "objects": [
       {
@@ -5917,7 +5917,7 @@
   },
   "desiredRatioCanNotBeAppliedClear": {
     "name": "desiredRatioCanNotBeAppliedClear",
-    "oid": "1.3.6.1.4.1.4458.10000.229",
+    "oid": "1.3.6.1.4.1.4458.1000.0.229",
     "class": "notificationtype",
     "objects": [
       {
@@ -5948,7 +5948,7 @@
   },
   "cbwMatch": {
     "name": "cbwMatch",
-    "oid": "1.3.6.1.4.1.4458.10000.230",
+    "oid": "1.3.6.1.4.1.4458.1000.0.230",
     "class": "notificationtype",
     "objects": [
       {
@@ -5979,7 +5979,7 @@
   },
   "switchCbwAndChannel": {
     "name": "switchCbwAndChannel",
-    "oid": "1.3.6.1.4.1.4458.10000.231",
+    "oid": "1.3.6.1.4.1.4458.1000.0.231",
     "class": "notificationtype",
     "objects": [
       {
@@ -6010,7 +6010,7 @@
   },
   "ringRplStateIdle": {
     "name": "ringRplStateIdle",
-    "oid": "1.3.6.1.4.1.4458.10000.232",
+    "oid": "1.3.6.1.4.1.4458.1000.0.232",
     "class": "notificationtype",
     "objects": [
       {
@@ -6041,7 +6041,7 @@
   },
   "ringEthServiceStatus": {
     "name": "ringEthServiceStatus",
-    "oid": "1.3.6.1.4.1.4458.10000.233",
+    "oid": "1.3.6.1.4.1.4458.1000.0.233",
     "class": "notificationtype",
     "objects": [
       {
@@ -6072,7 +6072,7 @@
   },
   "ringFirstRpmReceived": {
     "name": "ringFirstRpmReceived",
-    "oid": "1.3.6.1.4.1.4458.10000.234",
+    "oid": "1.3.6.1.4.1.4458.1000.0.234",
     "class": "notificationtype",
     "objects": [
       {
@@ -6103,7 +6103,7 @@
   },
   "ringEthernetSrviceUnblockedTO": {
     "name": "ringEthernetSrviceUnblockedTO",
-    "oid": "1.3.6.1.4.1.4458.10000.235",
+    "oid": "1.3.6.1.4.1.4458.1000.0.235",
     "class": "notificationtype",
     "objects": [
       {
@@ -6134,7 +6134,7 @@
   },
   "gpsSynchronized": {
     "name": "gpsSynchronized",
-    "oid": "1.3.6.1.4.1.4458.10000.236",
+    "oid": "1.3.6.1.4.1.4458.1000.0.236",
     "class": "notificationtype",
     "objects": [
       {
@@ -6165,7 +6165,7 @@
   },
   "hbsEncryptionClear": {
     "name": "hbsEncryptionClear",
-    "oid": "1.3.6.1.4.1.4458.10000.237",
+    "oid": "1.3.6.1.4.1.4458.1000.0.237",
     "class": "notificationtype",
     "objects": [
       {
@@ -6196,7 +6196,7 @@
   },
   "hbsEhServiceOpenedToHsu": {
     "name": "hbsEhServiceOpenedToHsu",
-    "oid": "1.3.6.1.4.1.4458.10000.238",
+    "oid": "1.3.6.1.4.1.4458.1000.0.238",
     "class": "notificationtype",
     "objects": [
       {
@@ -6227,7 +6227,7 @@
   },
   "hbsSynchronizedHsuAlarm": {
     "name": "hbsSynchronizedHsuAlarm",
-    "oid": "1.3.6.1.4.1.4458.10000.239",
+    "oid": "1.3.6.1.4.1.4458.1000.0.239",
     "class": "notificationtype",
     "objects": [
       {
@@ -6258,7 +6258,7 @@
   },
   "hbsActiveHbs": {
     "name": "hbsActiveHbs",
-    "oid": "1.3.6.1.4.1.4458.10000.240",
+    "oid": "1.3.6.1.4.1.4458.1000.0.240",
     "class": "notificationtype",
     "objects": [
       {
@@ -6289,7 +6289,7 @@
   },
   "switchCBW": {
     "name": "switchCBW",
-    "oid": "1.3.6.1.4.1.4458.10000.241",
+    "oid": "1.3.6.1.4.1.4458.1000.0.241",
     "class": "notificationtype",
     "objects": [
       {
@@ -6320,7 +6320,7 @@
   },
   "changeRatio": {
     "name": "changeRatio",
-    "oid": "1.3.6.1.4.1.4458.10000.242",
+    "oid": "1.3.6.1.4.1.4458.1000.0.242",
     "class": "notificationtype",
     "objects": [
       {
@@ -6351,7 +6351,7 @@
   },
   "lanPortClear": {
     "name": "lanPortClear",
-    "oid": "1.3.6.1.4.1.4458.10000.243",
+    "oid": "1.3.6.1.4.1.4458.1000.0.243",
     "class": "notificationtype",
     "objects": [
       {
@@ -6382,7 +6382,7 @@
   },
   "poePortClear": {
     "name": "poePortClear",
-    "oid": "1.3.6.1.4.1.4458.10000.244",
+    "oid": "1.3.6.1.4.1.4458.1000.0.244",
     "class": "notificationtype",
     "objects": [
       {
@@ -6413,7 +6413,7 @@
   },
   "poePowerConsumptionClear": {
     "name": "poePowerConsumptionClear",
-    "oid": "1.3.6.1.4.1.4458.10000.245",
+    "oid": "1.3.6.1.4.1.4458.1000.0.245",
     "class": "notificationtype",
     "objects": [
       {
@@ -6444,7 +6444,7 @@
   },
   "incompatibleHbsHsu": {
     "name": "incompatibleHbsHsu",
-    "oid": "1.3.6.1.4.1.4458.10000.246",
+    "oid": "1.3.6.1.4.1.4458.1000.0.246",
     "class": "notificationtype",
     "objects": [
       {
@@ -6475,7 +6475,7 @@
   },
   "mobilityLinkOff": {
     "name": "mobilityLinkOff",
-    "oid": "1.3.6.1.4.1.4458.10000.247",
+    "oid": "1.3.6.1.4.1.4458.1000.0.247",
     "class": "notificationtype",
     "objects": [
       {
@@ -6506,7 +6506,7 @@
   },
   "enterLocalConnection": {
     "name": "enterLocalConnection",
-    "oid": "1.3.6.1.4.1.4458.10000.248",
+    "oid": "1.3.6.1.4.1.4458.1000.0.248",
     "class": "notificationtype",
     "objects": [
       {
@@ -6537,7 +6537,7 @@
   },
   "hobupActiveStateFaultyClear": {
     "name": "hobupActiveStateFaultyClear",
-    "oid": "1.3.6.1.4.1.4458.10000.249",
+    "oid": "1.3.6.1.4.1.4458.1000.0.249",
     "class": "notificationtype",
     "objects": [
       {
@@ -6568,7 +6568,7 @@
   },
   "hobupStandbyState": {
     "name": "hobupStandbyState",
-    "oid": "1.3.6.1.4.1.4458.10000.250",
+    "oid": "1.3.6.1.4.1.4458.1000.0.250",
     "class": "notificationtype",
     "objects": [
       {
@@ -6599,7 +6599,7 @@
   },
   "gpsOverCurrentClear": {
     "name": "gpsOverCurrentClear",
-    "oid": "1.3.6.1.4.1.4458.10000.251",
+    "oid": "1.3.6.1.4.1.4458.1000.0.251",
     "class": "notificationtype",
     "objects": [
       {
@@ -6630,7 +6630,7 @@
   },
   "temperatureThresholdClear": {
     "name": "temperatureThresholdClear",
-    "oid": "1.3.6.1.4.1.4458.10000.252",
+    "oid": "1.3.6.1.4.1.4458.1000.0.252",
     "class": "notificationtype",
     "objects": [
       {
@@ -6661,7 +6661,7 @@
   },
   "localRouterDiscoverySucceed": {
     "name": "localRouterDiscoverySucceed",
-    "oid": "1.3.6.1.4.1.4458.10000.253",
+    "oid": "1.3.6.1.4.1.4458.1000.0.253",
     "class": "notificationtype",
     "objects": [
       {
@@ -6692,7 +6692,7 @@
   },
   "trackRouterDiscoverySucceed": {
     "name": "trackRouterDiscoverySucceed",
-    "oid": "1.3.6.1.4.1.4458.10000.254",
+    "oid": "1.3.6.1.4.1.4458.1000.0.254",
     "class": "notificationtype",
     "objects": [
       {
@@ -6723,7 +6723,7 @@
   },
   "qosVersion2StrictMismatch": {
     "name": "qosVersion2StrictMismatch",
-    "oid": "1.3.6.1.4.1.4458.10000.255",
+    "oid": "1.3.6.1.4.1.4458.1000.0.255",
     "class": "notificationtype",
     "objects": [
       {
@@ -6754,7 +6754,7 @@
   },
   "qosVersion2TtlMismatch": {
     "name": "qosVersion2TtlMismatch",
-    "oid": "1.3.6.1.4.1.4458.10000.256",
+    "oid": "1.3.6.1.4.1.4458.1000.0.256",
     "class": "notificationtype",
     "objects": [
       {
@@ -6785,7 +6785,7 @@
   },
   "btsTargetIsReachable": {
     "name": "btsTargetIsReachable",
-    "oid": "1.3.6.1.4.1.4458.10000.257",
+    "oid": "1.3.6.1.4.1.4458.1000.0.257",
     "class": "notificationtype",
     "objects": [
       {
@@ -6816,7 +6816,7 @@
   },
   "tcNotSupportedByHSU": {
     "name": "tcNotSupportedByHSU",
-    "oid": "1.3.6.1.4.1.4458.10000.258",
+    "oid": "1.3.6.1.4.1.4458.1000.0.258",
     "class": "notificationtype",
     "objects": [
       {
@@ -6847,7 +6847,7 @@
   },
   "syncEPortHOStateChange": {
     "name": "syncEPortHOStateChange",
-    "oid": "1.3.6.1.4.1.4458.10000.259",
+    "oid": "1.3.6.1.4.1.4458.1000.0.259",
     "class": "notificationtype",
     "objects": [
       {
@@ -6878,7 +6878,7 @@
   },
   "syncEPortFailureStateChange": {
     "name": "syncEPortFailureStateChange",
-    "oid": "1.3.6.1.4.1.4458.10000.260",
+    "oid": "1.3.6.1.4.1.4458.1000.0.260",
     "class": "notificationtype",
     "objects": [
       {
@@ -6909,7 +6909,7 @@
   },
   "btsCpeUpdateServiceFailed": {
     "name": "btsCpeUpdateServiceFailed",
-    "oid": "1.3.6.1.4.1.4458.10000.261",
+    "oid": "1.3.6.1.4.1.4458.1000.0.261",
     "class": "notificationtype",
     "objects": [
       {
@@ -6940,7 +6940,7 @@
   },
   "btsCpeUpdateServiceSucceed": {
     "name": "btsCpeUpdateServiceSucceed",
-    "oid": "1.3.6.1.4.1.4458.10000.262",
+    "oid": "1.3.6.1.4.1.4458.1000.0.262",
     "class": "notificationtype",
     "objects": [
       {
@@ -6971,7 +6971,7 @@
   },
   "radiusServerNoREsponse": {
     "name": "radiusServerNoREsponse",
-    "oid": "1.3.6.1.4.1.4458.10000.263",
+    "oid": "1.3.6.1.4.1.4458.1000.0.263",
     "class": "notificationtype",
     "objects": [
       {
@@ -7002,7 +7002,7 @@
   },
   "noRadiusServerRespond": {
     "name": "noRadiusServerRespond",
-    "oid": "1.3.6.1.4.1.4458.10000.264",
+    "oid": "1.3.6.1.4.1.4458.1000.0.264",
     "class": "notificationtype",
     "objects": [
       {
@@ -7033,7 +7033,7 @@
   },
   "radiusServerRespondedSuccessfully": {
     "name": "radiusServerRespondedSuccessfully",
-    "oid": "1.3.6.1.4.1.4458.10000.265",
+    "oid": "1.3.6.1.4.1.4458.1000.0.265",
     "class": "notificationtype",
     "objects": [
       {
@@ -7064,7 +7064,7 @@
   },
   "bsaAlignmentStarted": {
     "name": "bsaAlignmentStarted",
-    "oid": "1.3.6.1.4.1.4458.10000.266",
+    "oid": "1.3.6.1.4.1.4458.1000.0.266",
     "class": "notificationtype",
     "objects": [
       {
@@ -7095,7 +7095,7 @@
   },
   "bsaAlignmentFinished": {
     "name": "bsaAlignmentFinished",
-    "oid": "1.3.6.1.4.1.4458.10000.267",
+    "oid": "1.3.6.1.4.1.4458.1000.0.267",
     "class": "notificationtype",
     "objects": [
       {
@@ -7126,7 +7126,7 @@
   },
   "bsaAlignmentTriggered": {
     "name": "bsaAlignmentTriggered",
-    "oid": "1.3.6.1.4.1.4458.10000.268",
+    "oid": "1.3.6.1.4.1.4458.1000.0.268",
     "class": "notificationtype",
     "objects": [
       {
@@ -7313,8 +7313,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radwin/RADWIN-MIB-WINLINK1000",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:11:42 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:22:47 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RADWIN-MIB-WINLINK1000"

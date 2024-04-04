@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "enterprises",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
       "TRAP-TYPE",
-      "iso"
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2283,7 +2283,7 @@
   },
   "atmfVpcChange": {
     "name": "atmfVpcChange",
-    "oid": "1.3.6.1.4.1.3530.1",
+    "oid": "1.3.6.1.4.1.353.0.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2302,7 +2302,7 @@
   },
   "atmfVccChange": {
     "name": "atmfVccChange",
-    "oid": "1.3.6.1.4.1.3530.2",
+    "oid": "1.3.6.1.4.1.353.0.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -2623,8 +2623,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-ILMI40-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:31 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:13:42 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-ILMI40-MIB"

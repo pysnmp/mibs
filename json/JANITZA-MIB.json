@@ -9,22 +9,22 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
       "mib-2",
+      "iso",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "enterprises",
+      "Integer32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1037,99 +1037,99 @@
   },
   "coldStart": {
     "name": "coldStart",
-    "oid": "1.3.6.1.2.1.110.0",
+    "oid": "1.3.6.1.2.1.11.0.0",
     "class": "notificationtype"
   },
   "warmStart": {
     "name": "warmStart",
-    "oid": "1.3.6.1.2.1.110.1",
+    "oid": "1.3.6.1.2.1.11.0.1",
     "class": "notificationtype"
   },
   "userTrap1": {
     "name": "userTrap1",
-    "oid": "1.3.6.1.4.1.342780.6",
+    "oid": "1.3.6.1.4.1.34278.0.6",
     "class": "notificationtype"
   },
   "userTrap2": {
     "name": "userTrap2",
-    "oid": "1.3.6.1.4.1.342780.7",
+    "oid": "1.3.6.1.4.1.34278.0.7",
     "class": "notificationtype"
   },
   "userTrap3": {
     "name": "userTrap3",
-    "oid": "1.3.6.1.4.1.342780.8",
+    "oid": "1.3.6.1.4.1.34278.0.8",
     "class": "notificationtype"
   },
   "userTrap4": {
     "name": "userTrap4",
-    "oid": "1.3.6.1.4.1.342780.9",
+    "oid": "1.3.6.1.4.1.34278.0.9",
     "class": "notificationtype"
   },
   "userTrap5": {
     "name": "userTrap5",
-    "oid": "1.3.6.1.4.1.342780.10",
+    "oid": "1.3.6.1.4.1.34278.0.10",
     "class": "notificationtype"
   },
   "userTrap6": {
     "name": "userTrap6",
-    "oid": "1.3.6.1.4.1.342780.11",
+    "oid": "1.3.6.1.4.1.34278.0.11",
     "class": "notificationtype"
   },
   "userTrap7": {
     "name": "userTrap7",
-    "oid": "1.3.6.1.4.1.342780.12",
+    "oid": "1.3.6.1.4.1.34278.0.12",
     "class": "notificationtype"
   },
   "userTrap8": {
     "name": "userTrap8",
-    "oid": "1.3.6.1.4.1.342780.13",
+    "oid": "1.3.6.1.4.1.34278.0.13",
     "class": "notificationtype"
   },
   "userTrap9": {
     "name": "userTrap9",
-    "oid": "1.3.6.1.4.1.342780.14",
+    "oid": "1.3.6.1.4.1.34278.0.14",
     "class": "notificationtype"
   },
   "userTrap10": {
     "name": "userTrap10",
-    "oid": "1.3.6.1.4.1.342780.15",
+    "oid": "1.3.6.1.4.1.34278.0.15",
     "class": "notificationtype"
   },
   "userTrap11": {
     "name": "userTrap11",
-    "oid": "1.3.6.1.4.1.342780.16",
+    "oid": "1.3.6.1.4.1.34278.0.16",
     "class": "notificationtype"
   },
   "userTrap12": {
     "name": "userTrap12",
-    "oid": "1.3.6.1.4.1.342780.17",
+    "oid": "1.3.6.1.4.1.34278.0.17",
     "class": "notificationtype"
   },
   "userTrap13": {
     "name": "userTrap13",
-    "oid": "1.3.6.1.4.1.342780.18",
+    "oid": "1.3.6.1.4.1.34278.0.18",
     "class": "notificationtype"
   },
   "userTrap14": {
     "name": "userTrap14",
-    "oid": "1.3.6.1.4.1.342780.19",
+    "oid": "1.3.6.1.4.1.34278.0.19",
     "class": "notificationtype"
   },
   "userTrap15": {
     "name": "userTrap15",
-    "oid": "1.3.6.1.4.1.342780.20",
+    "oid": "1.3.6.1.4.1.34278.0.20",
     "class": "notificationtype"
   },
   "userTrap16": {
     "name": "userTrap16",
-    "oid": "1.3.6.1.4.1.342780.21",
+    "oid": "1.3.6.1.4.1.34278.0.21",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/janitza/JANITZA-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:09:09 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:27 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "JANITZA-MIB"

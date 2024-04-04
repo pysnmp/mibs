@@ -11,22 +11,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "iso",
+      "enterprises",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Unsigned32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "enterprises",
-      "TRAP-TYPE"
+      "Counter32",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -62,7 +62,7 @@
   },
   "msaEventInfoTrap": {
     "name": "msaEventInfoTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3001",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3001",
     "class": "notificationtype",
     "objects": [
       {
@@ -81,7 +81,7 @@
   },
   "msaEventWarningTrap": {
     "name": "msaEventWarningTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3002",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3002",
     "class": "notificationtype",
     "objects": [
       {
@@ -100,7 +100,7 @@
   },
   "msaEventErrorTrap": {
     "name": "msaEventErrorTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3003",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3003",
     "class": "notificationtype",
     "objects": [
       {
@@ -119,7 +119,7 @@
   },
   "msaEventCriticalTrap": {
     "name": "msaEventCriticalTrap",
-    "oid": "1.3.6.1.4.1.11.2.510.3004",
+    "oid": "1.3.6.1.4.1.11.2.51.0.3004",
     "class": "notificationtype",
     "objects": [
       {
@@ -139,8 +139,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/MSA2000TRAPS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:10:07 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:20:28 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MSA2000TRAPS-MIB"

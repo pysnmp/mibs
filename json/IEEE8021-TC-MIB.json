@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "org",
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "iso",
       "IpAddress",
-      "MibIdentifier"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "org",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021TcMib": {
@@ -568,8 +568,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-TC-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:38 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:13:48 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-TC-MIB"

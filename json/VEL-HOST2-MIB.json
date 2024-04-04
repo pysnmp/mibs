@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Counter32",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "iso",
-      "Integer32",
-      "IpAddress",
       "Unsigned32",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -898,7 +898,7 @@
   },
   "host2DevConnectionTrap": {
     "name": "host2DevConnectionTrap",
-    "oid": "1.3.6.1.4.1.27993.50.5001",
+    "oid": "1.3.6.1.4.1.27993.5.0.5001",
     "class": "notificationtype",
     "objects": [
       {
@@ -909,7 +909,7 @@
   },
   "host2DevEvtStateTrap": {
     "name": "host2DevEvtStateTrap",
-    "oid": "1.3.6.1.4.1.27993.50.5002",
+    "oid": "1.3.6.1.4.1.27993.5.0.5002",
     "class": "notificationtype",
     "objects": [
       {
@@ -920,7 +920,7 @@
   },
   "host2DevParStateTrap": {
     "name": "host2DevParStateTrap",
-    "oid": "1.3.6.1.4.1.27993.50.5003",
+    "oid": "1.3.6.1.4.1.27993.5.0.5003",
     "class": "notificationtype",
     "objects": [
       {
@@ -932,8 +932,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vigintos/VEL-HOST2-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:12:57 2024",
-      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 09:24:00 2024",
+      "On host fv-az1108-6 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "VEL-HOST2-MIB"
