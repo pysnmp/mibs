@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
-      "chAlarmVarString",
-      "chAlarmVarPort",
       "chAlarmVarInteger",
+      "chAlarmVarPort",
+      "chAlarmVarString",
       "chAlarmVarSlot"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
-      "F10ChassisType",
-      "F10SSeriesPortType",
+      "F10HundredthdB",
       "F10SwDate",
       "F10MfgDate",
-      "F10HundredthdB",
-      "F10ProcessorModuleType"
+      "F10ProcessorModuleType",
+      "F10ChassisType",
+      "F10SSeriesPortType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -24,27 +24,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
       "Counter32",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
+      "MibIdentifier",
       "Counter64",
-      "OBJECT-TYPE",
+      "Integer32",
       "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "MODULE-IDENTITY"
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "DateAndTime"
     ]
   },
   "f10SSerChassisMib": {
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:18 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:48:55 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

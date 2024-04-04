@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "enterprises",
       "MODULE-IDENTITY",
-      "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
-      "iso",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "IpAddress",
+      "enterprises",
       "Counter64",
-      "Counter32",
-      "Integer32",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2411,8 +2411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacarta/InterSeptor-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:46 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:52:16 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "InterSeptor-MIB"

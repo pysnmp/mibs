@@ -6,28 +6,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
       "Integer32",
+      "iso",
       "Counter32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
+      "TimeTicks",
       "DisplayString",
-      "TimeTicks"
+      "RowStatus",
+      "MacAddress",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "UBIQUOSS-INTERFACE-MIB": [
       "ubiPortIndex"
@@ -790,8 +790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBIQUOSS-MAC-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:44:42 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:55:54 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "UBIQUOSS-MAC-MIB"

@@ -5,50 +5,50 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-PTP-MIB": [
-      "cwsPtpTransmitterEntry",
-      "cwsPtpDiagnosticsEntry"
+      "cwsPtpDiagnosticsEntry",
+      "cwsPtpTransmitterEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
       "PtpId",
-      "Decimal1Dig",
-      "ModemChannel",
-      "StringSci",
-      "WlSpacing",
-      "TxPowerLvl",
-      "RecoverLinkDispersionType",
-      "LineSysEnum",
+      "OnOffEnum",
       "StringMaxl32",
       "EnabledDisabledEnum",
-      "Decimal2Dig",
+      "RecoverLinkDispersionType",
       "ChannelsNumber",
-      "OnOffEnum",
-      "ModemFrequency"
+      "ModemFrequency",
+      "StringSci",
+      "Decimal1Dig",
+      "WlSpacing",
+      "ModemChannel",
+      "LineSysEnum",
+      "TxPowerLvl",
+      "Decimal2Dig"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsPtpModemMIB": {
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:36:17 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:47:55 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MODEM-MIB"

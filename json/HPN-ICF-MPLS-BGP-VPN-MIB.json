@@ -8,41 +8,41 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "Counter64",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Bits",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "experimental",
-      "Integer32"
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TruthValue",
       "TimeStamp",
-      "RowStatus",
-      "StorageType"
+      "RowStatus"
     ]
   },
   "hpnicfMplsVpn": {
@@ -758,8 +758,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MPLS-BGP-VPN-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:51 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:51:57 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-MPLS-BGP-VPN-MIB"

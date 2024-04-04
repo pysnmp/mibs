@@ -5,8 +5,8 @@
       "hh3cCommon"
     ],
     "IF-MIB": [
-      "ifDescr",
-      "ifIndex"
+      "ifIndex",
+      "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -17,26 +17,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Bits",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
       "Counter64",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hh3cPosa": {
@@ -2611,8 +2611,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-POSA-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:36:46 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:48:23 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HH3C-POSA-MIB"

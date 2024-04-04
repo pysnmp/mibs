@@ -13,35 +13,35 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "Gauge32",
       "Integer32",
-      "iso",
+      "MibIdentifier",
+      "TimeTicks",
       "Counter32",
       "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
       "TruthValue",
+      "DisplayString",
       "DateAndTime",
       "TEXTUAL-CONVENTION"
     ],
     "SYSLOG-TC-MIB": [
-      "SyslogSeverity",
-      "SyslogFacility"
+      "SyslogFacility",
+      "SyslogSeverity"
     ]
   },
   "dlinkSwSyslogMIB": {
@@ -1016,8 +1016,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SYSLOG-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:37:18 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:48:55 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-SYSLOG-MIB"

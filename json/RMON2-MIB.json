@@ -5,18 +5,18 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "statistics",
-      "filter",
+      "etherStatsEntry",
+      "matrixControlEntry",
       "filterEntry",
       "channelEntry",
+      "filter",
       "OwnerString",
-      "hosts",
-      "etherStatsEntry",
-      "historyControlEntry",
-      "matrix",
-      "matrixControlEntry",
+      "hostControlEntry",
       "history",
-      "hostControlEntry"
+      "hosts",
+      "statistics",
+      "matrix",
+      "historyControlEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -24,34 +24,34 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "mib-2",
       "Unsigned32",
       "MibIdentifier",
-      "Counter32",
       "Bits",
+      "Gauge32",
       "IpAddress",
-      "OBJECT-TYPE",
       "Counter64",
-      "Integer32",
-      "mib-2",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
+      "RowStatus",
       "DisplayString"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "sourceRoutingStatsEntry",
       "tokenRingPStatsEntry",
-      "tokenRingMLStatsEntry",
+      "tokenRing",
       "ringStationControlEntry",
-      "tokenRing"
+      "sourceRoutingStatsEntry",
+      "tokenRingMLStatsEntry"
     ]
   },
   "rmon": {
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:35:18 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:46:58 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"

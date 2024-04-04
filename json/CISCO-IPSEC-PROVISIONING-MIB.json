@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
-      "CIPsecLifetime",
-      "CIPsecDiffHellmanGrp",
-      "CIPsecLifesize",
-      "CIPsecTunnelIdleTime",
-      "CIPsecTransform",
-      "CIPsecSecuritySuite",
       "CIPsecEncapMode",
+      "CIPsecLifetime",
+      "CIPsecTransform",
+      "CIPsecTunnelIdleTime",
+      "CIPsecSecuritySuite",
+      "CIPsecLifesize",
       "CIPsecNumCryptoMaps",
+      "CIPsecDiffHellmanGrp",
       "CIPsecCryptomapType"
     ],
     "CISCO-SMI": [
@@ -19,8 +19,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -31,26 +31,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
       "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
-      "iso"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoIPsecProvisioningMIB": {
@@ -1476,8 +1476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IPSEC-PROVISIONING-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:40:18 2024",
-      "On host fv-az654-234 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:52:03 2024",
+      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-IPSEC-PROVISIONING-MIB"
