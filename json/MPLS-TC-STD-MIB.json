@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "Bits",
-      "IpAddress",
-      "transmission",
       "Unsigned32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "Counter64",
       "Integer32",
       "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "iso"
+      "iso",
+      "transmission",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -439,9 +439,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-TC-STD-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:34 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-TC-STD-MIB",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:12:00 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "MPLS-TC-STD-MIB"

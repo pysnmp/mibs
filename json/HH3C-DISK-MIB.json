@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "HH3C-STORAGE-REF-MIB": [
-      "hh3cStorageRef",
+      "Hh3cStorageActionType",
       "Hh3cStorageEnableState",
-      "Hh3cStorageActionType"
+      "hh3cStorageRef"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -300,8 +300,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DISK-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:09:57 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:12:29 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HH3C-DISK-MIB"

@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVcCrossConnectLowVpi",
-      "atmVcCrossConnectHighIfIndex",
-      "atmVcCrossConnectLowIfIndex",
-      "atmVcCrossConnectLowVci",
-      "atmVcCrossConnectIndex",
       "atmVcCrossConnectHighVpi",
-      "atmVcCrossConnectHighVci"
+      "atmVcCrossConnectHighIfIndex",
+      "atmVcCrossConnectLowVpi",
+      "atmVcCrossConnectHighVci",
+      "atmVcCrossConnectLowIfIndex",
+      "atmVcCrossConnectIndex",
+      "atmVcCrossConnectLowVci"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "enterprises",
+      "Bits",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "IpAddress",
+      "Integer32",
       "Counter32",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY"
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -6565,8 +6565,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFCS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:28 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:13:59 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFCS-MIB"

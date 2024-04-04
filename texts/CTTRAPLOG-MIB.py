@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTTRAPLOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTTRAPLOG-MIB
-# Produced by pysmi-1.1.12 at Thu Apr  4 10:11:21 2024
-# On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 13:13:52 2024
+# On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
 ctTrapLog, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctTrapLog")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibIdentifier, Counter32, Bits, TimeTicks, Counter64, Unsigned32, iso, IpAddress, ObjectIdentity, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "Counter32", "Bits", "TimeTicks", "Counter64", "Unsigned32", "iso", "IpAddress", "ObjectIdentity", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, Unsigned32, IpAddress, Bits, Gauge32, Integer32, Counter64, NotificationType, MibIdentifier, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "Unsigned32", "IpAddress", "Bits", "Gauge32", "Integer32", "Counter64", "NotificationType", "MibIdentifier", "ModuleIdentity", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 totalNumberOfEntries = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 44, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: totalNumberOfEntries.setStatus('mandatory')
 if mibBuilder.loadTexts: totalNumberOfEntries.setDescription('Total number of logged entries for this chassis.')
@@ -114,4 +114,4 @@ if mibBuilder.loadTexts: filterZ80Time.setDescription('The number of time ticks 
 trapLoggerAgent = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 44, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2), ("standby", 3), ("elected", 4)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: trapLoggerAgent.setStatus('mandatory')
 if mibBuilder.loadTexts: trapLoggerAgent.setDescription('Reflects the operational status of the traplogger agent')
-mibBuilder.exportSymbols("CTTRAPLOG-MIB", filterTrapLogDescription=filterTrapLogDescription, filterTrapLogVarBind=filterTrapLogVarBind, filterZ80Time=filterZ80Time, nvmpId=nvmpId, numEntriesAllocated=numEntriesAllocated, slotChassis=slotChassis, lastLoggedEntryLogId=lastLoggedEntryLogId, filterFilterId=filterFilterId, slotInChassis=slotInChassis, trapLogVarBind=trapLogVarBind, configTable=configTable, trapLogTable=trapLogTable, logId=logId, filterTrapLogAcknowledged=filterTrapLogAcknowledged, filterSlotInChassis=filterSlotInChassis, logCommand=logCommand, filterLogId=filterLogId, totalNumberOfEntries=totalNumberOfEntries, trapLogDescription=trapLogDescription, filterTrapOID=filterTrapOID, timeLogged=timeLogged, numEntriesRequested=numEntriesRequested, trapOID=trapOID, trapLogAcknowledged=trapLogAcknowledged, filterNvmpId=filterNvmpId, trapLoggerAgent=trapLoggerAgent, filterEntry=filterEntry, configTableEntry=configTableEntry, z80Time=z80Time, filterTimeLogged=filterTimeLogged, filterTable=filterTable, trapLogEntry=trapLogEntry, numEntriesLoggeds=numEntriesLoggeds, wrap=wrap, filterId=filterId)
+mibBuilder.exportSymbols("CTTRAPLOG-MIB", timeLogged=timeLogged, trapLogEntry=trapLogEntry, filterNvmpId=filterNvmpId, filterTrapLogVarBind=filterTrapLogVarBind, trapLogDescription=trapLogDescription, nvmpId=nvmpId, filterSlotInChassis=filterSlotInChassis, z80Time=z80Time, filterTable=filterTable, trapLogVarBind=trapLogVarBind, filterFilterId=filterFilterId, trapLoggerAgent=trapLoggerAgent, wrap=wrap, totalNumberOfEntries=totalNumberOfEntries, logId=logId, trapLogAcknowledged=trapLogAcknowledged, lastLoggedEntryLogId=lastLoggedEntryLogId, filterLogId=filterLogId, filterId=filterId, configTableEntry=configTableEntry, trapLogTable=trapLogTable, slotInChassis=slotInChassis, filterTimeLogged=filterTimeLogged, filterEntry=filterEntry, filterTrapLogAcknowledged=filterTrapLogAcknowledged, trapOID=trapOID, logCommand=logCommand, numEntriesLoggeds=numEntriesLoggeds, filterZ80Time=filterZ80Time, slotChassis=slotChassis, numEntriesRequested=numEntriesRequested, numEntriesAllocated=numEntriesAllocated, filterTrapLogDescription=filterTrapLogDescription, filterTrapOID=filterTrapOID, configTable=configTable)

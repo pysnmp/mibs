@@ -3,23 +3,23 @@
     "class": "imports",
     "HP-SN-AGENT-MIB": [
       "snAgentBrdIndex",
-      "snChasPwrSupplyIndex",
-      "snChasPwrSupplyDescription",
-      "snChasFanDescription",
+      "snAgGblTrapMessage",
       "snChasFanIndex",
-      "snChasPwrSupplyStatus",
-      "snAgGblTrapMessage"
+      "snChasFanDescription",
+      "snChasPwrSupplyDescription",
+      "snChasPwrSupplyIndex",
+      "snChasPwrSupplyStatus"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
-      "snL4MaxSessionLimit",
+      "snL4TrapRealServerIP",
       "snL4TrapRealServerPort",
-      "snL4TrapRealServerName",
       "snL4TcpSynLimit",
+      "snL4MaxSessionLimit",
       "snL4TrapRealServerCurConnections",
-      "snL4TrapRealServerIP"
+      "snL4TrapRealServerName"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
@@ -30,21 +30,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Counter64",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "iso",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "iso",
       "TRAP-TYPE",
-      "Gauge32",
       "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:14:49 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:17:26 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

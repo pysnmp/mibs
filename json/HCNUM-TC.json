@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "mib-2",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "Integer32",
+      "Bits",
       "Counter64",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "iso"
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hcnumTC": {
@@ -58,9 +58,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/HCNUM-TC",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:34 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HCNUM-TC",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:10:10 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HCNUM-TC"

@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "FOUNDRY-SN-IP-MIB": [
-      "PortIndex",
+      "RtrStatus",
       "ClearStatus",
-      "RowSts",
       "Action",
-      "RtrStatus"
+      "RowSts",
+      "PortIndex"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "router"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-TYPE",
-      "iso",
       "Integer32",
-      "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1052,8 +1052,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-APPLETALK-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:48 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:14:20 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-APPLETALK-MIB"

@@ -10,18 +10,18 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAutonomousSystemNumber",
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAutonomousSystemNumber"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipAddressEntry",
-      "ipNetToPhysicalEntry",
       "ipv6RouterAdvertEntry",
-      "ipv6InterfaceEntry"
+      "ipNetToPhysicalEntry",
+      "ipv6InterfaceEntry",
+      "ipAddressEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -30,32 +30,32 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Bits",
       "IpAddress",
-      "Counter32",
-      "Integer32",
+      "MODULE-IDENTITY",
       "mib-2",
+      "zeroDotZero",
+      "Counter32",
+      "iso",
       "Unsigned32",
       "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "zeroDotZero"
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
       "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:14:44 2024",
-      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 13:17:11 2024",
+      "On host fv-az735-175 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"
