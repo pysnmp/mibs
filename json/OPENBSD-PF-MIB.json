@@ -10,26 +10,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "enterprises",
-      "TimeTicks",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter64",
-      "Counter32",
-      "IpAddress",
       "Bits",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "pfMIBObjects": {
@@ -2149,8 +2149,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-PF-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:19:03 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 03:00:51 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "OPENBSD-PF-MIB"

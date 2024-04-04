@@ -5,42 +5,42 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoPort",
-      "CiscoURLString"
+      "CiscoURLString",
+      "CiscoPort"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
       "Bits",
-      "TimeTicks",
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "ciscoAonStatusMIB": {
@@ -1021,8 +1021,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-AON-STATUS-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:16:37 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:19 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-AON-STATUS-MIB"

@@ -8,13 +8,13 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2RemIndex",
-      "lldpV2RemLocalDestMACAddress",
       "lldpV2PortConfigEntry",
-      "lldpV2RemTimeMark",
-      "lldpV2Extensions",
+      "lldpV2RemLocalDestMACAddress",
       "lldpV2LocPortIfIndex",
-      "lldpV2RemLocalIfIndex"
+      "lldpV2RemLocalIfIndex",
+      "lldpV2RemIndex",
+      "lldpV2Extensions",
+      "lldpV2RemTimeMark"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -23,30 +23,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Integer32",
-      "IpAddress",
-      "MibIdentifier",
+      "TimeTicks",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
+      "iso",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Counter64",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "lldpV2Xdot1MIB": {
@@ -4340,9 +4340,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-EXT-DOT1-V2-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:20:00 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-V2-MIB",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:08 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-V2-MIB"

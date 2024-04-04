@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
       "MibIdentifier",
+      "Counter64",
       "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "enterprises",
       "MODULE-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "Integer32",
-      "Counter32"
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "alteon": {
@@ -370,8 +370,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-ROOT-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:11:21 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:54:04 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ALTEON-ROOT-MIB"

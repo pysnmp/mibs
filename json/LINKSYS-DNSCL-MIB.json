@@ -5,53 +5,53 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsType",
-      "DnsClass",
-      "dns",
-      "DnsOpCode",
-      "DnsTime",
       "DnsRespCode",
-      "DnsNameAsIndex",
+      "dns",
+      "DnsType",
       "DnsName",
+      "DnsNameAsIndex",
+      "DnsQType",
+      "DnsTime",
       "DnsQClass",
-      "DnsQType"
+      "DnsOpCode",
+      "DnsClass"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "LINKSYS-MIB": [
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "iso",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
       "NOTIFICATION-TYPE",
       "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MibIdentifier",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Unsigned32"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "rlDnsCl": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DNSCL-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:18:03 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 03:00:09 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-DNSCL-MIB"

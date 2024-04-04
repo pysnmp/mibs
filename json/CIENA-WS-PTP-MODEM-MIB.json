@@ -9,46 +9,46 @@
       "cwsPtpTransmitterEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "EnabledDisabledEnum",
-      "TxPowerLvl",
-      "RecoverLinkDispersionType",
-      "LineSysEnum",
-      "PtpId",
       "WlSpacing",
-      "StringMaxl32",
-      "ChannelsNumber",
-      "Decimal1Dig",
       "ModemFrequency",
-      "Decimal2Dig",
-      "StringSci",
       "ModemChannel",
-      "OnOffEnum"
+      "OnOffEnum",
+      "PtpId",
+      "StringSci",
+      "Decimal2Dig",
+      "LineSysEnum",
+      "StringMaxl32",
+      "RecoverLinkDispersionType",
+      "ChannelsNumber",
+      "EnabledDisabledEnum",
+      "Decimal1Dig",
+      "TxPowerLvl"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
+      "OBJECT-TYPE",
       "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "IpAddress",
       "Unsigned32",
-      "IpAddress"
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "cienaWsPtpModemMIB": {
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:12:42 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:55:19 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MODEM-MIB"

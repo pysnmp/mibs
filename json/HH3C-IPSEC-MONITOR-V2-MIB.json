@@ -9,34 +9,34 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
       "Counter64",
       "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "hh3cIPsecMonitorV2": {
@@ -3200,8 +3200,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-IPSEC-MONITOR-V2-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:13:09 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:55:45 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HH3C-IPSEC-MONITOR-V2-MIB"

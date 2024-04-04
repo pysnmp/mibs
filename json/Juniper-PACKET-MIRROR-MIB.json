@@ -3,39 +3,39 @@
     "class": "imports",
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
+      "iso",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
       "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Counter64",
-      "iso"
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TruthValue",
+      "DateAndTime",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "juniPacketMirrorMIB": {
@@ -1142,8 +1142,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-PACKET-MIRROR-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:18:35 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 03:00:31 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Juniper-PACKET-MIRROR-MIB"

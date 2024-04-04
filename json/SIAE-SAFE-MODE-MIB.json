@@ -9,28 +9,28 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Bits",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
-      "IpAddress"
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "safeMode": {
@@ -185,8 +185,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SAFE-MODE-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:20:43 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 03:02:30 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SIAE-SAFE-MODE-MIB"

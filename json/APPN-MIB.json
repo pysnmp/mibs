@@ -8,34 +8,34 @@
       "snanauMIB"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
       "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
       "iso",
       "TimeTicks",
-      "Counter32",
-      "Bits",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "Counter64",
       "Unsigned32",
-      "MibIdentifier"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "VariablePointer",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "RowPointer",
       "DisplayString",
-      "DateAndTime"
+      "TimeStamp",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "appnMIB": {
@@ -5362,7 +5362,7 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "accessible-for-notify",
     "status": "current"
   },
   "affectedObject": {
@@ -5374,7 +5374,7 @@
       "type": "VariablePointer",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "accessible-for-notify",
     "status": "current"
   },
   "appnConformance": {
@@ -7446,9 +7446,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/APPN-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:18:20 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPN-MIB",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:24 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "APPN-MIB"

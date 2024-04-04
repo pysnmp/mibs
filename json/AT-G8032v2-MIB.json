@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "AT-SMI-MIB": [
-      "modules",
-      "DisplayStringUnsized"
+      "DisplayStringUnsized",
+      "modules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "iso",
-      "Counter32",
-      "Unsigned32",
       "TimeTicks",
       "Gauge32",
-      "MibIdentifier"
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -167,8 +167,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-G8032v2-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:11:13 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:56 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "AT-G8032v2-MIB"

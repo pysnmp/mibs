@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RAPID-SYSTEM-CONFIG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-SYSTEM-CONFIG-MIB
-# Produced by pysmi-1.1.11 at Wed Apr  3 15:18:47 2024
-# On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 03:00:53 2024
+# On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, TimeTicks, IpAddress, enterprises, ObjectIdentity, Gauge32, Bits, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, Unsigned32, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "IpAddress", "enterprises", "ObjectIdentity", "Gauge32", "Bits", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "Unsigned32", "iso", "NotificationType")
+ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, Counter64, ObjectIdentity, iso, Integer32, Counter32, IpAddress, Gauge32, enterprises, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "Counter64", "ObjectIdentity", "iso", "Integer32", "Counter32", "IpAddress", "Gauge32", "enterprises", "TimeTicks", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rsSystemConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 2))
 rsSystemConfigMIB.setRevisions(('1999-06-26 12:00', '2002-11-01 12:00', '2004-06-01 12:00',))
@@ -63,4 +63,4 @@ if mibBuilder.loadTexts: rsSnmpStart.setDescription('This trap is sent when the 
 rsSnmpShutdown = NotificationType((1, 3, 6, 1, 4, 1, 4355, 2, 3, 0, 3))
 if mibBuilder.loadTexts: rsSnmpShutdown.setStatus('current')
 if mibBuilder.loadTexts: rsSnmpShutdown.setDescription('This trap is sent when the snmp terminates.')
-mibBuilder.exportSymbols("RAPID-SYSTEM-CONFIG-MIB", rsSysTrapObjects=rsSysTrapObjects, rsSnmpStart=rsSnmpStart, rsSysTrapsPrefix=rsSysTrapsPrefix, rsAlarmId=rsAlarmId, rsAlarmLevel=rsAlarmLevel, rsAlarmTime=rsAlarmTime, rsAlarmTrap=rsAlarmTrap, rsAlarmHostname=rsAlarmHostname, rsAlarmTrapEnable=rsAlarmTrapEnable, PYSNMP_MODULE_ID=rsSystemConfigMIB, rsSnmpShutdown=rsSnmpShutdown, rsAlarmLabel=rsAlarmLabel, rsAlarmMsg=rsAlarmMsg, rsSystemConfigMIB=rsSystemConfigMIB, rsSysTraps=rsSysTraps, rsSysTrapControl=rsSysTrapControl)
+mibBuilder.exportSymbols("RAPID-SYSTEM-CONFIG-MIB", rsAlarmTrap=rsAlarmTrap, rsAlarmId=rsAlarmId, rsSysTrapControl=rsSysTrapControl, rsSnmpStart=rsSnmpStart, rsAlarmHostname=rsAlarmHostname, rsAlarmTime=rsAlarmTime, rsSysTraps=rsSysTraps, rsAlarmMsg=rsAlarmMsg, rsAlarmLabel=rsAlarmLabel, rsAlarmTrapEnable=rsAlarmTrapEnable, PYSNMP_MODULE_ID=rsSystemConfigMIB, rsSnmpShutdown=rsSnmpShutdown, rsSysTrapsPrefix=rsSysTrapsPrefix, rsSysTrapObjects=rsSysTrapObjects, rsAlarmLevel=rsAlarmLevel, rsSystemConfigMIB=rsSystemConfigMIB)

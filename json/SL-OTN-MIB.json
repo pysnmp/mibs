@@ -8,31 +8,31 @@
       "slService"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "IpAddress",
       "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter32"
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "slOTN": {
@@ -518,8 +518,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-OTN-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:19:17 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 03:01:09 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SL-OTN-MIB"

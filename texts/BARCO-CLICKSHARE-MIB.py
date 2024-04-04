@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module BARCO-CLICKSHARE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barco/BARCO-CLICKSHARE-MIB
-# Produced by pysmi-1.1.11 at Wed Apr  3 15:11:54 2024
-# On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 02:54:35 2024
+# On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, TimeTicks, Unsigned32, Counter32, ModuleIdentity, IpAddress, Integer32, iso, MibIdentifier, Counter64, enterprises, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "TimeTicks", "Unsigned32", "Counter32", "ModuleIdentity", "IpAddress", "Integer32", "iso", "MibIdentifier", "Counter64", "enterprises", "NotificationType", "Gauge32")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, enterprises, Gauge32, MibIdentifier, TimeTicks, ModuleIdentity, Integer32, ObjectIdentity, Counter32, NotificationType, IpAddress, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "enterprises", "Gauge32", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Integer32", "ObjectIdentity", "Counter32", "NotificationType", "IpAddress", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 clickShare = ModuleIdentity((1, 3, 6, 1, 4, 1, 7312, 2468))
 clickShare.setRevisions(('2018-12-04 09:00',))
@@ -87,4 +87,4 @@ eventsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 7312, 2469, 2, 99)).setObject
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     eventsGroup = eventsGroup.setStatus('current')
 if mibBuilder.loadTexts: eventsGroup.setDescription('The group of SNMP trap objects.')
-mibBuilder.exportSymbols("BARCO-CLICKSHARE-MIB", sensorCpuFanSpeed=sensorCpuFanSpeed, events=events, eventsGroup=eventsGroup, alarmProcessNotRunning=alarmProcessNotRunning, deviceInfo=deviceInfo, clickShareMIBGroups=clickShareMIBGroups, deviceInfoGroup=deviceInfoGroup, diRoomName=diRoomName, barco=barco, diSerialNumber=diSerialNumber, sensorCpuTemperature=sensorCpuTemperature, clickShare=clickShare, alarmCaseFanSpeed=alarmCaseFanSpeed, sensorCpuTemperatureThreshold=sensorCpuTemperatureThreshold, diLocation=diLocation, baseUnit=baseUnit, sensors=sensors, clickShareMIB=clickShareMIB, alarmCpuTemperature=alarmCpuTemperature, diWelcomeMessage=diWelcomeMessage, diArticleCode=diArticleCode, PYSNMP_MODULE_ID=clickShare, clickShareMIBCompliance=clickShareMIBCompliance, sensorCaseFanSpeed=sensorCaseFanSpeed, diUptime=diUptime, sensorsGroup=sensorsGroup, clickShareMIBCompliances=clickShareMIBCompliances, diTotalUptime=diTotalUptime)
+mibBuilder.exportSymbols("BARCO-CLICKSHARE-MIB", eventsGroup=eventsGroup, sensorsGroup=sensorsGroup, clickShareMIBGroups=clickShareMIBGroups, sensorCpuFanSpeed=sensorCpuFanSpeed, barco=barco, alarmProcessNotRunning=alarmProcessNotRunning, sensorCaseFanSpeed=sensorCaseFanSpeed, diSerialNumber=diSerialNumber, sensorCpuTemperatureThreshold=sensorCpuTemperatureThreshold, diTotalUptime=diTotalUptime, clickShareMIB=clickShareMIB, baseUnit=baseUnit, diLocation=diLocation, sensorCpuTemperature=sensorCpuTemperature, clickShareMIBCompliances=clickShareMIBCompliances, clickShare=clickShare, deviceInfo=deviceInfo, clickShareMIBCompliance=clickShareMIBCompliance, diUptime=diUptime, alarmCaseFanSpeed=alarmCaseFanSpeed, diArticleCode=diArticleCode, deviceInfoGroup=deviceInfoGroup, sensors=sensors, diWelcomeMessage=diWelcomeMessage, events=events, alarmCpuTemperature=alarmCpuTemperature, PYSNMP_MODULE_ID=clickShare, diRoomName=diRoomName)

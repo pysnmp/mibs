@@ -2,58 +2,58 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
       "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter32",
-      "Bits",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Counter64",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "RowStatus",
-      "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeStamp"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxCardSlotNum",
       "tmnxMDASlotNum"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "timetraSRMIBModules",
       "tmnxSRConfs",
-      "tmnxSRNotifyPrefix",
-      "tmnxSRObjs"
+      "timetraSRMIBModules",
+      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix"
     ],
     "TIMETRA-PORT-MIB": [
-      "tmnxPortNotifyPortId",
-      "tmnxPortPortID"
+      "tmnxPortPortID",
+      "tmnxPortNotifyPortId"
     ],
     "TIMETRA-TC-MIB": [
-      "TItemDescription",
       "TNamedItemOrEmpty",
-      "TmnxEnabledDisabled",
       "TmnxAuthPassword",
-      "TmnxEnabledDisabledAdminState"
+      "TmnxEnabledDisabledAdminState",
+      "TmnxEnabledDisabled",
+      "TItemDescription"
     ]
   },
   "timetraCellularMIBModule": {
@@ -3495,8 +3495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:19:59 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 03:01:54 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-CELLULAR-MIB"

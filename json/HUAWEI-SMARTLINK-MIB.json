@@ -15,31 +15,31 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "iso",
+      "IpAddress",
       "TimeTicks",
       "OBJECT-IDENTITY",
       "Bits",
-      "iso",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -1603,8 +1603,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SMARTLINK-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:16:48 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:09 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-SMARTLINK-MIB"

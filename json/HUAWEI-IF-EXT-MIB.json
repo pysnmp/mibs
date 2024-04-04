@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVpIdentifier",
-      "AtmVcIdentifier"
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -12,13 +12,13 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifOperStatus",
-      "ifDescr",
       "ifName",
-      "ifAdminStatus"
+      "ifDescr",
+      "ifAdminStatus",
+      "ifOperStatus",
+      "ifIndex",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetVersion"
@@ -31,36 +31,36 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Counter32",
-      "Integer32",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "hwIFExtMib": {
@@ -10754,8 +10754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IF-EXT-MIB",
-      "Produced by pysmi-1.1.11 at Wed Apr  3 15:16:46 2024",
-      "On host fv-az979-188 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:11 2024",
+      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-IF-EXT-MIB"
