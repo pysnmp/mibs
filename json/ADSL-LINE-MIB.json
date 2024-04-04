@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "ADSL-TC-MIB": [
-      "AdslPerfCurrDayCount",
-      "AdslPerfTimeElapsed",
       "AdslLineCodingType",
-      "AdslPerfPrevDayCount"
+      "AdslPerfTimeElapsed",
+      "AdslPerfPrevDayCount",
+      "AdslPerfCurrDayCount"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -19,32 +19,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
       "Bits",
-      "Counter64",
+      "Integer32",
       "IpAddress",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "transmission",
+      "Counter32",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "VariablePointer",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TruthValue",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adslMIB": {
@@ -5447,8 +5447,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:04:16 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:35 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ADSL-LINE-MIB"

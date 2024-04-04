@@ -6,28 +6,28 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
       "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "Integer32",
       "Bits",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Integer32",
       "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCat6kNatStatMIB": {
@@ -264,8 +264,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CAT6k-NAT-STAT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:10:14 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:13:24 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-CAT6k-NAT-STAT-MIB"

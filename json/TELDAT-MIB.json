@@ -6,27 +6,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
       "MibIdentifier",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
-      "TRAP-TYPE",
       "enterprises",
-      "Integer32",
-      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Opaque",
-      "MODULE-IDENTITY"
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "teldat": {
@@ -5102,8 +5102,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:13:38 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:17:39 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "TELDAT-MIB"

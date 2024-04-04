@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "enterprises",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "TRAP-TYPE",
       "TimeTicks",
+      "enterprises",
+      "iso",
+      "Integer32",
       "Counter64",
-      "Gauge32"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "InterfaceIndex": {
@@ -2049,8 +2049,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/himoinsa/HIMOINSAv14-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:08:53 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:12:23 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HIMOINSAv14-MIB"

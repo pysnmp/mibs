@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64",
-      "Counter32",
+      "mib-2",
+      "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "mib-2",
-      "Unsigned32",
+      "Counter64",
       "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32"
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -184,8 +184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANATn3270eTC-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:03:52 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:08 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IANATn3270eTC-MIB"

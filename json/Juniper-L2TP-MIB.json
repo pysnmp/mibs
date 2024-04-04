@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -12,32 +12,32 @@
       "JuniEnable"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Bits",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Counter64",
-      "iso",
       "Integer32",
-      "Bits",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
-      "IpAddress"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "juniL2tpMIB": {
@@ -6671,8 +6671,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-L2TP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:16 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:15:10 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Juniper-L2TP-MIB"

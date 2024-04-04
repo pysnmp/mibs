@@ -5,42 +5,42 @@
       "InterfaceIndex"
     ],
     "IPMROUTE-STD-MIB": [
-      "ipMRouteNextHopSource",
-      "ipMRouteSourceMask",
-      "ipMRouteGroup",
-      "ipMRouteNextHopIfIndex",
-      "ipMRouteNextHopGroup",
-      "ipMRouteNextHopSourceMask",
       "ipMRouteNextHopAddress",
-      "ipMRouteSource"
+      "ipMRouteNextHopSource",
+      "ipMRouteNextHopIfIndex",
+      "ipMRouteSource",
+      "ipMRouteGroup",
+      "ipMRouteSourceMask",
+      "ipMRouteNextHopSourceMask",
+      "ipMRouteNextHopGroup"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "experimental",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Bits",
+      "OBJECT-IDENTITY",
       "Counter32",
       "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "experimental",
       "OBJECT-TYPE",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "pimMIB": {
@@ -1225,8 +1225,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PIM-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:18 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:15:10 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "PIM-MIB"

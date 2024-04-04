@@ -5,37 +5,37 @@
       "InterfaceIndex"
     ],
     "SIAE-ALARM-MIB": [
-      "AlarmSeverityCode",
-      "AlarmStatus"
+      "AlarmStatus",
+      "AlarmSeverityCode"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "iso"
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "llf": {
@@ -480,8 +480,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-LLF-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:13:16 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:17:15 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SIAE-LLF-MIB"

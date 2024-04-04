@@ -3,32 +3,32 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
       "enterprises",
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "iso",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "iso"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "peplink": {
@@ -240,8 +240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/IPSEC-VPN",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:12:08 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:16:05 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IPSEC-VPN"

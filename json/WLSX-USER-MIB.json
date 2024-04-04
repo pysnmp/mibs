@@ -5,11 +5,11 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaEncryptionType",
       "ArubaSubAuthenticationMethods",
       "ArubaUserForwardMode",
-      "ArubaAuthenticationMethods",
+      "ArubaEncryptionType",
       "ArubaPhyType",
+      "ArubaAuthenticationMethods",
       "ArubaHTMode"
     ],
     "SNMPv2-CONF": [
@@ -18,34 +18,34 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "snmpModules",
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "snmpModules",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
       "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "StorageType",
-      "TDomain",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TAddress",
-      "TimeInterval",
-      "TruthValue",
-      "MacAddress",
+      "TestAndIncr",
       "RowStatus",
-      "TestAndIncr"
+      "TimeInterval",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TDomain",
+      "PhysAddress",
+      "StorageType"
     ],
     "WLSX-WLAN-MIB": [
       "wlanESSID"
@@ -862,8 +862,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-USER-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:05:15 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:08:35 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "WLSX-USER-MIB"

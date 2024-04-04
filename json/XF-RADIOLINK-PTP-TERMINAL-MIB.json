@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entLogicalIndex",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entLogicalIndex"
     ],
     "HC-PerfHist-TC-MIB": [
       "HCPerfCurrentCount"
@@ -19,30 +19,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "Unsigned32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "TimeTicks",
+      "Bits",
       "OBJECT-TYPE",
+      "Gauge32",
       "iso",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "MibIdentifier",
-      "Bits",
-      "Unsigned32"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ],
     "XF-TOP-MIB": [
       "xfRadioLink"
@@ -9829,8 +9829,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/XF-RADIOLINK-PTP-TERMINAL-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:54 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:24 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "XF-RADIOLINK-PTP-TERMINAL-MIB"

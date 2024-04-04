@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "LLDP-MIB": [
+      "lldpRemIndex",
       "lldpPortConfigEntry",
       "lldpExtensions",
+      "lldpRemTimeMark",
       "lldpLocPortNum",
-      "lldpRemLocalPortNum",
-      "lldpRemIndex",
-      "lldpRemTimeMark"
+      "lldpRemLocalPortNum"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
       "MODULE-IDENTITY",
       "iso",
       "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter64",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -984,8 +984,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:04:00 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:17 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT3-MIB"

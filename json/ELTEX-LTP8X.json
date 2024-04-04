@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "mcTrapDescr",
-      "mcTrapExState",
-      "mcTrapLParam1",
-      "mcTrapLParam2",
-      "mcTrapLParam3",
       "mcTrapID",
-      "elHardware"
+      "mcTrapLParam2",
+      "elHardware",
+      "mcTrapLParam1",
+      "mcTrapExState",
+      "mcTrapDescr",
+      "mcTrapLParam3"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -17,34 +17,34 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Integer32",
-      "Counter32"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "MacAddress",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeInterval",
+      "TimeStamp",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TimeInterval",
+      "DisplayString"
     ]
   },
   "ltp8x": {
@@ -18751,8 +18751,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-LTP8X",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:07:37 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:04 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ELTEX-LTP8X"

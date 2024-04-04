@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AT-CHASSIS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-CHASSIS-MIB
-# Produced by pysmi-1.1.12 at Thu Apr  4 10:04:41 2024
-# On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 10:08:00 2024
+# On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Bits, Gauge32, Unsigned32, ObjectIdentity, Counter64, NotificationType, iso, MibIdentifier, TimeTicks, ModuleIdentity, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Gauge32", "Unsigned32", "ObjectIdentity", "Counter64", "NotificationType", "iso", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, Gauge32, Integer32, MibIdentifier, Unsigned32, iso, Bits, ModuleIdentity, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "Gauge32", "Integer32", "MibIdentifier", "Unsigned32", "iso", "Bits", "ModuleIdentity", "IpAddress", "ObjectIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 chassis = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 23))
 chassis.setRevisions(('2014-06-09 00:00', '2014-05-26 00:00', '2014-04-16 00:00', '2012-05-15 00:00', '2011-09-26 00:00',))
@@ -57,4 +57,4 @@ chassisNodeDisplayString = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 23
 if mibBuilder.loadTexts: chassisNodeDisplayString.setStatus('current')
 chassisNodeStateString = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 23, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: chassisNodeStateString.setStatus('current')
-mibBuilder.exportSymbols("AT-CHASSIS-MIB", chassisRole=chassisRole, chassisNodeDisplayString=chassisNodeDisplayString, chassisMappingTable=chassisMappingTable, PYSNMP_MODULE_ID=chassis, chassisCardRoleChangeNotify=chassisCardRoleChangeNotify, chassisMappingEntry=chassisMappingEntry, chassisCardBoardOID=chassisCardBoardOID, chassisCardSlot=chassisCardSlot, chassisNodeStateString=chassisNodeStateString, chassisCardTable=chassisCardTable, chassisCardEntry=chassisCardEntry, chassis=chassis, chassisCardJoinNotify=chassisCardJoinNotify, slotNumber=slotNumber, chassisNodeId=chassisNodeId, chassiCardSwVersion=chassiCardSwVersion, chassisCardState=chassisCardState, chassisCardControllerState=chassisCardControllerState, chassisCardLeaveNotify=chassisCardLeaveNotify, chassisSlotNumber=chassisSlotNumber, chassisCardName=chassisCardName, chassisVCSMemberId=chassisVCSMemberId, chassisNotifications=chassisNotifications)
+mibBuilder.exportSymbols("AT-CHASSIS-MIB", chassisCardName=chassisCardName, chassisCardControllerState=chassisCardControllerState, chassisCardJoinNotify=chassisCardJoinNotify, chassisCardSlot=chassisCardSlot, chassisNodeDisplayString=chassisNodeDisplayString, chassisNodeId=chassisNodeId, chassisCardRoleChangeNotify=chassisCardRoleChangeNotify, chassisNodeStateString=chassisNodeStateString, chassisCardTable=chassisCardTable, chassisCardEntry=chassisCardEntry, PYSNMP_MODULE_ID=chassis, chassisMappingTable=chassisMappingTable, chassisMappingEntry=chassisMappingEntry, chassisNotifications=chassisNotifications, chassiCardSwVersion=chassiCardSwVersion, chassisCardBoardOID=chassisCardBoardOID, chassisSlotNumber=chassisSlotNumber, slotNumber=slotNumber, chassis=chassis, chassisCardState=chassisCardState, chassisVCSMemberId=chassisVCSMemberId, chassisCardLeaveNotify=chassisCardLeaveNotify, chassisRole=chassisRole)

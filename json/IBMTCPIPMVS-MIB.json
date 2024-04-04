@@ -16,33 +16,33 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Counter32",
-      "Integer32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "BITS",
-      "MibIdentifier",
       "Gauge32",
-      "iso"
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "BITS"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime",
+      "DisplayString"
     ],
     "TCP-MIB": [
       "tcpConnEntry"
@@ -13553,8 +13553,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMTCPIPMVS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:10:08 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:13:53 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IBMTCPIPMVS-MIB"

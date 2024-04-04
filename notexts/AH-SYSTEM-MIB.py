@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AH-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Thu Apr  4 10:04:27 2024
-# On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 10:07:46 2024
+# On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
 ahProduct, = mibBuilder.importSymbols("AH-SMI-MIB", "ahProduct")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, TimeTicks, IpAddress, Bits, ObjectIdentity, Counter32, Unsigned32, MibIdentifier, iso, Gauge32, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "TimeTicks", "IpAddress", "Bits", "ObjectIdentity", "Counter32", "Unsigned32", "MibIdentifier", "iso", "Gauge32", "NotificationType", "Counter64")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, IpAddress, iso, ObjectIdentity, TimeTicks, Unsigned32, MibIdentifier, Bits, Integer32, ModuleIdentity, Counter64, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "IpAddress", "iso", "ObjectIdentity", "TimeTicks", "Unsigned32", "MibIdentifier", "Bits", "Integer32", "ModuleIdentity", "Counter64", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ahSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928, 1, 2))
 if mibBuilder.loadTexts: ahSystem.setLastUpdated('201608310000Z')
@@ -39,4 +39,4 @@ ahEnvirmentFan = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 11), Integer32().subt
 if mibBuilder.loadTexts: ahEnvirmentFan.setStatus('current')
 ahFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ahFirmwareVersion.setStatus('current')
-mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahSystemDescription=ahSystemDescription, ahFirmwareVersion=ahFirmwareVersion, ahUpTime=ahUpTime, ahSystemSerial=ahSystemSerial, ahSystem=ahSystem, ahClientCount=ahClientCount, ahCpuUtilization=ahCpuUtilization, ahHwVersion=ahHwVersion, ahEnvirmentTemp=ahEnvirmentTemp, ahMemUtilization=ahMemUtilization, ahSystemName=ahSystemName, ahDeviceMode=ahDeviceMode, ahEnvirmentFan=ahEnvirmentFan, PYSNMP_MODULE_ID=ahSystem)
+mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahEnvirmentTemp=ahEnvirmentTemp, ahSystemName=ahSystemName, ahFirmwareVersion=ahFirmwareVersion, ahSystem=ahSystem, ahCpuUtilization=ahCpuUtilization, ahDeviceMode=ahDeviceMode, PYSNMP_MODULE_ID=ahSystem, ahUpTime=ahUpTime, ahEnvirmentFan=ahEnvirmentFan, ahHwVersion=ahHwVersion, ahSystemDescription=ahSystemDescription, ahMemUtilization=ahMemUtilization, ahSystemSerial=ahSystemSerial, ahClientCount=ahClientCount)

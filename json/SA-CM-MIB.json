@@ -6,43 +6,43 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
       "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "Bits",
       "Gauge32",
       "Integer32",
-      "iso",
       "Counter64",
-      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "enterprises",
-      "OBJECT-IDENTITY"
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TDomain",
-      "TAddress",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TDomain",
+      "DateAndTime",
+      "TruthValue",
+      "TAddress"
     ]
   },
   "sa": {
@@ -1618,8 +1618,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/SA-CM-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:10:15 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:13:27 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SA-CM-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WATCHGUARD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/WATCHGUARD-MIB
-# Produced by pysmi-1.1.12 at Thu Apr  4 10:11:31 2024
-# On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Apr  4 10:15:20 2024
+# On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, IpAddress, Bits, iso, Counter32, ModuleIdentity, enterprises, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, Gauge32, ObjectIdentity, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "IpAddress", "Bits", "iso", "Counter32", "ModuleIdentity", "enterprises", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "Gauge32", "ObjectIdentity", "NotificationType", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, Bits, MibIdentifier, iso, enterprises, Counter64, IpAddress, Unsigned32, TimeTicks, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "Bits", "MibIdentifier", "iso", "enterprises", "Counter64", "IpAddress", "Unsigned32", "TimeTicks", "ObjectIdentity", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 watchguard = MibIdentifier((1, 3, 6, 1, 4, 1, 3097))
 wgProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1))
 fbXSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4))
@@ -30,4 +30,4 @@ fbX6500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 13))
 fbX8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 14))
 fbX8500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 15))
 fbX8500e_F = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 16)).setLabel("fbX8500e-F")
-mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX550e=fbX550e, watchguard=watchguard, fbX8000=fbX8000, fbX6500e=fbX6500e, fbX1250e=fbX1250e, fbXSeries=fbXSeries, fbX2500=fbX2500, fbX6000=fbX6000, fbX8500e=fbX8500e, fbX5500e=fbX5500e, fbX750e=fbX750e, fbX5000=fbX5000, fbX1000=fbX1000, fbX700=fbX700, fbX750e_4=fbX750e_4, fbX1250e_4=fbX1250e_4, wgProducts=wgProducts, fbX500=fbX500, fbX8500e_F=fbX8500e_F)
+mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX550e=fbX550e, fbXSeries=fbXSeries, fbX6500e=fbX6500e, fbX1250e_4=fbX1250e_4, watchguard=watchguard, fbX5500e=fbX5500e, fbX700=fbX700, fbX750e=fbX750e, fbX6000=fbX6000, fbX8000=fbX8000, fbX750e_4=fbX750e_4, fbX5000=fbX5000, fbX1250e=fbX1250e, wgProducts=wgProducts, fbX500=fbX500, fbX1000=fbX1000, fbX2500=fbX2500, fbX8500e_F=fbX8500e_F, fbX8500e=fbX8500e)

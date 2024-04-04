@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
       "PerfCurrentCount",
-      "PerfTotalCount",
-      "PerfIntervalCount"
+      "PerfTotalCount"
     ],
     "SL-NE-MIB": [
       "sitelight"
@@ -19,26 +19,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
       "MODULE-IDENTITY",
       "Bits",
-      "Integer32",
       "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "slSonetMib": {
@@ -1071,8 +1071,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SONET-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 10:11:57 2024",
-      "On host fv-az837-24 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Apr  4 10:15:52 2024",
+      "On host fv-az801-286 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SL-SONET-MIB"
