@@ -9,28 +9,28 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Integer32",
       "iso",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SWITCH-TC": [
       "EnableVar"
@@ -867,8 +867,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-OPTICAL-MONITOR-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:32 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:11:47 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RAISECOM-OPTICAL-MONITOR-MIB"

@@ -5,14 +5,14 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcAddressId",
       "FcClassOfServices",
       "FcNameId",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "FcAddressId"
     ],
     "CISCO-VSAN-MIB": [
-      "notifyVsanIndex",
-      "vsanIndex"
+      "vsanIndex",
+      "notifyVsanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,26 +23,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
       "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TimeStamp"
+      "TruthValue"
     ]
   },
   "ciscoNsMIB": {
@@ -1282,8 +1282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:29 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:30 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-NS-MIB"

@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TAP2-MIB": [
-      "cTap2StreamIndex",
-      "cTap2MediationContentId"
+      "cTap2MediationContentId",
+      "cTap2StreamIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -14,24 +14,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "iso",
       "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Integer32",
-      "iso"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -186,8 +186,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-USER-CONNECTION-TAP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:31 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:32 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-USER-CONNECTION-TAP-MIB"

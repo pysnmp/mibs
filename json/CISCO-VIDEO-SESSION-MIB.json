@@ -8,20 +8,20 @@
       "ciscoMgmt"
     ],
     "CISCO-VIDEO-TC": [
-      "CvcVideoProfile",
-      "CvcVideoLevel",
       "CvcVideoCodecAnnexMap",
-      "CvcVideoRtpPayloadFormat"
+      "CvcVideoRtpPayloadFormat",
+      "CvcVideoLevel",
+      "CvcVideoProfile"
     ],
     "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB": [
       "CvcCallReferenceIdOrZero",
-      "CvcVideoCoderRate",
-      "CvcGUid"
+      "CvcGUid",
+      "CvcVideoCoderRate"
     ],
     "DIAL-CONTROL-MIB": [
       "callActiveSetupTime",
-      "callActiveIndex",
-      "AbsoluteCounter32"
+      "AbsoluteCounter32",
+      "callActiveIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -29,24 +29,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "iso",
       "Counter32",
       "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Integer32",
-      "iso"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoVideoSessionMIB": {
@@ -2747,8 +2747,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VIDEO-SESSION-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:36 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:38 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-VIDEO-SESSION-MIB"

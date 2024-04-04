@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "OBJECT-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -77,8 +77,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ifotec/IFOTEC-PRODUCTLIST-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:44 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:44 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IFOTEC-PRODUCTLIST-MIB"

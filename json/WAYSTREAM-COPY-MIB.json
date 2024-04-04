@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
       "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
       "Bits"
     ],
     "SNMPv2-TC": [
@@ -186,8 +186,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-COPY-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:03:46 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:13:02 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "WAYSTREAM-COPY-MIB"

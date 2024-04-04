@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "experimental",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "experimental",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1132,9 +1132,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MSDP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:01:32 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/MSDP-MIB",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:31 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DRAFT-MSDP-MIB"

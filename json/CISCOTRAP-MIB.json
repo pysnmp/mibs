@@ -5,9 +5,9 @@
       "cisco"
     ],
     "IF-MIB": [
+      "ifType",
       "ifIndex",
-      "ifDescr",
-      "ifType"
+      "ifDescr"
     ],
     "OLD-CISCO-INTERFACES-MIB": [
       "locIfReason"
@@ -17,13 +17,13 @@
       "authAddr"
     ],
     "OLD-CISCO-TCP-MIB": [
-      "loctcpConnOutBytes",
       "loctcpConnElapsed",
-      "loctcpConnInBytes"
+      "loctcpConnInBytes",
+      "loctcpConnOutBytes"
     ],
     "OLD-CISCO-TS-MIB": [
-      "tslineSesType",
-      "tsLineUser"
+      "tsLineUser",
+      "tslineSesType"
     ],
     "RFC1213-MIB": [
       "egpNeighAddr"
@@ -33,29 +33,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "snmp",
-      "sysUpTime"
+      "sysUpTime",
+      "snmp"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "iso",
       "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Integer32",
-      "iso"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "TCP-MIB": [
       "tcpConnState"
@@ -193,8 +193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOTRAP-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:30 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:31 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCOTRAP-MIB"

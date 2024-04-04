@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "CISCO-GTP-MIB": [
-      "cGtpPathPort",
+      "cGtpPathAddressType",
       "cGtpPathAddress",
-      "cGtpPathAddressType"
+      "cGtpPathPort"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
-      "CiscoInetAddressMask"
+      "CiscoInetAddressMask",
+      "CiscoAlarmSeverity"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddressType",
+      "InetAddress",
       "InetAddressDNS",
-      "InetAddress"
+      "InetAddressType",
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -32,27 +32,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
       "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
       "TruthValue",
-      "TimeStamp"
+      "TimeStamp",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cGgsnMIB": {
@@ -5497,8 +5497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GGSN-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:32 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:33 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-GGSN-MIB"

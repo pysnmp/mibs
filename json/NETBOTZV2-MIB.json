@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
       "iso",
-      "Counter32",
-      "IpAddress",
-      "enterprises",
-      "Gauge32",
+      "Bits",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -21228,8 +21228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netbotz/NETBOTZV2-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:56 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:10:05 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "NETBOTZV2-MIB"

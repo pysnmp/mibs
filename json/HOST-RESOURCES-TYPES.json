@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "HOST-RESOURCES-MIB": [
+      "hrDevice",
       "hrStorage",
-      "hrMIBAdminInfo",
-      "hrDevice"
+      "hrMIBAdminInfo"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
       "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-TYPE",
-      "Bits"
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -366,8 +366,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/HOST-RESOURCES-TYPES",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:53:42 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:54 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HOST-RESOURCES-TYPES"

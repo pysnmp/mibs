@@ -8,12 +8,12 @@
       "EriProbableCause"
     ],
     "ERICSSON-ALARM-TC-MIB": [
-      "EriLargeAdditionalText",
+      "EriAdditionalText",
       "EriAlarmIndex",
-      "EriAlarmSpecificProblem",
-      "EriAlarmSequenceNumber",
       "EriAlarmType",
-      "EriAdditionalText"
+      "EriAlarmSequenceNumber",
+      "EriAlarmSpecificProblem",
+      "EriLargeAdditionalText"
     ],
     "ERICSSON-TC-MIB": [
       "EriMO"
@@ -37,31 +37,31 @@
       "snmpTargetBasicGroup"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
       "Counter32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "iso",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Counter64",
-      "Unsigned32"
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "ericssonAlarmMIB": {
@@ -1703,8 +1703,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:57:23 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:06:34 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ERICSSON-ALARM-MIB"

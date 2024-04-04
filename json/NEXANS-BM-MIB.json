@@ -5,29 +5,29 @@
       "nexansANS"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "iso",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter64",
+      "Bits",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Integer32",
-      "Counter32"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "bmSwitchMIB": {
@@ -2629,8 +2629,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nexans/NEXANS-BM-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:01:02 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:10:16 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "NEXANS-BM-MIB"

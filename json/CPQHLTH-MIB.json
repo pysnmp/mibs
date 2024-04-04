@@ -7,8 +7,8 @@
       "cpqHoTrapFlags"
     ],
     "CPQSINFO-MIB": [
-      "cpqSiServerSystemId",
-      "cpqSiMemModuleSize"
+      "cpqSiMemModuleSize",
+      "cpqSiServerSystemId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -18,22 +18,22 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
+      "Integer32",
       "Counter32",
       "OBJECT-TYPE",
-      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "Counter64"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "enterprises",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -6809,8 +6809,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQHLTH-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:12 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:10:06 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CPQHLTH-MIB"

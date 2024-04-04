@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "DELL-NETWORKING-SMI": [
-      "dellNetModules",
-      "dellNetProducts"
+      "dellNetProducts",
+      "dellNetModules"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Integer32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "Unsigned32",
+      "Counter32",
       "Bits",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -350,8 +350,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:56:37 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:05:48 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-PRODUCTS-MIB"

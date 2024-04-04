@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalIndex",
+      "entPhysicalName",
       "entPhysicalClass",
+      "entPhysicalVendorType",
       "PhysicalClass",
       "PhysicalIndex",
-      "entPhysicalName",
-      "entPhysicalVendorType"
+      "entPhysicalIndex"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -27,26 +27,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Bits",
-      "Gauge32",
       "MibIdentifier",
+      "Counter64",
       "iso",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
       "DisplayString",
       "AutonomousType",
-      "DateAndTime",
       "RowStatus"
     ]
   },
@@ -9049,8 +9049,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENTITY-EXTENT-MIB",
-      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:33 2024",
-      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:08:36 2024",
+      "On host fv-az714-698 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ENTITY-EXTENT-MIB"
