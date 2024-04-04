@@ -10,41 +10,41 @@
     ],
     "HUAWEI-TC-MIB": [
       "HWFrameType",
-      "HWPortType",
       "HWPCBType",
-      "HWSubPCBType"
+      "HWSubPCBType",
+      "HWPortType"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "IpAddress",
+      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "Bits",
       "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
       "TruthValue",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "hwMA5200Device": {
@@ -969,8 +969,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MA5200-DEVICE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:09 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:32 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MA5200-DEVICE-MIB"

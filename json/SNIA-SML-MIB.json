@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "Counter32",
       "Gauge32",
-      "enterprises",
+      "MODULE-IDENTITY",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "UShortReal": {
@@ -3302,7 +3302,7 @@
   },
   "driveAlert": {
     "name": "driveAlert",
-    "oid": "1.3.6.1.4.1.14851.3.1.0.0",
+    "oid": "1.3.6.1.4.1.14851.3.10.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -3321,7 +3321,7 @@
   },
   "changerAlert": {
     "name": "changerAlert",
-    "oid": "1.3.6.1.4.1.14851.3.1.0.1",
+    "oid": "1.3.6.1.4.1.14851.3.10.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3419,7 +3419,7 @@
   },
   "libraryAddedTrap": {
     "name": "libraryAddedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.3",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -3430,7 +3430,7 @@
   },
   "libraryDeletedTrap": {
     "name": "libraryDeletedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.4",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -3441,7 +3441,7 @@
   },
   "libraryOpStatusChangedTrap": {
     "name": "libraryOpStatusChangedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.5",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -3460,7 +3460,7 @@
   },
   "driveAddedTrap": {
     "name": "driveAddedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.6",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -3475,7 +3475,7 @@
   },
   "driveDeletedTrap": {
     "name": "driveDeletedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.7",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -3490,7 +3490,7 @@
   },
   "driveOpStatusChangedTrap": {
     "name": "driveOpStatusChangedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.8",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -3513,7 +3513,7 @@
   },
   "changerAddedTrap": {
     "name": "changerAddedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.9",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.9",
     "class": "notificationtype",
     "objects": [
       {
@@ -3528,7 +3528,7 @@
   },
   "changerDeletedTrap": {
     "name": "changerDeletedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.10",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -3543,7 +3543,7 @@
   },
   "changerOpStatusChangedTrap": {
     "name": "changerOpStatusChangedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.11",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -3566,7 +3566,7 @@
   },
   "physicalMediaAddedTrap": {
     "name": "physicalMediaAddedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.12",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -3577,7 +3577,7 @@
   },
   "physicalMediaDeletedTrap": {
     "name": "physicalMediaDeletedTrap",
-    "oid": "1.3.6.1.4.1.14851.3.1.16.0.13",
+    "oid": "1.3.6.1.4.1.14851.3.1.160.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -3601,8 +3601,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/SNIA-SML-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:20 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:41 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SNIA-SML-MIB"

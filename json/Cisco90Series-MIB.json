@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
+      "Unsigned32",
+      "iso",
       "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
-      "enterprises",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "TRAP-TYPE"
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "DisplayString": {
@@ -2830,7 +2830,7 @@
   },
   "frxDownloadTrap": {
     "name": "frxDownloadTrap",
-    "oid": "1.3.6.1.4.1.1570.1.0.1",
+    "oid": "1.3.6.1.4.1.1570.10.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -2845,7 +2845,7 @@
   },
   "frxUPerfTrap": {
     "name": "frxUPerfTrap",
-    "oid": "1.3.6.1.4.1.1570.1.0.2",
+    "oid": "1.3.6.1.4.1.1570.10.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -2860,7 +2860,7 @@
   },
   "frxInsertChUTrap": {
     "name": "frxInsertChUTrap",
-    "oid": "1.3.6.1.4.1.1570.1.0.3",
+    "oid": "1.3.6.1.4.1.1570.10.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -2875,7 +2875,7 @@
   },
   "frxRemoveChUTrap": {
     "name": "frxRemoveChUTrap",
-    "oid": "1.3.6.1.4.1.1570.1.0.4",
+    "oid": "1.3.6.1.4.1.1570.10.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -2890,7 +2890,7 @@
   },
   "frxDConfigFailed": {
     "name": "frxDConfigFailed",
-    "oid": "1.3.6.1.4.1.1570.1.0.5",
+    "oid": "1.3.6.1.4.1.1570.10.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -2906,8 +2906,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-90-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:23 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:35 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "Cisco90Series-MIB"

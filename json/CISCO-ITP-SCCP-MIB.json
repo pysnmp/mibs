@@ -6,47 +6,47 @@
       "cItpSpCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
+      "CItpTcDisplayPC",
       "CItpTcGtaDisplayZB",
-      "CItpTcNAI",
-      "CItpTcTranslationType",
-      "CItpTcNumberingPlan",
-      "CItpTcTableLoadStatus",
-      "CItpTcSubSystemNumber",
-      "CItpTcGtaDisplay",
-      "CItpTcXuaName",
-      "CItpTcPointCode",
       "CItpTcGtaAddr",
-      "CItpTcDisplayPC"
+      "CItpTcGtaDisplay",
+      "CItpTcTableLoadStatus",
+      "CItpTcNumberingPlan",
+      "CItpTcPointCode",
+      "CItpTcSubSystemNumber",
+      "CItpTcXuaName",
+      "CItpTcTranslationType",
+      "CItpTcNAI"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
       "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
       "MODULE-IDENTITY",
+      "Counter32",
       "Gauge32",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "ciscoItpSccpMIB": {
@@ -2955,8 +2955,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-SCCP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:25 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:36 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-SCCP-MIB"

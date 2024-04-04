@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "Counter32",
       "Gauge32",
-      "enterprises",
+      "MODULE-IDENTITY",
       "Counter64",
+      "TRAP-TYPE",
+      "enterprises",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ibm": {
@@ -532,7 +532,7 @@
   },
   "mmTrapTempC": {
     "name": "mmTrapTempC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.0",
+    "oid": "1.3.6.1.4.1.2.6.158.30.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -619,7 +619,7 @@
   },
   "mmTrapVoltC": {
     "name": "mmTrapVoltC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.1",
+    "oid": "1.3.6.1.4.1.2.6.158.30.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -706,7 +706,7 @@
   },
   "mmTrapTampC": {
     "name": "mmTrapTampC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.2",
+    "oid": "1.3.6.1.4.1.2.6.158.30.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -793,7 +793,7 @@
   },
   "mmTrapMffC": {
     "name": "mmTrapMffC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.3",
+    "oid": "1.3.6.1.4.1.2.6.158.30.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -880,7 +880,7 @@
   },
   "mmTrapPsC": {
     "name": "mmTrapPsC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.4",
+    "oid": "1.3.6.1.4.1.2.6.158.30.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -1023,7 +1023,7 @@
   },
   "mTrapHdC": {
     "name": "mTrapHdC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.5",
+    "oid": "1.3.6.1.4.1.2.6.158.30.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -1110,7 +1110,7 @@
   },
   "mmTrapVrmC": {
     "name": "mmTrapVrmC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.6",
+    "oid": "1.3.6.1.4.1.2.6.158.30.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -1197,7 +1197,7 @@
   },
   "mmTrapSffC": {
     "name": "mmTrapSffC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.11",
+    "oid": "1.3.6.1.4.1.2.6.158.30.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -1284,7 +1284,7 @@
   },
   "mmTrapMsC": {
     "name": "mmTrapMsC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.31",
+    "oid": "1.3.6.1.4.1.2.6.158.30.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -1371,7 +1371,7 @@
   },
   "mmTrapIhcC": {
     "name": "mmTrapIhcC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.36",
+    "oid": "1.3.6.1.4.1.2.6.158.30.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -1458,7 +1458,7 @@
   },
   "mmTrapBladeC": {
     "name": "mmTrapBladeC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.128",
+    "oid": "1.3.6.1.4.1.2.6.158.30.128",
     "class": "notificationtype",
     "objects": [
       {
@@ -1601,7 +1601,7 @@
   },
   "mmTrapIOC": {
     "name": "mmTrapIOC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.129",
+    "oid": "1.3.6.1.4.1.2.6.158.30.129",
     "class": "notificationtype",
     "objects": [
       {
@@ -1744,7 +1744,7 @@
   },
   "mmTrapStorageC": {
     "name": "mmTrapStorageC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.131",
+    "oid": "1.3.6.1.4.1.2.6.158.30.131",
     "class": "notificationtype",
     "objects": [
       {
@@ -1887,7 +1887,7 @@
   },
   "mmTrapChassisC": {
     "name": "mmTrapChassisC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.130",
+    "oid": "1.3.6.1.4.1.2.6.158.30.130",
     "class": "notificationtype",
     "objects": [
       {
@@ -2030,7 +2030,7 @@
   },
   "mmTrapFanC": {
     "name": "mmTrapFanC",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.133",
+    "oid": "1.3.6.1.4.1.2.6.158.30.133",
     "class": "notificationtype",
     "objects": [
       {
@@ -2173,7 +2173,7 @@
   },
   "mmTrapRdpsN": {
     "name": "mmTrapRdpsN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.10",
+    "oid": "1.3.6.1.4.1.2.6.158.30.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -2260,7 +2260,7 @@
   },
   "mmTrapTempN": {
     "name": "mmTrapTempN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.12",
+    "oid": "1.3.6.1.4.1.2.6.158.30.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -2347,7 +2347,7 @@
   },
   "mmTrapVoltN": {
     "name": "mmTrapVoltN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.13",
+    "oid": "1.3.6.1.4.1.2.6.158.30.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -2430,7 +2430,7 @@
   },
   "mmTrapRmN": {
     "name": "mmTrapRmN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.32",
+    "oid": "1.3.6.1.4.1.2.6.158.30.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -2517,7 +2517,7 @@
   },
   "mmTrapBladeN": {
     "name": "mmTrapBladeN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.160",
+    "oid": "1.3.6.1.4.1.2.6.158.30.160",
     "class": "notificationtype",
     "objects": [
       {
@@ -2660,7 +2660,7 @@
   },
   "mmTrapION": {
     "name": "mmTrapION",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.161",
+    "oid": "1.3.6.1.4.1.2.6.158.30.161",
     "class": "notificationtype",
     "objects": [
       {
@@ -2803,7 +2803,7 @@
   },
   "mmTrapLogFullN": {
     "name": "mmTrapLogFullN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.7",
+    "oid": "1.3.6.1.4.1.2.6.158.30.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -2946,7 +2946,7 @@
   },
   "mmTrapStorageN": {
     "name": "mmTrapStorageN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.163",
+    "oid": "1.3.6.1.4.1.2.6.158.30.163",
     "class": "notificationtype",
     "objects": [
       {
@@ -3089,7 +3089,7 @@
   },
   "mmTrapPowerN": {
     "name": "mmTrapPowerN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.164",
+    "oid": "1.3.6.1.4.1.2.6.158.30.164",
     "class": "notificationtype",
     "objects": [
       {
@@ -3232,7 +3232,7 @@
   },
   "mmTrapChassisN": {
     "name": "mmTrapChassisN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.162",
+    "oid": "1.3.6.1.4.1.2.6.158.30.162",
     "class": "notificationtype",
     "objects": [
       {
@@ -3375,7 +3375,7 @@
   },
   "mmTrapFanN": {
     "name": "mmTrapFanN",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.165",
+    "oid": "1.3.6.1.4.1.2.6.158.30.165",
     "class": "notificationtype",
     "objects": [
       {
@@ -3518,7 +3518,7 @@
   },
   "mmTrapSecDvS": {
     "name": "mmTrapSecDvS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.15",
+    "oid": "1.3.6.1.4.1.2.6.158.30.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -3605,7 +3605,7 @@
   },
   "mmTrapPostToS": {
     "name": "mmTrapPostToS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.20",
+    "oid": "1.3.6.1.4.1.2.6.158.30.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -3692,7 +3692,7 @@
   },
   "mmTrapOsToS": {
     "name": "mmTrapOsToS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.21",
+    "oid": "1.3.6.1.4.1.2.6.158.30.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -3779,7 +3779,7 @@
   },
   "mmTrapAppS": {
     "name": "mmTrapAppS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.22",
+    "oid": "1.3.6.1.4.1.2.6.158.30.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -3922,7 +3922,7 @@
   },
   "mmTrapPoffS": {
     "name": "mmTrapPoffS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.23",
+    "oid": "1.3.6.1.4.1.2.6.158.30.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -4009,7 +4009,7 @@
   },
   "mmTrapPonS": {
     "name": "mmTrapPonS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.24",
+    "oid": "1.3.6.1.4.1.2.6.158.30.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -4096,7 +4096,7 @@
   },
   "mmTrapBootS": {
     "name": "mmTrapBootS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.25",
+    "oid": "1.3.6.1.4.1.2.6.158.30.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -4183,7 +4183,7 @@
   },
   "mmTrapLdrToS": {
     "name": "mmTrapLdrToS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.26",
+    "oid": "1.3.6.1.4.1.2.6.158.30.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -4270,7 +4270,7 @@
   },
   "mmTrapPFAS": {
     "name": "mmTrapPFAS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.27",
+    "oid": "1.3.6.1.4.1.2.6.158.30.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -4357,7 +4357,7 @@
   },
   "mmTrapRemoteLoginS": {
     "name": "mmTrapRemoteLoginS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.30",
+    "oid": "1.3.6.1.4.1.2.6.158.30.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -4500,7 +4500,7 @@
   },
   "mmTrapKVMSwitchS": {
     "name": "mmTrapKVMSwitchS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.33",
+    "oid": "1.3.6.1.4.1.2.6.158.30.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -4587,7 +4587,7 @@
   },
   "mmTrapSysInvS": {
     "name": "mmTrapSysInvS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.34",
+    "oid": "1.3.6.1.4.1.2.6.158.30.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -4730,7 +4730,7 @@
   },
   "mmTrapSysLogS": {
     "name": "mmTrapSysLogS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.35",
+    "oid": "1.3.6.1.4.1.2.6.158.30.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -4873,7 +4873,7 @@
   },
   "mmTrapNwChangeS": {
     "name": "mmTrapNwChangeS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.37",
+    "oid": "1.3.6.1.4.1.2.6.158.30.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -5016,7 +5016,7 @@
   },
   "mmTrapBlThrS": {
     "name": "mmTrapBlThrS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.39",
+    "oid": "1.3.6.1.4.1.2.6.158.30.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -5103,7 +5103,7 @@
   },
   "mmTrapPwrMgntS": {
     "name": "mmTrapPwrMgntS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.40",
+    "oid": "1.3.6.1.4.1.2.6.158.30.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -5190,7 +5190,7 @@
   },
   "mmTrapBladeS": {
     "name": "mmTrapBladeS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.176",
+    "oid": "1.3.6.1.4.1.2.6.158.30.176",
     "class": "notificationtype",
     "objects": [
       {
@@ -5333,7 +5333,7 @@
   },
   "mmTrapIOS": {
     "name": "mmTrapIOS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.177",
+    "oid": "1.3.6.1.4.1.2.6.158.30.177",
     "class": "notificationtype",
     "objects": [
       {
@@ -5476,7 +5476,7 @@
   },
   "mmTrapStorageS": {
     "name": "mmTrapStorageS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.179",
+    "oid": "1.3.6.1.4.1.2.6.158.30.179",
     "class": "notificationtype",
     "objects": [
       {
@@ -5619,7 +5619,7 @@
   },
   "mmTrapPowerS": {
     "name": "mmTrapPowerS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.180",
+    "oid": "1.3.6.1.4.1.2.6.158.30.180",
     "class": "notificationtype",
     "objects": [
       {
@@ -5762,7 +5762,7 @@
   },
   "mmTrapChassisS": {
     "name": "mmTrapChassisS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.178",
+    "oid": "1.3.6.1.4.1.2.6.158.30.178",
     "class": "notificationtype",
     "objects": [
       {
@@ -5905,7 +5905,7 @@
   },
   "mmTrapFanS": {
     "name": "mmTrapFanS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.181",
+    "oid": "1.3.6.1.4.1.2.6.158.30.181",
     "class": "notificationtype",
     "objects": [
       {
@@ -6048,7 +6048,7 @@
   },
   "mmTrapPwrDOS": {
     "name": "mmTrapPwrDOS",
-    "oid": "1.3.6.1.4.1.2.6.158.3.0.182",
+    "oid": "1.3.6.1.4.1.2.6.158.30.182",
     "class": "notificationtype",
     "objects": [
       {
@@ -6192,8 +6192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/BLADESPPALT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:22 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:43 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "BLADESPPALT-MIB"

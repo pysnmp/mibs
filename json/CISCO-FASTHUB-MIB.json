@@ -12,25 +12,25 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Counter64",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "TRAP-TYPE"
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoFastHubMIB": {
@@ -1186,7 +1186,7 @@
   },
   "logonIntruder": {
     "name": "logonIntruder",
-    "oid": "1.3.6.1.4.1.9.2.11.1.0.0",
+    "oid": "1.3.6.1.4.1.9.2.11.10.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -1197,7 +1197,7 @@
   },
   "hubStackDiagnostic": {
     "name": "hubStackDiagnostic",
-    "oid": "1.3.6.1.4.1.9.2.11.1.0.1",
+    "oid": "1.3.6.1.4.1.9.2.11.10.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -1208,7 +1208,7 @@
   },
   "rpsFailed": {
     "name": "rpsFailed",
-    "oid": "1.3.6.1.4.1.9.2.11.1.0.2",
+    "oid": "1.3.6.1.4.1.9.2.11.10.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -1219,7 +1219,7 @@
   },
   "ipAddressChange": {
     "name": "ipAddressChange",
-    "oid": "1.3.6.1.4.1.9.2.11.1.0.3",
+    "oid": "1.3.6.1.4.1.9.2.11.10.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -1231,8 +1231,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FASTHUB-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:18 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:31 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-FASTHUB-MIB"

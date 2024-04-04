@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
       "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "enterprises",
       "iso",
+      "NOTIFICATION-TYPE",
+      "enterprises",
       "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
       "Bits",
-      "Counter32",
-      "Gauge32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "DellStatus": {
@@ -6617,7 +6617,7 @@
   },
   "alertStorageManagementInformation": {
     "name": "alertStorageManagementInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.101",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.101",
     "class": "notificationtype",
     "objects": [
       {
@@ -6632,7 +6632,7 @@
   },
   "alertStorageManagementNormal": {
     "name": "alertStorageManagementNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.102",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.102",
     "class": "notificationtype",
     "objects": [
       {
@@ -6647,7 +6647,7 @@
   },
   "alertStorageManagementWarning": {
     "name": "alertStorageManagementWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.103",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.103",
     "class": "notificationtype",
     "objects": [
       {
@@ -6662,7 +6662,7 @@
   },
   "alertStorageManagementFailure": {
     "name": "alertStorageManagementFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.104",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.104",
     "class": "notificationtype",
     "objects": [
       {
@@ -6677,7 +6677,7 @@
   },
   "alertStorageManagementNonRecoverable": {
     "name": "alertStorageManagementNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.105",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.105",
     "class": "notificationtype",
     "objects": [
       {
@@ -6692,7 +6692,7 @@
   },
   "alertControllerInformation": {
     "name": "alertControllerInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.751",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.751",
     "class": "notificationtype",
     "objects": [
       {
@@ -6731,7 +6731,7 @@
   },
   "alertControllerNormal": {
     "name": "alertControllerNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.752",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.752",
     "class": "notificationtype",
     "objects": [
       {
@@ -6770,7 +6770,7 @@
   },
   "alertControllerWarning": {
     "name": "alertControllerWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.753",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.753",
     "class": "notificationtype",
     "objects": [
       {
@@ -6809,7 +6809,7 @@
   },
   "alertControllerFailure": {
     "name": "alertControllerFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.754",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.754",
     "class": "notificationtype",
     "objects": [
       {
@@ -6848,7 +6848,7 @@
   },
   "alertControllerNonRecoverable": {
     "name": "alertControllerNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.755",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.755",
     "class": "notificationtype",
     "objects": [
       {
@@ -6887,7 +6887,7 @@
   },
   "alertChannelInformation": {
     "name": "alertChannelInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.801",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.801",
     "class": "notificationtype",
     "objects": [
       {
@@ -6926,7 +6926,7 @@
   },
   "alertChannelNormal": {
     "name": "alertChannelNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.802",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.802",
     "class": "notificationtype",
     "objects": [
       {
@@ -6965,7 +6965,7 @@
   },
   "alertChannelWarning": {
     "name": "alertChannelWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.803",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.803",
     "class": "notificationtype",
     "objects": [
       {
@@ -7004,7 +7004,7 @@
   },
   "alertChannelFailure": {
     "name": "alertChannelFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.804",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.804",
     "class": "notificationtype",
     "objects": [
       {
@@ -7043,7 +7043,7 @@
   },
   "alertChannelNonRecoverable": {
     "name": "alertChannelNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.805",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.805",
     "class": "notificationtype",
     "objects": [
       {
@@ -7082,7 +7082,7 @@
   },
   "alertEnclosureInformation": {
     "name": "alertEnclosureInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.851",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.851",
     "class": "notificationtype",
     "objects": [
       {
@@ -7121,7 +7121,7 @@
   },
   "alertEnclosureNormal": {
     "name": "alertEnclosureNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.852",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.852",
     "class": "notificationtype",
     "objects": [
       {
@@ -7160,7 +7160,7 @@
   },
   "alertEnclosureWarning": {
     "name": "alertEnclosureWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.853",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.853",
     "class": "notificationtype",
     "objects": [
       {
@@ -7199,7 +7199,7 @@
   },
   "alertEnclosureFailure": {
     "name": "alertEnclosureFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.854",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.854",
     "class": "notificationtype",
     "objects": [
       {
@@ -7238,7 +7238,7 @@
   },
   "alertEnclosureNonRecoverable": {
     "name": "alertEnclosureNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.855",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.855",
     "class": "notificationtype",
     "objects": [
       {
@@ -7277,7 +7277,7 @@
   },
   "alertArrayDiskInformation": {
     "name": "alertArrayDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.901",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.901",
     "class": "notificationtype",
     "objects": [
       {
@@ -7316,7 +7316,7 @@
   },
   "alertArrayDiskNormal": {
     "name": "alertArrayDiskNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.902",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.902",
     "class": "notificationtype",
     "objects": [
       {
@@ -7355,7 +7355,7 @@
   },
   "alertArrayDiskWarning": {
     "name": "alertArrayDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.903",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.903",
     "class": "notificationtype",
     "objects": [
       {
@@ -7394,7 +7394,7 @@
   },
   "alertArrayDiskFailure": {
     "name": "alertArrayDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.904",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.904",
     "class": "notificationtype",
     "objects": [
       {
@@ -7433,7 +7433,7 @@
   },
   "alertArrayDiskNonRecoverable": {
     "name": "alertArrayDiskNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.905",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.905",
     "class": "notificationtype",
     "objects": [
       {
@@ -7472,7 +7472,7 @@
   },
   "alertEMMInformation": {
     "name": "alertEMMInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.951",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.951",
     "class": "notificationtype",
     "objects": [
       {
@@ -7511,7 +7511,7 @@
   },
   "alertEMMNormal": {
     "name": "alertEMMNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.952",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.952",
     "class": "notificationtype",
     "objects": [
       {
@@ -7550,7 +7550,7 @@
   },
   "alertEMMWarning": {
     "name": "alertEMMWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.953",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.953",
     "class": "notificationtype",
     "objects": [
       {
@@ -7589,7 +7589,7 @@
   },
   "alertEMMFailure": {
     "name": "alertEMMFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.954",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.954",
     "class": "notificationtype",
     "objects": [
       {
@@ -7628,7 +7628,7 @@
   },
   "alertEMMNonRecoverable": {
     "name": "alertEMMNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.955",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.955",
     "class": "notificationtype",
     "objects": [
       {
@@ -7667,7 +7667,7 @@
   },
   "alertPowerSupplyInformation": {
     "name": "alertPowerSupplyInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1001",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1001",
     "class": "notificationtype",
     "objects": [
       {
@@ -7706,7 +7706,7 @@
   },
   "alertPowerSupplyNormal": {
     "name": "alertPowerSupplyNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1002",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1002",
     "class": "notificationtype",
     "objects": [
       {
@@ -7745,7 +7745,7 @@
   },
   "alertPowerSupplyWarning": {
     "name": "alertPowerSupplyWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1003",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1003",
     "class": "notificationtype",
     "objects": [
       {
@@ -7784,7 +7784,7 @@
   },
   "alertPowerSupplyFailure": {
     "name": "alertPowerSupplyFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1004",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1004",
     "class": "notificationtype",
     "objects": [
       {
@@ -7823,7 +7823,7 @@
   },
   "alertPowerSupplyNonRecoverable": {
     "name": "alertPowerSupplyNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1005",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1005",
     "class": "notificationtype",
     "objects": [
       {
@@ -7862,7 +7862,7 @@
   },
   "alertTemperatureProbeInformation": {
     "name": "alertTemperatureProbeInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1051",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1051",
     "class": "notificationtype",
     "objects": [
       {
@@ -7901,7 +7901,7 @@
   },
   "alertTemperatureProbeNormal": {
     "name": "alertTemperatureProbeNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1052",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1052",
     "class": "notificationtype",
     "objects": [
       {
@@ -7940,7 +7940,7 @@
   },
   "alertTemperatureProbeWarning": {
     "name": "alertTemperatureProbeWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1053",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1053",
     "class": "notificationtype",
     "objects": [
       {
@@ -7979,7 +7979,7 @@
   },
   "alertTemperatureProbeFailure": {
     "name": "alertTemperatureProbeFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1054",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1054",
     "class": "notificationtype",
     "objects": [
       {
@@ -8018,7 +8018,7 @@
   },
   "alertTemperatureProbeNonRecoverable": {
     "name": "alertTemperatureProbeNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1055",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1055",
     "class": "notificationtype",
     "objects": [
       {
@@ -8057,7 +8057,7 @@
   },
   "alertFanInformation": {
     "name": "alertFanInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1101",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1101",
     "class": "notificationtype",
     "objects": [
       {
@@ -8096,7 +8096,7 @@
   },
   "alertFanNormal": {
     "name": "alertFanNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1102",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1102",
     "class": "notificationtype",
     "objects": [
       {
@@ -8135,7 +8135,7 @@
   },
   "alertFanWarning": {
     "name": "alertFanWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1103",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1103",
     "class": "notificationtype",
     "objects": [
       {
@@ -8174,7 +8174,7 @@
   },
   "alertFanFailure": {
     "name": "alertFanFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1104",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1104",
     "class": "notificationtype",
     "objects": [
       {
@@ -8213,7 +8213,7 @@
   },
   "alertFanNonRecoverable": {
     "name": "alertFanNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1105",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1105",
     "class": "notificationtype",
     "objects": [
       {
@@ -8252,7 +8252,7 @@
   },
   "alertBatteryInformation": {
     "name": "alertBatteryInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1151",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1151",
     "class": "notificationtype",
     "objects": [
       {
@@ -8291,7 +8291,7 @@
   },
   "alertBatteryNormal": {
     "name": "alertBatteryNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1152",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1152",
     "class": "notificationtype",
     "objects": [
       {
@@ -8330,7 +8330,7 @@
   },
   "alertBatteryWarning": {
     "name": "alertBatteryWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1153",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1153",
     "class": "notificationtype",
     "objects": [
       {
@@ -8369,7 +8369,7 @@
   },
   "alertBatteryFailure": {
     "name": "alertBatteryFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1154",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1154",
     "class": "notificationtype",
     "objects": [
       {
@@ -8408,7 +8408,7 @@
   },
   "alertBatteryNonRecoverable": {
     "name": "alertBatteryNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1155",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1155",
     "class": "notificationtype",
     "objects": [
       {
@@ -8447,7 +8447,7 @@
   },
   "alertVirtualDiskInformation": {
     "name": "alertVirtualDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1201",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1201",
     "class": "notificationtype",
     "objects": [
       {
@@ -8486,7 +8486,7 @@
   },
   "alertVirtualDiskNormal": {
     "name": "alertVirtualDiskNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1202",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1202",
     "class": "notificationtype",
     "objects": [
       {
@@ -8525,7 +8525,7 @@
   },
   "alertVirtualDiskWarning": {
     "name": "alertVirtualDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1203",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1203",
     "class": "notificationtype",
     "objects": [
       {
@@ -8564,7 +8564,7 @@
   },
   "alertVirtualDiskFailure": {
     "name": "alertVirtualDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1204",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1204",
     "class": "notificationtype",
     "objects": [
       {
@@ -8603,7 +8603,7 @@
   },
   "alertVirtualDiskNonRecoverable": {
     "name": "alertVirtualDiskNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1205",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1205",
     "class": "notificationtype",
     "objects": [
       {
@@ -8642,7 +8642,7 @@
   },
   "alertRedundancyNormal": {
     "name": "alertRedundancyNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1304",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1304",
     "class": "notificationtype",
     "objects": [
       {
@@ -8681,7 +8681,7 @@
   },
   "alertRedundancyDegraded": {
     "name": "alertRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1305",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1305",
     "class": "notificationtype",
     "objects": [
       {
@@ -8720,7 +8720,7 @@
   },
   "alertRedundancyLost": {
     "name": "alertRedundancyLost",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1306",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1306",
     "class": "notificationtype",
     "objects": [
       {
@@ -8759,7 +8759,7 @@
   },
   "alertFluidCacheDiskInformation": {
     "name": "alertFluidCacheDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1401",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1401",
     "class": "notificationtype",
     "objects": [
       {
@@ -8798,7 +8798,7 @@
   },
   "alertfluidCacheDiskWarning": {
     "name": "alertfluidCacheDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1403",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1403",
     "class": "notificationtype",
     "objects": [
       {
@@ -8837,7 +8837,7 @@
   },
   "alertFluidCacheDisklFailure": {
     "name": "alertFluidCacheDisklFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1404",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1404",
     "class": "notificationtype",
     "objects": [
       {
@@ -8876,7 +8876,7 @@
   },
   "alertVirtualDiskPartitionInformation": {
     "name": "alertVirtualDiskPartitionInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1501",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1501",
     "class": "notificationtype",
     "objects": [
       {
@@ -8915,7 +8915,7 @@
   },
   "alertVirtualDiskPartitionWarning": {
     "name": "alertVirtualDiskPartitionWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1503",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1503",
     "class": "notificationtype",
     "objects": [
       {
@@ -8954,7 +8954,7 @@
   },
   "alertVirtualDiskPartitionFailure": {
     "name": "alertVirtualDiskPartitionFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1504",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1504",
     "class": "notificationtype",
     "objects": [
       {
@@ -8993,7 +8993,7 @@
   },
   "alertFluidCacheInformation": {
     "name": "alertFluidCacheInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1601",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1601",
     "class": "notificationtype",
     "objects": [
       {
@@ -9032,7 +9032,7 @@
   },
   "alertfluidCacheWarning": {
     "name": "alertfluidCacheWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1603",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1603",
     "class": "notificationtype",
     "objects": [
       {
@@ -9071,7 +9071,7 @@
   },
   "alertFluidCacheFailure": {
     "name": "alertFluidCacheFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1604",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1604",
     "class": "notificationtype",
     "objects": [
       {
@@ -9110,7 +9110,7 @@
   },
   "alertFluidCachePoolInformation": {
     "name": "alertFluidCachePoolInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1701",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1701",
     "class": "notificationtype",
     "objects": [
       {
@@ -9149,7 +9149,7 @@
   },
   "alertfluidCachePoolWarning": {
     "name": "alertfluidCachePoolWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1703",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1703",
     "class": "notificationtype",
     "objects": [
       {
@@ -9188,7 +9188,7 @@
   },
   "alertFluidCachePoolFailure": {
     "name": "alertFluidCachePoolFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.1704",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.1704",
     "class": "notificationtype",
     "objects": [
       {
@@ -9227,7 +9227,7 @@
   },
   "alertEEMIStorageManagementInformation": {
     "name": "alertEEMIStorageManagementInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.10100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.10100",
     "class": "notificationtype",
     "objects": [
       {
@@ -9258,7 +9258,7 @@
   },
   "alertEEMIStorageManagementNormal": {
     "name": "alertEEMIStorageManagementNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.10200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.10200",
     "class": "notificationtype",
     "objects": [
       {
@@ -9289,7 +9289,7 @@
   },
   "alertEEMIStorageManagementWarning": {
     "name": "alertEEMIStorageManagementWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.10300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.10300",
     "class": "notificationtype",
     "objects": [
       {
@@ -9320,7 +9320,7 @@
   },
   "alertEEMIStorageManagementFailure": {
     "name": "alertEEMIStorageManagementFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.10400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.10400",
     "class": "notificationtype",
     "objects": [
       {
@@ -9351,7 +9351,7 @@
   },
   "alertEEMIStorageManagementNonRecoverable": {
     "name": "alertEEMIStorageManagementNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.10500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.10500",
     "class": "notificationtype",
     "objects": [
       {
@@ -9382,7 +9382,7 @@
   },
   "alertEEMIControllerInformation": {
     "name": "alertEEMIControllerInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.75100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.75100",
     "class": "notificationtype",
     "objects": [
       {
@@ -9437,7 +9437,7 @@
   },
   "alertEEMIControllerNormal": {
     "name": "alertEEMIControllerNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.75200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.75200",
     "class": "notificationtype",
     "objects": [
       {
@@ -9492,7 +9492,7 @@
   },
   "alertEEMIControllerWarning": {
     "name": "alertEEMIControllerWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.75300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.75300",
     "class": "notificationtype",
     "objects": [
       {
@@ -9547,7 +9547,7 @@
   },
   "alertEEMIControllerFailure": {
     "name": "alertEEMIControllerFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.75400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.75400",
     "class": "notificationtype",
     "objects": [
       {
@@ -9602,7 +9602,7 @@
   },
   "alertEEMIControllerNonRecoverable": {
     "name": "alertEEMIControllerNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.75500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.75500",
     "class": "notificationtype",
     "objects": [
       {
@@ -9657,7 +9657,7 @@
   },
   "alertEEMIChannelInformation": {
     "name": "alertEEMIChannelInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.80100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.80100",
     "class": "notificationtype",
     "objects": [
       {
@@ -9712,7 +9712,7 @@
   },
   "alertEEMIChannelNormal": {
     "name": "alertEEMIChannelNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.80200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.80200",
     "class": "notificationtype",
     "objects": [
       {
@@ -9767,7 +9767,7 @@
   },
   "alertEEMIChannelWarning": {
     "name": "alertEEMIChannelWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.80300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.80300",
     "class": "notificationtype",
     "objects": [
       {
@@ -9822,7 +9822,7 @@
   },
   "alertEEMIChannelFailure": {
     "name": "alertEEMIChannelFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.80400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.80400",
     "class": "notificationtype",
     "objects": [
       {
@@ -9877,7 +9877,7 @@
   },
   "alertEEMIChannelNonRecoverable": {
     "name": "alertEEMIChannelNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.80500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.80500",
     "class": "notificationtype",
     "objects": [
       {
@@ -9932,7 +9932,7 @@
   },
   "alertEEMIEnclosureInformation": {
     "name": "alertEEMIEnclosureInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.85100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.85100",
     "class": "notificationtype",
     "objects": [
       {
@@ -9987,7 +9987,7 @@
   },
   "alertEEMIEnclosureNormal": {
     "name": "alertEEMIEnclosureNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.85200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.85200",
     "class": "notificationtype",
     "objects": [
       {
@@ -10042,7 +10042,7 @@
   },
   "alertEEMIEnclosureWarning": {
     "name": "alertEEMIEnclosureWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.85300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.85300",
     "class": "notificationtype",
     "objects": [
       {
@@ -10097,7 +10097,7 @@
   },
   "alertEEMIEnclosureFailure": {
     "name": "alertEEMIEnclosureFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.85400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.85400",
     "class": "notificationtype",
     "objects": [
       {
@@ -10152,7 +10152,7 @@
   },
   "alertEEMIEnclosureNonRecoverable": {
     "name": "alertEEMIEnclosureNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.85500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.85500",
     "class": "notificationtype",
     "objects": [
       {
@@ -10207,7 +10207,7 @@
   },
   "alertEEMIArrayDiskInformation": {
     "name": "alertEEMIArrayDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.90100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.90100",
     "class": "notificationtype",
     "objects": [
       {
@@ -10262,7 +10262,7 @@
   },
   "alertEEMIArrayDiskNormal": {
     "name": "alertEEMIArrayDiskNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.90200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.90200",
     "class": "notificationtype",
     "objects": [
       {
@@ -10317,7 +10317,7 @@
   },
   "alertEEMIArrayDiskWarning": {
     "name": "alertEEMIArrayDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.90300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.90300",
     "class": "notificationtype",
     "objects": [
       {
@@ -10372,7 +10372,7 @@
   },
   "alertEEMIArrayDiskFailure": {
     "name": "alertEEMIArrayDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.90400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.90400",
     "class": "notificationtype",
     "objects": [
       {
@@ -10427,7 +10427,7 @@
   },
   "alertEEMIArrayDiskNonRecoverable": {
     "name": "alertEEMIArrayDiskNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.90500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.90500",
     "class": "notificationtype",
     "objects": [
       {
@@ -10482,7 +10482,7 @@
   },
   "alertEMMEMMInformation": {
     "name": "alertEMMEMMInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.95100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.95100",
     "class": "notificationtype",
     "objects": [
       {
@@ -10537,7 +10537,7 @@
   },
   "alertEEMIEMMNormal": {
     "name": "alertEEMIEMMNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.95200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.95200",
     "class": "notificationtype",
     "objects": [
       {
@@ -10592,7 +10592,7 @@
   },
   "alertEEMIEMMWarning": {
     "name": "alertEEMIEMMWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.95300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.95300",
     "class": "notificationtype",
     "objects": [
       {
@@ -10647,7 +10647,7 @@
   },
   "alertEEMIEMMFailure": {
     "name": "alertEEMIEMMFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.95400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.95400",
     "class": "notificationtype",
     "objects": [
       {
@@ -10702,7 +10702,7 @@
   },
   "alertEEMIEMMNonRecoverable": {
     "name": "alertEEMIEMMNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.95500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.95500",
     "class": "notificationtype",
     "objects": [
       {
@@ -10757,7 +10757,7 @@
   },
   "alertEEMIPowerSupplyInformation": {
     "name": "alertEEMIPowerSupplyInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.100100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.100100",
     "class": "notificationtype",
     "objects": [
       {
@@ -10812,7 +10812,7 @@
   },
   "alertEEMIPowerSupplyNormal": {
     "name": "alertEEMIPowerSupplyNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.100200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.100200",
     "class": "notificationtype",
     "objects": [
       {
@@ -10867,7 +10867,7 @@
   },
   "alertEEMIPowerSupplyWarning": {
     "name": "alertEEMIPowerSupplyWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.100300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.100300",
     "class": "notificationtype",
     "objects": [
       {
@@ -10922,7 +10922,7 @@
   },
   "alertEEMIPowerSupplyFailure": {
     "name": "alertEEMIPowerSupplyFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.100400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.100400",
     "class": "notificationtype",
     "objects": [
       {
@@ -10977,7 +10977,7 @@
   },
   "alertEEMIPowerSupplyNonRecoverable": {
     "name": "alertEEMIPowerSupplyNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.100500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.100500",
     "class": "notificationtype",
     "objects": [
       {
@@ -11032,7 +11032,7 @@
   },
   "alertEEMITemperatureProbeInformation": {
     "name": "alertEEMITemperatureProbeInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.105100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.105100",
     "class": "notificationtype",
     "objects": [
       {
@@ -11087,7 +11087,7 @@
   },
   "alertEEMITemperatureProbeNormal": {
     "name": "alertEEMITemperatureProbeNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.105200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.105200",
     "class": "notificationtype",
     "objects": [
       {
@@ -11142,7 +11142,7 @@
   },
   "alertEEMITemperatureProbeWarning": {
     "name": "alertEEMITemperatureProbeWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.105300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.105300",
     "class": "notificationtype",
     "objects": [
       {
@@ -11197,7 +11197,7 @@
   },
   "alertEEMITemperatureProbeFailure": {
     "name": "alertEEMITemperatureProbeFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.105400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.105400",
     "class": "notificationtype",
     "objects": [
       {
@@ -11252,7 +11252,7 @@
   },
   "alertEEMITemperatureProbeNonRecoverable": {
     "name": "alertEEMITemperatureProbeNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.105500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.105500",
     "class": "notificationtype",
     "objects": [
       {
@@ -11307,7 +11307,7 @@
   },
   "alertEEMIFanInformation": {
     "name": "alertEEMIFanInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.110100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.110100",
     "class": "notificationtype",
     "objects": [
       {
@@ -11362,7 +11362,7 @@
   },
   "alertEEMIFanNormal": {
     "name": "alertEEMIFanNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.110200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.110200",
     "class": "notificationtype",
     "objects": [
       {
@@ -11417,7 +11417,7 @@
   },
   "alertEEMIFanWarning": {
     "name": "alertEEMIFanWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.110300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.110300",
     "class": "notificationtype",
     "objects": [
       {
@@ -11472,7 +11472,7 @@
   },
   "alertEEMIFanFailure": {
     "name": "alertEEMIFanFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.110400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.110400",
     "class": "notificationtype",
     "objects": [
       {
@@ -11527,7 +11527,7 @@
   },
   "alertEEMIFanNonRecoverable": {
     "name": "alertEEMIFanNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.110500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.110500",
     "class": "notificationtype",
     "objects": [
       {
@@ -11582,7 +11582,7 @@
   },
   "alertEEMIBatteryInformation": {
     "name": "alertEEMIBatteryInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.115100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.115100",
     "class": "notificationtype",
     "objects": [
       {
@@ -11637,7 +11637,7 @@
   },
   "alertEEMIBatteryNormal": {
     "name": "alertEEMIBatteryNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.115200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.115200",
     "class": "notificationtype",
     "objects": [
       {
@@ -11692,7 +11692,7 @@
   },
   "alertEEMIBatteryWarning": {
     "name": "alertEEMIBatteryWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.115300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.115300",
     "class": "notificationtype",
     "objects": [
       {
@@ -11747,7 +11747,7 @@
   },
   "alertEEMIBatteryFailure": {
     "name": "alertEEMIBatteryFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.115400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.115400",
     "class": "notificationtype",
     "objects": [
       {
@@ -11802,7 +11802,7 @@
   },
   "alertEEMIBatteryNonRecoverable": {
     "name": "alertEEMIBatteryNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.115500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.115500",
     "class": "notificationtype",
     "objects": [
       {
@@ -11857,7 +11857,7 @@
   },
   "alertEEMIVirtualDiskInformation": {
     "name": "alertEEMIVirtualDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.120100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.120100",
     "class": "notificationtype",
     "objects": [
       {
@@ -11912,7 +11912,7 @@
   },
   "alertEEMIVirtualDiskNormal": {
     "name": "alertEEMIVirtualDiskNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.120200",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.120200",
     "class": "notificationtype",
     "objects": [
       {
@@ -11967,7 +11967,7 @@
   },
   "alertEEMIVirtualDiskWarning": {
     "name": "alertEEMIVirtualDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.120300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.120300",
     "class": "notificationtype",
     "objects": [
       {
@@ -12022,7 +12022,7 @@
   },
   "alertEEMIVirtualDiskFailure": {
     "name": "alertEEMIVirtualDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.120400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.120400",
     "class": "notificationtype",
     "objects": [
       {
@@ -12077,7 +12077,7 @@
   },
   "alertEEMIVirtualDiskNonRecoverable": {
     "name": "alertEEMIVirtualDiskNonRecoverable",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.120500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.120500",
     "class": "notificationtype",
     "objects": [
       {
@@ -12132,7 +12132,7 @@
   },
   "alertEEMIRedundancyNormal": {
     "name": "alertEEMIRedundancyNormal",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.130400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.130400",
     "class": "notificationtype",
     "objects": [
       {
@@ -12187,7 +12187,7 @@
   },
   "alertEEMIRedundancyDegraded": {
     "name": "alertEEMIRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.130500",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.130500",
     "class": "notificationtype",
     "objects": [
       {
@@ -12242,7 +12242,7 @@
   },
   "alertEEMIRedundancyLost": {
     "name": "alertEEMIRedundancyLost",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.130600",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.130600",
     "class": "notificationtype",
     "objects": [
       {
@@ -12297,7 +12297,7 @@
   },
   "alertEEMIFluidCacheDiskInformation": {
     "name": "alertEEMIFluidCacheDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.140100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.140100",
     "class": "notificationtype",
     "objects": [
       {
@@ -12352,7 +12352,7 @@
   },
   "alertEEMIfluidCacheDiskWarning": {
     "name": "alertEEMIfluidCacheDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.140300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.140300",
     "class": "notificationtype",
     "objects": [
       {
@@ -12407,7 +12407,7 @@
   },
   "alertEEMIFluidCacheDisklFailure": {
     "name": "alertEEMIFluidCacheDisklFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.140400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.140400",
     "class": "notificationtype",
     "objects": [
       {
@@ -12462,7 +12462,7 @@
   },
   "alertEEMIVirtualDiskPartitionInformation": {
     "name": "alertEEMIVirtualDiskPartitionInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.150100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.150100",
     "class": "notificationtype",
     "objects": [
       {
@@ -12517,7 +12517,7 @@
   },
   "alertEEMIVirtualDiskPartitionWarning": {
     "name": "alertEEMIVirtualDiskPartitionWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.150300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.150300",
     "class": "notificationtype",
     "objects": [
       {
@@ -12572,7 +12572,7 @@
   },
   "alertEEMIVirtualDiskPartitionFailure": {
     "name": "alertEEMIVirtualDiskPartitionFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.150400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.150400",
     "class": "notificationtype",
     "objects": [
       {
@@ -12627,7 +12627,7 @@
   },
   "alertEEMIFluidCacheInformation": {
     "name": "alertEEMIFluidCacheInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.160100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.160100",
     "class": "notificationtype",
     "objects": [
       {
@@ -12682,7 +12682,7 @@
   },
   "alertEEMIfluidCacheWarning": {
     "name": "alertEEMIfluidCacheWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.160300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.160300",
     "class": "notificationtype",
     "objects": [
       {
@@ -12737,7 +12737,7 @@
   },
   "alertEEMIFluidCacheFailure": {
     "name": "alertEEMIFluidCacheFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.160400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.160400",
     "class": "notificationtype",
     "objects": [
       {
@@ -12792,7 +12792,7 @@
   },
   "alertEEMIFluidCachePoolInformation": {
     "name": "alertEEMIFluidCachePoolInformation",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.170100",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.170100",
     "class": "notificationtype",
     "objects": [
       {
@@ -12847,7 +12847,7 @@
   },
   "alertEEMIfluidCachePoolWarning": {
     "name": "alertEEMIfluidCachePoolWarning",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.170300",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.170300",
     "class": "notificationtype",
     "objects": [
       {
@@ -12902,7 +12902,7 @@
   },
   "alertEEMIFluidCachePoolFailure": {
     "name": "alertEEMIFluidCachePoolFailure",
-    "oid": "1.3.6.1.4.1.674.10893.1.20.200.0.170400",
+    "oid": "1.3.6.1.4.1.674.10893.1.20.2000.170400",
     "class": "notificationtype",
     "objects": [
       {
@@ -12958,8 +12958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/StorageManagement-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:56:20 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:56:38 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "StorageManagement-MIB"

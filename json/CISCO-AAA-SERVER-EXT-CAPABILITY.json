@@ -8,29 +8,29 @@
       "TimeIntervalSec"
     ],
     "SNMPv2-CONF": [
-      "AGENT-CAPABILITIES",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
+      "Unsigned32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Unsigned32"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoAAAServerExtCapability": {
@@ -87,8 +87,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-AAA-SERVER-EXT-CAPABILITY",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:18 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:30 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-AAA-SERVER-EXT-CAPABILITY"

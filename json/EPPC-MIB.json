@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
+      "OBJECT-TYPE",
       "Unsigned32",
       "IpAddress",
       "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
       "TimeTicks",
+      "Counter32",
+      "TRAP-TYPE",
       "enterprises",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2699,37 +2699,37 @@
   },
   "upsEPowerFail": {
     "name": "upsEPowerFail",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.1",
+    "oid": "1.3.6.1.4.1.935.10.1.20.1",
     "class": "notificationtype"
   },
   "upsEPowerRestored": {
     "name": "upsEPowerRestored",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.2",
+    "oid": "1.3.6.1.4.1.935.10.1.20.2",
     "class": "notificationtype"
   },
   "upsELowBattery": {
     "name": "upsELowBattery",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.3",
+    "oid": "1.3.6.1.4.1.935.10.1.20.3",
     "class": "notificationtype"
   },
   "upsEReturnFromLowBattery": {
     "name": "upsEReturnFromLowBattery",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.4",
+    "oid": "1.3.6.1.4.1.935.10.1.20.4",
     "class": "notificationtype"
   },
   "upsEFailed": {
     "name": "upsEFailed",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.5",
+    "oid": "1.3.6.1.4.1.935.10.1.20.5",
     "class": "notificationtype"
   },
   "upsEOk": {
     "name": "upsEOk",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.6",
+    "oid": "1.3.6.1.4.1.935.10.1.20.6",
     "class": "notificationtype"
   },
   "upsEOnBattery": {
     "name": "upsEOnBattery",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.7",
+    "oid": "1.3.6.1.4.1.935.10.1.20.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -2744,17 +2744,17 @@
   },
   "upsENotOnBattery": {
     "name": "upsENotOnBattery",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.8",
+    "oid": "1.3.6.1.4.1.935.10.1.20.8",
     "class": "notificationtype"
   },
   "upsETestInProgress": {
     "name": "upsETestInProgress",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.9",
+    "oid": "1.3.6.1.4.1.935.10.1.20.9",
     "class": "notificationtype"
   },
   "upsETestOver": {
     "name": "upsETestOver",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.10",
+    "oid": "1.3.6.1.4.1.935.10.1.20.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -2777,57 +2777,57 @@
   },
   "upsEBypassOn": {
     "name": "upsEBypassOn",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.11",
+    "oid": "1.3.6.1.4.1.935.10.1.20.11",
     "class": "notificationtype"
   },
   "upsEOnline": {
     "name": "upsEOnline",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.12",
+    "oid": "1.3.6.1.4.1.935.10.1.20.12",
     "class": "notificationtype"
   },
   "upsECommunicationLost": {
     "name": "upsECommunicationLost",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.13",
+    "oid": "1.3.6.1.4.1.935.10.1.20.13",
     "class": "notificationtype"
   },
   "upsECommunicationEstablished": {
     "name": "upsECommunicationEstablished",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.14",
+    "oid": "1.3.6.1.4.1.935.10.1.20.14",
     "class": "notificationtype"
   },
   "upsEGoingShutdown": {
     "name": "upsEGoingShutdown",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.15",
+    "oid": "1.3.6.1.4.1.935.10.1.20.15",
     "class": "notificationtype"
   },
   "upsEShutdownCancelled": {
     "name": "upsEShutdownCancelled",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.16",
+    "oid": "1.3.6.1.4.1.935.10.1.20.16",
     "class": "notificationtype"
   },
   "upsEOutlet1GoingShutdown": {
     "name": "upsEOutlet1GoingShutdown",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.17",
+    "oid": "1.3.6.1.4.1.935.10.1.20.17",
     "class": "notificationtype"
   },
   "upsEOutlet1ShutdownCancelled": {
     "name": "upsEOutlet1ShutdownCancelled",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.18",
+    "oid": "1.3.6.1.4.1.935.10.1.20.18",
     "class": "notificationtype"
   },
   "upsEOutlet2GoingShutdown": {
     "name": "upsEOutlet2GoingShutdown",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.19",
+    "oid": "1.3.6.1.4.1.935.10.1.20.19",
     "class": "notificationtype"
   },
   "upsEOutlet2ShutdownCancelled": {
     "name": "upsEOutlet2ShutdownCancelled",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.20",
+    "oid": "1.3.6.1.4.1.935.10.1.20.20",
     "class": "notificationtype"
   },
   "upsESleeping": {
     "name": "upsESleeping",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.21",
+    "oid": "1.3.6.1.4.1.935.10.1.20.21",
     "class": "notificationtype",
     "objects": [
       {
@@ -2838,12 +2838,12 @@
   },
   "upsEWokeUp": {
     "name": "upsEWokeUp",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.22",
+    "oid": "1.3.6.1.4.1.935.10.1.20.22",
     "class": "notificationtype"
   },
   "upsEOverTemperature": {
     "name": "upsEOverTemperature",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.23",
+    "oid": "1.3.6.1.4.1.935.10.1.20.23",
     "class": "notificationtype",
     "objects": [
       {
@@ -2858,7 +2858,7 @@
   },
   "upsENotOverTemperature": {
     "name": "upsENotOverTemperature",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.24",
+    "oid": "1.3.6.1.4.1.935.10.1.20.24",
     "class": "notificationtype",
     "objects": [
       {
@@ -2873,7 +2873,7 @@
   },
   "upsEOverLoad": {
     "name": "upsEOverLoad",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.25",
+    "oid": "1.3.6.1.4.1.935.10.1.20.25",
     "class": "notificationtype",
     "objects": [
       {
@@ -2888,7 +2888,7 @@
   },
   "upsENotOverLoad": {
     "name": "upsENotOverLoad",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.26",
+    "oid": "1.3.6.1.4.1.935.10.1.20.26",
     "class": "notificationtype",
     "objects": [
       {
@@ -2903,17 +2903,17 @@
   },
   "upsEModuleInserted": {
     "name": "upsEModuleInserted",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.27",
+    "oid": "1.3.6.1.4.1.935.10.1.20.27",
     "class": "notificationtype"
   },
   "upsEModuleRemoved": {
     "name": "upsEModuleRemoved",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.28",
+    "oid": "1.3.6.1.4.1.935.10.1.20.28",
     "class": "notificationtype"
   },
   "sensorTemperatureTooHigh": {
     "name": "sensorTemperatureTooHigh",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.29",
+    "oid": "1.3.6.1.4.1.935.10.1.20.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -2928,7 +2928,7 @@
   },
   "sensorTemperatureNotHigh": {
     "name": "sensorTemperatureNotHigh",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.30",
+    "oid": "1.3.6.1.4.1.935.10.1.20.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -2943,7 +2943,7 @@
   },
   "sensorTemperatureTooLow": {
     "name": "sensorTemperatureTooLow",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.31",
+    "oid": "1.3.6.1.4.1.935.10.1.20.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -2958,7 +2958,7 @@
   },
   "sensorTemperatureNotLow": {
     "name": "sensorTemperatureNotLow",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.32",
+    "oid": "1.3.6.1.4.1.935.10.1.20.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -2973,7 +2973,7 @@
   },
   "sensorHumidityTooHigh": {
     "name": "sensorHumidityTooHigh",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.33",
+    "oid": "1.3.6.1.4.1.935.10.1.20.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -2988,7 +2988,7 @@
   },
   "sensorHumidityNotHigh": {
     "name": "sensorHumidityNotHigh",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.34",
+    "oid": "1.3.6.1.4.1.935.10.1.20.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -3003,7 +3003,7 @@
   },
   "sensorHumidityTooLow": {
     "name": "sensorHumidityTooLow",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.35",
+    "oid": "1.3.6.1.4.1.935.10.1.20.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -3018,7 +3018,7 @@
   },
   "sensorHumidityNotLow": {
     "name": "sensorHumidityNotLow",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.36",
+    "oid": "1.3.6.1.4.1.935.10.1.20.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -3033,7 +3033,7 @@
   },
   "contactAlarm1Active": {
     "name": "contactAlarm1Active",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.37",
+    "oid": "1.3.6.1.4.1.935.10.1.20.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -3048,7 +3048,7 @@
   },
   "concactAlarm1Normal": {
     "name": "concactAlarm1Normal",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.38",
+    "oid": "1.3.6.1.4.1.935.10.1.20.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -3063,7 +3063,7 @@
   },
   "contactAlarm2Active": {
     "name": "contactAlarm2Active",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.39",
+    "oid": "1.3.6.1.4.1.935.10.1.20.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -3078,7 +3078,7 @@
   },
   "contactAlarm2Normal": {
     "name": "contactAlarm2Normal",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.40",
+    "oid": "1.3.6.1.4.1.935.10.1.20.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -3093,297 +3093,297 @@
   },
   "upsEInternalwarning": {
     "name": "upsEInternalwarning",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.41",
+    "oid": "1.3.6.1.4.1.935.10.1.20.41",
     "class": "notificationtype"
   },
   "upsEReturnFromInternalwarning": {
     "name": "upsEReturnFromInternalwarning",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.42",
+    "oid": "1.3.6.1.4.1.935.10.1.20.42",
     "class": "notificationtype"
   },
   "upsEEPOActive": {
     "name": "upsEEPOActive",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.43",
+    "oid": "1.3.6.1.4.1.935.10.1.20.43",
     "class": "notificationtype"
   },
   "upsEReturnFromEPOActive": {
     "name": "upsEReturnFromEPOActive",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.44",
+    "oid": "1.3.6.1.4.1.935.10.1.20.44",
     "class": "notificationtype"
   },
   "upsEModuleUnlock": {
     "name": "upsEModuleUnlock",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.45",
+    "oid": "1.3.6.1.4.1.935.10.1.20.45",
     "class": "notificationtype"
   },
   "upsEReturnFromModuleUnlock": {
     "name": "upsEReturnFromModuleUnlock",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.46",
+    "oid": "1.3.6.1.4.1.935.10.1.20.46",
     "class": "notificationtype"
   },
   "upsEMain1Neutralloss": {
     "name": "upsEMain1Neutralloss",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.47",
+    "oid": "1.3.6.1.4.1.935.10.1.20.47",
     "class": "notificationtype"
   },
   "upsEReturnFromMain1Neutralloss": {
     "name": "upsEReturnFromMain1Neutralloss",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.48",
+    "oid": "1.3.6.1.4.1.935.10.1.20.48",
     "class": "notificationtype"
   },
   "upsEMain1phaseerror": {
     "name": "upsEMain1phaseerror",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.49",
+    "oid": "1.3.6.1.4.1.935.10.1.20.49",
     "class": "notificationtype"
   },
   "upsEReturnFromMain1phaseerror": {
     "name": "upsEReturnFromMain1phaseerror",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.50",
+    "oid": "1.3.6.1.4.1.935.10.1.20.50",
     "class": "notificationtype"
   },
   "upsESitefault": {
     "name": "upsESitefault",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.51",
+    "oid": "1.3.6.1.4.1.935.10.1.20.51",
     "class": "notificationtype"
   },
   "upsEReturnFromSitefault": {
     "name": "upsEReturnFromSitefault",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.52",
+    "oid": "1.3.6.1.4.1.935.10.1.20.52",
     "class": "notificationtype"
   },
   "upsEBypassAbnormal": {
     "name": "upsEBypassAbnormal",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.53",
+    "oid": "1.3.6.1.4.1.935.10.1.20.53",
     "class": "notificationtype"
   },
   "upsEReturnFromBypassAbnormal": {
     "name": "upsEReturnFromBypassAbnormal",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.54",
+    "oid": "1.3.6.1.4.1.935.10.1.20.54",
     "class": "notificationtype"
   },
   "upsEBypassPhaseError": {
     "name": "upsEBypassPhaseError",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.55",
+    "oid": "1.3.6.1.4.1.935.10.1.20.55",
     "class": "notificationtype"
   },
   "upsEReturnFromBypassPhaseError": {
     "name": "upsEReturnFromBypassPhaseError",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.56",
+    "oid": "1.3.6.1.4.1.935.10.1.20.56",
     "class": "notificationtype"
   },
   "upsEBatteryOpen": {
     "name": "upsEBatteryOpen",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.57",
+    "oid": "1.3.6.1.4.1.935.10.1.20.57",
     "class": "notificationtype"
   },
   "upsEReturnFromBatteryOpen": {
     "name": "upsEReturnFromBatteryOpen",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.58",
+    "oid": "1.3.6.1.4.1.935.10.1.20.58",
     "class": "notificationtype"
   },
   "upsEBatteryOverCharge": {
     "name": "upsEBatteryOverCharge",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.59",
+    "oid": "1.3.6.1.4.1.935.10.1.20.59",
     "class": "notificationtype"
   },
   "upsEReturnFromBatteryOverCharge": {
     "name": "upsEReturnFromBatteryOverCharge",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.60",
+    "oid": "1.3.6.1.4.1.935.10.1.20.60",
     "class": "notificationtype"
   },
   "upsEBatteryReverse": {
     "name": "upsEBatteryReverse",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.61",
+    "oid": "1.3.6.1.4.1.935.10.1.20.61",
     "class": "notificationtype"
   },
   "upsEReturnFromBatteryReverse": {
     "name": "upsEReturnFromBatteryReverse",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.62",
+    "oid": "1.3.6.1.4.1.935.10.1.20.62",
     "class": "notificationtype"
   },
   "upsEOverloadforewarning": {
     "name": "upsEOverloadforewarning",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.63",
+    "oid": "1.3.6.1.4.1.935.10.1.20.63",
     "class": "notificationtype"
   },
   "upsEReturnFromOverloadforewarning": {
     "name": "upsEReturnFromOverloadforewarning",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.64",
+    "oid": "1.3.6.1.4.1.935.10.1.20.64",
     "class": "notificationtype"
   },
   "upsEOverloadWarning": {
     "name": "upsEOverloadWarning",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.65",
+    "oid": "1.3.6.1.4.1.935.10.1.20.65",
     "class": "notificationtype"
   },
   "upsEReturnFromOverloadWarning": {
     "name": "upsEReturnFromOverloadWarning",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.66",
+    "oid": "1.3.6.1.4.1.935.10.1.20.66",
     "class": "notificationtype"
   },
   "upsEFanLock": {
     "name": "upsEFanLock",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.67",
+    "oid": "1.3.6.1.4.1.935.10.1.20.67",
     "class": "notificationtype"
   },
   "upsEReturnFromFanLock": {
     "name": "upsEReturnFromFanLock",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.68",
+    "oid": "1.3.6.1.4.1.935.10.1.20.68",
     "class": "notificationtype"
   },
   "upsEMaintaincoverisopen": {
     "name": "upsEMaintaincoverisopen",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.69",
+    "oid": "1.3.6.1.4.1.935.10.1.20.69",
     "class": "notificationtype"
   },
   "upsEReturnFromMaintaincoverisopen": {
     "name": "upsEReturnFromMaintaincoverisopen",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.70",
+    "oid": "1.3.6.1.4.1.935.10.1.20.70",
     "class": "notificationtype"
   },
   "upsEChargerfault": {
     "name": "upsEChargerfault",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.71",
+    "oid": "1.3.6.1.4.1.935.10.1.20.71",
     "class": "notificationtype"
   },
   "upsEReturnFromChargerfault": {
     "name": "upsEReturnFromChargerfault",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.72",
+    "oid": "1.3.6.1.4.1.935.10.1.20.72",
     "class": "notificationtype"
   },
   "upsEModulelocationerror": {
     "name": "upsEModulelocationerror",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.73",
+    "oid": "1.3.6.1.4.1.935.10.1.20.73",
     "class": "notificationtype"
   },
   "upsEReturnFromModulelocationerror": {
     "name": "upsEReturnFromModulelocationerror",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.74",
+    "oid": "1.3.6.1.4.1.935.10.1.20.74",
     "class": "notificationtype"
   },
   "upsETurnonabnormal": {
     "name": "upsETurnonabnormal",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.75",
+    "oid": "1.3.6.1.4.1.935.10.1.20.75",
     "class": "notificationtype"
   },
   "upsEReturnFromTurnonabnormal": {
     "name": "upsEReturnFromTurnonabnormal",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.76",
+    "oid": "1.3.6.1.4.1.935.10.1.20.76",
     "class": "notificationtype"
   },
   "upsERedundancyloss": {
     "name": "upsERedundancyloss",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.77",
+    "oid": "1.3.6.1.4.1.935.10.1.20.77",
     "class": "notificationtype"
   },
   "upsEReturnFromRedundancyloss": {
     "name": "upsEReturnFromRedundancyloss",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.78",
+    "oid": "1.3.6.1.4.1.935.10.1.20.78",
     "class": "notificationtype"
   },
   "upsEHotSwapActived": {
     "name": "upsEHotSwapActived",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.79",
+    "oid": "1.3.6.1.4.1.935.10.1.20.79",
     "class": "notificationtype"
   },
   "upsEReturnFromHotSwapActived": {
     "name": "upsEReturnFromHotSwapActived",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.80",
+    "oid": "1.3.6.1.4.1.935.10.1.20.80",
     "class": "notificationtype"
   },
   "upsEBatteryInform": {
     "name": "upsEBatteryInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.81",
+    "oid": "1.3.6.1.4.1.935.10.1.20.81",
     "class": "notificationtype"
   },
   "upsEReturnFromBatteryInform": {
     "name": "upsEReturnFromBatteryInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.82",
+    "oid": "1.3.6.1.4.1.935.10.1.20.82",
     "class": "notificationtype"
   },
   "upsEInspectionInform": {
     "name": "upsEInspectionInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.83",
+    "oid": "1.3.6.1.4.1.935.10.1.20.83",
     "class": "notificationtype"
   },
   "upsEReturnFromInspectionInform": {
     "name": "upsEReturnFromInspectionInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.84",
+    "oid": "1.3.6.1.4.1.935.10.1.20.84",
     "class": "notificationtype"
   },
   "upsEGuaranteeInform": {
     "name": "upsEGuaranteeInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.85",
+    "oid": "1.3.6.1.4.1.935.10.1.20.85",
     "class": "notificationtype"
   },
   "upsEReturnFromGuaranteeInform": {
     "name": "upsEReturnFromGuaranteeInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.86",
+    "oid": "1.3.6.1.4.1.935.10.1.20.86",
     "class": "notificationtype"
   },
   "upsETemperatureLow": {
     "name": "upsETemperatureLow",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.87",
+    "oid": "1.3.6.1.4.1.935.10.1.20.87",
     "class": "notificationtype"
   },
   "upsEReturnFromTemperatureLow": {
     "name": "upsEReturnFromTemperatureLow",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.88",
+    "oid": "1.3.6.1.4.1.935.10.1.20.88",
     "class": "notificationtype"
   },
   "upsETemperatureHigh": {
     "name": "upsETemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.89",
+    "oid": "1.3.6.1.4.1.935.10.1.20.89",
     "class": "notificationtype"
   },
   "upsEReturnFromTemperatureHigh": {
     "name": "upsEReturnFromTemperatureHigh",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.90",
+    "oid": "1.3.6.1.4.1.935.10.1.20.90",
     "class": "notificationtype"
   },
   "upsEBatteryOverTemperature": {
     "name": "upsEBatteryOverTemperature",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.91",
+    "oid": "1.3.6.1.4.1.935.10.1.20.91",
     "class": "notificationtype"
   },
   "upsEReturnFromBatteryOverTemperature": {
     "name": "upsEReturnFromBatteryOverTemperature",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.92",
+    "oid": "1.3.6.1.4.1.935.10.1.20.92",
     "class": "notificationtype"
   },
   "upsEFanMaintainInform": {
     "name": "upsEFanMaintainInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.93",
+    "oid": "1.3.6.1.4.1.935.10.1.20.93",
     "class": "notificationtype"
   },
   "upsEReturnFromFanMaintainInform": {
     "name": "upsEReturnFromFanMaintainInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.94",
+    "oid": "1.3.6.1.4.1.935.10.1.20.94",
     "class": "notificationtype"
   },
   "upsEBusCapacitanceMaintainInform": {
     "name": "upsEBusCapacitanceMaintainInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.95",
+    "oid": "1.3.6.1.4.1.935.10.1.20.95",
     "class": "notificationtype"
   },
   "upsEReturnFromBusCapacitanceMaintainInform": {
     "name": "upsEReturnFromBusCapacitanceMaintainInform",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.96",
+    "oid": "1.3.6.1.4.1.935.10.1.20.96",
     "class": "notificationtype"
   },
   "upsESystemOverCapacity": {
     "name": "upsESystemOverCapacity",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.97",
+    "oid": "1.3.6.1.4.1.935.10.1.20.97",
     "class": "notificationtype"
   },
   "upsEReturnFromSystemOverCapacity": {
     "name": "upsEReturnFromSystemOverCapacity",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.98",
+    "oid": "1.3.6.1.4.1.935.10.1.20.98",
     "class": "notificationtype"
   },
   "upsEBelowCapacityLimit": {
     "name": "upsEBelowCapacityLimit",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.123",
+    "oid": "1.3.6.1.4.1.935.10.1.20.123",
     "class": "notificationtype",
     "objects": [
       {
@@ -3398,12 +3398,12 @@
   },
   "upsENotBelowCapacityLimit": {
     "name": "upsENotBelowCapacityLimit",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.124",
+    "oid": "1.3.6.1.4.1.935.10.1.20.124",
     "class": "notificationtype"
   },
   "upsEBelowRemainTimeLimit": {
     "name": "upsEBelowRemainTimeLimit",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.125",
+    "oid": "1.3.6.1.4.1.935.10.1.20.125",
     "class": "notificationtype",
     "objects": [
       {
@@ -3418,34 +3418,34 @@
   },
   "upsENotBelowRemainTimeLimit": {
     "name": "upsENotBelowRemainTimeLimit",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.126",
+    "oid": "1.3.6.1.4.1.935.10.1.20.126",
     "class": "notificationtype"
   },
   "upsELoadSegment1Off": {
     "name": "upsELoadSegment1Off",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.127",
+    "oid": "1.3.6.1.4.1.935.10.1.20.127",
     "class": "notificationtype"
   },
   "upsELoadSegment1On": {
     "name": "upsELoadSegment1On",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.128",
+    "oid": "1.3.6.1.4.1.935.10.1.20.128",
     "class": "notificationtype"
   },
   "upsELoadSegment2Off": {
     "name": "upsELoadSegment2Off",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.129",
+    "oid": "1.3.6.1.4.1.935.10.1.20.129",
     "class": "notificationtype"
   },
   "upsELoadSegment2On": {
     "name": "upsELoadSegment2On",
-    "oid": "1.3.6.1.4.1.935.10.1.2.0.130",
+    "oid": "1.3.6.1.4.1.935.10.1.20.130",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/powerwalker/EPPC-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:01:31 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:01:59 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "EPPC-MIB"

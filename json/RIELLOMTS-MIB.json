@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "TimeTicks",
-      "Counter32",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
+      "Counter32",
       "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
       "OBJECT-IDENTITY",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mtsMIB": {
@@ -844,34 +844,34 @@
   },
   "mtsNormal": {
     "name": "mtsNormal",
-    "oid": "1.3.6.1.4.1.5491.12.4.0.1",
+    "oid": "1.3.6.1.4.1.5491.12.40.1",
     "class": "notificationtype"
   },
   "mtsAnomaly": {
     "name": "mtsAnomaly",
-    "oid": "1.3.6.1.4.1.5491.12.4.0.2",
+    "oid": "1.3.6.1.4.1.5491.12.40.2",
     "class": "notificationtype"
   },
   "mtsFault": {
     "name": "mtsFault",
-    "oid": "1.3.6.1.4.1.5491.12.4.0.3",
+    "oid": "1.3.6.1.4.1.5491.12.40.3",
     "class": "notificationtype"
   },
   "mtsLock": {
     "name": "mtsLock",
-    "oid": "1.3.6.1.4.1.5491.12.4.0.4",
+    "oid": "1.3.6.1.4.1.5491.12.40.4",
     "class": "notificationtype"
   },
   "mtsManualBypassEnabled": {
     "name": "mtsManualBypassEnabled",
-    "oid": "1.3.6.1.4.1.5491.12.4.0.5",
+    "oid": "1.3.6.1.4.1.5491.12.40.5",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riello/RIELLOMTS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:02:10 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:41 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RIELLOMTS-MIB"

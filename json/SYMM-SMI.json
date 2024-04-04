@@ -6,30 +6,30 @@
       "MODULE-IDENTITY"
     ],
     "RFC1155-SMI": [
-      "Unsigned32",
-      "Integer32"
+      "Integer32",
+      "Unsigned32"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "TRAP-TYPE",
-      "IpAddress",
-      "Bits",
+      "Integer32",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
       "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "enterprises",
-      "Counter64",
+      "IpAddress",
+      "TRAP-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -816,7 +816,7 @@
   },
   "etcAlarm": {
     "name": "etcAlarm",
-    "oid": "1.3.6.1.4.1.9070.0.0",
+    "oid": "1.3.6.1.4.1.90700.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -828,8 +828,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/SYMM-SMI",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:00:15 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:43 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SYMM-SMI"

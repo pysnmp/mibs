@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -12,12 +12,12 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifDescr",
       "ifAdminStatus",
+      "InterfaceIndex",
+      "ifDescr",
       "ifOperStatus",
       "ifIndex",
-      "InterfaceIndex",
+      "ifName",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
@@ -27,8 +27,8 @@
       "ipAdEntNetMask"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -39,28 +39,28 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Counter64",
-      "MibIdentifier",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "IpAddress",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Counter32",
       "Bits",
       "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "DisplayString",
-      "PhysAddress"
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "hwIFExtMib": {
@@ -10754,8 +10754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IF-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:11 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:32 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-IF-EXT-MIB"

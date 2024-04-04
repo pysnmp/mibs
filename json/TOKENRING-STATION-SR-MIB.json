@@ -10,27 +10,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "iso",
+      "OBJECT-IDENTITY",
       "TimeTicks",
       "Integer32",
+      "MibIdentifier",
       "Counter64",
+      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "dot5SrMIB": {
@@ -195,8 +195,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TOKENRING-STATION-SR-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:25 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:53:42 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "TOKENRING-STATION-SR-MIB"

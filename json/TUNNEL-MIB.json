@@ -13,31 +13,31 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
+      "transmission",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter64",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "Integer32",
       "OBJECT-TYPE",
       "Counter32",
-      "transmission",
-      "Bits"
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "StorageType",
       "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -683,8 +683,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/TUNNEL-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:00:10 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:14 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "TUNNEL-MIB"

@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "enterprises",
       "IpAddress",
+      "MibIdentifier",
       "Integer32",
-      "MibIdentifier"
+      "enterprises",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "Bits",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -664,94 +664,94 @@
   },
   "lostEthernetConnection": {
     "name": "lostEthernetConnection",
-    "oid": "1.3.6.1.4.1.25868.1.0.0",
+    "oid": "1.3.6.1.4.1.25868.10.0",
     "class": "notificationtype"
   },
   "masterPrimayPowerLost": {
     "name": "masterPrimayPowerLost",
-    "oid": "1.3.6.1.4.1.25868.1.0.1",
+    "oid": "1.3.6.1.4.1.25868.10.1",
     "class": "notificationtype"
   },
   "masterSecondaryPowerLost": {
     "name": "masterSecondaryPowerLost",
-    "oid": "1.3.6.1.4.1.25868.1.0.2",
+    "oid": "1.3.6.1.4.1.25868.10.2",
     "class": "notificationtype"
   },
   "gpsSignalLost": {
     "name": "gpsSignalLost",
-    "oid": "1.3.6.1.4.1.25868.1.0.3",
+    "oid": "1.3.6.1.4.1.25868.10.3",
     "class": "notificationtype"
   },
   "masterTempatureError": {
     "name": "masterTempatureError",
-    "oid": "1.3.6.1.4.1.25868.1.0.4",
+    "oid": "1.3.6.1.4.1.25868.10.4",
     "class": "notificationtype"
   },
   "masterCircuitBreakerTripCode": {
     "name": "masterCircuitBreakerTripCode",
-    "oid": "1.3.6.1.4.1.25868.1.0.5",
+    "oid": "1.3.6.1.4.1.25868.10.5",
     "class": "notificationtype"
   },
   "loginFailedAttempt": {
     "name": "loginFailedAttempt",
-    "oid": "1.3.6.1.4.1.25868.1.0.6",
+    "oid": "1.3.6.1.4.1.25868.10.6",
     "class": "notificationtype"
   },
   "settingsChanged": {
     "name": "settingsChanged",
-    "oid": "1.3.6.1.4.1.25868.1.0.7",
+    "oid": "1.3.6.1.4.1.25868.10.7",
     "class": "notificationtype"
   },
   "masterPrimaryPowerOK": {
     "name": "masterPrimaryPowerOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.10",
+    "oid": "1.3.6.1.4.1.25868.10.10",
     "class": "notificationtype"
   },
   "masterSecondaryPowerOK": {
     "name": "masterSecondaryPowerOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.20",
+    "oid": "1.3.6.1.4.1.25868.10.20",
     "class": "notificationtype"
   },
   "gpsSignalOK": {
     "name": "gpsSignalOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.30",
+    "oid": "1.3.6.1.4.1.25868.10.30",
     "class": "notificationtype"
   },
   "tempatureOK": {
     "name": "tempatureOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.40",
+    "oid": "1.3.6.1.4.1.25868.10.40",
     "class": "notificationtype"
   },
   "circuitBreakersOK": {
     "name": "circuitBreakersOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.50",
+    "oid": "1.3.6.1.4.1.25868.10.50",
     "class": "notificationtype"
   },
   "masterAutoRestartCBCompletedOK": {
     "name": "masterAutoRestartCBCompletedOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.52",
+    "oid": "1.3.6.1.4.1.25868.10.52",
     "class": "notificationtype"
   },
   "loginOK": {
     "name": "loginOK",
-    "oid": "1.3.6.1.4.1.25868.1.0.60",
+    "oid": "1.3.6.1.4.1.25868.10.60",
     "class": "notificationtype"
   },
   "resetComplete": {
     "name": "resetComplete",
-    "oid": "1.3.6.1.4.1.25868.1.0.80",
+    "oid": "1.3.6.1.4.1.25868.10.80",
     "class": "notificationtype"
   },
   "ethernetConnectionRestored": {
     "name": "ethernetConnectionRestored",
-    "oid": "1.3.6.1.4.1.25868.1.0.99",
+    "oid": "1.3.6.1.4.1.25868.10.99",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ctm/CTMMIBCUSTOM",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:55:23 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:55:41 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CTMMIBCUSTOM"

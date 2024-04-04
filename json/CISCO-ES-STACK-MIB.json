@@ -10,26 +10,26 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "enterprises",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Counter64",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Counter32",
-      "TRAP-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cisco": {
@@ -3169,7 +3169,7 @@
   },
   "ciscoEsStackCfgChange": {
     "name": "ciscoEsStackCfgChange",
-    "oid": "1.3.6.1.4.1.9.5.14.1.1.0.1",
+    "oid": "1.3.6.1.4.1.9.5.14.1.10.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3188,7 +3188,7 @@
   },
   "ciscoEsStackProStackMatrixChange": {
     "name": "ciscoEsStackProStackMatrixChange",
-    "oid": "1.3.6.1.4.1.9.5.14.1.1.0.2",
+    "oid": "1.3.6.1.4.1.9.5.14.1.10.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -3207,7 +3207,7 @@
   },
   "ciscoEsStackTempChange": {
     "name": "ciscoEsStackTempChange",
-    "oid": "1.3.6.1.4.1.9.5.14.2.0.1",
+    "oid": "1.3.6.1.4.1.9.5.14.20.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3226,7 +3226,7 @@
   },
   "ciscoEsPortStrNFwdEntry": {
     "name": "ciscoEsPortStrNFwdEntry",
-    "oid": "1.3.6.1.4.1.9.5.14.4.0.1",
+    "oid": "1.3.6.1.4.1.9.5.14.40.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3245,7 +3245,7 @@
   },
   "ciscoEsVLANNewRoot": {
     "name": "ciscoEsVLANNewRoot",
-    "oid": "1.3.6.1.4.1.9.5.14.8.0.1",
+    "oid": "1.3.6.1.4.1.9.5.14.80.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3256,7 +3256,7 @@
   },
   "ciscoEsVLANTopologyChange": {
     "name": "ciscoEsVLANTopologyChange",
-    "oid": "1.3.6.1.4.1.9.5.14.8.0.2",
+    "oid": "1.3.6.1.4.1.9.5.14.80.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -3267,7 +3267,7 @@
   },
   "ciscoEsEtherChannelFailed": {
     "name": "ciscoEsEtherChannelFailed",
-    "oid": "1.3.6.1.4.1.9.5.14.6.0.1",
+    "oid": "1.3.6.1.4.1.9.5.14.60.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3287,8 +3287,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ES-STACK-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:23 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:35 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-ES-STACK-MIB"

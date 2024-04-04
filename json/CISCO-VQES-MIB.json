@@ -6,35 +6,35 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
       "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
       "MODULE-IDENTITY",
       "Gauge32",
       "Counter32",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ciscoVqeSMIB": {
@@ -616,8 +616,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VQES-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:26 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:36 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-VQES-MIB"

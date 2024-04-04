@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
+      "tmnxSRObjs",
       "tmnxSRNotifyPrefix",
-      "tmnxSRConfs",
       "timetraSRMIBModules",
-      "tmnxSRObjs"
+      "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
+      "TmnxVRtrMplsLspID",
       "TNamedItemOrEmpty",
       "TmnxOperState",
-      "TmnxVRtrMplsLspID",
       "TNamedItem",
       "TmnxActionType",
       "TmnxAdminState"
@@ -27,45 +27,45 @@
     ],
     "MPLS-LSR-MIB": [
       "mplsXCLspId",
-      "MplsLSPID",
-      "MplsLabel"
+      "MplsLabel",
+      "MplsLSPID"
     ],
     "MPLS-TE-MIB": [
-      "mplsTunnelInstance",
       "mplsTunnelIngressLSRId",
       "mplsTunnelIndex",
+      "mplsTunnelInstance",
       "mplsTunnelARHopEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
       "TimeTicks",
+      "iso",
+      "Bits",
       "Unsigned32",
-      "Integer32",
+      "Counter64",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TestAndIncr",
-      "RowStatus",
       "RowPointer",
+      "TimeInterval",
       "TimeStamp",
-      "TimeInterval"
+      "TestAndIncr",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "timetraMplsMIBModule": {
@@ -5170,8 +5170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-MPLS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:01:55 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:02:25 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-MPLS-MIB"

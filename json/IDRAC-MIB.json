@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "TRAP-TYPE",
-      "Gauge32",
       "enterprises",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Bits",
-      "Counter32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dell": {
@@ -10038,7 +10038,7 @@
   },
   "alertAmperageProbeNormal": {
     "name": "alertAmperageProbeNormal",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2179",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2179",
     "class": "notificationtype",
     "objects": [
       {
@@ -10089,7 +10089,7 @@
   },
   "alertAmperageProbeWarning": {
     "name": "alertAmperageProbeWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2178",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2178",
     "class": "notificationtype",
     "objects": [
       {
@@ -10140,7 +10140,7 @@
   },
   "alertAmperageProbeFailure": {
     "name": "alertAmperageProbeFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2177",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2177",
     "class": "notificationtype",
     "objects": [
       {
@@ -10191,7 +10191,7 @@
   },
   "alertAutomaticSystemRecovery": {
     "name": "alertAutomaticSystemRecovery",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2233",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2233",
     "class": "notificationtype",
     "objects": [
       {
@@ -10242,7 +10242,7 @@
   },
   "alertBatteryNormal": {
     "name": "alertBatteryNormal",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2227",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2227",
     "class": "notificationtype",
     "objects": [
       {
@@ -10293,7 +10293,7 @@
   },
   "alertBatteryWarning": {
     "name": "alertBatteryWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2226",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2226",
     "class": "notificationtype",
     "objects": [
       {
@@ -10344,7 +10344,7 @@
   },
   "alertBatteryFailure": {
     "name": "alertBatteryFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2225",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2225",
     "class": "notificationtype",
     "objects": [
       {
@@ -10395,7 +10395,7 @@
   },
   "alertCableFailure": {
     "name": "alertCableFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2393",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2393",
     "class": "notificationtype",
     "objects": [
       {
@@ -10446,7 +10446,7 @@
   },
   "alertCMCWarning": {
     "name": "alertCMCWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2546",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2546",
     "class": "notificationtype",
     "objects": [
       {
@@ -10497,7 +10497,7 @@
   },
   "alertCMCFailure": {
     "name": "alertCMCFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2545",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2545",
     "class": "notificationtype",
     "objects": [
       {
@@ -10548,7 +10548,7 @@
   },
   "alertProcessorDeviceStatusNormal": {
     "name": "alertProcessorDeviceStatusNormal",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2243",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2243",
     "class": "notificationtype",
     "objects": [
       {
@@ -10599,7 +10599,7 @@
   },
   "alertProcessorDeviceStatusWarning": {
     "name": "alertProcessorDeviceStatusWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2242",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2242",
     "class": "notificationtype",
     "objects": [
       {
@@ -10650,7 +10650,7 @@
   },
   "alertProcessorDeviceStatusFailure": {
     "name": "alertProcessorDeviceStatusFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2241",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2241",
     "class": "notificationtype",
     "objects": [
       {
@@ -10701,7 +10701,7 @@
   },
   "alertProcessorDeviceAbsent": {
     "name": "alertProcessorDeviceAbsent",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2457",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2457",
     "class": "notificationtype",
     "objects": [
       {
@@ -10752,7 +10752,7 @@
   },
   "alertFanInformation": {
     "name": "alertFanInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2155",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2155",
     "class": "notificationtype",
     "objects": [
       {
@@ -10803,7 +10803,7 @@
   },
   "alertFanWarning": {
     "name": "alertFanWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2154",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2154",
     "class": "notificationtype",
     "objects": [
       {
@@ -10854,7 +10854,7 @@
   },
   "alertFanFailure": {
     "name": "alertFanFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2153",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2153",
     "class": "notificationtype",
     "objects": [
       {
@@ -10905,7 +10905,7 @@
   },
   "alertFiberChannelInformation": {
     "name": "alertFiberChannelInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2539",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2539",
     "class": "notificationtype",
     "objects": [
       {
@@ -10956,7 +10956,7 @@
   },
   "alertFiberChannelWarning": {
     "name": "alertFiberChannelWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2538",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2538",
     "class": "notificationtype",
     "objects": [
       {
@@ -11007,7 +11007,7 @@
   },
   "alertFiberChannelFailure": {
     "name": "alertFiberChannelFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2537",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2537",
     "class": "notificationtype",
     "objects": [
       {
@@ -11058,7 +11058,7 @@
   },
   "alertHardwareConfigurationInformation": {
     "name": "alertHardwareConfigurationInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2331",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2331",
     "class": "notificationtype",
     "objects": [
       {
@@ -11109,7 +11109,7 @@
   },
   "alertHardwareConfigurationWarning": {
     "name": "alertHardwareConfigurationWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2330",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2330",
     "class": "notificationtype",
     "objects": [
       {
@@ -11160,7 +11160,7 @@
   },
   "alertHardwareConfigurationFailure": {
     "name": "alertHardwareConfigurationFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2329",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2329",
     "class": "notificationtype",
     "objects": [
       {
@@ -11211,7 +11211,7 @@
   },
   "alertIOVirtualizationFailure": {
     "name": "alertIOVirtualizationFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2553",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2553",
     "class": "notificationtype",
     "objects": [
       {
@@ -11262,7 +11262,7 @@
   },
   "alertLinkStatusInformation": {
     "name": "alertLinkStatusInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2251",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2251",
     "class": "notificationtype",
     "objects": [
       {
@@ -11313,7 +11313,7 @@
   },
   "alertLinkStatusWarning": {
     "name": "alertLinkStatusWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2250",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2250",
     "class": "notificationtype",
     "objects": [
       {
@@ -11364,7 +11364,7 @@
   },
   "alertLinkStatusFailure": {
     "name": "alertLinkStatusFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2249",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2249",
     "class": "notificationtype",
     "objects": [
       {
@@ -11415,7 +11415,7 @@
   },
   "alertMemoryDeviceInformation": {
     "name": "alertMemoryDeviceInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2267",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2267",
     "class": "notificationtype",
     "objects": [
       {
@@ -11466,7 +11466,7 @@
   },
   "alertMemoryDeviceWarning": {
     "name": "alertMemoryDeviceWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2266",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2266",
     "class": "notificationtype",
     "objects": [
       {
@@ -11517,7 +11517,7 @@
   },
   "alertMemoryDeviceFailure": {
     "name": "alertMemoryDeviceFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2265",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2265",
     "class": "notificationtype",
     "objects": [
       {
@@ -11568,7 +11568,7 @@
   },
   "alertNetworkInformation": {
     "name": "alertNetworkInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2091",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2091",
     "class": "notificationtype",
     "objects": [
       {
@@ -11619,7 +11619,7 @@
   },
   "alertNetworkWarning": {
     "name": "alertNetworkWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2090",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2090",
     "class": "notificationtype",
     "objects": [
       {
@@ -11670,7 +11670,7 @@
   },
   "alertNetworkFailure": {
     "name": "alertNetworkFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2089",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2089",
     "class": "notificationtype",
     "objects": [
       {
@@ -11721,7 +11721,7 @@
   },
   "alertOSInformation": {
     "name": "alertOSInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2411",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2411",
     "class": "notificationtype",
     "objects": [
       {
@@ -11772,7 +11772,7 @@
   },
   "alertOSFailure": {
     "name": "alertOSFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2409",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2409",
     "class": "notificationtype",
     "objects": [
       {
@@ -11823,7 +11823,7 @@
   },
   "alertPCIDeviceInformation": {
     "name": "alertPCIDeviceInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2419",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2419",
     "class": "notificationtype",
     "objects": [
       {
@@ -11874,7 +11874,7 @@
   },
   "alertPCIDeviceWarning": {
     "name": "alertPCIDeviceWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2418",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2418",
     "class": "notificationtype",
     "objects": [
       {
@@ -11925,7 +11925,7 @@
   },
   "alertPCIDeviceFailure": {
     "name": "alertPCIDeviceFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2417",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2417",
     "class": "notificationtype",
     "objects": [
       {
@@ -11976,7 +11976,7 @@
   },
   "alertPhysicalDiskInformation": {
     "name": "alertPhysicalDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2299",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2299",
     "class": "notificationtype",
     "objects": [
       {
@@ -12027,7 +12027,7 @@
   },
   "alertPhysicalDiskWarning": {
     "name": "alertPhysicalDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2298",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2298",
     "class": "notificationtype",
     "objects": [
       {
@@ -12078,7 +12078,7 @@
   },
   "alertPhysicalDiskFailure": {
     "name": "alertPhysicalDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2297",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2297",
     "class": "notificationtype",
     "objects": [
       {
@@ -12129,7 +12129,7 @@
   },
   "alertBiosPostFailure": {
     "name": "alertBiosPostFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2425",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2425",
     "class": "notificationtype",
     "objects": [
       {
@@ -12180,7 +12180,7 @@
   },
   "alertPowerSupplyNormal": {
     "name": "alertPowerSupplyNormal",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2187",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2187",
     "class": "notificationtype",
     "objects": [
       {
@@ -12231,7 +12231,7 @@
   },
   "alertPowerSupplyWarning": {
     "name": "alertPowerSupplyWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2186",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2186",
     "class": "notificationtype",
     "objects": [
       {
@@ -12282,7 +12282,7 @@
   },
   "alertPowerSupplyFailure": {
     "name": "alertPowerSupplyFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2185",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2185",
     "class": "notificationtype",
     "objects": [
       {
@@ -12333,7 +12333,7 @@
   },
   "alertPowerSupplyAbsent": {
     "name": "alertPowerSupplyAbsent",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2465",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2465",
     "class": "notificationtype",
     "objects": [
       {
@@ -12384,7 +12384,7 @@
   },
   "alertPowerUsageInformation": {
     "name": "alertPowerUsageInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2275",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2275",
     "class": "notificationtype",
     "objects": [
       {
@@ -12435,7 +12435,7 @@
   },
   "alertPowerUsageWarning": {
     "name": "alertPowerUsageWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2274",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2274",
     "class": "notificationtype",
     "objects": [
       {
@@ -12486,7 +12486,7 @@
   },
   "alertPowerUsageFailure": {
     "name": "alertPowerUsageFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2273",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2273",
     "class": "notificationtype",
     "objects": [
       {
@@ -12537,7 +12537,7 @@
   },
   "alertRedundancyInformation": {
     "name": "alertRedundancyInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2475",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2475",
     "class": "notificationtype",
     "objects": [
       {
@@ -12588,7 +12588,7 @@
   },
   "alertRedundancyDegraded": {
     "name": "alertRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2474",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2474",
     "class": "notificationtype",
     "objects": [
       {
@@ -12639,7 +12639,7 @@
   },
   "alertRedundancyLost": {
     "name": "alertRedundancyLost",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2473",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2473",
     "class": "notificationtype",
     "objects": [
       {
@@ -12690,7 +12690,7 @@
   },
   "alertIntegratedDualSDModuleInformation": {
     "name": "alertIntegratedDualSDModuleInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2211",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2211",
     "class": "notificationtype",
     "objects": [
       {
@@ -12741,7 +12741,7 @@
   },
   "alertIntegratedDualSDModuleWarning": {
     "name": "alertIntegratedDualSDModuleWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2210",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2210",
     "class": "notificationtype",
     "objects": [
       {
@@ -12792,7 +12792,7 @@
   },
   "alertIntegratedDualSDModuleFailure": {
     "name": "alertIntegratedDualSDModuleFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2209",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2209",
     "class": "notificationtype",
     "objects": [
       {
@@ -12843,7 +12843,7 @@
   },
   "alertIntegratedDualSDModuleAbsent": {
     "name": "alertIntegratedDualSDModuleAbsent",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2481",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2481",
     "class": "notificationtype",
     "objects": [
       {
@@ -12894,7 +12894,7 @@
   },
   "alertIntegratedDualSDModuleRedundancyInformation": {
     "name": "alertIntegratedDualSDModuleRedundancyInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2491",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2491",
     "class": "notificationtype",
     "objects": [
       {
@@ -12945,7 +12945,7 @@
   },
   "alertIntegratedDualSDModuleRedundancyDegraded": {
     "name": "alertIntegratedDualSDModuleRedundancyDegraded",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2490",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2490",
     "class": "notificationtype",
     "objects": [
       {
@@ -12996,7 +12996,7 @@
   },
   "alertIntegratedDualSDModuleRedundancyLost": {
     "name": "alertIntegratedDualSDModuleRedundancyLost",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2489",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2489",
     "class": "notificationtype",
     "objects": [
       {
@@ -13047,7 +13047,7 @@
   },
   "alertSecurityInformation": {
     "name": "alertSecurityInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2387",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2387",
     "class": "notificationtype",
     "objects": [
       {
@@ -13098,7 +13098,7 @@
   },
   "alertSecurityWarning": {
     "name": "alertSecurityWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2386",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2386",
     "class": "notificationtype",
     "objects": [
       {
@@ -13149,7 +13149,7 @@
   },
   "alertSecurityFailure": {
     "name": "alertSecurityFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2385",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2385",
     "class": "notificationtype",
     "objects": [
       {
@@ -13200,7 +13200,7 @@
   },
   "alertSystemEventLogInformation": {
     "name": "alertSystemEventLogInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2379",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2379",
     "class": "notificationtype",
     "objects": [
       {
@@ -13251,7 +13251,7 @@
   },
   "alertSystemEventLogWarning": {
     "name": "alertSystemEventLogWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2378",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2378",
     "class": "notificationtype",
     "objects": [
       {
@@ -13302,7 +13302,7 @@
   },
   "alertSystemEventLogFailure": {
     "name": "alertSystemEventLogFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2377",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2377",
     "class": "notificationtype",
     "objects": [
       {
@@ -13353,7 +13353,7 @@
   },
   "alertSoftwareConfigurationInformation": {
     "name": "alertSoftwareConfigurationInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2339",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2339",
     "class": "notificationtype",
     "objects": [
       {
@@ -13404,7 +13404,7 @@
   },
   "alertSoftwareConfigurationWarning": {
     "name": "alertSoftwareConfigurationWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2338",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2338",
     "class": "notificationtype",
     "objects": [
       {
@@ -13455,7 +13455,7 @@
   },
   "alertSoftwareConfigurationFailure": {
     "name": "alertSoftwareConfigurationFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2337",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2337",
     "class": "notificationtype",
     "objects": [
       {
@@ -13506,7 +13506,7 @@
   },
   "alertTemperatureProbeNormal": {
     "name": "alertTemperatureProbeNormal",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2163",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2163",
     "class": "notificationtype",
     "objects": [
       {
@@ -13557,7 +13557,7 @@
   },
   "alertTemperatureProbeWarning": {
     "name": "alertTemperatureProbeWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2162",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2162",
     "class": "notificationtype",
     "objects": [
       {
@@ -13608,7 +13608,7 @@
   },
   "alertTemperatureProbeFailure": {
     "name": "alertTemperatureProbeFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2161",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2161",
     "class": "notificationtype",
     "objects": [
       {
@@ -13659,7 +13659,7 @@
   },
   "alertTemperatureStatisticsWarning": {
     "name": "alertTemperatureStatisticsWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2522",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2522",
     "class": "notificationtype",
     "objects": [
       {
@@ -13710,7 +13710,7 @@
   },
   "alertTemperatureStatisticsFailure": {
     "name": "alertTemperatureStatisticsFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2521",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2521",
     "class": "notificationtype",
     "objects": [
       {
@@ -13761,7 +13761,7 @@
   },
   "alertvFlashMediaDeviceInformation": {
     "name": "alertvFlashMediaDeviceInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2507",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2507",
     "class": "notificationtype",
     "objects": [
       {
@@ -13812,7 +13812,7 @@
   },
   "alertvFlashMediaDeviceWarning": {
     "name": "alertvFlashMediaDeviceWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2506",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2506",
     "class": "notificationtype",
     "objects": [
       {
@@ -13863,7 +13863,7 @@
   },
   "alertvFlashMediaDeviceFailure": {
     "name": "alertvFlashMediaDeviceFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2505",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2505",
     "class": "notificationtype",
     "objects": [
       {
@@ -13914,7 +13914,7 @@
   },
   "alertvFlashMediaDeviceAbsent": {
     "name": "alertvFlashMediaDeviceAbsent",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2515",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2515",
     "class": "notificationtype",
     "objects": [
       {
@@ -13965,7 +13965,7 @@
   },
   "alertVoltageProbeNormal": {
     "name": "alertVoltageProbeNormal",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2171",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2171",
     "class": "notificationtype",
     "objects": [
       {
@@ -14016,7 +14016,7 @@
   },
   "alertVoltageProbeWarning": {
     "name": "alertVoltageProbeWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2170",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2170",
     "class": "notificationtype",
     "objects": [
       {
@@ -14067,7 +14067,7 @@
   },
   "alertVoltageProbeFailure": {
     "name": "alertVoltageProbeFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2169",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2169",
     "class": "notificationtype",
     "objects": [
       {
@@ -14118,7 +14118,7 @@
   },
   "alertRACInformation": {
     "name": "alertRACInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2531",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2531",
     "class": "notificationtype",
     "objects": [
       {
@@ -14169,7 +14169,7 @@
   },
   "alertSystemPerformanceWarning": {
     "name": "alertSystemPerformanceWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.1.0.2650",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.10.2650",
     "class": "notificationtype",
     "objects": [
       {
@@ -14220,7 +14220,7 @@
   },
   "alertStorageBatteryInformation": {
     "name": "alertStorageBatteryInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4275",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4275",
     "class": "notificationtype",
     "objects": [
       {
@@ -14271,7 +14271,7 @@
   },
   "alertStorageBatteryWarning": {
     "name": "alertStorageBatteryWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4274",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4274",
     "class": "notificationtype",
     "objects": [
       {
@@ -14322,7 +14322,7 @@
   },
   "alertStorageBatteryFailure": {
     "name": "alertStorageBatteryFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4273",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4273",
     "class": "notificationtype",
     "objects": [
       {
@@ -14373,7 +14373,7 @@
   },
   "alertStorageControllerInformation": {
     "name": "alertStorageControllerInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4331",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4331",
     "class": "notificationtype",
     "objects": [
       {
@@ -14424,7 +14424,7 @@
   },
   "alertStorageControllerWarning": {
     "name": "alertStorageControllerWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4330",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4330",
     "class": "notificationtype",
     "objects": [
       {
@@ -14475,7 +14475,7 @@
   },
   "alertStorageControllerFailure": {
     "name": "alertStorageControllerFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4329",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4329",
     "class": "notificationtype",
     "objects": [
       {
@@ -14526,7 +14526,7 @@
   },
   "alertStorageEnclosureInformation": {
     "name": "alertStorageEnclosureInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4339",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4339",
     "class": "notificationtype",
     "objects": [
       {
@@ -14577,7 +14577,7 @@
   },
   "alertStorageEnclosureWarning": {
     "name": "alertStorageEnclosureWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4338",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4338",
     "class": "notificationtype",
     "objects": [
       {
@@ -14628,7 +14628,7 @@
   },
   "alertStorageEnclosureFailure": {
     "name": "alertStorageEnclosureFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4337",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4337",
     "class": "notificationtype",
     "objects": [
       {
@@ -14679,7 +14679,7 @@
   },
   "alertStorageFanInformation": {
     "name": "alertStorageFanInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4203",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4203",
     "class": "notificationtype",
     "objects": [
       {
@@ -14730,7 +14730,7 @@
   },
   "alertStorageFanWarning": {
     "name": "alertStorageFanWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4202",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4202",
     "class": "notificationtype",
     "objects": [
       {
@@ -14781,7 +14781,7 @@
   },
   "alertStorageFanFailure": {
     "name": "alertStorageFanFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4201",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4201",
     "class": "notificationtype",
     "objects": [
       {
@@ -14832,7 +14832,7 @@
   },
   "alertStoragePhysicalDiskInformation": {
     "name": "alertStoragePhysicalDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4347",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4347",
     "class": "notificationtype",
     "objects": [
       {
@@ -14883,7 +14883,7 @@
   },
   "alertStoragePhysicalDiskWarning": {
     "name": "alertStoragePhysicalDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4346",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4346",
     "class": "notificationtype",
     "objects": [
       {
@@ -14934,7 +14934,7 @@
   },
   "alertStoragePhysicalDiskFailure": {
     "name": "alertStoragePhysicalDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4345",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4345",
     "class": "notificationtype",
     "objects": [
       {
@@ -14985,7 +14985,7 @@
   },
   "alertStoragePowerSupplyInformation": {
     "name": "alertStoragePowerSupplyInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4235",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4235",
     "class": "notificationtype",
     "objects": [
       {
@@ -15036,7 +15036,7 @@
   },
   "alertStoragePowerSupplyWarning": {
     "name": "alertStoragePowerSupplyWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4234",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4234",
     "class": "notificationtype",
     "objects": [
       {
@@ -15087,7 +15087,7 @@
   },
   "alertStoragePowerSupplyFailure": {
     "name": "alertStoragePowerSupplyFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4233",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4233",
     "class": "notificationtype",
     "objects": [
       {
@@ -15138,7 +15138,7 @@
   },
   "alertStorageSecurityInformation": {
     "name": "alertStorageSecurityInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4435",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4435",
     "class": "notificationtype",
     "objects": [
       {
@@ -15189,7 +15189,7 @@
   },
   "alertStorageSecurityWarning": {
     "name": "alertStorageSecurityWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4434",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4434",
     "class": "notificationtype",
     "objects": [
       {
@@ -15240,7 +15240,7 @@
   },
   "alertStorageSecurityFailure": {
     "name": "alertStorageSecurityFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4433",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4433",
     "class": "notificationtype",
     "objects": [
       {
@@ -15291,7 +15291,7 @@
   },
   "alertStorageManagementInformation": {
     "name": "alertStorageManagementInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4179",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4179",
     "class": "notificationtype",
     "objects": [
       {
@@ -15342,7 +15342,7 @@
   },
   "alertStorageManagementWarning": {
     "name": "alertStorageManagementWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4178",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4178",
     "class": "notificationtype",
     "objects": [
       {
@@ -15393,7 +15393,7 @@
   },
   "alertStorageManagementFailure": {
     "name": "alertStorageManagementFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4177",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4177",
     "class": "notificationtype",
     "objects": [
       {
@@ -15444,7 +15444,7 @@
   },
   "alertStorageTemperatureProbeInformation": {
     "name": "alertStorageTemperatureProbeInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4211",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4211",
     "class": "notificationtype",
     "objects": [
       {
@@ -15495,7 +15495,7 @@
   },
   "alertStorageTemperatureProbeWarning": {
     "name": "alertStorageTemperatureProbeWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4210",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4210",
     "class": "notificationtype",
     "objects": [
       {
@@ -15546,7 +15546,7 @@
   },
   "alertStorageTemperatureProbeFailure": {
     "name": "alertStorageTemperatureProbeFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4209",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4209",
     "class": "notificationtype",
     "objects": [
       {
@@ -15597,7 +15597,7 @@
   },
   "alertStorageVirtualDiskInformation": {
     "name": "alertStorageVirtualDiskInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4355",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4355",
     "class": "notificationtype",
     "objects": [
       {
@@ -15648,7 +15648,7 @@
   },
   "alertStorageVirtualDiskWarning": {
     "name": "alertStorageVirtualDiskWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4354",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4354",
     "class": "notificationtype",
     "objects": [
       {
@@ -15699,7 +15699,7 @@
   },
   "alertStorageVirtualDiskFailure": {
     "name": "alertStorageVirtualDiskFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.2.0.4353",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.20.4353",
     "class": "notificationtype",
     "objects": [
       {
@@ -15750,7 +15750,7 @@
   },
   "alertUpdateJobInformation": {
     "name": "alertUpdateJobInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.3.0.6211",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.30.6211",
     "class": "notificationtype",
     "objects": [
       {
@@ -15801,7 +15801,7 @@
   },
   "alertSoftwareChangeUpdateWarning": {
     "name": "alertSoftwareChangeUpdateWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.3.0.6314",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.30.6314",
     "class": "notificationtype",
     "objects": [
       {
@@ -15852,7 +15852,7 @@
   },
   "alertCMCAuditInformation": {
     "name": "alertCMCAuditInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8691",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8691",
     "class": "notificationtype",
     "objects": [
       {
@@ -15903,7 +15903,7 @@
   },
   "alertCMCAuditWarning": {
     "name": "alertCMCAuditWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8690",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8690",
     "class": "notificationtype",
     "objects": [
       {
@@ -15954,7 +15954,7 @@
   },
   "alertCMCAuditFailure": {
     "name": "alertCMCAuditFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8689",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8689",
     "class": "notificationtype",
     "objects": [
       {
@@ -16005,7 +16005,7 @@
   },
   "alertDebugInformation": {
     "name": "alertDebugInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8595",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8595",
     "class": "notificationtype",
     "objects": [
       {
@@ -16056,7 +16056,7 @@
   },
   "alertDebugWarning": {
     "name": "alertDebugWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8594",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8594",
     "class": "notificationtype",
     "objects": [
       {
@@ -16107,7 +16107,7 @@
   },
   "alertiDRACIPAddressChange": {
     "name": "alertiDRACIPAddressChange",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8499",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8499",
     "class": "notificationtype",
     "objects": [
       {
@@ -16158,7 +16158,7 @@
   },
   "alertLicenseInformation": {
     "name": "alertLicenseInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8515",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8515",
     "class": "notificationtype",
     "objects": [
       {
@@ -16209,7 +16209,7 @@
   },
   "alertLicenseWarning": {
     "name": "alertLicenseWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8514",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8514",
     "class": "notificationtype",
     "objects": [
       {
@@ -16260,7 +16260,7 @@
   },
   "alertLicenseFailure": {
     "name": "alertLicenseFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8513",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8513",
     "class": "notificationtype",
     "objects": [
       {
@@ -16311,7 +16311,7 @@
   },
   "alertPCIDeviceAuditWarning": {
     "name": "alertPCIDeviceAuditWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8562",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8562",
     "class": "notificationtype",
     "objects": [
       {
@@ -16362,7 +16362,7 @@
   },
   "alertPowerSupplyAuditWarning": {
     "name": "alertPowerSupplyAuditWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8330",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8330",
     "class": "notificationtype",
     "objects": [
       {
@@ -16413,7 +16413,7 @@
   },
   "alertPowerSupplyAuditFailure": {
     "name": "alertPowerSupplyAuditFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8329",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8329",
     "class": "notificationtype",
     "objects": [
       {
@@ -16464,7 +16464,7 @@
   },
   "alertPowerUsageAuditInformation": {
     "name": "alertPowerUsageAuditInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8419",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8419",
     "class": "notificationtype",
     "objects": [
       {
@@ -16515,7 +16515,7 @@
   },
   "alertPowerUsageAuditWarning": {
     "name": "alertPowerUsageAuditWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8418",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8418",
     "class": "notificationtype",
     "objects": [
       {
@@ -16566,7 +16566,7 @@
   },
   "alertPowerUsageAuditFailure": {
     "name": "alertPowerUsageAuditFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8417",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8417",
     "class": "notificationtype",
     "objects": [
       {
@@ -16617,7 +16617,7 @@
   },
   "alertSystemPowerStateChangeInformation": {
     "name": "alertSystemPowerStateChangeInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8579",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8579",
     "class": "notificationtype",
     "objects": [
       {
@@ -16668,7 +16668,7 @@
   },
   "alertUserTrackingWarning": {
     "name": "alertUserTrackingWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.4.0.8490",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.40.8490",
     "class": "notificationtype",
     "objects": [
       {
@@ -16719,7 +16719,7 @@
   },
   "alertAutoDiscoveryInformation": {
     "name": "alertAutoDiscoveryInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10635",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10635",
     "class": "notificationtype",
     "objects": [
       {
@@ -16770,7 +16770,7 @@
   },
   "alertNetworkConfigurationInformation": {
     "name": "alertNetworkConfigurationInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10771",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10771",
     "class": "notificationtype",
     "objects": [
       {
@@ -16821,7 +16821,7 @@
   },
   "alertNetworkConfigurationWarning": {
     "name": "alertNetworkConfigurationWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10770",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10770",
     "class": "notificationtype",
     "objects": [
       {
@@ -16872,7 +16872,7 @@
   },
   "alertIPAddressConfigurationInformation": {
     "name": "alertIPAddressConfigurationInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10547",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10547",
     "class": "notificationtype",
     "objects": [
       {
@@ -16923,7 +16923,7 @@
   },
   "alertJobControlConfigurationInformation": {
     "name": "alertJobControlConfigurationInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10267",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10267",
     "class": "notificationtype",
     "objects": [
       {
@@ -16974,7 +16974,7 @@
   },
   "alertPCIDeviceConfigurationInformation": {
     "name": "alertPCIDeviceConfigurationInformation",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10611",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10611",
     "class": "notificationtype",
     "objects": [
       {
@@ -17025,7 +17025,7 @@
   },
   "alertSecurityConfigurationWarning": {
     "name": "alertSecurityConfigurationWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10578",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10578",
     "class": "notificationtype",
     "objects": [
       {
@@ -17076,7 +17076,7 @@
   },
   "alertSWCConfigurationWarning": {
     "name": "alertSWCConfigurationWarning",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10530",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10530",
     "class": "notificationtype",
     "objects": [
       {
@@ -17127,7 +17127,7 @@
   },
   "alertSWCConfigurationFailure": {
     "name": "alertSWCConfigurationFailure",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10529",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10529",
     "class": "notificationtype",
     "objects": [
       {
@@ -17178,7 +17178,7 @@
   },
   "alertTestTrapEvent": {
     "name": "alertTestTrapEvent",
-    "oid": "1.3.6.1.4.1.674.10892.5.3.2.5.0.10395",
+    "oid": "1.3.6.1.4.1.674.10892.5.3.2.50.10395",
     "class": "notificationtype",
     "objects": [
       {
@@ -17230,8 +17230,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/drac/IDRAC-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:56:25 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:56:44 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IDRAC-MIB"

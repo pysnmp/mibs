@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "cpqHoTrapFlags",
-      "compaq"
+      "compaq",
+      "cpqHoTrapFlags"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "MODULE-IDENTITY",
       "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -6439,7 +6439,7 @@
   },
   "cpqSeCpuThresholdPassed": {
     "name": "cpqSeCpuThresholdPassed",
-    "oid": "1.3.6.1.4.1.232.0.1001",
+    "oid": "1.3.6.1.4.1.2320.1001",
     "class": "notificationtype",
     "objects": [
       {
@@ -6462,7 +6462,7 @@
   },
   "cpqSePCCardThermalDegraded": {
     "name": "cpqSePCCardThermalDegraded",
-    "oid": "1.3.6.1.4.1.232.0.1002",
+    "oid": "1.3.6.1.4.1.2320.1002",
     "class": "notificationtype",
     "objects": [
       {
@@ -6489,7 +6489,7 @@
   },
   "cpqSePCCardThermalFailure": {
     "name": "cpqSePCCardThermalFailure",
-    "oid": "1.3.6.1.4.1.232.0.1003",
+    "oid": "1.3.6.1.4.1.2320.1003",
     "class": "notificationtype",
     "objects": [
       {
@@ -6516,7 +6516,7 @@
   },
   "cpqSePCCardThermalSafe": {
     "name": "cpqSePCCardThermalSafe",
-    "oid": "1.3.6.1.4.1.232.0.1004",
+    "oid": "1.3.6.1.4.1.2320.1004",
     "class": "notificationtype",
     "objects": [
       {
@@ -6535,7 +6535,7 @@
   },
   "cpqSe2CpuThresholdPassed": {
     "name": "cpqSe2CpuThresholdPassed",
-    "oid": "1.3.6.1.4.1.232.0.1005",
+    "oid": "1.3.6.1.4.1.2320.1005",
     "class": "notificationtype",
     "objects": [
       {
@@ -6570,7 +6570,7 @@
   },
   "cpqSeCpuStatusChange": {
     "name": "cpqSeCpuStatusChange",
-    "oid": "1.3.6.1.4.1.232.0.1006",
+    "oid": "1.3.6.1.4.1.2320.1006",
     "class": "notificationtype",
     "objects": [
       {
@@ -6621,7 +6621,7 @@
   },
   "cpqSeCpuPowerPodstatusChange": {
     "name": "cpqSeCpuPowerPodstatusChange",
-    "oid": "1.3.6.1.4.1.232.0.1007",
+    "oid": "1.3.6.1.4.1.2320.1007",
     "class": "notificationtype",
     "objects": [
       {
@@ -6672,7 +6672,7 @@
   },
   "cpqSeUSBStorageDeviceAttached": {
     "name": "cpqSeUSBStorageDeviceAttached",
-    "oid": "1.3.6.1.4.1.232.0.1008",
+    "oid": "1.3.6.1.4.1.2320.1008",
     "class": "notificationtype",
     "objects": [
       {
@@ -6695,7 +6695,7 @@
   },
   "cpqSeUSBStorageDeviceRemoved": {
     "name": "cpqSeUSBStorageDeviceRemoved",
-    "oid": "1.3.6.1.4.1.232.0.1009",
+    "oid": "1.3.6.1.4.1.2320.1009",
     "class": "notificationtype",
     "objects": [
       {
@@ -6718,7 +6718,7 @@
   },
   "cpqSeUSBStorageDeviceReadErrorOccurred": {
     "name": "cpqSeUSBStorageDeviceReadErrorOccurred",
-    "oid": "1.3.6.1.4.1.232.0.1010",
+    "oid": "1.3.6.1.4.1.2320.1010",
     "class": "notificationtype",
     "objects": [
       {
@@ -6769,7 +6769,7 @@
   },
   "cpqSeUSBStorageDeviceWriteErrorOccurred": {
     "name": "cpqSeUSBStorageDeviceWriteErrorOccurred",
-    "oid": "1.3.6.1.4.1.232.0.1011",
+    "oid": "1.3.6.1.4.1.2320.1011",
     "class": "notificationtype",
     "objects": [
       {
@@ -6820,7 +6820,7 @@
   },
   "cpqSeUSBStorageDeviceRedundancyLost": {
     "name": "cpqSeUSBStorageDeviceRedundancyLost",
-    "oid": "1.3.6.1.4.1.232.0.1012",
+    "oid": "1.3.6.1.4.1.2320.1012",
     "class": "notificationtype",
     "objects": [
       {
@@ -6863,7 +6863,7 @@
   },
   "cpqSeUSBStorageDeviceRedundancyRestored": {
     "name": "cpqSeUSBStorageDeviceRedundancyRestored",
-    "oid": "1.3.6.1.4.1.232.0.1013",
+    "oid": "1.3.6.1.4.1.2320.1013",
     "class": "notificationtype",
     "objects": [
       {
@@ -6902,7 +6902,7 @@
   },
   "cpqSeUSBStorageDeviceSyncFailed": {
     "name": "cpqSeUSBStorageDeviceSyncFailed",
-    "oid": "1.3.6.1.4.1.232.0.1014",
+    "oid": "1.3.6.1.4.1.2320.1014",
     "class": "notificationtype",
     "objects": [
       {
@@ -6941,7 +6941,7 @@
   },
   "cpqSePCIeDiskTemperatureFailed": {
     "name": "cpqSePCIeDiskTemperatureFailed",
-    "oid": "1.3.6.1.4.1.232.0.1015",
+    "oid": "1.3.6.1.4.1.2320.1015",
     "class": "notificationtype",
     "objects": [
       {
@@ -6980,7 +6980,7 @@
   },
   "cpqSePCIeDiskTemperatureOk": {
     "name": "cpqSePCIeDiskTemperatureOk",
-    "oid": "1.3.6.1.4.1.232.0.1016",
+    "oid": "1.3.6.1.4.1.2320.1016",
     "class": "notificationtype",
     "objects": [
       {
@@ -7019,7 +7019,7 @@
   },
   "cpqSePCIeDiskConditionChange": {
     "name": "cpqSePCIeDiskConditionChange",
-    "oid": "1.3.6.1.4.1.232.0.1017",
+    "oid": "1.3.6.1.4.1.2320.1017",
     "class": "notificationtype",
     "objects": [
       {
@@ -7054,7 +7054,7 @@
   },
   "cpqSePCIeDiskWearStatusChange": {
     "name": "cpqSePCIeDiskWearStatusChange",
-    "oid": "1.3.6.1.4.1.232.0.1018",
+    "oid": "1.3.6.1.4.1.2320.1018",
     "class": "notificationtype",
     "objects": [
       {
@@ -7089,7 +7089,7 @@
   },
   "cpqSePciDeviceAddedOrPoweredOn": {
     "name": "cpqSePciDeviceAddedOrPoweredOn",
-    "oid": "1.3.6.1.4.1.232.0.1019",
+    "oid": "1.3.6.1.4.1.2320.1019",
     "class": "notificationtype",
     "objects": [
       {
@@ -7116,7 +7116,7 @@
   },
   "cpqSePciDeviceRemovedOrPoweredOff": {
     "name": "cpqSePciDeviceRemovedOrPoweredOff",
-    "oid": "1.3.6.1.4.1.232.0.1020",
+    "oid": "1.3.6.1.4.1.2320.1020",
     "class": "notificationtype",
     "objects": [
       {
@@ -7144,8 +7144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQSTDEQ-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:26 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:14 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CPQSTDEQ-MIB"

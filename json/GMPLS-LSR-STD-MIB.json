@@ -5,19 +5,19 @@
       "GmplsSegmentDirectionTC"
     ],
     "IF-MIB": [
-      "ifGeneralInformationGroup",
-      "ifCounterDiscontinuityGroup"
+      "ifCounterDiscontinuityGroup",
+      "ifGeneralInformationGroup"
     ],
     "MPLS-LSR-STD-MIB": [
+      "mplsInterfaceIndex",
+      "mplsInSegmentGroup",
+      "mplsOutSegmentGroup",
+      "mplsInterfaceGroup",
+      "mplsPerfGroup",
       "mplsInSegmentIndex",
       "mplsOutSegmentIndex",
-      "mplsInSegmentGroup",
-      "mplsInterfaceIndex",
-      "mplsOutSegmentGroup",
-      "mplsXCGroup",
       "mplsLsrNotificationGroup",
-      "mplsPerfGroup",
-      "mplsInterfaceGroup"
+      "mplsXCGroup"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
@@ -28,26 +28,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "zeroDotZero",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
       "iso",
-      "Unsigned32"
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "zeroDotZero",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "RowPointer"
     ]
   },
   "gmplsLsrStdMIB": {
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:00:31 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:59 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "GMPLS-LSR-STD-MIB"

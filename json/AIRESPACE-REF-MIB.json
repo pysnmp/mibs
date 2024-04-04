@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
+      "TimeTicks",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "iso",
-      "Integer32",
-      "enterprises",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
       "MODULE-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Gauge32",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "airespace": {
@@ -41,8 +41,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/AIRESPACE-REF-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:24 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:35 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "AIRESPACE-REF-MIB"

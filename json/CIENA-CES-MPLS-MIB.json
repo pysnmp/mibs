@@ -23,30 +23,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
       "Integer32",
-      "TimeTicks"
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
-      "MacAddress",
-      "RowPointer",
+      "RowStatus",
       "StorageType",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "RowPointer"
     ]
   },
   "cienaCesMplsMIB": {
@@ -14463,8 +14463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-MPLS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:55:18 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:55:36 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-MPLS-MIB"

@@ -5,41 +5,41 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
+      "PerfIntervalCount",
       "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfTotalCount"
     ],
     "SL-MAIN-MIB": [
       "slMain"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Counter64",
       "Gauge32",
+      "Integer32",
       "Counter32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "IpAddress",
       "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
-      "TimeTicks"
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TimeStamp"
+      "DisplayString",
+      "RowStatus",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "slTests": {
@@ -263,8 +263,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TESTS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 03:01:09 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:01:37 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SL-TESTS-MIB"

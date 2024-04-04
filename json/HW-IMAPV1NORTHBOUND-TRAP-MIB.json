@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
       "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "TimeTicks",
       "enterprises",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Bits",
       "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TRAP-TYPE",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -813,7 +813,7 @@
   },
   "hwNmNorthboundEventNotify": {
     "name": "hwNmNorthboundEventNotify",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.1",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -956,7 +956,7 @@
   },
   "hwNmNorthboundEventKeepAlive": {
     "name": "hwNmNorthboundEventKeepAlive",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.2.0.2",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.20.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -967,7 +967,7 @@
   },
   "hwNmNorthboundEventNotifyCritical": {
     "name": "hwNmNorthboundEventNotifyCritical",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.3",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -1110,7 +1110,7 @@
   },
   "hwNmNorthboundEventNotifyMajor": {
     "name": "hwNmNorthboundEventNotifyMajor",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.4",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -1253,7 +1253,7 @@
   },
   "hwNmNorthboundEventNotifyMinor": {
     "name": "hwNmNorthboundEventNotifyMinor",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.5",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -1396,7 +1396,7 @@
   },
   "hwNmNorthboundEventNotifyWarning": {
     "name": "hwNmNorthboundEventNotifyWarning",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.6",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -1539,7 +1539,7 @@
   },
   "hwNmNorthboundEventNotifyIndefinitely": {
     "name": "hwNmNorthboundEventNotifyIndefinitely",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.7",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.7",
     "class": "notificationtype",
     "objects": [
       {
@@ -1682,7 +1682,7 @@
   },
   "hwNmNorthboundEventNotifyUnknownSeverity": {
     "name": "hwNmNorthboundEventNotifyUnknownSeverity",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.1.0.8",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.10.8",
     "class": "notificationtype",
     "objects": [
       {
@@ -1825,12 +1825,12 @@
   },
   "hwNmNorthboundEventSynchronizationStartNotify": {
     "name": "hwNmNorthboundEventSynchronizationStartNotify",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.1.0.9",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.10.9",
     "class": "notificationtype"
   },
   "hwNmNorthboundEventSynchronizationQueryResultNotify": {
     "name": "hwNmNorthboundEventSynchronizationQueryResultNotify",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.2.0.10",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.20.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -1973,7 +1973,7 @@
   },
   "hwNmNorthboundEventSynchronizationEndNotify": {
     "name": "hwNmNorthboundEventSynchronizationEndNotify",
-    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.3.0.11",
+    "oid": "1.3.6.1.4.1.2011.2.15.1.7.7.30.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -1989,8 +1989,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HW-IMAPV1NORTHBOUND-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:11 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:33 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HW-IMAPV1NORTHBOUND-TRAP-MIB"

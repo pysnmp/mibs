@@ -5,41 +5,41 @@
       "BridgeId"
     ],
     "HP-SWITCH-PL-MIB": [
-      "hpSwitchBladeType5-Mgmt",
-      "hpSwitchBladeType5-Products"
+      "hpSwitchBladeType5-Products",
+      "hpSwitchBladeType5-Mgmt"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysName",
       "sysLocation",
-      "sysContact",
-      "sysName"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "enterprises",
-      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "MacAddress",
+      "PhysAddress",
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
@@ -30398,7 +30398,7 @@
   },
   "bntSwDefGwUp": {
     "name": "bntSwDefGwUp",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.2",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -30425,7 +30425,7 @@
   },
   "bntSwDefGwDown": {
     "name": "bntSwDefGwDown",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.3",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -30452,7 +30452,7 @@
   },
   "bntSwDefGwInService": {
     "name": "bntSwDefGwInService",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.4",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -30479,7 +30479,7 @@
   },
   "bntSwDefGwNotInService": {
     "name": "bntSwDefGwNotInService",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.5",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -30506,7 +30506,7 @@
   },
   "bntSwLoginFailure": {
     "name": "bntSwLoginFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.19",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.19",
     "class": "notificationtype",
     "objects": [
       {
@@ -30529,7 +30529,7 @@
   },
   "bntSwTempExceedThreshold": {
     "name": "bntSwTempExceedThreshold",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.22",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.22",
     "class": "notificationtype",
     "objects": [
       {
@@ -30552,7 +30552,7 @@
   },
   "bntSwApplyComplete": {
     "name": "bntSwApplyComplete",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.27",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.27",
     "class": "notificationtype",
     "objects": [
       {
@@ -30575,7 +30575,7 @@
   },
   "bntSwSaveComplete": {
     "name": "bntSwSaveComplete",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.28",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.28",
     "class": "notificationtype",
     "objects": [
       {
@@ -30598,7 +30598,7 @@
   },
   "bntSwFwDownloadSucess": {
     "name": "bntSwFwDownloadSucess",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.29",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.29",
     "class": "notificationtype",
     "objects": [
       {
@@ -30621,7 +30621,7 @@
   },
   "bntSwFwDownloadFailure": {
     "name": "bntSwFwDownloadFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.30",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -30644,7 +30644,7 @@
   },
   "bntSwTempReturnThreshold": {
     "name": "bntSwTempReturnThreshold",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.31",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -30667,7 +30667,7 @@
   },
   "bntSwUfdfoLtMFailure": {
     "name": "bntSwUfdfoLtMFailure",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.34",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -30690,7 +30690,7 @@
   },
   "bntSwUfdfoLtMUP": {
     "name": "bntSwUfdfoLtMUP",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.35",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -30713,7 +30713,7 @@
   },
   "bntSwUfdfoGlobalEna": {
     "name": "bntSwUfdfoGlobalEna",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.36",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -30736,7 +30736,7 @@
   },
   "bntSwUfdfoGlobalDis": {
     "name": "bntSwUfdfoGlobalDis",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.37",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -30759,7 +30759,7 @@
   },
   "bntSwUfdfoLtDAutoEna": {
     "name": "bntSwUfdfoLtDAutoEna",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.38",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -30782,7 +30782,7 @@
   },
   "bntSwUfdfoLtDAutoDis": {
     "name": "bntSwUfdfoLtDAutoDis",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.39",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -30805,7 +30805,7 @@
   },
   "bntSwStgNewRoot": {
     "name": "bntSwStgNewRoot",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.42",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.42",
     "class": "notificationtype",
     "objects": [
       {
@@ -30832,7 +30832,7 @@
   },
   "bntSwCistNewRoot": {
     "name": "bntSwCistNewRoot",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.43",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.43",
     "class": "notificationtype",
     "objects": [
       {
@@ -30855,7 +30855,7 @@
   },
   "bntSwStgTopologyChanged": {
     "name": "bntSwStgTopologyChanged",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.44",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.44",
     "class": "notificationtype",
     "objects": [
       {
@@ -30882,7 +30882,7 @@
   },
   "bntSwCistTopologyChanged": {
     "name": "bntSwCistTopologyChanged",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.45",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.45",
     "class": "notificationtype",
     "objects": [
       {
@@ -30905,7 +30905,7 @@
   },
   "bntSFPInserted": {
     "name": "bntSFPInserted",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.51",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -30932,7 +30932,7 @@
   },
   "bntSFPRemoved": {
     "name": "bntSFPRemoved",
-    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.7.0.52",
+    "oid": "1.3.6.1.4.1.11.2.3.7.11.33.5.2.70.52",
     "class": "notificationtype",
     "objects": [
       {
@@ -33418,8 +33418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE5-NETWORK-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:25 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:13 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE5-NETWORK-MIB"

@@ -2,27 +2,27 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Opaque",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
       "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Integer32",
-      "iso",
+      "Opaque",
+      "Counter32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
       "TRAP-TYPE",
-      "Gauge32",
-      "Counter32"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -48824,37 +48824,37 @@
   },
   "spNormalStatus": {
     "name": "spNormalStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.1",
+    "oid": "1.3.6.1.4.1.3854.10.1",
     "class": "notificationtype"
   },
   "spWarningStatus": {
     "name": "spWarningStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.2",
+    "oid": "1.3.6.1.4.1.3854.10.2",
     "class": "notificationtype"
   },
   "spCriticalStatus": {
     "name": "spCriticalStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.3",
+    "oid": "1.3.6.1.4.1.3854.10.3",
     "class": "notificationtype"
   },
   "spDownStatus": {
     "name": "spDownStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.4",
+    "oid": "1.3.6.1.4.1.3854.10.4",
     "class": "notificationtype"
   },
   "spKeepAliveTrap": {
     "name": "spKeepAliveTrap",
-    "oid": "1.3.6.1.4.1.3854.1.0.5",
+    "oid": "1.3.6.1.4.1.3854.10.5",
     "class": "notificationtype"
   },
   "spUnknownStatus": {
     "name": "spUnknownStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.7",
+    "oid": "1.3.6.1.4.1.3854.10.7",
     "class": "notificationtype"
   },
   "spTemperatureStatus": {
     "name": "spTemperatureStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.10",
+    "oid": "1.3.6.1.4.1.3854.10.10",
     "class": "notificationtype",
     "objects": [
       {
@@ -48885,7 +48885,7 @@
   },
   "spTemperatureArray1Status": {
     "name": "spTemperatureArray1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.11",
+    "oid": "1.3.6.1.4.1.3854.10.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -48916,7 +48916,7 @@
   },
   "spTemperatureArray2Status": {
     "name": "spTemperatureArray2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.12",
+    "oid": "1.3.6.1.4.1.3854.10.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -48947,7 +48947,7 @@
   },
   "spTemperatureArray3Status": {
     "name": "spTemperatureArray3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.13",
+    "oid": "1.3.6.1.4.1.3854.10.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -48978,7 +48978,7 @@
   },
   "spTemperatureArray4Status": {
     "name": "spTemperatureArray4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.14",
+    "oid": "1.3.6.1.4.1.3854.10.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -49009,7 +49009,7 @@
   },
   "spTemperatureArray5Status": {
     "name": "spTemperatureArray5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.15",
+    "oid": "1.3.6.1.4.1.3854.10.15",
     "class": "notificationtype",
     "objects": [
       {
@@ -49040,7 +49040,7 @@
   },
   "spTemperatureArray6Status": {
     "name": "spTemperatureArray6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.16",
+    "oid": "1.3.6.1.4.1.3854.10.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -49071,7 +49071,7 @@
   },
   "spTemperatureArray7Status": {
     "name": "spTemperatureArray7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.17",
+    "oid": "1.3.6.1.4.1.3854.10.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -49102,7 +49102,7 @@
   },
   "spTemperatureArray8Status": {
     "name": "spTemperatureArray8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.18",
+    "oid": "1.3.6.1.4.1.3854.10.18",
     "class": "notificationtype",
     "objects": [
       {
@@ -49133,7 +49133,7 @@
   },
   "spAnalogueStatus": {
     "name": "spAnalogueStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.20",
+    "oid": "1.3.6.1.4.1.3854.10.20",
     "class": "notificationtype",
     "objects": [
       {
@@ -49164,7 +49164,7 @@
   },
   "spSwitchStatus": {
     "name": "spSwitchStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.30",
+    "oid": "1.3.6.1.4.1.3854.10.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -49195,7 +49195,7 @@
   },
   "spIRMSStatus": {
     "name": "spIRMSStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.40",
+    "oid": "1.3.6.1.4.1.3854.10.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -49226,7 +49226,7 @@
   },
   "spVRMSStatus": {
     "name": "spVRMSStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.50",
+    "oid": "1.3.6.1.4.1.3854.10.50",
     "class": "notificationtype",
     "objects": [
       {
@@ -49257,7 +49257,7 @@
   },
   "spWattStatus": {
     "name": "spWattStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.60",
+    "oid": "1.3.6.1.4.1.3854.10.60",
     "class": "notificationtype",
     "objects": [
       {
@@ -49288,7 +49288,7 @@
   },
   "spRelayArray1Status": {
     "name": "spRelayArray1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.71",
+    "oid": "1.3.6.1.4.1.3854.10.71",
     "class": "notificationtype",
     "objects": [
       {
@@ -49319,7 +49319,7 @@
   },
   "spRelayArray2Status": {
     "name": "spRelayArray2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.72",
+    "oid": "1.3.6.1.4.1.3854.10.72",
     "class": "notificationtype",
     "objects": [
       {
@@ -49350,7 +49350,7 @@
   },
   "spRelayArray3Status": {
     "name": "spRelayArray3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.73",
+    "oid": "1.3.6.1.4.1.3854.10.73",
     "class": "notificationtype",
     "objects": [
       {
@@ -49381,7 +49381,7 @@
   },
   "spRelayArray4Status": {
     "name": "spRelayArray4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.74",
+    "oid": "1.3.6.1.4.1.3854.10.74",
     "class": "notificationtype",
     "objects": [
       {
@@ -49412,7 +49412,7 @@
   },
   "spRelayArray5Status": {
     "name": "spRelayArray5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.75",
+    "oid": "1.3.6.1.4.1.3854.10.75",
     "class": "notificationtype",
     "objects": [
       {
@@ -49443,7 +49443,7 @@
   },
   "spRelayArray6Status": {
     "name": "spRelayArray6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.77",
+    "oid": "1.3.6.1.4.1.3854.10.77",
     "class": "notificationtype",
     "objects": [
       {
@@ -49474,7 +49474,7 @@
   },
   "spRelayArray8Status": {
     "name": "spRelayArray8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.78",
+    "oid": "1.3.6.1.4.1.3854.10.78",
     "class": "notificationtype",
     "objects": [
       {
@@ -49505,7 +49505,7 @@
   },
   "spVirtualStatus": {
     "name": "spVirtualStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.80",
+    "oid": "1.3.6.1.4.1.3854.10.80",
     "class": "notificationtype",
     "objects": [
       {
@@ -49536,7 +49536,7 @@
   },
   "spSenUnknownStatus": {
     "name": "spSenUnknownStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.51",
+    "oid": "1.3.6.1.4.1.3854.10.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -49567,7 +49567,7 @@
   },
   "spSenNormalStatus": {
     "name": "spSenNormalStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.52",
+    "oid": "1.3.6.1.4.1.3854.10.52",
     "class": "notificationtype",
     "objects": [
       {
@@ -49598,7 +49598,7 @@
   },
   "spSenWarningStatus": {
     "name": "spSenWarningStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.53",
+    "oid": "1.3.6.1.4.1.3854.10.53",
     "class": "notificationtype",
     "objects": [
       {
@@ -49629,7 +49629,7 @@
   },
   "spSenCriticalStatus": {
     "name": "spSenCriticalStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.54",
+    "oid": "1.3.6.1.4.1.3854.10.54",
     "class": "notificationtype",
     "objects": [
       {
@@ -49660,7 +49660,7 @@
   },
   "spSenDownStatus": {
     "name": "spSenDownStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.55",
+    "oid": "1.3.6.1.4.1.3854.10.55",
     "class": "notificationtype",
     "objects": [
       {
@@ -49691,7 +49691,7 @@
   },
   "spTemperature1Status": {
     "name": "spTemperature1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.101",
+    "oid": "1.3.6.1.4.1.3854.10.101",
     "class": "notificationtype",
     "objects": [
       {
@@ -49722,7 +49722,7 @@
   },
   "spTemperature2Status": {
     "name": "spTemperature2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.102",
+    "oid": "1.3.6.1.4.1.3854.10.102",
     "class": "notificationtype",
     "objects": [
       {
@@ -49753,7 +49753,7 @@
   },
   "spTemperature3Status": {
     "name": "spTemperature3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.103",
+    "oid": "1.3.6.1.4.1.3854.10.103",
     "class": "notificationtype",
     "objects": [
       {
@@ -49784,7 +49784,7 @@
   },
   "spTemperature4Status": {
     "name": "spTemperature4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.104",
+    "oid": "1.3.6.1.4.1.3854.10.104",
     "class": "notificationtype",
     "objects": [
       {
@@ -49815,7 +49815,7 @@
   },
   "spTemperature5Status": {
     "name": "spTemperature5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.105",
+    "oid": "1.3.6.1.4.1.3854.10.105",
     "class": "notificationtype",
     "objects": [
       {
@@ -49846,7 +49846,7 @@
   },
   "spTemperature6Status": {
     "name": "spTemperature6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.106",
+    "oid": "1.3.6.1.4.1.3854.10.106",
     "class": "notificationtype",
     "objects": [
       {
@@ -49877,7 +49877,7 @@
   },
   "spTemperature7Status": {
     "name": "spTemperature7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.107",
+    "oid": "1.3.6.1.4.1.3854.10.107",
     "class": "notificationtype",
     "objects": [
       {
@@ -49908,7 +49908,7 @@
   },
   "spTemperature8Status": {
     "name": "spTemperature8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.108",
+    "oid": "1.3.6.1.4.1.3854.10.108",
     "class": "notificationtype",
     "objects": [
       {
@@ -49939,7 +49939,7 @@
   },
   "spTemperatureArray1_1Status": {
     "name": "spTemperatureArray1_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.111",
+    "oid": "1.3.6.1.4.1.3854.10.111",
     "class": "notificationtype",
     "objects": [
       {
@@ -49970,7 +49970,7 @@
   },
   "spTemperatureArray1_2Status": {
     "name": "spTemperatureArray1_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.112",
+    "oid": "1.3.6.1.4.1.3854.10.112",
     "class": "notificationtype",
     "objects": [
       {
@@ -50001,7 +50001,7 @@
   },
   "spTemperatureArray1_3Status": {
     "name": "spTemperatureArray1_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.113",
+    "oid": "1.3.6.1.4.1.3854.10.113",
     "class": "notificationtype",
     "objects": [
       {
@@ -50032,7 +50032,7 @@
   },
   "spTemperatureArray1_4Status": {
     "name": "spTemperatureArray1_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.114",
+    "oid": "1.3.6.1.4.1.3854.10.114",
     "class": "notificationtype",
     "objects": [
       {
@@ -50063,7 +50063,7 @@
   },
   "spTemperatureArray1_5Status": {
     "name": "spTemperatureArray1_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.115",
+    "oid": "1.3.6.1.4.1.3854.10.115",
     "class": "notificationtype",
     "objects": [
       {
@@ -50094,7 +50094,7 @@
   },
   "spTemperatureArray1_6Status": {
     "name": "spTemperatureArray1_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.116",
+    "oid": "1.3.6.1.4.1.3854.10.116",
     "class": "notificationtype",
     "objects": [
       {
@@ -50125,7 +50125,7 @@
   },
   "spTemperatureArray1_7Status": {
     "name": "spTemperatureArray1_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.117",
+    "oid": "1.3.6.1.4.1.3854.10.117",
     "class": "notificationtype",
     "objects": [
       {
@@ -50156,7 +50156,7 @@
   },
   "spTemperatureArray1_8Status": {
     "name": "spTemperatureArray1_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.118",
+    "oid": "1.3.6.1.4.1.3854.10.118",
     "class": "notificationtype",
     "objects": [
       {
@@ -50187,7 +50187,7 @@
   },
   "spTemperatureArray2_1Status": {
     "name": "spTemperatureArray2_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.121",
+    "oid": "1.3.6.1.4.1.3854.10.121",
     "class": "notificationtype",
     "objects": [
       {
@@ -50218,7 +50218,7 @@
   },
   "spTemperatureArray2_2Status": {
     "name": "spTemperatureArray2_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.122",
+    "oid": "1.3.6.1.4.1.3854.10.122",
     "class": "notificationtype",
     "objects": [
       {
@@ -50249,7 +50249,7 @@
   },
   "spTemperatureArray2_3Status": {
     "name": "spTemperatureArray2_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.123",
+    "oid": "1.3.6.1.4.1.3854.10.123",
     "class": "notificationtype",
     "objects": [
       {
@@ -50280,7 +50280,7 @@
   },
   "spTemperatureArray2_4Status": {
     "name": "spTemperatureArray2_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.124",
+    "oid": "1.3.6.1.4.1.3854.10.124",
     "class": "notificationtype",
     "objects": [
       {
@@ -50311,7 +50311,7 @@
   },
   "spTemperatureArray2_5Status": {
     "name": "spTemperatureArray2_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.125",
+    "oid": "1.3.6.1.4.1.3854.10.125",
     "class": "notificationtype",
     "objects": [
       {
@@ -50342,7 +50342,7 @@
   },
   "spTemperatureArray2_6Status": {
     "name": "spTemperatureArray2_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.126",
+    "oid": "1.3.6.1.4.1.3854.10.126",
     "class": "notificationtype",
     "objects": [
       {
@@ -50373,7 +50373,7 @@
   },
   "spTemperatureArray2_7Status": {
     "name": "spTemperatureArray2_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.127",
+    "oid": "1.3.6.1.4.1.3854.10.127",
     "class": "notificationtype",
     "objects": [
       {
@@ -50404,7 +50404,7 @@
   },
   "spTemperatureArray2_8Status": {
     "name": "spTemperatureArray2_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.128",
+    "oid": "1.3.6.1.4.1.3854.10.128",
     "class": "notificationtype",
     "objects": [
       {
@@ -50435,7 +50435,7 @@
   },
   "spTemperatureArray3_1Status": {
     "name": "spTemperatureArray3_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.131",
+    "oid": "1.3.6.1.4.1.3854.10.131",
     "class": "notificationtype",
     "objects": [
       {
@@ -50466,7 +50466,7 @@
   },
   "spTemperatureArray3_2Status": {
     "name": "spTemperatureArray3_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.132",
+    "oid": "1.3.6.1.4.1.3854.10.132",
     "class": "notificationtype",
     "objects": [
       {
@@ -50497,7 +50497,7 @@
   },
   "spTemperatureArray3_3Status": {
     "name": "spTemperatureArray3_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.133",
+    "oid": "1.3.6.1.4.1.3854.10.133",
     "class": "notificationtype",
     "objects": [
       {
@@ -50528,7 +50528,7 @@
   },
   "spTemperatureArray3_4Status": {
     "name": "spTemperatureArray3_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.134",
+    "oid": "1.3.6.1.4.1.3854.10.134",
     "class": "notificationtype",
     "objects": [
       {
@@ -50559,7 +50559,7 @@
   },
   "spTemperatureArray3_5Status": {
     "name": "spTemperatureArray3_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.135",
+    "oid": "1.3.6.1.4.1.3854.10.135",
     "class": "notificationtype",
     "objects": [
       {
@@ -50590,7 +50590,7 @@
   },
   "spTemperatureArray3_6Status": {
     "name": "spTemperatureArray3_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.136",
+    "oid": "1.3.6.1.4.1.3854.10.136",
     "class": "notificationtype",
     "objects": [
       {
@@ -50621,7 +50621,7 @@
   },
   "spTemperatureArray3_7Status": {
     "name": "spTemperatureArray3_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.137",
+    "oid": "1.3.6.1.4.1.3854.10.137",
     "class": "notificationtype",
     "objects": [
       {
@@ -50652,7 +50652,7 @@
   },
   "spTemperatureArray3_8Status": {
     "name": "spTemperatureArray3_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.138",
+    "oid": "1.3.6.1.4.1.3854.10.138",
     "class": "notificationtype",
     "objects": [
       {
@@ -50683,7 +50683,7 @@
   },
   "spTemperatureArray4_1Status": {
     "name": "spTemperatureArray4_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.141",
+    "oid": "1.3.6.1.4.1.3854.10.141",
     "class": "notificationtype",
     "objects": [
       {
@@ -50714,7 +50714,7 @@
   },
   "spTemperatureArray4_2Status": {
     "name": "spTemperatureArray4_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.142",
+    "oid": "1.3.6.1.4.1.3854.10.142",
     "class": "notificationtype",
     "objects": [
       {
@@ -50745,7 +50745,7 @@
   },
   "spTemperatureArray4_3Status": {
     "name": "spTemperatureArray4_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.143",
+    "oid": "1.3.6.1.4.1.3854.10.143",
     "class": "notificationtype",
     "objects": [
       {
@@ -50776,7 +50776,7 @@
   },
   "spTemperatureArray4_4Status": {
     "name": "spTemperatureArray4_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.144",
+    "oid": "1.3.6.1.4.1.3854.10.144",
     "class": "notificationtype",
     "objects": [
       {
@@ -50807,7 +50807,7 @@
   },
   "spTemperatureArray4_5Status": {
     "name": "spTemperatureArray4_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.145",
+    "oid": "1.3.6.1.4.1.3854.10.145",
     "class": "notificationtype",
     "objects": [
       {
@@ -50838,7 +50838,7 @@
   },
   "spTemperatureArray4_6Status": {
     "name": "spTemperatureArray4_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.146",
+    "oid": "1.3.6.1.4.1.3854.10.146",
     "class": "notificationtype",
     "objects": [
       {
@@ -50869,7 +50869,7 @@
   },
   "spTemperatureArray4_7Status": {
     "name": "spTemperatureArray4_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.147",
+    "oid": "1.3.6.1.4.1.3854.10.147",
     "class": "notificationtype",
     "objects": [
       {
@@ -50900,7 +50900,7 @@
   },
   "spTemperatureArray4_8Status": {
     "name": "spTemperatureArray4_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.148",
+    "oid": "1.3.6.1.4.1.3854.10.148",
     "class": "notificationtype",
     "objects": [
       {
@@ -50931,7 +50931,7 @@
   },
   "spTemperatureArray5_1Status": {
     "name": "spTemperatureArray5_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.151",
+    "oid": "1.3.6.1.4.1.3854.10.151",
     "class": "notificationtype",
     "objects": [
       {
@@ -50962,7 +50962,7 @@
   },
   "spTemperatureArray5_2Status": {
     "name": "spTemperatureArray5_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.152",
+    "oid": "1.3.6.1.4.1.3854.10.152",
     "class": "notificationtype",
     "objects": [
       {
@@ -50993,7 +50993,7 @@
   },
   "spTemperatureArray5_3Status": {
     "name": "spTemperatureArray5_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.153",
+    "oid": "1.3.6.1.4.1.3854.10.153",
     "class": "notificationtype",
     "objects": [
       {
@@ -51024,7 +51024,7 @@
   },
   "spTemperatureArray5_4Status": {
     "name": "spTemperatureArray5_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.154",
+    "oid": "1.3.6.1.4.1.3854.10.154",
     "class": "notificationtype",
     "objects": [
       {
@@ -51055,7 +51055,7 @@
   },
   "spTemperatureArray5_5Status": {
     "name": "spTemperatureArray5_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.155",
+    "oid": "1.3.6.1.4.1.3854.10.155",
     "class": "notificationtype",
     "objects": [
       {
@@ -51086,7 +51086,7 @@
   },
   "spTemperatureArray5_6Status": {
     "name": "spTemperatureArray5_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.156",
+    "oid": "1.3.6.1.4.1.3854.10.156",
     "class": "notificationtype",
     "objects": [
       {
@@ -51117,7 +51117,7 @@
   },
   "spTemperatureArray5_7Status": {
     "name": "spTemperatureArray5_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.157",
+    "oid": "1.3.6.1.4.1.3854.10.157",
     "class": "notificationtype",
     "objects": [
       {
@@ -51148,7 +51148,7 @@
   },
   "spTemperatureArray5_8Status": {
     "name": "spTemperatureArray5_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.158",
+    "oid": "1.3.6.1.4.1.3854.10.158",
     "class": "notificationtype",
     "objects": [
       {
@@ -51179,7 +51179,7 @@
   },
   "spTemperatureArray6_1Status": {
     "name": "spTemperatureArray6_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.161",
+    "oid": "1.3.6.1.4.1.3854.10.161",
     "class": "notificationtype",
     "objects": [
       {
@@ -51210,7 +51210,7 @@
   },
   "spTemperatureArray6_2Status": {
     "name": "spTemperatureArray6_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.162",
+    "oid": "1.3.6.1.4.1.3854.10.162",
     "class": "notificationtype",
     "objects": [
       {
@@ -51241,7 +51241,7 @@
   },
   "spTemperatureArray6_3Status": {
     "name": "spTemperatureArray6_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.163",
+    "oid": "1.3.6.1.4.1.3854.10.163",
     "class": "notificationtype",
     "objects": [
       {
@@ -51272,7 +51272,7 @@
   },
   "spTemperatureArray6_4Status": {
     "name": "spTemperatureArray6_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.164",
+    "oid": "1.3.6.1.4.1.3854.10.164",
     "class": "notificationtype",
     "objects": [
       {
@@ -51303,7 +51303,7 @@
   },
   "spTemperatureArray6_5Status": {
     "name": "spTemperatureArray6_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.165",
+    "oid": "1.3.6.1.4.1.3854.10.165",
     "class": "notificationtype",
     "objects": [
       {
@@ -51334,7 +51334,7 @@
   },
   "spTemperatureArray6_6Status": {
     "name": "spTemperatureArray6_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.166",
+    "oid": "1.3.6.1.4.1.3854.10.166",
     "class": "notificationtype",
     "objects": [
       {
@@ -51365,7 +51365,7 @@
   },
   "spTemperatureArray6_7Status": {
     "name": "spTemperatureArray6_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.167",
+    "oid": "1.3.6.1.4.1.3854.10.167",
     "class": "notificationtype",
     "objects": [
       {
@@ -51396,7 +51396,7 @@
   },
   "spTemperatureArray6_8Status": {
     "name": "spTemperatureArray6_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.168",
+    "oid": "1.3.6.1.4.1.3854.10.168",
     "class": "notificationtype",
     "objects": [
       {
@@ -51427,7 +51427,7 @@
   },
   "spTemperatureArray7_1Status": {
     "name": "spTemperatureArray7_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.171",
+    "oid": "1.3.6.1.4.1.3854.10.171",
     "class": "notificationtype",
     "objects": [
       {
@@ -51458,7 +51458,7 @@
   },
   "spTemperatureArray7_2Status": {
     "name": "spTemperatureArray7_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.172",
+    "oid": "1.3.6.1.4.1.3854.10.172",
     "class": "notificationtype",
     "objects": [
       {
@@ -51489,7 +51489,7 @@
   },
   "spTemperatureArray7_3Status": {
     "name": "spTemperatureArray7_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.173",
+    "oid": "1.3.6.1.4.1.3854.10.173",
     "class": "notificationtype",
     "objects": [
       {
@@ -51520,7 +51520,7 @@
   },
   "spTemperatureArray7_4Status": {
     "name": "spTemperatureArray7_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.174",
+    "oid": "1.3.6.1.4.1.3854.10.174",
     "class": "notificationtype",
     "objects": [
       {
@@ -51551,7 +51551,7 @@
   },
   "spTemperatureArray7_5Status": {
     "name": "spTemperatureArray7_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.175",
+    "oid": "1.3.6.1.4.1.3854.10.175",
     "class": "notificationtype",
     "objects": [
       {
@@ -51582,7 +51582,7 @@
   },
   "spTemperatureArray7_6Status": {
     "name": "spTemperatureArray7_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.176",
+    "oid": "1.3.6.1.4.1.3854.10.176",
     "class": "notificationtype",
     "objects": [
       {
@@ -51613,7 +51613,7 @@
   },
   "spTemperatureArray7_7Status": {
     "name": "spTemperatureArray7_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.177",
+    "oid": "1.3.6.1.4.1.3854.10.177",
     "class": "notificationtype",
     "objects": [
       {
@@ -51644,7 +51644,7 @@
   },
   "spTemperatureArray7_8Status": {
     "name": "spTemperatureArray7_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.178",
+    "oid": "1.3.6.1.4.1.3854.10.178",
     "class": "notificationtype",
     "objects": [
       {
@@ -51675,7 +51675,7 @@
   },
   "spTemperatureArray8_1Status": {
     "name": "spTemperatureArray8_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.181",
+    "oid": "1.3.6.1.4.1.3854.10.181",
     "class": "notificationtype",
     "objects": [
       {
@@ -51706,7 +51706,7 @@
   },
   "spTemperatureArray8_2Status": {
     "name": "spTemperatureArray8_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.182",
+    "oid": "1.3.6.1.4.1.3854.10.182",
     "class": "notificationtype",
     "objects": [
       {
@@ -51737,7 +51737,7 @@
   },
   "spTemperatureArray8_3Status": {
     "name": "spTemperatureArray8_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.183",
+    "oid": "1.3.6.1.4.1.3854.10.183",
     "class": "notificationtype",
     "objects": [
       {
@@ -51768,7 +51768,7 @@
   },
   "spTemperatureArray8_4Status": {
     "name": "spTemperatureArray8_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.184",
+    "oid": "1.3.6.1.4.1.3854.10.184",
     "class": "notificationtype",
     "objects": [
       {
@@ -51799,7 +51799,7 @@
   },
   "spTemperatureArray8_5Status": {
     "name": "spTemperatureArray8_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.185",
+    "oid": "1.3.6.1.4.1.3854.10.185",
     "class": "notificationtype",
     "objects": [
       {
@@ -51830,7 +51830,7 @@
   },
   "spTemperatureArray8_6Status": {
     "name": "spTemperatureArray8_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.186",
+    "oid": "1.3.6.1.4.1.3854.10.186",
     "class": "notificationtype",
     "objects": [
       {
@@ -51861,7 +51861,7 @@
   },
   "spTemperatureArray8_7Status": {
     "name": "spTemperatureArray8_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.187",
+    "oid": "1.3.6.1.4.1.3854.10.187",
     "class": "notificationtype",
     "objects": [
       {
@@ -51892,7 +51892,7 @@
   },
   "spTemperatureArray8_8Status": {
     "name": "spTemperatureArray8_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.188",
+    "oid": "1.3.6.1.4.1.3854.10.188",
     "class": "notificationtype",
     "objects": [
       {
@@ -51923,7 +51923,7 @@
   },
   "spAnalogue1Status": {
     "name": "spAnalogue1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.201",
+    "oid": "1.3.6.1.4.1.3854.10.201",
     "class": "notificationtype",
     "objects": [
       {
@@ -51954,7 +51954,7 @@
   },
   "spAnalogue2Status": {
     "name": "spAnalogue2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.202",
+    "oid": "1.3.6.1.4.1.3854.10.202",
     "class": "notificationtype",
     "objects": [
       {
@@ -51985,7 +51985,7 @@
   },
   "spAnalogue3Status": {
     "name": "spAnalogue3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.203",
+    "oid": "1.3.6.1.4.1.3854.10.203",
     "class": "notificationtype",
     "objects": [
       {
@@ -52016,7 +52016,7 @@
   },
   "spAnalogue4Status": {
     "name": "spAnalogue4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.204",
+    "oid": "1.3.6.1.4.1.3854.10.204",
     "class": "notificationtype",
     "objects": [
       {
@@ -52047,7 +52047,7 @@
   },
   "spAnalogue5Status": {
     "name": "spAnalogue5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.205",
+    "oid": "1.3.6.1.4.1.3854.10.205",
     "class": "notificationtype",
     "objects": [
       {
@@ -52078,7 +52078,7 @@
   },
   "spAnalogue6Status": {
     "name": "spAnalogue6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.206",
+    "oid": "1.3.6.1.4.1.3854.10.206",
     "class": "notificationtype",
     "objects": [
       {
@@ -52109,7 +52109,7 @@
   },
   "spAnalogue7Status": {
     "name": "spAnalogue7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.207",
+    "oid": "1.3.6.1.4.1.3854.10.207",
     "class": "notificationtype",
     "objects": [
       {
@@ -52140,7 +52140,7 @@
   },
   "spAnalogue8Status": {
     "name": "spAnalogue8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.208",
+    "oid": "1.3.6.1.4.1.3854.10.208",
     "class": "notificationtype",
     "objects": [
       {
@@ -52171,7 +52171,7 @@
   },
   "spSwitch1Status": {
     "name": "spSwitch1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.301",
+    "oid": "1.3.6.1.4.1.3854.10.301",
     "class": "notificationtype",
     "objects": [
       {
@@ -52202,7 +52202,7 @@
   },
   "spSwitch2Status": {
     "name": "spSwitch2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.302",
+    "oid": "1.3.6.1.4.1.3854.10.302",
     "class": "notificationtype",
     "objects": [
       {
@@ -52233,7 +52233,7 @@
   },
   "spSwitch3Status": {
     "name": "spSwitch3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.303",
+    "oid": "1.3.6.1.4.1.3854.10.303",
     "class": "notificationtype",
     "objects": [
       {
@@ -52264,7 +52264,7 @@
   },
   "spSwitch4Status": {
     "name": "spSwitch4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.304",
+    "oid": "1.3.6.1.4.1.3854.10.304",
     "class": "notificationtype",
     "objects": [
       {
@@ -52295,7 +52295,7 @@
   },
   "spSwitch5Status": {
     "name": "spSwitch5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.305",
+    "oid": "1.3.6.1.4.1.3854.10.305",
     "class": "notificationtype",
     "objects": [
       {
@@ -52326,7 +52326,7 @@
   },
   "spSwitch6Status": {
     "name": "spSwitch6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.306",
+    "oid": "1.3.6.1.4.1.3854.10.306",
     "class": "notificationtype",
     "objects": [
       {
@@ -52357,7 +52357,7 @@
   },
   "spSwitch7Status": {
     "name": "spSwitch7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.307",
+    "oid": "1.3.6.1.4.1.3854.10.307",
     "class": "notificationtype",
     "objects": [
       {
@@ -52388,7 +52388,7 @@
   },
   "spSwitch8Status": {
     "name": "spSwitch8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.308",
+    "oid": "1.3.6.1.4.1.3854.10.308",
     "class": "notificationtype",
     "objects": [
       {
@@ -52419,7 +52419,7 @@
   },
   "spSwitch9Status": {
     "name": "spSwitch9Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.309",
+    "oid": "1.3.6.1.4.1.3854.10.309",
     "class": "notificationtype",
     "objects": [
       {
@@ -52450,7 +52450,7 @@
   },
   "spSwitch10Status": {
     "name": "spSwitch10Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.310",
+    "oid": "1.3.6.1.4.1.3854.10.310",
     "class": "notificationtype",
     "objects": [
       {
@@ -52481,7 +52481,7 @@
   },
   "spSwitch11Status": {
     "name": "spSwitch11Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.311",
+    "oid": "1.3.6.1.4.1.3854.10.311",
     "class": "notificationtype",
     "objects": [
       {
@@ -52512,7 +52512,7 @@
   },
   "spSwitch12Status": {
     "name": "spSwitch12Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.312",
+    "oid": "1.3.6.1.4.1.3854.10.312",
     "class": "notificationtype",
     "objects": [
       {
@@ -52543,7 +52543,7 @@
   },
   "spSwitch13Status": {
     "name": "spSwitch13Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.313",
+    "oid": "1.3.6.1.4.1.3854.10.313",
     "class": "notificationtype",
     "objects": [
       {
@@ -52574,7 +52574,7 @@
   },
   "spSwitch14Status": {
     "name": "spSwitch14Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.314",
+    "oid": "1.3.6.1.4.1.3854.10.314",
     "class": "notificationtype",
     "objects": [
       {
@@ -52605,7 +52605,7 @@
   },
   "spSwitch15Status": {
     "name": "spSwitch15Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.315",
+    "oid": "1.3.6.1.4.1.3854.10.315",
     "class": "notificationtype",
     "objects": [
       {
@@ -52636,7 +52636,7 @@
   },
   "spSwitch16Status": {
     "name": "spSwitch16Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.316",
+    "oid": "1.3.6.1.4.1.3854.10.316",
     "class": "notificationtype",
     "objects": [
       {
@@ -52667,7 +52667,7 @@
   },
   "spSwitch17Status": {
     "name": "spSwitch17Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.317",
+    "oid": "1.3.6.1.4.1.3854.10.317",
     "class": "notificationtype",
     "objects": [
       {
@@ -52698,7 +52698,7 @@
   },
   "spSwitch18Status": {
     "name": "spSwitch18Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.318",
+    "oid": "1.3.6.1.4.1.3854.10.318",
     "class": "notificationtype",
     "objects": [
       {
@@ -52729,7 +52729,7 @@
   },
   "spSwitch19Status": {
     "name": "spSwitch19Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.319",
+    "oid": "1.3.6.1.4.1.3854.10.319",
     "class": "notificationtype",
     "objects": [
       {
@@ -52760,7 +52760,7 @@
   },
   "spSwitch20Status": {
     "name": "spSwitch20Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.320",
+    "oid": "1.3.6.1.4.1.3854.10.320",
     "class": "notificationtype",
     "objects": [
       {
@@ -52791,7 +52791,7 @@
   },
   "spSwitch21Status": {
     "name": "spSwitch21Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.321",
+    "oid": "1.3.6.1.4.1.3854.10.321",
     "class": "notificationtype",
     "objects": [
       {
@@ -52822,7 +52822,7 @@
   },
   "spSwitch22Status": {
     "name": "spSwitch22Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.322",
+    "oid": "1.3.6.1.4.1.3854.10.322",
     "class": "notificationtype",
     "objects": [
       {
@@ -52853,7 +52853,7 @@
   },
   "spSwitch23Status": {
     "name": "spSwitch23Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.323",
+    "oid": "1.3.6.1.4.1.3854.10.323",
     "class": "notificationtype",
     "objects": [
       {
@@ -52884,7 +52884,7 @@
   },
   "spSwitch24Status": {
     "name": "spSwitch24Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.324",
+    "oid": "1.3.6.1.4.1.3854.10.324",
     "class": "notificationtype",
     "objects": [
       {
@@ -52915,7 +52915,7 @@
   },
   "spSwitch25Status": {
     "name": "spSwitch25Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.325",
+    "oid": "1.3.6.1.4.1.3854.10.325",
     "class": "notificationtype",
     "objects": [
       {
@@ -52946,7 +52946,7 @@
   },
   "spSwitch26Status": {
     "name": "spSwitch26Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.326",
+    "oid": "1.3.6.1.4.1.3854.10.326",
     "class": "notificationtype",
     "objects": [
       {
@@ -52977,7 +52977,7 @@
   },
   "spSwitch27Status": {
     "name": "spSwitch27Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.327",
+    "oid": "1.3.6.1.4.1.3854.10.327",
     "class": "notificationtype",
     "objects": [
       {
@@ -53008,7 +53008,7 @@
   },
   "spSwitch28Status": {
     "name": "spSwitch28Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.328",
+    "oid": "1.3.6.1.4.1.3854.10.328",
     "class": "notificationtype",
     "objects": [
       {
@@ -53039,7 +53039,7 @@
   },
   "spSwitch29Status": {
     "name": "spSwitch29Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.329",
+    "oid": "1.3.6.1.4.1.3854.10.329",
     "class": "notificationtype",
     "objects": [
       {
@@ -53070,7 +53070,7 @@
   },
   "spSwitch30Status": {
     "name": "spSwitch30Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.330",
+    "oid": "1.3.6.1.4.1.3854.10.330",
     "class": "notificationtype",
     "objects": [
       {
@@ -53101,7 +53101,7 @@
   },
   "spSwitch31Status": {
     "name": "spSwitch31Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.331",
+    "oid": "1.3.6.1.4.1.3854.10.331",
     "class": "notificationtype",
     "objects": [
       {
@@ -53132,7 +53132,7 @@
   },
   "spSwitch32Status": {
     "name": "spSwitch32Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.332",
+    "oid": "1.3.6.1.4.1.3854.10.332",
     "class": "notificationtype",
     "objects": [
       {
@@ -53163,7 +53163,7 @@
   },
   "spSwitch33Status": {
     "name": "spSwitch33Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.333",
+    "oid": "1.3.6.1.4.1.3854.10.333",
     "class": "notificationtype",
     "objects": [
       {
@@ -53194,7 +53194,7 @@
   },
   "spSwitch34Status": {
     "name": "spSwitch34Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.334",
+    "oid": "1.3.6.1.4.1.3854.10.334",
     "class": "notificationtype",
     "objects": [
       {
@@ -53225,7 +53225,7 @@
   },
   "spSwitch35Status": {
     "name": "spSwitch35Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.335",
+    "oid": "1.3.6.1.4.1.3854.10.335",
     "class": "notificationtype",
     "objects": [
       {
@@ -53256,7 +53256,7 @@
   },
   "spSwitch36Status": {
     "name": "spSwitch36Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.336",
+    "oid": "1.3.6.1.4.1.3854.10.336",
     "class": "notificationtype",
     "objects": [
       {
@@ -53287,7 +53287,7 @@
   },
   "spSwitch37Status": {
     "name": "spSwitch37Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.337",
+    "oid": "1.3.6.1.4.1.3854.10.337",
     "class": "notificationtype",
     "objects": [
       {
@@ -53318,7 +53318,7 @@
   },
   "spSwitch38Status": {
     "name": "spSwitch38Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.338",
+    "oid": "1.3.6.1.4.1.3854.10.338",
     "class": "notificationtype",
     "objects": [
       {
@@ -53349,7 +53349,7 @@
   },
   "spSwitch39Status": {
     "name": "spSwitch39Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.339",
+    "oid": "1.3.6.1.4.1.3854.10.339",
     "class": "notificationtype",
     "objects": [
       {
@@ -53380,7 +53380,7 @@
   },
   "spSwitch40Status": {
     "name": "spSwitch40Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.340",
+    "oid": "1.3.6.1.4.1.3854.10.340",
     "class": "notificationtype",
     "objects": [
       {
@@ -53411,7 +53411,7 @@
   },
   "spSwitch41Status": {
     "name": "spSwitch41Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.341",
+    "oid": "1.3.6.1.4.1.3854.10.341",
     "class": "notificationtype",
     "objects": [
       {
@@ -53442,7 +53442,7 @@
   },
   "spSwitch42Status": {
     "name": "spSwitch42Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.342",
+    "oid": "1.3.6.1.4.1.3854.10.342",
     "class": "notificationtype",
     "objects": [
       {
@@ -53473,7 +53473,7 @@
   },
   "spSwitch43Status": {
     "name": "spSwitch43Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.343",
+    "oid": "1.3.6.1.4.1.3854.10.343",
     "class": "notificationtype",
     "objects": [
       {
@@ -53504,7 +53504,7 @@
   },
   "spSwitch44Status": {
     "name": "spSwitch44Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.344",
+    "oid": "1.3.6.1.4.1.3854.10.344",
     "class": "notificationtype",
     "objects": [
       {
@@ -53535,7 +53535,7 @@
   },
   "spSwitch45Status": {
     "name": "spSwitch45Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.345",
+    "oid": "1.3.6.1.4.1.3854.10.345",
     "class": "notificationtype",
     "objects": [
       {
@@ -53566,7 +53566,7 @@
   },
   "spSwitch46Status": {
     "name": "spSwitch46Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.346",
+    "oid": "1.3.6.1.4.1.3854.10.346",
     "class": "notificationtype",
     "objects": [
       {
@@ -53597,7 +53597,7 @@
   },
   "spSwitch47Status": {
     "name": "spSwitch47Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.347",
+    "oid": "1.3.6.1.4.1.3854.10.347",
     "class": "notificationtype",
     "objects": [
       {
@@ -53628,7 +53628,7 @@
   },
   "spSwitch48Status": {
     "name": "spSwitch48Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.348",
+    "oid": "1.3.6.1.4.1.3854.10.348",
     "class": "notificationtype",
     "objects": [
       {
@@ -53659,7 +53659,7 @@
   },
   "spSwitch49Status": {
     "name": "spSwitch49Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.349",
+    "oid": "1.3.6.1.4.1.3854.10.349",
     "class": "notificationtype",
     "objects": [
       {
@@ -53690,7 +53690,7 @@
   },
   "spSwitch50Status": {
     "name": "spSwitch50Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.350",
+    "oid": "1.3.6.1.4.1.3854.10.350",
     "class": "notificationtype",
     "objects": [
       {
@@ -53721,7 +53721,7 @@
   },
   "spSwitch51Status": {
     "name": "spSwitch51Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.351",
+    "oid": "1.3.6.1.4.1.3854.10.351",
     "class": "notificationtype",
     "objects": [
       {
@@ -53752,7 +53752,7 @@
   },
   "spSwitch52Status": {
     "name": "spSwitch52Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.352",
+    "oid": "1.3.6.1.4.1.3854.10.352",
     "class": "notificationtype",
     "objects": [
       {
@@ -53783,7 +53783,7 @@
   },
   "spSwitch53Status": {
     "name": "spSwitch53Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.353",
+    "oid": "1.3.6.1.4.1.3854.10.353",
     "class": "notificationtype",
     "objects": [
       {
@@ -53814,7 +53814,7 @@
   },
   "spSwitch54Status": {
     "name": "spSwitch54Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.354",
+    "oid": "1.3.6.1.4.1.3854.10.354",
     "class": "notificationtype",
     "objects": [
       {
@@ -53845,7 +53845,7 @@
   },
   "spSwitch55Status": {
     "name": "spSwitch55Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.355",
+    "oid": "1.3.6.1.4.1.3854.10.355",
     "class": "notificationtype",
     "objects": [
       {
@@ -53876,7 +53876,7 @@
   },
   "spSwitch56Status": {
     "name": "spSwitch56Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.356",
+    "oid": "1.3.6.1.4.1.3854.10.356",
     "class": "notificationtype",
     "objects": [
       {
@@ -53907,7 +53907,7 @@
   },
   "spSwitch57Status": {
     "name": "spSwitch57Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.357",
+    "oid": "1.3.6.1.4.1.3854.10.357",
     "class": "notificationtype",
     "objects": [
       {
@@ -53938,7 +53938,7 @@
   },
   "spSwitch58Status": {
     "name": "spSwitch58Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.358",
+    "oid": "1.3.6.1.4.1.3854.10.358",
     "class": "notificationtype",
     "objects": [
       {
@@ -53969,7 +53969,7 @@
   },
   "spSwitch59Status": {
     "name": "spSwitch59Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.359",
+    "oid": "1.3.6.1.4.1.3854.10.359",
     "class": "notificationtype",
     "objects": [
       {
@@ -54000,7 +54000,7 @@
   },
   "spSwitch60Status": {
     "name": "spSwitch60Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.360",
+    "oid": "1.3.6.1.4.1.3854.10.360",
     "class": "notificationtype",
     "objects": [
       {
@@ -54031,7 +54031,7 @@
   },
   "spSwitch61Status": {
     "name": "spSwitch61Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.361",
+    "oid": "1.3.6.1.4.1.3854.10.361",
     "class": "notificationtype",
     "objects": [
       {
@@ -54062,7 +54062,7 @@
   },
   "spSwitch62Status": {
     "name": "spSwitch62Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.362",
+    "oid": "1.3.6.1.4.1.3854.10.362",
     "class": "notificationtype",
     "objects": [
       {
@@ -54093,7 +54093,7 @@
   },
   "spSwitch63Status": {
     "name": "spSwitch63Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.363",
+    "oid": "1.3.6.1.4.1.3854.10.363",
     "class": "notificationtype",
     "objects": [
       {
@@ -54124,7 +54124,7 @@
   },
   "spSwitch64Status": {
     "name": "spSwitch64Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.364",
+    "oid": "1.3.6.1.4.1.3854.10.364",
     "class": "notificationtype",
     "objects": [
       {
@@ -54155,7 +54155,7 @@
   },
   "spSwitch65Status": {
     "name": "spSwitch65Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.365",
+    "oid": "1.3.6.1.4.1.3854.10.365",
     "class": "notificationtype",
     "objects": [
       {
@@ -54186,7 +54186,7 @@
   },
   "spSwitch66Status": {
     "name": "spSwitch66Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.366",
+    "oid": "1.3.6.1.4.1.3854.10.366",
     "class": "notificationtype",
     "objects": [
       {
@@ -54217,7 +54217,7 @@
   },
   "spSwitch67Status": {
     "name": "spSwitch67Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.367",
+    "oid": "1.3.6.1.4.1.3854.10.367",
     "class": "notificationtype",
     "objects": [
       {
@@ -54248,7 +54248,7 @@
   },
   "spSwitch68Status": {
     "name": "spSwitch68Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.368",
+    "oid": "1.3.6.1.4.1.3854.10.368",
     "class": "notificationtype",
     "objects": [
       {
@@ -54279,7 +54279,7 @@
   },
   "spIRMS1Status": {
     "name": "spIRMS1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.401",
+    "oid": "1.3.6.1.4.1.3854.10.401",
     "class": "notificationtype",
     "objects": [
       {
@@ -54310,7 +54310,7 @@
   },
   "spIRMS2Status": {
     "name": "spIRMS2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.402",
+    "oid": "1.3.6.1.4.1.3854.10.402",
     "class": "notificationtype",
     "objects": [
       {
@@ -54341,7 +54341,7 @@
   },
   "spIRMS3Status": {
     "name": "spIRMS3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.403",
+    "oid": "1.3.6.1.4.1.3854.10.403",
     "class": "notificationtype",
     "objects": [
       {
@@ -54372,7 +54372,7 @@
   },
   "spIRMS4Status": {
     "name": "spIRMS4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.404",
+    "oid": "1.3.6.1.4.1.3854.10.404",
     "class": "notificationtype",
     "objects": [
       {
@@ -54403,7 +54403,7 @@
   },
   "spIRMS5Status": {
     "name": "spIRMS5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.405",
+    "oid": "1.3.6.1.4.1.3854.10.405",
     "class": "notificationtype",
     "objects": [
       {
@@ -54434,7 +54434,7 @@
   },
   "spIRMS6Status": {
     "name": "spIRMS6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.406",
+    "oid": "1.3.6.1.4.1.3854.10.406",
     "class": "notificationtype",
     "objects": [
       {
@@ -54465,7 +54465,7 @@
   },
   "spIRMS7Status": {
     "name": "spIRMS7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.407",
+    "oid": "1.3.6.1.4.1.3854.10.407",
     "class": "notificationtype",
     "objects": [
       {
@@ -54496,7 +54496,7 @@
   },
   "spIRMS8Status": {
     "name": "spIRMS8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.408",
+    "oid": "1.3.6.1.4.1.3854.10.408",
     "class": "notificationtype",
     "objects": [
       {
@@ -54527,7 +54527,7 @@
   },
   "spVRMS1Status": {
     "name": "spVRMS1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.501",
+    "oid": "1.3.6.1.4.1.3854.10.501",
     "class": "notificationtype",
     "objects": [
       {
@@ -54558,7 +54558,7 @@
   },
   "spVRMS2Status": {
     "name": "spVRMS2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.502",
+    "oid": "1.3.6.1.4.1.3854.10.502",
     "class": "notificationtype",
     "objects": [
       {
@@ -54589,7 +54589,7 @@
   },
   "spVRMS3Status": {
     "name": "spVRMS3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.503",
+    "oid": "1.3.6.1.4.1.3854.10.503",
     "class": "notificationtype",
     "objects": [
       {
@@ -54620,7 +54620,7 @@
   },
   "spVRMS4Status": {
     "name": "spVRMS4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.504",
+    "oid": "1.3.6.1.4.1.3854.10.504",
     "class": "notificationtype",
     "objects": [
       {
@@ -54651,7 +54651,7 @@
   },
   "spVRMS5Status": {
     "name": "spVRMS5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.505",
+    "oid": "1.3.6.1.4.1.3854.10.505",
     "class": "notificationtype",
     "objects": [
       {
@@ -54682,7 +54682,7 @@
   },
   "spVRMS6Status": {
     "name": "spVRMS6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.506",
+    "oid": "1.3.6.1.4.1.3854.10.506",
     "class": "notificationtype",
     "objects": [
       {
@@ -54713,7 +54713,7 @@
   },
   "spVRMS7Status": {
     "name": "spVRMS7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.507",
+    "oid": "1.3.6.1.4.1.3854.10.507",
     "class": "notificationtype",
     "objects": [
       {
@@ -54744,7 +54744,7 @@
   },
   "spVRMS8Status": {
     "name": "spVRMS8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.508",
+    "oid": "1.3.6.1.4.1.3854.10.508",
     "class": "notificationtype",
     "objects": [
       {
@@ -54775,7 +54775,7 @@
   },
   "spEnergy1Status": {
     "name": "spEnergy1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.601",
+    "oid": "1.3.6.1.4.1.3854.10.601",
     "class": "notificationtype",
     "objects": [
       {
@@ -54806,7 +54806,7 @@
   },
   "spEnergy2Status": {
     "name": "spEnergy2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.602",
+    "oid": "1.3.6.1.4.1.3854.10.602",
     "class": "notificationtype",
     "objects": [
       {
@@ -54837,7 +54837,7 @@
   },
   "spEnergy3Status": {
     "name": "spEnergy3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.603",
+    "oid": "1.3.6.1.4.1.3854.10.603",
     "class": "notificationtype",
     "objects": [
       {
@@ -54868,7 +54868,7 @@
   },
   "spEnergy4Status": {
     "name": "spEnergy4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.604",
+    "oid": "1.3.6.1.4.1.3854.10.604",
     "class": "notificationtype",
     "objects": [
       {
@@ -54899,7 +54899,7 @@
   },
   "spEnergy5Status": {
     "name": "spEnergy5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.605",
+    "oid": "1.3.6.1.4.1.3854.10.605",
     "class": "notificationtype",
     "objects": [
       {
@@ -54930,7 +54930,7 @@
   },
   "spEnergy6Status": {
     "name": "spEnergy6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.606",
+    "oid": "1.3.6.1.4.1.3854.10.606",
     "class": "notificationtype",
     "objects": [
       {
@@ -54961,7 +54961,7 @@
   },
   "spEnergy7Status": {
     "name": "spEnergy7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.607",
+    "oid": "1.3.6.1.4.1.3854.10.607",
     "class": "notificationtype",
     "objects": [
       {
@@ -54992,7 +54992,7 @@
   },
   "spEnergy8Status": {
     "name": "spEnergy8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.608",
+    "oid": "1.3.6.1.4.1.3854.10.608",
     "class": "notificationtype",
     "objects": [
       {
@@ -55023,7 +55023,7 @@
   },
   "spRelayArray1_1Status": {
     "name": "spRelayArray1_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.711",
+    "oid": "1.3.6.1.4.1.3854.10.711",
     "class": "notificationtype",
     "objects": [
       {
@@ -55054,7 +55054,7 @@
   },
   "spRelayArray1_2Status": {
     "name": "spRelayArray1_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.712",
+    "oid": "1.3.6.1.4.1.3854.10.712",
     "class": "notificationtype",
     "objects": [
       {
@@ -55085,7 +55085,7 @@
   },
   "spRelayArray1_3Status": {
     "name": "spRelayArray1_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.713",
+    "oid": "1.3.6.1.4.1.3854.10.713",
     "class": "notificationtype",
     "objects": [
       {
@@ -55116,7 +55116,7 @@
   },
   "spRelayArray1_4Status": {
     "name": "spRelayArray1_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.714",
+    "oid": "1.3.6.1.4.1.3854.10.714",
     "class": "notificationtype",
     "objects": [
       {
@@ -55147,7 +55147,7 @@
   },
   "spRelayArray1_5Status": {
     "name": "spRelayArray1_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.715",
+    "oid": "1.3.6.1.4.1.3854.10.715",
     "class": "notificationtype",
     "objects": [
       {
@@ -55178,7 +55178,7 @@
   },
   "spRelayArray1_6Status": {
     "name": "spRelayArray1_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.716",
+    "oid": "1.3.6.1.4.1.3854.10.716",
     "class": "notificationtype",
     "objects": [
       {
@@ -55209,7 +55209,7 @@
   },
   "spRelayArray1_7Status": {
     "name": "spRelayArray1_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.717",
+    "oid": "1.3.6.1.4.1.3854.10.717",
     "class": "notificationtype",
     "objects": [
       {
@@ -55240,7 +55240,7 @@
   },
   "spRelayArray1_8Status": {
     "name": "spRelayArray1_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.718",
+    "oid": "1.3.6.1.4.1.3854.10.718",
     "class": "notificationtype",
     "objects": [
       {
@@ -55271,7 +55271,7 @@
   },
   "spRelayArray2_1Status": {
     "name": "spRelayArray2_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.721",
+    "oid": "1.3.6.1.4.1.3854.10.721",
     "class": "notificationtype",
     "objects": [
       {
@@ -55302,7 +55302,7 @@
   },
   "spRelayArray2_2Status": {
     "name": "spRelayArray2_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.722",
+    "oid": "1.3.6.1.4.1.3854.10.722",
     "class": "notificationtype",
     "objects": [
       {
@@ -55333,7 +55333,7 @@
   },
   "spRelayArray2_3Status": {
     "name": "spRelayArray2_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.723",
+    "oid": "1.3.6.1.4.1.3854.10.723",
     "class": "notificationtype",
     "objects": [
       {
@@ -55364,7 +55364,7 @@
   },
   "spRelayArray2_4Status": {
     "name": "spRelayArray2_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.724",
+    "oid": "1.3.6.1.4.1.3854.10.724",
     "class": "notificationtype",
     "objects": [
       {
@@ -55395,7 +55395,7 @@
   },
   "spRelayArray2_5Status": {
     "name": "spRelayArray2_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.725",
+    "oid": "1.3.6.1.4.1.3854.10.725",
     "class": "notificationtype",
     "objects": [
       {
@@ -55426,7 +55426,7 @@
   },
   "spRelayArray2_6Status": {
     "name": "spRelayArray2_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.726",
+    "oid": "1.3.6.1.4.1.3854.10.726",
     "class": "notificationtype",
     "objects": [
       {
@@ -55457,7 +55457,7 @@
   },
   "spRelayArray2_7Status": {
     "name": "spRelayArray2_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.727",
+    "oid": "1.3.6.1.4.1.3854.10.727",
     "class": "notificationtype",
     "objects": [
       {
@@ -55488,7 +55488,7 @@
   },
   "spRelayArray2_8Status": {
     "name": "spRelayArray2_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.728",
+    "oid": "1.3.6.1.4.1.3854.10.728",
     "class": "notificationtype",
     "objects": [
       {
@@ -55519,7 +55519,7 @@
   },
   "spRelayArray3_1Status": {
     "name": "spRelayArray3_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.731",
+    "oid": "1.3.6.1.4.1.3854.10.731",
     "class": "notificationtype",
     "objects": [
       {
@@ -55550,7 +55550,7 @@
   },
   "spRelayArray3_2Status": {
     "name": "spRelayArray3_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.732",
+    "oid": "1.3.6.1.4.1.3854.10.732",
     "class": "notificationtype",
     "objects": [
       {
@@ -55581,7 +55581,7 @@
   },
   "spRelayArray3_3Status": {
     "name": "spRelayArray3_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.733",
+    "oid": "1.3.6.1.4.1.3854.10.733",
     "class": "notificationtype",
     "objects": [
       {
@@ -55612,7 +55612,7 @@
   },
   "spRelayArray3_4Status": {
     "name": "spRelayArray3_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.734",
+    "oid": "1.3.6.1.4.1.3854.10.734",
     "class": "notificationtype",
     "objects": [
       {
@@ -55643,7 +55643,7 @@
   },
   "spRelayArray3_5Status": {
     "name": "spRelayArray3_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.735",
+    "oid": "1.3.6.1.4.1.3854.10.735",
     "class": "notificationtype",
     "objects": [
       {
@@ -55674,7 +55674,7 @@
   },
   "spRelayArray3_6Status": {
     "name": "spRelayArray3_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.736",
+    "oid": "1.3.6.1.4.1.3854.10.736",
     "class": "notificationtype",
     "objects": [
       {
@@ -55705,7 +55705,7 @@
   },
   "spRelayArray3_7Status": {
     "name": "spRelayArray3_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.737",
+    "oid": "1.3.6.1.4.1.3854.10.737",
     "class": "notificationtype",
     "objects": [
       {
@@ -55736,7 +55736,7 @@
   },
   "spRelayArray3_8Status": {
     "name": "spRelayArray3_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.738",
+    "oid": "1.3.6.1.4.1.3854.10.738",
     "class": "notificationtype",
     "objects": [
       {
@@ -55767,7 +55767,7 @@
   },
   "spRelayArray4_1Status": {
     "name": "spRelayArray4_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.741",
+    "oid": "1.3.6.1.4.1.3854.10.741",
     "class": "notificationtype",
     "objects": [
       {
@@ -55798,7 +55798,7 @@
   },
   "spRelayArray4_2Status": {
     "name": "spRelayArray4_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.742",
+    "oid": "1.3.6.1.4.1.3854.10.742",
     "class": "notificationtype",
     "objects": [
       {
@@ -55829,7 +55829,7 @@
   },
   "spRelayArray4_3Status": {
     "name": "spRelayArray4_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.743",
+    "oid": "1.3.6.1.4.1.3854.10.743",
     "class": "notificationtype",
     "objects": [
       {
@@ -55860,7 +55860,7 @@
   },
   "spRelayArray4_4Status": {
     "name": "spRelayArray4_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.744",
+    "oid": "1.3.6.1.4.1.3854.10.744",
     "class": "notificationtype",
     "objects": [
       {
@@ -55891,7 +55891,7 @@
   },
   "spRelayArray4_5Status": {
     "name": "spRelayArray4_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.745",
+    "oid": "1.3.6.1.4.1.3854.10.745",
     "class": "notificationtype",
     "objects": [
       {
@@ -55922,7 +55922,7 @@
   },
   "spRelayArray4_6Status": {
     "name": "spRelayArray4_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.746",
+    "oid": "1.3.6.1.4.1.3854.10.746",
     "class": "notificationtype",
     "objects": [
       {
@@ -55953,7 +55953,7 @@
   },
   "spRelayArray4_7Status": {
     "name": "spRelayArray4_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.747",
+    "oid": "1.3.6.1.4.1.3854.10.747",
     "class": "notificationtype",
     "objects": [
       {
@@ -55984,7 +55984,7 @@
   },
   "spRelayArray4_8Status": {
     "name": "spRelayArray4_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.748",
+    "oid": "1.3.6.1.4.1.3854.10.748",
     "class": "notificationtype",
     "objects": [
       {
@@ -56015,7 +56015,7 @@
   },
   "spRelayArray5_1Status": {
     "name": "spRelayArray5_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.751",
+    "oid": "1.3.6.1.4.1.3854.10.751",
     "class": "notificationtype",
     "objects": [
       {
@@ -56046,7 +56046,7 @@
   },
   "spRelayArray5_2Status": {
     "name": "spRelayArray5_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.752",
+    "oid": "1.3.6.1.4.1.3854.10.752",
     "class": "notificationtype",
     "objects": [
       {
@@ -56077,7 +56077,7 @@
   },
   "spRelayArray5_3Status": {
     "name": "spRelayArray5_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.753",
+    "oid": "1.3.6.1.4.1.3854.10.753",
     "class": "notificationtype",
     "objects": [
       {
@@ -56108,7 +56108,7 @@
   },
   "spRelayArray5_4Status": {
     "name": "spRelayArray5_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.754",
+    "oid": "1.3.6.1.4.1.3854.10.754",
     "class": "notificationtype",
     "objects": [
       {
@@ -56139,7 +56139,7 @@
   },
   "spRelayArray5_5Status": {
     "name": "spRelayArray5_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.755",
+    "oid": "1.3.6.1.4.1.3854.10.755",
     "class": "notificationtype",
     "objects": [
       {
@@ -56170,7 +56170,7 @@
   },
   "spRelayArray5_6Status": {
     "name": "spRelayArray5_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.756",
+    "oid": "1.3.6.1.4.1.3854.10.756",
     "class": "notificationtype",
     "objects": [
       {
@@ -56201,7 +56201,7 @@
   },
   "spRelayArray5_7Status": {
     "name": "spRelayArray5_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.757",
+    "oid": "1.3.6.1.4.1.3854.10.757",
     "class": "notificationtype",
     "objects": [
       {
@@ -56232,7 +56232,7 @@
   },
   "spRelayArray5_8Status": {
     "name": "spRelayArray5_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.758",
+    "oid": "1.3.6.1.4.1.3854.10.758",
     "class": "notificationtype",
     "objects": [
       {
@@ -56263,7 +56263,7 @@
   },
   "spRelayArray6_1Status": {
     "name": "spRelayArray6_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.761",
+    "oid": "1.3.6.1.4.1.3854.10.761",
     "class": "notificationtype",
     "objects": [
       {
@@ -56294,7 +56294,7 @@
   },
   "spRelayArray6_2Status": {
     "name": "spRelayArray6_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.762",
+    "oid": "1.3.6.1.4.1.3854.10.762",
     "class": "notificationtype",
     "objects": [
       {
@@ -56325,7 +56325,7 @@
   },
   "spRelayArray6_3Status": {
     "name": "spRelayArray6_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.763",
+    "oid": "1.3.6.1.4.1.3854.10.763",
     "class": "notificationtype",
     "objects": [
       {
@@ -56356,7 +56356,7 @@
   },
   "spRelayArray6_4Status": {
     "name": "spRelayArray6_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.764",
+    "oid": "1.3.6.1.4.1.3854.10.764",
     "class": "notificationtype",
     "objects": [
       {
@@ -56387,7 +56387,7 @@
   },
   "spRelayArray6_5Status": {
     "name": "spRelayArray6_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.765",
+    "oid": "1.3.6.1.4.1.3854.10.765",
     "class": "notificationtype",
     "objects": [
       {
@@ -56418,7 +56418,7 @@
   },
   "spRelayArray6_6Status": {
     "name": "spRelayArray6_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.766",
+    "oid": "1.3.6.1.4.1.3854.10.766",
     "class": "notificationtype",
     "objects": [
       {
@@ -56449,7 +56449,7 @@
   },
   "spRelayArray6_7Status": {
     "name": "spRelayArray6_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.767",
+    "oid": "1.3.6.1.4.1.3854.10.767",
     "class": "notificationtype",
     "objects": [
       {
@@ -56480,7 +56480,7 @@
   },
   "spRelayArray6_8Status": {
     "name": "spRelayArray6_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.768",
+    "oid": "1.3.6.1.4.1.3854.10.768",
     "class": "notificationtype",
     "objects": [
       {
@@ -56511,7 +56511,7 @@
   },
   "spRelayArray7_1Status": {
     "name": "spRelayArray7_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.771",
+    "oid": "1.3.6.1.4.1.3854.10.771",
     "class": "notificationtype",
     "objects": [
       {
@@ -56542,7 +56542,7 @@
   },
   "spRelayArray7_2Status": {
     "name": "spRelayArray7_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.772",
+    "oid": "1.3.6.1.4.1.3854.10.772",
     "class": "notificationtype",
     "objects": [
       {
@@ -56573,7 +56573,7 @@
   },
   "spRelayArray7_3Status": {
     "name": "spRelayArray7_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.773",
+    "oid": "1.3.6.1.4.1.3854.10.773",
     "class": "notificationtype",
     "objects": [
       {
@@ -56604,7 +56604,7 @@
   },
   "spRelayArray7_4Status": {
     "name": "spRelayArray7_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.774",
+    "oid": "1.3.6.1.4.1.3854.10.774",
     "class": "notificationtype",
     "objects": [
       {
@@ -56635,7 +56635,7 @@
   },
   "spRelayArray7_5Status": {
     "name": "spRelayArray7_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.775",
+    "oid": "1.3.6.1.4.1.3854.10.775",
     "class": "notificationtype",
     "objects": [
       {
@@ -56666,7 +56666,7 @@
   },
   "spRelayArray7_6Status": {
     "name": "spRelayArray7_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.776",
+    "oid": "1.3.6.1.4.1.3854.10.776",
     "class": "notificationtype",
     "objects": [
       {
@@ -56697,7 +56697,7 @@
   },
   "spRelayArray7_7Status": {
     "name": "spRelayArray7_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.777",
+    "oid": "1.3.6.1.4.1.3854.10.777",
     "class": "notificationtype",
     "objects": [
       {
@@ -56728,7 +56728,7 @@
   },
   "spRelayArray7_8Status": {
     "name": "spRelayArray7_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.778",
+    "oid": "1.3.6.1.4.1.3854.10.778",
     "class": "notificationtype",
     "objects": [
       {
@@ -56759,7 +56759,7 @@
   },
   "spRelayArray8_1Status": {
     "name": "spRelayArray8_1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.781",
+    "oid": "1.3.6.1.4.1.3854.10.781",
     "class": "notificationtype",
     "objects": [
       {
@@ -56790,7 +56790,7 @@
   },
   "spRelayArray8_2Status": {
     "name": "spRelayArray8_2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.782",
+    "oid": "1.3.6.1.4.1.3854.10.782",
     "class": "notificationtype",
     "objects": [
       {
@@ -56821,7 +56821,7 @@
   },
   "spRelayArray8_3Status": {
     "name": "spRelayArray8_3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.783",
+    "oid": "1.3.6.1.4.1.3854.10.783",
     "class": "notificationtype",
     "objects": [
       {
@@ -56852,7 +56852,7 @@
   },
   "spRelayArray8_4Status": {
     "name": "spRelayArray8_4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.784",
+    "oid": "1.3.6.1.4.1.3854.10.784",
     "class": "notificationtype",
     "objects": [
       {
@@ -56883,7 +56883,7 @@
   },
   "spRelayArray8_5Status": {
     "name": "spRelayArray8_5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.785",
+    "oid": "1.3.6.1.4.1.3854.10.785",
     "class": "notificationtype",
     "objects": [
       {
@@ -56914,7 +56914,7 @@
   },
   "spRelayArray8_6Status": {
     "name": "spRelayArray8_6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.786",
+    "oid": "1.3.6.1.4.1.3854.10.786",
     "class": "notificationtype",
     "objects": [
       {
@@ -56945,7 +56945,7 @@
   },
   "spRelayArray8_7Status": {
     "name": "spRelayArray8_7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.787",
+    "oid": "1.3.6.1.4.1.3854.10.787",
     "class": "notificationtype",
     "objects": [
       {
@@ -56976,7 +56976,7 @@
   },
   "spRelayArray8_8Status": {
     "name": "spRelayArray8_8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.788",
+    "oid": "1.3.6.1.4.1.3854.10.788",
     "class": "notificationtype",
     "objects": [
       {
@@ -57007,7 +57007,7 @@
   },
   "spVirtual1Status": {
     "name": "spVirtual1Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.801",
+    "oid": "1.3.6.1.4.1.3854.10.801",
     "class": "notificationtype",
     "objects": [
       {
@@ -57038,7 +57038,7 @@
   },
   "spVirtual2Status": {
     "name": "spVirtual2Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.802",
+    "oid": "1.3.6.1.4.1.3854.10.802",
     "class": "notificationtype",
     "objects": [
       {
@@ -57069,7 +57069,7 @@
   },
   "spVirtual3Status": {
     "name": "spVirtual3Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.803",
+    "oid": "1.3.6.1.4.1.3854.10.803",
     "class": "notificationtype",
     "objects": [
       {
@@ -57100,7 +57100,7 @@
   },
   "spVirtual4Status": {
     "name": "spVirtual4Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.804",
+    "oid": "1.3.6.1.4.1.3854.10.804",
     "class": "notificationtype",
     "objects": [
       {
@@ -57131,7 +57131,7 @@
   },
   "spVirtual5Status": {
     "name": "spVirtual5Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.805",
+    "oid": "1.3.6.1.4.1.3854.10.805",
     "class": "notificationtype",
     "objects": [
       {
@@ -57162,7 +57162,7 @@
   },
   "spVirtual6Status": {
     "name": "spVirtual6Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.806",
+    "oid": "1.3.6.1.4.1.3854.10.806",
     "class": "notificationtype",
     "objects": [
       {
@@ -57193,7 +57193,7 @@
   },
   "spVirtual7Status": {
     "name": "spVirtual7Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.807",
+    "oid": "1.3.6.1.4.1.3854.10.807",
     "class": "notificationtype",
     "objects": [
       {
@@ -57224,7 +57224,7 @@
   },
   "spVirtual8Status": {
     "name": "spVirtual8Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.808",
+    "oid": "1.3.6.1.4.1.3854.10.808",
     "class": "notificationtype",
     "objects": [
       {
@@ -57255,7 +57255,7 @@
   },
   "spVirtual9Status": {
     "name": "spVirtual9Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.809",
+    "oid": "1.3.6.1.4.1.3854.10.809",
     "class": "notificationtype",
     "objects": [
       {
@@ -57286,7 +57286,7 @@
   },
   "spVirtual10Status": {
     "name": "spVirtual10Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.810",
+    "oid": "1.3.6.1.4.1.3854.10.810",
     "class": "notificationtype",
     "objects": [
       {
@@ -57317,7 +57317,7 @@
   },
   "spVirtual11Status": {
     "name": "spVirtual11Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.811",
+    "oid": "1.3.6.1.4.1.3854.10.811",
     "class": "notificationtype",
     "objects": [
       {
@@ -57348,7 +57348,7 @@
   },
   "spVirtual12Status": {
     "name": "spVirtual12Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.812",
+    "oid": "1.3.6.1.4.1.3854.10.812",
     "class": "notificationtype",
     "objects": [
       {
@@ -57379,7 +57379,7 @@
   },
   "spVirtual13Status": {
     "name": "spVirtual13Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.813",
+    "oid": "1.3.6.1.4.1.3854.10.813",
     "class": "notificationtype",
     "objects": [
       {
@@ -57410,7 +57410,7 @@
   },
   "spVirtual14Status": {
     "name": "spVirtual14Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.814",
+    "oid": "1.3.6.1.4.1.3854.10.814",
     "class": "notificationtype",
     "objects": [
       {
@@ -57441,7 +57441,7 @@
   },
   "spVirtual15Status": {
     "name": "spVirtual15Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.815",
+    "oid": "1.3.6.1.4.1.3854.10.815",
     "class": "notificationtype",
     "objects": [
       {
@@ -57472,7 +57472,7 @@
   },
   "spVirtual16Status": {
     "name": "spVirtual16Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.816",
+    "oid": "1.3.6.1.4.1.3854.10.816",
     "class": "notificationtype",
     "objects": [
       {
@@ -57503,7 +57503,7 @@
   },
   "spVirtual17Status": {
     "name": "spVirtual17Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.817",
+    "oid": "1.3.6.1.4.1.3854.10.817",
     "class": "notificationtype",
     "objects": [
       {
@@ -57534,7 +57534,7 @@
   },
   "spVirtual18Status": {
     "name": "spVirtual18Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.818",
+    "oid": "1.3.6.1.4.1.3854.10.818",
     "class": "notificationtype",
     "objects": [
       {
@@ -57565,7 +57565,7 @@
   },
   "spVirtual19Status": {
     "name": "spVirtual19Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.819",
+    "oid": "1.3.6.1.4.1.3854.10.819",
     "class": "notificationtype",
     "objects": [
       {
@@ -57596,7 +57596,7 @@
   },
   "spVirtual20Status": {
     "name": "spVirtual20Status",
-    "oid": "1.3.6.1.4.1.3854.1.0.820",
+    "oid": "1.3.6.1.4.1.3854.10.820",
     "class": "notificationtype",
     "objects": [
       {
@@ -57627,7 +57627,7 @@
   },
   "spCustomStatus": {
     "name": "spCustomStatus",
-    "oid": "1.3.6.1.4.1.3854.1.0.1000",
+    "oid": "1.3.6.1.4.1.3854.10.1000",
     "class": "notificationtype",
     "objects": [
       {
@@ -57691,8 +57691,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/akcp/SPAGENT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:47 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:54:05 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "SPAGENT-MIB"

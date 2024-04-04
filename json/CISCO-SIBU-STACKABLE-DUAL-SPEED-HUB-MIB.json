@@ -5,35 +5,35 @@
       "ciscoExperiment"
     ],
     "SNMP-REPEATER-MIB": [
-      "rptrPortIndex",
+      "rptrPortGroupIndex",
       "rptrGroupIndex",
-      "rptrPortGroupIndex"
+      "rptrPortIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
+      "TimeTicks",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter32"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "DisplayString",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoSibuStackableDualSpeedHubMIB": {
@@ -988,8 +988,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:20 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:32 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-SIBU-STACKABLE-DUAL-SPEED-HUB-MIB"

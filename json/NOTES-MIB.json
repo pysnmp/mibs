@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "Counter32",
       "Gauge32",
-      "enterprises",
+      "MODULE-IDENTITY",
       "Counter64",
+      "TRAP-TYPE",
+      "enterprises",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lotus": {
@@ -13333,7 +13333,7 @@
   },
   "lnUnknownEventTrap": {
     "name": "lnUnknownEventTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.0",
+    "oid": "1.3.6.1.4.1.334.720.0",
     "class": "notificationtype",
     "objects": [
       {
@@ -13364,7 +13364,7 @@
   },
   "lnFatalEventTrap": {
     "name": "lnFatalEventTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.1",
+    "oid": "1.3.6.1.4.1.334.720.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -13395,7 +13395,7 @@
   },
   "lnFailureEventTrap": {
     "name": "lnFailureEventTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.2",
+    "oid": "1.3.6.1.4.1.334.720.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -13426,7 +13426,7 @@
   },
   "lnWarning1EventTrap": {
     "name": "lnWarning1EventTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.3",
+    "oid": "1.3.6.1.4.1.334.720.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -13457,7 +13457,7 @@
   },
   "lnWarning2EventTrap": {
     "name": "lnWarning2EventTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.4",
+    "oid": "1.3.6.1.4.1.334.720.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -13488,7 +13488,7 @@
   },
   "lnNormalEventTrap": {
     "name": "lnNormalEventTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.5",
+    "oid": "1.3.6.1.4.1.334.720.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -13519,7 +13519,7 @@
   },
   "lnServerUpTrap": {
     "name": "lnServerUpTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.11",
+    "oid": "1.3.6.1.4.1.334.720.11",
     "class": "notificationtype",
     "objects": [
       {
@@ -13530,7 +13530,7 @@
   },
   "lnServerDownTrap": {
     "name": "lnServerDownTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.12",
+    "oid": "1.3.6.1.4.1.334.720.12",
     "class": "notificationtype",
     "objects": [
       {
@@ -13541,7 +13541,7 @@
   },
   "lnServerPulseFailedTrap": {
     "name": "lnServerPulseFailedTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.13",
+    "oid": "1.3.6.1.4.1.334.720.13",
     "class": "notificationtype",
     "objects": [
       {
@@ -13552,7 +13552,7 @@
   },
   "lnServerPulseRestoredTrap": {
     "name": "lnServerPulseRestoredTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.14",
+    "oid": "1.3.6.1.4.1.334.720.14",
     "class": "notificationtype",
     "objects": [
       {
@@ -13563,12 +13563,12 @@
   },
   "lnSystemRebootingTrap": {
     "name": "lnSystemRebootingTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.15",
+    "oid": "1.3.6.1.4.1.334.720.15",
     "class": "notificationtype"
   },
   "lnServerNotRespondingTrap": {
     "name": "lnServerNotRespondingTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.16",
+    "oid": "1.3.6.1.4.1.334.720.16",
     "class": "notificationtype",
     "objects": [
       {
@@ -13579,7 +13579,7 @@
   },
   "lnServerNowRespondingTrap": {
     "name": "lnServerNowRespondingTrap",
-    "oid": "1.3.6.1.4.1.334.72.0.17",
+    "oid": "1.3.6.1.4.1.334.720.17",
     "class": "notificationtype",
     "objects": [
       {
@@ -13590,7 +13590,7 @@
   },
   "lnAlarmStatisticThreshold": {
     "name": "lnAlarmStatisticThreshold",
-    "oid": "1.3.6.1.4.1.334.72.0.30",
+    "oid": "1.3.6.1.4.1.334.720.30",
     "class": "notificationtype",
     "objects": [
       {
@@ -13637,7 +13637,7 @@
   },
   "lnAlarmServerStatusChange": {
     "name": "lnAlarmServerStatusChange",
-    "oid": "1.3.6.1.4.1.334.72.0.31",
+    "oid": "1.3.6.1.4.1.334.720.31",
     "class": "notificationtype",
     "objects": [
       {
@@ -13684,7 +13684,7 @@
   },
   "lnAlarmPortStatusChange": {
     "name": "lnAlarmPortStatusChange",
-    "oid": "1.3.6.1.4.1.334.72.0.32",
+    "oid": "1.3.6.1.4.1.334.720.32",
     "class": "notificationtype",
     "objects": [
       {
@@ -13731,7 +13731,7 @@
   },
   "lnAlarmTaskStatusChange": {
     "name": "lnAlarmTaskStatusChange",
-    "oid": "1.3.6.1.4.1.334.72.0.33",
+    "oid": "1.3.6.1.4.1.334.720.33",
     "class": "notificationtype",
     "objects": [
       {
@@ -13778,7 +13778,7 @@
   },
   "lnAlarmNVStatClear": {
     "name": "lnAlarmNVStatClear",
-    "oid": "1.3.6.1.4.1.334.72.0.34",
+    "oid": "1.3.6.1.4.1.334.720.34",
     "class": "notificationtype",
     "objects": [
       {
@@ -13825,7 +13825,7 @@
   },
   "lnAlarmAutoDiscovery": {
     "name": "lnAlarmAutoDiscovery",
-    "oid": "1.3.6.1.4.1.334.72.0.35",
+    "oid": "1.3.6.1.4.1.334.720.35",
     "class": "notificationtype",
     "objects": [
       {
@@ -13872,7 +13872,7 @@
   },
   "lnAlarmServerNotesEvent": {
     "name": "lnAlarmServerNotesEvent",
-    "oid": "1.3.6.1.4.1.334.72.0.36",
+    "oid": "1.3.6.1.4.1.334.720.36",
     "class": "notificationtype",
     "objects": [
       {
@@ -13919,7 +13919,7 @@
   },
   "lnAlarmServerCfgChangeEvent": {
     "name": "lnAlarmServerCfgChangeEvent",
-    "oid": "1.3.6.1.4.1.334.72.0.37",
+    "oid": "1.3.6.1.4.1.334.720.37",
     "class": "notificationtype",
     "objects": [
       {
@@ -13966,7 +13966,7 @@
   },
   "lnAlarmMailProbeEvent": {
     "name": "lnAlarmMailProbeEvent",
-    "oid": "1.3.6.1.4.1.334.72.0.38",
+    "oid": "1.3.6.1.4.1.334.720.38",
     "class": "notificationtype",
     "objects": [
       {
@@ -14013,7 +14013,7 @@
   },
   "lnAlarmNSFRemoteConsoleEvent": {
     "name": "lnAlarmNSFRemoteConsoleEvent",
-    "oid": "1.3.6.1.4.1.334.72.0.40",
+    "oid": "1.3.6.1.4.1.334.720.40",
     "class": "notificationtype",
     "objects": [
       {
@@ -14060,7 +14060,7 @@
   },
   "lnAlarmMailBoxEvent": {
     "name": "lnAlarmMailBoxEvent",
-    "oid": "1.3.6.1.4.1.334.72.0.41",
+    "oid": "1.3.6.1.4.1.334.720.41",
     "class": "notificationtype",
     "objects": [
       {
@@ -14107,7 +14107,7 @@
   },
   "lnAlarmServerSNMPEvent": {
     "name": "lnAlarmServerSNMPEvent",
-    "oid": "1.3.6.1.4.1.334.72.0.39",
+    "oid": "1.3.6.1.4.1.334.720.39",
     "class": "notificationtype",
     "objects": [
       {
@@ -14154,12 +14154,12 @@
   },
   "lnAlarmClearAll": {
     "name": "lnAlarmClearAll",
-    "oid": "1.3.6.1.4.1.334.72.0.50",
+    "oid": "1.3.6.1.4.1.334.720.50",
     "class": "notificationtype"
   },
   "lnAlarmClearServers": {
     "name": "lnAlarmClearServers",
-    "oid": "1.3.6.1.4.1.334.72.0.51",
+    "oid": "1.3.6.1.4.1.334.720.51",
     "class": "notificationtype",
     "objects": [
       {
@@ -14170,17 +14170,17 @@
   },
   "lnSignalAutodiscoveryStart": {
     "name": "lnSignalAutodiscoveryStart",
-    "oid": "1.3.6.1.4.1.334.72.0.52",
+    "oid": "1.3.6.1.4.1.334.720.52",
     "class": "notificationtype"
   },
   "lnSignalAutodiscoveryFinished": {
     "name": "lnSignalAutodiscoveryFinished",
-    "oid": "1.3.6.1.4.1.334.72.0.53",
+    "oid": "1.3.6.1.4.1.334.720.53",
     "class": "notificationtype"
   },
   "lnSignalServerConfigChg": {
     "name": "lnSignalServerConfigChg",
-    "oid": "1.3.6.1.4.1.334.72.0.54",
+    "oid": "1.3.6.1.4.1.334.720.54",
     "class": "notificationtype",
     "objects": [
       {
@@ -14203,7 +14203,7 @@
   },
   "lnTrapRequestMostSevereStatus": {
     "name": "lnTrapRequestMostSevereStatus",
-    "oid": "1.3.6.1.4.1.334.72.0.55",
+    "oid": "1.3.6.1.4.1.334.720.55",
     "class": "notificationtype",
     "objects": [
       {
@@ -14214,7 +14214,7 @@
   },
   "lnTrapDisplayAlarmClearServers": {
     "name": "lnTrapDisplayAlarmClearServers",
-    "oid": "1.3.6.1.4.1.334.72.0.60",
+    "oid": "1.3.6.1.4.1.334.720.60",
     "class": "notificationtype",
     "objects": [
       {
@@ -14229,7 +14229,7 @@
   },
   "lnTrapDisplayClearedAlarm": {
     "name": "lnTrapDisplayClearedAlarm",
-    "oid": "1.3.6.1.4.1.334.72.0.70",
+    "oid": "1.3.6.1.4.1.334.720.70",
     "class": "notificationtype",
     "objects": [
       {
@@ -14252,7 +14252,7 @@
   },
   "lnTrapDisplayIndeterminateAlarm": {
     "name": "lnTrapDisplayIndeterminateAlarm",
-    "oid": "1.3.6.1.4.1.334.72.0.71",
+    "oid": "1.3.6.1.4.1.334.720.71",
     "class": "notificationtype",
     "objects": [
       {
@@ -14275,7 +14275,7 @@
   },
   "lnTrapDisplayWarningAlarm": {
     "name": "lnTrapDisplayWarningAlarm",
-    "oid": "1.3.6.1.4.1.334.72.0.72",
+    "oid": "1.3.6.1.4.1.334.720.72",
     "class": "notificationtype",
     "objects": [
       {
@@ -14298,7 +14298,7 @@
   },
   "lnTrapDisplayMinorAlarm": {
     "name": "lnTrapDisplayMinorAlarm",
-    "oid": "1.3.6.1.4.1.334.72.0.73",
+    "oid": "1.3.6.1.4.1.334.720.73",
     "class": "notificationtype",
     "objects": [
       {
@@ -14321,7 +14321,7 @@
   },
   "lnTrapDisplayCriticalAlarm": {
     "name": "lnTrapDisplayCriticalAlarm",
-    "oid": "1.3.6.1.4.1.334.72.0.74",
+    "oid": "1.3.6.1.4.1.334.720.74",
     "class": "notificationtype",
     "objects": [
       {
@@ -14344,7 +14344,7 @@
   },
   "lnTrapDisplayMajorAlarm": {
     "name": "lnTrapDisplayMajorAlarm",
-    "oid": "1.3.6.1.4.1.334.72.0.75",
+    "oid": "1.3.6.1.4.1.334.720.75",
     "class": "notificationtype",
     "objects": [
       {
@@ -14368,8 +14368,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/NOTES-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:18 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:40 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "NOTES-MIB"

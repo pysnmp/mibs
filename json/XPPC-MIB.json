@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
       "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "enterprises",
+      "Unsigned32",
+      "iso",
       "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "TimeTicks",
       "TRAP-TYPE",
-      "Integer32",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "enterprises",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2127,289 +2127,289 @@
   },
   "communicationLost": {
     "name": "communicationLost",
-    "oid": "1.3.6.1.4.1.935.0.1",
+    "oid": "1.3.6.1.4.1.9350.1",
     "class": "notificationtype"
   },
   "upsOverLoad": {
     "name": "upsOverLoad",
-    "oid": "1.3.6.1.4.1.935.0.2",
+    "oid": "1.3.6.1.4.1.9350.2",
     "class": "notificationtype"
   },
   "upsDiagnosticsFailed": {
     "name": "upsDiagnosticsFailed",
-    "oid": "1.3.6.1.4.1.935.0.3",
+    "oid": "1.3.6.1.4.1.9350.3",
     "class": "notificationtype"
   },
   "upsDischarged": {
     "name": "upsDischarged",
-    "oid": "1.3.6.1.4.1.935.0.4",
+    "oid": "1.3.6.1.4.1.9350.4",
     "class": "notificationtype"
   },
   "upsOnBattery": {
     "name": "upsOnBattery",
-    "oid": "1.3.6.1.4.1.935.0.5",
+    "oid": "1.3.6.1.4.1.9350.5",
     "class": "notificationtype"
   },
   "boostOn": {
     "name": "boostOn",
-    "oid": "1.3.6.1.4.1.935.0.6",
+    "oid": "1.3.6.1.4.1.9350.6",
     "class": "notificationtype"
   },
   "lowBattery": {
     "name": "lowBattery",
-    "oid": "1.3.6.1.4.1.935.0.7",
+    "oid": "1.3.6.1.4.1.9350.7",
     "class": "notificationtype"
   },
   "communicationEstablished": {
     "name": "communicationEstablished",
-    "oid": "1.3.6.1.4.1.935.0.8",
+    "oid": "1.3.6.1.4.1.9350.8",
     "class": "notificationtype"
   },
   "powerRestored": {
     "name": "powerRestored",
-    "oid": "1.3.6.1.4.1.935.0.9",
+    "oid": "1.3.6.1.4.1.9350.9",
     "class": "notificationtype"
   },
   "upsDiagnosticsPassed": {
     "name": "upsDiagnosticsPassed",
-    "oid": "1.3.6.1.4.1.935.0.10",
+    "oid": "1.3.6.1.4.1.9350.10",
     "class": "notificationtype"
   },
   "returnFromLowBattery": {
     "name": "returnFromLowBattery",
-    "oid": "1.3.6.1.4.1.935.0.11",
+    "oid": "1.3.6.1.4.1.9350.11",
     "class": "notificationtype"
   },
   "upsTurnedOff": {
     "name": "upsTurnedOff",
-    "oid": "1.3.6.1.4.1.935.0.12",
+    "oid": "1.3.6.1.4.1.9350.12",
     "class": "notificationtype"
   },
   "upsSleeping": {
     "name": "upsSleeping",
-    "oid": "1.3.6.1.4.1.935.0.13",
+    "oid": "1.3.6.1.4.1.9350.13",
     "class": "notificationtype"
   },
   "upsWokeUp": {
     "name": "upsWokeUp",
-    "oid": "1.3.6.1.4.1.935.0.14",
+    "oid": "1.3.6.1.4.1.9350.14",
     "class": "notificationtype"
   },
   "upsRebootStarted": {
     "name": "upsRebootStarted",
-    "oid": "1.3.6.1.4.1.935.0.15",
+    "oid": "1.3.6.1.4.1.9350.15",
     "class": "notificationtype"
   },
   "envOverTemperature": {
     "name": "envOverTemperature",
-    "oid": "1.3.6.1.4.1.935.0.16",
+    "oid": "1.3.6.1.4.1.9350.16",
     "class": "notificationtype"
   },
   "envTemperatureNormal": {
     "name": "envTemperatureNormal",
-    "oid": "1.3.6.1.4.1.935.0.17",
+    "oid": "1.3.6.1.4.1.9350.17",
     "class": "notificationtype"
   },
   "envOverHumidity": {
     "name": "envOverHumidity",
-    "oid": "1.3.6.1.4.1.935.0.18",
+    "oid": "1.3.6.1.4.1.9350.18",
     "class": "notificationtype"
   },
   "envHumidityNormal": {
     "name": "envHumidityNormal",
-    "oid": "1.3.6.1.4.1.935.0.19",
+    "oid": "1.3.6.1.4.1.9350.19",
     "class": "notificationtype"
   },
   "envSmokeAbnormal": {
     "name": "envSmokeAbnormal",
-    "oid": "1.3.6.1.4.1.935.0.20",
+    "oid": "1.3.6.1.4.1.9350.20",
     "class": "notificationtype"
   },
   "envWaterAbnormal": {
     "name": "envWaterAbnormal",
-    "oid": "1.3.6.1.4.1.935.0.21",
+    "oid": "1.3.6.1.4.1.9350.21",
     "class": "notificationtype"
   },
   "envSecurityAbnormal": {
     "name": "envSecurityAbnormal",
-    "oid": "1.3.6.1.4.1.935.0.22",
+    "oid": "1.3.6.1.4.1.9350.22",
     "class": "notificationtype"
   },
   "envWaterNormal": {
     "name": "envWaterNormal",
-    "oid": "1.3.6.1.4.1.935.0.24",
+    "oid": "1.3.6.1.4.1.9350.24",
     "class": "notificationtype"
   },
   "envGasAbnormal": {
     "name": "envGasAbnormal",
-    "oid": "1.3.6.1.4.1.935.0.26",
+    "oid": "1.3.6.1.4.1.9350.26",
     "class": "notificationtype"
   },
   "upsTemp": {
     "name": "upsTemp",
-    "oid": "1.3.6.1.4.1.935.0.27",
+    "oid": "1.3.6.1.4.1.9350.27",
     "class": "notificationtype"
   },
   "upsLoadNormal": {
     "name": "upsLoadNormal",
-    "oid": "1.3.6.1.4.1.935.0.28",
+    "oid": "1.3.6.1.4.1.9350.28",
     "class": "notificationtype"
   },
   "upsTempNormal": {
     "name": "upsTempNormal",
-    "oid": "1.3.6.1.4.1.935.0.29",
+    "oid": "1.3.6.1.4.1.9350.29",
     "class": "notificationtype"
   },
   "envUnderTemperature": {
     "name": "envUnderTemperature",
-    "oid": "1.3.6.1.4.1.935.0.30",
+    "oid": "1.3.6.1.4.1.9350.30",
     "class": "notificationtype"
   },
   "envUnderHumidity": {
     "name": "envUnderHumidity",
-    "oid": "1.3.6.1.4.1.935.0.31",
+    "oid": "1.3.6.1.4.1.9350.31",
     "class": "notificationtype"
   },
   "upsBypass": {
     "name": "upsBypass",
-    "oid": "1.3.6.1.4.1.935.0.32",
+    "oid": "1.3.6.1.4.1.9350.32",
     "class": "notificationtype"
   },
   "envSecurity1": {
     "name": "envSecurity1",
-    "oid": "1.3.6.1.4.1.935.0.33",
+    "oid": "1.3.6.1.4.1.9350.33",
     "class": "notificationtype"
   },
   "envSecurity2": {
     "name": "envSecurity2",
-    "oid": "1.3.6.1.4.1.935.0.34",
+    "oid": "1.3.6.1.4.1.9350.34",
     "class": "notificationtype"
   },
   "envSecurity3": {
     "name": "envSecurity3",
-    "oid": "1.3.6.1.4.1.935.0.35",
+    "oid": "1.3.6.1.4.1.9350.35",
     "class": "notificationtype"
   },
   "envSecurity4": {
     "name": "envSecurity4",
-    "oid": "1.3.6.1.4.1.935.0.36",
+    "oid": "1.3.6.1.4.1.9350.36",
     "class": "notificationtype"
   },
   "envSecurity5": {
     "name": "envSecurity5",
-    "oid": "1.3.6.1.4.1.935.0.37",
+    "oid": "1.3.6.1.4.1.9350.37",
     "class": "notificationtype"
   },
   "envSecurity6": {
     "name": "envSecurity6",
-    "oid": "1.3.6.1.4.1.935.0.38",
+    "oid": "1.3.6.1.4.1.9350.38",
     "class": "notificationtype"
   },
   "envSecurity7": {
     "name": "envSecurity7",
-    "oid": "1.3.6.1.4.1.935.0.39",
+    "oid": "1.3.6.1.4.1.9350.39",
     "class": "notificationtype"
   },
   "upsRecroterror": {
     "name": "upsRecroterror",
-    "oid": "1.3.6.1.4.1.935.0.47",
+    "oid": "1.3.6.1.4.1.9350.47",
     "class": "notificationtype"
   },
   "upsBypassFreFail": {
     "name": "upsBypassFreFail",
-    "oid": "1.3.6.1.4.1.935.0.48",
+    "oid": "1.3.6.1.4.1.9350.48",
     "class": "notificationtype"
   },
   "upsBypassacnormal": {
     "name": "upsBypassacnormal",
-    "oid": "1.3.6.1.4.1.935.0.49",
+    "oid": "1.3.6.1.4.1.9350.49",
     "class": "notificationtype"
   },
   "upsBypassacabnormal": {
     "name": "upsBypassacabnormal",
-    "oid": "1.3.6.1.4.1.935.0.50",
+    "oid": "1.3.6.1.4.1.9350.50",
     "class": "notificationtype"
   },
   "upsTest": {
     "name": "upsTest",
-    "oid": "1.3.6.1.4.1.935.0.51",
+    "oid": "1.3.6.1.4.1.9350.51",
     "class": "notificationtype"
   },
   "upsScheduleShutdown": {
     "name": "upsScheduleShutdown",
-    "oid": "1.3.6.1.4.1.935.0.52",
+    "oid": "1.3.6.1.4.1.9350.52",
     "class": "notificationtype"
   },
   "upsBypassReturn": {
     "name": "upsBypassReturn",
-    "oid": "1.3.6.1.4.1.935.0.53",
+    "oid": "1.3.6.1.4.1.9350.53",
     "class": "notificationtype"
   },
   "upsShortCircuitShutdown": {
     "name": "upsShortCircuitShutdown",
-    "oid": "1.3.6.1.4.1.935.0.54",
+    "oid": "1.3.6.1.4.1.9350.54",
     "class": "notificationtype"
   },
   "upsInverterOutputFailShutdown": {
     "name": "upsInverterOutputFailShutdown",
-    "oid": "1.3.6.1.4.1.935.0.55",
+    "oid": "1.3.6.1.4.1.9350.55",
     "class": "notificationtype"
   },
   "upsBypassBreadkerOnShutdown": {
     "name": "upsBypassBreadkerOnShutdown",
-    "oid": "1.3.6.1.4.1.935.0.56",
+    "oid": "1.3.6.1.4.1.9350.56",
     "class": "notificationtype"
   },
   "upsHighDCShutdown": {
     "name": "upsHighDCShutdown",
-    "oid": "1.3.6.1.4.1.935.0.57",
+    "oid": "1.3.6.1.4.1.9350.57",
     "class": "notificationtype"
   },
   "upsEmergencyStop": {
     "name": "upsEmergencyStop",
-    "oid": "1.3.6.1.4.1.935.0.58",
+    "oid": "1.3.6.1.4.1.9350.58",
     "class": "notificationtype"
   },
   "upsInverterMode": {
     "name": "upsInverterMode",
-    "oid": "1.3.6.1.4.1.935.0.59",
+    "oid": "1.3.6.1.4.1.9350.59",
     "class": "notificationtype"
   },
   "upsBypassMode": {
     "name": "upsBypassMode",
-    "oid": "1.3.6.1.4.1.935.0.60",
+    "oid": "1.3.6.1.4.1.9350.60",
     "class": "notificationtype"
   },
   "upsOverTemperatureShutdown": {
     "name": "upsOverTemperatureShutdown",
-    "oid": "1.3.6.1.4.1.935.0.61",
+    "oid": "1.3.6.1.4.1.9350.61",
     "class": "notificationtype"
   },
   "upsOverLoadShutdown": {
     "name": "upsOverLoadShutdown",
-    "oid": "1.3.6.1.4.1.935.0.62",
+    "oid": "1.3.6.1.4.1.9350.62",
     "class": "notificationtype"
   },
   "upsCapacityUnderrun": {
     "name": "upsCapacityUnderrun",
-    "oid": "1.3.6.1.4.1.935.0.63",
+    "oid": "1.3.6.1.4.1.9350.63",
     "class": "notificationtype"
   },
   "upsCapacityNormal": {
     "name": "upsCapacityNormal",
-    "oid": "1.3.6.1.4.1.935.0.64",
+    "oid": "1.3.6.1.4.1.9350.64",
     "class": "notificationtype"
   },
   "upsLowBatteryShutdown": {
     "name": "upsLowBatteryShutdown",
-    "oid": "1.3.6.1.4.1.935.0.67",
+    "oid": "1.3.6.1.4.1.9350.67",
     "class": "notificationtype"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/XPPC-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:25 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:53:43 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "XPPC-MIB"

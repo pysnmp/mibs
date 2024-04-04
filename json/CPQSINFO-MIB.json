@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "cpqHoTrapFlags",
-      "compaq"
+      "compaq",
+      "cpqHoTrapFlags"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "MODULE-IDENTITY",
       "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4028,7 +4028,7 @@
   },
   "cpqSiHoodRemoved": {
     "name": "cpqSiHoodRemoved",
-    "oid": "1.3.6.1.4.1.232.0.2001",
+    "oid": "1.3.6.1.4.1.2320.2001",
     "class": "notificationtype",
     "objects": [
       {
@@ -4043,7 +4043,7 @@
   },
   "cpqSiMonitorConditionOK": {
     "name": "cpqSiMonitorConditionOK",
-    "oid": "1.3.6.1.4.1.232.0.2002",
+    "oid": "1.3.6.1.4.1.2320.2002",
     "class": "notificationtype",
     "objects": [
       {
@@ -4062,7 +4062,7 @@
   },
   "cpqSiMonitorConditionDegraded": {
     "name": "cpqSiMonitorConditionDegraded",
-    "oid": "1.3.6.1.4.1.232.0.2003",
+    "oid": "1.3.6.1.4.1.2320.2003",
     "class": "notificationtype",
     "objects": [
       {
@@ -4081,7 +4081,7 @@
   },
   "cpqSiMonitorConditionFailed": {
     "name": "cpqSiMonitorConditionFailed",
-    "oid": "1.3.6.1.4.1.232.0.2004",
+    "oid": "1.3.6.1.4.1.2320.2004",
     "class": "notificationtype",
     "objects": [
       {
@@ -4100,7 +4100,7 @@
   },
   "cpqSiCorrMemErrStatusDegraded": {
     "name": "cpqSiCorrMemErrStatusDegraded",
-    "oid": "1.3.6.1.4.1.232.0.2005",
+    "oid": "1.3.6.1.4.1.2320.2005",
     "class": "notificationtype",
     "objects": [
       {
@@ -4119,7 +4119,7 @@
   },
   "cpqSiCorrMemErrStatusOk": {
     "name": "cpqSiCorrMemErrStatusOk",
-    "oid": "1.3.6.1.4.1.232.0.2006",
+    "oid": "1.3.6.1.4.1.2320.2006",
     "class": "notificationtype",
     "objects": [
       {
@@ -4138,7 +4138,7 @@
   },
   "cpqSiMemConfigChange": {
     "name": "cpqSiMemConfigChange",
-    "oid": "1.3.6.1.4.1.232.0.2007",
+    "oid": "1.3.6.1.4.1.2320.2007",
     "class": "notificationtype",
     "objects": [
       {
@@ -4157,7 +4157,7 @@
   },
   "cpqSiHotPlugSlotBoardRemoved": {
     "name": "cpqSiHotPlugSlotBoardRemoved",
-    "oid": "1.3.6.1.4.1.232.0.2008",
+    "oid": "1.3.6.1.4.1.2320.2008",
     "class": "notificationtype",
     "objects": [
       {
@@ -4180,7 +4180,7 @@
   },
   "cpqSiHotPlugSlotBoardInserted": {
     "name": "cpqSiHotPlugSlotBoardInserted",
-    "oid": "1.3.6.1.4.1.232.0.2009",
+    "oid": "1.3.6.1.4.1.2320.2009",
     "class": "notificationtype",
     "objects": [
       {
@@ -4203,7 +4203,7 @@
   },
   "cpqSiHotPlugSlotPowerUpFailed": {
     "name": "cpqSiHotPlugSlotPowerUpFailed",
-    "oid": "1.3.6.1.4.1.232.0.2010",
+    "oid": "1.3.6.1.4.1.2320.2010",
     "class": "notificationtype",
     "objects": [
       {
@@ -4230,7 +4230,7 @@
   },
   "cpqSiSysBatteryFailure": {
     "name": "cpqSiSysBatteryFailure",
-    "oid": "1.3.6.1.4.1.232.0.2011",
+    "oid": "1.3.6.1.4.1.2320.2011",
     "class": "notificationtype",
     "objects": [
       {
@@ -4253,7 +4253,7 @@
   },
   "cpqSiSysBatteryChargingDegraded": {
     "name": "cpqSiSysBatteryChargingDegraded",
-    "oid": "1.3.6.1.4.1.232.0.2012",
+    "oid": "1.3.6.1.4.1.2320.2012",
     "class": "notificationtype",
     "objects": [
       {
@@ -4276,7 +4276,7 @@
   },
   "cpqSiSysBatteryCalibrationError": {
     "name": "cpqSiSysBatteryCalibrationError",
-    "oid": "1.3.6.1.4.1.232.0.2013",
+    "oid": "1.3.6.1.4.1.2320.2013",
     "class": "notificationtype",
     "objects": [
       {
@@ -4300,8 +4300,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQSINFO-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:24 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 03:00:12 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CPQSINFO-MIB"

@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "TRAP-TYPE",
-      "Counter32",
-      "Counter64",
       "IpAddress",
       "TimeTicks",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -255,7 +255,7 @@
   },
   "wldStateToAlarm": {
     "name": "wldStateToAlarm",
-    "oid": "1.3.6.1.4.1.21796.4.5.0.1",
+    "oid": "1.3.6.1.4.1.21796.4.50.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -294,7 +294,7 @@
   },
   "wldStateToNormal": {
     "name": "wldStateToNormal",
-    "oid": "1.3.6.1.4.1.21796.4.5.0.2",
+    "oid": "1.3.6.1.4.1.21796.4.50.2",
     "class": "notificationtype",
     "objects": [
       {
@@ -333,7 +333,7 @@
   },
   "wldPeriodicAlarm": {
     "name": "wldPeriodicAlarm",
-    "oid": "1.3.6.1.4.1.21796.4.5.0.3",
+    "oid": "1.3.6.1.4.1.21796.4.50.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -373,8 +373,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hwg/HWg-WLD-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:58:15 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:58:38 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HWg-WLD-MIB"

@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "TRAP-TYPE",
       "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
       "experimental",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3243,7 +3243,7 @@
   },
   "connUnitStatusChange": {
     "name": "connUnitStatusChange",
-    "oid": "1.3.6.1.3.94.0.1",
+    "oid": "1.3.6.1.3.940.1",
     "class": "notificationtype",
     "objects": [
       {
@@ -3258,7 +3258,7 @@
   },
   "connUnitDeletedTrap": {
     "name": "connUnitDeletedTrap",
-    "oid": "1.3.6.1.3.94.0.3",
+    "oid": "1.3.6.1.3.940.3",
     "class": "notificationtype",
     "objects": [
       {
@@ -3269,7 +3269,7 @@
   },
   "connUnitEventTrap": {
     "name": "connUnitEventTrap",
-    "oid": "1.3.6.1.3.94.0.4",
+    "oid": "1.3.6.1.3.940.4",
     "class": "notificationtype",
     "objects": [
       {
@@ -3292,7 +3292,7 @@
   },
   "connUnitSensorStatusChange": {
     "name": "connUnitSensorStatusChange",
-    "oid": "1.3.6.1.3.94.0.5",
+    "oid": "1.3.6.1.3.940.5",
     "class": "notificationtype",
     "objects": [
       {
@@ -3303,7 +3303,7 @@
   },
   "connUnitPortStatusChange": {
     "name": "connUnitPortStatusChange",
-    "oid": "1.3.6.1.3.94.0.6",
+    "oid": "1.3.6.1.3.940.6",
     "class": "notificationtype",
     "objects": [
       {
@@ -3319,8 +3319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/draft-ietf-ipfc-fcmgmt-int-mib-04",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:53:25 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:53:42 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "FCMGMT-MIB"

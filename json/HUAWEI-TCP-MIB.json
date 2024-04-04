@@ -10,30 +10,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "IpAddress",
+      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
       "Bits",
       "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "TCP-MIB": [
+      "tcpConnRemAddress",
       "tcpConnLocalPort",
       "tcpConnRemPort",
-      "tcpConnLocalAddress",
-      "tcpConnRemAddress"
+      "tcpConnLocalAddress"
     ]
   },
   "hwTCP": {
@@ -179,8 +179,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TCP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 02:59:10 2024",
-      "On host fv-az570-968 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.10 at Thu Apr  4 02:59:32 2024",
+      "On host fv-az768-708 platform Linux version 6.5.0-1016-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-TCP-MIB"
