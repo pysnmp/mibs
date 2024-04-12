@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TPDIN2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tycon/TPDIN2-MIB
-# Produced by pysmi-1.1.12 at Thu Apr  4 13:55:34 2024
-# On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Apr 12 00:33:53 2024
+# On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner
 # Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, enterprises, TimeTicks, Integer32, ObjectIdentity, IpAddress, iso, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, Unsigned32, Gauge32, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "enterprises", "TimeTicks", "Integer32", "ObjectIdentity", "IpAddress", "iso", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "Unsigned32", "Gauge32", "NotificationType", "Counter64")
+MibIdentifier, ObjectIdentity, Integer32, TimeTicks, Bits, IpAddress, Gauge32, Counter64, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, ModuleIdentity, Unsigned32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "Integer32", "TimeTicks", "Bits", "IpAddress", "Gauge32", "Counter64", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "ModuleIdentity", "Unsigned32", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tpdin2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 45621, 2))
 if mibBuilder.loadTexts: tpdin2.setLastUpdated('201703031251Z')
@@ -76,4 +76,4 @@ if mibBuilder.loadTexts: temperature1.setDescription('External Temp')
 temperature2 = MibScalar((1, 3, 6, 1, 4, 1, 45621, 2, 2, 14), Tenths()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: temperature2.setStatus('current')
 if mibBuilder.loadTexts: temperature2.setDescription('Internal Temp')
-mibBuilder.exportSymbols("TPDIN2-MIB", voltage1=voltage1, builddate=builddate, tpdin2=tpdin2, monitor=monitor, voltage3=voltage3, current4=current4, voltage2=voltage2, current3=current3, relay3=relay3, temperature1=temperature1, voltage4=voltage4, relay2=relay2, current2=current2, Tenths=Tenths, relay4=relay4, temperature2=temperature2, relay1=relay1, version=version, PYSNMP_MODULE_ID=tpdin2, current1=current1, product=product, tycon=tycon, name=name)
+mibBuilder.exportSymbols("TPDIN2-MIB", current4=current4, Tenths=Tenths, voltage4=voltage4, relay1=relay1, current3=current3, PYSNMP_MODULE_ID=tpdin2, voltage1=voltage1, voltage3=voltage3, builddate=builddate, relay4=relay4, version=version, relay2=relay2, current1=current1, name=name, voltage2=voltage2, temperature1=temperature1, temperature2=temperature2, tpdin2=tpdin2, product=product, monitor=monitor, tycon=tycon, current2=current2, relay3=relay3)

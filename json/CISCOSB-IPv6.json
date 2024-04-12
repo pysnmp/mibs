@@ -14,52 +14,52 @@
       "IANAtunnelType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
+      "ipNetToPhysicalEntry",
       "ipv6InterfaceEntry",
       "ipAddressEntry",
-      "ipNetToPhysicalEntry",
       "ipv6RouterAdvertEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "iso",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Bits",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
       "zeroDotZero",
-      "Integer32",
-      "Unsigned32",
-      "mib-2"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "TruthValue",
-      "RowStatus"
+      "TimeInterval"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:52:02 2024",
-      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Apr 12 00:30:02 2024",
+      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPv6"

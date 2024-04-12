@@ -8,8 +8,8 @@
       "hpnicfCommon"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -22,28 +22,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "Bits",
-      "Unsigned32"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
+      "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus"
+      "MacAddress"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -556,8 +556,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FCOE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:51:58 2024",
-      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Apr 12 00:30:33 2024",
+      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-FCOE-MIB"

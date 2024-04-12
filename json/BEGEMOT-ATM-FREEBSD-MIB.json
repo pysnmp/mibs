@@ -9,24 +9,24 @@
       "NgNodeIdOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "Unsigned32",
       "Integer32",
-      "Bits"
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -79,8 +79,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-ATM-FREEBSD-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:54:03 2024",
-      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Apr 12 00:32:19 2024",
+      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "BEGEMOT-ATM-FREEBSD-MIB"

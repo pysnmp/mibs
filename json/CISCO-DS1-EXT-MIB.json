@@ -5,17 +5,17 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "BulkConfigResult",
-      "ConfigIterator"
+      "ConfigIterator",
+      "BulkConfigResult"
     ],
     "DS1-MIB": [
-      "dsx1TotalEntry",
-      "dsx1FarEndTotalEntry",
-      "dsx1FarEndCurrentEntry",
       "dsx1FarEndIntervalEntry",
       "dsx1ConfigEntry",
+      "dsx1CurrentEntry",
+      "dsx1FarEndTotalEntry",
       "dsx1IntervalEntry",
-      "dsx1CurrentEntry"
+      "dsx1FarEndCurrentEntry",
+      "dsx1TotalEntry"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -29,31 +29,31 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Integer32",
-      "Bits"
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:52:06 2024",
-      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Apr 12 00:29:59 2024",
+      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

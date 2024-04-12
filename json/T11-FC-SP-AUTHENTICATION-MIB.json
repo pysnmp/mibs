@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "fcmInstanceIndex",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "fcmInstanceIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Counter64",
       "MibIdentifier",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "DisplayString",
       "AutonomousType",
-      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TimeStamp",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpLifetimeLeft",
-      "T11FcSpAuthRejReasonCodeExp",
-      "T11FcSpLifetimeLeftUnits",
       "T11FcSpSignFunctions",
-      "T11FcSpDhGroups",
+      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpHashFunctions",
+      "T11FcSpAuthRejReasonCodeExp",
       "T11FcSpAuthRejectReasonCode",
-      "T11FcSpHashFunctions"
+      "T11FcSpDhGroups",
+      "T11FcSpLifetimeLeft"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:46:00 2024",
-      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Apr 12 00:24:01 2024",
+      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

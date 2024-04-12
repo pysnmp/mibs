@@ -5,16 +5,16 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
-      "Unsigned64",
       "CiscoAlarmSeverity",
+      "Unsigned64",
+      "CiscoNetworkAddress",
+      "CiscoInetAddressMask",
       "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -24,34 +24,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Gauge32",
-      "MibIdentifier",
-      "Counter32",
-      "IpAddress",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "Unsigned32",
       "Bits",
       "Integer32",
-      "Unsigned32"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "MacAddress",
-      "TimeInterval",
       "TimeStamp",
+      "MacAddress",
       "TruthValue",
-      "RowPointer"
+      "DateAndTime",
+      "RowPointer",
+      "TimeInterval"
     ]
   },
   "cucsQueryresultObjects": {
@@ -324,8 +324,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Apr  4 13:52:02 2024",
-      "On host fv-az1490-927 platform Linux version 6.5.0-1016-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Apr 12 00:30:02 2024",
+      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB"
