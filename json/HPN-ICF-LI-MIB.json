@@ -8,8 +8,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressPrefixLength",
+      "InetPortNumber",
       "InetAddressType",
       "InetAddress"
     ],
@@ -17,32 +17,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Bits",
       "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "TruthValue",
       "DateAndTime",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "hpnicfLI": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LI-MIB",
-      "Produced by pysmi-1.1.12 at Fri Apr 12 00:30:33 2024",
-      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Apr 22 02:14:49 2024",
+      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LI-MIB"

@@ -5,34 +5,34 @@
       "OBJECT-TYPE"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "enterprises",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
       "iso",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Bits",
+      "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
+      "Counter32",
+      "enterprises",
       "MODULE-IDENTITY",
-      "Bits"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dpsInc": {
@@ -1730,8 +1730,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dpstelecom/DPS-MIB-V38",
-      "Produced by pysmi-1.1.12 at Fri Apr 12 00:27:03 2024",
-      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Apr 22 02:11:43 2024",
+      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DPS-MIB-V38"

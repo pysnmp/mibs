@@ -5,28 +5,28 @@
       "bcsiReg"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Counter64",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
       "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "Counter32",
       "OBJECT-TYPE",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
       "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "brocadeProductsMIB": {
@@ -35,28 +35,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2018-05-29 12:00",
-        "description": "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
-      },
-      {
-        "revision": "2017-12-07 00:00",
-        "description": "Updated the product name for RIGEL1U as vdx6940Q36. then added RIGELMOR product name as vdx6940S144 and Removed RIGEL2U platform"
-      },
-      {
-        "revision": "2017-01-05 00:00",
-        "description": "Added product types SLX9240 and SLX9140."
-      },
-      {
-        "revision": "2016-12-26 00:00",
-        "description": "Added product type SLX9540."
-      },
-      {
-        "revision": "2016-06-28 00:00",
-        "description": "Added product types SLX9850S4 and SLX9850S8."
-      },
-      {
-        "revision": "2014-10-07 14:05",
-        "description": "Added product name for RIGEL1U as vdx7770P36 and RIGEL2U as vdx7770P72."
+        "revision": "2012-02-03 00:00",
+        "description": "Initial version of this MIB module."
       },
       {
         "revision": "2013-11-21 00:00",
@@ -67,8 +47,12 @@
         "description": "Added new product name for Draco-T platform."
       },
       {
-        "revision": "2012-02-03 00:00",
-        "description": "Initial version of this MIB module."
+        "revision": "2014-10-07 14:05",
+        "description": "Added product name for RIGEL1U as vdx7770P36 and RIGEL2U as vdx7770P72."
+      },
+      {
+        "revision": "2015-08-11 13:05",
+        "description": "Updated the product name for RIGEL1U as vdx6940Q36. then added RIGELMOR product name as vdx6940S144 and Removed RIGEL2U platform"
       }
     ]
   },
@@ -122,36 +106,11 @@
     "oid": "1.3.6.1.4.1.1588.3.3.1.1002",
     "class": "objectidentity"
   },
-  "slx9850S4": {
-    "name": "slx9850S4",
-    "oid": "1.3.6.1.4.1.1588.3.3.1.2000",
-    "class": "objectidentity"
-  },
-  "slx9850S8": {
-    "name": "slx9850S8",
-    "oid": "1.3.6.1.4.1.1588.3.3.1.2001",
-    "class": "objectidentity"
-  },
-  "slx9240": {
-    "name": "slx9240",
-    "oid": "1.3.6.1.4.1.1588.3.3.1.3000",
-    "class": "objectidentity"
-  },
-  "slx9140": {
-    "name": "slx9140",
-    "oid": "1.3.6.1.4.1.1588.3.3.1.3001",
-    "class": "objectidentity"
-  },
-  "slx9540": {
-    "name": "slx9540",
-    "oid": "1.3.6.1.4.1.1588.3.3.1.4000",
-    "class": "objectidentity"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/Brocade-TC",
-      "Produced by pysmi-1.1.12 at Fri Apr 12 00:28:08 2024",
-      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-PRODUCTS-MIB",
+      "Produced by pysmi-1.1.12 at Mon Apr 22 02:12:48 2024",
+      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "BROCADE-PRODUCTS-MIB"

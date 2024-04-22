@@ -5,77 +5,77 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "TimeIntervalSec",
+      "CiscoNetworkAddress",
       "CiscoAlarmSeverity",
       "Unsigned64",
-      "CiscoNetworkAddress",
-      "CiscoInetAddressMask",
-      "TimeIntervalSec"
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn"
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsCallhomeFormat",
-      "CucsCallhomeAlertMessageType",
+      "CucsCallhomePolicyAdminState",
+      "CucsPolicyPolicyOwner",
+      "CucsCallhomeAlertLevel",
+      "CucsFsmFlags",
+      "CucsCallhomeAlertGroups",
+      "CucsConditionCallHomeCause",
+      "CucsFsmCompletion",
       "CucsCallhomeAlertMessageSubtype",
       "CucsCallhomeLevel",
-      "CucsPolicyPolicyOwner",
-      "CucsConditionCallHomeCause",
       "CucsCallhomeEpFsmStageName",
-      "CucsCallhomeAlertThrottlingAdminState",
-      "CucsCallhomeEpConfigState",
-      "CucsCallhomeAnonymousReportingAdminState",
-      "CucsFsmCompletion",
-      "CucsCallhomeEpFsmCurrentFsm",
-      "CucsCallhomeAlertLevel",
-      "CucsCallhomeUrgency",
       "CucsCallhomeEpFsmTaskItem",
-      "CucsCallhomeAlertGroups",
+      "CucsCallhomeEpConfigState",
+      "CucsCallhomeUrgency",
+      "CucsConditionRemoteInvRslt",
+      "CucsCallhomeEpFsmCurrentFsm",
       "CucsCallhomeAlertGroup",
+      "CucsCallhomeAnonymousReportingAdminState",
+      "CucsCallhomeFormat",
       "CucsFsmFsmStageStatus",
       "CucsCallhomeAdminState",
-      "CucsCallhomePolicyAdminState",
-      "CucsFsmFlags",
-      "CucsConditionRemoteInvRslt"
+      "CucsCallhomeAlertMessageType",
+      "CucsCallhomeAlertThrottlingAdminState"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Bits",
-      "Integer32",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "RowPointer",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "MacAddress",
       "TruthValue",
       "DateAndTime",
-      "RowPointer",
-      "TimeInterval"
+      "TimeInterval",
+      "TimeStamp"
     ]
   },
   "cucsCallhomeObjects": {
@@ -1790,8 +1790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CALLHOME-MIB",
-      "Produced by pysmi-1.1.12 at Fri Apr 12 00:29:59 2024",
-      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Apr 22 02:14:45 2024",
+      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CALLHOME-MIB"

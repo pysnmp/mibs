@@ -5,41 +5,41 @@
       "f10Mgmt"
     ],
     "FORCE10-TC": [
+      "F10ProcessorModuleType",
+      "F10SystemPortType",
+      "F10SlotState",
       "F10SwDate",
       "F10ChassisType",
-      "F10HundredthdB",
-      "F10SlotState",
       "F10SystemCardType",
-      "F10SystemPortType",
-      "F10ProcessorModuleType",
+      "F10CardOperStatus",
       "F10MfgDate",
-      "F10ChassisMode",
-      "F10CardOperStatus"
+      "F10HundredthdB",
+      "F10ChassisMode"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "IpAddress",
-      "Unsigned32",
       "MODULE-IDENTITY",
       "Bits",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "Integer32",
+      "Counter64",
       "iso",
-      "Gauge32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime"
     ]
   },
@@ -3716,8 +3716,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Apr 12 00:26:58 2024",
-      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Apr 22 02:11:39 2024",
+      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "F10-CHASSIS-MIB"

@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalSeverity",
-      "cienaGlobalMacAddress"
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
-      "cienaCesConfig",
-      "cienaCesNotifications"
+      "cienaCesNotifications",
+      "cienaCesConfig"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
@@ -19,33 +19,33 @@
       "MplsBitRate"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "iso",
       "Bits",
       "OBJECT-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
-      "MibIdentifier",
       "Integer32",
-      "IpAddress",
       "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TruthValue",
-      "RowStatus",
-      "StorageType",
-      "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TimeStamp",
+      "StorageType",
+      "RowPointer",
       "MacAddress"
     ]
   },
@@ -14463,8 +14463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-MPLS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Apr 12 00:25:56 2024",
-      "On host fv-az975-788 platform Linux version 6.5.0-1017-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Apr 22 02:10:38 2024",
+      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-MPLS-MIB"
