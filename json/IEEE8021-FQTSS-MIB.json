@@ -5,41 +5,41 @@
       "BridgeId"
     ],
     "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePortEntry",
       "ieee8021BridgeBasePort",
       "ieee8021BridgeBaseEntry",
-      "ieee8021BridgeBaseComponentId",
-      "ieee8021BridgeBasePortEntry"
+      "ieee8021BridgeBaseComponentId"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs",
       "IEEE8021PriorityValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
+      "MibIdentifier",
       "Gauge32",
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Bits",
-      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ieee8021FqtssMib": {
@@ -638,8 +638,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-FQTSS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:08:25 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:34:06 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-FQTSS-MIB"

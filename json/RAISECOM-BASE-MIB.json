@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Bits",
-      "enterprises",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "enterprises",
+      "Counter32",
+      "IpAddress",
       "Integer32",
+      "Gauge32",
+      "MibIdentifier",
       "Counter64",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "raisecom": {
@@ -210,8 +210,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:17:29 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:43:12 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RAISECOM-BASE-MIB"

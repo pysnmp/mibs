@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
+      "fortinet",
       "FnIndex",
-      "fnGenTrapMsg",
-      "fortinet"
+      "fnGenTrapMsg"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Bits",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -793,8 +793,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIAUTHENTICATOR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:12:56 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:38:38 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTIAUTHENTICATOR-MIB"

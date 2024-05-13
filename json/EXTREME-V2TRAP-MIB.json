@@ -10,13 +10,13 @@
     ],
     "EXTREME-EAPS-MIB": [
       "extremeEapsName",
+      "extremeEapsPrevState",
       "extremeEapsState",
-      "extremeEapsMode",
-      "extremeEapsPrevState"
+      "extremeEapsMode"
     ],
     "EXTREME-ESRP-MIB": [
-      "extremeEsrpState",
-      "extremeEsrpGroup"
+      "extremeEsrpGroup",
+      "extremeEsrpState"
     ],
     "EXTREME-NP-MIB": [
       "extremeNPModuleProcessorState"
@@ -29,15 +29,15 @@
       "extremeIQosProfileIndex"
     ],
     "EXTREME-SYSTEM-MIB": [
-      "extremeCpuAggregateUtilization",
-      "extremeCpuTaskUtilPair",
-      "extremeMsmFailoverCause",
-      "extremeCpuUtilRisingThreshold",
-      "extremeHealthCheckAction",
       "extremeMasterMSMSlot",
+      "extremeCpuUtilRisingThreshold",
       "extremeHealthCheckMaxRetries",
+      "extremeCpuAggregateUtilization",
+      "extremeMsmFailoverCause",
+      "extremeCpuTaskUtilPair",
+      "extremeSlotNumber",
       "extremeHealthCheckErrorType",
-      "extremeSlotNumber"
+      "extremeHealthCheckAction"
     ],
     "EXTREME-VLAN-MIB": [
       "extremeVlanIfIndex",
@@ -56,25 +56,25 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Gauge32",
       "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Counter64",
       "Bits",
+      "Gauge32",
+      "MibIdentifier",
       "iso",
       "OBJECT-IDENTITY",
-      "Counter64",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TimeStamp",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "extremeCoreSCTraps": {
@@ -1045,8 +1045,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:12:48 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:38:29 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "EXTREME-V2TRAP-MIB"

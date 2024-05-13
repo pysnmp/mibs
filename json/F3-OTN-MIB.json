@@ -21,26 +21,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "iso",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "VariablePointer",
+      "DisplayString"
     ]
   },
   "f3OtnMIB": {
@@ -1073,8 +1073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-OTN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:09:38 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:35:20 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "F3-OTN-MIB"

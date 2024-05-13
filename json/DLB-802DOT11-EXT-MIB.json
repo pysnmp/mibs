@@ -5,9 +5,9 @@
       "dlbMgmt"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
-      "ifPhysAddress"
+      "ifPhysAddress",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -17,25 +17,25 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "Counter32",
-      "Integer32",
       "IpAddress",
-      "iso",
-      "MibIdentifier",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress"
     ]
   },
@@ -639,8 +639,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/deliberant/DLB-802DOT11-EXT-MIB.mib",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:11:20 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:37:01 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DLB-802DOT11-EXT-MIB"

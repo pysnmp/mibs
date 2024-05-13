@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dBridge",
+      "dot1dStpPortEntry",
       "dot1dStp",
-      "dot1dStpPortEntry"
+      "dot1dBridge"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -12,20 +12,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "Integer32"
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -318,8 +318,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/RSTP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:08:21 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:34:03 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "RSTP-MIB"

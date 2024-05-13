@@ -9,28 +9,28 @@
       "hh3clswCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Counter64",
       "Gauge32",
       "IpAddress",
+      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
       "iso",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1478,8 +1478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-MSTP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:11:07 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:36:50 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "HH3C-LswMSTP-MIB"

@@ -6,36 +6,36 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "zeroDotZero",
-      "mib-2",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "Integer32",
+      "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "zeroDotZero",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "dismanExpressionMIB": {
@@ -995,8 +995,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC2982-MIB",
-      "Produced by pysmi-1.1.12 at Mon Apr 22 02:08:43 2024",
-      "On host fv-az569-486 platform Linux version 6.5.0-1018-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon May 13 02:34:25 2024",
+      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
       "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
     ],
     "module": "DISMAN-EXPRESSION-MIB"
