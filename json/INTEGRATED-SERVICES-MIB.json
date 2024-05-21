@@ -7,33 +7,33 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "mib-2",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
       "RowStatus",
       "TruthValue",
-      "DisplayString",
-      "TestAndIncr",
-      "TimeInterval"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "intSrv": {
@@ -870,9 +870,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/INTEGRATED-SERVICES-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:41:36 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:57:59 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "INTEGRATED-SERVICES-MIB"
   }

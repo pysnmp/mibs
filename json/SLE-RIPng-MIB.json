@@ -12,25 +12,25 @@
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Bits",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
       "MODULE-IDENTITY",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5252,9 +5252,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-RIPng-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:37:18 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:54:43 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-RIPng-MIB"
   }

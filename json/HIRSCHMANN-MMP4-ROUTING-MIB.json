@@ -12,31 +12,31 @@
       "rip2IfConfEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Integer32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
       "Unsigned32",
+      "Gauge32",
       "iso",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
+      "MibIdentifier",
       "Bits",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "hmPlatform4Routing": {
@@ -2862,9 +2862,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4Routing.mib",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:39:14 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:56:41 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HIRSCHMANN-MMP4-ROUTING-MIB"
   }

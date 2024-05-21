@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "Bits",
+      "iso",
       "Counter32",
       "Gauge32",
+      "Integer32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "avtech": {
@@ -654,9 +654,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/TEMPAGER-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:35:36 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:53:00 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TEMPAGER-MIB"
   }

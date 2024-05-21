@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CIENA-SMI": [
-      "cienaCesNotifications",
-      "cienaCesConfig"
+      "cienaCesConfig",
+      "cienaCesNotifications"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
@@ -18,19 +18,19 @@
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
       "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
       "Integer32",
-      "Counter32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -358,9 +358,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-SYSLOG-COLLECTOR-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:36:20 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:53:45 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-SYSLOG-COLLECTOR-MIB"
   }

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NBS-STATS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-STATS-MIB
-# Produced by pysmi-1.1.12 at Mon May 13 02:41:28 2024
-# On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner
-# Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue May 21 06:58:57 2024
+# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Bits, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, TimeTicks, IpAddress, Counter64, MibIdentifier, ObjectIdentity, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "TimeTicks", "IpAddress", "Counter64", "MibIdentifier", "ObjectIdentity", "iso", "Integer32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, MibIdentifier, TimeTicks, Counter64, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ObjectIdentity, Unsigned32, NotificationType, iso, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "TimeTicks", "Counter64", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ObjectIdentity", "Unsigned32", "NotificationType", "iso", "Counter32", "IpAddress")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsStatsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 233))
 if mibBuilder.loadTexts: nbsStatsMib.setLastUpdated('201303130000Z')
@@ -36,4 +36,4 @@ if mibBuilder.loadTexts: nbsStatInfoCounters.setDescription('Used to clear all e
 nbsStatInfoPmData = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 233, 1, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("counting", 2), ("clearing", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsStatInfoPmData.setStatus('current')
 if mibBuilder.loadTexts: nbsStatInfoPmData.setDescription('Used to clear all entity-specific performance monitoring (PM) data\n        to zero. Examples include: nbsFecpmCurrentTable, nbsFecpmHistoricTable,\n        nbsFecpmRunningTable, nbsOtnpmCurrentTable, nbsOtnpmHistoricTable, and\n        nbsOtnpmRunningTable.')
-mibBuilder.exportSymbols("NBS-STATS-MIB", nbsStatInfoIndex=nbsStatInfoIndex, nbsStatInfoEntry=nbsStatInfoEntry, nbsStatInfoGrp=nbsStatInfoGrp, nbsStatInfoTable=nbsStatInfoTable, nbsStatsMib=nbsStatsMib, PYSNMP_MODULE_ID=nbsStatsMib, nbsStatInfoPmData=nbsStatInfoPmData, nbsStatInfoCounters=nbsStatInfoCounters)
+mibBuilder.exportSymbols("NBS-STATS-MIB", nbsStatsMib=nbsStatsMib, PYSNMP_MODULE_ID=nbsStatsMib, nbsStatInfoEntry=nbsStatInfoEntry, nbsStatInfoGrp=nbsStatInfoGrp, nbsStatInfoCounters=nbsStatInfoCounters, nbsStatInfoTable=nbsStatInfoTable, nbsStatInfoIndex=nbsStatInfoIndex, nbsStatInfoPmData=nbsStatInfoPmData)

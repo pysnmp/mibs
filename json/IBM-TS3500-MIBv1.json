@@ -9,22 +9,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
       "Counter64",
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "iso",
       "MibIdentifier",
       "enterprises",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -6209,9 +6209,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-TS3500-MIBv1",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:40:20 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:57:50 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IBM-TS3500-MIBv1"
   }

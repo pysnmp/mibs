@@ -5,51 +5,51 @@
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList1",
       "VlanList3",
-      "VlanList4",
-      "VlanList2"
+      "VlanList2",
+      "VlanList1",
+      "VlanList4"
     ],
     "LINKSYS-MIB": [
+      "VlanPriority",
       "rnd",
-      "Percents",
-      "VlanPriority"
+      "Percents"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "zeroDotZero",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "zeroDotZero",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowPointer",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString",
+      "RowStatus",
+      "RowPointer",
+      "TruthValue"
     ]
   },
   "InterfaceType": {
@@ -5400,9 +5400,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:41:13 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:58:42 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-POLICY-MIB"
   }

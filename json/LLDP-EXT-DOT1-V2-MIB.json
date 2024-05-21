@@ -8,13 +8,13 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2RemIndex",
-      "lldpV2LocPortIfIndex",
       "lldpV2RemLocalIfIndex",
-      "lldpV2Extensions",
+      "lldpV2LocPortIfIndex",
       "lldpV2RemTimeMark",
+      "lldpV2RemIndex",
       "lldpV2PortConfigEntry",
-      "lldpV2RemLocalDestMACAddress"
+      "lldpV2RemLocalDestMACAddress",
+      "lldpV2Extensions"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -29,24 +29,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "MibIdentifier",
-      "Gauge32",
       "iso",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Bits",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "TimeTicks"
+      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lldpV2Xdot1MIB": {
@@ -4341,9 +4341,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-V2-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:34:06 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:51:29 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-V2-MIB"
   }

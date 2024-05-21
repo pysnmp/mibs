@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "Bits",
+      "enterprises",
       "Unsigned32",
-      "IpAddress",
-      "Counter32",
-      "Bits"
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -50,9 +50,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-TREE-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:43:37 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 07:01:08 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-TREE-MIB"
   }

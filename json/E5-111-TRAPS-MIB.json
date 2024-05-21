@@ -12,28 +12,28 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Bits",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Gauge32",
       "TimeTicks",
-      "iso",
+      "Counter32",
       "IpAddress",
-      "Unsigned32"
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "trap": {
@@ -1053,9 +1053,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-TRAPS-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:36:00 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:53:25 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "E5-111-TRAPS-MIB"
   }

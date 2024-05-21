@@ -5,30 +5,30 @@
       "garderos"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
       "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "router": {
@@ -1505,9 +1505,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/garderos/GARDEROS-ROUTER-MIB",
-      "Produced by pysmi-1.1.12 at Mon May 13 02:38:45 2024",
-      "On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner",
-      "Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue May 21 06:56:12 2024",
+      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "GARDEROS-ROUTER-MIB"
   }

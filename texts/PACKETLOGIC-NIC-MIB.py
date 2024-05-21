@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PACKETLOGIC-NIC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-NIC-MIB
-# Produced by pysmi-1.1.12 at Mon May 13 02:42:52 2024
-# On host fv-az774-224 platform Linux version 6.5.0-1018-azure by user runner
-# Using Python version 3.10.14 (main, Mar 20 2024, 15:15:25) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue May 21 07:00:20 2024
+# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, Integer32, Counter64, ObjectIdentity, IpAddress, iso, TimeTicks, Counter32, MibIdentifier, Bits, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "Integer32", "Counter64", "ObjectIdentity", "IpAddress", "iso", "TimeTicks", "Counter32", "MibIdentifier", "Bits", "NotificationType", "ModuleIdentity")
+MibIdentifier, ModuleIdentity, Unsigned32, ObjectIdentity, iso, IpAddress, Counter64, NotificationType, TimeTicks, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "Unsigned32", "ObjectIdentity", "iso", "IpAddress", "Counter64", "NotificationType", "TimeTicks", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits")
 DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 nic = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 2))
 nic.setRevisions(('2019-09-12 15:00',))
@@ -77,4 +77,4 @@ if mibBuilder.loadTexts: channelSlot.setDescription('Slot Label')
 totalThroughput = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 2, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: totalThroughput.setStatus('current')
 if mibBuilder.loadTexts: totalThroughput.setDescription('Total potential throughput based on capacity of installed NICs (Gb/s)')
-mibBuilder.exportSymbols("PACKETLOGIC-NIC-MIB", channelSlot=channelSlot, slotEntryIndex=slotEntryIndex, slotLabel=slotLabel, slotState=slotState, slotEntry=slotEntry, totalThroughput=totalThroughput, slotPartNo=slotPartNo, slotChannels=slotChannels, slotSpeed=slotSpeed, slotPorts=slotPorts, channels=channels, PYSNMP_MODULE_ID=nic, slotInterface=slotInterface, slotBypass=slotBypass, channelEntryIndex=channelEntryIndex, channelEntry=channelEntry, slots=slots, nic=nic, channelLabel=channelLabel, channelLocation=channelLocation)
+mibBuilder.exportSymbols("PACKETLOGIC-NIC-MIB", slotEntry=slotEntry, channelLabel=channelLabel, slotPartNo=slotPartNo, channelSlot=channelSlot, slots=slots, channelEntry=channelEntry, slotBypass=slotBypass, totalThroughput=totalThroughput, slotPorts=slotPorts, slotInterface=slotInterface, slotEntryIndex=slotEntryIndex, PYSNMP_MODULE_ID=nic, slotChannels=slotChannels, slotSpeed=slotSpeed, slotLabel=slotLabel, nic=nic, channelLocation=channelLocation, channelEntryIndex=channelEntryIndex, slotState=slotState, channels=channels)
