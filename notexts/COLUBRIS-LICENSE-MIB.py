@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module COLUBRIS-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-LICENSE-MIB.my
-# Produced by pysmi-1.1.12 at Tue May 21 06:56:39 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:47:54 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Unsigned32, TimeTicks, IpAddress, MibIdentifier, Integer32, Gauge32, iso, Bits, Counter32, NotificationType, Counter64, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "IpAddress", "MibIdentifier", "Integer32", "Gauge32", "iso", "Bits", "Counter32", "NotificationType", "Counter64", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter64, Integer32, Bits, Counter32, Gauge32, Unsigned32, MibIdentifier, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, ModuleIdentity, iso, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "Bits", "Counter32", "Gauge32", "Unsigned32", "MibIdentifier", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "ModuleIdentity", "iso", "IpAddress", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 colubrisLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 29))
 if mibBuilder.loadTexts: colubrisLicenseMIB.setLastUpdated('200606070000Z')
@@ -41,4 +41,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 colubrisLicenseMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 29, 2, 2, 1)).setObjects(("COLUBRIS-LICENSE-MIB", "coLicenseFeatureName"), ("COLUBRIS-LICENSE-MIB", "coLicenseFeatureState"), ("COLUBRIS-LICENSE-MIB", "coLicenseFeatureEndingDate"), ("COLUBRIS-LICENSE-MIB", "coLicenseFeatureRemainingDays"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisLicenseMIBGroup = colubrisLicenseMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("COLUBRIS-LICENSE-MIB", colubrisLicenseMIBCompliances=colubrisLicenseMIBCompliances, colubrisLicenseMIBCompliance=colubrisLicenseMIBCompliance, coLicenseFeatureEntry=coLicenseFeatureEntry, coLicenseFeatureIndex=coLicenseFeatureIndex, PYSNMP_MODULE_ID=colubrisLicenseMIB, coLicenseFeatureState=coLicenseFeatureState, colubrisLicenseMIB=colubrisLicenseMIB, coLicenseFeatureEndingDate=coLicenseFeatureEndingDate, coLicenseFeatureName=coLicenseFeatureName, colubrisLicenseMIBConformance=colubrisLicenseMIBConformance, coLicenseGroup=coLicenseGroup, colubrisLicenseMIBObjects=colubrisLicenseMIBObjects, colubrisLicenseMIBGroups=colubrisLicenseMIBGroups, coLicenseFeatureTable=coLicenseFeatureTable, colubrisLicenseMIBGroup=colubrisLicenseMIBGroup, coLicenseFeatureRemainingDays=coLicenseFeatureRemainingDays)
+mibBuilder.exportSymbols("COLUBRIS-LICENSE-MIB", colubrisLicenseMIB=colubrisLicenseMIB, colubrisLicenseMIBGroups=colubrisLicenseMIBGroups, colubrisLicenseMIBCompliance=colubrisLicenseMIBCompliance, PYSNMP_MODULE_ID=colubrisLicenseMIB, coLicenseGroup=coLicenseGroup, colubrisLicenseMIBCompliances=colubrisLicenseMIBCompliances, coLicenseFeatureRemainingDays=coLicenseFeatureRemainingDays, colubrisLicenseMIBConformance=colubrisLicenseMIBConformance, coLicenseFeatureIndex=coLicenseFeatureIndex, coLicenseFeatureEndingDate=coLicenseFeatureEndingDate, colubrisLicenseMIBObjects=colubrisLicenseMIBObjects, coLicenseFeatureEntry=coLicenseFeatureEntry, coLicenseFeatureTable=coLicenseFeatureTable, colubrisLicenseMIBGroup=colubrisLicenseMIBGroup, coLicenseFeatureState=coLicenseFeatureState, coLicenseFeatureName=coLicenseFeatureName)

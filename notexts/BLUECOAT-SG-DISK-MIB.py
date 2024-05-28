@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-DISK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-DISK-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:53:08 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:44:25 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, Bits, ObjectIdentity, NotificationType, Counter64, MibIdentifier, Counter32, ModuleIdentity, Gauge32, IpAddress, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "Bits", "ObjectIdentity", "NotificationType", "Counter64", "MibIdentifier", "Counter32", "ModuleIdentity", "Gauge32", "IpAddress", "iso", "Unsigned32")
-TextualConvention, TruthValue, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString", "TimeStamp")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Counter64, Bits, Counter32, Unsigned32, IpAddress, Integer32, Gauge32, TimeTicks, NotificationType, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Bits", "Counter32", "Unsigned32", "IpAddress", "Integer32", "Gauge32", "TimeTicks", "NotificationType", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
+TextualConvention, TimeStamp, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "TruthValue", "DisplayString")
 deviceDiskMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 2))
 deviceDiskMIB.setRevisions(('2013-07-11 03:00', '2007-11-05 03:00', '2002-11-06 03:00',))
 if mibBuilder.loadTexts: deviceDiskMIB.setLastUpdated('201307110300Z')
@@ -51,4 +51,4 @@ deviceDiskBlockCount = MibTableColumn((1, 3, 6, 1, 4, 1, 3417, 2, 2, 1, 1, 1, 1,
 if mibBuilder.loadTexts: deviceDiskBlockCount.setStatus('current')
 deviceDiskTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 2, 2, 0, 1)).setObjects(("BLUECOAT-SG-DISK-MIB", "deviceDiskStatus"))
 if mibBuilder.loadTexts: deviceDiskTrap.setStatus('current')
-mibBuilder.exportSymbols("BLUECOAT-SG-DISK-MIB", deviceDiskBlockSize=deviceDiskBlockSize, deviceDiskSerialN=deviceDiskSerialN, deviceDiskTrapEnabled=deviceDiskTrapEnabled, deviceDiskMIBNotifications=deviceDiskMIBNotifications, deviceDiskVendor=deviceDiskVendor, deviceDiskMIB=deviceDiskMIB, DiskStatus=DiskStatus, PYSNMP_MODULE_ID=deviceDiskMIB, deviceDiskProduct=deviceDiskProduct, deviceDiskBlockCount=deviceDiskBlockCount, deviceDiskTrap=deviceDiskTrap, deviceDiskMIBObjects=deviceDiskMIBObjects, deviceDiskIndex=deviceDiskIndex, deviceDiskTimeStamp=deviceDiskTimeStamp, deviceDiskStatus=deviceDiskStatus, deviceDiskMIBNotificationsPrefix=deviceDiskMIBNotificationsPrefix, deviceDiskValueEntry=deviceDiskValueEntry, deviceDiskValues=deviceDiskValues, deviceDiskRevision=deviceDiskRevision, deviceDiskValueTable=deviceDiskValueTable)
+mibBuilder.exportSymbols("BLUECOAT-SG-DISK-MIB", DiskStatus=DiskStatus, deviceDiskVendor=deviceDiskVendor, PYSNMP_MODULE_ID=deviceDiskMIB, deviceDiskValueEntry=deviceDiskValueEntry, deviceDiskStatus=deviceDiskStatus, deviceDiskTimeStamp=deviceDiskTimeStamp, deviceDiskValueTable=deviceDiskValueTable, deviceDiskMIBObjects=deviceDiskMIBObjects, deviceDiskProduct=deviceDiskProduct, deviceDiskIndex=deviceDiskIndex, deviceDiskBlockSize=deviceDiskBlockSize, deviceDiskRevision=deviceDiskRevision, deviceDiskTrapEnabled=deviceDiskTrapEnabled, deviceDiskSerialN=deviceDiskSerialN, deviceDiskTrap=deviceDiskTrap, deviceDiskMIBNotifications=deviceDiskMIBNotifications, deviceDiskBlockCount=deviceDiskBlockCount, deviceDiskValues=deviceDiskValues, deviceDiskMIBNotificationsPrefix=deviceDiskMIBNotificationsPrefix, deviceDiskMIB=deviceDiskMIB)

@@ -9,20 +9,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "iso",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
       "Bits",
       "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "TimeTicks",
       "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -17242,8 +17242,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-ENTITY-VENDORTYPE-OID-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:54:13 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:45:29 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-ENTITY-VENDORTYPE-OID-MIB"

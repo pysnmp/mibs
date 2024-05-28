@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BENU-VLAN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-VLAN-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:53:03 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:44:19 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 benuWAG, = mibBuilder.importSymbols("BENU-WAG-MIB", "benuWAG")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
 snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ModuleIdentity, Counter32, MibIdentifier, Integer32, Gauge32, Unsigned32, IpAddress, ObjectIdentity, Bits, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ModuleIdentity", "Counter32", "MibIdentifier", "Integer32", "Gauge32", "Unsigned32", "IpAddress", "ObjectIdentity", "Bits", "NotificationType", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+TimeTicks, ModuleIdentity, Gauge32, Unsigned32, Counter32, ObjectIdentity, NotificationType, iso, MibIdentifier, Integer32, Counter64, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "Gauge32", "Unsigned32", "Counter32", "ObjectIdentity", "NotificationType", "iso", "MibIdentifier", "Integer32", "Counter64", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bVLANMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8))
 bVLANMIB.setRevisions(('2015-05-07 00:00', '2015-04-14 00:00', '2015-01-06 00:00', '2014-11-17 00:00', '2014-08-04 00:00', '2014-06-24 00:00', '2014-05-31 00:00',))
 if mibBuilder.loadTexts: bVLANMIB.setLastUpdated('201505070000Z')
@@ -93,4 +93,4 @@ bVlanCreate = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 3)).setObje
 if mibBuilder.loadTexts: bVlanCreate.setStatus('current')
 bVlanDelete = NotificationType((1, 3, 6, 1, 4, 1, 39406, 2, 1, 8, 0, 4)).setObjects(("BENU-VLAN-MIB", "bVlanPortId"), ("BENU-VLAN-MIB", "bVlanId"))
 if mibBuilder.loadTexts: bVlanDelete.setStatus('current')
-mibBuilder.exportSymbols("BENU-VLAN-MIB", bVlanMTU=bVlanMTU, bVLANMIBObjects=bVLANMIBObjects, bVlanDelete=bVlanDelete, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanCreate=bVlanCreate, bWagVlanStatsIndex=bWagVlanStatsIndex, bWagVlanStatsEntry=bWagVlanStatsEntry, PYSNMP_MODULE_ID=bVLANMIB, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bVlanAssocSub=bVlanAssocSub, bWagVlanIndex=bWagVlanIndex, bVlanCurrentNumber=bVlanCurrentNumber, bVlanOperStatus=bVlanOperStatus, bVlanTotal=bVlanTotal, bVlanEncapName=bVlanEncapName, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bVlanPortId=bVlanPortId, bVLANNotifObjects=bVLANNotifObjects, bVlanEntry=bVlanEntry, bVlanActive=bVlanActive, bVlanId=bVlanId, bWagVlanStatsTable=bWagVlanStatsTable, bVlanName=bVlanName, bVlanEncapEnable=bVlanEncapEnable, bVLANNotifVariables=bVLANNotifVariables, bVlanPortEntry=bVlanPortEntry, bVlanPortIndex=bVlanPortIndex, bVLANMIB=bVLANMIB, bVlanPortTable=bVlanPortTable, bWagVlanEntry=bWagVlanEntry, bVlanEncapDisable=bVlanEncapDisable, bVlanIndex=bVlanIndex, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanPerPortIndex=bVlanPerPortIndex, bWagVlanTable=bWagVlanTable, bWagVlanPortIndex=bWagVlanPortIndex, bVlanAdminStatus=bVlanAdminStatus, bVlanTable=bVlanTable, bWagVlanSubscriberCount=bWagVlanSubscriberCount)
+mibBuilder.exportSymbols("BENU-VLAN-MIB", bVLANMIBObjects=bVLANMIBObjects, bWagVlanStatsTable=bWagVlanStatsTable, bWagVlanTotalBytesSent=bWagVlanTotalBytesSent, bVlanTotal=bVlanTotal, bWagVlanIndex=bWagVlanIndex, bWagVlanTotalBytesRcvd=bWagVlanTotalBytesRcvd, bVLANNotifObjects=bVLANNotifObjects, bWagVlanPortIndex=bWagVlanPortIndex, bVlanCreate=bVlanCreate, bVlanMTU=bVlanMTU, bVlanAdminStatus=bVlanAdminStatus, bVlanPerPortIndex=bVlanPerPortIndex, bVlanName=bVlanName, bVlanDelete=bVlanDelete, bVlanOperStatus=bVlanOperStatus, bWagVlanSubscriberCount=bWagVlanSubscriberCount, bWagVlanTotalPktsRcvd=bWagVlanTotalPktsRcvd, bVlanActive=bVlanActive, bVlanPortTable=bVlanPortTable, bVlanPortEntry=bVlanPortEntry, bWagVlanStatsPortIndex=bWagVlanStatsPortIndex, bVlanEncapEnable=bVlanEncapEnable, bVlanEntry=bVlanEntry, bVLANMIB=bVLANMIB, bVlanId=bVlanId, bWagVlanEntry=bWagVlanEntry, bVlanIndex=bVlanIndex, bWagVlanTable=bWagVlanTable, PYSNMP_MODULE_ID=bVLANMIB, bVlanCurrentNumber=bVlanCurrentNumber, bVlanPortId=bVlanPortId, bVlanAssocSub=bVlanAssocSub, bVlanEncapName=bVlanEncapName, bWagVlanTotalPktsSent=bWagVlanTotalPktsSent, bVlanTable=bVlanTable, bWagVlanStatsEntry=bWagVlanStatsEntry, bWagVlanStatsIndex=bWagVlanStatsIndex, bVlanEncapDisable=bVlanEncapDisable, bVlanPortIndex=bVlanPortIndex, bVLANNotifVariables=bVLANNotifVariables)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SILVERPEAK-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/silverpeak/SILVERPEAK-SMI
-# Produced by pysmi-1.1.12 at Tue May 21 07:01:07 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:52:23 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, IpAddress, MibIdentifier, Integer32, Unsigned32, ModuleIdentity, enterprises, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, NotificationType, iso, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "MibIdentifier", "Integer32", "Unsigned32", "ModuleIdentity", "enterprises", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "NotificationType", "iso", "Counter64", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, TimeTicks, Gauge32, Unsigned32, Counter64, MibIdentifier, NotificationType, Counter32, ModuleIdentity, iso, ObjectIdentity, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "TimeTicks", "Gauge32", "Unsigned32", "Counter64", "MibIdentifier", "NotificationType", "Counter32", "ModuleIdentity", "iso", "ObjectIdentity", "IpAddress", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 silverpeakNW = ModuleIdentity((1, 3, 6, 1, 4, 1, 23867))
 if mibBuilder.loadTexts: silverpeakNW.setLastUpdated('201101240000Z')
 if mibBuilder.loadTexts: silverpeakNW.setOrganization('Silver Peak Systems, Inc.')
@@ -31,4 +31,4 @@ if mibBuilder.loadTexts: silverpeakNotifications.setDescription('silverpeakNotif
 silverpeakAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 23867, 5))
 if mibBuilder.loadTexts: silverpeakAgentCapability.setStatus('current')
 if mibBuilder.loadTexts: silverpeakAgentCapability.setDescription('silverpeakAgentCapability provides a root object identifier\n        from which AGENT-CAPABILITIES values may be assigned.')
-mibBuilder.exportSymbols("SILVERPEAK-SMI", PYSNMP_MODULE_ID=silverpeakNW, silverpeakNotifications=silverpeakNotifications, silverpeakMgmt=silverpeakMgmt, silverpeakProducts=silverpeakProducts, silverpeakModules=silverpeakModules, silverpeakAgentCapability=silverpeakAgentCapability, silverpeakNW=silverpeakNW)
+mibBuilder.exportSymbols("SILVERPEAK-SMI", silverpeakNW=silverpeakNW, silverpeakMgmt=silverpeakMgmt, silverpeakProducts=silverpeakProducts, PYSNMP_MODULE_ID=silverpeakNW, silverpeakNotifications=silverpeakNotifications, silverpeakAgentCapability=silverpeakAgentCapability, silverpeakModules=silverpeakModules)

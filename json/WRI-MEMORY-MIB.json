@@ -6,30 +6,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "enterprises",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
       "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "TimeTicks",
+      "enterprises",
+      "Counter32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ],
     "WRI-SMI": [
-      "wriProducts",
-      "wri"
+      "wri",
+      "wriProducts"
     ]
   },
   "msppMemory": {
@@ -512,8 +512,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-MEMORY-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:55:49 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:47:05 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WRI-MEMORY-MIB"

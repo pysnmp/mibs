@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 07:01:52 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:53:08 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Integer32, NotificationType, Counter32, Gauge32, IpAddress, MibIdentifier, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, ModuleIdentity, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "Counter32", "Gauge32", "IpAddress", "MibIdentifier", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "ModuleIdentity", "ObjectIdentity", "Counter64")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, iso, Integer32, Counter32, Counter64, NotificationType, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, ObjectIdentity, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "Integer32", "Counter32", "Counter64", "NotificationType", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "ObjectIdentity", "TimeTicks", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwSystem, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwSystem")
 vmwSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 1, 10))
@@ -48,4 +48,4 @@ vmwSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 1, 10, 2, 2, 1)).setObject
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwSystemGroup = vmwSystemGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwSystemGroup.setDescription('These objects uniquely identifies a given VMware system software image.')
-mibBuilder.exportSymbols("VMWARE-SYSTEM-MIB", vmwProdVersion=vmwProdVersion, vmwProdPatch=vmwProdPatch, vmwProdUpdate=vmwProdUpdate, vmwSystemGroup=vmwSystemGroup, vmwProdName=vmwProdName, vmwProdBuild=vmwProdBuild, vmwSysMIBBasicCompliance=vmwSysMIBBasicCompliance, vmwSysMIBGroups=vmwSysMIBGroups, vmwSystemMIB=vmwSystemMIB, PYSNMP_MODULE_ID=vmwSystemMIB, vmwSystemMIBConformance=vmwSystemMIBConformance, vmwSystemMIBCompliances=vmwSystemMIBCompliances)
+mibBuilder.exportSymbols("VMWARE-SYSTEM-MIB", vmwSystemGroup=vmwSystemGroup, vmwProdPatch=vmwProdPatch, vmwSystemMIB=vmwSystemMIB, vmwSystemMIBConformance=vmwSystemMIBConformance, vmwSysMIBGroups=vmwSysMIBGroups, vmwProdUpdate=vmwProdUpdate, vmwProdName=vmwProdName, vmwSysMIBBasicCompliance=vmwSysMIBBasicCompliance, PYSNMP_MODULE_ID=vmwSystemMIB, vmwSystemMIBCompliances=vmwSystemMIBCompliances, vmwProdBuild=vmwProdBuild, vmwProdVersion=vmwProdVersion)

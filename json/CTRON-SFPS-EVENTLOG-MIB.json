@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsEventLogClientConfig",
-      "sfpsFragStats",
-      "sfpsTrapAPI",
-      "sfpsEventLogStats",
-      "sfpsTrapTable",
       "sfpsEventLogClientConfigAPI",
-      "sfpsEventLogGenConfig"
+      "sfpsTrapAPI",
+      "sfpsTrapTable",
+      "sfpsEventLogStats",
+      "sfpsEventLogGenConfig",
+      "sfpsEventLogClientConfig",
+      "sfpsFragStats"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
-      "iso",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
       "Bits",
-      "TimeTicks"
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "SfpsSwitchInstance": {
@@ -1001,8 +1001,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-EVENTLOG-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:55:40 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:46:55 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-EVENTLOG-MIB"

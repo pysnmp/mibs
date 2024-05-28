@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "Timeout",
       "dot1dStpPort",
-      "dot1dBasePort",
-      "BridgeId"
+      "BridgeId",
+      "Timeout",
+      "dot1dBasePort"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -21,30 +21,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "Gauge32",
       "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
       "Counter32",
       "Bits",
-      "IpAddress",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter64",
-      "iso"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "VlanList1": {
@@ -2573,8 +2573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-BRIDGEMIBOBJECTS-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:58:42 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:49:58 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-BRIDGEMIBOBJECTS-MIB"

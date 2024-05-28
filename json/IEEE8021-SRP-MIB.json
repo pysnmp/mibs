@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePortEntry",
       "ieee8021BridgeBasePort",
+      "ieee8021BridgeBaseEntry",
       "ieee8021BridgeBaseComponentId",
-      "ieee8021BridgeBaseEntry"
+      "ieee8021BridgeBasePortEntry"
     ],
     "IEEE8021-FQTSS-MIB": [
       "IEEE8021FqtssTrafficClassValue"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs",
-      "IEEE8021VlanIndex",
-      "IEEE8021PriorityCodePoint"
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
+      "Bits",
       "IpAddress",
+      "Counter64",
+      "Gauge32",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ieee8021SrpMib": {
@@ -1214,8 +1214,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SRP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:51:29 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:42:46 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SRP-MIB"

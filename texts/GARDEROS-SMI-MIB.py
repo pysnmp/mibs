@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module GARDEROS-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/garderos/GARDEROS-SMI-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:56:11 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:47:26 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, iso, Gauge32, Integer32, Unsigned32, TimeTicks, IpAddress, NotificationType, ModuleIdentity, Bits, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "iso", "Gauge32", "Integer32", "Unsigned32", "TimeTicks", "IpAddress", "NotificationType", "ModuleIdentity", "Bits", "ObjectIdentity", "Counter64")
+ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, Integer32, enterprises, TimeTicks, iso, MibIdentifier, Bits, Unsigned32, ModuleIdentity, NotificationType, Counter32, ObjectIdentity, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "enterprises", "TimeTicks", "iso", "MibIdentifier", "Bits", "Unsigned32", "ModuleIdentity", "NotificationType", "Counter32", "ObjectIdentity", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 garderos = ModuleIdentity((1, 3, 6, 1, 4, 1, 16108))
 garderos.setRevisions(('2016-02-02 16:12',))
@@ -20,4 +20,4 @@ if mibBuilder.loadTexts: garderos.setLastUpdated('201602021612Z')
 if mibBuilder.loadTexts: garderos.setOrganization('Garderos GmbH')
 if mibBuilder.loadTexts: garderos.setContactInfo('Garderos GmbH\n                Balanstr. 55, D-81541 Muenchen, Germany\n                Tel. +49 (0)89/189 306-0, Fax +49 (0)89/189 306-98\n                http://www.garderos.com\n                Sitz und Registergericht Muenchen. Geschaeftsfuehrer: Hermann Knauer, Dr. Walter Hinder.\n                HRB 141001')
 if mibBuilder.loadTexts: garderos.setDescription('Garderos SMI definition.')
-mibBuilder.exportSymbols("GARDEROS-SMI-MIB", PYSNMP_MODULE_ID=garderos, garderos=garderos)
+mibBuilder.exportSymbols("GARDEROS-SMI-MIB", garderos=garderos, PYSNMP_MODULE_ID=garderos)

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 07:01:21 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:52:37 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, ObjectIdentity, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, Unsigned32, ModuleIdentity, iso, Integer32, NotificationType, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ObjectIdentity", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "Unsigned32", "ModuleIdentity", "iso", "Integer32", "NotificationType", "Gauge32", "TimeTicks")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, TimeTicks, NotificationType, Bits, Counter32, IpAddress, ModuleIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, MibIdentifier, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "NotificationType", "Bits", "Counter32", "IpAddress", "ModuleIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "MibIdentifier", "ObjectIdentity", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: snsClone.setDescription("Firewall licence 'clone' token
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
 if mibBuilder.loadTexts: snsHADialup.setDescription("Firewall licence 'HA-dialup' token")
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbVlan=snsNbVlan, snsNbDialup=snsNbDialup, snsVersion=snsVersion, snsSystemLanguage=snsSystemLanguage, snsNbPPTP=snsNbPPTP, snsLed=snsLed, snsModel=snsModel, snsNbEther=snsNbEther, snsProductProperty=snsProductProperty, snsClone=snsClone, snsHADialup=snsHADialup, snsNbLoopback=snsNbLoopback, snsNbSerial=snsNbSerial, PYSNMP_MODULE_ID=snsProductProperty, snsSystemName=snsSystemName, snsWatchdog=snsWatchdog, snsSerialNumber=snsSerialNumber)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsNbEther=snsNbEther, snsNbVlan=snsNbVlan, snsSerialNumber=snsSerialNumber, snsModel=snsModel, snsNbLoopback=snsNbLoopback, snsLed=snsLed, snsNbDialup=snsNbDialup, snsSystemName=snsSystemName, snsSystemLanguage=snsSystemLanguage, snsNbPPTP=snsNbPPTP, snsNbSerial=snsNbSerial, PYSNMP_MODULE_ID=snsProductProperty, snsWatchdog=snsWatchdog, snsHADialup=snsHADialup, snsClone=snsClone, snsProductProperty=snsProductProperty, snsVersion=snsVersion)

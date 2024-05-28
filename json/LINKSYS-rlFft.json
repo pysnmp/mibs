@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "LINKSYS-MIB": [
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
       "TimeTicks",
-      "Counter32",
       "IpAddress",
+      "Unsigned32",
+      "Counter32",
       "Bits",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter64",
-      "iso"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "RowStatus",
       "TruthValue"
     ]
   },
@@ -2463,8 +2463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-rlFft",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:58:42 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:49:58 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-rlFft"

@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApDot11IfType",
-      "cLApRogueDetectedChannel",
-      "cLApDot11RadioMACAddress",
+      "cLApIfSmtDot11Bssid",
       "cLApRogueMode",
-      "cLApRogueApMacAddress",
-      "cLApDot11RadioChannelNumber",
       "cLApName",
-      "cLApIfSmtDot11Bssid"
+      "cLApDot11RadioMACAddress",
+      "cLApRogueApMacAddress",
+      "cLApDot11IfType",
+      "cLApDot11RadioChannelNumber",
+      "cLApRogueDetectedChannel"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
@@ -21,33 +21,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Counter32",
+      "IpAddress",
+      "Bits",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64"
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "MacAddress",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "ciscoLwappRogueMIB": {
@@ -2521,8 +2521,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:57:47 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:49:13 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-ROGUE-MIB"

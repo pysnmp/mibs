@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module PACKETFLUX-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetflux/PACKETFLUX-SMI
-# Produced by pysmi-1.1.12 at Tue May 21 06:59:38 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:50:53 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Integer32, MibIdentifier, iso, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, IpAddress, enterprises, ObjectIdentity, Counter32, Bits, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Integer32", "MibIdentifier", "iso", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "IpAddress", "enterprises", "ObjectIdentity", "Counter32", "Bits", "Gauge32", "Unsigned32")
+MibIdentifier, Unsigned32, ObjectIdentity, Counter64, iso, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, enterprises, ModuleIdentity, Counter32, IpAddress, TimeTicks, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Unsigned32", "ObjectIdentity", "Counter64", "iso", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "enterprises", "ModuleIdentity", "Counter32", "IpAddress", "TimeTicks", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 packetflux = ModuleIdentity((1, 3, 6, 1, 4, 1, 32050))
 packetflux.setRevisions(('2013-06-04 16:31', '2013-06-04 21:58',))
@@ -26,4 +26,4 @@ if mibBuilder.loadTexts: packetfluxProducts.setDescription('packetfluxProducts i
 packetfluxMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 32050, 2))
 if mibBuilder.loadTexts: packetfluxMgmt.setStatus('current')
 if mibBuilder.loadTexts: packetfluxMgmt.setDescription('This is the main subtree for all packetflux product\n                            management mibs.')
-mibBuilder.exportSymbols("PACKETFLUX-SMI", packetfluxMgmt=packetfluxMgmt, packetfluxProducts=packetfluxProducts, PYSNMP_MODULE_ID=packetflux, packetflux=packetflux)
+mibBuilder.exportSymbols("PACKETFLUX-SMI", packetfluxProducts=packetfluxProducts, packetflux=packetflux, packetfluxMgmt=packetfluxMgmt, PYSNMP_MODULE_ID=packetflux)

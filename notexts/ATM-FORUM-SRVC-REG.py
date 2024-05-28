@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ATM-FORUM-SRVC-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-SRVC-REG
-# Produced by pysmi-1.1.12 at Tue May 21 06:51:18 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:42:35 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-atmForumUni, atmForumAdmin = mibBuilder.importSymbols("ATM-FORUM-TC-MIB", "atmForumUni", "atmForumAdmin")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, IpAddress, Counter32, MibIdentifier, NotificationType, Unsigned32, Integer32, Counter64, ObjectIdentity, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "Counter32", "MibIdentifier", "NotificationType", "Unsigned32", "Integer32", "Counter64", "ObjectIdentity", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+atmForumAdmin, atmForumUni = mibBuilder.importSymbols("ATM-FORUM-TC-MIB", "atmForumAdmin", "atmForumUni")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, TimeTicks, NotificationType, IpAddress, iso, Counter32, Bits, MibIdentifier, ModuleIdentity, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "NotificationType", "IpAddress", "iso", "Counter32", "Bits", "MibIdentifier", "ModuleIdentity", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class AtmAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(8, 8), ValueSizeConstraint(20, 20), )
@@ -29,4 +29,4 @@ atmfSrvcRegATMAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 2, 8, 1, 1, 3), A
 if mibBuilder.loadTexts: atmfSrvcRegATMAddress.setStatus('mandatory')
 atmfSrvcRegAddressIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 353, 2, 8, 1, 1, 4), Integer32())
 if mibBuilder.loadTexts: atmfSrvcRegAddressIndex.setStatus('mandatory')
-mibBuilder.exportSymbols("ATM-FORUM-SRVC-REG", atmfSrvcRegPort=atmfSrvcRegPort, atmfSrvcRegistryGroup=atmfSrvcRegistryGroup, atmfSrvcRegAddressIndex=atmfSrvcRegAddressIndex, atmfSrvcRegTable=atmfSrvcRegTable, atmfSrvcRegEntry=atmfSrvcRegEntry, atmfSrvcRegATMAddress=atmfSrvcRegATMAddress, AtmAddress=AtmAddress, atmfSrvcRegLecs=atmfSrvcRegLecs, atmfSrvcRegServiceID=atmfSrvcRegServiceID, atmfSrvcRegTypes=atmfSrvcRegTypes)
+mibBuilder.exportSymbols("ATM-FORUM-SRVC-REG", atmfSrvcRegTable=atmfSrvcRegTable, atmfSrvcRegistryGroup=atmfSrvcRegistryGroup, atmfSrvcRegTypes=atmfSrvcRegTypes, atmfSrvcRegAddressIndex=atmfSrvcRegAddressIndex, atmfSrvcRegServiceID=atmfSrvcRegServiceID, atmfSrvcRegPort=atmfSrvcRegPort, atmfSrvcRegATMAddress=atmfSrvcRegATMAddress, AtmAddress=AtmAddress, atmfSrvcRegLecs=atmfSrvcRegLecs, atmfSrvcRegEntry=atmfSrvcRegEntry)

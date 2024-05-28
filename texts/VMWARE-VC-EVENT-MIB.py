@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-VC-EVENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VC-EVENT-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 07:01:52 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:53:08 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-NotificationType, Integer32, Counter32, Gauge32, IpAddress, MibIdentifier, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, ModuleIdentity, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Counter32", "Gauge32", "IpAddress", "MibIdentifier", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "ModuleIdentity", "ObjectIdentity", "Counter64")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, iso, Integer32, Counter32, NotificationType, Counter64, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, ObjectIdentity, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "Integer32", "Counter32", "NotificationType", "Counter64", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "ObjectIdentity", "TimeTicks", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwVC, = mibBuilder.importSymbols("VMWARE-PRODUCTS-MIB", "vmwVC")
 VmwLongSnmpAdminString, = mibBuilder.importSymbols("VMWARE-TC-MIB", "VmwLongSnmpAdminString")
@@ -86,4 +86,4 @@ vmwVCAlarmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 3, 1
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwVCAlarmNotificationGroup = vmwVCAlarmNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwVCAlarmNotificationGroup.setDescription('Group of objects describing notifications (traps).')
-mibBuilder.exportSymbols("VMWARE-VC-EVENT-MIB", vmwVpxdTargetObjType=vmwVpxdTargetObjType, vmwVCAlarmInfoGroup=vmwVCAlarmInfoGroup, vmwVpxdTargetObj=vmwVpxdTargetObj, vpxdAlarmInfo=vpxdAlarmInfo, vmwVCMIBConformance=vmwVCMIBConformance, vmwVCNotifications=vmwVCNotifications, vpxdAlarm=vpxdAlarm, vmwVpxdTrapType=vmwVpxdTrapType, vmwVCAlarmGroup=vmwVCAlarmGroup, vmwVpxdNewStatus=vmwVpxdNewStatus, vmwVpxdOldStatus=vmwVpxdOldStatus, vmwVCNotificationGroup=vmwVCNotificationGroup, PYSNMP_MODULE_ID=vmwVCMIB, vmwVCMIBBasicComplianceRev2=vmwVCMIBBasicComplianceRev2, vmwVpxdHostName=vmwVpxdHostName, vmwVCMIBGroups=vmwVCMIBGroups, vmwVCAlarmNotificationGroup=vmwVCAlarmNotificationGroup, vmwVpxdObjValue=vmwVpxdObjValue, vpxdDiagnostic=vpxdDiagnostic, vmwVCMIB=vmwVCMIB, vmwVpxdVMName=vmwVpxdVMName, vmwVCMIBBasicCompliance=vmwVCMIBBasicCompliance, vmwVCMIBCompliances=vmwVCMIBCompliances)
+mibBuilder.exportSymbols("VMWARE-VC-EVENT-MIB", vmwVCNotifications=vmwVCNotifications, vmwVCMIB=vmwVCMIB, vmwVpxdVMName=vmwVpxdVMName, vmwVCMIBBasicComplianceRev2=vmwVCMIBBasicComplianceRev2, vmwVCMIBCompliances=vmwVCMIBCompliances, vmwVpxdOldStatus=vmwVpxdOldStatus, vmwVpxdTargetObj=vmwVpxdTargetObj, vmwVCMIBBasicCompliance=vmwVCMIBBasicCompliance, vmwVCAlarmGroup=vmwVCAlarmGroup, vpxdAlarm=vpxdAlarm, vpxdAlarmInfo=vpxdAlarmInfo, vmwVCAlarmNotificationGroup=vmwVCAlarmNotificationGroup, vmwVCMIBConformance=vmwVCMIBConformance, vmwVCAlarmInfoGroup=vmwVCAlarmInfoGroup, PYSNMP_MODULE_ID=vmwVCMIB, vmwVpxdHostName=vmwVpxdHostName, vmwVpxdNewStatus=vmwVpxdNewStatus, vmwVpxdObjValue=vmwVpxdObjValue, vpxdDiagnostic=vpxdDiagnostic, vmwVpxdTrapType=vmwVpxdTrapType, vmwVCNotificationGroup=vmwVCNotificationGroup, vmwVCMIBGroups=vmwVCMIBGroups, vmwVpxdTargetObjType=vmwVpxdTargetObjType)

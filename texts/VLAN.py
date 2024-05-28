@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module VLAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/VLAN
-# Produced by pysmi-1.1.12 at Tue May 21 06:55:42 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:46:58 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 interface, = mibBuilder.importSymbols("ExaltComProducts", "interface")
-VlanGroupT, VlanStatusT = mibBuilder.importSymbols("ExaltComm", "VlanGroupT", "VlanStatusT")
+VlanStatusT, VlanGroupT = mibBuilder.importSymbols("ExaltComm", "VlanStatusT", "VlanGroupT")
 ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, ObjectIdentity, Counter32, NotificationType, MibIdentifier, Bits, IpAddress, Counter64, TimeTicks, Gauge32, Integer32, ModuleIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ObjectIdentity", "Counter32", "NotificationType", "MibIdentifier", "Bits", "IpAddress", "Counter64", "TimeTicks", "Gauge32", "Integer32", "ModuleIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ModuleIdentity, iso, MibIdentifier, Unsigned32, IpAddress, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, Integer32, ObjectIdentity, NotificationType, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "MibIdentifier", "Unsigned32", "IpAddress", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "Integer32", "ObjectIdentity", "NotificationType", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vlan = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3))
 if mibBuilder.loadTexts: vlan.setStatus('current')
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: vlanID.setDescription('This is the list of Vlan ID in c
 commitVlanSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 2, 3, 1000), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(4, 200))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitVlanSettings.setStatus('current')
 if mibBuilder.loadTexts: commitVlanSettings.setDescription('This command allows saving, or resetting Vlan\n                            parameters to factory original. Options are:\n                            save, clear, reset; where clear will abandon\n                            unsaved changes.')
-mibBuilder.exportSymbols("VLAN", vlanDefaultId=vlanDefaultId, vlanID=vlanID, vlan=vlan, vlanStatus=vlanStatus, vlanInterfaces=vlanInterfaces, commitVlanSettings=commitVlanSettings, vlanDefaultMgmtId=vlanDefaultMgmtId, vlanInterfacesEntry=vlanInterfacesEntry)
+mibBuilder.exportSymbols("VLAN", vlan=vlan, commitVlanSettings=commitVlanSettings, vlanDefaultMgmtId=vlanDefaultMgmtId, vlanInterfaces=vlanInterfaces, vlanDefaultId=vlanDefaultId, vlanInterfacesEntry=vlanInterfacesEntry, vlanStatus=vlanStatus, vlanID=vlanID)

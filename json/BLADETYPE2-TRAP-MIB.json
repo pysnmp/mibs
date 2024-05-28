@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
+      "vrrpCurCfgIfPasswd",
       "ipCurCfgGwAddr",
       "vrrpCurCfgVirtRtrIndx",
-      "vrrpCurCfgVirtRtrAddr",
       "ipCurCfgGwIndex",
-      "vrrpCurCfgIfPasswd",
+      "vrrpCurCfgVirtRtrAddr",
       "vrrpCurCfgIfIndx"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
@@ -14,8 +14,8 @@
     ],
     "BLADETYPE2-SWITCH-MIB": [
       "agChassis",
-      "agSlotNumber",
-      "agRackId"
+      "agRackId",
+      "agSlotNumber"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
@@ -25,30 +25,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
       "sysName",
-      "sysContact"
+      "sysContact",
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter32",
       "MibIdentifier",
-      "TRAP-TYPE",
-      "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
       "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
       "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bt2Traps": {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:57:57 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:49:09 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

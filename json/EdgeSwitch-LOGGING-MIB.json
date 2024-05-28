@@ -12,8 +12,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetPortNumber"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -21,25 +21,25 @@
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
       "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "Counter64",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "AgentLogFacility": {
@@ -1031,8 +1031,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-LOGGING-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:55:03 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:46:18 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-LOGGING-MIB"

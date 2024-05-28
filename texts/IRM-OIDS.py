@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.12 at Tue May 21 06:55:32 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:46:48 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Integer32, Counter64, MibIdentifier, iso, NotificationType, TimeTicks, ObjectIdentity, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Integer32", "Counter64", "MibIdentifier", "iso", "NotificationType", "TimeTicks", "ObjectIdentity", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "Bits")
+Unsigned32, IpAddress, TimeTicks, ObjectIdentity, Counter32, Integer32, iso, Counter64, Gauge32, NotificationType, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "IpAddress", "TimeTicks", "ObjectIdentity", "Counter32", "Integer32", "iso", "Counter64", "Gauge32", "NotificationType", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", sysOIDs=sysOIDs, layerMgmt=layerMgmt, sysBridges=sysBridges, nb30Rev1=nb30Rev1, ups=ups, commonRev1=commonRev1, product=product, common=common, router=router, subSysDevice=subSysDevice, repeaterRev1=repeaterRev1, subsystem=subsystem, bridge=bridge, subSysMMAC=subSysMMAC, backplaneProtocol=backplaneProtocol, repeaterRev2=repeaterRev2, repeater=repeater, sysRepeaters=sysRepeaters, commsDevice=commsDevice, sysChassis=sysChassis, sysRouters=sysRouters, sysIntDev=sysIntDev, sysOtherType=sysOtherType, dl=dl)
+mibBuilder.exportSymbols("IRM-OIDS", sysIntDev=sysIntDev, nb30Rev1=nb30Rev1, repeaterRev2=repeaterRev2, sysOIDs=sysOIDs, layerMgmt=layerMgmt, subsystem=subsystem, sysRepeaters=sysRepeaters, router=router, ups=ups, repeater=repeater, sysBridges=sysBridges, product=product, backplaneProtocol=backplaneProtocol, sysOtherType=sysOtherType, commonRev1=commonRev1, subSysMMAC=subSysMMAC, subSysDevice=subSysDevice, dl=dl, common=common, repeaterRev1=repeaterRev1, sysRouters=sysRouters, commsDevice=commsDevice, sysChassis=sysChassis, bridge=bridge)

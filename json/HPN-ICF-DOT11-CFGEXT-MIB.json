@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Counter32",
-      "Bits",
-      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "hpnicfDot11CFGEXT": {
@@ -244,8 +244,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-CFGEXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:57:58 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:49:10 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-CFGEXT-MIB"

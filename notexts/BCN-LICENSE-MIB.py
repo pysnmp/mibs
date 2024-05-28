@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:53:08 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:44:24 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, ModuleIdentity, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, TimeTicks, Counter64, Gauge32, MibIdentifier, IpAddress, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ModuleIdentity", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "TimeTicks", "Counter64", "Gauge32", "MibIdentifier", "IpAddress", "Integer32", "Bits")
-DisplayString, DateAndTime, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention", "TruthValue")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+NotificationType, ModuleIdentity, IpAddress, ObjectIdentity, Counter32, MibIdentifier, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, Integer32, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Counter32", "MibIdentifier", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "Integer32", "Gauge32", "TimeTicks")
+TruthValue, TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DateAndTime", "DisplayString")
 bcnLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6, 1))
 bcnLicenseMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnLicenseMIB.setLastUpdated('201011301200Z')
@@ -66,4 +66,4 @@ bcnLicenseStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnLicenseStatusCompliance = bcnLicenseStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicense=bcnLicense, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseTable=bcnLicenseTable, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseValid=bcnLicenseValid, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseItemsGranted=bcnLicenseItemsGranted, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseType=bcnLicenseType, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance)
+mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseType=bcnLicenseType, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseConformance=bcnLicenseConformance, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseTable=bcnLicenseTable, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseValid=bcnLicenseValid, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseNotification=bcnLicenseNotification, bcnLicense=bcnLicense)

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module IANA-ITU-ALARM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANA-ITU-ALARM-TC-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:52:56 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:44:13 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Gauge32, iso, Bits, Counter64, TimeTicks, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, IpAddress, Unsigned32, ModuleIdentity, ObjectIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "iso", "Bits", "Counter64", "TimeTicks", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "IpAddress", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "MibIdentifier")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Integer32, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, NotificationType, mib_2, Bits, iso, Unsigned32, ModuleIdentity, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "NotificationType", "mib-2", "Bits", "iso", "Unsigned32", "ModuleIdentity", "IpAddress", "ObjectIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ianaItuAlarmNumbers = ModuleIdentity((1, 3, 6, 1, 2, 1, 119))
 ianaItuAlarmNumbers.setRevisions(('2004-09-09 00:00',))
@@ -34,4 +34,4 @@ class IANAItuEventType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
     namedValues = NamedValues(("other", 1), ("communicationsAlarm", 2), ("qualityOfServiceAlarm", 3), ("processingErrorAlarm", 4), ("equipmentAlarm", 5), ("environmentalAlarm", 6), ("integrityViolation", 7), ("operationalViolation", 8), ("physicalViolation", 9), ("securityServiceOrMechanismViolation", 10), ("timeDomainViolation", 11))
 
-mibBuilder.exportSymbols("IANA-ITU-ALARM-TC-MIB", IANAItuEventType=IANAItuEventType, IANAItuProbableCause=IANAItuProbableCause, ianaItuAlarmNumbers=ianaItuAlarmNumbers, PYSNMP_MODULE_ID=ianaItuAlarmNumbers)
+mibBuilder.exportSymbols("IANA-ITU-ALARM-TC-MIB", ianaItuAlarmNumbers=ianaItuAlarmNumbers, IANAItuProbableCause=IANAItuProbableCause, IANAItuEventType=IANAItuEventType, PYSNMP_MODULE_ID=ianaItuAlarmNumbers)

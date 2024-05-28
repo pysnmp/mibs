@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MSERIES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 07:01:11 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:52:27 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Bits, ModuleIdentity, Counter64, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, Counter32, Gauge32, Integer32, enterprises, iso, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "ModuleIdentity", "Counter64", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "Counter32", "Gauge32", "Integer32", "enterprises", "iso", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+iso, Counter64, Unsigned32, IpAddress, ModuleIdentity, enterprises, NotificationType, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, MibIdentifier, Bits, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Unsigned32", "IpAddress", "ModuleIdentity", "enterprises", "NotificationType", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "MibIdentifier", "Bits", "TimeTicks", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 smartoptics = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826))
 smartoptics.setRevisions(('2014-02-12 13:27',))
 
@@ -23,4 +23,4 @@ if mibBuilder.loadTexts: smartoptics.setDescription('This is the enterprise spec
 mseries = ObjectIdentity((1, 3, 6, 1, 4, 1, 30826, 1))
 if mibBuilder.loadTexts: mseries.setStatus('current')
 if mibBuilder.loadTexts: mseries.setDescription('The M-Series product root.')
-mibBuilder.exportSymbols("MSERIES-MIB", smartoptics=smartoptics, mseries=mseries, PYSNMP_MODULE_ID=smartoptics)
+mibBuilder.exportSymbols("MSERIES-MIB", PYSNMP_MODULE_ID=smartoptics, smartoptics=smartoptics, mseries=mseries)

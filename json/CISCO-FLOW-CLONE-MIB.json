@@ -8,39 +8,39 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Gauge32",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter64"
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "StorageType",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TimeStamp"
+      "RowStatus"
     ]
   },
   "ciscoFlowCloneMIB": {
@@ -701,8 +701,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLOW-CLONE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:57:44 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:49:10 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-FLOW-CLONE-MIB"

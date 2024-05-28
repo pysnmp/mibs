@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADTRAN-AOSSNMP (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSSNMP
-# Produced by pysmi-1.1.12 at Tue May 21 06:51:57 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:43:13 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-adGenAOSConformance, adGenAOSCommon = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSCommon")
+adGenAOSCommon, adGenAOSConformance = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSCommon", "adGenAOSConformance")
 adIdentity, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentity")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks, Counter64, Unsigned32, ObjectIdentity, NotificationType, MibIdentifier, iso, Counter32, Integer32, Bits, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks", "Counter64", "Unsigned32", "ObjectIdentity", "NotificationType", "MibIdentifier", "iso", "Counter32", "Integer32", "Bits", "Gauge32")
-RowStatus, TAddress, TDomain, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TAddress", "TDomain", "TextualConvention", "DisplayString")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Gauge32, Counter32, Bits, Counter64, NotificationType, Integer32, TimeTicks, ObjectIdentity, IpAddress, MibIdentifier, Unsigned32, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "Bits", "Counter64", "NotificationType", "Integer32", "TimeTicks", "ObjectIdentity", "IpAddress", "MibIdentifier", "Unsigned32", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+RowStatus, TAddress, TDomain, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TAddress", "TDomain", "DisplayString", "TextualConvention")
 adGenAOSSnmpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 1, 2))
 adGenAOSSnmpMib.setRevisions(('2008-10-20 00:00', '2008-10-09 00:00', '2004-09-24 00:00',))
 
@@ -77,4 +77,4 @@ adAOSSNMPConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 2, 2, 1)).
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     adAOSSNMPConfigGroup = adAOSSNMPConfigGroup.setStatus('current')
 if mibBuilder.loadTexts: adAOSSNMPConfigGroup.setDescription('The Unit SNMP Config Group.')
-mibBuilder.exportSymbols("ADTRAN-AOSSNMP", adAOSSnmpGroups=adAOSSnmpGroups, adAOSSNMPCommunitiesTable=adAOSSNMPCommunitiesTable, adAOSSNMPCommunitiesIndex=adAOSSNMPCommunitiesIndex, adGenAOSSnmp=adGenAOSSnmp, adAOSSNMPTrapsString=adAOSSNMPTrapsString, adAOSSNMPTrapsStatus=adAOSSNMPTrapsStatus, adAOSSnmpConfigCompliance=adAOSSnmpConfigCompliance, adAOSSNMPTrapsTable=adAOSSNMPTrapsTable, adAOSSNMPCommunitiesStatus=adAOSSNMPCommunitiesStatus, adAOSSNMPTrapsMngmtAddr=adAOSSNMPTrapsMngmtAddr, adAOSSNMPCommunitiesEntry=adAOSSNMPCommunitiesEntry, adGenAOSSnmpMib=adGenAOSSnmpMib, adAOSSNMPCommunitiesString=adAOSSNMPCommunitiesString, adAOSSNMPAuthenticationTraps=adAOSSNMPAuthenticationTraps, adAOSSNMPTrapsIndex=adAOSSNMPTrapsIndex, adAOSSNMPConfigGroup=adAOSSNMPConfigGroup, adGenAOSSnmpConformance=adGenAOSSnmpConformance, adAOSSNMPEnableTraps=adAOSSNMPEnableTraps, adAOSSNMPTrapsEntry=adAOSSNMPTrapsEntry, adAOSSnmpCompliances=adAOSSnmpCompliances, adAOSSNMPCommunitiesPrivilege=adAOSSNMPCommunitiesPrivilege, PYSNMP_MODULE_ID=adGenAOSSnmpMib)
+mibBuilder.exportSymbols("ADTRAN-AOSSNMP", adAOSSNMPConfigGroup=adAOSSNMPConfigGroup, adAOSSNMPCommunitiesPrivilege=adAOSSNMPCommunitiesPrivilege, adGenAOSSnmpConformance=adGenAOSSnmpConformance, adGenAOSSnmp=adGenAOSSnmp, adAOSSNMPTrapsStatus=adAOSSNMPTrapsStatus, adAOSSNMPCommunitiesTable=adAOSSNMPCommunitiesTable, adAOSSNMPCommunitiesEntry=adAOSSNMPCommunitiesEntry, adAOSSNMPTrapsTable=adAOSSNMPTrapsTable, adAOSSNMPCommunitiesString=adAOSSNMPCommunitiesString, adAOSSnmpCompliances=adAOSSnmpCompliances, adAOSSnmpGroups=adAOSSnmpGroups, adAOSSNMPTrapsEntry=adAOSSNMPTrapsEntry, adAOSSNMPCommunitiesStatus=adAOSSNMPCommunitiesStatus, adAOSSNMPEnableTraps=adAOSSNMPEnableTraps, adAOSSNMPCommunitiesIndex=adAOSSNMPCommunitiesIndex, PYSNMP_MODULE_ID=adGenAOSSnmpMib, adAOSSNMPTrapsString=adAOSSNMPTrapsString, adAOSSNMPTrapsMngmtAddr=adAOSSNMPTrapsMngmtAddr, adAOSSNMPAuthenticationTraps=adAOSSNMPAuthenticationTraps, adAOSSNMPTrapsIndex=adAOSSNMPTrapsIndex, adAOSSnmpConfigCompliance=adAOSSnmpConfigCompliance, adGenAOSSnmpMib=adGenAOSSnmpMib)

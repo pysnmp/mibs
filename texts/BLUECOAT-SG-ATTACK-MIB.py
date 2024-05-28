@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-SG-ATTACK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-ATTACK-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:53:10 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:44:27 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, ModuleIdentity, Gauge32, Unsigned32, MibIdentifier, Bits, IpAddress, ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, TimeTicks, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "Gauge32", "Unsigned32", "MibIdentifier", "Bits", "IpAddress", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "TimeTicks", "Integer32")
-DisplayString, TimeStamp, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TextualConvention")
+TimeTicks, MibIdentifier, Integer32, ModuleIdentity, Gauge32, Unsigned32, iso, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, Bits, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "Integer32", "ModuleIdentity", "Gauge32", "Unsigned32", "iso", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType", "Bits", "ObjectIdentity", "IpAddress")
+TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
 deviceAttackMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 3))
 deviceAttackMIB.setRevisions(('2007-11-05 03:00', '2002-11-06 03:00',))
 
@@ -52,4 +52,4 @@ if mibBuilder.loadTexts: deviceAttackTime.setDescription("The value of 'sysUpTim
 deviceAttackTrap = NotificationType((1, 3, 6, 1, 4, 1, 3417, 2, 3, 2, 0, 1)).setObjects(("BLUECOAT-SG-ATTACK-MIB", "deviceAttackName"), ("BLUECOAT-SG-ATTACK-MIB", "deviceAttackStatus"))
 if mibBuilder.loadTexts: deviceAttackTrap.setStatus('current')
 if mibBuilder.loadTexts: deviceAttackTrap.setDescription("At the start of an attack a notification is\n                         generated with 'deviceAttackStatus = underAttack(2)'.\n                         At the end of an attack a notification is generated with\n                         'deviceAttackStatus = noAttack(1)'.")
-mibBuilder.exportSymbols("BLUECOAT-SG-ATTACK-MIB", deviceAttackIndex=deviceAttackIndex, deviceAttackMIB=deviceAttackMIB, deviceAttackTable=deviceAttackTable, deviceAttackTime=deviceAttackTime, deviceAttackEntry=deviceAttackEntry, deviceAttackValues=deviceAttackValues, deviceAttackName=deviceAttackName, deviceAttackMIBNotificationsPrefix=deviceAttackMIBNotificationsPrefix, AttackStatus=AttackStatus, PYSNMP_MODULE_ID=deviceAttackMIB, deviceAttackTrap=deviceAttackTrap, deviceAttackStatus=deviceAttackStatus, deviceAttackMIBNotifications=deviceAttackMIBNotifications, deviceAttackMIBObjects=deviceAttackMIBObjects)
+mibBuilder.exportSymbols("BLUECOAT-SG-ATTACK-MIB", deviceAttackValues=deviceAttackValues, deviceAttackMIBNotifications=deviceAttackMIBNotifications, AttackStatus=AttackStatus, deviceAttackTime=deviceAttackTime, deviceAttackMIBObjects=deviceAttackMIBObjects, deviceAttackTable=deviceAttackTable, deviceAttackTrap=deviceAttackTrap, deviceAttackMIBNotificationsPrefix=deviceAttackMIBNotificationsPrefix, deviceAttackName=deviceAttackName, deviceAttackEntry=deviceAttackEntry, deviceAttackMIB=deviceAttackMIB, PYSNMP_MODULE_ID=deviceAttackMIB, deviceAttackStatus=deviceAttackStatus, deviceAttackIndex=deviceAttackIndex)

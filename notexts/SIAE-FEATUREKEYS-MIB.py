@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-FEATUREKEYS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-FEATUREKEYS-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 07:01:03 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:52:19 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, Integer32, Counter64, ObjectIdentity, MibIdentifier, Counter32, Unsigned32, iso, Bits, NotificationType, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Integer32", "Counter64", "ObjectIdentity", "MibIdentifier", "Counter32", "Unsigned32", "iso", "Bits", "NotificationType", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Bits, Unsigned32, Counter64, MibIdentifier, iso, NotificationType, Gauge32, IpAddress, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Unsigned32", "Counter64", "MibIdentifier", "iso", "NotificationType", "Gauge32", "IpAddress", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 featureKeys = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 101))
 featureKeys.setRevisions(('2014-02-03 00:00', '2013-04-16 00:00',))
 if mibBuilder.loadTexts: featureKeys.setLastUpdated('201402030000Z')
@@ -32,4 +32,4 @@ featureKeysLastOperationState = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 7)
 if mibBuilder.loadTexts: featureKeysLastOperationState.setStatus('current')
 featureKeysLastOperationFailure = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 101, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("noFailure", 1), ("transfer", 2), ("serialNo", 3), ("verifySign", 4), ("primaryDigest", 5), ("secondaryDigest", 6)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: featureKeysLastOperationFailure.setStatus('current')
-mibBuilder.exportSymbols("SIAE-FEATUREKEYS-MIB", featureKeysLastOperationFailure=featureKeysLastOperationFailure, featureKeysMibVersion=featureKeysMibVersion, featureKeys=featureKeys, PYSNMP_MODULE_ID=featureKeys, featureKeysActionRequest=featureKeysActionRequest, featureKeysLastOperationState=featureKeysLastOperationState, featureKeysCertificateRemoteIpAddress=featureKeysCertificateRemoteIpAddress, featureKeysRadioMap=featureKeysRadioMap, featureKeysLineMap=featureKeysLineMap, featureKeysCertificateName=featureKeysCertificateName)
+mibBuilder.exportSymbols("SIAE-FEATUREKEYS-MIB", featureKeysMibVersion=featureKeysMibVersion, featureKeys=featureKeys, featureKeysLastOperationFailure=featureKeysLastOperationFailure, featureKeysRadioMap=featureKeysRadioMap, featureKeysActionRequest=featureKeysActionRequest, featureKeysCertificateName=featureKeysCertificateName, featureKeysCertificateRemoteIpAddress=featureKeysCertificateRemoteIpAddress, PYSNMP_MODULE_ID=featureKeys, featureKeysLineMap=featureKeysLineMap, featureKeysLastOperationState=featureKeysLastOperationState)

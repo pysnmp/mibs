@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
+      "TimeTicks",
       "IpAddress",
+      "iso",
+      "Bits",
+      "Integer32",
       "MibIdentifier",
       "enterprises",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Bits",
+      "Counter32",
       "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "stratacom": {
@@ -57,8 +57,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/CISCOWAN-SMI",
-      "Produced by pysmi-1.1.12 at Tue May 21 06:51:47 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:43:04 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOWAN-SMI"

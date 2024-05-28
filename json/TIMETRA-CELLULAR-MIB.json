@@ -6,53 +6,53 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter32",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "iso",
       "TimeTicks",
       "IpAddress",
-      "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
+      "TimeStamp",
       "TruthValue",
-      "DateAndTime",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
+      "DateAndTime"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxMDASlotNum",
       "tmnxCardSlotNum"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRConfs",
-      "timetraSRMIBModules",
+      "tmnxSRNotifyPrefix",
       "tmnxSRObjs",
-      "tmnxSRNotifyPrefix"
+      "timetraSRMIBModules",
+      "tmnxSRConfs"
     ],
     "TIMETRA-PORT-MIB": [
-      "tmnxPortPortID",
-      "tmnxPortNotifyPortId"
+      "tmnxPortNotifyPortId",
+      "tmnxPortPortID"
     ],
     "TIMETRA-TC-MIB": [
       "TItemDescription",
-      "TmnxEnabledDisabledAdminState",
-      "TmnxAuthPassword",
       "TNamedItemOrEmpty",
+      "TmnxAuthPassword",
+      "TmnxEnabledDisabledAdminState",
       "TmnxEnabledDisabled"
     ]
   },
@@ -3495,8 +3495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 21 07:00:30 2024",
-      "On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 11:51:46 2024",
+      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-CELLULAR-MIB"

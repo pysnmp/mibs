@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module COLUBRIS-CDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-CDP-MIB.my
-# Produced by pysmi-1.1.12 at Tue May 21 06:56:39 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:47:54 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Unsigned32, TimeTicks, IpAddress, MibIdentifier, Integer32, Gauge32, iso, Bits, Counter32, NotificationType, Counter64, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "IpAddress", "MibIdentifier", "Integer32", "Gauge32", "iso", "Bits", "Counter32", "NotificationType", "Counter64", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter64, Integer32, Bits, Unsigned32, Counter32, Gauge32, MibIdentifier, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, ModuleIdentity, iso, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "Bits", "Unsigned32", "Counter32", "Gauge32", "MibIdentifier", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "ModuleIdentity", "iso", "IpAddress", "NotificationType")
+MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
 colubrisCdpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 9))
 if mibBuilder.loadTexts: colubrisCdpMIB.setLastUpdated('200402200000Z')
 if mibBuilder.loadTexts: colubrisCdpMIB.setOrganization('Colubris Networks, Inc.')
@@ -54,4 +54,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 colubrisCdpMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 9, 2, 2, 1)).setObjects(("COLUBRIS-CDP-MIB", "coCdpCacheLocalInterface"), ("COLUBRIS-CDP-MIB", "coCdpCacheAddress"), ("COLUBRIS-CDP-MIB", "coCdpCacheDeviceId"), ("COLUBRIS-CDP-MIB", "coCdpCacheTimeToLive"), ("COLUBRIS-CDP-MIB", "coCdpCacheCapabilities"), ("COLUBRIS-CDP-MIB", "coCdpCacheVersion"), ("COLUBRIS-CDP-MIB", "coCdpCachePlatform"), ("COLUBRIS-CDP-MIB", "coCdpCachePortId"), ("COLUBRIS-CDP-MIB", "coCdpGlobalMessageInterval"), ("COLUBRIS-CDP-MIB", "coCdpGlobalHoldTime"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisCdpMIBGroup = colubrisCdpMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("COLUBRIS-CDP-MIB", colubrisCdpMIBCompliances=colubrisCdpMIBCompliances, colubrisCdpMIBGroups=colubrisCdpMIBGroups, coCdpCacheTable=coCdpCacheTable, colubrisCdpMIBObjects=colubrisCdpMIBObjects, coCdpCacheEntry=coCdpCacheEntry, coCdpCacheTimeToLive=coCdpCacheTimeToLive, colubrisCdpMIB=colubrisCdpMIB, PYSNMP_MODULE_ID=colubrisCdpMIB, coCdpCacheDeviceId=coCdpCacheDeviceId, coCdpCachePlatform=coCdpCachePlatform, coCdpCacheVersion=coCdpCacheVersion, coCdpCacheAddress=coCdpCacheAddress, coCdpCacheLocalInterface=coCdpCacheLocalInterface, coCdpCache=coCdpCache, coCdpCacheDeviceIndex=coCdpCacheDeviceIndex, coCdpGlobalHoldTime=coCdpGlobalHoldTime, colubrisCdpMIBCompliance=colubrisCdpMIBCompliance, colubrisCdpMIBConformance=colubrisCdpMIBConformance, colubrisCdpMIBGroup=colubrisCdpMIBGroup, coCdpGlobal=coCdpGlobal, coCdpCacheCapabilities=coCdpCacheCapabilities, coCdpCachePortId=coCdpCachePortId, coCdpGlobalMessageInterval=coCdpGlobalMessageInterval)
+mibBuilder.exportSymbols("COLUBRIS-CDP-MIB", coCdpCacheVersion=coCdpCacheVersion, coCdpCache=coCdpCache, coCdpCachePlatform=coCdpCachePlatform, coCdpCacheLocalInterface=coCdpCacheLocalInterface, colubrisCdpMIBCompliance=colubrisCdpMIBCompliance, colubrisCdpMIBGroup=colubrisCdpMIBGroup, coCdpCacheTable=coCdpCacheTable, coCdpGlobalMessageInterval=coCdpGlobalMessageInterval, coCdpCacheDeviceIndex=coCdpCacheDeviceIndex, colubrisCdpMIB=colubrisCdpMIB, coCdpGlobal=coCdpGlobal, coCdpGlobalHoldTime=coCdpGlobalHoldTime, coCdpCacheTimeToLive=coCdpCacheTimeToLive, colubrisCdpMIBObjects=colubrisCdpMIBObjects, coCdpCacheAddress=coCdpCacheAddress, coCdpCacheCapabilities=coCdpCacheCapabilities, colubrisCdpMIBCompliances=colubrisCdpMIBCompliances, colubrisCdpMIBConformance=colubrisCdpMIBConformance, coCdpCachePortId=coCdpCachePortId, coCdpCacheDeviceId=coCdpCacheDeviceId, coCdpCacheEntry=coCdpCacheEntry, colubrisCdpMIBGroups=colubrisCdpMIBGroups, PYSNMP_MODULE_ID=colubrisCdpMIB)

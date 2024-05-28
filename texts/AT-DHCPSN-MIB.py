@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-DHCPSN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-DHCPSN-MIB
-# Produced by pysmi-1.1.12 at Tue May 21 06:52:16 2024
-# On host fv-az1501-253 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 11:43:33 2024
+# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Counter32, iso, IpAddress, Integer32, Counter64, MibIdentifier, NotificationType, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "iso", "IpAddress", "Integer32", "Counter64", "MibIdentifier", "NotificationType", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, ModuleIdentity, Gauge32, IpAddress, Counter32, NotificationType, ObjectIdentity, Bits, TimeTicks, Counter64, MibIdentifier, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "Gauge32", "IpAddress", "Counter32", "NotificationType", "ObjectIdentity", "Bits", "TimeTicks", "Counter64", "MibIdentifier", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 atDhcpsn = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537))
 atDhcpsn.setRevisions(('2010-09-07 00:00', '2010-06-14 04:45', '2010-02-09 01:30', '2009-12-10 01:30',))
 
@@ -85,4 +85,4 @@ if mibBuilder.loadTexts: atArpsecVid.setDescription('VLAN ID of the port that th
 atArpsecVioType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 537, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("srcIpNotFound", 1), ("badVLAN", 2), ("badPort", 3), ("srcIpNotAllocated", 4)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atArpsecVioType.setStatus('current')
 if mibBuilder.loadTexts: atArpsecVioType.setDescription('The reason that the trap was generated. srcIpNotFound(1) indicates\n                that the Sender IP address of the ARP packet was not found in the\n                DHCP Snooping database. badVLAN(2) indicates that the VLAN of the\n                DHCP Snooping binding entry associated with the Sender IP address\n                of the ARP packet does not match the VLAN that the ARP packet was\n                received on. badPort(3) indicates that the port of the DHCP\n                Snooping binding entry associated with the Sender IP address of the\n                ARP packet does not match the port that the ARP packet was received\n                on. srcIpNotAllocated(4) indicates that the CHADDR of the DHCP\n                Snooping binding entry associated with the Sender IP address of\n                the ARP packet does not match the Source MAC and/or the ARP source\n                MAC of the ARP packet.')
-mibBuilder.exportSymbols("AT-DHCPSN-MIB", atDhcpsnEvents=atDhcpsnEvents, atArpsecVariablesTable=atArpsecVariablesTable, atDhcpsnSiaddr=atDhcpsnSiaddr, atArpsecSrcMac=atArpsecSrcMac, atArpsecVariablesEntry=atArpsecVariablesEntry, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atDhcpsnTrap=atDhcpsnTrap, atDhcpsnChaddr=atDhcpsnChaddr, atArpsecVid=atArpsecVid, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atDhcpsnCiaddr=atDhcpsnCiaddr, atDhcpsnYiaddr=atDhcpsnYiaddr, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnVid=atDhcpsnVid, atArpsecTrap=atArpsecTrap, atDhcpsnIfIndex=atDhcpsnIfIndex, atArpsecClientIP=atArpsecClientIP, atArpsecVioType=atArpsecVioType, atDhcpsnSmac=atDhcpsnSmac, PYSNMP_MODULE_ID=atDhcpsn, atDhcpsnOpcode=atDhcpsnOpcode, atDhcpsnVioType=atDhcpsnVioType, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsn=atDhcpsn)
+mibBuilder.exportSymbols("AT-DHCPSN-MIB", atDhcpsnVioType=atDhcpsnVioType, atDhcpsnVid=atDhcpsnVid, atDhcpsnChaddr=atDhcpsnChaddr, atArpsecVid=atArpsecVid, atArpsecSrcMac=atArpsecSrcMac, atDhcpsnEvents=atDhcpsnEvents, atDhcpsnYiaddr=atDhcpsnYiaddr, atArpsecVioType=atArpsecVioType, atDhcpsnOpcode=atDhcpsnOpcode, atDhcpsn=atDhcpsn, atArpsecVariablesEntry=atArpsecVariablesEntry, atDhcpsnSmac=atDhcpsnSmac, atDhcpsnSiaddr=atDhcpsnSiaddr, atDhcpsnVariablesEntry=atDhcpsnVariablesEntry, atArpsecClientIP=atArpsecClientIP, atDhcpsnTrap=atDhcpsnTrap, atDhcpsnVariablesTable=atDhcpsnVariablesTable, atArpsecVariablesTable=atArpsecVariablesTable, atArpsecTrap=atArpsecTrap, atArpsecIfIndex=atArpsecIfIndex, atDhcpsnGiaddr=atDhcpsnGiaddr, atDhcpsnIfIndex=atDhcpsnIfIndex, atDhcpsnCiaddr=atDhcpsnCiaddr, PYSNMP_MODULE_ID=atDhcpsn)
