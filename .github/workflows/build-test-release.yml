@@ -75,7 +75,7 @@ jobs:
       #          helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/"$VERSION"
       #          cp /tmp/package/index.yaml ./output
       - name: Deploy - GH-PAGES
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
