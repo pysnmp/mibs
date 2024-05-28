@@ -11,33 +11,33 @@
       "rnd"
     ],
     "RADLAN-SNMPv2": [
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter32",
-      "TimeTicks",
-      "Gauge32",
       "Counter64",
-      "Integer32",
+      "TimeTicks",
+      "Bits",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "Gauge32",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "rlQosServ": {
@@ -1894,8 +1894,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-QOS-SERV",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:53:20 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:13:31 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RADLAN-QOS-SERV"

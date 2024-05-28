@@ -5,13 +5,13 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisNotificationEnable",
-      "ColubrisUsersAuthenticationMode",
-      "ColubrisPriorityQueue",
+      "ColubrisUsersAuthenticationType",
       "ColubrisSecurity",
       "ColubrisProfileIndexOrZero",
       "ColubrisSSIDOrNone",
-      "ColubrisUsersAuthenticationType"
+      "ColubrisPriorityQueue",
+      "ColubrisUsersAuthenticationMode",
+      "ColubrisNotificationEnable"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -22,27 +22,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
       "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
-      "Gauge32",
+      "Integer32",
+      "Counter64",
       "iso",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "DateAndTime",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "colubrisPublicAccessMIB": {
@@ -1573,8 +1573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PUBLIC-ACCESS-MIB.my",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:49:32 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:09:46 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-PUBLIC-ACCESS-MIB"

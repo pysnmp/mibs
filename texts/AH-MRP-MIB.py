@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AH-MRP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-MRP-MIB
-# Produced by pysmi-1.1.12 at Tue May 28 12:44:48 2024
-# On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 13:05:02 2024
+# On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 AhString, AhNodeID, ahAPMRP = mibBuilder.importSymbols("AH-SMI-MIB", "AhString", "AhNodeID", "ahAPMRP")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, Gauge32, iso, ObjectIdentity, NotificationType, Unsigned32, TimeTicks, Bits, Counter64, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Gauge32", "iso", "ObjectIdentity", "NotificationType", "Unsigned32", "TimeTicks", "Bits", "Counter64", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "IpAddress")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ifEntry, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifEntry", "ifIndex")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, Gauge32, Bits, TimeTicks, ObjectIdentity, Counter64, Integer32, MibIdentifier, Counter32, ModuleIdentity, NotificationType, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "Bits", "TimeTicks", "ObjectIdentity", "Counter64", "Integer32", "MibIdentifier", "Counter32", "ModuleIdentity", "NotificationType", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ahMRP = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1, 3, 1))
 if mibBuilder.loadTexts: ahMRP.setLastUpdated('201608310000Z')
@@ -93,4 +93,4 @@ if mibBuilder.loadTexts: ahTxViDataFrames.setDescription('The number of transmit
 ahTxVoDataFrames = MibTableColumn((1, 3, 6, 1, 4, 1, 26928, 1, 1, 1, 3, 1, 1, 1, 21), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ahTxVoDataFrames.setStatus('current')
 if mibBuilder.loadTexts: ahTxVoDataFrames.setDescription('The number of transmitted voice priority data frames\n\t\t\tfrom the AP to its neighbor.')
-mibBuilder.exportSymbols("AH-MRP-MIB", ahTxMulticastFrames=ahTxMulticastFrames, ahTxVoDataFrames=ahTxVoDataFrames, PYSNMP_MODULE_ID=ahMRP, ahTxMgtFrames=ahTxMgtFrames, ahTxBgDataFrames=ahTxBgDataFrames, ahMRP=ahMRP, ahTxUnicastFrames=ahTxUnicastFrames, ahNeighberAPId=ahNeighberAPId, ahLinkUptime=ahLinkUptime, ahRxBroadcastFrames=ahRxBroadcastFrames, ahRxDataFrames=ahRxDataFrames, ahRxUnicastFrames=ahRxUnicastFrames, ahTxViDataFrames=ahTxViDataFrames, ahRxMulticastFrames=ahRxMulticastFrames, ahTxBroadcastFrames=ahTxBroadcastFrames, ahTxDataFrames=ahTxDataFrames, ahRSSI=ahRSSI, ahTxBeDataFrames=ahTxBeDataFrames, ahLinkCost=ahLinkCost, ahNeighborEntry=ahNeighborEntry, ahLinkType=ahLinkType, ahRxMgtFrames=ahRxMgtFrames, ahTxDataOctets=ahTxDataOctets, ahRXDataOctets=ahRXDataOctets, ahNeighborTable=ahNeighborTable, AhLinkType=AhLinkType)
+mibBuilder.exportSymbols("AH-MRP-MIB", ahTxBgDataFrames=ahTxBgDataFrames, ahTxViDataFrames=ahTxViDataFrames, ahRxUnicastFrames=ahRxUnicastFrames, ahNeighborEntry=ahNeighborEntry, ahTxUnicastFrames=ahTxUnicastFrames, ahTxDataOctets=ahTxDataOctets, ahRSSI=ahRSSI, PYSNMP_MODULE_ID=ahMRP, ahRxMulticastFrames=ahRxMulticastFrames, ahRxMgtFrames=ahRxMgtFrames, ahLinkCost=ahLinkCost, ahRXDataOctets=ahRXDataOctets, ahTxBeDataFrames=ahTxBeDataFrames, ahTxBroadcastFrames=ahTxBroadcastFrames, ahTxMulticastFrames=ahTxMulticastFrames, ahNeighberAPId=ahNeighberAPId, ahTxDataFrames=ahTxDataFrames, ahMRP=ahMRP, ahNeighborTable=ahNeighborTable, ahTxMgtFrames=ahTxMgtFrames, ahRxBroadcastFrames=ahRxBroadcastFrames, ahLinkUptime=ahLinkUptime, AhLinkType=AhLinkType, ahLinkType=ahLinkType, ahTxVoDataFrames=ahTxVoDataFrames, ahRxDataFrames=ahRxDataFrames)

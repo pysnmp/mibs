@@ -4,28 +4,28 @@
     "BRIDGE-MIB": [
       "dot1dStpPortEntry",
       "Timeout",
-      "dot1dStpPort",
-      "BridgeId"
+      "BridgeId",
+      "dot1dStpPort"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepDbRMepIdentifier",
       "Dot1agCfmMepId",
       "dot1agCfmMaIndex",
-      "dot1agCfmMdIndex",
-      "dot1agCfmMepIdentifier"
+      "dot1agCfmMepDbRMepIdentifier",
+      "dot1agCfmMepIdentifier",
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
     ],
     "IF-MIB": [
       "InterfaceIndex",
-      "ifOperStatus",
-      "ifIndex"
+      "ifIndex",
+      "ifOperStatus"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressIPv6"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -36,37 +36,37 @@
     ],
     "Q-BRIDGE-MIB": [
       "dot1qVlanStaticEntry",
-      "VlanIndex",
       "dot1vProtocolPortEntry",
-      "VlanId",
-      "PortList"
+      "VlanIndex",
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "IpAddress",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "Unsigned32",
       "TimeTicks",
       "Counter32",
-      "enterprises",
-      "OBJECT-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
+      "Integer32",
       "iso",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier"
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus"
     ]
   },
@@ -23123,8 +23123,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS2100-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:48:07 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:08:20 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ECS2100-MIB"

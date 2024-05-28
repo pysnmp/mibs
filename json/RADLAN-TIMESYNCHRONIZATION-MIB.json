@@ -13,24 +13,24 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter32",
-      "TimeTicks",
-      "Gauge32",
       "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1381,8 +1381,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-TIMESYNCHRONIZATION-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:53:20 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:13:31 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RADLAN-TIMESYNCHRONIZATION-MIB"

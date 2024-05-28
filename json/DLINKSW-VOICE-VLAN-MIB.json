@@ -8,9 +8,9 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
+      "LldpPortId",
       "LldpPortNumber",
       "LldpPortIdSubtype",
-      "LldpPortId",
       "LldpChassisId",
       "LldpChassisIdSubtype"
     ],
@@ -22,33 +22,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
       "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "Counter32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "Counter32"
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString",
       "MacAddress",
-      "DateAndTime"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwVoiceVlanMIB": {
@@ -682,8 +682,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-VOICE-VLAN-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:47:35 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:07:49 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-VOICE-VLAN-MIB"

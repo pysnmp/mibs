@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "enterprises",
       "TimeTicks",
-      "mib-2",
-      "Integer32",
-      "Counter32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "iso",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "enterprises",
+      "Gauge32",
+      "mib-2",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "AutonomousType",
-      "MacAddress",
       "DisplayString",
+      "TestAndIncr",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "PhysAddress",
       "RowStatus",
-      "TestAndIncr"
+      "PhysAddress",
+      "AutonomousType",
+      "DateAndTime",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:49:10 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:09:20 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

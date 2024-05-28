@@ -5,39 +5,39 @@
       "ciscoExperiment"
     ],
     "CISCO-ST-TC": [
-      "DomainId",
+      "FcNameIdOrZero",
       "FcNameId",
-      "FcNameIdOrZero"
+      "DomainId"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
       "Counter64",
       "iso",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32"
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -1205,8 +1205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCIP-MGMT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:50:46 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:10:57 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-FCIP-MGMT-MIB"

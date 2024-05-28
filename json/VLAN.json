@@ -5,33 +5,33 @@
       "interface"
     ],
     "ExaltComm": [
-      "VlanGroupT",
-      "VlanStatusT"
+      "VlanStatusT",
+      "VlanGroupT"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
       "Unsigned32",
-      "Gauge32",
-      "iso",
+      "Bits",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "vlan": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/VLAN",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:48:33 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:08:45 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "VLAN"

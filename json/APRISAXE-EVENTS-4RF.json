@@ -6,19 +6,19 @@
       "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEAlarmType",
-      "AprisaXEDataStatus",
-      "AprisaXESlotNumber",
       "AprisaXEPortNumber",
-      "AprisaXECardType"
+      "AprisaXESlotNumber",
+      "AprisaXEDataStatus",
+      "AprisaXECardType",
+      "AprisaXEAlarmType"
     ],
     "COMMON-TC-4RF": [
+      "FourRFAlarmStatus",
+      "FourRFImageVersion",
+      "FourRFAlarmEnabled",
       "FourRFAlarmSeverity",
       "FourRFAlarmPresent",
-      "FourRFAlarmEnabled",
-      "FourRFAlarmStatus",
-      "FourRFHardwareVersion",
-      "FourRFImageVersion"
+      "FourRFHardwareVersion"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,29 +27,29 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
       "Counter64",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:44:41 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:04:55 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

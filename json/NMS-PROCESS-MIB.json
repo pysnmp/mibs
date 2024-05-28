@@ -8,30 +8,30 @@
       "EntPhysicalIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter32",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "nmsProcessMIB": {
@@ -555,8 +555,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/NMS-PROCESS-MIB.MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:52:47 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:12:57 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NMS-PROCESS-MIB"

@@ -5,63 +5,63 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
-      "Unsigned64",
       "CiscoAlarmSeverity",
       "TimeIntervalSec",
-      "CiscoInetAddressMask"
+      "Unsigned64",
+      "CiscoInetAddressMask",
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsCimcvmediaAuthProtocol",
-      "CucsCimcvmediaDeviceType",
-      "CucsCimcvmediaImageNameVariable",
+      "CucsCimcvmediaTransport",
       "CucsPolicyPolicyOwner",
-      "CucsCimcvmediaErrorType",
-      "CucsCimcvmediaMountStatus",
+      "CucsCimcvmediaAuthProtocol",
       "CucsCimcvmediaMountConfigRetryOnMountFail",
-      "CucsCimcvmediaTransport"
+      "CucsCimcvmediaDeviceType",
+      "CucsCimcvmediaErrorType",
+      "CucsCimcvmediaImageNameVariable",
+      "CucsCimcvmediaMountStatus"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "RowPointer",
-      "MacAddress",
-      "DisplayString",
-      "DateAndTime",
-      "TimeStamp",
       "TimeInterval",
+      "TimeStamp",
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "MacAddress"
     ]
   },
   "cucsCimcvmediaObjects": {
@@ -1026,8 +1026,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CIMCVMEDIA-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:50:45 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:10:57 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CIMCVMEDIA-MIB"

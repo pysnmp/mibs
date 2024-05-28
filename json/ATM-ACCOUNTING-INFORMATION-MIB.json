@@ -5,29 +5,29 @@
       "AtmAddr"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
       "mib-2",
+      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString"
     ]
   },
@@ -596,8 +596,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ATM-ACCOUNTING-INFORMATION-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:44:34 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:04:48 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ATM-ACCOUNTING-INFORMATION-MIB"

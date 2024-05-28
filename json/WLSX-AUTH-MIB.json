@@ -5,46 +5,46 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
+      "ArubaAuthenticationMethods",
       "ArubaEncryptionMethods",
       "ArubaHashAlgorithms",
-      "ArubaAuthServerType",
-      "ArubaAuthenticationMethods",
-      "ArubaEnableValue"
+      "ArubaEnableValue",
+      "ArubaAuthServerType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "Bits",
-      "Counter64",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Integer32"
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "snmpModules",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "PhysAddress",
-      "TAddress",
-      "TruthValue",
-      "DisplayString",
-      "RowStatus",
-      "TDomain",
-      "TimeInterval",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TDomain",
+      "TruthValue",
+      "TAddress",
+      "RowStatus",
+      "TestAndIncr",
+      "TimeInterval",
+      "DisplayString",
+      "MacAddress",
+      "StorageType",
+      "PhysAddress"
     ]
   },
   "wlsxAuthMIB": {
@@ -468,8 +468,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-AUTH-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:45:36 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:05:49 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WLSX-AUTH-MIB"

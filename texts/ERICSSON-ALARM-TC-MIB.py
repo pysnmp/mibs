@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ERICSSON-ALARM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-TC-MIB
-# Produced by pysmi-1.1.12 at Tue May 28 12:48:18 2024
-# On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 13:08:31 2024
+# On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 ericssonModules, = mibBuilder.importSymbols("ERICSSON-TOP-MIB", "ericssonModules")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, NotificationType, IpAddress, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, iso, Counter32, TimeTicks, ModuleIdentity, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "IpAddress", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "iso", "Counter32", "TimeTicks", "ModuleIdentity", "Counter64", "Integer32")
+Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, iso, MibIdentifier, NotificationType, Unsigned32, Bits, TimeTicks, ObjectIdentity, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "iso", "MibIdentifier", "NotificationType", "Unsigned32", "Bits", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ericssonAlarmTCMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 183, 3))
 ericssonAlarmTCMIB.setRevisions(('2017-03-31 00:00', '2016-06-24 00:00', '2008-10-17 00:00',))
@@ -76,4 +76,4 @@ class EriAlarmRecordType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("alarmNew", 0), ("alarmChange", 1))
 
-mibBuilder.exportSymbols("ERICSSON-ALARM-TC-MIB", EriAlarmIndex=EriAlarmIndex, ericssonAlarmTCMIB=ericssonAlarmTCMIB, EriAlarmRecordType=EriAlarmRecordType, EriAlarmSpecificProblem=EriAlarmSpecificProblem, EriAdditionalInfo=EriAdditionalInfo, EriLargeAdditionalInfo=EriLargeAdditionalInfo, PYSNMP_MODULE_ID=ericssonAlarmTCMIB, EriAlarmType=EriAlarmType, EriLargeAdditionalText=EriLargeAdditionalText, EriAdditionalText=EriAdditionalText, EriAlarmSequenceNumber=EriAlarmSequenceNumber)
+mibBuilder.exportSymbols("ERICSSON-ALARM-TC-MIB", EriAlarmSpecificProblem=EriAlarmSpecificProblem, EriAdditionalInfo=EriAdditionalInfo, EriAlarmType=EriAlarmType, EriAlarmRecordType=EriAlarmRecordType, PYSNMP_MODULE_ID=ericssonAlarmTCMIB, EriLargeAdditionalText=EriLargeAdditionalText, EriAdditionalText=EriAdditionalText, EriAlarmSequenceNumber=EriAlarmSequenceNumber, EriAlarmIndex=EriAlarmIndex, EriLargeAdditionalInfo=EriLargeAdditionalInfo, ericssonAlarmTCMIB=ericssonAlarmTCMIB)

@@ -9,28 +9,28 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Counter64",
       "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
+      "iso",
+      "Counter64",
       "Unsigned32",
-      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -572,8 +572,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-ACM-STATISTICS-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:53:58 2024",
-      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:14:09 2024",
+      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-ACM-STATISTICS-MIB"
