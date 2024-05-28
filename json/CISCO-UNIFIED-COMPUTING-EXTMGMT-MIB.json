@@ -5,37 +5,37 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
       "TimeIntervalSec",
+      "Unsigned64",
       "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
-      "Unsigned64"
+      "CiscoAlarmSeverity",
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsExtmgmtMiiStatusMaxRetryCount",
-      "CucsExtmgmtNdiscTargetsMaxDeadlineTimeout",
-      "CucsNetworkTransport",
-      "CucsNetworkConnectionType",
-      "CucsNetworkLocale",
-      "CucsNetworkIfStatus",
-      "CucsPolicyPolicyOwner",
-      "CucsExtmgmtArpTargetsNumberOfArpRequests",
-      "CucsExtmgmtGatewayPingNumberOfPingRequests",
       "CucsAaaConfigState",
+      "CucsPolicyPolicyOwner",
       "CucsExtmgmtMiiStatusRetryInterval",
-      "CucsNetworkPortType",
-      "CucsExtmgmtIfMonPolicyMonitorMechanism",
       "CucsExtmgmtNdiscTargetsNumberOfNdiscRequests",
-      "CucsNetworkPortRole",
-      "CucsExtmgmtArpTargetsMaxDeadlineTimeout",
-      "CucsExtmgmtGatewayPingMaxDeadlineTimeout",
       "CucsNetworkSwitchId",
-      "CucsExtmgmtIfMonPolicyAdminState"
+      "CucsNetworkLocale",
+      "CucsExtmgmtIfMonPolicyAdminState",
+      "CucsExtmgmtIfMonPolicyMonitorMechanism",
+      "CucsExtmgmtArpTargetsNumberOfArpRequests",
+      "CucsExtmgmtMiiStatusMaxRetryCount",
+      "CucsExtmgmtArpTargetsMaxDeadlineTimeout",
+      "CucsNetworkConnectionType",
+      "CucsExtmgmtNdiscTargetsMaxDeadlineTimeout",
+      "CucsNetworkPortType",
+      "CucsNetworkTransport",
+      "CucsNetworkIfStatus",
+      "CucsExtmgmtGatewayPingMaxDeadlineTimeout",
+      "CucsExtmgmtGatewayPingNumberOfPingRequests",
+      "CucsNetworkPortRole"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -49,30 +49,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
       "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "Bits",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TimeStamp",
-      "RowPointer",
-      "MacAddress",
-      "TimeInterval",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TimeInterval",
+      "TruthValue",
+      "RowPointer",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "cucsExtmgmtObjects": {
@@ -929,8 +929,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-EXTMGMT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:43:09 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 14:00:38 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-EXTMGMT-MIB"

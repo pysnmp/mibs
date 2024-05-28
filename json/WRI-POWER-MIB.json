@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Integer32",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
       "MODULE-IDENTITY",
       "enterprises",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "IpAddress",
-      "Gauge32",
-      "iso",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -382,8 +382,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fiberhome/WRI-POWER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:41:02 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:58:34 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WRI-POWER-MIB"

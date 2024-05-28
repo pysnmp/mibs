@@ -5,48 +5,48 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEventLogThresholdLo",
-      "dot3OamEventLogWindowLo",
-      "dot3OamEventLogType",
-      "dot3OamEventLogOui",
-      "dot3OamEventLogLocation",
-      "dot3OamEntry",
-      "dot3OamEventLogWindowHi",
-      "dot3OamEventLogEventTotal",
-      "dot3OamEventLogTimestamp",
-      "dot3OamEventLogValue",
-      "dot3OamEventLogThresholdHi",
-      "dot3OamEventLogRunningTotal",
       "dot3OamLoopbackEntry",
-      "dot3OamStatsEntry"
+      "dot3OamEventLogType",
+      "dot3OamEventLogWindowLo",
+      "dot3OamEventLogRunningTotal",
+      "dot3OamEventLogValue",
+      "dot3OamEventLogTimestamp",
+      "dot3OamEventLogThresholdHi",
+      "dot3OamEventLogThresholdLo",
+      "dot3OamEventLogOui",
+      "dot3OamEventLogEventTotal",
+      "dot3OamEntry",
+      "dot3OamStatsEntry",
+      "dot3OamEventLogLocation",
+      "dot3OamEventLogWindowHi"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
       "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -1090,8 +1090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:45:49 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 14:03:18 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

@@ -5,34 +5,34 @@
       "hh3cCommon"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Bits",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "hh3cL2vpn": {
@@ -1241,8 +1241,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-L2VPN-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:39:26 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:56:58 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-L2VPN-MIB"

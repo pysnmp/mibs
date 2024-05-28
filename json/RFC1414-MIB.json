@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
       "OBJECT-TYPE",
       "Counter32",
-      "Unsigned32",
-      "Integer32",
+      "mib-2",
+      "Gauge32",
       "MODULE-IDENTITY",
       "iso",
       "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "mib-2"
+      "Bits",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "TCP-MIB": [
+      "tcpConnRemPort",
       "tcpConnRemAddress",
-      "tcpConnLocalAddress",
       "tcpConnLocalPort",
-      "tcpConnRemPort"
+      "tcpConnLocalAddress"
     ]
   },
   "ident": {
@@ -182,8 +182,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC1414-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:36:56 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:54:29 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RFC1414-MIB"

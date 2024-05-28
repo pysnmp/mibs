@@ -8,10 +8,10 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress",
       "InetVersion",
+      "InetAddress",
+      "InetAddressPrefixLength",
       "InetZoneIndex"
     ],
     "IP-MIB": [
@@ -19,38 +19,38 @@
       "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
       "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "iso",
-      "Bits",
-      "mib-2",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "zeroDotZero",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "RowPointer",
-      "TestAndIncr",
-      "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "PhysAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TestAndIncr",
+      "PhysAddress",
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:43:11 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 14:00:41 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

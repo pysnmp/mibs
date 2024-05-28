@@ -8,18 +8,18 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcNameId",
-      "FcIfSpeed",
-      "FcClassOfServices",
-      "FcPortTypes",
-      "FcPortModuleTypes",
+      "FcIfServiceStateType",
       "FcAddressId",
+      "FcPortTypes",
       "FcPortTxTypes",
-      "FcIfServiceStateType"
+      "FcNameId",
+      "FcPortModuleTypes",
+      "FcIfSpeed",
+      "FcClassOfServices"
     ],
     "CISCO-TC": [
-      "MicroSeconds",
-      "CiscoMilliSeconds"
+      "CiscoMilliSeconds",
+      "MicroSeconds"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
@@ -31,36 +31,36 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
       "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "iso",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "Unsigned32",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Integer32",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -7307,8 +7307,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-FE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:43:10 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 14:00:39 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-FC-FE-MIB"

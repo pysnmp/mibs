@@ -5,28 +5,28 @@
       "hh3cRhw"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "iso",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cSmonExtend": {
@@ -107,8 +107,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-SMONEXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:39:26 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:56:58 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-LswSMON-MIB"

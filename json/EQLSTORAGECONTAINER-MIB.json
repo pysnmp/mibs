@@ -15,33 +15,33 @@
       "equalLogic"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Counter64",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "enterprises",
-      "Counter64",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "RowPointer",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
+      "RowPointer",
       "DateAndTime",
-      "TruthValue"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "eqlStorageContainerModule": {
@@ -804,8 +804,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLSTORAGECONTAINER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:40:43 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:58:16 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLSTORAGECONTAINER-MIB"

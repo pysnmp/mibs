@@ -5,10 +5,10 @@
       "switch001"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress",
       "InetVersion",
+      "InetAddress",
+      "InetAddressPrefixLength",
       "InetZoneIndex"
     ],
     "SNMPv2-CONF": [
@@ -16,28 +16,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "iso",
-      "Bits",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "TimeTicks",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TimeStamp",
-      "DisplayString",
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "rlIpPrefList": {
@@ -426,8 +426,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-ippreflist-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:43:06 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 14:00:34 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-ippreflist-MIB"

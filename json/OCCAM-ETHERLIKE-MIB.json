@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "OCCAM-REG-MODULE": [
       "occamGenericInterfaceModules",
       "occamGenericEtherlikeModules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
       "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "transmission",
       "enterprises",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "transmission",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
       "Counter32",
       "mib-2"
     ],
@@ -178,8 +178,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-ETHERLIKE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:36 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:56:08 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OCCAM-ETHERLIKE-MIB"

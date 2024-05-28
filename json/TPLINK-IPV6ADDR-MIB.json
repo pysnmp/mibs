@@ -10,25 +10,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
       "iso",
       "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
       "TimeTicks",
-      "Unsigned32"
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "RowStatus"
     ],
     "TPLINK-MIB": [
       "tplinkMgmt"
@@ -365,8 +365,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-IPV6ADDR-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:46:57 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 14:04:29 2024",
+      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TPLINK-IPV6ADDR-MIB"
