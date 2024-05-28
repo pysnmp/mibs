@@ -8,36 +8,36 @@
       "hh3cSan"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "ifDescr",
       "InterfaceIndex",
-      "ifDescr"
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
       "TimeTicks",
+      "Counter32",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
       "Gauge32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "DateAndTime",
+      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "hh3cFcPsm": {
@@ -797,8 +797,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FC-PSM-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:07:16 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:34:37 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-FC-PSM-MIB"

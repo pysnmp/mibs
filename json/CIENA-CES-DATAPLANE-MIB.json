@@ -3,18 +3,18 @@
     "class": "imports",
     "CIENA-CES-PORT-MIB": [
       "cienaCesPortPgIdMappingNotifPortNumber",
-      "cienaCesPortPgIdMappingNotifShelfIndex",
       "cienaCesPortPgIdMappingNotifChassisIndex",
       "cienaCesLogicalPortConfigPortName",
-      "cienaCesPortPgIdMappingNotifSlotIndex"
+      "cienaCesPortPgIdMappingNotifSlotIndex",
+      "cienaCesPortPgIdMappingNotifShelfIndex"
     ],
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalSeverity",
-      "cienaGlobalMacAddress"
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
-      "cienaCesNotifications",
-      "cienaCesConfig"
+      "cienaCesConfig",
+      "cienaCesNotifications"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
@@ -24,26 +24,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
+      "Counter32",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cienaCesDataplaneMIB": {
@@ -5504,8 +5504,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DATAPLANE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:06:47 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:34:07 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-DATAPLANE-MIB"

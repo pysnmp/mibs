@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "iso",
+      "Counter32",
       "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Bits",
+      "iso",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "enterprises",
+      "Integer32",
       "Unsigned32",
-      "Counter32"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -8189,8 +8189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alvarion/BWA-DOT11-WLAN-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:05:26 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:32:44 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BWA-DOT11-WLAN-MIB"

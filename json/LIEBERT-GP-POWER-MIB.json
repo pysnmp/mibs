@@ -6,24 +6,24 @@
       "liebertPowerModuleReg"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
+      "MibIdentifier",
+      "Bits",
       "Integer32",
       "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3708,8 +3708,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-POWER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:11:28 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:39:07 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LIEBERT-GP-POWER-MIB"

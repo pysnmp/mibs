@@ -1,0 +1,5273 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
+      "enterprises",
+      "Gauge32",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sap": {
+    "name": "sap",
+    "oid": "1.3.6.1.4.1.694",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3": {
+    "name": "r3",
+    "oid": "1.3.6.1.4.1.694.1",
+    "class": "moduleidentity"
+  },
+  "r3Objects": {
+    "name": "r3Objects",
+    "oid": "1.3.6.1.4.1.694.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3system": {
+    "name": "r3system",
+    "oid": "1.3.6.1.4.1.694.1.1.1",
+    "class": "objectidentity"
+  },
+  "r3config": {
+    "name": "r3config",
+    "oid": "1.3.6.1.4.1.694.1.1.2",
+    "class": "objectidentity"
+  },
+  "r3alert": {
+    "name": "r3alert",
+    "oid": "1.3.6.1.4.1.694.1.1.3",
+    "class": "objectidentity"
+  },
+  "r3perf": {
+    "name": "r3perf",
+    "oid": "1.3.6.1.4.1.694.1.1.4",
+    "class": "objectidentity"
+  },
+  "r3maAlert": {
+    "name": "r3maAlert",
+    "oid": "1.3.6.1.4.1.694.1.1.5",
+    "class": "objectidentity"
+  },
+  "r3maiAlert": {
+    "name": "r3maiAlert",
+    "oid": "1.3.6.1.4.1.694.1.1.6",
+    "class": "objectidentity"
+  },
+  "r3customAlert": {
+    "name": "r3customAlert",
+    "oid": "1.3.6.1.4.1.694.1.1.7",
+    "class": "objectidentity"
+  },
+  "r3systemTable": {
+    "name": "r3systemTable",
+    "oid": "1.3.6.1.4.1.694.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3systemEntry": {
+    "name": "r3systemEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3systemNumber": {
+    "name": "r3systemNumber",
+    "oid": "1.3.6.1.4.1.694.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3systemReleaseString": {
+    "name": "r3systemReleaseString",
+    "oid": "1.3.6.1.4.1.694.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3systemName": {
+    "name": "r3systemName",
+    "oid": "1.3.6.1.4.1.694.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3systemLogonString": {
+    "name": "r3systemLogonString",
+    "oid": "1.3.6.1.4.1.694.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3systemTraps": {
+    "name": "r3systemTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3trapInstanceStartUp": {
+    "name": "r3trapInstanceStartUp",
+    "oid": "1.3.6.1.4.1.694.1.1.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapInstanceShutDown": {
+    "name": "r3trapInstanceShutDown",
+    "oid": "1.3.6.1.4.1.694.1.1.1.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3configTable": {
+    "name": "r3configTable",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3configEntry": {
+    "name": "r3configEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3configSystemNumber": {
+    "name": "r3configSystemNumber",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configInstanceName": {
+    "name": "r3configInstanceName",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configDBName": {
+    "name": "r3configDBName",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configDBHostName": {
+    "name": "r3configDBHostName",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configDBHostIpAddr": {
+    "name": "r3configDBHostIpAddr",
+    "oid": "1.3.6.1.4.1.694.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configServiceTable": {
+    "name": "r3configServiceTable",
+    "oid": "1.3.6.1.4.1.694.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3configServiceEntry": {
+    "name": "r3configServiceEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configServiceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3configServiceSystemNumber": {
+    "name": "r3configServiceSystemNumber",
+    "oid": "1.3.6.1.4.1.694.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configServiceType": {
+    "name": "r3configServiceType",
+    "oid": "1.3.6.1.4.1.694.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dialogService": 1,
+          "updateService": 2,
+          "enqueueService": 3,
+          "backgroundService": 4,
+          "messageService": 5,
+          "gatewayService": 6,
+          "spoolService": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3configTraps": {
+    "name": "r3configTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3trapStateChange": {
+    "name": "r3trapStateChange",
+    "oid": "1.3.6.1.4.1.694.1.1.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3alertTable": {
+    "name": "r3alertTable",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3alertEntry": {
+    "name": "r3alertEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3alertSystemNumber": {
+    "name": "r3alertSystemNumber",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertClass": {
+    "name": "r3alertClass",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "classStateChange": 1,
+          "classSAPsysUp": 2,
+          "classSAPsysDown": 3,
+          "classSlogId": 10,
+          "classSlogFreq": 11,
+          "classBuf": 12,
+          "classEnqueue": 13,
+          "classRollpag": 14,
+          "classTrace": 15,
+          "classDpQueue": 16,
+          "classPerfDia": 20,
+          "classPerfUpd": 21,
+          "classPerfBtc": 22,
+          "classPerfSpo": 23,
+          "classAbapUpd": 30,
+          "classAbapErr": 31,
+          "classAbapSql": 32,
+          "classDbIndcs": 41,
+          "classDbFreSp": 42,
+          "classDbArcSt": 43,
+          "classDbBckup": 44,
+          "classSpo": 51,
+          "classArch": 52,
+          "classGenP3": 53,
+          "classGenP4": 54,
+          "classGenP5": 55,
+          "classGenP6": 56,
+          "classGenP7": 57,
+          "classGenP8": 58
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertNumber": {
+    "name": "r3alertNumber",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertAgentHostName": {
+    "name": "r3alertAgentHostName",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertSapNameString": {
+    "name": "r3alertSapNameString",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertSeverity": {
+    "name": "r3alertSeverity",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "severityNormal": 1,
+          "severityWarning": 2,
+          "severityCritical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertMsgString": {
+    "name": "r3alertMsgString",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertActionString": {
+    "name": "r3alertActionString",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertTimeStamp": {
+    "name": "r3alertTimeStamp",
+    "oid": "1.3.6.1.4.1.694.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3alertTraps": {
+    "name": "r3alertTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3trapSyslogIdNormal": {
+    "name": "r3trapSyslogIdNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSyslogIdWarning": {
+    "name": "r3trapSyslogIdWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSyslogIdCritical": {
+    "name": "r3trapSyslogIdCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSyslogFreqNormal": {
+    "name": "r3trapSyslogFreqNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSyslogFreqWarning": {
+    "name": "r3trapSyslogFreqWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSyslogFreqCritical": {
+    "name": "r3trapSyslogFreqCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapBufferSumNormal": {
+    "name": "r3trapBufferSumNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapBufferSumWarning": {
+    "name": "r3trapBufferSumWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapBufferSumCritical": {
+    "name": "r3trapBufferSumCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapEnqueueNormal": {
+    "name": "r3trapEnqueueNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapEnqueueWarning": {
+    "name": "r3trapEnqueueWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapEnqueueCritical": {
+    "name": "r3trapEnqueueCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapRollPageNormal": {
+    "name": "r3trapRollPageNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapRollPageWarning": {
+    "name": "r3trapRollPageWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapRollPageCritical": {
+    "name": "r3trapRollPageCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapTraceNormal": {
+    "name": "r3trapTraceNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapTraceWarning": {
+    "name": "r3trapTraceWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapTraceCritical": {
+    "name": "r3trapTraceCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDpQueueNormal": {
+    "name": "r3trapDpQueueNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDpQueueWarning": {
+    "name": "r3trapDpQueueWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDpQueueCritical": {
+    "name": "r3trapDpQueueCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapUpdNormal": {
+    "name": "r3trapAbapUpdNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.90",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapUpdWarning": {
+    "name": "r3trapAbapUpdWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.91",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapUpdCritical": {
+    "name": "r3trapAbapUpdCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.92",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapErrorNormal": {
+    "name": "r3trapAbapErrorNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.93",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapErrorWarning": {
+    "name": "r3trapAbapErrorWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.94",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapErrorCritical": {
+    "name": "r3trapAbapErrorCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.95",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapSqlNormal": {
+    "name": "r3trapAbapSqlNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.96",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapSqlWarning": {
+    "name": "r3trapAbapSqlWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.97",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapAbapSqlCritical": {
+    "name": "r3trapAbapSqlCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.98",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbIndicesNormal": {
+    "name": "r3trapDbIndicesNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.123",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbIndicesWarning": {
+    "name": "r3trapDbIndicesWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.124",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbIndicesCritical": {
+    "name": "r3trapDbIndicesCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.125",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbFreeSpaceNormal": {
+    "name": "r3trapDbFreeSpaceNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.126",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbFreeSpaceWarning": {
+    "name": "r3trapDbFreeSpaceWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.127",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbFreeSpaceCritical": {
+    "name": "r3trapDbFreeSpaceCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.128",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbArcStuckNormal": {
+    "name": "r3trapDbArcStuckNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbArcStuckWarning": {
+    "name": "r3trapDbArcStuckWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbArcStuckCritical": {
+    "name": "r3trapDbArcStuckCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbBackupNormal": {
+    "name": "r3trapDbBackupNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.132",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbBackupWarning": {
+    "name": "r3trapDbBackupWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapDbBackupCritical": {
+    "name": "r3trapDbBackupCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.134",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSpoolNormal": {
+    "name": "r3trapSpoolNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.153",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSpoolWarning": {
+    "name": "r3trapSpoolWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.154",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapSpoolCritical": {
+    "name": "r3trapSpoolCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.155",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapArchiveNormal": {
+    "name": "r3trapArchiveNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.156",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapArchiveWarning": {
+    "name": "r3trapArchiveWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.157",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapArchiveCritical": {
+    "name": "r3trapArchiveCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.158",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur3Normal": {
+    "name": "r3trapGenPur3Normal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.159",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur3Warning": {
+    "name": "r3trapGenPur3Warning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.160",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur3Critical": {
+    "name": "r3trapGenPur3Critical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.161",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur4Normal": {
+    "name": "r3trapGenPur4Normal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.162",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur4Warning": {
+    "name": "r3trapGenPur4Warning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.163",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur4Critical": {
+    "name": "r3trapGenPur4Critical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.164",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur5Normal": {
+    "name": "r3trapGenPur5Normal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.165",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur5Warning": {
+    "name": "r3trapGenPur5Warning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.166",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur5Critical": {
+    "name": "r3trapGenPur5Critical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.167",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur6Normal": {
+    "name": "r3trapGenPur6Normal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.168",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur6Warning": {
+    "name": "r3trapGenPur6Warning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.169",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur6Critical": {
+    "name": "r3trapGenPur6Critical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.170",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur7Normal": {
+    "name": "r3trapGenPur7Normal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.171",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur7Warning": {
+    "name": "r3trapGenPur7Warning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.172",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur7Critical": {
+    "name": "r3trapGenPur7Critical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.173",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur8Normal": {
+    "name": "r3trapGenPur8Normal",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.174",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur8Warning": {
+    "name": "r3trapGenPur8Warning",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.175",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapGenPur8Critical": {
+    "name": "r3trapGenPur8Critical",
+    "oid": "1.3.6.1.4.1.694.1.1.3.2.176",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3perfTable": {
+    "name": "r3perfTable",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3perfEntry": {
+    "name": "r3perfEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3perfServiceType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3perfSystemNumber": {
+    "name": "r3perfSystemNumber",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3perfServiceType": {
+    "name": "r3perfServiceType",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "taskTypeDialog": 1,
+          "taskTypeUpdate": 2,
+          "taskTypeBackgroud": 3,
+          "taskTypeSpool": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3perfEventsFrequency": {
+    "name": "r3perfEventsFrequency",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3perfResponseTime": {
+    "name": "r3perfResponseTime",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3perfWaitTime": {
+    "name": "r3perfWaitTime",
+    "oid": "1.3.6.1.4.1.694.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3perfTraps": {
+    "name": "r3perfTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3trapPerfDiaNormal": {
+    "name": "r3trapPerfDiaNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfDiaWarning": {
+    "name": "r3trapPerfDiaWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfDiaCritical": {
+    "name": "r3trapPerfDiaCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfUpdNormal": {
+    "name": "r3trapPerfUpdNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfUpdWarning": {
+    "name": "r3trapPerfUpdWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfUpdCritical": {
+    "name": "r3trapPerfUpdCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfBtcNormal": {
+    "name": "r3trapPerfBtcNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.66",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfBtcWarning": {
+    "name": "r3trapPerfBtcWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.67",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfBtcCritical": {
+    "name": "r3trapPerfBtcCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.68",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfSpoNormal": {
+    "name": "r3trapPerfSpoNormal",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.69",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfSpoWarning": {
+    "name": "r3trapPerfSpoWarning",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.70",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3trapPerfSpoCritical": {
+    "name": "r3trapPerfSpoCritical",
+    "oid": "1.3.6.1.4.1.694.1.1.4.2.71",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "r3Conformance": {
+    "name": "r3Conformance",
+    "oid": "1.3.6.1.4.1.694.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "r3Compliances": {
+    "name": "r3Compliances",
+    "oid": "1.3.6.1.4.1.694.1.2.1",
+    "class": "objectidentity"
+  },
+  "r3Groups": {
+    "name": "r3Groups",
+    "oid": "1.3.6.1.4.1.694.1.2.2",
+    "class": "objectidentity"
+  },
+  "r3Compliance": {
+    "name": "r3Compliance",
+    "oid": "1.3.6.1.4.1.694.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "r3ObjectsGroup",
+        "module": "SAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "r3ObjectsGroup": {
+    "name": "r3ObjectsGroup",
+    "oid": "1.3.6.1.4.1.694.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemReleaseString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3systemLogonString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configSystemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configInstanceName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configDBName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configDBHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configDBHostIpAddr"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configServiceSystemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3configServiceType"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSystemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertClass"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertAgentHostName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSapNameString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertMsgString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertActionString"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3alertTimeStamp"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3perfSystemNumber"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3perfServiceType"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3perfEventsFrequency"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3perfResponseTime"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3perfWaitTime"
+      }
+    ],
+    "status": "current"
+  },
+  "r3maAlertTable": {
+    "name": "r3maAlertTable",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3maAlertEntry": {
+    "name": "r3maAlertEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertSystemName",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertSegmentName",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertUniqnum",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertIndex",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertDate",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3maAlertSystemName": {
+    "name": "r3maAlertSystemName",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertSegmentName": {
+    "name": "r3maAlertSegmentName",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertUniqnum": {
+    "name": "r3maAlertUniqnum",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertIndex": {
+    "name": "r3maAlertIndex",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertDate": {
+    "name": "r3maAlertDate",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertTime": {
+    "name": "r3maAlertTime",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertContextName": {
+    "name": "r3maAlertContextName",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertObjectName": {
+    "name": "r3maAlertObjectName",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertAttribName": {
+    "name": "r3maAlertAttribName",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertValue": {
+    "name": "r3maAlertValue",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valueNormal": 1,
+          "valueWarning": 2,
+          "valueCritical": 3,
+          "valueUnknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertSeverity": {
+    "name": "r3maAlertSeverity",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertMsgString": {
+    "name": "r3maAlertMsgString",
+    "oid": "1.3.6.1.4.1.694.1.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maAlertTraps": {
+    "name": "r3maAlertTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "r3maTrap": {
+    "name": "r3maTrap",
+    "oid": "1.3.6.1.4.1.694.1.1.5.2.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertSystemName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertSegmentName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertUniqnum"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertIndex"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertDate"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertTime"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertContextName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertObjectName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertAttribName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertValue"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maAlertMsgString"
+      }
+    ],
+    "status": "current"
+  },
+  "r3maiAlertTable": {
+    "name": "r3maiAlertTable",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3maiAlertEntry": {
+    "name": "r3maiAlertEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertMOId",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertId",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertDate",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertTime",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3maiAlertMOName": {
+    "name": "r3maiAlertMOName",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertMOType": {
+    "name": "r3maiAlertMOType",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertId": {
+    "name": "r3maiAlertId",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertDate": {
+    "name": "r3maiAlertDate",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertTime": {
+    "name": "r3maiAlertTime",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertName": {
+    "name": "r3maiAlertName",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertTechnicalName": {
+    "name": "r3maiAlertTechnicalName",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertDescription": {
+    "name": "r3maiAlertDescription",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertCategory": {
+    "name": "r3maiAlertCategory",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertRating": {
+    "name": "r3maiAlertRating",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valueUnknown": 0,
+          "valueNormal": 1,
+          "valueWarning": 2,
+          "valueCritical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertSeverity": {
+    "name": "r3maiAlertSeverity",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertMetricName": {
+    "name": "r3maiAlertMetricName",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertMetricValue": {
+    "name": "r3maiAlertMetricValue",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 132
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertMOId": {
+    "name": "r3maiAlertMOId",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertStatus": {
+    "name": "r3maiAlertStatus",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertReasonClosure": {
+    "name": "r3maiAlertReasonClosure",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertPriority": {
+    "name": "r3maiAlertPriority",
+    "oid": "1.3.6.1.4.1.694.1.1.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valueLow": 1,
+          "valueMedium": 2,
+          "valueHigh": 3,
+          "valueVeryHigh": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3maiAlertTraps": {
+    "name": "r3maiAlertTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.6.2",
+    "class": "objectidentity"
+  },
+  "r3maiTrap": {
+    "name": "r3maiTrap",
+    "oid": "1.3.6.1.4.1.694.1.1.6.2.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertMOName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertMOType"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertId"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertDate"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertTime"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertTechnicalName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertDescription"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertCategory"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertRating"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertSeverity"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertMetricName"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertMetricValue"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertMOId"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertStatus"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertReasonClosure"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3maiAlertPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "r3customAlertTable": {
+    "name": "r3customAlertTable",
+    "oid": "1.3.6.1.4.1.694.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "r3customAlertEntry": {
+    "name": "r3customAlertEntry",
+    "oid": "1.3.6.1.4.1.694.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3customAlertXXX",
+        "implied": 0
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3customAlertYYY",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "r3customAlertXXX": {
+    "name": "r3customAlertXXX",
+    "oid": "1.3.6.1.4.1.694.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3customAlertYYY": {
+    "name": "r3customAlertYYY",
+    "oid": "1.3.6.1.4.1.694.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "r3customAlertTraps": {
+    "name": "r3customAlertTraps",
+    "oid": "1.3.6.1.4.1.694.1.1.7.2",
+    "class": "objectidentity"
+  },
+  "r3customTrap": {
+    "name": "r3customTrap",
+    "oid": "1.3.6.1.4.1.694.1.1.7.2.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAP-MIB",
+        "object": "r3customAlertXXX"
+      },
+      {
+        "module": "SAP-MIB",
+        "object": "r3customAlertYYY"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sap/SAP-MIB",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:41:37 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+    ],
+    "module": "SAP-MIB"
+  }
+}

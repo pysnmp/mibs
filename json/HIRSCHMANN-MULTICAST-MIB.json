@@ -8,33 +8,33 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Counter64",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "MibIdentifier",
+      "iso",
       "Counter32",
+      "Bits",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmPlatform4Multicast": {
@@ -744,8 +744,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPlatform4Mcast.mib",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:09:42 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:37:12 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HIRSCHMANN-MULTICAST-MIB"

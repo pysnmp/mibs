@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-GGSN-MIB": [
-      "cGgsnNotifPdpImsi",
-      "cGgsnNotifPdpMsisdn"
+      "cGgsnNotifPdpMsisdn",
+      "cGgsnNotifPdpImsi"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -18,30 +18,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "iso",
-      "Unsigned32",
       "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter32",
-      "Bits"
+      "Gauge32",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "cGgsnSAMIB": {
@@ -3118,8 +3118,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GGSN-SERVICE-AWARE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:10:53 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:38:10 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-GGSN-SERVICE-AWARE-MIB"

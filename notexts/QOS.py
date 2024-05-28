@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module QOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/QOS
-# Produced by pysmi-1.1.12 at Tue May 28 13:08:42 2024
-# On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 13:36:09 2024
+# On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
 radioConfig, = mibBuilder.importSymbols("ExaltComProducts", "radioConfig")
 QosTagT, EnableStatusT, VlanIdT = mibBuilder.importSymbols("ExaltComm", "QosTagT", "EnableStatusT", "VlanIdT")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, ModuleIdentity, NotificationType, ObjectIdentity, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier, Counter64, iso, TimeTicks, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier", "Counter64", "iso", "TimeTicks", "Counter32", "IpAddress")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, Unsigned32, Integer32, TimeTicks, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter32, Bits, ObjectIdentity, ModuleIdentity, IpAddress, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "Integer32", "TimeTicks", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter32", "Bits", "ObjectIdentity", "ModuleIdentity", "IpAddress", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class QosPriorityT(TextualConvention, Integer32):
     status = 'current'
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
@@ -116,4 +116,4 @@ qosCos0Weight = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 8, 7, 5), QosCos
 if mibBuilder.loadTexts: qosCos0Weight.setStatus('current')
 commitQosSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 8, 1000), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitQosSettings.setStatus('current')
-mibBuilder.exportSymbols("QOS", QosCos3WeightT=QosCos3WeightT, QosPriorityT=QosPriorityT, qosEth2PortEntry=qosEth2PortEntry, qosPortETH2Conf=qosPortETH2Conf, QosCos0WeightT=QosCos0WeightT, qosCos2Weight=qosCos2Weight, qosScheduler=qosScheduler, qosCos1Weight=qosCos1Weight, qosEth2m802dot1pEntry=qosEth2m802dot1pEntry, qosScheduleMode=qosScheduleMode, qosCos0Weight=qosCos0Weight, qosDiffServEntry=qosDiffServEntry, diffServValue=diffServValue, qosEth2Mode=qosEth2Mode, diffServEnable=diffServEnable, portEth2Priority=portEth2Priority, advSystemConfig=advSystemConfig, portEth1Priority=portEth1Priority, qosDefaultQueue=qosDefaultQueue, qosCos3Weight=qosCos3Weight, qosDiffServList=qosDiffServList, QosCos1WeightT=QosCos1WeightT, qosEth1Mode=qosEth1Mode, extAirG2QoS=extAirG2QoS, qosEth2PortList=qosEth2PortList, qosPortETH1Conf=qosPortETH1Conf, diffServPriority=diffServPriority, QosCos2WeightT=QosCos2WeightT, portEth2Status=portEth2Status, qosEth1m802dot1pList=qosEth1m802dot1pList, tagEth1Priority=tagEth1Priority, QosModeT=QosModeT, tagEth1Status=tagEth1Status, qosEth1PortList=qosEth1PortList, commitQosSettings=commitQosSettings, qosEth1m802dot1pEntry=qosEth1m802dot1pEntry, tagEth2Status=tagEth2Status, qosEth1PortEntry=qosEth1PortEntry, portEth1Status=portEth1Status, tagEth2Priority=tagEth2Priority, QosScheduleModeT=QosScheduleModeT, qosEth2m802dot1pList=qosEth2m802dot1pList)
+mibBuilder.exportSymbols("QOS", diffServPriority=diffServPriority, qosEth2m802dot1pList=qosEth2m802dot1pList, commitQosSettings=commitQosSettings, portEth1Priority=portEth1Priority, qosEth2m802dot1pEntry=qosEth2m802dot1pEntry, qosScheduler=qosScheduler, tagEth2Priority=tagEth2Priority, qosCos3Weight=qosCos3Weight, QosModeT=QosModeT, tagEth1Priority=tagEth1Priority, qosEth1Mode=qosEth1Mode, qosEth2Mode=qosEth2Mode, advSystemConfig=advSystemConfig, tagEth1Status=tagEth1Status, qosCos2Weight=qosCos2Weight, diffServValue=diffServValue, QosPriorityT=QosPriorityT, qosEth1PortEntry=qosEth1PortEntry, qosPortETH1Conf=qosPortETH1Conf, qosCos1Weight=qosCos1Weight, tagEth2Status=tagEth2Status, qosEth2PortEntry=qosEth2PortEntry, qosEth1m802dot1pList=qosEth1m802dot1pList, qosScheduleMode=qosScheduleMode, QosScheduleModeT=QosScheduleModeT, qosCos0Weight=qosCos0Weight, QosCos0WeightT=QosCos0WeightT, qosDefaultQueue=qosDefaultQueue, QosCos1WeightT=QosCos1WeightT, qosDiffServEntry=qosDiffServEntry, qosDiffServList=qosDiffServList, extAirG2QoS=extAirG2QoS, diffServEnable=diffServEnable, portEth2Priority=portEth2Priority, qosPortETH2Conf=qosPortETH2Conf, qosEth1PortList=qosEth1PortList, portEth1Status=portEth1Status, qosEth2PortList=qosEth2PortList, QosCos2WeightT=QosCos2WeightT, QosCos3WeightT=QosCos3WeightT, portEth2Status=portEth2Status, qosEth1m802dot1pEntry=qosEth1m802dot1pEntry)

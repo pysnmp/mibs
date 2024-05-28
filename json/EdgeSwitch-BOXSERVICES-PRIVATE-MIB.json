@@ -5,24 +5,24 @@
       "fastPath"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
       "MibIdentifier",
-      "Counter64"
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -832,8 +832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-BOXSERVICES-PRIVATE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:08:04 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:35:29 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-BOXSERVICES-PRIVATE-MIB"

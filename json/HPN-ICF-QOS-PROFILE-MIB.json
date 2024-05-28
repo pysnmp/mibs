@@ -5,31 +5,31 @@
       "hpnicfCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Counter64",
       "MibIdentifier",
+      "TimeTicks",
+      "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "iso",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "RowStatus",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString"
     ]
   },
@@ -2170,8 +2170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-QOS-PROFILE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:10:52 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:38:46 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-QOS-PROFILE-MIB"

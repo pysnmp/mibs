@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "enterprises",
+      "iso",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
       "Integer32",
-      "Gauge32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "enterprises",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -6111,8 +6111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ingrasys/IPOMANII-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:11:06 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:38:32 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPOMANII-MIB"

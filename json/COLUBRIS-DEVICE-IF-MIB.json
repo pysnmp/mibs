@@ -13,24 +13,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
       "Counter64",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
       "iso",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "MacAddress"
     ]
   },
@@ -415,8 +415,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-IF-MIB.my",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:09:46 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:37:15 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-DEVICE-IF-MIB"

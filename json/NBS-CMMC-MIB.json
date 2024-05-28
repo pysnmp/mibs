@@ -10,9 +10,9 @@
     ],
     "NBS-CMMCENUM-MIB": [
       "NbsCmmcEnumPortConnector",
-      "NbsCmmcEnumChassisType",
+      "NbsCmmcEnumSlotType",
       "NbsCmmcEnumSlotOperationType",
-      "NbsCmmcEnumSlotType"
+      "NbsCmmcEnumChassisType"
     ],
     "NBS-MIB": [
       "nbs"
@@ -22,24 +22,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "iso",
       "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
       "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nbsCmmcMib": {
@@ -10415,8 +10415,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-CMMC-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:12:01 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:39:35 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NBS-CMMC-MIB"

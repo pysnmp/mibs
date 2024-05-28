@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "PhysicalIndex",
+      "entPhysicalIndex",
       "entPhysicalName",
-      "entPhysicalIndex"
+      "PhysicalIndex"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapProbableCause",
       "hwBaseTrapEventType",
-      "hwBaseTrapSeverity",
-      "hwBaseTrapProbableCause"
+      "hwBaseTrapSeverity"
     ],
     "HUAWEI-L2IF-MIB": [
       "hwL2IfPortName"
@@ -21,9 +21,9 @@
       "hwVplsVsiName"
     ],
     "IF-MIB": [
+      "ifDescr",
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifDescr"
+      "InterfaceIndexOrZero"
     ],
     "NQA-MIB": [
       "EnableValue"
@@ -32,35 +32,35 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
       "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "Counter32",
-      "MibIdentifier"
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "hwL2Mgmt": {
@@ -8121,8 +8121,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2MAM-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:10:42 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:38:06 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-L2MAM-MIB"

@@ -10,31 +10,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter32",
-      "Bits",
+      "transmission",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Counter64",
       "OBJECT-TYPE",
+      "Gauge32",
       "IpAddress",
-      "TimeTicks",
-      "Integer32",
-      "transmission",
-      "iso",
-      "OBJECT-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
       "TimeStamp",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "frnetservMIB": {
@@ -2520,8 +2520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FRNETSERV-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:04:48 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:32:04 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FRNETSERV-MIB"

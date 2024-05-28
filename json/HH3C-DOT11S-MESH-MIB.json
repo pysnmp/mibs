@@ -3,36 +3,36 @@
     "class": "imports",
     "HH3C-DOT11-REF-MIB": [
       "hh3cDot11",
-      "Hh3cDot11RadioElementIndex",
       "Hh3cDot11AKMType",
-      "hh3cDot11APElementIndex"
+      "hh3cDot11APElementIndex",
+      "Hh3cDot11RadioElementIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
       "TimeTicks",
+      "Counter32",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
       "Gauge32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "MacAddress",
+      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "hh3cDot11sMesh": {
@@ -1811,8 +1811,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11S-MESH-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:07:15 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:34:36 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-DOT11S-MESH-MIB"

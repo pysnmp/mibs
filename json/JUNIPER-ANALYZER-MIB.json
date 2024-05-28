@@ -5,29 +5,29 @@
       "jnxExAnalyzer"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "iso",
+      "TimeTicks",
       "Counter32",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "jnxAnalyzerMIB": {
@@ -393,8 +393,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-ANALYZER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:12:03 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:39:40 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-ANALYZER-MIB"

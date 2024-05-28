@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "enterprises",
       "Counter64",
       "MibIdentifier",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "TimeTicks"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2654,8 +2654,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-OPENCALL-SS7SNMPAGENT-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:10:53 2024",
-      "On host fv-az1789-536 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:38:47 2024",
+      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-OPENCALL-SS7SNMPAGENT-BASE-MIB"

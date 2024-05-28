@@ -1,0 +1,2632 @@
+SAP-MIB DEFINITIONS ::= BEGIN
+
+  IMPORTS
+	MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
+	Counter32, Gauge32, IpAddress
+		FROM SNMPv2-SMI
+	DisplayString
+		FROM SNMPv2-TC
+	 enterprises
+               FROM RFC1155-SMI;
+
+  sap OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		"The SAP enterprise MIB tree."
+	::= { enterprises 694 }
+
+  r3    MODULE-IDENTITY
+	LAST-UPDATED "9505110655Z"
+	ORGANIZATION "SAP AG
+	 	      Neurottstrasse 16
+		      69190 Walldorf Germany"
+	CONTACT-INFO "Guenter Zachmann"
+	DESCRIPTION
+		"The MIB module to describe objects for the SAP R/3
+		 system."
+	::= { sap 1 }
+
+  r3Objects OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		"The r3Objects tree is further organized into four groups;
+		 system, config, alert and performance"
+	::= { r3 1 }
+
+
+  r3system 	OBJECT IDENTIFIER ::= { r3Objects 1 }
+  r3config 	OBJECT IDENTIFIER ::= { r3Objects 2 }
+  r3alert  	OBJECT IDENTIFIER ::= { r3Objects 3 }
+  r3perf   	OBJECT IDENTIFIER ::= { r3Objects 4 }
+  r3maAlert OBJECT IDENTIFIER ::= { r3Objects 5 }
+  r3maiAlert OBJECT IDENTIFIER ::= { r3Objects 6 }
+  r3customAlert OBJECT IDENTIFIER ::= { r3Objects 7 }
+
+-- ==========================================================================
+-- The R/3 System Group
+-- ==========================================================================
+
+  r3systemTable OBJECT-TYPE
+	SYNTAX     SEQUENCE OF R3systemEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"The (conceptual) table of active SAP R/3
+		 systems. If a system is configured but not
+	 	 started, it will not be in the list."
+	::= { r3system 1 }
+
+  r3systemEntry OBJECT-TYPE
+	SYNTAX     R3systemEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A (conceptual) entry for one active SAP R/3
+		 system. As an example, an instance of the
+		 r3systemName object might be named
+		 r3systemName.3"
+	INDEX { r3systemNumber }
+	::= { r3systemTable 1 }
+
+  R3systemEntry ::= SEQUENCE {
+		       r3systemNumber        INTEGER,
+		       r3systemReleaseString DisplayString,
+		       r3systemName          DisplayString,
+		       r3systemLogonString   DisplayString
+		    }
+
+  r3systemNumber OBJECT-TYPE
+	SYNTAX	   INTEGER (0..2147483647)
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"The SAP system number. Management requests
+		 to currently inactive SAP R/3 systems will
+		 fail."
+	::= { r3systemEntry 1 }
+
+  r3systemReleaseString OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..20))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"Represents the SAP R/3 Release"
+	::= { r3systemEntry 2 }
+
+  r3systemName	OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..20))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"The SAP system name for the SAP system
+		 specified by the SAP R/3 system number.
+		 In addition to the system number
+		 each system can have a system name"
+	::= { r3systemEntry 3 }
+
+  r3systemLogonString	OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..256))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"The logon string for the SAP R/3 system specified
+		 by the SAP R/3 system number. On a UNIX system,
+		 this string can be directly executed."
+	::= { r3systemEntry 4 }
+
+--
+-- r3systemTraps
+--
+
+  r3systemTraps OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		""
+	::= { r3system 2 }
+
+  r3trapInstanceStartUp NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Inform the Network Management System if a new
+		 R/3 instance is coming up."
+	::= { r3systemTraps 2 }
+
+  r3trapInstanceShutDown NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Inform the Network Management System if a
+		 R/3 instance is going down."
+	::= { r3systemTraps 3 }
+
+
+-- #==========================================================================
+-- # The R/3 Config Group
+-- #==========================================================================
+
+  r3configTable OBJECT-TYPE
+	SYNTAX     SEQUENCE OF R3configEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A list of R/3 Configuration entries"
+	::= { r3config 1 }
+
+  r3configEntry OBJECT-TYPE
+	SYNTAX     R3configEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A (conceptual) entry for one configuration
+		information data set. The r3systemNumber in the
+		index represents the entry in the r3systemTable
+		that corresponds to the r3configEntry."
+	INDEX { r3systemNumber }
+	::= { r3configTable 1 }
+
+  R3configEntry ::= SEQUENCE {
+		       r3configSystemNumber INTEGER,
+		       r3configInstanceName DisplayString,
+		       r3configDBName       DisplayString,
+		       r3configDBHostName   DisplayString,
+		       r3configDBHostIpAddr IpAddress
+		    }
+
+  r3configSystemNumber OBJECT-TYPE
+	SYNTAX	   INTEGER (0..2147483647)
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"The r3configSystemNumber corresponds to the
+		first index r3systemNumber."
+	::= { r3configEntry 1 }
+
+  r3configInstanceName OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..64))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"This MIB variable contains the name of the
+		R/3-Instance"
+	::= { r3configEntry 2 }
+
+  r3configDBName	OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..64))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"This MIB variable contains the
+		 SAP R/3 Database Name"
+	::= { r3configEntry 3 }
+
+  r3configDBHostName OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..64))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"This MIB variable contains the host name of
+		 the SAP R/3 database server"
+	::= { r3configEntry 4 }
+
+  r3configDBHostIpAddr OBJECT-TYPE
+	SYNTAX	   IpAddress
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"This MIB variable contains the IP address of the host
+		where the SAP R/3 database is located. May also be
+		the IP address for connecting the R3 database."
+	::= { r3configEntry 5 }
+
+  r3configServiceTable OBJECT-TYPE
+	SYNTAX     SEQUENCE OF R3configServiceEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A list of R/3-Service-Types for each R/3-Instance"
+	::= { r3config 2 }
+
+
+  r3configServiceEntry OBJECT-TYPE
+	SYNTAX     R3configServiceEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A (conceptual) entry for one service
+		information data set. The r3systemNumber in the
+		index represents the entry in the r3systemTable
+		that corresponds to the r3configEntry."
+	INDEX { r3systemNumber, r3configServiceType }
+	::= { r3configServiceTable 1 }
+
+  R3configServiceEntry ::= SEQUENCE {
+                              r3configServiceSystemNumber INTEGER,
+                              r3configServiceType         INTEGER
+                           }
+
+  r3configServiceSystemNumber OBJECT-TYPE
+	SYNTAX	    INTEGER (0..2147483647)
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		"The r3configServiceSystemNumber corresponds
+		to the first index r3systemNumber."
+	::= { r3configServiceEntry 1 }
+
+  r3configServiceType OBJECT-TYPE
+	SYNTAX  INTEGER {
+                    dialogService           (1),
+                    updateService           (2),
+                    enqueueService          (3),
+                    backgroundService       (4),
+                    messageService          (5),
+                    gatewayService          (6),
+                    spoolService            (7)
+                }
+	MAX-ACCESS  read-only
+	STATUS      current
+	DESCRIPTION
+		"This MIB variable contains one Service offered
+		by the corresponding R/3-Instance"
+	::= { r3configServiceEntry 2 }
+
+--
+-- r3configTraps
+--
+
+  r3configTraps OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		""
+	::= { r3config 3 }
+
+  r3trapStateChange NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Services of the instance have changed."
+	::= { r3configTraps 1 }
+
+
+-- ==========================================================================
+-- The R/3 Alert Group
+-- ==========================================================================
+
+  r3alertTable OBJECT-TYPE
+	SYNTAX     SEQUENCE OF R3alertEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A list of R/3 Alert entries "
+	::= { r3alert 1 }
+
+  r3alertEntry OBJECT-TYPE
+	SYNTAX     R3alertEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"The remaining variables are needed for
+		the trap facility. When a SAP system
+		reports an alert condition, the agent
+		will send a SNMP trap to the registered
+		management station.
+		The Trap PDU contains the MIB variables defined below.
+		The r3systemNumber in the index represents the entry
+		in the r3systemTable that corresponds to the
+		r3alertEntry"
+	INDEX { r3systemNumber , r3alertClass }
+	::= { r3alertTable 1 }
+
+  R3alertEntry ::= SEQUENCE {
+		      r3alertSystemNumber   INTEGER,
+		      r3alertClass          INTEGER,
+		      r3alertNumber         INTEGER,
+		      r3alertAgentHostName  DisplayString,
+		      r3alertSapNameString  DisplayString,
+		      r3alertSeverity       INTEGER,
+		      r3alertMsgString      DisplayString,
+		      r3alertActionString   DisplayString,
+		      r3alertTimeStamp      Counter32
+		   }
+				
+  r3alertSystemNumber OBJECT-TYPE
+	SYNTAX	   INTEGER (0..2147483647)
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"The r3alertSystemNumber corresponds
+		to the first index r3systemNumber."
+	::= { r3alertEntry 1 }
+
+  r3alertClass	OBJECT-TYPE
+	SYNTAX	   INTEGER {
+                      classStateChange  (1),
+                      classSAPsysUp     (2),
+                      classSAPsysDown   (3),
+                      classSlogId       (10),
+                      classSlogFreq     (11),
+                      classBuf          (12),
+                      classEnqueue      (13),
+                      classRollpag      (14),
+                      classTrace        (15),
+                      classDpQueue      (16),
+                      classPerfDia      (20),
+                      classPerfUpd      (21),
+                      classPerfBtc      (22),
+                      classPerfSpo      (23),
+                      classAbapUpd      (30),
+                      classAbapErr      (31),
+                      classAbapSql      (32),
+                      classDbIndcs      (41),
+                      classDbFreSp      (42),
+                      classDbArcSt      (43),
+                      classDbBckup      (44),
+                      classSpo          (51),
+                      classArch         (52),
+                      classGenP3        (53),
+                      classGenP4        (54),
+                      classGenP5        (55),
+                      classGenP6        (56),
+                      classGenP7        (57),
+                      classGenP8        (58)
+                   }
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+        "Identifies the R3 Alert classes
+
+         Class name         -  Comment
+         -----------------------------------------------------------------
+         classNull             not available
+
+                               indicating state change if an instance
+         classStateChange      services of an instance have changed
+         classSAPsysUp         R3 instance coming up
+         classSAPsysDown       R3 instance shut down
+
+         classSlogId           critical systemlog occurred
+         classSlogFreq         frequent writes into systemlog
+
+         classBuf              local buffers alert, directory or storage
+                               shortage, bad efficiency
+
+         classEnqueue          lock facility alert, directory or storage
+                               shortage, errors occurred
+
+         classRollpag          rollfile, paging file shortage
+
+         classTrace            trace on, may cause reduced performance
+
+         classDpQueue          shortage in the request queues of an
+                               application server
+
+                               performance alert, exceeding wait time or
+                               response time, exceeding processing time of
+                               ABAP-programs
+         classPerfDia          in dialog task
+         classPerfUpd          in update task
+         classPerfBtc          in background task
+         classPerfSpo          in spool task
+
+                               alerts in ABAP processor
+         classAbapUpd          error in update processing
+         classAbapErr          other error
+         classAbapSql          error during database access
+
+                               database alerts
+         classDbIndcs          missing indices
+         classDbFreSp          free space shortage
+         classDbArcSt          archiver stuck
+         classDbBckup          backup failed
+
+                               ABAP-programmable general purpose alerts
+                               GENP0..1 already used for spool and archive
+
+         classSpo              spooler subsystem alert, exxeding time or
+                               spool database shortage
+
+         classArch             archive subsystem alert, archive-link
+
+                               ABAP-programmable general purpose alerts
+         classGenP3            reserved for further use
+         classGenP4            reserved for further use
+         classGenP5            reserved for further use
+         classGenP6            reserved for further use
+         classGenP7            reserved for further use
+         classGenP8            reserved for further use"
+	::= { r3alertEntry 2 }
+
+  r3alertNumber	OBJECT-TYPE
+	SYNTAX	   INTEGER (0..2147483647)
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"Represents the alert number"
+	::= { r3alertEntry 3 }
+
+  r3alertAgentHostName OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..100))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"Represents the agent host name"
+	::= { r3alertEntry 4 }
+
+  r3alertSapNameString OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..120))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"Represents the SAP R/3 server name string."
+	::= { r3alertEntry 5 }
+
+  r3alertSeverity	OBJECT-TYPE
+	SYNTAX     INTEGER {
+  		      severityNormal   (1),
+  		      severityWarning  (2),
+  		      severityCritical (3)
+  		   }
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION
+        "Identifies the R3 Alert severity
+
+         Severity           -  Comment
+         -----------------------------------------------------------------
+         severityNull          not available
+         severityNormal        normal operation state, no problems
+         severityWarning       problems coming up
+         everityCritical       severe problems
+                               for some alerts the severity is derived
+                               from configurable high water marks or
+                               thresholds"
+	::= { r3alertEntry 6 }
+
+  r3alertMsgString        OBJECT-TYPE
+	SYNTAX     DisplayString (SIZE (0..256))
+	MAX-ACCESS read-only
+	STATUS     current
+	DESCRIPTION
+		"Represents the alert message string"
+	::= { r3alertEntry 7 }
+
+  r3alertActionString 	OBJECT-TYPE
+	SYNTAX	   DisplayString (SIZE (0..256))
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"Represents the alert action string"
+	::= { r3alertEntry 8 }
+
+  r3alertTimeStamp	OBJECT-TYPE
+	SYNTAX	   Counter32
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"Time (UTC) of Alert Occurrance
+		 UTC = time in seconds since 1970, Greenwich"
+	::= { r3alertEntry 9 }
+
+--
+-- r3alertTraps
+--
+
+  r3alertTraps OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		""
+	::= { r3alert 2 }
+
+  r3trapSyslogIdNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"An entry in the systemlog was written, which was configured
+		 critical in the systemlog-filter. Normal Severity."
+	::= { r3alertTraps 30 }
+
+  r3trapSyslogIdWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"An entry in the systemlog was written, which was configured
+		 critical in the systemlog-filter. Warning Severity."
+	::= { r3alertTraps 31 }
+
+  r3trapSyslogIdCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"An entry in the systemlog was written, which was configured
+		 critical in the systemlog-filter. Critical Severity"
+	::= { r3alertTraps 32 }
+
+  r3trapSyslogFreqNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"A lot of entrys in the systemlog. The reason can be, that the
+		 defined rate of entries (modulo) or the entries per hour went
+		 beyond the defined limit. Normal Severity."
+	::= { r3alertTraps 33 }
+
+  r3trapSyslogFreqWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"A lot of entrys in the systemlog. The reason can be, that the
+		 defined rate of entries (modulo) or the entries per hour went
+		 beyond the defined limit. Warning Severity."
+	::= { r3alertTraps 34 }
+
+  r3trapSyslogFreqCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"A lot of entrys in the systemlog. The reason can be, that the
+		 defined rate of entries (modulo) or the entries per hour went
+		 beyond the defined limit. Critical Severity"
+	::= { r3alertTraps 35 }
+
+  r3trapBufferSumNormal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The bufferperformance (hit/access) goes beyond a limiting value
+		 or the size of the buffer-directory or the buffer-memory had
+		 passed a defined value. Normal Severity."
+	::= { r3alertTraps 36 }
+
+  r3trapBufferSumWarning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The bufferperformance (hit/access) goes beyond a limiting value
+		 or the size of the buffer-directory or the buffer-memory had
+		 passed a defined value. Warning Severity."
+	::= { r3alertTraps 37 }
+
+  r3trapBufferSumCritical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The bufferperformance (hit/access) goes beyond a limiting value
+		 or the size of the buffer-directory or the buffer-memory had
+		 passed a defined value. Critical Severity"
+	::= { r3alertTraps 38 }
+
+  r3trapEnqueueNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Enqueue space shortabe or error occurred. Normal Severity."
+	::= { r3alertTraps 39 }
+
+  r3trapEnqueueWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Enqueue space shortabe or error occurred. Warning Severity."
+	::= { r3alertTraps 40 }
+
+  r3trapEnqueueCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Enqueue space shortabe or error occurred. Critical Severity."
+	::= { r3alertTraps 41 }
+
+  r3trapRollPageNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The size of rollfiles or pagefiles had passed a defined value. Normal
+Severity."
+	::= { r3alertTraps 42 }
+
+  r3trapRollPageWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The size of rollfiles or pagefiles had passed a defined value.
+                 Warning Severity. Warning Severity."
+	::= { r3alertTraps 43 }
+
+  r3trapRollPageCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The size of rollfiles or pagefiles had passed a defined value.
+                 Critical Severity"
+	::= { r3alertTraps 44 }
+
+  r3trapTraceNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"A trace-option is active and may effect your performance. Normal Severity."
+	::= { r3alertTraps 45 }
+
+  r3trapTraceWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"A trace-option is active and may effect your performance. Warning Severity."
+	::= { r3alertTraps 46 }
+
+  r3trapTraceCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"A trace-option is active and may effect your performance. Critical Severity"
+	::= { r3alertTraps 47 }
+
+  r3trapDpQueueNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Shortage in the application servers request queues.
+                 Indicates overlaod or service stuck. Normal Severity."
+	::= { r3alertTraps 48 }
+
+  r3trapDpQueueWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Shortage in the application servers request queues.
+                 Indicates overlaod or service stuck. Warning Severity."
+	::= { r3alertTraps 49 }
+
+  r3trapDpQueueCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Shortage in the application servers request queues.
+                 Indicates overlaod or service stuck. Critical Severity"
+	::= { r3alertTraps 50 }
+
+  r3trapAbapUpdNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Break in updateprocess was found in the ABAP-Processor. Normal Severity."
+	::= { r3alertTraps 90 }
+
+  r3trapAbapUpdWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Break in updateprocess was found in the ABAP-Processor. Warning Severity."
+	::= { r3alertTraps 91 }
+
+  r3trapAbapUpdCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Break in updateprocess was found in the ABAP-Processor. Critical Severity"
+	::= { r3alertTraps 92 }
+
+  r3trapAbapErrorNormal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"An other error was found in the ABAP-Processor.
+		 ABAP-Shortdump was written. Normal Severity."
+	::= { r3alertTraps 93 }
+
+  r3trapAbapErrorWarning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"An other error was found in the ABAP-Processor.
+		 ABAP-Shortdump was written. Warning Severity."
+	::= { r3alertTraps 94 }
+
+  r3trapAbapErrorCritical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"An other error was found in the ABAP-Processor.
+		 ABAP-Shortdump was written. Critical Severity"
+	::= { r3alertTraps 95 }
+
+  r3trapAbapSqlNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Error during a database-access was recognized in
+		 the ABAP-Processor. Normal Severity."
+	::= { r3alertTraps 96 }
+
+  r3trapAbapSqlWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Error during a database-access was recognized in
+		 the ABAP-Processor. Warning Severity."
+	::= { r3alertTraps 97 }
+
+  r3trapAbapSqlCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Error during a database-access was recognized in
+		 the ABAP-Processor. Critical Severity"
+	::= { r3alertTraps 98 }
+
+  r3trapDbIndicesNormal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"There are missing indices on database tables.
+		 Will result in reduced access time. Normal Severity."
+	::= { r3alertTraps 123 }
+
+  r3trapDbIndicesWarning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"There are missing indices on database tables.
+		 Will result in reduced access time. Waring Severity."
+	::= { r3alertTraps 124 }
+
+  r3trapDbIndicesCritical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"There are missing indices on database tables.
+		 Will result in reduced access time. Critical Severity."
+	::= { r3alertTraps 125 }
+
+  r3trapDbFreeSpaceNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The free space area in the database goes beneath a
+		 critical value. Normal Severity."
+	::= { r3alertTraps 126 }
+
+  r3trapDbFreeSpaceWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The free space area in the database goes beneath a
+		 critical value. Warning Severity."
+	::= { r3alertTraps 127 }
+
+  r3trapDbFreeSpaceCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"The free space area in the database goes beneath a
+		 critical value. Critical Severity"
+	::= { r3alertTraps 128 }
+
+  r3trapDbArcStuckNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Database-archiver doesnt work! Normal Severity."
+	::= { r3alertTraps 129 }
+
+  r3trapDbArcStuckWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Database-archiver doesnt work!. Warning Severity."
+	::= { r3alertTraps 130 }
+
+  r3trapDbArcStuckCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Database-archiver doesnt work!. Critical Severity."
+	::= { r3alertTraps 131 }
+
+  r3trapDbBackupNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Problems during the database-backup were recognized. Normal Severity."
+	::= { r3alertTraps 132 }
+
+  r3trapDbBackupWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Problems during the database-backup were recognized. Warning Severity."
+	::= { r3alertTraps 133 }
+
+  r3trapDbBackupCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Problems during the database-backup were recognized. Critical Severity"
+	::= { r3alertTraps 134 }
+
+  r3trapSpoolNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 1, used for spool. Normal Severity."
+	::= { r3alertTraps 153 }
+
+  r3trapSpoolWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 1, used for spool. Warning Severity."
+	::= { r3alertTraps 154 }
+
+  r3trapSpoolCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 1, used for spool. Critical Severity."
+	::= { r3alertTraps 155 }
+
+  r3trapArchiveNormal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 1, used for Archive. Normal Severity."
+	::= { r3alertTraps 156 }
+
+  r3trapArchiveWarning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 1, used for Archive. Warning Severity."
+	::= { r3alertTraps 157 }
+
+  r3trapArchiveCritical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 1, used for Archive. Critical Severity."
+	::= { r3alertTraps 158 }
+
+  r3trapGenPur3Normal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 3. Normal Severity."
+	::= { r3alertTraps 159 }
+
+  r3trapGenPur3Warning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 3. Warning Severity."
+	::= { r3alertTraps 160 }
+
+  r3trapGenPur3Critical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 3. Critical Severity"
+	::= { r3alertTraps 161 }
+
+  r3trapGenPur4Normal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 4. Normal Severity."
+	::= { r3alertTraps 162 }
+
+  r3trapGenPur4Warning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 4. Warning Severity."
+	::= { r3alertTraps 163 }
+
+  r3trapGenPur4Critical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 4. Critical Severity"
+	::= { r3alertTraps 164 }
+
+  r3trapGenPur5Normal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 5. Normal Severity."
+	::= { r3alertTraps 165 }
+
+  r3trapGenPur5Warning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 5. Warning Severity."
+	::= { r3alertTraps 166 }
+
+  r3trapGenPur5Critical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 5. Critical Severity"
+	::= { r3alertTraps 167 }
+
+  r3trapGenPur6Normal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 6. Normal Severity."
+	::= { r3alertTraps 168 }
+
+  r3trapGenPur6Warning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 6. Warning Severity."
+	::= { r3alertTraps 169 }
+
+  r3trapGenPur6Critical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 6. Critical Severity"
+	::= { r3alertTraps 170 }
+
+  r3trapGenPur7Normal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 7. Normal Severity."
+	::= { r3alertTraps 171 }
+
+  r3trapGenPur7Warning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 7. Warning Severity."
+	::= { r3alertTraps 172 }
+
+  r3trapGenPur7Critical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert 7. Critical Severity"
+	::= { r3alertTraps 173 }
+
+  r3trapGenPur8Normal	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert  8. Normal Severity."
+	::= {r3alertTraps 174 }
+
+  r3trapGenPur8Warning	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert  8. Warning Severity."
+	::= {r3alertTraps 175 }
+
+  r3trapGenPur8Critical	NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+		"Free programmable alert  8. Critical Severity"
+	::= {r3alertTraps 176 }
+
+-- #==========================================================================
+-- # The R/3 Performance Group
+-- #==========================================================================
+
+  r3perfTable OBJECT-TYPE
+	SYNTAX     SEQUENCE OF R3perfEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"A list of R/3 Performance entries"
+	::= { r3perf 1 }
+
+  r3perfEntry OBJECT-TYPE
+	SYNTAX     R3perfEntry
+	MAX-ACCESS not-accessible
+	STATUS     current
+	DESCRIPTION
+		"An entry for R/3 performance data.
+		 The r3systemNumber in the index represents the
+		 entry in the r3systemTable that corresponds to
+		 the r3perfEntry."
+	INDEX { r3systemNumber , r3perfServiceType }
+	::= { r3perfTable 1 }
+
+  R3perfEntry ::= SEQUENCE {
+		     r3perfSystemNumber     INTEGER,
+		     r3perfServiceType      INTEGER,
+		     r3perfEventsFrequency  Gauge32,
+		     r3perfResponseTime     Gauge32,
+		     r3perfWaitTime         Gauge32
+		  }
+
+  r3perfSystemNumber OBJECT-TYPE
+	SYNTAX	   INTEGER (0..2147483647)
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"The r3perfSystemNumber corresponds to the
+		first index r3systemNumber."
+	::= { r3perfEntry 1 }
+
+  r3perfServiceType OBJECT-TYPE
+	SYNTAX	   INTEGER {
+		      taskTypeDialog    (1),
+		      taskTypeUpdate    (2),
+		      taskTypeBackgroud (3),
+		      taskTypeSpool     (4)
+		   }
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+         " Performance statistics of various task types concerning the
+           wait time (queue-time), response time ( response to user),
+           and exceeding processing time of ABAP-programs
+
+         Service Type      - Comment
+         -----------------------------------------------------------------
+         taskTypeDialog      dialog and rfc, remote function call
+         taskTypeUpdate	     update task
+         taskTypeBackgroud   background processing, time/event scheduled
+         taskTypeSpool       spool processing"
+	::= { r3perfEntry 2 }
+
+  r3perfEventsFrequency OBJECT-TYPE
+	SYNTAX	   Gauge32
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+                "Number of Events/min. (in task type dialog,
+                        an event is equivalent to a dialog step) "
+	::= { r3perfEntry 3 }
+
+  r3perfResponseTime OBJECT-TYPE
+	SYNTAX	   Gauge32
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"response time in milliseconds
+		 response time = wait + process "
+	::= { r3perfEntry 4 }
+
+  r3perfWaitTime	OBJECT-TYPE
+	SYNTAX	   Gauge32
+	MAX-ACCESS read-only
+	STATUS	   current
+	DESCRIPTION
+		"wait time in milliseconds
+		 wait time for free work process"
+	::= { r3perfEntry 5 }
+
+--
+-- r3perfTraps
+--
+
+  r3perfTraps OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		""
+	::= { r3perf 2 }
+
+  r3trapPerfDiaNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Dialog: Performance goes
+             beneath a limit. Normal Severity."
+	::= { r3perfTraps 60 }
+
+  r3trapPerfDiaWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Dialog: Performance goes
+             beneath a limit. Warning Severity."
+	::= { r3perfTraps 61 }
+
+  r3trapPerfDiaCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Dialog: Performance goes
+             beneath a limit. Critical Severity."
+	::= { r3perfTraps 62 }
+
+  r3trapPerfUpdNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+ 	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Update-Process: Performance
+             goes beneath a limit. Normal Severity."
+	::= { r3perfTraps 63 }
+
+  r3trapPerfUpdWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+ 	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Update-Process: Performance
+             goes beneath a limit. Warning Severity."
+	::= { r3perfTraps 64 }
+
+  r3trapPerfUpdCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+ 	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Update-Process: Performance
+             goes beneath a limit. Critical Severity."
+	::= { r3perfTraps 65 }
+
+  r3trapPerfBtcNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+ 	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Background: Performance goes
+             beneath a limit. Normal Severity."
+	::= { r3perfTraps 66 }
+
+  r3trapPerfBtcWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+ 	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Background: Performance goes
+             beneath a limit. Warning Severity."
+	::= { r3perfTraps 67 }
+
+  r3trapPerfBtcCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+ 	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Background: Performance goes
+             beneath a limit. Critical Severity."
+	::= { r3perfTraps 68 }
+
+  r3trapPerfSpoNormal NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Spool: Performance goes beneath
+             a limit. Normal Severity."
+	::= { r3perfTraps 69 }
+
+  r3trapPerfSpoWarning NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Spool: Performance goes beneath
+             a limit. Warning Severity."
+	::= { r3perfTraps 70 }
+
+  r3trapPerfSpoCritical NOTIFICATION-TYPE
+	OBJECTS	{
+	   r3systemNumber,
+	   r3alertNumber,
+	   r3alertAgentHostName,
+	   r3alertSapNameString,
+	   r3alertClass,
+	   r3alertSeverity,
+	   r3alertMsgString,
+	   r3alertActionString,
+	   r3alertTimeStamp
+	}
+	STATUS current
+	DESCRIPTION
+	    "You will have performance-traps, when the waiting time, the
+             response time or the operating time of an ABAP-Program has passed
+             a defined value. Work-Process-Typ Spool: Performance goes beneath
+             a limit."
+	::= { r3perfTraps 71 }
+
+-- #==========================================================================
+-- # SAP R/3 Conformance
+-- #==========================================================================
+
+  r3Conformance OBJECT-IDENTITY
+	STATUS current
+	DESCRIPTION
+		"The SAP-MIB conformance statements"
+	::= { r3 2 }
+
+  r3Compliances OBJECT IDENTIFIER ::= { r3Conformance 1 }
+  r3Groups      OBJECT IDENTIFIER ::= { r3Conformance 2 }
+
+  r3Compliance MODULE-COMPLIANCE
+	STATUS current
+	DESCRIPTION
+		""
+	MODULE SAP-MIB
+		MANDATORY-GROUPS { r3ObjectsGroup }
+	::= { r3Compliances 1 }
+
+  r3ObjectsGroup OBJECT-GROUP
+	OBJECTS {
+	   r3systemNumber, r3systemReleaseString, r3systemName,
+	   r3systemLogonString,
+	   r3configSystemNumber, r3configInstanceName, r3configDBName,
+	   r3configDBHostName, r3configDBHostIpAddr,
+	   r3configServiceSystemNumber, r3configServiceType,
+	   r3alertSystemNumber, r3alertClass, r3alertNumber,
+	   r3alertAgentHostName, r3alertSapNameString, r3alertSeverity,
+	   r3alertMsgString, r3alertActionString, r3alertTimeStamp,
+	   r3perfSystemNumber, r3perfServiceType, r3perfEventsFrequency,
+	   r3perfResponseTime, r3perfWaitTime
+	}
+	STATUS current
+	DESCRIPTION
+		""
+	::= { r3Groups 1 }
+
+-- #==========================================================================
+-- # SAP R/3 4.X Alert Traps
+-- #==========================================================================
+
+  r3maAlertTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF R3maAlertEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+           "A list of R/3 monitoring architecture alert entries "
+    ::= { r3maAlert  1 }
+
+
+  r3maAlertEntry OBJECT-TYPE
+    SYNTAX     R3maAlertEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+           "The remaining variables are needed for
+            the trap facility. When a SAP system
+            reports an alert condition, the agent
+            will send a SNMP trap to the registered
+            management station.
+            The Trap PDU contains the MIB variables defined below.
+	    The table-entries are the alerts which occured.
+            An alert is identified by a r3maAlertSystemName, r3maAlertSegmentName,
+            r3maAlertUniqnum, r3maAlertIndex, r3maAlertDate, r3maAlertDate.
+            It is possible to acknowledge an alert with this information."
+    INDEX   {r3maAlertSystemName, r3maAlertSegmentName, r3maAlertUniqnum, r3maAlertIndex,r3maAlertDate,r3maAlertTime }
+    ::= { r3maAlertTable  1 }
+
+
+  R3maAlertEntry ::= SEQUENCE {
+		      r3maAlertSystemName   DisplayString,
+		      r3maAlertSegmentName  DisplayString,
+		      r3maAlertUniqnum      DisplayString,
+		      r3maAlertIndex        DisplayString,
+		      r3maAlertDate         DisplayString,
+		      r3maAlertTime         DisplayString,
+		      r3maAlertContextName  DisplayString,
+		      r3maAlertObjectName   DisplayString,
+	       	  r3maAlertAttribName   DisplayString,
+		      r3maAlertValue	    INTEGER,
+		      r3maAlertSeverity     INTEGER,
+		      r3maAlertMsgString    DisplayString
+    }
+
+
+  r3maAlertSystemName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..8))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the System that raised the alert"
+    ::= { r3maAlertEntry  1 }
+
+  r3maAlertSegmentName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..40))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the segment name that raised the alert"
+    ::= { r3maAlertEntry  2 }
+
+
+  r3maAlertUniqnum OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..10))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the number of the alert.
+            An alert is identified by a r3maAlertSystemName, r3maAlertSegmentName,
+            r3maAlertUniqnum, r3maAlertIndex, r3maAlertDate, r3maAlertDate.
+            It is possible to acknowledge an alert with this information."
+    ::= { r3maAlertEntry  3 }
+
+  r3maAlertIndex OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..10))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the index of the alert.
+            An alert is identified by a r3maAlertSystemName, r3maAlertSegmentName,
+            r3maAlertUniqnum, r3maAlertIndex, r3maAlertDate, r3maAlertDate.
+            It is possible to acknowledge an alert with this information."
+    ::= { r3maAlertEntry  4 }
+
+
+  r3maAlertDate OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..8))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the date of alert occurrance.
+            An alert is identified by a r3maAlertSystemName, r3maAlertSegmentName,
+            r3maAlertUniqnum, r3maAlertIndex, r3maAlertDate, r3maAlertDate.
+            It is possible to acknowledge an alert with this information."
+    ::= { r3maAlertEntry  5 }
+
+
+  r3maAlertTime OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..6))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the time of alert occurrance.
+            An alert is identified by a r3maAlertSystemName, r3maAlertSegmentName,
+            r3maAlertUniqnum, r3maAlertIndex, r3maAlertDate, r3maAlertDate.
+            It is possible to acknowledge an alert with this information."
+    ::= { r3maAlertEntry  6 }
+
+
+
+  r3maAlertContextName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..40))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the context name in a monitoring segment."
+    ::= { r3maAlertEntry  7 }
+
+  r3maAlertObjectName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..40))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the monitor object name."
+    ::= { r3maAlertEntry  8 }
+
+  r3maAlertAttribName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..40))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the monitor attribute name."
+    ::= { r3maAlertEntry  9 }
+
+
+  r3maAlertValue OBJECT-TYPE
+    SYNTAX  INTEGER {
+        valueNormal(1),
+    	valueWarning(2),
+    	valueCritical(3),
+    	valueUnknown(4)
+  }
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Identifies the R3 Alert Value
+
+         Value           -  Comment
+         -----------------------------------------------------------------
+         valueNormal           normal operation state, green
+         valueWarning          warning, yellow
+         valueCritical         problem occurred, red
+	 valueUnknown	       unknown status"
+    ::= { r3maAlertEntry  10 }
+
+
+  r3maAlertSeverity OBJECT-TYPE
+    SYNTAX    INTEGER (0..255)
+    MAX-ACCESS read-only
+    STATUS    current
+    DESCRIPTION
+           "Identifies the R3 alert severity as configured in RZ20"
+    ::= { r3maAlertEntry  11 }
+
+  r3maAlertMsgString OBJECT-TYPE
+    SYNTAX     DisplayString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the alert message string"
+    ::= { r3maAlertEntry  12 }
+
+
+
+  r3maAlertTraps OBJECT IDENTIFIER ::= { r3maAlert  2 }
+
+  r3maTrap NOTIFICATION-TYPE
+    OBJECTS   {
+      r3maAlertSystemName,
+      r3maAlertSegmentName,
+      r3maAlertUniqnum,
+      r3maAlertIndex,
+      r3maAlertDate,
+      r3maAlertTime,
+      r3maAlertContextName,
+      r3maAlertObjectName,
+      r3maAlertAttribName,
+      r3maAlertValue,
+      r3maAlertSeverity,
+      r3maAlertMsgString
+    }
+    STATUS current    
+    DESCRIPTION
+           "Generic SAP R/3 4.X Alert"
+    ::= { r3maAlertTraps 60 }
+
+	
+-- #==========================================================================
+-- # SAP SolutionManager MAI Alert Traps
+-- #==========================================================================
+
+  r3maiAlertTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF R3maiAlertEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+           "A list of Solution Manager MAI Alert entries "
+    ::= { r3maiAlert  1 }
+
+
+  r3maiAlertEntry OBJECT-TYPE
+    SYNTAX     R3maiAlertEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+           "The table-entries are the MAI Alerts which occured.
+            An alert is identified by a r3maiAlertMOId, 
+			r3maiAlertId, r3maiAlertDate, r3maiAlertTime."
+    INDEX   { r3maiAlertMOId,r3maiAlertId,r3maiAlertDate,r3maiAlertTime }
+    ::= { r3maiAlertTable  1 }
+
+
+  R3maiAlertEntry ::= SEQUENCE {
+  		      r3maiAlertMOName    		DisplayString,
+			  r3maiAlertMOType    		DisplayString,
+		      r3maiAlertId		    	DisplayString,
+		      r3maiAlertDate         	DisplayString,
+		      r3maiAlertTime        	DisplayString,
+		      r3maiAlertName  			DisplayString,
+			  r3maiAlertTechnicalName  	DisplayString,
+		      r3maiAlertDescription   	DisplayString,
+	       	  r3maiAlertCategory		DisplayString,
+		      r3maiAlertRating	    	INTEGER,
+		      r3maiAlertSeverity     	INTEGER,
+              r3maiAlertMetricName   	DisplayString,
+	       	  r3maiAlertMetricValue		DisplayString,
+			  r3maiAlertMOId		   	DisplayString,
+	       	  r3maiAlertStatus			DisplayString,
+			  r3maiAlertReasonClosure  	INTEGER,
+		      r3maiAlertPriority     	INTEGER
+    }
+
+
+  r3maiAlertMOName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..128))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the ManagedObject Name that raised the MAI Alert."
+    ::= { r3maiAlertEntry  1 }
+	
+  r3maiAlertMOType OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..10))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the ManagedObject Type that raised the MAI Alert:
+		   
+		 Value           -  Comment
+         -----------------------------------------------------------------
+		 CONNECTION			Connection
+		 DBMS          		Database
+         HOST          		Host (Server)
+		 INSTANCE           Technical Instance
+		 PI_DOMAIN			Process Integration (PI / XI) Domain
+		 SCENARIO			Generic Managed Object type
+		 SCR				Script
+		 SCR_ROB			Script on Robot
+		 SCR_ST_ROB			Script Step on Robot
+		 TECHN_COMP			Technical Component		 
+		 T_SYSTEM	       	Technical System
+		 ROB				Robot
+		 NW_DEVICE			Active Network Device
+		 PRINTER			Printer or Fax
+         STORAGE			Storage System
+		 UNSPECIFIC			Unspecified Managed Object
+		 MOBILE				Mobile Device
+		 IFCHANNEL			Interface Channel
+		 BPMON_OBJ			Business Process Monitoring Object
+		 JOB				Job"
+    ::= { r3maiAlertEntry  2 }	
+	
+  r3maiAlertId OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..32))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the ID of the MAI Alert."
+    ::= { r3maiAlertEntry  3 }
+
+  r3maiAlertDate OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..8))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the UTC Date of the MAI Alert."
+    ::= { r3maiAlertEntry  4 }
+
+  r3maiAlertTime OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..6))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the UTC Time of the MAI Alert."
+    ::= { r3maiAlertEntry  5 }
+	
+  r3maiAlertName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..128))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the human readable Name of the MAI Alert."
+    ::= { r3maiAlertEntry  6 }	
+
+  r3maiAlertTechnicalName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..60))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the Technical Name of the MAI Alert."
+    ::= { r3maiAlertEntry  7 }
+
+  r3maiAlertDescription OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..128))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the Description of the MAI Alert."
+    ::= { r3maiAlertEntry  8 }
+
+  r3maiAlertCategory OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..10))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the Category of the MAI Alert.
+		   
+         Value           -  Comment
+         -----------------------------------------------------------------
+		 AVAIL	       		Availability
+         PERFORM            Performance
+         EXCEPTION          Exceptions
+         CONFIGURE          Configuration"
+    ::= { r3maiAlertEntry  9 }
+
+
+  r3maiAlertRating OBJECT-TYPE
+    SYNTAX  INTEGER {
+		valueUnknown(0),
+        valueNormal(1),
+    	valueWarning(2),
+    	valueCritical(3) }
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the MAI Alert Rating:
+
+         Value              -  Comment
+         -----------------------------------------------------------------
+		 valueUnknown	       Unknown status
+         valueNormal           Normal operation state, green
+         valueWarning          Warning, yellow
+         valueCritical         Problem occurred, red"
+    ::= { r3maiAlertEntry  10 }
+
+
+	
+  r3maiAlertSeverity OBJECT-TYPE
+    SYNTAX    INTEGER (0..9)
+    MAX-ACCESS read-only
+    STATUS    current
+    DESCRIPTION
+           "Represents the MAI Alert Severity:
+		   
+         Value           -  Comment
+         -----------------------------------------------------------------
+		 0	       			Low
+		 1
+		 2
+		 3
+		 4
+		 5					Medium
+		 6
+		 7
+		 8
+         9					Critical"
+    ::= { r3maiAlertEntry  11 }
+
+	
+  r3maiAlertMetricName OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..128))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the Name or Path of the MAI Metric."
+    ::= { r3maiAlertEntry  12 }
+
+  r3maiAlertMetricValue OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..132))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the Value (and eventual Unit) of the MAI Metric."
+    ::= { r3maiAlertEntry  13 }	
+	
+  r3maiAlertMOId OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..32))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the ManagedObject Id that raised the MAI Alert."
+    ::= { r3maiAlertEntry  14 }	
+	
+  r3maiAlertStatus OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..4))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the Status of the MAI Alert.
+		   
+         Value           -  Comment
+         -----------------------------------------------------------------
+		 O	       		Open
+         I    	        In process
+         T          	Transferred
+         E          	Externally Processed
+		 C				Confirmed"
+    ::= { r3maiAlertEntry  15 }	
+	
+
+  r3maiAlertReasonClosure OBJECT-TYPE
+    SYNTAX    INTEGER (0..9)
+    MAX-ACCESS read-only
+    STATUS    current
+    DESCRIPTION
+           "Represents the the MAI Alert:
+		   
+         Value           -  Comment
+         -----------------------------------------------------------------
+		 1					Re-configuration
+		 2					Work mode change
+		 3					Green alert
+		 4					Grey alert
+		 5					Yellow alert
+		 6					Red alert"
+    ::= { r3maiAlertEntry  16 }
+	
+	
+  r3maiAlertPriority OBJECT-TYPE
+    SYNTAX  INTEGER {
+		valueLow(1),
+        valueMedium(2),
+    	valueHigh(3),
+    	valueVeryHigh(4) }
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents the MAI Alert Priority:
+
+         Value              -  Comment
+         -----------------------------------------------------------------
+		 valueLow	       	Low
+         valueMedium        Medium
+         valueHigh          High
+         valueVeryHigh      Very High"
+    ::= { r3maiAlertEntry  17 }	
+	
+	
+  r3maiAlertTraps OBJECT IDENTIFIER ::= { r3maiAlert  2 }
+
+  r3maiTrap NOTIFICATION-TYPE
+    OBJECTS   {
+  		      r3maiAlertMOName,
+			  r3maiAlertMOType,
+		      r3maiAlertId,
+		      r3maiAlertDate,
+		      r3maiAlertTime,
+		      r3maiAlertName,
+			  r3maiAlertTechnicalName,
+		      r3maiAlertDescription,
+	       	  r3maiAlertCategory,
+		      r3maiAlertRating,
+		      r3maiAlertSeverity,
+			  r3maiAlertMetricName,
+		      r3maiAlertMetricValue,
+			  r3maiAlertMOId,
+	       	  r3maiAlertStatus,
+			  r3maiAlertReasonClosure,
+		      r3maiAlertPriority
+    }
+    STATUS current    
+    DESCRIPTION
+           "Generic SAP Solution Manager MAI Alert"
+    ::= { r3maiAlertTraps 60 }	
+	
+	
+-- #==========================================================================
+-- # SAP SolutionManager Custom Alert Traps
+-- #==========================================================================
+
+  r3customAlertTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF R3customAlertEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+           "A list of Solution Manager Custom Alert entries "
+    ::= { r3customAlert  1 }
+
+
+  r3customAlertEntry OBJECT-TYPE
+    SYNTAX     R3customAlertEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+           "The table-entries are the Custom Alerts which occured.
+            An alert is identified by a r3customAlertXXX, r3customAlertYYY."
+    INDEX   { r3customAlertXXX,r3customAlertYYY }
+    ::= { r3customAlertTable  1 }
+
+
+  R3customAlertEntry ::= SEQUENCE {
+  		      r3customAlertXXX    		DisplayString,
+			  r3customAlertYYY    		INTEGER
+    }
+
+
+  r3customAlertXXX OBJECT-TYPE
+    SYNTAX     DisplayString(SIZE (0..512))
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents XXX that raised the Custom Alert."
+    ::= { r3customAlertEntry  1 }
+	
+  r3customAlertYYY OBJECT-TYPE
+    SYNTAX     INTEGER (0..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+           "Represents YYY that raised the Custom Alert."
+    ::= { r3customAlertEntry  2 }	
+	
+
+  r3customAlertTraps OBJECT IDENTIFIER ::= { r3customAlert  2 }
+
+  r3customTrap NOTIFICATION-TYPE
+    OBJECTS   {
+  		      r3customAlertXXX,
+			  r3customAlertYYY
+    }
+    STATUS current    
+    DESCRIPTION
+           "Generic SAP Solution Manager Custom Alert"
+    ::= { r3customAlertTraps 60 }	
+
+	
+END
