@@ -3,70 +3,70 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "MacAddress",
-      "dot1dBasePortEntry",
       "dot1dBasePort",
       "BridgeId",
+      "dot1dBasePortEntry",
       "Timeout"
     ],
     "IEEE8021-PAE-MIB": [
-      "dot1xPaePortNumber",
       "PaeControlledPortStatus",
+      "dot1xPaePortNumber",
       "dot1xAuthSessionStatsEntry"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndexOrZero",
+      "ifIndex",
       "InterfaceIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
       "VlanIndex",
+      "dot1qFdbId",
       "PortList"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Counter64",
-      "Counter32",
-      "Integer32",
+      "TimeTicks",
+      "IpAddress",
       "Gauge32",
+      "Counter32",
+      "enterprises",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "iso",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits"
+      "Unsigned32"
     ],
     "SNMPv2-SMI-v1": [
       "Integer-32",
-      "Counter-32",
-      "Unsigned-32"
+      "Unsigned-32",
+      "Counter-32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SNMPv2-TC-v1": [
       "RowPointer",
-      "RowStatus",
-      "DisplayString",
-      "PhysAddress",
-      "DateAndTime",
       "TimeInterval",
-      "TruthValue"
+      "DisplayString",
+      "RowStatus",
+      "PhysAddress",
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "Percents": {
@@ -8659,8 +8659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:11:37 2024",
-      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:34:13 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RADLAN-MIB"

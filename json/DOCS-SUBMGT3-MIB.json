@@ -5,8 +5,8 @@
       "clabProjDocsis"
     ],
     "DOCS-IF3-MIB": [
-      "docsIf3CmtsCmRegStatusEntry",
-      "docsIf3CmtsCmRegStatusId"
+      "docsIf3CmtsCmRegStatusId",
+      "docsIf3CmtsCmRegStatusEntry"
     ],
     "DOCS-L2VPN-MIB": [
       "DocsL2vpnIfList"
@@ -21,31 +21,31 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter64",
       "IpAddress",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
       "TimeTicks",
       "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
+      "MacAddress",
       "TimeStamp",
       "RowStatus"
     ]
@@ -1734,8 +1734,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-SUBMGT3-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:07:57 2024",
-      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:30:39 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DOCS-SUBMGT3-MIB"

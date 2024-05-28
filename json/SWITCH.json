@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "Counter32",
       "mib-2",
-      "TimeTicks",
+      "Counter64",
       "Integer32",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "enterprises",
-      "MibIdentifier"
+      "IpAddress",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
       "DateAndTime",
-      "TruthValue",
+      "TimeStamp",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "PhysAddress",
       "AutonomousType",
-      "TestAndIncr",
-      "PhysAddress"
+      "MacAddress",
+      "TestAndIncr"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:13:19 2024",
-      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:35:18 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

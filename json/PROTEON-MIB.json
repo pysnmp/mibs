@@ -5,30 +5,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "enterprises",
-      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
       "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "iso",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "enterprises",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "IpAddress"
+      "TRAP-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "proteon": {
@@ -1347,8 +1347,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/PROTEON-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:14:41 2024",
-      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:36:52 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PROTEON-MIB"
