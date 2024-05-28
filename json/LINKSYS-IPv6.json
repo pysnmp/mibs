@@ -9,19 +9,19 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAutonomousSystemNumber",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
-      "ipv6RouterAdvertEntry",
-      "ipNetToPhysicalEntry",
+      "ipv6InterfaceEntry",
       "ipAddressEntry",
-      "ipv6InterfaceEntry"
+      "ipNetToPhysicalEntry",
+      "ipv6RouterAdvertEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -35,28 +35,28 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
+      "MibIdentifier",
       "zeroDotZero",
-      "iso",
       "Integer32",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "mib-2",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Counter64",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "RowStatus",
       "TruthValue",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:37:46 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:51:32 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"

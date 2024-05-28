@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "TimeIntervalSec",
-      "CiscoAlarmSeverity",
       "CiscoNetworkAddress",
-      "CiscoInetAddressMask",
-      "Unsigned64"
+      "Unsigned64",
+      "CiscoAlarmSeverity",
+      "TimeIntervalSec",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectId",
       "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
@@ -28,34 +28,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "Unsigned32",
       "Integer32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
       "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "IpAddress"
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeInterval",
       "MacAddress",
+      "DisplayString",
       "DateAndTime",
-      "TimeStamp"
+      "TimeStamp",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cucsOrgObjects": {
@@ -256,8 +256,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-ORG-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:36:48 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:50:41 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-ORG-MIB"

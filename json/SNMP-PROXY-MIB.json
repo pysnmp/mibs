@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpEngineID",
-      "SnmpAdminString"
+      "SnmpAdminString",
+      "SnmpEngineID"
     ],
     "SNMP-TARGET-MIB": [
       "SnmpTagValue"
@@ -14,27 +14,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
       "iso",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "snmpModules",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "IpAddress",
       "Bits",
       "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
-      "snmpModules",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "snmpProxyMIB": {
@@ -292,8 +292,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-PROXY-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:30:39 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:44:35 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SNMP-PROXY-MIB"

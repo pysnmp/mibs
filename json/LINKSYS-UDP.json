@@ -7,10 +7,10 @@
     ],
     "IP-FORWARD-MIB": [
       "ipCidrRouteNextHop",
-      "ipCidrRouteEntry",
       "ipCidrRouteTos",
-      "ipCidrRouteMask",
-      "ipCidrRouteDest"
+      "ipCidrRouteDest",
+      "ipCidrRouteEntry",
+      "ipCidrRouteMask"
     ],
     "IP-MIB": [
       "ipAddrEntry"
@@ -24,19 +24,19 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "iso",
-      "Integer32",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "MibIdentifier",
-      "IpAddress"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -278,8 +278,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-UDP",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:37:46 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:51:32 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-UDP"

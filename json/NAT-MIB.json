@@ -7,10 +7,10 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddressPrefixLength",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -21,26 +21,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "mib-2",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter32",
       "MibIdentifier",
-      "Integer32",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "mib-2",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "StorageType",
+      "RowStatus",
       "DisplayString"
     ],
     "VPN-TC-STD-MIB": [
@@ -4189,8 +4189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/NAT-TC",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:30:39 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:44:35 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NAT-MIB"

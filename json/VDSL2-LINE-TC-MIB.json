@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "transmission",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "transmission",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "Counter32",
       "MibIdentifier",
-      "Integer32",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1187,8 +1187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/VDSL2-LINE-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:30:40 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:44:35 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "VDSL2-LINE-TC-MIB"

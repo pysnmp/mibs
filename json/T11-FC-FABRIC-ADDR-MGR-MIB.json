@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
+      "fcmSwitchIndex",
       "FcNameIdOrZero",
       "fcmInstanceIndex",
-      "FcDomainIdOrZero",
-      "fcmSwitchIndex"
+      "FcDomainIdOrZero"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -16,26 +16,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Gauge32",
+      "Counter64",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Counter32",
       "mib-2",
-      "Gauge32"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TruthValue",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString"
     ],
     "T11-TC-MIB": [
@@ -1193,8 +1193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-FABRIC-ADDR-MGR-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:30:39 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:44:35 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "T11-FC-FABRIC-ADDR-MGR-MIB"

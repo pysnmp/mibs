@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CPQHOST-MIB": [
-      "compaq",
-      "cpqHoTrapFlags"
+      "cpqHoTrapFlags",
+      "compaq"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -13,25 +13,25 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
       "Counter64",
+      "Counter32",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cpqDriveArray": {
@@ -8981,8 +8981,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQIDA-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:36:54 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:50:46 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CPQIDA-MIB"

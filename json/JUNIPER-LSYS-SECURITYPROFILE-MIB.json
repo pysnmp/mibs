@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Bits",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "IpAddress",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "iso"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -132,8 +132,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-LSYS-SECURITYPROFILE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:38:06 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:51:54 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-LSYS-SECURITYPROFILE-MIB"

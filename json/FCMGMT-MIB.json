@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "experimental",
+      "iso",
+      "Counter64",
+      "Gauge32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "experimental",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
       "Counter32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
       "Integer32",
-      "Gauge32",
-      "TRAP-TYPE"
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3319,8 +3319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/draft-ietf-ipfc-fcmgmt-int-mib-04",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:30:39 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:44:35 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FCMGMT-MIB"

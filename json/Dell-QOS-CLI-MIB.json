@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "Dell-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList2",
       "VlanList1",
       "VlanList3",
+      "VlanList2",
       "VlanList4"
     ],
     "Dell-MIB": [
-      "rnd",
-      "Percents"
+      "Percents",
+      "rnd"
     ],
     "Dell-POLICY-MIB": [
       "StatisticsClearActionType",
@@ -24,31 +24,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "TimeTicks",
-      "IpAddress"
+      "Counter32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlQosCliMib": {
@@ -5258,8 +5258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-QOS-CLI-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:33:43 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:47:35 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-QOS-CLI-MIB"

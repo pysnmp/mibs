@@ -8,19 +8,19 @@
     "SNMPv2-SMI": [
       "Counter64",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "TimeTicks",
+      "mib-2",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "mib-2",
-      "TimeTicks"
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -268,8 +268,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANA-ITU-ALARM-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:31:52 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:45:46 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IANA-ITU-ALARM-TC-MIB"

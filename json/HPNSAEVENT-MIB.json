@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
       "Counter64",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "IpAddress",
       "iso",
-      "Unsigned32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hp": {
@@ -1289,8 +1289,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPNSAEVENT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:36:55 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:50:48 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPNSAEVENT-MIB"

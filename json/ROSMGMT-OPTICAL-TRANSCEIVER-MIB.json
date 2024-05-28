@@ -13,24 +13,24 @@
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Bits",
       "Counter64",
-      "MibIdentifier",
-      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32"
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rosMgmtOpticalTransceiver": {
@@ -2204,8 +2204,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/ROSMGMT-OPTICAL-TRANSCEIVER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:39:48 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:53:32 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ROSMGMT-OPTICAL-TRANSCEIVER-MIB"

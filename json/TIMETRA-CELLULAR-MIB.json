@@ -11,38 +11,38 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
       "Counter64",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
       "Counter32",
-      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DateAndTime",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-CHASSIS-MIB": [
-      "tmnxCardSlotNum",
-      "tmnxMDASlotNum"
+      "tmnxMDASlotNum",
+      "tmnxCardSlotNum"
     ],
     "TIMETRA-GLOBAL-MIB": [
+      "timetraSRMIBModules",
       "tmnxSRObjs",
-      "tmnxSRConfs",
       "tmnxSRNotifyPrefix",
-      "timetraSRMIBModules"
+      "tmnxSRConfs"
     ],
     "TIMETRA-PORT-MIB": [
       "tmnxPortPortID",
@@ -50,9 +50,9 @@
     ],
     "TIMETRA-TC-MIB": [
       "TNamedItemOrEmpty",
-      "TmnxEnabledDisabledAdminState",
       "TItemDescription",
       "TmnxAuthPassword",
+      "TmnxEnabledDisabledAdminState",
       "TmnxEnabledDisabled"
     ]
   },
@@ -3495,8 +3495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:39:35 2024",
-      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:53:21 2024",
+      "On host fv-az847-244 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-CELLULAR-MIB"
