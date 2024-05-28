@@ -6,27 +6,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TRAP-TYPE",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Gauge32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
       "Counter32",
-      "Unsigned32"
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "PhysAddress",
+      "DisplayString"
     ]
   },
   "dell": {
@@ -2219,8 +2219,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELLRCSG2-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:05:31 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:11:05 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DELLRCSG2-TRAP-MIB"

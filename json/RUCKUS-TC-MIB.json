@@ -5,28 +5,28 @@
       "ruckusCommonTCModule"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
       "Integer32",
       "OBJECT-TYPE",
-      "Bits",
+      "Gauge32",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruckusTCMIB": {
@@ -759,8 +759,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:11:48 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:17:54 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-TC-MIB"

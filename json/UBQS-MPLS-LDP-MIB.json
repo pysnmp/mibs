@@ -5,45 +5,45 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "MPLS-TC-STD-MIB": [
+      "MplsTunnelIndex",
+      "MplsLSPID",
       "mplsStdMIB",
       "MplsOwner",
-      "MplsLSPID",
       "TeHopAddressType",
-      "MplsTunnelInstanceIndex",
-      "MplsTunnelIndex"
+      "MplsTunnelInstanceIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
       "Integer32",
       "Counter32",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "TimeTicks",
       "iso",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
       "IpAddress",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
       "TimeStamp"
     ],
     "UBQS-SMI": [
@@ -317,8 +317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:12:55 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:19:29 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "UBQS-MPLS-LDP-MIB"

@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "WPACipherSet",
-      "ExtremeDeviceId",
       "ClientAuthType",
+      "ExtremeDeviceId",
+      "extremeAgent",
       "WPAKeyMgmtSet",
       "extremeAP",
-      "extremeAgent",
+      "WPACipherSet",
+      "WirelessRemoteConnectBindingType",
       "extremeV2Traps",
-      "extremeLAC",
-      "WirelessRemoteConnectBindingType"
+      "extremeLAC"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MibIdentifier"
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:06:41 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:12:22 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

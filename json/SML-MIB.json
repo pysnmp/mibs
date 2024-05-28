@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
       "enterprises",
-      "IpAddress",
-      "MibIdentifier",
       "Unsigned32",
-      "iso"
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "UShortReal": {
@@ -1347,8 +1347,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SML-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:02:26 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:07:57 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SML-MIB"

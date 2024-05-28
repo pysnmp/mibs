@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslAturChanIntervalNumber",
-      "adslAtucChanIntervalNumber",
       "adslLineAlarmConfProfileName",
-      "adslLineConfProfileName",
-      "adslAtucIntervalNumber"
+      "adslAtucChanIntervalNumber",
+      "adslAtucIntervalNumber",
+      "adslAturChanIntervalNumber",
+      "adslLineConfProfileName"
     ],
     "DASAN-SMI": [
       "dasanMgmt"
@@ -15,32 +15,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Bits",
       "Gauge32",
-      "Unsigned32",
-      "iso",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "mib-2",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Bits"
+      "iso",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
-      "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dasanAdslMIB": {
@@ -4004,8 +4004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ADSL-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:05:29 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:11:10 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DASAN-ADSL-MIB"

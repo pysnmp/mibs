@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
+      "Counter32",
       "Unsigned32",
-      "Integer32",
-      "TRAP-TYPE",
       "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "Integer32",
+      "IpAddress",
+      "Bits",
       "TimeTicks",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "powertek": {
@@ -4595,8 +4595,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bladeshelter/SPSv1-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:03:51 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:09:19 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SPSv1-MIB"

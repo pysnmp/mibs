@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module A4400-RTM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/A4400-RTM-MIB
-# Produced by pysmi-1.1.12 at Tue May 28 12:02:43 2024
-# On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 12:08:14 2024
+# On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 a4400CPU, = mibBuilder.importSymbols("A4400-CPU-MIB", "a4400CPU")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, enterprises, NotificationType, iso, Gauge32, Counter64, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, IpAddress, ObjectIdentity, MibIdentifier, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "enterprises", "NotificationType", "iso", "Gauge32", "Counter64", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "IpAddress", "ObjectIdentity", "MibIdentifier", "Unsigned32", "Bits")
+ModuleIdentity, ObjectIdentity, enterprises, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, MibIdentifier, Counter64, Gauge32, Integer32, TimeTicks, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "enterprises", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "MibIdentifier", "Counter64", "Gauge32", "Integer32", "TimeTicks", "Unsigned32", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ipDomainTable = MibTable((1, 3, 6, 1, 4, 1, 637, 64, 4400, 1, 3), ).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ipDomainTable.setStatus('current')
@@ -76,4 +76,4 @@ cumuloos = MibTableColumn((1, 3, 6, 1, 4, 1, 637, 64, 4400, 1, 9, 1, 11), Intege
 if mibBuilder.loadTexts: cumuloos.setStatus('current')
 cumuloverrun = MibTableColumn((1, 3, 6, 1, 4, 1, 637, 64, 4400, 1, 9, 1, 12), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: cumuloverrun.setStatus('current')
-mibBuilder.exportSymbols("A4400-RTM-MIB", trunkEntry=trunkEntry, cacAllowed=cacAllowed, sipUnregSets=sipUnregSets, ipDomainEntry=ipDomainEntry, cumuloverrun=cumuloverrun, nodepbx=nodepbx, confOutOfOrder=confOutOfOrder, trunkname=trunkname, pbxRole=pbxRole, busychan=busychan, cacUsed=cacUsed, dspRessBusy=dspRessBusy, dspRessOverrun=dspRessOverrun, cumuloos=cumuloos, ooschan=ooschan, trunkstatus=trunkstatus, dspRessOutOfService=dspRessOutOfService, crystalno=crystalno, trunkid=trunkid, setsOutOfService=setsOutOfService, couplerno=couplerno, dspRessAvailable=dspRessAvailable, setsInService=setsInService, ipDomainTable=ipDomainTable, trunkTable=trunkTable, confBusy=confBusy, cacOverrun=cacOverrun, ipDomain=ipDomain, freechan=freechan, confAvailable=confAvailable, sipRegSets=sipRegSets, trunktype=trunktype)
+mibBuilder.exportSymbols("A4400-RTM-MIB", crystalno=crystalno, ipDomainTable=ipDomainTable, trunktype=trunktype, setsInService=setsInService, sipRegSets=sipRegSets, ooschan=ooschan, dspRessBusy=dspRessBusy, ipDomainEntry=ipDomainEntry, confBusy=confBusy, confOutOfOrder=confOutOfOrder, trunkEntry=trunkEntry, nodepbx=nodepbx, couplerno=couplerno, setsOutOfService=setsOutOfService, cacAllowed=cacAllowed, freechan=freechan, confAvailable=confAvailable, ipDomain=ipDomain, busychan=busychan, cumuloos=cumuloos, trunkTable=trunkTable, dspRessAvailable=dspRessAvailable, dspRessOutOfService=dspRessOutOfService, trunkname=trunkname, trunkid=trunkid, cumuloverrun=cumuloverrun, pbxRole=pbxRole, trunkstatus=trunkstatus, sipUnregSets=sipUnregSets, dspRessOverrun=dspRessOverrun, cacOverrun=cacOverrun, cacUsed=cacUsed)

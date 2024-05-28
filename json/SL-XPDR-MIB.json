@@ -5,40 +5,40 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
       "PerfTotalCount",
-      "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfCurrentCount"
     ],
     "SL-NE-MIB": [
       "sitelight"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "slXpdr": {
@@ -673,8 +673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-XPDR-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:10:36 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:16:45 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SL-XPDR-MIB"

@@ -9,28 +9,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TRAP-TYPE",
-      "IpAddress",
-      "Integer32",
       "Gauge32",
-      "MODULE-IDENTITY",
       "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
       "Counter32",
-      "Unsigned32"
+      "TRAP-TYPE",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "dellLanSystemMng": {
@@ -600,8 +600,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-LAN-SYSMNG-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:05:31 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:11:06 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-LAN-SYSMNG-MIB"

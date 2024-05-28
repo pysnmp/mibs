@@ -5,11 +5,11 @@
       "Counter32SinceReset"
     ],
     "CISCO-IETF-MEGACO-MIB": [
-      "cmedGatewayStatsEntry",
-      "cmedGatewayLinkId",
       "cmedTerminationsEntry",
-      "cmedGatewayId",
-      "cmedGatewayConfigEntry"
+      "cmedGatewayLinkId",
+      "cmedGatewayStatsEntry",
+      "cmedGatewayConfigEntry",
+      "cmedGatewayId"
     ],
     "CISCO-MEDIA-GATEWAY-MIB": [
       "CCallControlProfileIndexOrZero",
@@ -28,38 +28,38 @@
       "CvcSpeechCoderRate"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
       "Gauge32",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus",
       "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -5193,8 +5193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MEGACO-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:08:27 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:13:48 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-MEGACO-EXT-MIB"

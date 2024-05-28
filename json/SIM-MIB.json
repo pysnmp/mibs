@@ -7,27 +7,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "BITS",
-      "enterprises",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
       "Integer32",
-      "Counter32",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "BITS",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "simMIB": {
@@ -4853,8 +4853,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/SIM-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:03:25 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:08:56 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIM-MIB"

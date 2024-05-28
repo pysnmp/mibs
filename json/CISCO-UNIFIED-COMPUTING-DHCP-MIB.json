@@ -7,9 +7,9 @@
     "CISCO-TC": [
       "CiscoNetworkAddress",
       "CiscoAlarmSeverity",
+      "CiscoInetAddressMask",
       "Unsigned64",
-      "TimeIntervalSec",
-      "CiscoInetAddressMask"
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIBObjects",
@@ -17,8 +17,8 @@
       "CucsManagedObjectId"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -28,30 +28,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
       "Gauge32",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "RowPointer",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DateAndTime",
-      "TruthValue",
+      "MacAddress",
       "TimeInterval",
+      "TruthValue",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cucsDhcpObjects": {
@@ -407,8 +407,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 12:08:21 2024",
-      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:13:44 2024",
+      "On host fv-az1567-4 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-DHCP-MIB"
