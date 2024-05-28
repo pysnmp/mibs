@@ -5,10 +5,10 @@
       "sysinfo"
     ],
     "IF-MIB": [
+      "ifDescr",
       "ifOperStatus",
       "ifAdminStatus",
-      "ifIndex",
-      "ifDescr"
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -16,23 +16,23 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "TimeTicks",
-      "iso",
-      "Bits",
-      "Counter64",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Bits",
       "Gauge32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "atLinkTrap": {
@@ -97,8 +97,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-LINKTRAP-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:43:36 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:02:59 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "AT-LINKTRAP-MIB"

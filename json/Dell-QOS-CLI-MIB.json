@@ -3,52 +3,52 @@
     "class": "imports",
     "Dell-BRIDGEMIBOBJECTS-MIB": [
       "VlanList4",
-      "VlanList2",
       "VlanList1",
+      "VlanList2",
       "VlanList3"
     ],
     "Dell-MIB": [
-      "rnd",
-      "Percents"
+      "Percents",
+      "rnd"
     ],
     "Dell-POLICY-MIB": [
-      "StatisticsClearActionType",
-      "StatisticsDPType"
+      "StatisticsDPType",
+      "StatisticsClearActionType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "PortList"
+      "PortList",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
       "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY",
+      "Bits",
       "TimeTicks",
-      "iso",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowPointer"
     ]
   },
   "rlQosCliMib": {
@@ -5258,8 +5258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-QOS-CLI-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:46:03 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:05:31 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-QOS-CLI-MIB"

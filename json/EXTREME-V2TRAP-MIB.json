@@ -5,14 +5,14 @@
       "bgpPeerRemoteAddr"
     ],
     "EXTREME-BASE-MIB": [
-      "extremeV2Traps",
-      "ClientAuthType"
+      "ClientAuthType",
+      "extremeV2Traps"
     ],
     "EXTREME-EAPS-MIB": [
-      "extremeEapsMode",
+      "extremeEapsName",
       "extremeEapsState",
       "extremeEapsPrevState",
-      "extremeEapsName"
+      "extremeEapsMode"
     ],
     "EXTREME-ESRP-MIB": [
       "extremeEsrpGroup",
@@ -29,15 +29,15 @@
       "extremeIQosProfileIndex"
     ],
     "EXTREME-SYSTEM-MIB": [
-      "extremeCpuTaskUtilPair",
-      "extremeHealthCheckAction",
-      "extremeSlotNumber",
-      "extremeCpuUtilRisingThreshold",
-      "extremeMasterMSMSlot",
-      "extremeCpuAggregateUtilization",
-      "extremeMsmFailoverCause",
       "extremeHealthCheckErrorType",
-      "extremeHealthCheckMaxRetries"
+      "extremeHealthCheckMaxRetries",
+      "extremeSlotNumber",
+      "extremeMasterMSMSlot",
+      "extremeMsmFailoverCause",
+      "extremeCpuAggregateUtilization",
+      "extremeHealthCheckAction",
+      "extremeCpuUtilRisingThreshold",
+      "extremeCpuTaskUtilPair"
     ],
     "EXTREME-VLAN-MIB": [
       "extremeVlanIfIndex",
@@ -47,32 +47,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Integer32",
       "Counter64",
+      "Bits",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
@@ -1045,8 +1045,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:47:12 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:06:41 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-V2TRAP-MIB"

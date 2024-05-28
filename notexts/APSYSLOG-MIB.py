@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module APSYSLOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSYSLOG-MIB
-# Produced by pysmi-1.1.12 at Tue May 28 11:50:44 2024
-# On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue May 28 12:10:20 2024
+# On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Integer32, Unsigned32, MibIdentifier, iso, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, ObjectIdentity, NotificationType, Bits, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "MibIdentifier", "iso", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "ObjectIdentity", "NotificationType", "Bits", "Counter32", "IpAddress")
-DisplayString, TimeStamp, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TruthValue", "TextualConvention")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, IpAddress, ModuleIdentity, Bits, iso, TimeTicks, ObjectIdentity, Integer32, Counter32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "IpAddress", "ModuleIdentity", "Bits", "iso", "TimeTicks", "ObjectIdentity", "Integer32", "Counter32", "NotificationType")
+TextualConvention, TruthValue, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString", "TimeStamp")
 apSyslogModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 1))
 apSyslogModule.setRevisions(('2012-07-16 00:00', '2013-09-13 00:00', '2014-06-26 00:00',))
 if mibBuilder.loadTexts: apSyslogModule.setLastUpdated('201406260000Z')
@@ -67,4 +67,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 apSyslogNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9148, 3, 1, 3, 2, 2)).setObjects(("APSYSLOG-MIB", "apSyslogMessageGenerated"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apSyslogNotificationsGroup = apSyslogNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("APSYSLOG-MIB", apSyslogHistTableMaxLength=apSyslogHistTableMaxLength, apSyslogHistFrom=apSyslogHistFrom, apSyslogMIBConformance=apSyslogMIBConformance, apSyslogHistLevel=apSyslogHistLevel, apSyslogModule=apSyslogModule, apSyslogHistTimestamp=apSyslogHistTimestamp, apSyslogNotificationsSent=apSyslogNotificationsSent, apSyslogMsgDrops=apSyslogMsgDrops, apSyslogMIBObjects=apSyslogMIBObjects, apSyslogHistory=apSyslogHistory, apSyslogMIBNotificationPrefix=apSyslogMIBNotificationPrefix, apSyslogMIBGroups=apSyslogMIBGroups, apSyslogNotificationsEnabled=apSyslogNotificationsEnabled, apSyslogHistIndex=apSyslogHistIndex, apSyslogHistoryEntry=apSyslogHistoryEntry, apSyslogNotificationsGroup=apSyslogNotificationsGroup, apSyslogMaxLevel=apSyslogMaxLevel, apSyslogHistType=apSyslogHistType, apSyslogGroup=apSyslogGroup, apSyslogHistoryTable=apSyslogHistoryTable, apSyslogMsgIgnores=apSyslogMsgIgnores, apSyslogHistMsgsFlushed=apSyslogHistMsgsFlushed, apSyslogBasic=apSyslogBasic, apSyslogMIBCompliances=apSyslogMIBCompliances, apSyslogMIBNotifications=apSyslogMIBNotifications, apSyslogHistContent=apSyslogHistContent, PYSNMP_MODULE_ID=apSyslogModule, apSyslogMessageGenerated=apSyslogMessageGenerated, SyslogLevel=SyslogLevel)
+mibBuilder.exportSymbols("APSYSLOG-MIB", apSyslogMIBNotificationPrefix=apSyslogMIBNotificationPrefix, apSyslogMIBNotifications=apSyslogMIBNotifications, SyslogLevel=SyslogLevel, apSyslogMessageGenerated=apSyslogMessageGenerated, apSyslogGroup=apSyslogGroup, apSyslogHistTableMaxLength=apSyslogHistTableMaxLength, apSyslogMIBConformance=apSyslogMIBConformance, apSyslogMaxLevel=apSyslogMaxLevel, apSyslogHistMsgsFlushed=apSyslogHistMsgsFlushed, apSyslogMIBCompliances=apSyslogMIBCompliances, apSyslogHistoryEntry=apSyslogHistoryEntry, apSyslogNotificationsGroup=apSyslogNotificationsGroup, apSyslogHistIndex=apSyslogHistIndex, apSyslogHistType=apSyslogHistType, apSyslogMsgDrops=apSyslogMsgDrops, apSyslogHistContent=apSyslogHistContent, apSyslogNotificationsEnabled=apSyslogNotificationsEnabled, apSyslogMsgIgnores=apSyslogMsgIgnores, apSyslogMIBGroups=apSyslogMIBGroups, apSyslogNotificationsSent=apSyslogNotificationsSent, PYSNMP_MODULE_ID=apSyslogModule, apSyslogHistFrom=apSyslogHistFrom, apSyslogHistTimestamp=apSyslogHistTimestamp, apSyslogModule=apSyslogModule, apSyslogMIBObjects=apSyslogMIBObjects, apSyslogBasic=apSyslogBasic, apSyslogHistoryTable=apSyslogHistoryTable, apSyslogHistory=apSyslogHistory, apSyslogHistLevel=apSyslogHistLevel)

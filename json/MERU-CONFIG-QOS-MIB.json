@@ -8,47 +8,47 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlQosCodec",
+      "MwlQosRulesMatchClassBits",
       "MwlAdmissionControl",
       "MwlQosRulesMatchClass",
-      "MwlDscpType",
-      "MwlDropPolicy",
-      "MwlQosRulesMatchClassBits",
-      "MwlQosAction",
-      "MwlQosCodecProtocol",
       "MwlQosProtocol",
-      "MwlOnOffSwitch"
+      "MwlOnOffSwitch",
+      "MwlQosCodec",
+      "MwlDropPolicy",
+      "MwlQosCodecProtocol",
+      "MwlDscpType",
+      "MwlQosAction"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
       "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
       "Integer32",
-      "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "iso",
       "enterprises"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DateAndTime",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TimeStamp"
+      "TimeInterval",
+      "RowStatus",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwConfigQoS": {
@@ -991,8 +991,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-QOS-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:47:21 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:06:51 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-QOS-MIB"

@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "HUAWEI-L2VPN-MIB": [
-      "hwL2vpnAcIfLinkType",
-      "hwL2vpnAcIfMinIdleCode",
-      "hwL2vpnAcIfIndex",
-      "hwL2vpnAcIfMaxEncapNum",
-      "hwL2vpnAcIfEncap",
-      "hwL2vpnAcIfCfgTtpHeader",
-      "hwL2vpnAcIfMaxIdleCode",
-      "hwL2vpnAcIfPhyType",
       "hwL2vpnAcIfJitterBufferStep",
-      "hwL2vpnAcIfEncapStep",
+      "hwL2vpnAcIfMaxEncapNum",
+      "hwL2vpnAcIfCfgTtpHeader",
+      "hwL2vpnAcIfEncap",
+      "hwL2vpnAcIfMinIdleCode",
       "hwL2vpnAcIfMaxJitterBuffer",
+      "hwL2vpnAcIfLinkType",
+      "hwL2vpnAcIfEncapStep",
+      "hwL2vpnAcIfPhyType",
+      "hwL2vpnAcIfMaxIdleCode",
+      "hwL2vpnAcIfIndex",
       "hwL2vpnAcIfMinEncapNum",
       "hwL2vpnAcIfMinJitterBuffer"
     ],
@@ -20,11 +20,11 @@
       "hwDatacomm"
     ],
     "HUAWEI-VPLS-EXT-MIB": [
-      "HWL2VpnStateChangeReason",
-      "HWEnableValue",
       "HWL2VpnVcEncapsType",
+      "HWL2VpnStateChangeReason",
+      "hwL2vpnTnlType",
       "hwL2vpnTunnelIndex",
-      "hwL2vpnTnlType"
+      "HWEnableValue"
     ],
     "IF-MIB": [
       "ifName",
@@ -45,27 +45,27 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Bits",
       "iso",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "BITS",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hwL2VpnPwe3": {
@@ -6206,8 +6206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-PWE3-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:48:57 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:08:30 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-PWE3-MIB"

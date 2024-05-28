@@ -5,14 +5,14 @@
       "TmnxSlotNum"
     ],
     "ALCATEL-IND1-TIMETRA-FILTER-MIB": [
-      "TIPFilterID",
-      "TFilterID"
+      "TFilterID",
+      "TIPFilterID"
     ],
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
+      "tmnxSRConfs",
       "tmnxSRNotifyPrefix",
-      "tmnxSRObjs",
       "timetraSRMIBModules",
-      "tmnxSRConfs"
+      "tmnxSRObjs"
     ],
     "ALCATEL-IND1-TIMETRA-PORT-MIB": [
       "tmnxPortType",
@@ -22,8 +22,8 @@
       "TNetworkPolicyID"
     ],
     "ALCATEL-IND1-TIMETRA-SAP-MIB": [
-      "sapEncapValue",
-      "sapPortId"
+      "sapPortId",
+      "sapEncapValue"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
       "svcDhcpLseStateNewChAddr",
@@ -32,41 +32,41 @@
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
       "TmnxBgpAutonomousSystem",
-      "TmnxTunnelType",
-      "TmnxOperState",
-      "IpAddressPrefixLength",
-      "TmnxVPNRouteDistinguisher",
       "TmnxVRtrID",
-      "TFCType",
-      "TItemDescription",
-      "TDSCPValueOrNone",
       "TmnxDHCP6MsgType",
-      "TmnxStatus",
-      "TmnxEncapVal",
+      "TCpmProtPolicyID",
+      "TmnxAdminState",
+      "TmnxPortID",
+      "TmnxCustId",
+      "TmnxTunnelID",
+      "TmnxServId",
       "TItemLongDescription",
       "Dot1PPriority",
-      "TCpmProtPolicyID",
-      "TmnxTunnelID",
-      "TmnxPortID",
+      "TmnxTunnelType",
+      "TFCType",
       "TNamedItemOrEmpty",
-      "TmnxServId",
+      "IpAddressPrefixLength",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxOperState",
+      "TDSCPValueOrNone",
+      "TItemDescription",
       "TNamedItem",
-      "TmnxCustId",
-      "TDSCPValue",
-      "TmnxAdminState",
       "TmnxVRtrIDOrZero",
-      "TPolicyStatementNameOrEmpty"
+      "TmnxStatus",
+      "TmnxEncapVal",
+      "TmnxVPNRouteDistinguisher",
+      "TDSCPValue"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressIPv6z",
       "InetAddressType",
       "InetAddressIPv6",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressIPv6z"
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "ipCidrRouteEntry"
@@ -75,34 +75,34 @@
       "ipNetToMediaEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Counter64",
-      "iso",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Bits",
-      "MODULE-IDENTITY"
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "TruthValue",
-      "TestAndIncr",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "MacAddress"
+      "DisplayString",
+      "TestAndIncr"
     ]
   },
   "timetraVRtrMIBModule": {
@@ -16282,8 +16282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-VRTR-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:51:45 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:11:23 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-VRTR-MIB"

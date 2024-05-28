@@ -5,17 +5,17 @@
       "entPhysicalName"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
-      "hwBaseTrapSeverity",
       "hwBaseTrapProbableCause",
-      "hwBaseTrapEventType"
+      "hwBaseTrapEventType",
+      "hwBaseTrapSeverity"
     ],
     "HUAWEI-L2MAM-MIB": [
       "hwCfgFdbMac",
-      "hwCfgFdbVsiName",
-      "hwPortSecurityProtectAction",
-      "hwMacEntityUsageThreshold",
       "hwCfgFdbVlanId",
-      "hwMacEntityUsage"
+      "hwMacEntityUsage",
+      "hwPortSecurityProtectAction",
+      "hwCfgFdbVsiName",
+      "hwMacEntityUsageThreshold"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -30,24 +30,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
       "Bits",
       "iso",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hwSWITCH_L2MAM_EXT": {
@@ -561,8 +561,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SWITCH-L2MAM-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 11:48:59 2024",
-      "On host fv-az665-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 12:08:30 2024",
+      "On host fv-az1490-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB"
