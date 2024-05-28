@@ -8,8 +8,8 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -20,29 +20,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
       "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
-      "TimeTicks"
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString",
       "VariablePointer",
+      "RowStatus",
       "StorageType",
       "TruthValue",
-      "TimeStamp",
-      "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoCableAdmCtrlMIB": {
@@ -1959,8 +1959,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-ADMISSION-CTRL-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:09 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:04 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-CABLE-ADMISSION-CTRL-MIB"

@@ -11,32 +11,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
-      "Gauge32"
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeStamp",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoSaaApmMIB": {
@@ -547,8 +547,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SAA-APM-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:17 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:12 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-SAA-APM-MIB"

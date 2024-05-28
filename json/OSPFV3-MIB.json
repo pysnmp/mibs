@@ -5,46 +5,46 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetAddressIPv6"
     ],
     "OSPF-MIB": [
-      "Status",
-      "HelloRange",
-      "DesignatedRouterPriority",
       "Metric",
-      "BigMetric"
+      "DesignatedRouterPriority",
+      "Status",
+      "BigMetric",
+      "HelloRange"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Bits",
+      "Counter64",
       "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "MODULE-IDENTITY",
       "iso",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "mib-2",
-      "OBJECT-TYPE",
-      "Gauge32",
       "IpAddress",
-      "Integer32"
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "mib-2"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "TruthValue",
-      "RowStatus",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ospfv3MIB": {
@@ -4237,8 +4237,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/OSPFV3-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:32:05 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:36:57 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OSPFV3-MIB"

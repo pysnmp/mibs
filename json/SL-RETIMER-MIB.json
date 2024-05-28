@@ -13,26 +13,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
       "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
       "MibIdentifier",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "slRetimer": {
@@ -181,8 +181,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-RETIMER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:40:23 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:45:02 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SL-RETIMER-MIB"

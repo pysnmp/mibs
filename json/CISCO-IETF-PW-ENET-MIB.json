@@ -14,32 +14,32 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
       "experimental",
+      "IpAddress",
+      "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
-      "TimeTicks"
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "StorageType",
-      "RowStatus",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "cpwVcEnetMIB": {
@@ -428,8 +428,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PW-ENET-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:16 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:11 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-PW-ENET-MIB"

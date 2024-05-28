@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "CISCO-PSM-MIB": [
-      "CpsmDiffReason",
       "CpsmDiffDb",
+      "CpsmDbActivate",
       "CpsmActivateResult",
-      "CpsmDbActivate"
+      "CpsmDiffReason"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
       "VsanIndex",
-      "FcNameIdOrZero",
-      "FcNameId"
+      "FcNameId",
+      "FcNameIdOrZero"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
       "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
       "iso",
-      "TimeTicks"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "ciscoDpvmMIB": {
@@ -736,8 +736,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-PORT-VSAN-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:11 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:05 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DYNAMIC-PORT-VSAN-MIB"

@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "hpnicfDot11",
-      "HpnicfDot11ChannelScopeType",
-      "HpnicfDot11RadioScopeType",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11RadioElementIndex",
       "HpnicfDot11SSIDStringType",
-      "HpnicfDot11RadioType",
-      "hpnicfDot11APElementIndex"
+      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11ChannelScopeType",
+      "hpnicfDot11",
+      "HpnicfDot11ObjectIDType",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11RadioType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
       "MODULE-IDENTITY",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime",
-      "DisplayString"
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfDot11RRM": {
@@ -1882,8 +1882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-RRM-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:46 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:05 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-RRM-MIB"

@@ -5,49 +5,49 @@
       "entPhysicalName"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
+      "hwBaseTrapSeverity",
       "hwBaseTrapProbableCause",
-      "hwBaseTrapEventType",
-      "hwBaseTrapSeverity"
+      "hwBaseTrapEventType"
     ],
     "HUAWEI-L2MAM-MIB": [
+      "hwCfgFdbVsiName",
+      "hwMacEntityUsage",
       "hwCfgFdbVlanId",
       "hwCfgFdbMac",
-      "hwPortSecurityProtectAction",
       "hwMacEntityUsageThreshold",
-      "hwCfgFdbVsiName",
-      "hwMacEntityUsage"
+      "hwPortSecurityProtectAction"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifDescr",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifDescr"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "IpAddress",
-      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
+      "IpAddress",
+      "Gauge32",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwSWITCH_L2MAM_EXT": {
@@ -561,8 +561,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SWITCH-L2MAM-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:08 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:42:56 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-SWITCH-L2MAM-EXT-MIB"

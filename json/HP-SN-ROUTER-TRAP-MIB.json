@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "HP-SN-OSPF-GROUP-MIB": [
-      "snOspfNbrState",
-      "snOspfLsdbType",
-      "snOspfLsdbAreaId",
-      "snOspfLsdbLsId",
-      "snOspfVirtIfStatusState",
-      "snOspfNbrIpAddr",
-      "snOspfRouterId",
-      "snOspfVirtIfStatusAreaID",
-      "snOspfIfStatusIpAddress",
       "snOspfExtLsdbLimit",
-      "snOspfNbrRtrId",
-      "snOspfConfigErrorType",
-      "snOspfLsdbRouterId",
-      "snOspfVirtNbrArea",
-      "snOspfPacketSrc",
-      "snOspfIfStatusState",
-      "snOspfVirtNbrRtrId",
       "snOspfPacketType",
+      "snOspfVirtNbrArea",
+      "snOspfLsdbRouterId",
+      "snOspfVirtNbrRtrId",
+      "snOspfNbrState",
+      "snOspfNbrIpAddr",
+      "snOspfVirtIfStatusAreaID",
+      "snOspfConfigErrorType",
+      "snOspfIfStatusIpAddress",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfIfStatusState",
+      "snOspfVirtIfStatusState",
+      "snOspfLsdbAreaId",
       "snOspfVirtNbrState",
-      "snOspfVirtIfStatusNeighbor"
+      "snOspfLsdbLsId",
+      "snOspfRouterId",
+      "snOspfNbrRtrId",
+      "snOspfPacketSrc",
+      "snOspfLsdbType"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "TRAP-TYPE",
-      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTrapOspfIfStateChange": {
@@ -451,8 +451,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:47 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:06 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-SN-ROUTER-TRAP-MIB"

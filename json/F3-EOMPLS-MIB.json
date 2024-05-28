@@ -5,22 +5,22 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "SecondaryState",
       "VlanPriority",
-      "PerfCounter64",
+      "SecondaryState",
       "CmPmIntervalType",
-      "CmPmBinAction",
-      "AdminState",
+      "PerfCounter64",
       "OperationalState",
-      "VlanId"
+      "VlanId",
+      "CmPmBinAction",
+      "AdminState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetNetPortEntry",
+      "cmFlowEntry",
       "cmPrioMapV2PrioMappingCOSEntry",
-      "cmFlowEntry"
+      "cmEthernetNetPortEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -28,30 +28,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Unsigned32",
-      "Counter32",
+      "iso",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Integer32"
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "VariablePointer",
-      "MacAddress",
       "DisplayString",
-      "RowStatus",
+      "VariablePointer",
+      "StorageType",
       "DateAndTime",
-      "StorageType"
+      "MacAddress",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:33:03 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:37:53 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-EOMPLS-MIB"

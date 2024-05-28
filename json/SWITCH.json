@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
+      "Bits",
       "mib-2",
-      "Counter32",
-      "IpAddress",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "enterprises",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "PhysAddress",
-      "MacAddress",
       "TruthValue",
-      "DateAndTime",
-      "DisplayString",
       "RowStatus",
-      "TestAndIncr",
+      "TimeStamp",
+      "DisplayString",
+      "DateAndTime",
+      "AutonomousType",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "TestAndIncr"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:36:56 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:41:33 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

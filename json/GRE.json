@@ -7,28 +7,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "enterprises",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "IpAddress",
+      "Unsigned32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "iso",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Bits",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Counter32",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "peplink": {
@@ -245,8 +245,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/GRE",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:40:35 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:45:12 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "GRE"

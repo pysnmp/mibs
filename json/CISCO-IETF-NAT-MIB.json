@@ -11,32 +11,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "mib-2",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
-      "Gauge32"
+      "Bits",
+      "mib-2",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "StorageType",
+      "RowStatus"
     ]
   },
   "ciscoIetfNatMIB": {
@@ -2238,8 +2238,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-NAT-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:38:13 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:43:07 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-NAT-MIB"

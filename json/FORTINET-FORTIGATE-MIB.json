@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fortinet",
-      "FnIndex",
-      "FnBoolState",
+      "fnAdminEntry",
       "fnSysSerial",
-      "fnAdminEntry"
+      "fortinet",
+      "FnBoolState",
+      "FnIndex"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
+      "ifIndex",
       "ifName",
-      "ifEntry",
-      "ifIndex"
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddressType",
       "InetPortNumber",
+      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "IPV6-TC": [
@@ -34,27 +34,27 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
       "Integer32",
       "iso",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "MibIdentifier"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
       "DisplayString",
-      "DateAndTime",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "fnFortiGateMib": {
@@ -12888,8 +12888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:36:34 2024",
-      "On host fv-az973-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue May 28 13:41:18 2024",
+      "On host fv-az768-311 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"
