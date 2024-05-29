@@ -9,15 +9,15 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-TC-MIB": [
+      "LldpV2ChassisId",
+      "LldpV2SystemCapabilitiesMap",
       "ieee802dot1mibs",
+      "LldpV2PortIdSubtype",
+      "LldpV2ChassisIdSubtype",
       "LldpV2ManAddrIfSubtype",
       "LldpV2DestAddressTableIndex",
-      "LldpV2SystemCapabilitiesMap",
-      "LldpV2ChassisIdSubtype",
-      "LldpV2ManAddress",
       "LldpV2PortId",
-      "LldpV2PortIdSubtype",
-      "LldpV2ChassisId"
+      "LldpV2ManAddress"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32",
@@ -27,32 +27,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
       "Gauge32",
+      "TimeTicks",
       "Integer32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
       "Counter32",
-      "Unsigned32"
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TimeStamp",
       "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:54:12 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:39:08 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

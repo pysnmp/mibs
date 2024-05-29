@@ -7,55 +7,55 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Counter64",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "enterprises",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
       "IpAddress",
       "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "enterprises",
+      "OBJECT-TYPE",
       "iso",
-      "Counter32"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TruthValue",
       "DisplayString"
     ],
     "TAIT-COMMON-MIB": [
-      "taitProducts",
-      "taitModules"
+      "taitModules",
+      "taitProducts"
     ],
     "TAIT-TN9300-TC": [
-      "UnitStatusMessageId",
-      "SipCallSpeechVotingPriority",
-      "NgwLinkState",
-      "Mpt1327ChannelState",
-      "SipLineIncomingType",
-      "EventSeverity",
-      "UnitAuthentication",
-      "NodeState",
-      "SipLineRegistrationType",
-      "RemoteNodeSyncState",
-      "DipLineState",
       "SipLineState",
-      "NodeRequestedState",
-      "RemoteNodeState",
+      "NgwLinkState",
+      "NetworkCheckState",
+      "NodeState",
       "Mpt1327LinkState",
-      "LicenseValidity",
+      "SipLineIncomingType",
+      "DipLineState",
+      "SipLineRegistrationType",
+      "RemoteNodeState",
+      "UnitAuthentication",
+      "NodeRequestedState",
+      "UnitStatusMessageId",
+      "EventSeverity",
+      "Mpt1327ChannelState",
+      "SipCallSpeechVotingPriority",
       "ChannelState",
-      "NetworkCheckState"
+      "LicenseValidity",
+      "RemoteNodeSyncState"
     ]
   },
   "tn9300MibModule": {
@@ -5258,8 +5258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 14:04:18 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:49:17 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TAIT-TN9300-MIB"

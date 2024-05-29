@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "hpnicfDot11",
-      "HpnicfDot11AuthenType",
-      "HpnicfDot11SSIDEncryptModeType",
-      "HpnicfDot11TxPwrLevelScopeType",
-      "HpnicfDot11ChannelScopeType",
-      "HpnicfDot11RadioType2",
-      "HpnicfDot11RadioElementIndex",
       "HpnicfDot11RadioScopeType",
-      "HpnicfDot11RadioType",
-      "HpnicfDot11TruthValueCM",
-      "HpnicfDot11SecIEStatusType",
-      "HpnicfDot11CirMode",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11PreambleType",
-      "HpnicfDot11TunnelSecSchemType",
       "hpnicfDot11APElementIndex",
-      "HpnicfDot11SSIDStringType",
+      "HpnicfDot11SSIDEncryptModeType",
+      "hpnicfDot11",
+      "HpnicfDot11CirMode",
+      "HpnicfDot11SecIEStatusType",
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11AuthenType",
       "HpnicfDot11ServicePolicyIDType",
-      "HpnicfDot11WorkMode"
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11TunnelSecSchemType",
+      "HpnicfDot11SSIDStringType",
+      "HpnicfDot11WorkMode",
+      "HpnicfDot11PreambleType",
+      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11RadioType",
+      "HpnicfDot11RadioType2",
+      "HpnicfDot11TruthValueCM",
+      "HpnicfDot11TxPwrLevelScopeType"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -33,28 +33,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Counter64",
       "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Bits",
+      "OBJECT-IDENTITY",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
       "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "RowStatus",
+      "MacAddress",
+      "DateAndTime",
       "DisplayString",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "hpnicfDot11CFG": {
@@ -5372,8 +5372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-CFG-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 14:00:43 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:45:40 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-CFG-MIB"

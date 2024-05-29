@@ -26,28 +26,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
+      "iso",
+      "Integer32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Bits"
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "VariablePointer",
       "TruthValue",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "ciscoTelepresenceCallMIB": {
@@ -3128,8 +3128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TELEPRESENCE-CALL-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 14:00:33 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:45:30 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-TELEPRESENCE-CALL-MIB"

@@ -9,45 +9,45 @@
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbTeTSidId",
-      "IEEE8021PbbTeProtectionGroupId",
       "IEEE8021PbbTeProtectionGroupConfigAdmin",
       "IEEE8021VlanIndexOrWildcard",
       "IEEE8021PbbComponentIdentifier",
       "IEEE8021PbbTeEsp",
-      "IEEE8021PbbTeProtectionGroupActiveRequests",
-      "IEEE8021PbbServiceIdentifier"
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbTeProtectionGroupId",
+      "IEEE8021PbbTeTSidId",
+      "IEEE8021PbbTeProtectionGroupActiveRequests"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Gauge32",
       "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
+      "IpAddress",
       "Counter64",
-      "Gauge32",
-      "Integer32",
-      "MibIdentifier",
       "Counter32",
-      "Unsigned32"
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -1079,8 +1079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:54:12 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:39:08 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBBTE-MIB"

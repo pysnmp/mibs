@@ -8,40 +8,40 @@
       "eqlStoragePoolIndex"
     ],
     "EQLVOLUME-MIB": [
-      "EQL2PartRowPointerStr",
-      "eqliscsiLocalMemberId"
+      "eqliscsiLocalMemberId",
+      "EQL2PartRowPointerStr"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Bits",
       "iso",
+      "Gauge32",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
       "enterprises",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Counter64",
       "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DisplayString",
+      "RowStatus",
       "RowPointer",
       "DateAndTime",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "eqlStorageContainerModule": {
@@ -804,8 +804,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLSTORAGECONTAINER-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 13:58:16 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:43:16 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLSTORAGECONTAINER-MIB"

@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-TC": [
-      "CIPsecIkeAuthMethod",
+      "CIKEIsakmpDoi",
       "CIPsecIkeHashAlgorithm",
-      "CIKELifetime",
+      "CIPsecIkeAuthMethod",
+      "CIPsecDiffHellmanGrp",
       "CIPsecControlProtocol",
       "CIPsecEncryptAlgorithm",
-      "CIPsecPhase1PeerIdentityType",
-      "CIPsecDiffHellmanGrp",
-      "CIKEIsakmpDoi",
       "CIKELifesize",
+      "CIKELifetime",
+      "CIPsecPhase1PeerIdentityType",
       "CIPsecIkePRFAlgorithm"
     ],
     "CISCO-SMI": [
@@ -18,8 +18,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -27,26 +27,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "TimeTicks",
+      "Counter32",
       "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Bits"
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ciscoIkeConfigMIB": {
@@ -1329,8 +1329,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IKE-CONFIGURATION-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 14:00:38 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:45:34 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IKE-CONFIGURATION-MIB"

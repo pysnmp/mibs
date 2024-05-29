@@ -5,8 +5,8 @@
       "ciscoExperiment"
     ],
     "DIFFSERV-MIB": [
-      "IndexInteger",
-      "IndexIntegerNextFree"
+      "IndexIntegerNextFree",
+      "IndexInteger"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -24,9 +24,9 @@
     ],
     "MPLS-TE-STD-MIB": [
       "mplsTunnelEgressLSRId",
-      "mplsTunnelIngressLSRId",
+      "mplsTunnelIndex",
       "mplsTunnelInstance",
-      "mplsTunnelIndex"
+      "mplsTunnelIngressLSRId"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -34,27 +34,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MibIdentifier",
+      "iso",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
       "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Bits"
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "StorageType",
+      "RowStatus",
+      "TimeStamp",
       "DisplayString"
     ]
   },
@@ -1348,8 +1348,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
-      "Produced by pysmi-1.1.12 at Tue May 28 14:00:38 2024",
-      "On host fv-az529-55 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 02:45:34 2024",
+      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"
