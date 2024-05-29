@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
+      "Integer32",
       "enterprises",
-      "Unsigned32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Gauge32",
       "Bits",
       "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "IpAddress",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -1863,8 +1863,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/OAP-C1-OEO",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:22:40 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:56:16 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OAP-C1-OEO"

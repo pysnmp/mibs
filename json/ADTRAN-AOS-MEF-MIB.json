@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOS",
-      "adGenAOSMef"
+      "adGenAOSMef",
+      "adGenAOS"
     ],
     "ADTRAN-MIB": [
       "adIdentityShared",
@@ -14,20 +14,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Counter32",
       "Integer32",
+      "Bits",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -68,8 +68,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-MEF-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:18:18 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:51:46 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-MEF-MIB"

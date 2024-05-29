@@ -5,46 +5,46 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "OSPF-MIB": [
-      "Metric",
-      "Status",
-      "HelloRange",
       "DesignatedRouterPriority",
-      "BigMetric"
+      "Status",
+      "BigMetric",
+      "Metric",
+      "HelloRange"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "mib-2",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
       "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
       "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "mib-2",
       "Gauge32",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "ospfv3MIB": {
@@ -4236,9 +4236,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/OSPFV3-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:18:06 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/OSPFV3-MIB",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:58:06 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OSPFV3-MIB"

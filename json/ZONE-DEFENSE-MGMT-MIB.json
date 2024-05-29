@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
       "Unsigned32",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "iso",
+      "Counter64",
+      "Bits",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "swZoneDefenseMIB": {
@@ -280,8 +280,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/ZONE-DEFENSE-MGMT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:21:06 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:54:35 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ZONE-DEFENSE-MGMT-MIB"

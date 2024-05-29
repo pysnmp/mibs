@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
       "Unsigned32",
+      "Counter64",
+      "experimental",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
       "Counter32",
-      "IpAddress",
-      "experimental",
-      "MibIdentifier"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -756,8 +756,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/XGCP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:18:05 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:51:33 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "XGCP-MIB"

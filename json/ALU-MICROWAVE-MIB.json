@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARObjs",
       "aluSARNotifyPrefix",
+      "aluSARObjs",
       "aluSARMIBModules",
       "aluSARConfs"
     ],
@@ -11,33 +11,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
       "Gauge32",
       "Bits",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
+      "iso",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
       "IpAddress",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter32",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
+      "TruthValue",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TimeStamp",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxChassisIndex"
@@ -47,9 +47,9 @@
     ],
     "TIMETRA-TC-MIB": [
       "TmnxDisplayStringURL",
+      "TmnxActionType",
       "TNamedItemOrEmpty",
-      "TmnxPortID",
-      "TmnxActionType"
+      "TmnxPortID"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:26:48 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 11:00:25 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

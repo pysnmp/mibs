@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
-      "IpAddress",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "iso",
+      "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "Unsigned32",
       "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "raisecomPowerMonitor": {
@@ -217,8 +217,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raisecom/RAISECOM-POWERMONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:27:00 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 11:00:34 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RAISECOM-POWERMONITOR-MIB"

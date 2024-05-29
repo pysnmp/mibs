@@ -5,40 +5,40 @@
       "InterfaceIndex"
     ],
     "IPV6-TC": [
-      "Ipv6AddressPrefix",
-      "Ipv6Address"
+      "Ipv6Address",
+      "Ipv6AddressPrefix"
     ],
     "S5-ROOT-MIB": [
       "s5Chassis"
     ],
     "S5-TCS-MIB": [
-      "AttId",
-      "LocChan"
+      "LocChan",
+      "AttId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Integer32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
       "Counter32",
+      "TimeTicks",
       "IpAddress",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "s5ChasMib": {
@@ -2517,8 +2517,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:26:00 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:59:32 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "S5-CHASSIS-MIB"

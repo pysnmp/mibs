@@ -8,36 +8,36 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
       "Unsigned32",
-      "Bits",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "iso",
+      "Counter64",
+      "Bits",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "dlinkSwTimeMIB": {
@@ -594,8 +594,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-TIME-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:21:06 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:54:35 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-TIME-MIB"

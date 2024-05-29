@@ -15,26 +15,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
       "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "rlTimeBasedPort": {
@@ -153,8 +153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-TIMEBASED-PORT-SHUTDOWN-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:24:08 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:57:29 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-TIMEBASED-PORT-SHUTDOWN-MIB"

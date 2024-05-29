@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
       "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Counter64",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "IpAddress",
+      "enterprises",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "argus": {
@@ -1267,8 +1267,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/Argus-Power-System-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:18:38 2024",
-      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:52:06 2024",
+      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Argus-Power-System-MIB"
