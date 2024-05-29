@@ -5,33 +5,33 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
-      "mib-2",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ospf": {
@@ -4722,9 +4722,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/OSPF-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:39:26 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/OSPF-MIB",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:42:51 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OSPF-MIB"

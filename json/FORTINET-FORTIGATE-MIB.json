@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fortinet",
-      "fnSysSerial",
+      "FnIndex",
       "FnBoolState",
+      "fortinet",
       "fnAdminEntry",
-      "FnIndex"
+      "fnSysSerial"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
+      "ifEntry",
       "ifName",
-      "ifIndex",
-      "ifEntry"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetPortNumber",
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -34,27 +34,27 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime",
       "AutonomousType",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "fnFortiGateMib": {
@@ -12888,8 +12888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:43:51 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:46:10 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"

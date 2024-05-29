@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSMef",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSMef"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfIntervalCount",
-      "HCPerfInvalidIntervals",
-      "HCPerfValidIntervals",
       "HCPerfTimeElapsed",
+      "HCPerfIntervalCount",
       "HCPerfTotalCount",
-      "HCPerfCurrentCount"
+      "HCPerfValidIntervals",
+      "HCPerfCurrentCount",
+      "HCPerfInvalidIntervals"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "Counter64"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAosMefPerEvcPerfHistoryMib": {
@@ -907,8 +907,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-MEF-PER-EVC-PERF-HISTORY-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:39:39 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:42:05 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-MEF-PER-EVC-PERF-HISTORY-MIB"

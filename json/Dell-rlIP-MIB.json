@@ -15,41 +15,41 @@
       "InetVersion"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "iso",
-      "mib-2",
-      "Integer32",
-      "Bits",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
       "zeroDotZero",
-      "Counter32",
-      "TimeTicks",
+      "iso",
       "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Counter64",
-      "OBJECT-IDENTITY"
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "PhysAddress",
-      "TestAndIncr",
-      "StorageType",
-      "TimeStamp",
       "TruthValue",
+      "StorageType",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TestAndIncr",
       "DisplayString",
+      "PhysAddress",
       "RowStatus"
     ]
   },
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:42:31 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:44:53 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-rlIP-MIB"

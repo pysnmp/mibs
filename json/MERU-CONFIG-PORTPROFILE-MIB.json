@@ -9,43 +9,43 @@
     ],
     "MERU-TC": [
       "MwlProfileOwner",
-      "MwlEnableDisableOption",
-      "MwlBridgedVlanType",
       "MwlDataplaneMode",
       "MwlOnOffSwitch",
+      "MwlBridgedVlanType",
+      "MwlOperationalState",
       "MwlIfAdministrativeState",
-      "MwlOperationalState"
+      "MwlEnableDisableOption"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Counter32"
+      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
-      "TimeInterval",
-      "DateAndTime",
       "MacAddress",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "mwConfigPortProfile": {
@@ -466,8 +466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-PORTPROFILE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:43:51 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:46:10 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-PORTPROFILE-MIB"

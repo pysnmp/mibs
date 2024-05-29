@@ -5,34 +5,34 @@
       "rnd"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
       "iso",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlMngInf": {
@@ -463,8 +463,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-MNGINF-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:42:31 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:44:52 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-MNGINF-MIB"

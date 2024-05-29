@@ -13,30 +13,30 @@
       "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "BITS",
-      "MibIdentifier",
-      "TimeTicks",
       "Gauge32",
+      "BITS",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleOSPFv3": {
@@ -7044,8 +7044,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-OSPFv3-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 02:42:28 2024",
-      "On host fv-az569-426 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:44:49 2024",
+      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-OSPFv3-MIB"
