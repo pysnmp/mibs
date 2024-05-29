@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "FnBoolState",
-      "fnSysSerial",
+      "fnAdminEntry",
       "fortinet",
+      "fnSysSerial",
       "FnIndex",
-      "fnAdminEntry"
+      "FnBoolState"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
+      "ifEntry",
       "ifIndex",
-      "ifName",
-      "ifEntry"
+      "ifName"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddressType",
       "InetPortNumber",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressPrefixLength"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -34,27 +34,27 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
+      "Unsigned32",
       "Bits",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "iso",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "DateAndTime",
       "DisplayString",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "PhysAddress",
+      "AutonomousType"
     ]
   },
   "fnFortiGateMib": {
@@ -12888,8 +12888,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:55:54 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:55:11 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"

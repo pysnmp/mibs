@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "enterprises",
       "Bits",
-      "Counter32",
-      "TimeTicks",
       "Unsigned32",
-      "IpAddress",
+      "Gauge32",
+      "enterprises",
+      "Counter32",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsIpsecEndpointPairModule": {
@@ -523,8 +523,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-IPSEC-ENDPOINT-PAIR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:32 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:58:51 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RAPID-IPSEC-ENDPOINT-PAIR-MIB"

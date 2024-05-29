@@ -15,38 +15,38 @@
       "ng700smartswitch"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
+      "dot1qTpFdbAddress",
       "dot1qVlanIndex",
       "VlanIndex",
-      "dot1qTpFdbAddress"
+      "dot1qFdbId"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "TimeTicks",
       "iso",
       "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
       "Integer32",
-      "MibIdentifier"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
       "RowStatus",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "agentSwitching": {
@@ -7315,8 +7315,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SMART-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:04 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:58:26 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-SMART-SWITCHING-MIB"

@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
+      "InetPortNumber",
       "InetAddressType",
-      "InetAddress",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
-      "mib-2",
-      "iso",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
       "Counter32",
-      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "Unsigned32",
       "Gauge32",
-      "Counter64"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -904,9 +904,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/TCP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:57:32 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TCP-MIB",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:50:40 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TCP-MIB"

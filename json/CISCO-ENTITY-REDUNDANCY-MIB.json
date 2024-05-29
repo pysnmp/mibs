@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
-      "CeRedunSwitchCommand",
-      "CeRedunReasonCategories",
+      "CeRedunType",
+      "CeRedunScope",
       "CeRedunArch",
       "CeRedunMbrStatus",
-      "CeRedunType",
+      "CeRedunSwitchCommand",
+      "CeRedunStateCategories",
       "CeRedunMode",
-      "CeRedunScope",
-      "CeRedunStateCategories"
+      "CeRedunReasonCategories"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -30,29 +30,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
       "IpAddress",
-      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "StorageType",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "StorageType",
-      "DisplayString",
+      "TimeStamp",
+      "AutonomousType",
       "RowStatus",
-      "AutonomousType"
+      "DisplayString"
     ]
   },
   "ciscoEntityRedunMIB": {
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:57:26 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:56:33 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENTITY-REDUNDANCY-MIB"

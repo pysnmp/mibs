@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HP-SN-ROOT-MIB": [
+      "snStack",
       "snChassis",
-      "snAgentSys",
-      "snStack"
+      "snAgentSys"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -14,20 +14,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
-      "Integer32",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4057,8 +4057,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:58:04 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:58:18 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-SN-AGENT-MIB"

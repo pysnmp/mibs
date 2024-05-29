@@ -5,9 +5,9 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
+      "TimeIntervalMin",
       "InterfaceIndexOrZero",
-      "CiscoPort",
-      "TimeIntervalMin"
+      "CiscoPort"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -19,27 +19,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Counter32",
+      "Integer32",
       "MODULE-IDENTITY",
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter64"
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TimeInterval",
+      "DateAndTime",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "ciscoSdgMdnsMIB": {
@@ -1249,8 +1249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SDG-MDNS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:57:27 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:56:33 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-SDG-MDNS-MIB"

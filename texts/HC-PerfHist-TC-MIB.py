@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module HC-PerfHist-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HC-PerfHist-TC-MIB
-# Produced by pysmi-1.1.12 at Wed May 29 10:51:44 2024
-# On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Wed May 29 10:50:49 2024
+# On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Counter32, Bits, ObjectIdentity, Gauge32, iso, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, mib_2, MibIdentifier, TimeTicks, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "Bits", "ObjectIdentity", "Gauge32", "iso", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "mib-2", "MibIdentifier", "TimeTicks", "Unsigned32", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationType, Unsigned32, ModuleIdentity, Bits, IpAddress, Counter64, Counter32, TimeTicks, mib_2, MibIdentifier, iso, Integer32, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "ModuleIdentity", "Bits", "IpAddress", "Counter64", "Counter32", "TimeTicks", "mib-2", "MibIdentifier", "iso", "Integer32", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hcPerfHistTCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 107))
 hcPerfHistTCMIB.setRevisions(('2004-02-03 00:00',))
 
@@ -52,4 +52,4 @@ class HCPerfTotalCount(TextualConvention, Counter64):
     description = "A gauge representing the aggregate of previous valid 15\n            minute measurement intervals.  Intervals for which no\n            valid data was available are not counted.\n\n            This count represents a non-negative integer, which\n            may increase or decrease, but shall never exceed 2^64-1\n            (18446744073709551615 decimal), nor fall below 0.  The\n            value of an object with HCPerfTotalCount syntax\n            assumes its maximum value whenever the underlying count\n            exceeds 2^64-1.  If the underlying count subsequently\n            decreases below 2^64-1 (due, e.g., to a retroactive\n            adjustment as a result of entering or exiting unavailable\n            time), then the object's value also decreases.\n\n            Note that this TC is not strictly supported in SMIv2,\n            because the 'always increasing' and 'counter wrap'\n            semantics associated with the Counter64 base type are not\n            preserved.  It is possible that management applications\n            which rely solely upon the (Counter64) ASN.1 tag to\n            determine object semantics will mistakenly operate upon\n            objects of this type as they would for Counter64 objects.\n\n            This textual convention represents a limited and short-\n            term solution, and may be deprecated as a long term\n            solution is defined and deployed to replace it."
     status = 'current'
 
-mibBuilder.exportSymbols("HC-PerfHist-TC-MIB", HCPerfTotalCount=HCPerfTotalCount, HCPerfValidIntervals=HCPerfValidIntervals, HCPerfIntervalThreshold=HCPerfIntervalThreshold, HCPerfInvalidIntervals=HCPerfInvalidIntervals, HCPerfCurrentCount=HCPerfCurrentCount, HCPerfTimeElapsed=HCPerfTimeElapsed, hcPerfHistTCMIB=hcPerfHistTCMIB, PYSNMP_MODULE_ID=hcPerfHistTCMIB, HCPerfIntervalCount=HCPerfIntervalCount)
+mibBuilder.exportSymbols("HC-PerfHist-TC-MIB", HCPerfIntervalThreshold=HCPerfIntervalThreshold, HCPerfTimeElapsed=HCPerfTimeElapsed, PYSNMP_MODULE_ID=hcPerfHistTCMIB, HCPerfInvalidIntervals=HCPerfInvalidIntervals, HCPerfCurrentCount=HCPerfCurrentCount, hcPerfHistTCMIB=hcPerfHistTCMIB, HCPerfIntervalCount=HCPerfIntervalCount, HCPerfValidIntervals=HCPerfValidIntervals, HCPerfTotalCount=HCPerfTotalCount)

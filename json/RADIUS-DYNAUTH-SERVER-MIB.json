@@ -9,26 +9,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
       "iso",
       "Integer32",
-      "Bits",
-      "Counter32",
-      "TimeTicks",
-      "mib-2",
       "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -640,9 +640,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RADIUS-DYNAUTH-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:32 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RADIUS-DYNAUTH-SERVER-MIB",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:50:40 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RADIUS-DYNAUTH-SERVER-MIB"

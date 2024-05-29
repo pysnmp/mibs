@@ -5,25 +5,25 @@
       "acdMibs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Integer32",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
       "MibIdentifier",
-      "Counter32"
+      "IpAddress",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -257,8 +257,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-TID-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:51:44 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:50:51 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ACD-TID-MIB"

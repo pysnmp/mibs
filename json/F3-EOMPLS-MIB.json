@@ -5,53 +5,53 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
-      "SecondaryState",
-      "OperationalState",
-      "CmPmIntervalType",
-      "AdminState",
       "CmPmBinAction",
-      "PerfCounter64",
-      "VlanPriority"
+      "VlanId",
+      "OperationalState",
+      "SecondaryState",
+      "AdminState",
+      "VlanPriority",
+      "CmPmIntervalType",
+      "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmPrioMapV2PrioMappingCOSEntry",
       "cmFlowEntry",
-      "cmEthernetNetPortEntry"
+      "cmEthernetNetPortEntry",
+      "cmPrioMapV2PrioMappingCOSEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
       "iso",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "Integer32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Bits"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "VariablePointer",
       "RowStatus",
       "TruthValue",
-      "VariablePointer",
-      "StorageType",
-      "DisplayString",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "StorageType",
+      "DateAndTime",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:52:30 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:51:39 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-EOMPLS-MIB"

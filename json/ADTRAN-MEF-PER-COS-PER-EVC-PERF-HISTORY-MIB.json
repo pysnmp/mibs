@@ -9,33 +9,33 @@
       "adIdentity"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfTimeElapsed",
       "HCPerfTotalCount",
-      "HCPerfIntervalCount",
       "HCPerfCurrentCount",
       "HCPerfValidIntervals",
-      "HCPerfInvalidIntervals"
+      "HCPerfInvalidIntervals",
+      "HCPerfIntervalCount",
+      "HCPerfTimeElapsed"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "Bits",
       "Counter32",
       "MibIdentifier",
-      "Unsigned32",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -982,8 +982,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-MEF-PER-COS-PER-EVC-PERF-HISTORY-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:51:46 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:50:52 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-MEF-PER-COS-PER-EVC-PERF-HISTORY-MIB"

@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
+      "sysName",
       "sysDescr",
-      "sysContact",
-      "sysName"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
       "MibIdentifier",
+      "Integer32",
       "Bits",
-      "iso",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Counter32",
-      "Counter64",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32"
+      "iso",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "FaultOK",
-      "commonVarbindsCompliance",
-      "FloatString",
-      "commonGroup",
       "Integer32d2",
-      "eventCounter",
+      "mibRelease",
       "eventPriority",
+      "commonVarbindsCompliance",
       "Integer32d1",
       "eventTimeStamp",
-      "mibRelease"
+      "eventCounter",
+      "commonGroup",
+      "FaultOK",
+      "FloatString"
     ],
     "TWOWCOM-SMI": [
-      "dvbDecoder",
       "other",
       "dvbEncoder",
+      "dvbDecoder",
       "decoder",
       "encoder"
     ]
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:51:39 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:50:45 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

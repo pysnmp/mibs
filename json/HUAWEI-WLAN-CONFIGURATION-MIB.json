@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HUAWEI-WLAN-AP-MIB": [
-      "hwWlanApName",
-      "hwWlanApMac"
+      "hwWlanApMac",
+      "hwWlanApName"
     ],
     "HUAWEI-WLAN-AP-RADIO-MIB": [
       "hwWlanRadioID"
@@ -13,31 +13,31 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "iso",
-      "Integer32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Counter64",
+      "MODULE-IDENTITY",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DisplayString",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "MacAddress"
+      "RowStatus"
     ]
   },
   "hwWlanConfig": {
@@ -39667,8 +39667,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-WLAN-CONFIGURATION-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:57:34 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:56:44 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-WLAN-CONFIGURATION-MIB"

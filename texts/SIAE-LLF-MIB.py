@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SIAE-LLF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-LLF-MIB
-# Produced by pysmi-1.1.12 at Wed May 29 11:01:02 2024
-# On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Wed May 29 11:00:41 2024
+# On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, NotificationType, Unsigned32, MibIdentifier, Counter32, iso, IpAddress, Bits, TimeTicks, Gauge32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "NotificationType", "Unsigned32", "MibIdentifier", "Counter32", "iso", "IpAddress", "Bits", "TimeTicks", "Gauge32", "ModuleIdentity")
-RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, iso, Counter32, Gauge32, Bits, IpAddress, Unsigned32, Counter64, NotificationType, TimeTicks, Integer32, MibIdentifier, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Counter32", "Gauge32", "Bits", "IpAddress", "Unsigned32", "Counter64", "NotificationType", "TimeTicks", "Integer32", "MibIdentifier", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, RowStatus, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "TruthValue", "DisplayString")
 llf = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 85))
 if mibBuilder.loadTexts: llf.setLastUpdated('201409020000Z')
 if mibBuilder.loadTexts: llf.setOrganization('SIAE MICROELETTRONICA spa')
@@ -100,4 +100,4 @@ if mibBuilder.loadTexts: llfCircuitRowStatus.setDescription('Status of this row 
 llfAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 85, 5), AlarmSeverityCode().clone('majorTrapEnable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: llfAlarmSeverityCode.setStatus('current')
 if mibBuilder.loadTexts: llfAlarmSeverityCode.setDescription('Defines the severity associated to the llfAlarm\n             and enables/disables the trap generation on status change event.')
-mibBuilder.exportSymbols("SIAE-LLF-MIB", PYSNMP_MODULE_ID=llf, llfMapPolIndex=llfMapPolIndex, llfIndex=llfIndex, llfMapSignalFail=llfMapSignalFail, llfMapRowStatus=llfMapRowStatus, llfCircuitIndex=llfCircuitIndex, llfAlarm=llfAlarm, llfMibVersion=llfMibVersion, llf=llf, llfMapTable=llfMapTable, llfCircuitTable=llfCircuitTable, llfMapInsertionMode=llfMapInsertionMode, llfAlarmSeverityCode=llfAlarmSeverityCode, llfDelayTime=llfDelayTime, llfCircuitPolIndex=llfCircuitPolIndex, llfMapEntry=llfMapEntry, llfProtectionMode=llfProtectionMode, llfTable=llfTable, llfCircuitEntry=llfCircuitEntry, llfMapLosInsertion=llfMapLosInsertion, llfRowStatus=llfRowStatus, llfUnidirectionalFault=llfUnidirectionalFault, llfMapLinkIndex=llfMapLinkIndex, llfEnable=llfEnable, llfMapCircuitIndex=llfMapCircuitIndex, llfEntry=llfEntry, llfCircuitLinkIndex=llfCircuitLinkIndex, llfCircuitLinkLabel=llfCircuitLinkLabel, llfCircuitRowStatus=llfCircuitRowStatus)
+mibBuilder.exportSymbols("SIAE-LLF-MIB", llfEnable=llfEnable, llfProtectionMode=llfProtectionMode, llfCircuitTable=llfCircuitTable, llfMapInsertionMode=llfMapInsertionMode, llfMibVersion=llfMibVersion, llfMapTable=llfMapTable, llfTable=llfTable, llfMapEntry=llfMapEntry, llfMapLinkIndex=llfMapLinkIndex, llfMapLosInsertion=llfMapLosInsertion, llfAlarmSeverityCode=llfAlarmSeverityCode, llfDelayTime=llfDelayTime, llfMapSignalFail=llfMapSignalFail, llfCircuitEntry=llfCircuitEntry, llfCircuitLinkIndex=llfCircuitLinkIndex, llfIndex=llfIndex, llfRowStatus=llfRowStatus, llfCircuitIndex=llfCircuitIndex, llfAlarm=llfAlarm, llfMapRowStatus=llfMapRowStatus, llfEntry=llfEntry, llfCircuitRowStatus=llfCircuitRowStatus, llfUnidirectionalFault=llfUnidirectionalFault, llfCircuitPolIndex=llfCircuitPolIndex, llfCircuitLinkLabel=llfCircuitLinkLabel, llfMapCircuitIndex=llfMapCircuitIndex, llfMapPolIndex=llfMapPolIndex, llf=llf, PYSNMP_MODULE_ID=llf)

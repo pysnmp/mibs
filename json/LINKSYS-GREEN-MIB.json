@@ -11,29 +11,29 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "IpAddress",
+      "Bits",
       "OBJECT-TYPE",
-      "TimeTicks",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "iso",
       "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "TimeTicks",
+      "Gauge32",
       "Unsigned32",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rlGreenEth": {
@@ -306,8 +306,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-GREEN-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:58:38 2024",
-      "On host fv-az1200-312 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:57:59 2024",
+      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-GREEN-MIB"
