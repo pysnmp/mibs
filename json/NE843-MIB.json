@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Integer32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "enterprises",
-      "Counter64",
-      "iso",
-      "Bits",
       "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier"
+      "enterprises",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -24553,8 +24553,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gepower/NE843-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:45:31 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:17:51 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NE843-MIB"

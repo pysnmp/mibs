@@ -10,27 +10,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
       "Integer32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TimeInterval",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TimeInterval"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "hpnicfMplsLdp": {
@@ -2233,8 +2233,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-MPLS-LDP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:48:24 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:19:27 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-MPLS-LDP-MIB"

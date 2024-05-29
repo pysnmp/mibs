@@ -5,29 +5,29 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
+      "TimeTicks",
       "Counter32",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniPacketMirrorAgent": {
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-Packet-Mirror-CONF",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:48:38 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:20:35 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-Packet-Mirror-CONF"

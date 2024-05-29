@@ -11,30 +11,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Integer32",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "alcatelIND1IPRMMIB": {
@@ -867,8 +867,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-IPRM-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:50:00 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:22:04 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-IPRM-MIB"

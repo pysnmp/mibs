@@ -5,28 +5,28 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Counter64",
+      "Gauge32",
       "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY",
       "IpAddress",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Bits"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "STORMSHIELD-SMI-MIB": [
       "stormshieldMIB"
@@ -125,8 +125,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-AUTOUPDATE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:51:03 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:23:01 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "STORMSHIELD-AUTOUPDATE-MIB"

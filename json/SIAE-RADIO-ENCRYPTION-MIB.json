@@ -5,8 +5,8 @@
       "InterfaceIndex"
     ],
     "SIAE-ALARM-MIB": [
-      "AlarmSeverityCode",
-      "AlarmStatus"
+      "AlarmStatus",
+      "AlarmSeverityCode"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
@@ -16,25 +16,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "IpAddress",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "Counter32",
-      "Unsigned32",
+      "TimeTicks",
       "Bits",
+      "Integer32",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "radioEncrypt": {
@@ -319,8 +319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-RADIO-ENCRYPTION-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:50:46 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:22:46 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-RADIO-ENCRYPTION-MIB"

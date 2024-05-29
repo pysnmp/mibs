@@ -3,51 +3,51 @@
     "class": "imports",
     "HUAWEI-L2VPN-MIB": [
       "hwL2VpnVsiVcNumber",
+      "hwVplsVcNumberUpperThreshold",
       "hwVplsVcNumberMaxNum",
-      "hwL2VpnVcLimitClass",
-      "hwVplsVcNumberUpperThreshold"
+      "hwL2VpnVcLimitClass"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IF-MIB": [
       "ifName",
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Integer32",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
       "TimeTicks",
-      "IpAddress"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -4958,8 +4958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VPLS-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:46:52 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:19:13 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VPLS-EXT-MIB"

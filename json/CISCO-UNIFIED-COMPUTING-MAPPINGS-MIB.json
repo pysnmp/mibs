@@ -6,19 +6,19 @@
     ],
     "CISCO-TC": [
       "CiscoNetworkAddress",
-      "CiscoAlarmSeverity",
-      "TimeIntervalSec",
       "CiscoInetAddressMask",
-      "Unsigned64"
+      "Unsigned64",
+      "CiscoAlarmSeverity",
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
       "CucsManagedObjectDn",
-      "ciscoUnifiedComputingMIB",
-      "CucsManagedObjectId"
+      "ciscoUnifiedComputingMIB"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -28,30 +28,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Counter32",
+      "Gauge32",
       "MibIdentifier",
       "Integer32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "MacAddress",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "TimeInterval",
       "RowPointer",
-      "DisplayString"
+      "TruthValue",
+      "DateAndTime",
+      "TimeInterval",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "cucsMappingsObjects": {
@@ -261,8 +261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-MAPPINGS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:46:43 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:19:23 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-MAPPINGS-MIB"

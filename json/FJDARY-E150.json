@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "Bits",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
       "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "TimeTicks"
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "PhysAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -13166,8 +13166,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fujitsu/FJDARY-E150",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:45:17 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:17:33 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FJDARY-E150"

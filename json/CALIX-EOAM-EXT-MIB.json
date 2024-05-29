@@ -2,66 +2,66 @@
   "imports": {
     "class": "imports",
     "IEEE8021-CFM-MIB": [
+      "Dot1agCfmMepIdOrZero",
+      "dot1agCfmMepDbRMepIdentifier",
+      "Dot1agCfmIdPermission",
+      "Dot1agCfmCcmInterval",
       "Dot1agCfmMepId",
+      "Dot1agCfmMpDirection",
+      "dot1agCfmMdIndex",
+      "dot1agCfmMaMepListIdentifier",
+      "dot1agCfmMaIndex",
+      "dot1agCfmMepIdentifier",
       "dot1agCfmLtrSeqNumber",
       "dot1agCfmMaComponentId",
-      "Dot1agCfmCcmInterval",
-      "Dot1agCfmMepIdOrZero",
       "Dot1agCfmMDLevel",
-      "dot1agCfmLtrReceiveOrder",
-      "dot1agCfmMdIndex",
-      "dot1agCfmMaIndex",
       "Dot1agCfmPbbComponentIdentifier",
-      "Dot1agCfmIdPermission",
-      "dot1agCfmMaMepListIdentifier",
-      "dot1agCfmMepIdentifier",
-      "dot1agCfmMepDbRMepIdentifier",
-      "Dot1agCfmMpDirection"
+      "dot1agCfmLtrReceiveOrder"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LLDP-MIB": [
-      "LldpPortId",
-      "LldpChassisIdSubtype",
       "LldpChassisId",
-      "LldpPortIdSubtype"
+      "LldpPortIdSubtype",
+      "LldpPortId",
+      "LldpChassisIdSubtype"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
-      "VlanId"
+      "VlanId",
+      "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
       "Counter64",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "enterprises",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
       "Gauge32",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TDomain",
-      "TruthValue",
       "DisplayString",
       "TAddress",
-      "MacAddress"
+      "RowStatus",
+      "TDomain",
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "calixEoamExtMIB": {
@@ -2236,8 +2236,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/CALIX-SOAM-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:42:37 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:14:53 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CALIX-EOAM-EXT-MIB"

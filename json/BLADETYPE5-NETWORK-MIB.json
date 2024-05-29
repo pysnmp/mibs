@@ -5,8 +5,8 @@
       "BridgeId"
     ],
     "HP-SWITCH-PL-MIB": [
-      "hpSwitchBladeType5-Products",
-      "hpSwitchBladeType5-Mgmt"
+      "hpSwitchBladeType5-Mgmt",
+      "hpSwitchBladeType5-Products"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -16,30 +16,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
+      "sysName",
       "sysContact",
-      "sysLocation",
-      "sysName"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
       "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "IpAddress",
       "Bits",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "enterprises",
-      "OBJECT-TYPE",
-      "iso"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
+      "DisplayString",
       "PhysAddress",
       "TEXTUAL-CONVENTION"
     ]
@@ -33418,8 +33418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE5-NETWORK-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:48:24 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:19:26 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE5-NETWORK-MIB"

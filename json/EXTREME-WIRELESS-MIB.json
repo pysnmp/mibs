@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "WPAKeyMgmtSet",
       "ExtremeDeviceId",
       "extremeAgent",
-      "WPACipherSet",
-      "extremeV2Traps",
-      "extremeLAC",
+      "WPAKeyMgmtSet",
+      "ClientAuthType",
       "WirelessRemoteConnectBindingType",
       "extremeAP",
-      "ClientAuthType"
+      "extremeLAC",
+      "extremeV2Traps",
+      "WPACipherSet"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -26,25 +26,25 @@
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "IpAddress",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
       "TimeTicks",
-      "Bits",
-      "Counter64",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "MacAddress",
       "DisplayString"
     ]
   },
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:45:11 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:17:26 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

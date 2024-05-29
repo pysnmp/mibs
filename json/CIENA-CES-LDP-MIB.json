@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CIENA-SMI": [
-      "cienaCesNotifications",
-      "cienaCesConfig"
+      "cienaCesConfig",
+      "cienaCesNotifications"
     ],
     "CIENA-TC": [
       "CienaGlobalState"
@@ -12,31 +12,31 @@
       "MplsLdpIdentifier"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "iso",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32"
+      "Unsigned32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "MacAddress",
-      "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cienaCesLdpMIB": {
@@ -479,8 +479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-LDP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:42:51 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:15:12 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-LDP-MIB"

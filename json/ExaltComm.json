@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "enterprises",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "iso",
-      "Integer32",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "Bits",
-      "Gauge32"
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "RadioSourceT": {
@@ -1978,8 +1978,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComm",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:44:55 2024",
-      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:17:13 2024",
+      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ExaltComm"
