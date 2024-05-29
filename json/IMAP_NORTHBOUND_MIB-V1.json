@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Bits",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "Counter32",
       "Counter64",
-      "TimeTicks"
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1396,8 +1396,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/IMAP_NORTHBOUND_MIB-V1",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:03:34 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:12:05 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IMAP_NORTHBOUND_MIB-V1"

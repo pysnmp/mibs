@@ -6,54 +6,54 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
       "iso",
-      "Integer32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "RowStatus",
       "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxMDASlotNum",
       "tmnxCardSlotNum"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "timetraSRMIBModules",
-      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
       "tmnxSRConfs",
-      "tmnxSRNotifyPrefix"
+      "tmnxSRObjs",
+      "timetraSRMIBModules"
     ],
     "TIMETRA-PORT-MIB": [
       "tmnxPortNotifyPortId",
       "tmnxPortPortID"
     ],
     "TIMETRA-TC-MIB": [
+      "TNamedItemOrEmpty",
       "TmnxEnabledDisabledAdminState",
       "TmnxEnabledDisabled",
-      "TItemDescription",
-      "TNamedItemOrEmpty",
-      "TmnxAuthPassword"
+      "TmnxAuthPassword",
+      "TItemDescription"
     ]
   },
   "timetraCellularMIBModule": {
@@ -3495,8 +3495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-CELLULAR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:06:20 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:15:13 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-CELLULAR-MIB"

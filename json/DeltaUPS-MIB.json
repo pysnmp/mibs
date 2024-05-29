@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Counter64",
-      "TRAP-TYPE",
-      "enterprises",
-      "Counter32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
       "IpAddress",
+      "MODULE-IDENTITY",
       "Bits",
-      "iso"
+      "iso",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "Counter32",
+      "enterprises",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2299,8 +2299,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/DeltaUPS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:00:22 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:08:51 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DeltaUPS-MIB"

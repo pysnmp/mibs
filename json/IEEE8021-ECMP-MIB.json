@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePort",
-      "ieee8021BridgeBasePortComponentId"
+      "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePort"
     ],
     "IEEE8021-Q-BRIDGE-MIB": [
       "ieee8021QBridgePortVlanStatisticsEntry",
@@ -22,31 +22,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "Gauge32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
+      "TimeTicks",
+      "iso",
       "Counter32",
       "IpAddress",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021EcmpMib": {
@@ -489,8 +489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-ECMP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:57:15 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:05:48 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-ECMP-MIB"

@@ -14,52 +14,52 @@
       "IANAtunnelType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipAddressEntry",
-      "ipv6InterfaceEntry",
       "ipv6RouterAdvertEntry",
-      "ipNetToPhysicalEntry"
+      "ipNetToPhysicalEntry",
+      "ipv6InterfaceEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Counter64",
-      "Gauge32",
-      "TimeTicks",
-      "zeroDotZero",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
       "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "zeroDotZero",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Integer32"
+      "IpAddress",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TimeInterval",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:03:49 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:11:59 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPv6"

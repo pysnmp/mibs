@@ -5,24 +5,24 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Integer32",
+      "Unsigned32",
       "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -79,8 +79,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-WeightedRandomTailDrop-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:00:37 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:09:07 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-WeightedRandomTailDrop-MIB"

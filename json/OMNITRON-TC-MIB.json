@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter64",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "enterprises",
       "Unsigned32",
-      "IpAddress",
       "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter32"
+      "Counter32",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ostOmnitronTcMib": {
@@ -871,8 +871,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-TC-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:05:08 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:13:57 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OMNITRON-TC-MIB"

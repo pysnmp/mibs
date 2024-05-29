@@ -9,21 +9,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "TRAP-TYPE",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "Counter64"
     ],
     "SNMPv2-SMI-v1": [
       "enterprises"
@@ -33,8 +33,8 @@
       "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
-      "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "DateAndTime"
     ]
   },
   "ibmServeRaidMIB": {
@@ -2046,8 +2046,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-SERVERAID-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:03:44 2024",
-      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:12:24 2024",
+      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IBM-SERVERAID-MIB"
