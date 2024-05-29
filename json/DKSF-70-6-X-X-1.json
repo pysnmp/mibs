@@ -9,26 +9,26 @@
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Gauge32",
       "Integer32",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "enterprises",
-      "TimeTicks",
-      "Bits",
-      "Counter32",
-      "iso",
       "Unsigned32",
-      "IpAddress"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
       "TimeStamp"
     ]
   },
@@ -2206,8 +2206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netping/DKSF-70-6-X-X-1",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:20:39 2024",
-      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:25:55 2024",
+      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DKSF-70-6-X-X-1"

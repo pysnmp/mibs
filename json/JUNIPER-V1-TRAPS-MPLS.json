@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "enterprises",
+      "MibIdentifier",
       "Integer32",
       "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32",
-      "TRAP-TYPE",
       "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "enterprises",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -111,8 +111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-V1-TRAPS-MPLS",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:20:35 2024",
-      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:25:50 2024",
+      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-V1-TRAPS-MPLS"

@@ -9,20 +9,20 @@
       "bfdSessIndex"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
-      "VlanPriority",
-      "VlanId",
       "SecondaryState",
-      "OperationalState"
+      "VlanId",
+      "OperationalState",
+      "AdminState",
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
-      "f3L3TrafficBgpPeerEntry",
       "f3L3TrafficIPInterfaceEntry",
+      "f3VrfEntry",
       "f3L3TrafficOspfInterfaceEntry",
-      "f3VrfEntry"
+      "f3L3TrafficBgpPeerEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "Counter32",
       "Counter64",
-      "Unsigned32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Integer32",
       "MibIdentifier",
-      "Gauge32",
       "iso",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "VariablePointer",
-      "RowStatus",
-      "TruthValue",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "StorageType",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "f3BfdMIB": {
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:14:12 2024",
-      "On host fv-az1114-382 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:19:20 2024",
+      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"
