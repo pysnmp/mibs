@@ -5,38 +5,38 @@
       "entPhysicalIndex"
     ],
     "ENTITY-STATE-TC-MIB": [
-      "EntityUsageState",
-      "EntityOperState",
-      "EntityAlarmStatus",
       "EntityAdminState",
-      "EntityStandbyStatus"
+      "EntityStandbyStatus",
+      "EntityOperState",
+      "EntityUsageState",
+      "EntityAlarmStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "mib-2",
-      "MODULE-IDENTITY",
       "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
+      "MODULE-IDENTITY",
       "iso",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "entityStateMIB": {
@@ -268,9 +268,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ENTITY-STATE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:06:03 2024",
-      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ENTITY-STATE-MIB",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:02:26 2024",
+      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ENTITY-STATE-MIB"

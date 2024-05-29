@@ -2,65 +2,65 @@
   "imports": {
     "class": "imports",
     "CISCO-ISCSI-MIB": [
-      "cIscsiSessionAttributesEntry",
       "cIscsiNodeAttributesEntry",
+      "cIscsiInstIndex",
       "cIscsiInstanceAttributesEntry",
-      "cIscsiInstIndex"
+      "cIscsiSessionAttributesEntry"
     ],
     "CISCO-SCSI-MIB": [
-      "ScsiName",
+      "ciscoScsiLuEntry",
       "ScsiLUNOrZero",
-      "ciscoScsiLuEntry"
+      "ScsiName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcNameIdOrZero",
+      "VsanIndex",
       "FcNameId",
-      "VsanIndex"
+      "FcNameIdOrZero"
     ],
     "CISCO-TC": [
-      "ListIndex",
       "ListIndexOrZero",
-      "CiscoPort"
+      "CiscoPort",
+      "ListIndex"
     ],
     "CISCO-ZS-MIB": [
       "FcList"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
       "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Bits",
       "iso",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoIscsiGwMIB": {
@@ -3090,8 +3090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ISCSI-GW-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:11:57 2024",
-      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:07:41 2024",
+      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ISCSI-GW-MIB"

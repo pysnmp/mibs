@@ -3,31 +3,31 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "TimeTicks",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "experimental",
       "Counter64",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
+      "MODULE-IDENTITY",
+      "experimental",
+      "Bits",
+      "IpAddress",
       "iso",
-      "IpAddress"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "RowStatus"
+      "TruthValue"
     ]
   },
   "igmpMIB": {
@@ -664,9 +664,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IGMP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:06:04 2024",
-      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IGMP-MIB",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:07:44 2024",
+      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IGMP-MIB"

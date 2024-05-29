@@ -21,26 +21,26 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "enterprises",
-      "iso",
+      "MODULE-IDENTITY",
       "MibIdentifier",
+      "enterprises",
+      "IpAddress",
       "Bits",
       "NOTIFICATION-TYPE",
+      "iso",
       "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32"
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
       "DisplayString",
+      "PhysAddress",
       "MacAddress"
     ]
   },
@@ -33418,8 +33418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE5-NETWORK-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:13:35 2024",
-      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:07:46 2024",
+      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE5-NETWORK-MIB"

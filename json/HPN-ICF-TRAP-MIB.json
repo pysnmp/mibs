@@ -5,13 +5,13 @@
       "hpnicfCommon"
     ],
     "IF-MIB": [
-      "ifDescr",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -21,26 +21,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
       "Unsigned32",
-      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress"
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TAddress",
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
+      "TAddress",
+      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1074,8 +1074,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 08:13:35 2024",
-      "On host fv-az698-992 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:07:46 2024",
+      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-TRAP-MIB"
