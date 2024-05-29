@@ -5,9 +5,9 @@
       "fsp150cm"
     ],
     "CM-ENTITY-MIB": [
+      "slotIndex",
       "neIndex",
-      "shelfIndex",
-      "slotIndex"
+      "shelfIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -15,29 +15,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "IpAddress",
       "MibIdentifier",
-      "Bits",
       "Unsigned32",
-      "TimeTicks",
       "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Counter32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "StorageType",
-      "VariablePointer",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "VariablePointer",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "StorageType"
     ]
   },
   "cmProtectionMIB": {
@@ -958,8 +958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-PROTECTION-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:42:51 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:41:48 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CM-PROTECTION-MIB"

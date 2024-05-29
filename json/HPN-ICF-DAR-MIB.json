@@ -8,24 +8,24 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
       "Bits",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "IpAddress",
+      "Counter32",
       "MODULE-IDENTITY",
-      "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -300,8 +300,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DAR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:48:02 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:48:24 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DAR-MIB"

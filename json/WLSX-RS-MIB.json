@@ -5,65 +5,65 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaPortDuplex",
-      "ArubaEnableValue",
-      "ArubaPortSpeed",
-      "ArubaActiveState",
-      "ArubaDot3azStatus",
       "ArubaPortType",
+      "ArubaActiveState",
+      "ArubaPortDuplex",
       "ArubaOperStateValue",
       "ArubaPoeState",
       "ArubaAPDot1dState",
-      "ArubaEnet1Mode"
+      "ArubaEnet1Mode",
+      "ArubaDot3azStatus",
+      "ArubaEnableValue",
+      "ArubaPortSpeed"
     ],
     "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
       "AddressFamilyNumbers"
     ],
     "LLDP-MIB": [
-      "LldpSystemCapabilitiesMap",
-      "LldpPortId",
-      "LldpPortIdSubtype",
-      "LldpManAddress",
       "LldpChassisIdSubtype",
-      "LldpChassisId"
+      "LldpChassisId",
+      "LldpManAddress",
+      "LldpSystemCapabilitiesMap",
+      "LldpPortIdSubtype",
+      "LldpPortId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "snmpModules",
+      "Gauge32",
+      "Integer32",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "snmpModules",
       "IpAddress",
-      "iso"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TDomain",
+      "TruthValue",
       "PhysAddress",
+      "RowStatus",
+      "TimeInterval",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
       "TestAndIncr",
       "TAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "MacAddress",
-      "RowStatus",
-      "StorageType",
-      "TimeInterval",
-      "TruthValue"
+      "TDomain",
+      "DisplayString"
     ],
     "WLSX-WLAN-MIB": [
       "wlanAPMacAddress"
@@ -997,8 +997,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-RS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:42:53 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:41:52 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WLSX-RS-MIB"

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
+      "dot1dStpPort",
       "dot1dStpPortEntry",
       "Timeout",
-      "dot1dStpPort",
       "BridgeId"
     ],
     "IEEE8021-CFM-MIB": [
@@ -18,9 +18,9 @@
       "dot1xAuthConfigEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
+      "ifIndex",
       "ifOperStatus",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -31,8 +31,8 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
       "dot1qVlanStaticEntry",
+      "PortList",
       "VlanId",
       "VlanIndex"
     ],
@@ -41,28 +41,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "enterprises",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "enterprises",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "iso",
       "MODULE-IDENTITY",
       "Gauge32",
-      "MibIdentifier",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TruthValue",
+      "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ecs3510_28tMIB": {
@@ -29346,8 +29346,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS3510-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:45:24 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:44:33 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ECS3510-MIB"

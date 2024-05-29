@@ -13,20 +13,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
       "Unsigned32",
       "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
-      "Bits",
-      "Counter64",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
       "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -938,8 +938,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-SOFTWARE-MONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:46:02 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:45:11 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-SOFTWARE-MONITOR-MIB"

@@ -8,35 +8,35 @@
       "dsSwitchModules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "mib-2",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "mib-2",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "DisplayString",
-      "TestAndIncr",
-      "RowStatus",
       "AutonomousType",
-      "TruthValue",
+      "PhysAddress",
+      "RowStatus",
+      "TestAndIncr",
+      "DisplayString",
       "TimeStamp",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -330,8 +330,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-GEPON-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:44:51 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:44:03 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DASAN-GEPON-MIB"

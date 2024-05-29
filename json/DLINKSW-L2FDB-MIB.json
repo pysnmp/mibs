@@ -5,43 +5,43 @@
       "dlinkIndustrialCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanId",
       "dot1qStaticUnicastAddress",
       "dot1qFdbId",
-      "PortList",
-      "VlanId"
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
       "Integer32",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
       "MibIdentifier",
+      "Bits",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwL2FdbMIB": {
@@ -783,8 +783,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-L2FDB-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:44:52 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:43:55 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-L2FDB-MIB"

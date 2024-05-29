@@ -8,46 +8,46 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
+      "LldpPortId",
+      "LldpPortIdSubtype",
       "LldpChassisIdSubtype",
       "LldpChassisId",
-      "LldpManAddress",
-      "LldpPortIdSubtype",
-      "LldpPortId"
+      "LldpManAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
+      "iso",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "iso",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "zeroDotZero",
+      "Gauge32",
       "Unsigned32",
-      "Integer32"
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "zeroDotZero",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TimeInterval",
       "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "MacAddress"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ],
     "TRANSPORT-ADDRESS-MIB": [
       "TransportAddress",
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:41:36 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:40:31 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE802171-CFM-MIB"

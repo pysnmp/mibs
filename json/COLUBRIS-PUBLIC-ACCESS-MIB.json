@@ -5,44 +5,44 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisNotificationEnable",
       "ColubrisUsersAuthenticationMode",
-      "ColubrisPriorityQueue",
       "ColubrisUsersAuthenticationType",
       "ColubrisSecurity",
-      "ColubrisSSIDOrNone",
-      "ColubrisProfileIndexOrZero"
+      "ColubrisPriorityQueue",
+      "ColubrisNotificationEnable",
+      "ColubrisProfileIndexOrZero",
+      "ColubrisSSIDOrNone"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32",
-      "Counter64",
       "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TruthValue",
+      "DateAndTime",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisPublicAccessMIB": {
@@ -1573,8 +1573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PUBLIC-ACCESS-MIB.my",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:46:48 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:46:05 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-PUBLIC-ACCESS-MIB"

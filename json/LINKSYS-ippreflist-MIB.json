@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetZoneIndex",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetVersion",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetZoneIndex",
+      "InetVersion"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -16,28 +16,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
       "Unsigned32",
-      "IpAddress"
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DateAndTime",
+      "TimeStamp",
       "RowStatus",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIpPrefList": {
@@ -426,8 +426,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-ippreflist-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:48:47 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:48:05 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-ippreflist-MIB"

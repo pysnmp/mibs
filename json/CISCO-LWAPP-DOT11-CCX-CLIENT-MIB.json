@@ -3,8 +3,8 @@
     "class": "imports",
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress",
-      "ciscoLwappDot11ClientCcxMIBObjects",
-      "ciscoLwappDot11CCXClientMIBConform"
+      "ciscoLwappDot11CCXClientMIBConform",
+      "ciscoLwappDot11ClientCcxMIBObjects"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -13,33 +13,33 @@
       "CiscoMilliSeconds"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Bits",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "IpAddress",
       "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
       "MibIdentifier",
-      "iso"
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
+      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "MacAddress",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "ciscoLwappDot11CcxClientMIB": {
@@ -1413,8 +1413,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CCX-CLIENT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:47:53 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:46:42 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CCX-CLIENT-MIB"

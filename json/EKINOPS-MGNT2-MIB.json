@@ -4,39 +4,39 @@
     "EKINOPS-MIB": [
       "EkiLoadPermutMethod",
       "ekinops",
-      "EkiApiState",
+      "EkiLoadState",
+      "EkiLoadPermutMode",
+      "EkiLoadGWSW",
+      "EkiSynchroMode",
       "EkiProtocol",
       "EkiOnOff",
-      "EkiLoadGWSW",
-      "EkiLoadPermutMode",
-      "EkiState",
-      "EkiLoadState",
-      "EkiSynchroMode"
+      "EkiApiState",
+      "EkiState"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
+      "Bits",
+      "Counter32",
       "Unsigned32",
       "Integer32",
-      "Bits",
       "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "mgnt2": {
@@ -4639,8 +4639,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ekinops/EKINOPS-MGNT2-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 06:45:12 2024",
-      "On host fv-az1776-875 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 06:44:16 2024",
+      "On host fv-az1019-850 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EKINOPS-MGNT2-MIB"
