@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "ZeroBasedCounter64",
       "CounterBasedGauge64",
+      "ZeroBasedCounter64",
       "hcnumTC"
     ],
     "IF-MIB": [
-      "ifEntry",
-      "ifTable",
-      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifTable",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
@@ -26,32 +26,32 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "Integer32",
       "Unsigned32",
       "Counter32",
-      "Integer32",
-      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "iso",
-      "MibIdentifier",
+      "enterprises",
       "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "DateAndTime",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime"
+      "TimeStamp"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:24:46 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:04:03 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

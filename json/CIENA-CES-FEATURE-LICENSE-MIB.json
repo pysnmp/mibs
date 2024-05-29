@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "CIENA-CES-MODULE-MIB": [
+      "cienaCesModuleShelfIndx",
       "cienaCesModuleChassisIndx",
-      "cienaCesModuleSlotIndx",
-      "cienaCesModuleShelfIndx"
+      "cienaCesModuleSlotIndx"
     ],
     "CIENA-GLOBAL-MIB": [
-      "cienaGlobalSeverity",
-      "cienaGlobalMacAddress"
+      "cienaGlobalMacAddress",
+      "cienaGlobalSeverity"
     ],
     "CIENA-SMI": [
-      "cienaCesNotifications",
-      "cienaCesConfig"
+      "cienaCesConfig",
+      "cienaCesNotifications"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
+      "TimeTicks",
       "iso",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -620,8 +620,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-FEATURE-LICENSE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:20:20 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:59:34 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-FEATURE-LICENSE-MIB"

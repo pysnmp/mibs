@@ -10,25 +10,25 @@
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "Bits",
       "TimeTicks",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
-      "Counter64"
+      "Integer32",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "equipmentCommonMib": {
@@ -694,8 +694,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/EQUIPMENT-COMMON-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:21:35 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:00:45 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQUIPMENT-COMMON-MIB"

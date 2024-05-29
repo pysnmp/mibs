@@ -14,26 +14,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "iso",
-      "MibIdentifier",
       "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "BITS",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Counter64",
-      "BITS"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
       "TimeStamp",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -46135,8 +46135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-FAULTMGMT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:21:24 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:00:34 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-FAULTMGMT-MIB"

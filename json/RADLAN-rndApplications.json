@@ -14,26 +14,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
       "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
       "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Counter32",
+      "Integer32",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Bits"
+      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -1353,8 +1353,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-rndApplications",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:27:20 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:06:20 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RADLAN-rndApplications"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MBG-SNMP-FDMXPT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-FDMXPT-MIB
-# Produced by pysmi-1.1.12 at Wed May 29 07:25:27 2024
-# On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Wed May 29 08:04:36 2024
+# On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 mbgSnmpRoot, = mibBuilder.importSymbols("MBG-SNMP-ROOT-MIB", "mbgSnmpRoot")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-ObjectIdentity, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Counter32, NotificationType, TimeTicks, ModuleIdentity, Gauge32, IpAddress, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Counter32", "NotificationType", "TimeTicks", "ModuleIdentity", "Gauge32", "IpAddress", "Integer32", "Counter64")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, Bits, Gauge32, Unsigned32, IpAddress, MibIdentifier, Counter32, Counter64, TimeTicks, NotificationType, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "Bits", "Gauge32", "Unsigned32", "IpAddress", "MibIdentifier", "Counter32", "Counter64", "TimeTicks", "NotificationType", "iso", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mbgFDM = ModuleIdentity((1, 3, 6, 1, 4, 1, 5597, 15))
 mbgFDM.setRevisions(('2012-01-25 00:00', '2006-01-20 00:00',))
@@ -105,4 +105,4 @@ mbgFDMTrapsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 5597, 15, 90, 2, 2)).set
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mbgFDMTrapsGroup = mbgFDMTrapsGroup.setStatus('current')
 if mibBuilder.loadTexts: mbgFDMTrapsGroup.setDescription('The collection of traps for the MBG FDMXPT MIB')
-mibBuilder.exportSymbols("MBG-SNMP-FDMXPT-MIB", mbgFDMTrapsGroup=mbgFDMTrapsGroup, mbgFDMTrapA2Overflow=mbgFDMTrapA2Overflow, mbgFDMTrapTimeDeviationOverflow=mbgFDMTrapTimeDeviationOverflow, mbgFDMModeVal=mbgFDMModeVal, mbgFDMFreqDev=mbgFDMFreqDev, mbgFDM=mbgFDM, mbgFDMPLTime=mbgFDMPLTime, mbgFDMTrapInternalError=mbgFDMTrapInternalError, mbgFDMTrapNo10Mhz=mbgFDMTrapNo10Mhz, mbgFDMTrapNoPPS=mbgFDMTrapNoPPS, mbgFDMTrapNoPowerline=mbgFDMTrapNoPowerline, mbgFDMTrapA1Overflow=mbgFDMTrapA1Overflow, mbgFDMCompliance=mbgFDMCompliance, mbgFDMMode=mbgFDMMode, mbgFDMTraps=mbgFDMTraps, mbgFDMConformance=mbgFDMConformance, mbgFDMFrequencyVal=mbgFDMFrequencyVal, mbgFDMObjectsGroup=mbgFDMObjectsGroup, mbgFDMFreqDevVal=mbgFDMFreqDevVal, mbgFDMGroups=mbgFDMGroups, mbgFDMTrapNoTimeString=mbgFDMTrapNoTimeString, mbgFDMErrorStatus=mbgFDMErrorStatus, mbgFDMCompliances=mbgFDMCompliances, mbgFDMRefTime=mbgFDMRefTime, mbgFDMTimeDev=mbgFDMTimeDev, PYSNMP_MODULE_ID=mbgFDM, mbgFDMTimeDevVal=mbgFDMTimeDevVal, mbgFDMTrapFreqLimitExceeded=mbgFDMTrapFreqLimitExceeded, mbgFDMXPTReboot=mbgFDMXPTReboot, mbgFDMFrequency=mbgFDMFrequency, mbgFDMNormalOperation=mbgFDMNormalOperation, mbgFDMData=mbgFDMData)
+mibBuilder.exportSymbols("MBG-SNMP-FDMXPT-MIB", mbgFDMTrapNo10Mhz=mbgFDMTrapNo10Mhz, mbgFDMErrorStatus=mbgFDMErrorStatus, mbgFDMTrapA1Overflow=mbgFDMTrapA1Overflow, mbgFDMFreqDev=mbgFDMFreqDev, mbgFDMCompliances=mbgFDMCompliances, mbgFDMMode=mbgFDMMode, mbgFDMFreqDevVal=mbgFDMFreqDevVal, mbgFDMData=mbgFDMData, mbgFDM=mbgFDM, mbgFDMPLTime=mbgFDMPLTime, mbgFDMGroups=mbgFDMGroups, mbgFDMTraps=mbgFDMTraps, PYSNMP_MODULE_ID=mbgFDM, mbgFDMFrequencyVal=mbgFDMFrequencyVal, mbgFDMTimeDevVal=mbgFDMTimeDevVal, mbgFDMTrapsGroup=mbgFDMTrapsGroup, mbgFDMTrapInternalError=mbgFDMTrapInternalError, mbgFDMTrapNoPowerline=mbgFDMTrapNoPowerline, mbgFDMTimeDev=mbgFDMTimeDev, mbgFDMTrapFreqLimitExceeded=mbgFDMTrapFreqLimitExceeded, mbgFDMTrapNoTimeString=mbgFDMTrapNoTimeString, mbgFDMCompliance=mbgFDMCompliance, mbgFDMTrapTimeDeviationOverflow=mbgFDMTrapTimeDeviationOverflow, mbgFDMFrequency=mbgFDMFrequency, mbgFDMTrapA2Overflow=mbgFDMTrapA2Overflow, mbgFDMObjectsGroup=mbgFDMObjectsGroup, mbgFDMRefTime=mbgFDMRefTime, mbgFDMConformance=mbgFDMConformance, mbgFDMXPTReboot=mbgFDMXPTReboot, mbgFDMModeVal=mbgFDMModeVal, mbgFDMTrapNoPPS=mbgFDMTrapNoPPS, mbgFDMNormalOperation=mbgFDMNormalOperation)

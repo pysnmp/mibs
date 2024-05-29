@@ -15,33 +15,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
       "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "Bits",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "RowStatus",
-      "TruthValue",
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "StorageType",
+      "TruthValue"
     ]
   },
   "ciscoDspMgmtMIB": {
@@ -3360,8 +3360,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DSP-MGMT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:24:19 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:03:47 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DSP-MGMT-MIB"

@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "SecondaryState",
-      "VlanId",
-      "OperationalState",
+      "VlanPriority",
       "PerfCounter64",
       "AdminState",
-      "CmPmIntervalType",
-      "VlanPriority",
-      "CmPmBinAction"
+      "VlanId",
+      "OperationalState",
+      "CmPmBinAction",
+      "SecondaryState",
+      "CmPmIntervalType"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -23,35 +23,35 @@
       "cmFlowEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
+      "Unsigned32",
       "iso",
-      "MODULE-IDENTITY",
       "IpAddress",
       "Counter64",
-      "Unsigned32"
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "DisplayString",
-      "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "DateAndTime",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "StorageType",
+      "VariablePointer",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:19:19 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 07:58:31 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-EOMPLS-MIB"

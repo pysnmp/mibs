@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
+      "Counter32",
+      "Gauge32",
       "TimeTicks",
-      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "enterprises",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
       "Bits",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier"
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hp": {
@@ -585,8 +585,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPIPF02TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 07:25:11 2024",
-      "On host fv-az2021-913 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 08:03:43 2024",
+      "On host fv-az1024-251 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPIPF02TRAP-MIB"
