@@ -5,18 +5,18 @@
       "CounterBasedGauge64"
     ],
     "IANA-RTPROTO-MIB": [
-      "IANAipRouteProtocol",
-      "IANAipMRouteProtocol"
+      "IANAipMRouteProtocol",
+      "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetZoneIndex",
+      "InetAddressPrefixLength",
       "InetAddress",
       "InetVersion",
-      "InetAddressPrefixLength",
-      "InetZoneIndex",
       "InetAddressType"
     ],
     "LANGTAG-TC-MIB": [
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "IpAddress",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "Counter64",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "mib-2",
       "iso",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Counter32",
+      "mib-2",
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
-      "TimeStamp",
       "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ipMcastMIB": {
@@ -1855,8 +1855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMCAST-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:01:35 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:18:06 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPMCAST-MIB"

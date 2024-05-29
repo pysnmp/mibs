@@ -12,26 +12,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
+      "Unsigned32",
       "Gauge32",
-      "iso",
-      "Counter64",
       "Counter32",
-      "IpAddress",
+      "Bits",
       "NOTIFICATION-TYPE",
+      "Counter64",
       "TimeTicks",
       "Integer32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MibIdentifier"
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "RowStatus",
-      "MacAddress"
+      "RowStatus"
     ]
   },
   "mabMib": {
@@ -608,8 +608,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-MAB-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:10:59 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:27:30 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-MAB-MIB"

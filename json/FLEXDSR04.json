@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
@@ -12,45 +12,45 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Gauge32",
       "OBJECT-TYPE",
       "Counter32",
-      "Bits",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "Integer32d2",
-      "eventCounter",
-      "Integer32d1",
-      "eventPriority",
-      "FloatString",
-      "mibRelease",
-      "commonGroup",
-      "eventTimeStamp",
       "FaultOK",
+      "Integer32d1",
+      "mibRelease",
+      "eventTimeStamp",
+      "FloatString",
+      "commonGroup",
+      "eventCounter",
+      "eventPriority",
+      "Integer32d2",
       "commonVarbindsCompliance"
     ],
     "TWOWCOM-SMI": [
+      "encoder",
       "decoder",
       "other",
-      "dvbDecoder",
-      "encoder",
-      "dvbEncoder"
+      "dvbEncoder",
+      "dvbDecoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:01:40 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:18:11 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

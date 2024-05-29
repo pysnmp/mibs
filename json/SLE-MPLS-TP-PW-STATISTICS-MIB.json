@@ -19,21 +19,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
       "MODULE-IDENTITY",
+      "zeroDotZero",
+      "MibIdentifier",
+      "Gauge32",
       "Bits",
       "OBJECT-TYPE",
       "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter64",
-      "TimeTicks",
-      "IpAddress",
       "Counter32",
       "OBJECT-IDENTITY",
-      "zeroDotZero"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -249,8 +249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-PW-STATISTICS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:04:33 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:21:02 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-PW-STATISTICS-MIB"

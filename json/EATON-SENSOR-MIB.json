@@ -5,29 +5,29 @@
       "sensorAgent"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
       "TimeTicks",
-      "Counter32"
+      "iso",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eatonSensor": {
@@ -2453,8 +2453,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-SENSOR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:04:45 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:21:15 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EATON-SENSOR-MIB"

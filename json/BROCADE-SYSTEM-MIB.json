@@ -10,25 +10,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
       "TimeTicks",
       "Integer32",
+      "Counter64",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ],
     "SWBASE-MIB": [
       "sw"
@@ -1364,8 +1364,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:05:45 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:22:15 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BROCADE-SYSTEM-MIB"

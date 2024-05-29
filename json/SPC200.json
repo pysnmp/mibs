@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "interfaces"
+      "interfaces",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Unsigned32",
-      "Integer32",
-      "Counter32",
       "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SPIDCOM-MIB": [
       "spidcom"
@@ -3795,8 +3795,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPC200",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:03:14 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:19:45 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SPC200"

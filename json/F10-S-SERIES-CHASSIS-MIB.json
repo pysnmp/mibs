@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
-      "chAlarmVarSlot",
       "chAlarmVarString",
-      "chAlarmVarPort",
-      "chAlarmVarInteger"
+      "chAlarmVarSlot",
+      "chAlarmVarInteger",
+      "chAlarmVarPort"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
-      "F10HundredthdB",
-      "F10ChassisType",
+      "F10SSeriesPortType",
       "F10SwDate",
       "F10MfgDate",
+      "F10ChassisType",
       "F10ProcessorModuleType",
-      "F10SSeriesPortType"
+      "F10HundredthdB"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
       "iso",
-      "Unsigned32"
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "RowStatus",
       "DisplayString",
-      "DateAndTime"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "f10SSerChassisMib": {
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:04:34 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:21:05 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

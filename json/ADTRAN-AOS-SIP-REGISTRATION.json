@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSVoice",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSVoice"
     ],
     "ADTRAN-MIB": [
       "adIdentityShared"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "iso",
       "TimeTicks",
-      "IpAddress"
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adGenAOSSipRegistration": {
@@ -427,8 +427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-SIP-REGISTRATION",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:01:47 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:18:18 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-SIP-REGISTRATION"

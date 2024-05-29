@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-PRIORITY-CLASSIFY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-PRIORITY-CLASSIFY-MIB
-# Produced by pysmi-1.1.12 at Wed May 29 10:05:14 2024
-# On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Wed May 29 10:21:45 2024
+# On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 ctPriorityExt, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctPriorityExt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Bits, Unsigned32, IpAddress, Integer32, ModuleIdentity, MibIdentifier, Counter64, Gauge32, iso, ObjectIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "Unsigned32", "IpAddress", "Integer32", "ModuleIdentity", "MibIdentifier", "Counter64", "Gauge32", "iso", "ObjectIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Bits, Counter32, Counter64, ObjectIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Gauge32, IpAddress, TimeTicks, Integer32, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Counter64", "ObjectIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Gauge32", "IpAddress", "TimeTicks", "Integer32", "ModuleIdentity", "NotificationType")
+TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 ctPriClassify = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6))
 if mibBuilder.loadTexts: ctPriClassify.setLastUpdated('200203121855Z')
 if mibBuilder.loadTexts: ctPriClassify.setOrganization('Cabletron Systems, Inc')
@@ -72,4 +72,4 @@ ctPriClassifyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 14, 6
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctPriClassifyCompliance = ctPriClassifyCompliance.setStatus('current')
-mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyAbility=ctPriClassifyAbility, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyPorts=ctPriClassifyPorts, CtPriClassifyType=CtPriClassifyType, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, PortList=PortList, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyTOSValue=ctPriClassifyTOSValue, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassifyIngressList=ctPriClassifyIngressList, ctPriClassify=ctPriClassify, ctPriClassifyObjects=ctPriClassifyObjects)
+mibBuilder.exportSymbols("CTRON-PRIORITY-CLASSIFY-MIB", ctPriClassifyTableLastChange=ctPriClassifyTableLastChange, ctPriClassifyAbilityTable=ctPriClassifyAbilityTable, ctPriClassifyTOSValue=ctPriClassifyTOSValue, ctPriClassifyTable=ctPriClassifyTable, ctPriClassifyDataMask=ctPriClassifyDataMask, ctPriClassifyPorts=ctPriClassifyPorts, ctPriClassifyCompliance=ctPriClassifyCompliance, ctPriClassifyCompliances=ctPriClassifyCompliances, ctPriClassifyDataMeaning=ctPriClassifyDataMeaning, ctPriClassifyDataVal=ctPriClassifyDataVal, ctPriClassifyTOSStatus=ctPriClassifyTOSStatus, ctPriClassifyAbilityEntry=ctPriClassifyAbilityEntry, ctPriClassifyIngressList=ctPriClassifyIngressList, CtPriClassifyType=CtPriClassifyType, ctPriClassifyPriority=ctPriClassifyPriority, ctPriClassifyStatus=ctPriClassifyStatus, ctPriClassifyGroups=ctPriClassifyGroups, ctPriClassifyMaxEntries=ctPriClassifyMaxEntries, PYSNMP_MODULE_ID=ctPriClassify, ctPriClassifyRowStatus=ctPriClassifyRowStatus, ctPriClassifyRowInfo=ctPriClassifyRowInfo, ctPriClassifyNumEntries=ctPriClassifyNumEntries, ctPriClassifyAbility=ctPriClassifyAbility, PortList=PortList, ctPriClassifyEntry=ctPriClassifyEntry, ctPriClassifyObjects=ctPriClassifyObjects, ctPriClassifyConformance=ctPriClassifyConformance, ctPriClassifyBaseGroup=ctPriClassifyBaseGroup, ctPriClassify=ctPriClassify)

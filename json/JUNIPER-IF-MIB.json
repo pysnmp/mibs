@@ -5,37 +5,37 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifEntry"
+      "ifEntry",
+      "ifIndex"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
       "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Bits",
+      "TimeTicks",
       "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
+      "Bits",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "Gauge32",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeStamp",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ifJnx": {
@@ -1240,8 +1240,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-IF-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:08:54 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:25:25 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-IF-MIB"

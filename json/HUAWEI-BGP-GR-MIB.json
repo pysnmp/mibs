@@ -8,29 +8,29 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "Bits",
       "Counter64",
-      "Counter32",
-      "iso",
+      "Integer32",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hwBgpGRMIB": {
@@ -410,8 +410,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BGP-GR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:07:31 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:24:03 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-BGP-GR-MIB"

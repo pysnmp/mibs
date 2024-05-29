@@ -3,15 +3,15 @@
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
       "MplsBitRate",
-      "MplsTunnelIndex",
       "MplsTunnelAffinity",
+      "MplsTunnelIndex",
       "MplsLSPID",
-      "MplsLsrIdentifier",
-      "MplsTunnelInstanceIndex",
-      "MplsPathIndexOrZero",
       "MplsPathIndex",
-      "mplsMIB",
-      "MplsBurstSize"
+      "MplsTunnelInstanceIndex",
+      "MplsLsrIdentifier",
+      "MplsPathIndexOrZero",
+      "MplsBurstSize",
+      "mplsMIB"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -24,34 +24,34 @@
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "Integer32"
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "StorageType",
-      "RowPointer",
       "DisplayString",
+      "TruthValue",
+      "RowPointer",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:07:47 2024",
-      "On host fv-az775-27 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed May 29 10:24:15 2024",
+      "On host fv-az1984-402 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"
