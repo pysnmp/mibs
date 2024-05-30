@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-CDP-MIB": [
-      "cdpCacheDeviceIndex",
       "cdpCacheEntry",
+      "cdpCacheDeviceIndex",
       "cdpCacheIfIndex"
     ],
     "CISCO-TC": [
@@ -15,46 +15,46 @@
       "rndErrorDesc"
     ],
     "CISCOSB-MIB": [
-      "switch001",
-      "rndNotifications"
+      "rndNotifications",
+      "switch001"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
       "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "MacAddress",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlCdp": {
@@ -1589,8 +1589,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-CDP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:56:33 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:00 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-CDP-MIB"

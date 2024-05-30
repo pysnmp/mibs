@@ -5,8 +5,8 @@
       "Dscp"
     ],
     "Dell-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "Dell-MIB": [
       "rndNotifications",
@@ -19,42 +19,42 @@
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
-      "lldpRemTimeMark",
-      "lldpRemLocalPortNum",
-      "LldpPortList",
       "lldpRemIndex",
-      "LldpPortNumber"
+      "lldpRemLocalPortNum",
+      "lldpRemTimeMark",
+      "LldpPortNumber",
+      "LldpManAddress",
+      "LldpPortList"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "IpAddress",
       "Integer32",
-      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
       "TimeTicks",
-      "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier"
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "rlLldp": {
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-LLDP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:53:47 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:02 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-LLDP-MIB"

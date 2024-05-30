@@ -9,33 +9,33 @@
       "iscsiSessionStatsEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Counter32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "iso",
-      "Opaque",
-      "Bits",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "experimental",
-      "enterprises",
-      "Integer32",
+      "Opaque",
+      "MibIdentifier",
       "IpAddress",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Counter64",
+      "experimental",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Bits",
+      "TimeTicks",
       "Unsigned32",
-      "TimeTicks"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "eqliscsiExtModule": {
@@ -255,8 +255,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLISCSI-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:54:37 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:47 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLISCSI-MIB"

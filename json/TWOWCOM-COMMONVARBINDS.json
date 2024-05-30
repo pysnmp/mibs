@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
       "Integer32",
-      "Bits",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Counter32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
       "iso",
       "Counter64",
-      "Unsigned32"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
@@ -303,8 +303,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-COMMONVARBINDS",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:50:45 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:12:04 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TWOWCOM-COMMONVARBINDS"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSConformance",
-      "adGenAOSCommon"
+      "adGenAOSCommon",
+      "adGenAOSConformance"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
@@ -13,24 +13,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "TimeTicks",
       "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
       "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "iso",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adGenAOSOverTempProtectionMib": {
@@ -112,8 +112,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:50:51 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:12:11 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB"

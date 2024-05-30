@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "Gauge32",
-      "TimeTicks",
-      "Integer32",
       "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ],
     "UBNT-MIB": [
-      "ubntMIB",
-      "ubntEdgeMaxGroups"
+      "ubntEdgeMaxGroups",
+      "ubntMIB"
     ]
   },
   "ubntEdgeMax": {
@@ -604,8 +604,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-EdgeMAX-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 11:01:17 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:22:02 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "UBNT-EdgeMAX-MIB"

@@ -11,32 +11,32 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "iso",
+      "OBJECT-TYPE",
       "Counter64",
-      "Counter32",
-      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE"
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress",
+      "DateAndTime"
     ]
   },
   "arubaWiredRpvstMIB": {
@@ -1713,8 +1713,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-RPVST-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:58:17 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:14 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ARUBAWIRED-RPVST-MIB"

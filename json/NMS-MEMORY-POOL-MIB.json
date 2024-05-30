@@ -8,30 +8,30 @@
       "nmsMgmt"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
       "Integer32",
+      "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "iso"
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nmsMemoryPoolMIB": {
@@ -256,8 +256,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/NMS-MEMORY-POOL-MIB.MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:28 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:20:15 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NMS-MEMORY-POOL-MIB"

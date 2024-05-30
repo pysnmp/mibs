@@ -6,9 +6,9 @@
       "entPhysicalIndex"
     ],
     "HUAWEI-BASE-TRAP-MIB": [
-      "hwBaseTrapProbableCause",
       "hwBaseTrapEventType",
-      "hwBaseTrapSeverity"
+      "hwBaseTrapSeverity",
+      "hwBaseTrapProbableCause"
     ],
     "HUAWEI-ENTITY-EXTENT-MIB": [
       "hwEntityOperStatus"
@@ -24,31 +24,31 @@
       "IANAItuProbableCause"
     ],
     "IF-MIB": [
-      "ifAdminStatus",
       "ifName",
       "ifIndex",
-      "ifOperStatus"
+      "ifOperStatus",
+      "ifAdminStatus"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "Counter64",
+      "IpAddress",
+      "iso",
       "NOTIFICATION-TYPE",
       "TimeTicks",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -9810,8 +9810,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENTITY-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:56:45 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:02 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ENTITY-TRAP-MIB"

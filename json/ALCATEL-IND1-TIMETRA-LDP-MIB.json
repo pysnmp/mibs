@@ -6,26 +6,26 @@
       "TFilterID"
     ],
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
-      "tmnxSRConfs",
-      "tmnxSRObjs"
+      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix",
+      "tmnxSRConfs"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
-      "ServType",
       "TdmOptionsSigPkts",
-      "TdmOptionsCasTrunkFraming",
-      "SdpId"
+      "ServType",
+      "SdpId",
+      "TdmOptionsCasTrunkFraming"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxServId",
       "TmnxAdminState",
-      "TmnxVRtrMplsLspID",
-      "TPolicyStatementNameOrEmpty",
       "TNamedItemOrEmpty",
-      "TmnxVcId",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxOperState",
       "TmnxVcType",
-      "TmnxOperState"
+      "TmnxVcId",
+      "TmnxVRtrMplsLspID",
+      "TmnxServId"
     ],
     "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
       "vRtrLdpStatus",
@@ -44,29 +44,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Bits",
       "Unsigned32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TimeInterval",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "TruthValue",
       "TestAndIncr",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "timetraLdpMIBModule": {
@@ -9122,8 +9122,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-LDP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:54 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:20:50 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-LDP-MIB"

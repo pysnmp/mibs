@@ -8,11 +8,11 @@
       "alclnkaggAggIndex"
     ],
     "IF-MIB": [
-      "ifOutErrors",
       "InterfaceIndex",
-      "ifInErrors",
+      "ifOutErrors",
       "ifIndex",
-      "ifEntry"
+      "ifEntry",
+      "ifInErrors"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,26 +23,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "RowStatus",
       "DisplayString",
       "MacAddress",
-      "RowStatus",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -6411,8 +6411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-PORT-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:53 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:20:49 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-PORT-MIB"

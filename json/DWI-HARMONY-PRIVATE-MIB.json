@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Counter64",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
       "TimeTicks",
+      "iso",
+      "enterprises",
+      "OBJECT-TYPE",
       "IpAddress",
       "Integer32",
-      "Counter32",
-      "enterprises",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dragonwave": {
@@ -75,8 +75,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/DWI-HARMONY-PRIVATE-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:53:58 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:10 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DWI-HARMONY-PRIVATE-MIB"

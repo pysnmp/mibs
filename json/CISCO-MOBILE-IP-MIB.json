@@ -8,24 +8,24 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "MIP-MIB": [
-      "faCOAEntry",
-      "mnHAEntry",
       "RegistrationFlags",
-      "mnRegistrationEntry",
-      "mnRegCOA",
       "haMobilityBindingEntry",
+      "mnRegCOA",
+      "mnHAEntry",
+      "mnRegistrationEntry",
+      "mnRegAgentAddress",
       "mnState",
-      "mnRegAgentAddress"
+      "faCOAEntry"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -34,35 +34,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Counter32",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "Unsigned32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter64",
+      "iso",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
+      "TimeStamp",
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
       "DateAndTime",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "MacAddress",
-      "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoMobileIpMIB": {
@@ -8525,8 +8525,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MOBILE-IP-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:56:33 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:00 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-MOBILE-IP-MIB"

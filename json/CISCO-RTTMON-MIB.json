@@ -8,19 +8,19 @@
       "QosLayer2Cos"
     ],
     "CISCO-RTTMON-TC-MIB": [
-      "RttMonScheduleStartType",
-      "RttMonCodecType",
-      "RttReset",
-      "RttMonLSPPingReplyMode",
-      "RttMonProtocol",
-      "RttResponseSense",
-      "RttMplsVpnMonLpdGrpStatus",
-      "RttMonTargetAddress",
-      "RttMplsVpnMonRttType",
-      "RttMonRttType",
       "RttMonReactVar",
+      "RttMplsVpnMonRttType",
+      "RttMonLSPPingReplyMode",
+      "RttMonRttType",
+      "RttMonCodecType",
+      "RttMplsVpnMonLpdFailureSense",
+      "RttResponseSense",
       "RttMonOperation",
-      "RttMplsVpnMonLpdFailureSense"
+      "RttMonScheduleStartType",
+      "RttMonTargetAddress",
+      "RttMonProtocol",
+      "RttReset",
+      "RttMplsVpnMonLpdGrpStatus"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -32,8 +32,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -42,35 +42,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "Counter32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "IpAddress",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
-      "Counter32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "TimeInterval",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "MacAddress",
       "RowStatus",
-      "DisplayString"
+      "StorageType",
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoRttMonMIB": {
@@ -12645,8 +12645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:56:35 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:04 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-RTTMON-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-VRNI-AGENTCAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VRNI-AGENTCAP-MIB
-# Produced by pysmi-1.1.12 at Wed May 29 11:01:27 2024
-# On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Thu May 30 02:22:12 2024
+# On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-AgentCapabilities, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Integer32, Unsigned32, Bits, ModuleIdentity, Counter32, MibIdentifier, TimeTicks, iso, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Integer32", "Unsigned32", "Bits", "ModuleIdentity", "Counter32", "MibIdentifier", "TimeTicks", "iso", "Counter64", "NotificationType")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "AgentCapabilities")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, Gauge32, IpAddress, MibIdentifier, iso, ObjectIdentity, Counter64, Counter32, ModuleIdentity, Integer32, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "Gauge32", "IpAddress", "MibIdentifier", "iso", "ObjectIdentity", "Counter64", "Counter32", "ModuleIdentity", "Integer32", "TimeTicks", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
 vmwVRNIAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 125))
@@ -67,4 +67,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwVRNIAgent2016v320 = vmwVRNIAgent2016v320.setProductRelease('3.2.0')
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwVRNIAgent2016v320 = vmwVRNIAgent2016v320.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-VRNI-AGENTCAP-MIB", vmwVRNIAgent2020v520=vmwVRNIAgent2020v520, vmwVRNIAgentCapabilityMIB=vmwVRNIAgentCapabilityMIB, vmwVRNIAgent2018v390=vmwVRNIAgent2018v390, vmwVRNIAgent2018v400=vmwVRNIAgent2018v400, vmwVRNIAgent2019v410=vmwVRNIAgent2019v410, vmwVRNIAgent2017v330=vmwVRNIAgent2017v330, vmwVRNIAgent2019v500=vmwVRNIAgent2019v500, vmwVRNICapability=vmwVRNICapability, vmwVRNIAgent2016v350=vmwVRNIAgent2016v350, vmwVRNIAgent2017v340=vmwVRNIAgent2017v340, vmwVRNIAgent2016v320=vmwVRNIAgent2016v320, vmwVRNIAgent2019v420=vmwVRNIAgent2019v420, PYSNMP_MODULE_ID=vmwVRNIAgentCapabilityMIB)
+mibBuilder.exportSymbols("VMWARE-VRNI-AGENTCAP-MIB", vmwVRNIAgent2017v340=vmwVRNIAgent2017v340, vmwVRNIAgent2019v410=vmwVRNIAgent2019v410, vmwVRNIAgentCapabilityMIB=vmwVRNIAgentCapabilityMIB, vmwVRNIAgent2016v350=vmwVRNIAgent2016v350, PYSNMP_MODULE_ID=vmwVRNIAgentCapabilityMIB, vmwVRNIAgent2018v390=vmwVRNIAgent2018v390, vmwVRNIAgent2019v420=vmwVRNIAgent2019v420, vmwVRNIAgent2016v320=vmwVRNIAgent2016v320, vmwVRNIAgent2019v500=vmwVRNIAgent2019v500, vmwVRNIAgent2018v400=vmwVRNIAgent2018v400, vmwVRNIAgent2017v330=vmwVRNIAgent2017v330, vmwVRNICapability=vmwVRNICapability, vmwVRNIAgent2020v520=vmwVRNIAgent2020v520)

@@ -20,15 +20,15 @@
       "SdpId"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxServId",
       "TmnxEncapVal",
+      "ServiceOperStatus",
+      "TmnxPortID",
       "ServiceAdminStatus",
       "TmnxVRtrID",
-      "TmnxVcIdOrNone",
-      "TmnxPortID",
       "SdpBindId",
-      "ServiceOperStatus",
-      "TmnxCustId"
+      "TmnxVcIdOrNone",
+      "TmnxCustId",
+      "TmnxServId"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -50,29 +50,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
-      "MacAddress",
       "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TruthValue"
+      "TimeStamp"
     ]
   },
   "alcatelIND1ServiceMgrMIB": {
@@ -10497,8 +10497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SERVICE-MGR-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:59:55 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:20:51 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-SERVICE-MGR-MIB"

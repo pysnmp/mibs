@@ -5,8 +5,8 @@
       "sleMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressIPv6"
     ],
     "SLE-NETWORK-MIB": [
       "sleIpVRFIndex"
@@ -21,25 +21,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "BITS",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
       "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
+      "BITS",
       "IpAddress",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-TYPE",
       "Counter32",
-      "TimeTicks"
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleNetwork6": {
@@ -4062,8 +4062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-Network6-MIB",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:53:52 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:00 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-Network6-MIB"

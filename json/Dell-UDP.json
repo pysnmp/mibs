@@ -5,44 +5,44 @@
       "rnd"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteEntry",
+      "ipCidrRouteMask",
       "ipCidrRouteTos",
+      "ipCidrRouteEntry",
       "ipCidrRouteNextHop",
-      "ipCidrRouteDest",
-      "ipCidrRouteMask"
+      "ipCidrRouteDest"
     ],
     "IP-MIB": [
       "ipAddrEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "IpAddress",
       "Integer32",
-      "Unsigned32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
+      "MibIdentifier",
+      "iso",
       "Bits",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier"
+      "Counter64",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "rsUDP": {
@@ -278,8 +278,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-UDP",
-      "Produced by pysmi-1.1.12 at Wed May 29 10:53:48 2024",
-      "On host fv-az1206-254 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:02 2024",
+      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-UDP"
