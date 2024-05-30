@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module FREEBSD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/FREEBSD-MIB
-# Produced by pysmi-1.1.12 at Thu May 30 02:20:19 2024
-# On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Thu May 30 02:21:14 2024
+# On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, ObjectIdentity, MibIdentifier, Counter64, Unsigned32, iso, Gauge32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits, enterprises, TimeTicks, Integer32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "Counter64", "Unsigned32", "iso", "Gauge32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits", "enterprises", "TimeTicks", "Integer32", "Counter32")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+TimeTicks, Unsigned32, NotificationType, MibIdentifier, Gauge32, ObjectIdentity, Counter32, Counter64, IpAddress, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Bits, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "NotificationType", "MibIdentifier", "Gauge32", "ObjectIdentity", "Counter32", "Counter64", "IpAddress", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Bits", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 freeBSD = ModuleIdentity((1, 3, 6, 1, 4, 1, 2238))
 freeBSD.setRevisions(('2006-10-31 08:00',))
@@ -35,4 +35,4 @@ if mibBuilder.loadTexts: freeBSDpeoplePhk.setDescription('Subtree for phk@FreeBS
 freeBSDVersion = ObjectIdentity((1, 3, 6, 1, 4, 1, 2238, 4))
 if mibBuilder.loadTexts: freeBSDVersion.setStatus('current')
 if mibBuilder.loadTexts: freeBSDVersion.setDescription('Subtree to register FreeBSD versions. The OID for a FreeBSD\n\t\t version is formed by appending the dot delimited numbers\n\t\t from the release number to this base OID. Examples:\n\n\t\t  5.2.1-STABLE:\tfreeBSDVersion.5.2.1\n\t\t  6.1-STABLE:\tfreeBSDVersion.6.1\n\t\t  7.0-CURRENT:\tfreeBSDVersion.7.0\n\n\t\t There is no indication whether this is STABLE or CURRENT.\n\n\t\t The sysObjectId is automatically set to the value indicated\n\t\t by the uname(3) release field by bsnmpd(1). This initial\n\t\t value can be overwritten in the configuration file.')
-mibBuilder.exportSymbols("FREEBSD-MIB", freeBSDpeople=freeBSDpeople, freeBSD=freeBSD, freeBSDports=freeBSDports, PYSNMP_MODULE_ID=freeBSD, freeBSDVersion=freeBSDVersion, freeBSDsrc=freeBSDsrc, freeBSDpeoplePhk=freeBSDpeoplePhk)
+mibBuilder.exportSymbols("FREEBSD-MIB", freeBSD=freeBSD, freeBSDports=freeBSDports, freeBSDsrc=freeBSDsrc, freeBSDpeople=freeBSDpeople, freeBSDVersion=freeBSDVersion, freeBSDpeoplePhk=freeBSDpeoplePhk, PYSNMP_MODULE_ID=freeBSD)

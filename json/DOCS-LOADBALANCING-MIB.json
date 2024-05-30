@@ -5,42 +5,42 @@
       "clabProjDocsis"
     ],
     "DOCS-IF-MIB": [
-      "docsIfCmtsCmStatusEntry",
-      "docsIfCmtsCmStatusIndex"
+      "docsIfCmtsCmStatusIndex",
+      "docsIfCmtsCmStatusEntry"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "TimeTicks",
       "Integer32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "zeroDotZero",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Bits"
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeStamp",
+      "RowPointer",
       "RowStatus",
-      "MacAddress",
-      "RowPointer"
+      "TimeStamp"
     ]
   },
   "docsLoadBalanceMib": {
@@ -1321,8 +1321,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-LOADBALANCING-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:11:59 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:12:04 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DOCS-LOADBALANCING-MIB"

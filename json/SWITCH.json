@@ -8,8 +8,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "mib-2",
+      "TimeTicks",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Gauge32",
-      "Bits",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "enterprises",
-      "Integer32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Bits",
       "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32"
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "MacAddress",
-      "AutonomousType",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
       "RowStatus",
+      "TimeStamp",
+      "DateAndTime",
+      "PhysAddress",
       "TestAndIncr",
       "TruthValue",
-      "DateAndTime"
+      "AutonomousType"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:16:39 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:17:33 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

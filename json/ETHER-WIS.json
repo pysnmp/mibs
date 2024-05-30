@@ -5,45 +5,45 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
       "transmission",
       "iso",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
       "Counter64",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "IpAddress",
       "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits"
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetMediumLineCoding",
-      "sonetMediumType",
-      "sonetMediumStuff2",
-      "sonetMediumLineType",
-      "sonetMediumLoopbackConfig",
-      "sonetSESthresholdSet",
       "sonetPathCurrentWidth",
+      "sonetMediumCircuitIdentifier",
+      "sonetMediumLineType",
+      "sonetMediumType",
       "sonetSectionStuff2",
-      "sonetPathStuff2",
-      "sonetFarEndLineStuff2",
+      "sonetMediumLoopbackConfig",
       "sonetLineStuff2",
+      "sonetPathStuff2",
       "sonetFarEndPathStuff2",
-      "sonetMediumCircuitIdentifier"
+      "sonetSESthresholdSet",
+      "sonetFarEndLineStuff2",
+      "sonetMediumLineCoding",
+      "sonetMediumStuff2"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-WIS",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:11:59 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:12:05 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ETHER-WIS"

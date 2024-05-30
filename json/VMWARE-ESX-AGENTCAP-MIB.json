@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
+      "Counter64",
       "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
       "iso",
-      "Counter32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -144,8 +144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ESX-AGENTCAP-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:22:16 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:23:13 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "VMWARE-ESX-AGENTCAP-MIB"

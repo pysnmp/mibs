@@ -8,29 +8,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Bits",
-      "Integer32",
-      "Counter32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
       "Gauge32",
-      "TimeTicks"
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cQINQ": {
@@ -747,8 +747,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-QINQ-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:14:28 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:14:38 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-QINQ-MIB"

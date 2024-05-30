@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "Dell-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "Dell-HWENVIROMENT": [
       "RlEnvMonState"
@@ -13,12 +13,12 @@
       "rnd"
     ],
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorValue",
-      "EntitySensorStatus"
+      "EntitySensorStatus",
+      "EntitySensorValue"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "MAU-MIB": [
@@ -29,27 +29,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "MibIdentifier",
-      "iso",
       "Bits",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter64",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "rlPhysicalDescription": {
@@ -1717,8 +1717,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:15:02 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:15 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-Physicaldescription-MIB"

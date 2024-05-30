@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
       "TimeTicks",
-      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
       "Integer32",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "iso",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eponeoc": {
@@ -212,8 +212,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/EPON-EOC-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:13:39 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:13:48 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EPON-EOC-MIB"

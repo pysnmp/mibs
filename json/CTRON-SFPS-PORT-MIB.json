@@ -3,29 +3,29 @@
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
       "sfpsPortStats",
-      "sfpsPortAttributeTable",
       "sfpsPortAttributeAPI",
+      "sfpsPortAttributeTable",
       "sfpsPortConfig"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
       "TimeTicks",
-      "iso",
-      "Counter32"
+      "Counter32",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1141,8 +1141,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-PORT-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:15:57 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:16:13 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-PORT-MIB"

@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
+      "chAlarmVarInteger",
       "chAlarmVarSlot",
-      "chAlarmVarString",
       "chAlarmVarPort",
-      "chAlarmVarInteger"
+      "chAlarmVarString"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
-      "F10SSeriesPortType",
-      "F10HundredthdB",
-      "F10ChassisType",
       "F10MfgDate",
       "F10SwDate",
-      "F10ProcessorModuleType"
+      "F10ProcessorModuleType",
+      "F10HundredthdB",
+      "F10ChassisType",
+      "F10SSeriesPortType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
       "Bits",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Counter64",
       "Unsigned32",
-      "Counter32"
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "f10SSerChassisMib": {
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:15:01 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:14 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

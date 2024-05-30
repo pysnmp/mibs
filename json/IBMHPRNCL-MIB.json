@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
       "enterprises",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "iso",
       "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Bits",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ibm": {
@@ -646,8 +646,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMHPRNCL-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:18:10 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:56 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IBMHPRNCL-MIB"

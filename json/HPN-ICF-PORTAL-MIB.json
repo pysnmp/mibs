@@ -9,10 +9,10 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress",
+      "InetAddressPrefixLength",
       "InetAddressIPv4",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -21,24 +21,24 @@
     "SNMPv2-SMI": [
       "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Integer32",
       "MibIdentifier",
-      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
       "Counter32",
-      "Unsigned32"
+      "Gauge32",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfPortal": {
@@ -1512,8 +1512,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-PORTAL-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:18:16 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:20:08 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-PORTAL-MIB"

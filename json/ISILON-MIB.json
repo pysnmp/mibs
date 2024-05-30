@@ -5,26 +5,26 @@
       "CounterBasedGauge64"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "IpAddress",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "enterprises",
-      "Bits",
+      "Counter32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3420,8 +3420,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/emc/ISILON-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:15:32 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:47 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ISILON-MIB"

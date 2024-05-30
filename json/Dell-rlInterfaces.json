@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "Dell-MIB": [
-      "rlIfInterfaces",
-      "rnd"
+      "rnd",
+      "rlIfInterfaces"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
@@ -18,26 +18,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
       "Bits",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
       "Counter64",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter32"
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "swInterfaces": {
@@ -1742,8 +1742,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlInterfaces",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:15:01 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:15:14 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-rlInterfaces"

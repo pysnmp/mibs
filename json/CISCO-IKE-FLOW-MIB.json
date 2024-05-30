@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "CISCO-IPSEC-SIGNALING-MIB": [
-      "cisgIpsSgTunIndex",
       "cisgIpsSgFailRemoteAddress",
+      "cisgIpsSgProtocol",
       "cisgIpsSgTunHistIndex",
       "cisgIpsSgFailLocalAddress",
-      "cisgIpsSgProtocol"
+      "cisgIpsSgTunIndex"
     ],
     "CISCO-IPSEC-TC": [
       "CIPsecDiffHellmanGrp",
@@ -16,30 +16,30 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
+      "MODULE-IDENTITY",
       "iso",
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "Gauge32",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoIkeFlowMIB": {
@@ -1229,8 +1229,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IKE-FLOW-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:18:05 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:17:59 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IKE-FLOW-MIB"

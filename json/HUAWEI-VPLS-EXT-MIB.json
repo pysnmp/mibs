@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "HUAWEI-L2VPN-MIB": [
-      "hwVplsVcNumberUpperThreshold",
       "hwL2VpnVsiVcNumber",
-      "hwVplsVcNumberMaxNum",
-      "hwL2VpnVcLimitClass"
+      "hwVplsVcNumberUpperThreshold",
+      "hwL2VpnVcLimitClass",
+      "hwVplsVcNumberMaxNum"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IF-MIB": [
       "InterfaceIndex",
-      "ifName",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifName"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -4958,8 +4958,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VPLS-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:18:02 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:18:15 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VPLS-EXT-MIB"

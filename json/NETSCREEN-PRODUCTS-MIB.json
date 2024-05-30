@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "IpAddress",
-      "iso",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "netscreenProductsMibModule": {
@@ -230,8 +230,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:21:23 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:22:16 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-PRODUCTS-MIB"

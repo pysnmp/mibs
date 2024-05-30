@@ -8,49 +8,49 @@
     "SNMPv2-MIB": [
       "sysLocation",
       "sysName",
-      "sysContact",
-      "sysDescr"
+      "sysDescr",
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "mibRelease",
-      "commonVarbindsCompliance",
-      "FloatString",
-      "Integer32d1",
-      "eventPriority",
-      "eventCounter",
-      "commonGroup",
       "Integer32d2",
+      "Integer32d1",
+      "commonVarbindsCompliance",
       "eventTimeStamp",
-      "FaultOK"
+      "eventPriority",
+      "mibRelease",
+      "FaultOK",
+      "commonGroup",
+      "FloatString",
+      "eventCounter"
     ],
     "TWOWCOM-SMI": [
-      "other",
-      "dvbDecoder",
       "encoder",
+      "dvbEncoder",
       "decoder",
-      "dvbEncoder"
+      "other",
+      "dvbDecoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:12:04 2024",
-      "On host fv-az775-912 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu May 30 02:12:10 2024",
+      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"
