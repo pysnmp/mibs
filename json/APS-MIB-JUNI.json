@@ -11,31 +11,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "TimeTicks",
+      "MibIdentifier",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
       "IpAddress",
       "Counter64",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "junidApsMIB": {
@@ -1221,8 +1221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/APS-MIB-JUNI",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:11:27 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:11:14 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APS-MIB-JUNI"

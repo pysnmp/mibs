@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "ConfigIterator",
-      "BulkConfigResult"
+      "BulkConfigResult",
+      "ConfigIterator"
     ],
     "DS1-MIB": [
-      "dsx1FarEndIntervalEntry",
-      "dsx1TotalEntry",
       "dsx1CurrentEntry",
       "dsx1IntervalEntry",
+      "dsx1FarEndIntervalEntry",
       "dsx1ConfigEntry",
+      "dsx1TotalEntry",
       "dsx1FarEndTotalEntry",
       "dsx1FarEndCurrentEntry"
     ],
@@ -30,30 +30,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
       "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "ciscoDs1ExtMIB": {
@@ -2530,8 +2530,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS1-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:14 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:09:49 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DS1-EXT-MIB"

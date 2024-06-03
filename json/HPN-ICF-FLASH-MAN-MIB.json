@@ -11,35 +11,35 @@
       "hpnicfCommon"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Integer32",
-      "Bits",
-      "Gauge32",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "RowStatus",
       "TimeStamp",
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1548,8 +1548,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-FLASH-MAN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:23 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:27 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-FLASH-MAN-MIB"

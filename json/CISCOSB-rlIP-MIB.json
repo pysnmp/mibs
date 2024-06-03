@@ -9,48 +9,48 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetVersion",
-      "InetAddressPrefixLength",
       "InetZoneIndex",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressPrefixLength",
+      "InetAddressType",
+      "InetAddress"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "zeroDotZero",
       "TimeTicks",
+      "Counter64",
       "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso",
       "mib-2",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Unsigned32",
+      "Bits",
+      "zeroDotZero",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "TestAndIncr",
       "StorageType",
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "PhysAddress",
       "RowPointer",
-      "DisplayString",
-      "TestAndIncr",
-      "RowStatus",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:19 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:09:53 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

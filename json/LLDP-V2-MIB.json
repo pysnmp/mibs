@@ -5,55 +5,55 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifGeneralInformationGroup"
+      "ifGeneralInformationGroup",
+      "InterfaceIndex"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2PortIdSubtype",
-      "LldpV2ManAddress",
       "LldpV2SystemCapabilitiesMap",
+      "LldpV2ChassisIdSubtype",
+      "LldpV2PortIdSubtype",
       "LldpV2DestAddressTableIndex",
       "LldpV2ManAddrIfSubtype",
       "ieee802dot1mibs",
-      "LldpV2ChassisIdSubtype",
-      "LldpV2PortId",
-      "LldpV2ChassisId"
+      "LldpV2ChassisId",
+      "LldpV2ManAddress",
+      "LldpV2PortId"
     ],
     "RMON2-MIB": [
-      "TimeFilter",
-      "ZeroBasedCounter32"
+      "ZeroBasedCounter32",
+      "TimeFilter"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "iso",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
       "Counter32",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "RowStatus",
-      "TruthValue",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:03:52 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:03:34 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

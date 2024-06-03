@@ -5,11 +5,11 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoAlarmSeverity",
-      "TimeIntervalSec",
       "Unsigned64",
-      "CiscoNetworkAddress"
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
+      "CiscoInetAddressMask",
+      "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectDn",
@@ -17,47 +17,47 @@
       "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsPolicyPolicyOwner",
-      "CucsFlowctrlConfig",
+      "CucsFlowctrlPriorityPause",
       "CucsFlowctrlFlowControl",
-      "CucsFlowctrlPriorityPause"
+      "CucsPolicyPolicyOwner",
+      "CucsFlowctrlConfig"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "TimeTicks",
       "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "RowPointer",
-      "DisplayString",
       "MacAddress",
       "TimeInterval",
       "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "cucsFlowctrlObjects": {
@@ -306,8 +306,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:15 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:09:50 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB"

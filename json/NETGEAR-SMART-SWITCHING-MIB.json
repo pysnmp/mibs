@@ -16,37 +16,37 @@
     ],
     "Q-BRIDGE-MIB": [
       "dot1qVlanIndex",
-      "dot1qTpFdbAddress",
+      "dot1qFdbId",
       "VlanIndex",
-      "dot1qFdbId"
+      "dot1qTpFdbAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "Counter32"
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "PhysAddress",
       "RowStatus",
       "MacAddress",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "DisplayString"
     ]
   },
   "agentSwitching": {
@@ -7315,8 +7315,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SMART-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:11:33 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:11:20 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-SMART-SWITCHING-MIB"

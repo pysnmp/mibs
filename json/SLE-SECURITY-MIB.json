@@ -11,8 +11,8 @@
       "InetAddressIPv6"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
       "SlePermissionType",
+      "SleControlStatusType",
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
@@ -21,25 +21,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "BITS",
-      "Integer32",
+      "IpAddress",
       "Counter32",
+      "BITS",
       "NOTIFICATION-TYPE",
       "iso",
-      "Bits",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "Bits",
       "Gauge32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DateAndTime",
+      "TimeStamp",
       "DisplayString",
       "MacAddress",
       "TEXTUAL-CONVENTION"
@@ -15337,8 +15337,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-SECURITY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:07 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:06:52 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-SECURITY-MIB"

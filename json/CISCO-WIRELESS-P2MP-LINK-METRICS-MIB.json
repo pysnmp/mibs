@@ -5,47 +5,47 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrCwErrorFreeSecond",
-      "WirelessGauge64",
-      "CwrCwDegradedSecond",
-      "CwrUpdateTime",
-      "CwrFixedPointScale",
-      "CwrCwSeverelyErroredSecond",
-      "CwrPercentageValue",
-      "CwrFixedPointValue",
-      "CwrCwConsecutiveSevErrSecond",
       "CwrFixedPointPrecision",
-      "CwrCwErroredSecond"
+      "CwrCwErrorFreeSecond",
+      "CwrUpdateTime",
+      "CwrCwErroredSecond",
+      "CwrCwConsecutiveSevErrSecond",
+      "CwrCwSeverelyErroredSecond",
+      "CwrCwDegradedSecond",
+      "CwrFixedPointScale",
+      "CwrFixedPointValue",
+      "WirelessGauge64",
+      "CwrPercentageValue"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
       "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TimeInterval",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "ciscoWirelessLinkMetricsMIB": {
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-LINK-METRICS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:14 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:09:49 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-P2MP-LINK-METRICS-MIB"

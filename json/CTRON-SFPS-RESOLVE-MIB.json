@@ -2,43 +2,43 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsMobilityStats",
-      "sfpsBlockResolve",
       "sfpsISPResolve",
-      "sfpsUnresolve",
+      "sfpsBlockResolve",
+      "sfpsSubnetResolveAPI",
+      "sfpsBlockResolveAPI",
       "sfpsRelayAgentResolve",
       "sfpsBlockResolveStats",
-      "sfpsBlockResolveAPI",
-      "sfpsUnresolveTableStats",
-      "sfpsSwitchResolve",
-      "sfpsResolveStats",
-      "sfpsTableResolve",
-      "sfpsRelayAgentResolveStats",
-      "sfpsTableResolveAPI",
+      "sfpsUnresolve",
       "sfpsUnresolveTableAPI",
-      "sfpsSubnetResolveNvram",
+      "sfpsRelayAgentResolveStats",
+      "sfpsMobilityStats",
+      "sfpsTableResolveAPI",
+      "sfpsResolveStats",
       "sfpsSubnetResolve",
       "sfpsSubnetResolveStats",
-      "sfpsSubnetResolveAPI"
+      "sfpsUnresolveTableStats",
+      "sfpsSwitchResolve",
+      "sfpsTableResolve",
+      "sfpsSubnetResolveNvram"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "Bits",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
       "Integer32",
       "TimeTicks",
-      "Unsigned32",
+      "Gauge32",
+      "Counter32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -2749,8 +2749,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-RESOLVE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:08:03 2024",
-      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:47 2024",
+      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-RESOLVE-MIB"
