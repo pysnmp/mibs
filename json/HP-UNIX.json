@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "Integer32",
-      "enterprises",
-      "Counter64",
-      "MibIdentifier",
-      "Counter32",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "iso",
       "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1786,8 +1786,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-UNIX",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:36 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:22:56 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-UNIX"

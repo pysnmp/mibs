@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-SYSLOG-SERVER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SYSLOG-SERVER-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 12:01:38 2024
-# On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:24:02 2024
+# On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, iso, ModuleIdentity, Gauge32, NotificationType, Counter32, Counter64, Bits, Integer32, IpAddress, TimeTicks, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "ModuleIdentity", "Gauge32", "NotificationType", "Counter32", "Counter64", "Bits", "Integer32", "IpAddress", "TimeTicks", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, Bits, Unsigned32, Integer32, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, ObjectIdentity, TimeTicks, Counter64, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Unsigned32", "Integer32", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "ObjectIdentity", "TimeTicks", "Counter64", "NotificationType", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsSyslogServerMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 206))
 if mibBuilder.loadTexts: nbsSyslogServerMib.setLastUpdated('201209260000Z')
 if mibBuilder.loadTexts: nbsSyslogServerMib.setOrganization('NBS')
@@ -36,4 +36,4 @@ nbsSyslogServerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 206, 1, 2, 1, 5), U
 if mibBuilder.loadTexts: nbsSyslogServerPort.setStatus('current')
 nbsSyslogServerLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 206, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("deprecated1", 1), ("emerg", 2), ("alert", 3), ("crit", 4), ("error", 5), ("warning", 6), ("notice", 7), ("info", 8), ("debug", 9))).clone('warning')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsSyslogServerLevel.setStatus('current')
-mibBuilder.exportSymbols("NBS-SYSLOG-SERVER-MIB", nbsSyslogServerStatus=nbsSyslogServerStatus, nbsSyslogServerIndex=nbsSyslogServerIndex, nbsSyslogServerTableSize=nbsSyslogServerTableSize, nbsSyslogServerTable=nbsSyslogServerTable, nbsSyslogServerAddress=nbsSyslogServerAddress, nbsSyslogServerLevel=nbsSyslogServerLevel, PYSNMP_MODULE_ID=nbsSyslogServerMib, nbsSyslogServerAddressType=nbsSyslogServerAddressType, nbsSyslogServerGrp=nbsSyslogServerGrp, nbsSyslogServerEntry=nbsSyslogServerEntry, nbsSyslogServerPort=nbsSyslogServerPort, nbsSyslogServerMib=nbsSyslogServerMib)
+mibBuilder.exportSymbols("NBS-SYSLOG-SERVER-MIB", nbsSyslogServerIndex=nbsSyslogServerIndex, nbsSyslogServerPort=nbsSyslogServerPort, PYSNMP_MODULE_ID=nbsSyslogServerMib, nbsSyslogServerAddress=nbsSyslogServerAddress, nbsSyslogServerEntry=nbsSyslogServerEntry, nbsSyslogServerStatus=nbsSyslogServerStatus, nbsSyslogServerMib=nbsSyslogServerMib, nbsSyslogServerTable=nbsSyslogServerTable, nbsSyslogServerTableSize=nbsSyslogServerTableSize, nbsSyslogServerGrp=nbsSyslogServerGrp, nbsSyslogServerAddressType=nbsSyslogServerAddressType, nbsSyslogServerLevel=nbsSyslogServerLevel)

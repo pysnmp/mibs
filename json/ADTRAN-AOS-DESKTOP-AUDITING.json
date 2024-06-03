@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSSwitch",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSSwitch"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "Counter64",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
       "Bits",
-      "Integer32"
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "adGenAOSDesktopAuditingMib": {
@@ -693,8 +693,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-DESKTOP-AUDITING",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:18 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:17:04 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-DESKTOP-AUDITING"

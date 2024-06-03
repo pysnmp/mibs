@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WHISP-TCV2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-TCV2-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:55:41 2024
-# On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:18:25 2024
+# On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, TimeTicks, Counter64, Unsigned32, iso, ModuleIdentity, Counter32, ObjectIdentity, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "TimeTicks", "Counter64", "Unsigned32", "iso", "ModuleIdentity", "Counter32", "ObjectIdentity", "IpAddress", "Integer32")
+NotificationType, Gauge32, Unsigned32, TimeTicks, IpAddress, Counter64, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, ModuleIdentity, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "Unsigned32", "TimeTicks", "IpAddress", "Counter64", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Integer32", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 whispModules, = mibBuilder.importSymbols("WHISP-GLOBAL-REG-MIB", "whispModules")
 whispTextualConventionsModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 161, 19, 1, 1, 3))
@@ -34,4 +34,4 @@ class EventString(TextualConvention, OctetString):
     displayHint = '2048a'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 2048)
 
-mibBuilder.exportSymbols("WHISP-TCV2-MIB", WhispMACAddress=WhispMACAddress, EventString=EventString, whispTextualConventionsModule=whispTextualConventionsModule, PYSNMP_MODULE_ID=whispTextualConventionsModule, WhispLUID=WhispLUID)
+mibBuilder.exportSymbols("WHISP-TCV2-MIB", WhispMACAddress=WhispMACAddress, WhispLUID=WhispLUID, PYSNMP_MODULE_ID=whispTextualConventionsModule, EventString=EventString, whispTextualConventionsModule=whispTextualConventionsModule)

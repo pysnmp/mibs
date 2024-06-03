@@ -2,56 +2,56 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "hcnumTC",
       "ZeroBasedCounter64",
+      "hcnumTC",
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifTable",
-      "ifIndex",
-      "InterfaceIndexOrZero",
       "ifEntry",
+      "ifIndex",
+      "ifTable",
+      "InterfaceIndexOrZero",
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter32",
-      "iso"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "enterprises",
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
       "DateAndTime",
-      "TruthValue"
+      "DisplayString"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:47 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:23:16 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

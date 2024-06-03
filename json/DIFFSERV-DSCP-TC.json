@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
       "Counter32",
-      "mib-2",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
       "Counter64",
-      "MibIdentifier"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -81,8 +81,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DIFFSERV-DSCP-TC",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:55:06 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:17:50 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DIFFSERV-DSCP-TC"

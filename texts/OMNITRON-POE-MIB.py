@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module OMNITRON-POE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/omnitron/OMNITRON-POE-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 12:01:59 2024
-# On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:24:21 2024
+# On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-OstFloatValue, OstPortSingleIndex, omnitron = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstFloatValue", "OstPortSingleIndex", "omnitron")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Bits, Counter64, ObjectIdentity, Counter32, TimeTicks, Integer32, iso, Gauge32, NotificationType, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "ObjectIdentity", "Counter32", "TimeTicks", "Integer32", "iso", "Gauge32", "NotificationType", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+OstFloatValue, omnitron, OstPortSingleIndex = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstFloatValue", "omnitron", "OstPortSingleIndex")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+iso, NotificationType, TimeTicks, Bits, IpAddress, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, ObjectIdentity, MibIdentifier, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "NotificationType", "TimeTicks", "Bits", "IpAddress", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "Integer32")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 omnitronPoeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 7342, 15))
 omnitronPoeMib.setRevisions(('2015-01-19 12:00',))
 
@@ -90,4 +90,4 @@ ostPoeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7342, 15, 3, 2)).setObjec
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ostPoeCompliance = ostPoeCompliance.setStatus('current')
 if mibBuilder.loadTexts: ostPoeCompliance.setDescription('The compliance statement for the Omnitron PoE MIB.')
-mibBuilder.exportSymbols("OMNITRON-POE-MIB", ostPoeCompliances=ostPoeCompliances, ostPoeCompliance=ostPoeCompliance, omnitronPoeMib=omnitronPoeMib, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, ostPoeGroup=ostPoeGroup, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable, ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortPseEnable=ostPoePortPseEnable, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoePortCfgTable=ostPoePortCfgTable, ostPoePortCfgEntry=ostPoePortCfgEntry, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoeGroups=ostPoeGroups, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, ostPoePortCfgIndex=ostPoePortCfgIndex, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoePortPseStatus=ostPoePortPseStatus, ostPoePortPdMode=ostPoePortPdMode)
+mibBuilder.exportSymbols("OMNITRON-POE-MIB", ostPoeCompliances=ostPoeCompliances, ostPoeCompliance=ostPoeCompliance, ostPoePortPseStatus=ostPoePortPseStatus, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, omnitronPoeMib=omnitronPoeMib, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoeGroup=ostPoeGroup, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, ostPoePortCfgEntry=ostPoePortCfgEntry, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoePortPseEnable=ostPoePortPseEnable, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, ostPoePortPdMode=ostPoePortPdMode, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoePortCfgIndex=ostPoePortCfgIndex, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable, ostPoeGroups=ostPoeGroups, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, ostPoePortCfgTable=ostPoePortCfgTable)

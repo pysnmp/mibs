@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PT-PM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-PM-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:58:05 2024
-# On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:20:34 2024
+# On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
 pt, = mibBuilder.importSymbols("PT-MIB", "pt")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, iso, ObjectIdentity, MibIdentifier, Gauge32, NotificationType, Unsigned32, IpAddress, Counter64, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "ObjectIdentity", "MibIdentifier", "Gauge32", "NotificationType", "Unsigned32", "IpAddress", "Counter64", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+NotificationType, Unsigned32, ModuleIdentity, Bits, MibIdentifier, TimeTicks, Integer32, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, IpAddress, iso, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "ModuleIdentity", "Bits", "MibIdentifier", "TimeTicks", "Integer32", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "IpAddress", "iso", "Counter64")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ptPM = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223, 2, 5))
 ptPM.setRevisions(('2018-08-29 12:30', '2016-03-09 12:30', '2016-02-10 12:30',))
@@ -60,4 +60,4 @@ ptPMCompleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 193, 223, 2, 5, 2, 2, 1)).set
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ptPMCompleteGroup = ptPMCompleteGroup.setStatus('current')
 if mibBuilder.loadTexts: ptPMCompleteGroup.setDescription('A collection of all current objects in this MIB module.')
-mibBuilder.exportSymbols("PT-PM-MIB", inputOctets=inputOctets, ptPMFullCompliance=ptPMFullCompliance, ptPMGroups=ptPMGroups, forwardingOctets=forwardingOctets, ptPMCompleteGroup=ptPMCompleteGroup, forwardingPacket=forwardingPacket, inputPackets=inputPackets, queueIndex=queueIndex, discardPackets=discardPackets, discardOctets=discardOctets, ptPMConformance=ptPMConformance, ptPM=ptPM, ptPMEntry=ptPMEntry, ptPMTable=ptPMTable, ptPMCompliances=ptPMCompliances, PYSNMP_MODULE_ID=ptPM)
+mibBuilder.exportSymbols("PT-PM-MIB", ptPMTable=ptPMTable, inputOctets=inputOctets, discardPackets=discardPackets, forwardingOctets=forwardingOctets, ptPMConformance=ptPMConformance, ptPMCompliances=ptPMCompliances, queueIndex=queueIndex, inputPackets=inputPackets, ptPMCompleteGroup=ptPMCompleteGroup, forwardingPacket=forwardingPacket, ptPM=ptPM, ptPMEntry=ptPMEntry, discardOctets=discardOctets, ptPMFullCompliance=ptPMFullCompliance, ptPMGroups=ptPMGroups, PYSNMP_MODULE_ID=ptPM)

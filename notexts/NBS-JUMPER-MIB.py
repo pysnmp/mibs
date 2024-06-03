@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-JUMPER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-JUMPER-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 12:01:38 2024
-# On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:24:02 2024
+# On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, iso, ModuleIdentity, Gauge32, NotificationType, Counter32, Counter64, Bits, Integer32, IpAddress, TimeTicks, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "ModuleIdentity", "Gauge32", "NotificationType", "Counter32", "Counter64", "Bits", "Integer32", "IpAddress", "TimeTicks", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, Bits, Unsigned32, Integer32, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, ObjectIdentity, TimeTicks, Counter64, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Unsigned32", "Integer32", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "ObjectIdentity", "TimeTicks", "Counter64", "NotificationType", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsJumperMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 210))
 if mibBuilder.loadTexts: nbsJumperMib.setLastUpdated('201209260000Z')
 if mibBuilder.loadTexts: nbsJumperMib.setOrganization('NBS')
@@ -36,4 +36,4 @@ nbsJumperSilkScreen = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 5), D
 if mibBuilder.loadTexts: nbsJumperSilkScreen.setStatus('current')
 nbsJumperDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 210, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nbsJumperDescription.setStatus('current')
-mibBuilder.exportSymbols("NBS-JUMPER-MIB", nbsJumperIndex=nbsJumperIndex, nbsJumperPosition=nbsJumperPosition, nbsJumperMib=nbsJumperMib, nbsJumperTableSize=nbsJumperTableSize, nbsJumperEntry=nbsJumperEntry, nbsJumperInterpret=nbsJumperInterpret, PYSNMP_MODULE_ID=nbsJumperMib, nbsJumperGrp=nbsJumperGrp, nbsJumperIfIndex=nbsJumperIfIndex, nbsJumperSilkScreen=nbsJumperSilkScreen, nbsJumperTable=nbsJumperTable, nbsJumperDescription=nbsJumperDescription)
+mibBuilder.exportSymbols("NBS-JUMPER-MIB", nbsJumperTable=nbsJumperTable, nbsJumperIndex=nbsJumperIndex, nbsJumperSilkScreen=nbsJumperSilkScreen, nbsJumperEntry=nbsJumperEntry, nbsJumperDescription=nbsJumperDescription, PYSNMP_MODULE_ID=nbsJumperMib, nbsJumperTableSize=nbsJumperTableSize, nbsJumperPosition=nbsJumperPosition, nbsJumperGrp=nbsJumperGrp, nbsJumperMib=nbsJumperMib, nbsJumperIfIndex=nbsJumperIfIndex, nbsJumperInterpret=nbsJumperInterpret)

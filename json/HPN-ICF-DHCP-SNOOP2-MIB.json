@@ -12,31 +12,31 @@
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "Counter64",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
       "Counter32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "hpnicfDhcpSnoop2": {
@@ -852,8 +852,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DHCP-SNOOP2-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:37 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:22:57 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DHCP-SNOOP2-MIB"

@@ -6,47 +6,47 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-Q-BRIDGE-MIB": [
-      "ieee8021QBridgeTpFdbEntry",
-      "ieee8021QBridgePortVlanStatisticsEntry"
+      "ieee8021QBridgePortVlanStatisticsEntry",
+      "ieee8021QBridgeTpFdbEntry"
     ],
     "IEEE8021-SPB-MIB": [
-      "ieee8021SpbmTopSrvTableEntry",
       "ieee8021SpbTopIx",
+      "ieee8021SpbmTopSrvTableEntry",
       "IEEE8021SpbBridgePriority"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
       "Integer32",
+      "Bits",
+      "Unsigned32",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ieee8021EcmpMib": {
@@ -489,8 +489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-ECMP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:53:49 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:16:34 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-ECMP-MIB"

@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "HP-SN-AGENT-MIB": [
-      "snChasFanIndex",
-      "snChasPwrSupplyDescription",
-      "snChasFanDescription",
-      "snAgGblTrapMessage",
       "snAgentBrdIndex",
+      "snAgGblTrapMessage",
+      "snChasPwrSupplyStatus",
       "snChasPwrSupplyIndex",
-      "snChasPwrSupplyStatus"
+      "snChasFanIndex",
+      "snChasFanDescription",
+      "snChasPwrSupplyDescription"
     ],
     "HP-SN-ROOT-MIB": [
       "hp"
     ],
     "HP-SN-SW-L4-SWITCH-GROUP-MIB": [
-      "snL4TrapRealServerPort",
-      "snL4TrapRealServerIP",
       "snL4TrapRealServerName",
       "snL4MaxSessionLimit",
+      "snL4TrapRealServerPort",
       "snL4TrapRealServerCurConnections",
-      "snL4TcpSynLimit"
+      "snL4TcpSynLimit",
+      "snL4TrapRealServerIP"
     ],
     "HP-SN-SWITCH-GROUP-MIB": [
       "snSwViolatorPortNumber",
       "snSwViolatorMacAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "iso",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TRAP-TYPE",
+      "Gauge32",
       "Unsigned32",
       "Integer32",
-      "Gauge32",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "TRAP-TYPE",
       "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:37 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:22:57 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-SN-TRAP-MIB"

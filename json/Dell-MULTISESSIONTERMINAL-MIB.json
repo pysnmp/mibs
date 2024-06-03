@@ -5,24 +5,24 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "Bits"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -63,8 +63,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-MULTISESSIONTERMINAL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:57:14 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:19:51 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-MULTISESSIONTERMINAL-MIB"

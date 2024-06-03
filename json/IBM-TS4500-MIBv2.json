@@ -7,21 +7,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "TimeTicks",
-      "Counter64",
-      "Integer32",
       "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Counter64",
       "Bits",
+      "Gauge32",
+      "IpAddress",
+      "enterprises",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
       "NOTIFICATION-TYPE",
-      "enterprises"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4372,8 +4372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-TS4500-MIBv2",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:31 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:23:00 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IBM-TS4500-MIBv2"

@@ -12,24 +12,24 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "MibIdentifier",
       "IpAddress",
+      "Integer32",
       "TimeTicks",
-      "Counter64",
-      "Unsigned32"
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -541,8 +541,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/ENTERASYS-RESOURCE-UTILIZATION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:06 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:20:44 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ENTERASYS-RESOURCE-UTILIZATION-MIB"

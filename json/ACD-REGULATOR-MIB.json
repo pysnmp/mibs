@@ -5,32 +5,32 @@
       "acdMibs"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Counter64",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
-      "Integer32",
-      "TimeTicks"
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "DateAndTime",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "acdRegulator": {
@@ -1061,8 +1061,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-REGULATOR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:16 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:17:02 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ACD-REGULATOR-MIB"

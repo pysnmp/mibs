@@ -5,31 +5,31 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "iso",
-      "Counter64",
-      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Bits",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue",
       "TimeStamp",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DateAndTime",
       "DisplayString"
     ]
   },
@@ -168,8 +168,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-openflow-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:57:13 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:19:51 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-openflow-MIB"

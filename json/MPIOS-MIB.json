@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "Counter32"
+      "Counter32",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -3085,8 +3085,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/maipu/MPIOS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:01:20 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:23:41 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MPIOS-MIB"

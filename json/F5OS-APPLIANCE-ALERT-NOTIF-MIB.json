@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "F5-ALERT-DEF-MIB": [
-      "alertSource",
-      "alertEffect",
-      "alertSeverity",
-      "alertDescription",
       "f5Alerts",
+      "alertSeverity",
       "alertTimeStamp",
+      "alertEffect",
+      "alertSource",
+      "alertDescription",
       "f5AlertNotificationGroup"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f5AlertNotification": {
@@ -1497,8 +1497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5OS-APPLIANCE-ALERT-NOTIF-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:28 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:21:03 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F5OS-APPLIANCE-ALERT-NOTIF-MIB"

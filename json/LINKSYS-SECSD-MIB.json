@@ -12,26 +12,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Gauge32"
+      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlSecSd": {
@@ -515,8 +515,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SECSD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:01:26 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:23:49 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-SECSD-MIB"

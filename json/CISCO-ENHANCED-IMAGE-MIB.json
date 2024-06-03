@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "CISCO-IMAGE-TC": [
-      "CeImageInstallableStatus",
-      "CeImageInstallableType"
+      "CeImageInstallableType",
+      "CeImageInstallableStatus"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "ENTITY-MIB": [
-      "PhysicalIndex",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "PhysicalIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "Counter32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "iso",
       "Gauge32",
       "Unsigned32",
-      "Bits",
+      "Counter32",
       "Integer32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Counter64",
-      "iso",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "DateAndTime",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "ciscoEnhancedImageMIB": {
@@ -650,8 +650,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENHANCED-IMAGE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:08 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:23:00 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENHANCED-IMAGE-MIB"

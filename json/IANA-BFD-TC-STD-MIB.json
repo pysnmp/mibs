@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "mib-2",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
+      "Bits",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Counter32",
       "iso",
-      "MODULE-IDENTITY"
+      "mib-2",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaBfdTCStdMib": {
@@ -154,8 +154,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-BFD-TC-STD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:53:38 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:16:25 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IANA-BFD-TC-STD-MIB"

@@ -3,50 +3,50 @@
     "class": "imports",
     "FOUNDRY-SN-AGENT-MIB": [
       "snChasFanDescription",
-      "snChasPwrSupplyIndex",
-      "snAgGblTrapMessage",
-      "snChasPwrSupplyDescription",
       "snAgentBrdIndex",
-      "snChasFanIndex"
+      "snChasPwrSupplyDescription",
+      "snAgGblTrapMessage",
+      "snChasFanIndex",
+      "snChasPwrSupplyIndex"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "foundry"
     ],
     "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4TrapRealServerPort",
-      "snL4TrapLinkName",
       "snL4TrapRealServerName",
-      "snL4TrapRealServerIP",
-      "snL4TrapRealServerCurConnections",
       "snL4LinkVirtualInterface",
+      "snL4TrapRealServerCurConnections",
+      "snL4TrapRealServerIP",
       "snL4MaxSessionLimit",
-      "snL4TcpSynLimit"
+      "snL4TcpSynLimit",
+      "snL4TrapLinkName"
     ],
     "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
-      "wgPnPMacAddress",
+      "wgPnPStatus",
       "wgPnPIfIndex",
-      "wgPnPStatus"
+      "wgPnPMacAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
+      "Bits",
+      "Counter32",
+      "TRAP-TYPE",
       "OBJECT-IDENTITY",
       "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Unsigned32",
-      "iso"
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1144,8 +1144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:28 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:21:00 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FOUNDRY-SN-TRAP-MIB"

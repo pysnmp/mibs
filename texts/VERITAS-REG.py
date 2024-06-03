@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VERITAS-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-REG.mib
-# Produced by pysmi-1.1.12 at Mon Jun  3 12:04:38 2024
-# On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:26:51 2024
+# On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-enterprises, NotificationType, Counter32, MibIdentifier, Gauge32, Integer32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, TimeTicks, Unsigned32, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "NotificationType", "Counter32", "MibIdentifier", "Gauge32", "Integer32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "TimeTicks", "Unsigned32", "ModuleIdentity", "ObjectIdentity")
+iso, MibIdentifier, Unsigned32, ModuleIdentity, Bits, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, Counter64, enterprises, IpAddress, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibIdentifier", "Unsigned32", "ModuleIdentity", "Bits", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "Counter64", "enterprises", "IpAddress", "TimeTicks", "Gauge32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 veritasGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 1302, 5, 1))
 veritasGlobalRegModule.setRevisions(('1901-09-05 04:45', '1901-10-22 22:30',))
@@ -29,4 +29,4 @@ if mibBuilder.loadTexts: products.setDescription('Sub-tree for product object an
 veritasModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 1302, 5))
 if mibBuilder.loadTexts: veritasModules.setStatus('current')
 if mibBuilder.loadTexts: veritasModules.setDescription('Sub-tree for module registrations')
-mibBuilder.exportSymbols("VERITAS-REG", veritasModules=veritasModules, veritasGlobalRegModule=veritasGlobalRegModule, products=products, veritas=veritas, PYSNMP_MODULE_ID=veritasGlobalRegModule)
+mibBuilder.exportSymbols("VERITAS-REG", products=products, veritas=veritas, veritasGlobalRegModule=veritasGlobalRegModule, veritasModules=veritasModules, PYSNMP_MODULE_ID=veritasGlobalRegModule)

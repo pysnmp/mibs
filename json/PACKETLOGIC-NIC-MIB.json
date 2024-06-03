@@ -11,29 +11,29 @@
       "packetlogic2"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "iso",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString"
     ]
   },
   "nic": {
@@ -280,8 +280,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-NIC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:03:16 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:25:34 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PACKETLOGIC-NIC-MIB"

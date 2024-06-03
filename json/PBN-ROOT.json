@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Bits",
-      "Integer32",
       "enterprises",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -35,8 +35,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/PBN-ROOT",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:02:44 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:25:02 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PBN-ROOT"

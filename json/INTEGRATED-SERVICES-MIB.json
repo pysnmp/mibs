@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -11,29 +11,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
       "IpAddress",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
+      "mib-2",
       "Integer32",
-      "Counter64",
-      "MibIdentifier",
       "Counter32",
       "OBJECT-TYPE",
       "Bits",
-      "TimeTicks",
+      "MibIdentifier",
+      "Counter64",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
       "TestAndIncr",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeInterval",
+      "TruthValue"
     ]
   },
   "intSrv": {
@@ -870,8 +870,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/INTEGRATED-SERVICES-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:38 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:24:08 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "INTEGRATED-SERVICES-MIB"

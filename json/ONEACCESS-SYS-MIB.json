@@ -6,25 +6,25 @@
       "oacExpIMSystem"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter64",
       "IpAddress",
-      "iso"
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -675,8 +675,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oneaccess/ONEACCESS-SYS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:02:06 2024",
-      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:24:25 2024",
+      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ONEACCESS-SYS-MIB"
