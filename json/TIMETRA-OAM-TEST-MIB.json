@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "IEEE8021-CFM-MIB": [
       "Dot1agCfmMepIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressPrefixLength",
       "InetPortNumber",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "MPLS-LDP-MIB": [
@@ -29,40 +29,40 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Integer32",
-      "Counter32",
       "Unsigned32",
-      "Bits",
+      "Counter32",
       "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
       "IpAddress",
+      "iso",
       "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "DateAndTime",
+      "DisplayString",
       "MacAddress",
+      "TimeStamp",
       "TruthValue",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
-      "tmnxSRConfs",
+      "tmnxSRObjs",
       "tmnxSRNotifyPrefix",
-      "tmnxSRObjs"
+      "tmnxSRConfs"
     ],
     "TIMETRA-SERV-MIB": [
       "SdpId",
@@ -72,39 +72,39 @@
       "TmnxMobGwId"
     ],
     "TIMETRA-TC-MIB": [
-      "TLNamedItemOrEmpty",
-      "TFCName",
-      "TPolicyStatementNameOrEmpty",
-      "SdpBindId",
       "TmnxEnabledDisabledAdminState",
-      "TmnxStrSapId",
-      "TDSCPNameOrEmpty",
-      "TmnxBgpRouteTarget",
-      "TmnxAdminState",
-      "TmnxPortID",
-      "TmnxSpokeSdpIdOrZero",
-      "TmnxMplsTpGlobalID",
-      "TProfile",
-      "TmnxVcIdOrNone",
-      "TmnxVcId",
-      "TmnxBfdOnLspSessFecType",
-      "IpAddressPrefixLength",
-      "TmnxLow32",
-      "TmnxVRtrIDOrZero",
-      "TmnxPwGlobalIdOrZero",
-      "TmnxEnabledDisabled",
-      "TNamedItemOrEmpty",
       "TmnxMplsTpNodeID",
-      "TmnxEncapVal",
-      "TmnxHigh32",
-      "TNamedItem",
-      "TmnxServId",
-      "TmnxIgpInstance",
-      "TmnxVPNRouteDistinguisher",
-      "TmnxVRtrID",
+      "TmnxAdminState",
+      "TLNamedItemOrEmpty",
       "TmnxTunnelID",
+      "TNamedItem",
+      "SdpBindId",
+      "TmnxVPNRouteDistinguisher",
       "TItemDescription",
-      "TmnxTunnelType"
+      "TmnxPwGlobalIdOrZero",
+      "TmnxMplsTpGlobalID",
+      "TFCName",
+      "TmnxStrSapId",
+      "TmnxVcIdOrNone",
+      "TmnxEnabledDisabled",
+      "IpAddressPrefixLength",
+      "TmnxServId",
+      "TmnxVcId",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxVRtrIDOrZero",
+      "TNamedItemOrEmpty",
+      "TmnxIgpInstance",
+      "TmnxLow32",
+      "TmnxSpokeSdpIdOrZero",
+      "TmnxEncapVal",
+      "TmnxTunnelType",
+      "TmnxPortID",
+      "TProfile",
+      "TmnxBgpRouteTarget",
+      "TmnxVRtrID",
+      "TmnxBfdOnLspSessFecType",
+      "TmnxHigh32",
+      "TDSCPNameOrEmpty"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -27865,8 +27865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-OAM-TEST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:47:52 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:07:12 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-OAM-TEST-MIB"

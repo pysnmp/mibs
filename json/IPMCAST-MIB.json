@@ -13,11 +13,11 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressPrefixLength",
-      "InetVersion",
+      "InetAddressType",
       "InetZoneIndex",
-      "InetAddressType"
+      "InetVersion",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "LANGTAG-TC-MIB": [
       "LangTag"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "Bits",
+      "mib-2",
+      "Gauge32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "mib-2",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
+      "iso",
       "Counter32",
-      "OBJECT-TYPE",
       "Counter64",
-      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Gauge32"
+      "Integer32",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TruthValue",
-      "StorageType",
-      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType"
     ]
   },
   "ipMcastMIB": {
@@ -1855,8 +1855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMCAST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:39:08 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:58:04 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPMCAST-MIB"

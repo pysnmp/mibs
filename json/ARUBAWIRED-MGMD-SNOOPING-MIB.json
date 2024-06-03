@@ -12,31 +12,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
       "Gauge32",
       "Bits",
-      "Counter32",
+      "iso",
+      "OBJECT-TYPE",
       "Counter64",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32",
       "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
+      "Unsigned32",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "arubaWiredMgmdSnoopingMIB": {
@@ -2128,8 +2128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-MGMD-SNOOPING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:45:15 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:04:46 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ARUBAWIRED-MGMD-SNOOPING-MIB"

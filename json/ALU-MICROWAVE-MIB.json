@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARObjs",
       "aluSARNotifyPrefix",
-      "aluSARConfs",
-      "aluSARMIBModules"
+      "aluSARObjs",
+      "aluSARMIBModules",
+      "aluSARConfs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Unsigned32",
       "Integer32",
-      "Counter32",
-      "Bits",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Gauge32",
       "IpAddress",
+      "iso",
       "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ],
     "TIMETRA-CHASSIS-MIB": [
@@ -46,10 +46,10 @@
       "TmnxPortOperStatus"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxActionType",
       "TmnxDisplayStringURL",
-      "TNamedItemOrEmpty",
-      "TmnxPortID"
+      "TmnxActionType",
+      "TmnxPortID",
+      "TNamedItemOrEmpty"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:47:50 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:07:11 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

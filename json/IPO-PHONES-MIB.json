@@ -5,12 +5,12 @@
       "IndexInteger"
     ],
     "IPO-MIB": [
-      "ipoGTEventDevID",
-      "ipoGTEventDateTime",
       "ipoGTEventStdSeverity",
+      "ipoGTEventDevID",
       "ipoGenMibs",
-      "ipoGTEventEntityName",
-      "ipoGTEventSeverity"
+      "ipoGTEventDateTime",
+      "ipoGTEventSeverity",
+      "ipoGTEventEntityName"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -22,24 +22,24 @@
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
+      "iso",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "PhysAddress"
     ]
   },
   "ipoPhonesMIB": {
@@ -720,8 +720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/IPO-PHONES-MIB.mib",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:40:17 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:59:15 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPO-PHONES-MIB"

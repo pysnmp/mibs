@@ -5,45 +5,45 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "transmission",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Bits",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
+      "transmission",
+      "Gauge32",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "TimeTicks",
-      "Integer32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Gauge32"
+      "Integer32",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "SONET-MIB": [
-      "sonetSESthresholdSet",
-      "sonetMediumStuff2",
+      "sonetSectionStuff2",
       "sonetFarEndPathStuff2",
-      "sonetMediumLineCoding",
-      "sonetMediumType",
       "sonetMediumCircuitIdentifier",
-      "sonetPathStuff2",
-      "sonetPathCurrentWidth",
-      "sonetMediumLoopbackConfig",
       "sonetFarEndLineStuff2",
       "sonetLineStuff2",
+      "sonetPathStuff2",
       "sonetMediumLineType",
-      "sonetSectionStuff2"
+      "sonetPathCurrentWidth",
+      "sonetSESthresholdSet",
+      "sonetMediumStuff2",
+      "sonetMediumLineCoding",
+      "sonetMediumLoopbackConfig",
+      "sonetMediumType"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-WIS",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:39:09 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:58:05 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ETHER-WIS"

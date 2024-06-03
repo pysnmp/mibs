@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
+      "IEEE8021PbbComponentIdentifier",
       "IEEE8021BridgePortNumber",
-      "IEEE8021BridgePortNumberOrZero",
       "ieee802dot1mibs",
-      "IEEE8021PbbComponentIdentifier"
+      "IEEE8021BridgePortNumberOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -16,27 +16,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
       "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "Gauge32",
       "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "MacAddress",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "ieee8021BridgePEMib": {
@@ -690,8 +690,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:38:50 2024",
-      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:57:51 2024",
+      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PE-MIB"
