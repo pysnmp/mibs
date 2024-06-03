@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter32",
-      "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
       "Counter64",
-      "iso"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "UCD-SNMP-MIB": [
       "ucdExperimental"
@@ -316,8 +316,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/LM-SENSORS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:24:38 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:59:34 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LM-SENSORS-MIB"

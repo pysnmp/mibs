@@ -9,45 +9,45 @@
       "ifCounterDiscontinuityGroup"
     ],
     "MPLS-LSR-STD-MIB": [
+      "mplsXCGroup",
+      "mplsInSegmentIndex",
       "mplsOutSegmentIndex",
-      "mplsInSegmentGroup",
-      "mplsInterfaceIndex",
-      "mplsOutSegmentGroup",
       "mplsLsrNotificationGroup",
       "mplsInterfaceGroup",
-      "mplsXCGroup",
+      "mplsInterfaceIndex",
+      "mplsOutSegmentGroup",
       "mplsPerfGroup",
-      "mplsInSegmentIndex"
+      "mplsInSegmentGroup"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
       "Integer32",
-      "zeroDotZero"
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "zeroDotZero",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "RowPointer"
     ]
   },
   "gmplsLsrStdMIB": {
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/GMPLS-LSR-STD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:24:29 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:59:30 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "GMPLS-LSR-STD-MIB"

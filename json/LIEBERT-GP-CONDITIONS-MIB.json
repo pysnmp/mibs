@@ -10,20 +10,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
       "MibIdentifier",
       "Gauge32",
       "IpAddress",
-      "iso",
-      "Counter64"
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4187,8 +4187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-COND-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:55 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:54 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LIEBERT-GP-CONDITIONS-MIB"

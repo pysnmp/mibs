@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "iso",
-      "enterprises",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "iso",
       "Counter32",
       "Integer32",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TimeTicks"
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "saf": {
@@ -62,8 +62,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-ENTERPRISE",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:26:24 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:01:23 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SAF-ENTERPRISE"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TELDAT-MON-CPU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-CPU-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:26:57 2024
-# On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:01:55 2024
+# On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Unsigned32, iso, NotificationType, ObjectIdentity, Counter64, MibIdentifier, ModuleIdentity, Bits, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "iso", "NotificationType", "ObjectIdentity", "Counter64", "MibIdentifier", "ModuleIdentity", "Bits", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress")
+MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, Counter32, ModuleIdentity, IpAddress, Integer32, Counter64, ObjectIdentity, Unsigned32, Gauge32, NotificationType, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "Counter32", "ModuleIdentity", "IpAddress", "Integer32", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "NotificationType", "MibIdentifier", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 telProdNpMonitSistema, = mibBuilder.importSymbols("TELDAT-SW-STRUCTURE-MIB", "telProdNpMonitSistema")
 teldatCPUMonMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2))
@@ -26,4 +26,4 @@ teldatCPUBusy1min = MibScalar((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2, 1, 1, 2), 
 if mibBuilder.loadTexts: teldatCPUBusy1min.setStatus('mandatory')
 teldatCPUBusy5min = MibScalar((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: teldatCPUBusy5min.setStatus('mandatory')
-mibBuilder.exportSymbols("TELDAT-MON-CPU-MIB", teldatCPUMonMIBObjects=teldatCPUMonMIBObjects, teldatCPUMonMIB=teldatCPUMonMIB, teldatCPUBusy5min=teldatCPUBusy5min, teldatCPUCompliances=teldatCPUCompliances, teldatCPUMonMIBNotifs=teldatCPUMonMIBNotifs, teldatCPUBusy1min=teldatCPUBusy1min, teldatCPUBusy5sec=teldatCPUBusy5sec, teldatCPUBusyGroup=teldatCPUBusyGroup, teldatCPUMonMIBConformance=teldatCPUMonMIBConformance, teldatCPUGroups=teldatCPUGroups, teldatCPUMonMIBNotifPrefix=teldatCPUMonMIBNotifPrefix)
+mibBuilder.exportSymbols("TELDAT-MON-CPU-MIB", teldatCPUMonMIBObjects=teldatCPUMonMIBObjects, teldatCPUCompliances=teldatCPUCompliances, teldatCPUBusy1min=teldatCPUBusy1min, teldatCPUBusy5min=teldatCPUBusy5min, teldatCPUMonMIB=teldatCPUMonMIB, teldatCPUGroups=teldatCPUGroups, teldatCPUBusy5sec=teldatCPUBusy5sec, teldatCPUMonMIBConformance=teldatCPUMonMIBConformance, teldatCPUBusyGroup=teldatCPUBusyGroup, teldatCPUMonMIBNotifs=teldatCPUMonMIBNotifs, teldatCPUMonMIBNotifPrefix=teldatCPUMonMIBNotifPrefix)

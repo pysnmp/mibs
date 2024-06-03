@@ -9,31 +9,31 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "MODULE-IDENTITY",
       "Counter32",
-      "Unsigned32",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter64",
-      "IpAddress",
+      "Bits",
       "Integer32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "DisplayString",
       "MacAddress"
     ]
   },
@@ -1697,8 +1697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-TWAMP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:19:40 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:32 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-TWAMP-MIB"

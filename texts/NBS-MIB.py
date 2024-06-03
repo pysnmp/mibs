@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module NBS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:24:25 2024
-# On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 11:59:22 2024
+# On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, Counter32, MibIdentifier, Integer32, ObjectIdentity, IpAddress, Counter64, Gauge32, Bits, enterprises, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "Counter32", "MibIdentifier", "Integer32", "ObjectIdentity", "IpAddress", "Counter64", "Gauge32", "Bits", "enterprises", "iso", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ObjectIdentity, ModuleIdentity, enterprises, Bits, Counter64, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Unsigned32, Counter32, IpAddress, Integer32, TimeTicks, iso, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "enterprises", "Bits", "Counter64", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Unsigned32", "Counter32", "IpAddress", "Integer32", "TimeTicks", "iso", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 250))
 if mibBuilder.loadTexts: nbsMib.setLastUpdated('201706280000Z')
 if mibBuilder.loadTexts: nbsMib.setOrganization('NBS')
@@ -90,4 +90,4 @@ class NbsTcStagingCommit(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
     namedValues = NamedValues(("notSupported", 1), ("supported", 2), ("revertToCommitted", 3), ("apply", 4))
 
-mibBuilder.exportSymbols("NBS-MIB", NbsTcPartIndex=NbsTcPartIndex, NbsTcTemperature=NbsTcTemperature, NbsTcMilliWatts=NbsTcMilliWatts, NbsTcStatusSimple=NbsTcStatusSimple, PYSNMP_MODULE_ID=nbsMib, NbsTcMHz=NbsTcMHz, nbs=nbs, Unsigned64TC=Unsigned64TC, NbsTcMilliAmp=NbsTcMilliAmp, NbsTcMicroAmp=NbsTcMicroAmp, nbsMib=nbsMib, WritableU64=WritableU64, Unsigned16TC=Unsigned16TC, NbsTcStatusLevel=NbsTcStatusLevel, NbsTcMilliVolt=NbsTcMilliVolt, NbsTcStagingCommit=NbsTcStagingCommit, NbsTcMilliDb=NbsTcMilliDb)
+mibBuilder.exportSymbols("NBS-MIB", NbsTcMilliWatts=NbsTcMilliWatts, NbsTcMilliDb=NbsTcMilliDb, nbs=nbs, NbsTcStatusLevel=NbsTcStatusLevel, NbsTcMHz=NbsTcMHz, NbsTcStagingCommit=NbsTcStagingCommit, NbsTcStatusSimple=NbsTcStatusSimple, PYSNMP_MODULE_ID=nbsMib, NbsTcMilliAmp=NbsTcMilliAmp, NbsTcTemperature=NbsTcTemperature, WritableU64=WritableU64, NbsTcMicroAmp=NbsTcMicroAmp, NbsTcPartIndex=NbsTcPartIndex, Unsigned16TC=Unsigned16TC, NbsTcMilliVolt=NbsTcMilliVolt, nbsMib=nbsMib, Unsigned64TC=Unsigned64TC)

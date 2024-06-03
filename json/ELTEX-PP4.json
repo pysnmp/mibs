@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "elHardware",
-      "eltrapGroup",
+      "mcTrapExState",
       "mcTrapLParam2",
-      "mcTrapLParam1",
-      "mcTrapID",
-      "mcTrapLParam3",
       "mcTrapDescr",
-      "mcTrapExState"
+      "eltrapGroup",
+      "elHardware",
+      "mcTrapLParam1",
+      "mcTrapLParam3",
+      "mcTrapID"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Gauge32",
       "TimeTicks",
-      "Integer32"
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "DisplayString",
-      "MacAddress",
       "RowStatus",
-      "TruthValue"
+      "TimeInterval",
+      "MacAddress",
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "pp4": {
@@ -6478,8 +6478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:20:42 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:55:36 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ELTEX-PP4"

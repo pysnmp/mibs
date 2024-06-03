@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "VlanStatusT",
-      "Te1StatusT",
-      "NtpClientEnableT",
-      "EthAuxStatusT",
       "FileTransferStartT",
-      "VlanGroupT",
-      "Te1LineCodeT",
-      "AcmModulationT",
-      "Te1LoopBackModeT",
-      "AlarmLevelT",
+      "VlanStatusT",
+      "NtpClientEnableT",
       "FileTransferTypeT",
+      "AcmModulationT",
+      "TimeZoneT",
+      "EthAuxStatusT",
       "EthMainStatusT",
-      "Te1LboT",
-      "Led4ColorT",
-      "ExaltEnableT",
+      "AlarmLevelT",
       "EthPortMode",
+      "Te1LineCodeT",
+      "VlanGroupT",
       "exaltcommunications",
       "EnableStatusT",
-      "TimeZoneT",
-      "AuxNmsMode"
+      "Led4ColorT",
+      "Te1StatusT",
+      "AuxNmsMode",
+      "ExaltEnableT",
+      "Te1LoopBackModeT",
+      "Te1LboT"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Bits",
       "MibIdentifier",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:21:10 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:56:04 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"

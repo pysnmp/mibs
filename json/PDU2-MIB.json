@@ -2,43 +2,43 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressType",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
-      "sysContact",
-      "sysName"
+      "sysName",
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
       "enterprises",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "raritan": {
@@ -18244,8 +18244,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raritan/PDU2-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:26:11 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:01:07 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PDU2-MIB"

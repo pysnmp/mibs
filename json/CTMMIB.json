@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "Counter64",
-      "MibIdentifier",
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
       "Unsigned32",
       "TRAP-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Integer32",
       "Gauge32",
-      "Bits"
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lastmilegear": {
@@ -582,8 +582,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ctm/CTMMIBV2",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:19:17 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:10 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CTMMIB"

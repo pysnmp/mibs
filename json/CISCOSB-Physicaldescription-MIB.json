@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "CISCOSB-HWENVIROMENT": [
       "RlEnvMonState"
     ],
     "CISCOSB-MIB": [
-      "switch001",
-      "rndNotifications"
+      "rndNotifications",
+      "switch001"
     ],
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorStatus",
-      "EntitySensorValue"
+      "EntitySensorValue",
+      "EntitySensorStatus"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "MAU-MIB": [
       "JackType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Bits",
-      "Counter32",
-      "Counter64"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "PhysAddress"
     ]
@@ -1938,8 +1938,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:20 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:08 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-Physicaldescription-MIB"

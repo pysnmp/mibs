@@ -6,52 +6,52 @@
       "IndexIntegerNextFree"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLabelDistributionMethod",
+      "MplsRetentionMode",
       "MplsLsrIdentifier",
       "mplsStdMIB",
-      "MplsRetentionMode",
-      "MplsLspType",
+      "MplsLabelDistributionMethod",
       "MplsLdpIdentifier",
-      "MplsLdpLabelType"
+      "MplsLdpLabelType",
+      "MplsLspType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "Unsigned32",
       "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
       "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
       "Bits",
-      "Unsigned32"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
-      "TruthValue",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
       "TimeInterval",
-      "StorageType",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ]
   },
   "mplsLdpStdMIB": {
@@ -2173,8 +2173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LDP-STD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:17:12 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:52:05 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MPLS-LDP-STD-MIB"

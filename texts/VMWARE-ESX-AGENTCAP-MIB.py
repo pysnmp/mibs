@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-ESX-AGENTCAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ESX-AGENTCAP-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:27:21 2024
-# On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 12:02:21 2024
+# On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-AgentCapabilities, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "NotificationGroup", "ModuleCompliance")
-iso, Bits, ModuleIdentity, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, TimeTicks, Integer32, Counter64, MibIdentifier, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "ModuleIdentity", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "TimeTicks", "Integer32", "Counter64", "MibIdentifier", "IpAddress", "ObjectIdentity")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
+Bits, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, MibIdentifier, Counter64, ObjectIdentity, Gauge32, Unsigned32, ModuleIdentity, IpAddress, iso, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "MibIdentifier", "Counter64", "ObjectIdentity", "Gauge32", "Unsigned32", "ModuleIdentity", "IpAddress", "iso", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
 vmwAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 1))
@@ -85,4 +85,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwESX40x = vmwESX40x.setStatus('current')
 if mibBuilder.loadTexts: vmwESX40x.setDescription('Release 4.0.x for VMware ESX. The SNMP agent is now part of the hostd process')
 vmwESX40x.setReference('http://www.vmware.com/products')
-mibBuilder.exportSymbols("VMWARE-ESX-AGENTCAP-MIB", vmwESX40x=vmwESX40x, vmwESX67x=vmwESX67x, vmwESX41x=vmwESX41x, PYSNMP_MODULE_ID=vmwAgentCapabilityMIB, vmwESX70x=vmwESX70x, vmwESX60x=vmwESX60x, vmwESX55=vmwESX55, vmwESX51x=vmwESX51x, vmwESX65x=vmwESX65x, vmwESX50x=vmwESX50x, vmwEsxCapability=vmwEsxCapability, vmwAgentCapabilityMIB=vmwAgentCapabilityMIB)
+mibBuilder.exportSymbols("VMWARE-ESX-AGENTCAP-MIB", vmwEsxCapability=vmwEsxCapability, vmwESX65x=vmwESX65x, vmwESX50x=vmwESX50x, vmwESX41x=vmwESX41x, vmwESX51x=vmwESX51x, vmwAgentCapabilityMIB=vmwAgentCapabilityMIB, vmwESX60x=vmwESX60x, vmwESX70x=vmwESX70x, vmwESX55=vmwESX55, vmwESX40x=vmwESX40x, vmwESX67x=vmwESX67x, PYSNMP_MODULE_ID=vmwAgentCapabilityMIB)

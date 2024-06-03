@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Integer32",
-      "enterprises",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
+      "Bits",
       "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "enterprises",
+      "iso",
+      "Counter64",
+      "Unsigned32",
       "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "zyxel": {
@@ -1200,8 +1200,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:27:46 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:02:46 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-MIB"

@@ -5,39 +5,39 @@
       "compaq"
     ],
     "IF-MIB": [
-      "ifDescr",
-      "ifIndex"
+      "ifIndex",
+      "ifDescr"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
+      "sysDescr",
       "sysLocation",
       "sysContact",
-      "sysName",
-      "sysDescr"
+      "sysName"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "Bits",
+      "Counter64",
       "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32",
-      "Bits",
-      "MibIdentifier",
       "iso",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "Counter64"
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cpqPower": {
@@ -12250,8 +12250,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQPOWER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:22 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:37 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CPQPOWER-MIB"

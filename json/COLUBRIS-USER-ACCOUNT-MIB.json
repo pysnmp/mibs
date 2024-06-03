@@ -5,29 +5,29 @@
       "colubrisMgmtV2"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
+      "Counter64",
       "Unsigned32",
+      "Integer32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
       "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "colubrisUserAccountMIB": {
@@ -256,8 +256,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-USER-ACCOUNT-MIB.my",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:22:12 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:57:08 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-USER-ACCOUNT-MIB"

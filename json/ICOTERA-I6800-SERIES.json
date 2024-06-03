@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Integer32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Bits",
-      "enterprises",
       "iso",
-      "IpAddress",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32"
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "icotera": {
@@ -639,8 +639,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/icotera/ICOTERA-I6800-SERIES-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:13 2024",
-      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:03 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ICOTERA-I6800-SERIES"
