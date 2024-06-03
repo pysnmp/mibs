@@ -10,31 +10,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "Integer32",
+      "MODULE-IDENTITY",
       "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TAddress",
+      "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TDomain",
-      "RowStatus"
+      "TAddress"
     ]
   },
   "adGenAOSFileSystemMib": {
@@ -336,8 +336,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSFILESYSTEM",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:52:18 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:18 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOSFILESYSTEM"

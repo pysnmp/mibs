@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcAddressIdOrZero",
-      "fcmInstanceIndex"
+      "fcmInstanceIndex",
+      "FcAddressIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
       "MibIdentifier",
+      "Gauge32",
       "iso",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "mib-2",
-      "Counter64"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString",
       "AutonomousType",
-      "StorageType"
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "StorageType",
+      "TimeStamp"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSaDirection",
-      "T11FcSpiIndex",
-      "T11FcSpLifetimeLeftUnits",
-      "T11FcSpType",
       "T11FcSpTransforms",
-      "T11FcSpPrecedence",
+      "T11FcSaDirection",
       "T11FcSpSecurityProtocolId",
+      "T11FcSpLifetimeLeftUnits",
       "T11FcSpLifetimeLeft",
+      "T11FcSpiIndex",
+      "T11FcSpType",
+      "T11FcSpPrecedence",
       "T11FcRoutingControl"
     ],
     "T11-TC-MIB": [
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:52:06 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:06 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

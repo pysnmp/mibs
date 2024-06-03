@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEEvents",
-      "aprisaXEObjects"
+      "aprisaXEObjects",
+      "aprisaXEEvents"
     ],
     "APRISAXE-TC-4RF": [
+      "AprisaXEAlarmType",
+      "AprisaXEPortNumber",
       "AprisaXECardType",
       "AprisaXESlotNumber",
-      "AprisaXEPortNumber",
-      "AprisaXEAlarmType",
       "AprisaXEDataStatus"
     ],
     "COMMON-TC-4RF": [
-      "FourRFAlarmPresent",
-      "FourRFAlarmStatus",
+      "FourRFAlarmEnabled",
       "FourRFHardwareVersion",
+      "FourRFAlarmPresent",
       "FourRFAlarmSeverity",
       "FourRFImageVersion",
-      "FourRFAlarmEnabled"
+      "FourRFAlarmStatus"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,29 +27,29 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "TimeTicks",
-      "IpAddress",
+      "Counter32",
       "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:52:12 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:12 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

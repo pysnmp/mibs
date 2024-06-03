@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "LLDP-MIB": [
-      "lldpRemIndex",
-      "lldpLocPortNum",
-      "lldpExtensions",
       "lldpRemTimeMark",
       "lldpPortConfigEntry",
-      "lldpRemLocalPortNum"
+      "lldpRemLocalPortNum",
+      "lldpExtensions",
+      "lldpLocPortNum",
+      "lldpRemIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -16,30 +16,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter32",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "lldpXdot1MIB": {
@@ -889,8 +889,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_dot1.mib",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:57:02 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:59:14 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT1-MIB"

@@ -5,17 +5,17 @@
       "softentIND1EvbMib"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxServId",
+      "TmnxPortID",
       "TmnxEncapVal",
-      "TmnxPortID"
+      "TmnxServId"
     ],
     "IEEE8021-EVBB-MIB": [
-      "ieee8021BridgeEvbVSIMvFormat",
-      "ieee8021BridgeEvbVSIVlanId",
-      "ieee8021BridgeEvbVSITypeVersion",
       "ieee8021BridgeEvbVSIID",
       "ieee8021BridgeEvbSbpPortNumber",
-      "ieee8021BridgeEvbVSIIDType"
+      "ieee8021BridgeEvbVSIMvFormat",
+      "ieee8021BridgeEvbVSITypeVersion",
+      "ieee8021BridgeEvbVSIIDType",
+      "ieee8021BridgeEvbVSIVlanId"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortNumber"
@@ -27,29 +27,29 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "iso",
-      "Integer32",
-      "MibIdentifier",
       "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
       "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -544,8 +544,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-EVB-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:58 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:03:13 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-EVB-MIB"

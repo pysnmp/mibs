@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-TC-MIB": [
-      "CItpTcGlobalTitleSelector",
-      "CItpTcServiceIndicator",
-      "CItpTcEncodingSchemeValue",
       "CItpTcNumberingPlan",
+      "CItpTcServiceIndicator",
+      "CItpTcSubSystemNumber",
+      "CItpTcGlobalTitleSelector",
+      "CItpTcEncodingSchemeValue",
+      "CItpTcSubSystemNumberMask",
+      "CItpTcPointCode",
+      "CItpTcTranslationType",
       "CItpTcAclId",
       "CItpTcPointCodeMask",
-      "CItpTcSubSystemNumber",
-      "CItpTcPointCode",
-      "CItpTcSubSystemNumberMask",
-      "CItpTcTranslationType",
       "CItpTcNAI"
     ],
     "CISCO-SMI": [
@@ -26,25 +26,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
-      "Integer32",
       "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
       "Bits",
-      "OBJECT-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
       "TimeStamp",
-      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -738,8 +738,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-ACL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:07 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:03 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-ACL-MIB"

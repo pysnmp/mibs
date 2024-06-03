@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "AUDIOCODES-TYPES-MIB": [
-      "acBoardMibs",
-      "acGeneric",
       "audioCodes",
-      "acPerformance",
       "acProducts",
+      "acGeneric",
+      "acPerformance",
+      "acBoardMibs",
       "acRegistrations"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "MibIdentifier",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Integer32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TAddress",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime",
+      "TAddress"
     ]
   },
   "acPMControl": {
@@ -8890,8 +8890,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-PMCONTROL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:53:17 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:55:19 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "AC-PM-Control-MIB"

@@ -5,33 +5,33 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
       "Counter32",
       "Integer32",
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Bits",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "AutonomousType",
+      "DateAndTime"
     ]
   },
   "hostResourcesMibModule": {
@@ -1723,8 +1723,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HOST-RESOURCES-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:55:59 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:11 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HOST-RESOURCES-MIB"

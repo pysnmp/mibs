@@ -8,14 +8,14 @@
       "NodeName"
     ],
     "DOCS-IF3-MIB": [
-      "ChannelList",
+      "docsIf3CmtsCmRegStatusEntry",
       "RcpId",
-      "docsIf3CmtsCmRegStatusEntry"
+      "ChannelList"
     ],
     "IF-MIB": [
       "ifIndex",
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,33 +25,33 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32",
       "MibIdentifier",
+      "Gauge32",
       "iso",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "Unsigned32",
       "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Counter64"
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "MacAddress",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "RowPointer",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
-      "RowPointer"
+      "TimeStamp"
     ]
   },
   "docsLoadbal3Mib": {
@@ -1737,8 +1737,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-LOADBAL3-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:52:06 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:54:06 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DOCS-LOADBAL3-MIB"

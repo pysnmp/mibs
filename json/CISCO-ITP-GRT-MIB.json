@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSP-MIB": [
-      "cgspInstNetwork",
-      "cgspInstDisplayName",
+      "cgspEventSequenceNumber",
       "cgspCLLICode",
-      "cgspEventSequenceNumber"
+      "cgspInstNetwork",
+      "cgspInstDisplayName"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcDisplayPC",
-      "CItpTcServiceIndicator",
       "CItpTcURL",
-      "CItpTcLinksetId",
+      "CItpTcServiceIndicator",
       "CItpTcRouteTableName",
       "CItpTcTableLoadStatus",
+      "CItpTcLinksetId",
       "CItpTcPointCode",
+      "CItpTcDisplayPC",
       "CItpTcQos"
     ],
     "CISCO-SMI": [
@@ -26,27 +26,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
       "IpAddress",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
       "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
       "Bits",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ciscoGrtMIB": {
@@ -2317,8 +2317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GRT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:58:07 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:00:03 2024",
+      "On host fv-az1385-213 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-GRT-MIB"
