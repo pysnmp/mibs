@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-HWENVIROMENT": [
       "RlEnvMonState"
     ],
     "CISCOSB-MIB": [
-      "rndNotifications",
-      "switch001"
+      "switch001",
+      "rndNotifications"
     ],
     "ENTITY-SENSOR-MIB": [
       "EntitySensorValue",
       "EntitySensorStatus"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "MAU-MIB": [
       "JackType"
@@ -30,26 +30,26 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "iso",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
       "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "PhysAddress"
     ]
   },
   "rlPhysicalDescription": {
@@ -1938,8 +1938,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:22:58 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:25:23 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-Physicaldescription-MIB"

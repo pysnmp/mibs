@@ -5,33 +5,33 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "FlowSecState",
-      "AdminState",
-      "SecondaryState",
-      "CmPmIntervalType",
-      "PerfCounter64",
-      "VlanId",
       "OperationalState",
       "VlanPriority",
-      "CmPmBinAction"
+      "SecondaryState",
+      "CmPmIntervalType",
+      "FlowSecState",
+      "CmPmBinAction",
+      "AdminState",
+      "VlanId",
+      "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
       "slotIndex",
-      "neIndex",
-      "shelfIndex"
+      "shelfIndex",
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetAccPortIndex",
-      "PolicerAlgorithmType",
-      "FlowTagControl",
-      "cmMPFlowEntry",
-      "cmEthernetNetPortIndex",
       "ShapingType",
-      "CmActiveControlProtocolsType",
       "CmControlProtocolDispType",
-      "PolicerColorMode",
+      "FlowTagControl",
       "FlowVlanActionType",
-      "cmMPFlowIndex"
+      "cmEthernetAccPortIndex",
+      "cmEthernetNetPortIndex",
+      "cmMPFlowIndex",
+      "cmMPFlowEntry",
+      "PolicerColorMode",
+      "CmActiveControlProtocolsType",
+      "PolicerAlgorithmType"
     ],
     "F3-BRIDGE-MIB": [
       "ProtectLearningControl",
@@ -39,34 +39,34 @@
       "FlowLearningConfigAction"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "Bits",
+      "TimeTicks",
       "IpAddress",
+      "MibIdentifier",
       "iso",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "VariablePointer",
       "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3FpmMIB": {
@@ -10491,8 +10491,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-FPM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:17:47 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:20:00 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-FPM-MIB"

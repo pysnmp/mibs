@@ -5,23 +5,23 @@
       "fsp150cm"
     ],
     "BFD-STD-MIB": [
-      "bfdSessEntry",
-      "bfdSessIndex"
+      "bfdSessIndex",
+      "bfdSessEntry"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
-      "SecondaryState",
-      "VlanId",
       "OperationalState",
-      "VlanPriority"
+      "VlanPriority",
+      "SecondaryState",
+      "AdminState",
+      "VlanId"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
+      "f3L3TrafficIPInterfaceEntry",
       "f3L3TrafficBgpPeerEntry",
       "f3VrfEntry",
-      "f3L3TrafficIPInterfaceEntry",
       "f3L3TrafficOspfInterfaceEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "Bits",
       "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "VariablePointer",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3BfdMIB": {
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:17:49 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:20:02 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"

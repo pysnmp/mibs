@@ -8,38 +8,38 @@
       "juniMibs"
     ],
     "PIM-MIB": [
-      "pimInterfaceIfIndex",
       "pimRPSetGroupMask",
-      "pimRPSetGroupAddress",
+      "pimRPSetComponent",
       "pimRPSetAddress",
-      "pimRPSetComponent"
+      "pimInterfaceIfIndex",
+      "pimRPSetGroupAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "iso",
-      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "juniPimMIB": {
@@ -2434,8 +2434,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-PIM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:24:07 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:26:29 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-PIM-MIB"

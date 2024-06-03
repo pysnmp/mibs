@@ -9,46 +9,46 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "mib-2",
-      "Gauge32",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter32",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
       "iso",
       "Integer32",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MibIdentifier"
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "StorageType",
-      "AutonomousType",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "AutonomousType",
+      "StorageType",
+      "DisplayString",
+      "TimeStamp",
+      "TruthValue"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpAuthRejReasonCodeExp",
-      "T11FcSpDhGroups",
-      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpLifetimeLeft",
       "T11FcSpHashFunctions",
-      "T11FcSpAuthRejectReasonCode",
       "T11FcSpSignFunctions",
-      "T11FcSpLifetimeLeft"
+      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpDhGroups",
+      "T11FcSpAuthRejectReasonCode",
+      "T11FcSpAuthRejReasonCodeExp"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:16:52 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:19:05 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

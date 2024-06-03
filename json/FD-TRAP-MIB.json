@@ -6,58 +6,58 @@
     ],
     "FD-OLT-MIB": [
       "linkIdExhaust",
-      "linkOnLineStatus",
-      "onuIdExhaust"
+      "onuIdExhaust",
+      "linkOnLineStatus"
     ],
     "FD-ONU-MIB": [
-      "uniPortLink",
       "onuOnLineStatus",
-      "uniPortRstpState"
+      "uniPortRstpState",
+      "uniPortLink"
     ],
     "FD-PERFORMANCE-MIB": [
+      "swSniPortTrafficChangeVal",
       "onuTrafficChangeVal",
-      "oltTrafficChangeVal",
-      "swSniPortTrafficChangeVal"
+      "oltTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
       "sfpPlugStauts",
       "swPortLinkState"
     ],
     "FD-SYSTEM-MIB": [
-      "userAccessDeviceMap",
       "userName",
       "nonAuthOnuMac",
-      "loginTimeout",
-      "ponCardRunningStatus",
       "userPassword",
-      "fanStatusBit",
+      "userId",
+      "loginTimeout",
       "powerStatusBit",
       "userPermission",
-      "userId",
-      "userEntryRowStatus"
+      "fanStatusBit",
+      "userAccessDeviceMap",
+      "userEntryRowStatus",
+      "ponCardRunningStatus"
     ],
     "RMON-MIB": [
       "alarmValue"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Integer32",
       "OBJECT-TYPE",
-      "iso",
+      "Bits",
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
       "MibIdentifier",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "IpAddress"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -416,8 +416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:18:31 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:20:46 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FD-TRAP-MIB"

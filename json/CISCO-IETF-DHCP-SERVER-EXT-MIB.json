@@ -4,46 +4,46 @@
     "CISCO-IETF-DHCP-SERVER-MIB": [
       "cDhcpv4ServerSubnetFreeAddresses",
       "cDhcpv4ServerSubnetFreeAddrLowThreshold",
-      "cDhcpv4ServerClientPhysicalAddress",
       "cDhcpv4ServerSubnetEntry",
-      "cDhcpv4ServerSubnetFreeAddrHighThreshold"
+      "cDhcpv4ServerSubnetFreeAddrHighThreshold",
+      "cDhcpv4ServerClientPhysicalAddress"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifName"
+      "ifName",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
+      "Integer32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "iso",
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
       "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeInterval"
     ]
   },
@@ -1437,8 +1437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-DHCP-SERVER-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:22:52 2024",
-      "On host fv-az1380-78 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 12:25:17 2024",
+      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-DHCP-SERVER-EXT-MIB"
