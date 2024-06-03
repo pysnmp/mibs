@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-GSP-MIB": [
-      "cgspCLLICode",
-      "cgspEventSequenceNumber",
       "cgspInstNetwork",
-      "cgspInstDisplayName"
+      "cgspInstDisplayName",
+      "cgspEventSequenceNumber",
+      "cgspCLLICode"
     ],
     "CISCO-ITP-TC-MIB": [
+      "CItpTcServiceIndicator",
+      "CItpTcDisplayPC",
+      "CItpTcPointCode",
+      "CItpTcTableLoadStatus",
+      "CItpTcLinksetId",
       "CItpTcQos",
       "CItpTcRouteTableName",
-      "CItpTcDisplayPC",
-      "CItpTcURL",
-      "CItpTcServiceIndicator",
-      "CItpTcLinksetId",
-      "CItpTcTableLoadStatus",
-      "CItpTcPointCode"
+      "CItpTcURL"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
       "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
       "Unsigned32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TruthValue",
+      "TimeStamp",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoGrtMIB": {
@@ -2317,8 +2317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GRT-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:17:58 2024",
-      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:37 2024",
+      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-GRT-MIB"

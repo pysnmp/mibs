@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "Led4ColorT",
-      "Te1StatusT",
-      "FileTransferStartT",
-      "Te1LoopBackModeT",
-      "EthAuxStatusT",
-      "VlanGroupT",
-      "AlarmLevelT",
-      "EthMainStatusT",
       "Te1LineCodeT",
-      "Te1LboT",
       "EthPortMode",
-      "NtpClientEnableT",
-      "ExaltEnableT",
+      "VlanGroupT",
       "FileTransferTypeT",
-      "AuxNmsMode",
-      "TimeZoneT",
       "exaltcommunications",
+      "AlarmLevelT",
+      "Te1LboT",
+      "EthAuxStatusT",
+      "FileTransferStartT",
+      "Te1StatusT",
+      "NtpClientEnableT",
+      "TimeZoneT",
+      "Te1LoopBackModeT",
+      "EthMainStatusT",
       "AcmModulationT",
+      "ExaltEnableT",
       "VlanStatusT",
+      "Led4ColorT",
+      "AuxNmsMode",
       "EnableStatusT"
     ],
     "SNMPv2-CONF": [
@@ -29,20 +29,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Gauge32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "iso",
       "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "Counter32"
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:16:17 2024",
-      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 03:03:35 2024",
+      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"

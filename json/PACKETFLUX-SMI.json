@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter32",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
       "enterprises",
-      "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
       "Integer32",
       "Counter64",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -57,8 +57,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetflux/PACKETFLUX-SMI",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:20:48 2024",
-      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 03:07:30 2024",
+      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PACKETFLUX-SMI"

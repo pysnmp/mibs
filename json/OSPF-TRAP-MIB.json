@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "OSPF-MIB": [
-      "ospfVirtNbrState",
-      "ospfRestartInterval",
-      "ospfVirtNbrRestartHelperStatus",
-      "ospfIfState",
-      "ospfNbrState",
-      "ospfLsdbLsid",
-      "ospfAreaId",
-      "ospfVirtNbrRestartHelperExitReason",
-      "ospfVirtNbrRtrId",
+      "ospfRestartExitReason",
+      "ospfRestartStatus",
+      "ospfVirtIfState",
       "ospfNbrRestartHelperExitReason",
-      "ospfExtLsdbLimit",
       "ospfRouterId",
+      "ospfRestartInterval",
+      "ospfVirtIfAreaId",
+      "ospfAddressLessIf",
+      "ospfNbrState",
       "ospfVirtIfNeighbor",
-      "ospfNbrRestartHelperAge",
+      "ospfLsdbLsid",
+      "ospfNbrRestartHelperStatus",
+      "ospfNbrAddressLessIndex",
       "ospfLsdbType",
       "ospf",
-      "ospfVirtIfState",
       "ospfIfIpAddress",
-      "ospfNbrAddressLessIndex",
-      "ospfNbrRtrId",
-      "ospfAddressLessIf",
       "ospfAreaNssaTranslatorState",
-      "ospfLsdbRouterId",
-      "ospfRestartStatus",
       "ospfLsdbAreaId",
-      "ospfRestartExitReason",
+      "ospfNbrRtrId",
+      "ospfVirtNbrArea",
+      "ospfVirtNbrRtrId",
+      "ospfAreaId",
       "ospfNbrIpAddr",
-      "ospfNbrRestartHelperStatus",
+      "ospfNbrRestartHelperAge",
+      "ospfIfState",
+      "ospfLsdbRouterId",
+      "ospfVirtNbrState",
+      "ospfExtLsdbLimit",
+      "ospfVirtNbrRestartHelperExitReason",
       "ospfVirtNbrRestartHelperAge",
-      "ospfVirtIfAreaId",
-      "ospfVirtNbrArea"
+      "ospfVirtNbrRestartHelperStatus"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -40,24 +40,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Bits",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Unsigned32",
+      "Bits",
       "Counter32",
+      "Counter64",
       "TimeTicks",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ospfTrap": {
@@ -878,8 +878,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/OSPF-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:12:04 2024",
-      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 02:59:38 2024",
+      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OSPF-TRAP-MIB"

@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFFileSize",
       "FourRFResetType",
-      "FourRFWebUserEnabled",
       "FourRFProcessResultType",
-      "FourRFWebUserGroup",
       "FourRFImageType",
-      "FourRFSerialNumber",
-      "FourRFImageVersion",
-      "FourRFImageStatus",
       "FourRFTftpFileName",
-      "FourRFTimeZone"
+      "FourRFWebUserGroup",
+      "FourRFTimeZone",
+      "FourRFFileSize",
+      "FourRFImageStatus",
+      "FourRFSerialNumber",
+      "FourRFWebUserEnabled",
+      "FourRFImageVersion"
     ],
     "MIB-4RF": [
       "fourRFModules",
@@ -22,25 +22,25 @@
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:12:14 2024",
-      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 02:59:45 2024",
+      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COMMON-4RF"

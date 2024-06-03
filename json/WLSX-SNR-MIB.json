@@ -5,45 +5,45 @@
       "wlsxEnterpriseMibModules"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "snmpModules",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Bits",
-      "Counter64",
       "iso",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TruthValue",
+      "TAddress",
       "PhysAddress",
-      "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "StorageType",
       "TDomain",
-      "TAddress",
-      "TimeInterval"
+      "TimeInterval",
+      "TestAndIncr",
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "WLSX-MON-MIB": [
+      "monPhyAddress",
       "monitoredStaPhyAddress",
       "monRadioNumber",
-      "monitoredApBSSID",
-      "monPhyAddress"
+      "monitoredApBSSID"
     ]
   },
   "wlsxSNRMIB": {
@@ -437,8 +437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SNR-MIB",
-      "Produced by pysmi-1.1.12 at Thu May 30 02:13:07 2024",
-      "On host fv-az1567-87 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 03:00:39 2024",
+      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WLSX-SNR-MIB"
