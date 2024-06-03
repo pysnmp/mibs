@@ -12,24 +12,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
+      "iso",
       "Integer32",
-      "iso"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString"
     ]
   },
@@ -896,8 +896,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-JS-PACKET-MIRROR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:00:09 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:58 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-JS-PACKET-MIRROR-MIB"

@@ -5,26 +5,26 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "TRAP-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Gauge32",
       "IpAddress",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "enterprises",
       "Counter32",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "enterprises"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -831,8 +831,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/innovaphone/INNO-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:59:12 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:17:35 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "INNO-MIB"

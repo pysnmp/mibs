@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
       "Unsigned32",
-      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "enterprises",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
       "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "enterprises",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -533,8 +533,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/RIPSAP",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:01:34 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:20:23 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RIPSAP"

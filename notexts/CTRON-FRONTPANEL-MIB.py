@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-FRONTPANEL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-FRONTPANEL-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 10:56:33 2024
-# On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 11:15:00 2024
+# On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 ctFpRedundancy, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctFpRedundancy")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, NotificationType, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, Counter64, Unsigned32, iso, IpAddress, ObjectIdentity, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "Counter64", "Unsigned32", "iso", "IpAddress", "ObjectIdentity", "ModuleIdentity", "Integer32")
+Unsigned32, Counter32, Integer32, Bits, NotificationType, IpAddress, iso, ObjectIdentity, Counter64, MibIdentifier, ModuleIdentity, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "Integer32", "Bits", "NotificationType", "IpAddress", "iso", "ObjectIdentity", "Counter64", "MibIdentifier", "ModuleIdentity", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctFpRedund = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1))
 ctFpRedundReset = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noReset", 1), ("reset", 2)))).setMaxAccess("readwrite")
@@ -37,4 +37,4 @@ ctFpRedundAddrId = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1, 9, 1, 1)
 if mibBuilder.loadTexts: ctFpRedundAddrId.setStatus('mandatory')
 ctFpRedundAddrIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1, 9, 1, 2), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctFpRedundAddrIPAddr.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-FRONTPANEL-MIB", ctFpRedundDelAddr=ctFpRedundDelAddr, ctFpRedundAddrIPAddr=ctFpRedundAddrIPAddr, ctFpRedundEnable=ctFpRedundEnable, ctFpRedundAddrTable=ctFpRedundAddrTable, ctFpRedundRetrys=ctFpRedundRetrys, ctFpRedundNumAddr=ctFpRedundNumAddr, ctFpRedund=ctFpRedund, ctFpRedundAddAddr=ctFpRedundAddAddr, ctFpRedundAddrEntry=ctFpRedundAddrEntry, ctFpRedundPollInterval=ctFpRedundPollInterval, ctFpRedundReset=ctFpRedundReset, ctFpRedundActivePort=ctFpRedundActivePort, ctFpRedundAddrId=ctFpRedundAddrId)
+mibBuilder.exportSymbols("CTRON-FRONTPANEL-MIB", ctFpRedundActivePort=ctFpRedundActivePort, ctFpRedundPollInterval=ctFpRedundPollInterval, ctFpRedundReset=ctFpRedundReset, ctFpRedundAddrEntry=ctFpRedundAddrEntry, ctFpRedundAddrTable=ctFpRedundAddrTable, ctFpRedund=ctFpRedund, ctFpRedundAddrId=ctFpRedundAddrId, ctFpRedundAddAddr=ctFpRedundAddAddr, ctFpRedundRetrys=ctFpRedundRetrys, ctFpRedundNumAddr=ctFpRedundNumAddr, ctFpRedundEnable=ctFpRedundEnable, ctFpRedundDelAddr=ctFpRedundDelAddr, ctFpRedundAddrIPAddr=ctFpRedundAddrIPAddr)

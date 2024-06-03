@@ -6,8 +6,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -20,25 +20,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Integer32"
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1109,8 +1109,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-DHCPCL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:59:48 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:26 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-DHCPCL-MIB"

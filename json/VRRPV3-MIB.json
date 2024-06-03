@@ -9,35 +9,35 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "MibIdentifier",
+      "Unsigned32",
       "Counter32",
+      "Bits",
       "Counter64",
-      "mib-2",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Gauge32",
+      "mib-2",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TimeStamp",
+      "MacAddress",
       "TruthValue",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "vrrpv3MIB": {
@@ -925,8 +925,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/VRRPV3-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:52:55 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:11:10 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "VRRPV3-MIB"

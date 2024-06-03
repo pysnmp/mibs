@@ -5,26 +5,26 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "OBJECT-TYPE",
       "iso",
-      "Counter64",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "TRAP-TYPE",
+      "enterprises",
+      "IpAddress",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "TRAP-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-IDENTITY",
-      "enterprises"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -106608,8 +106608,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/apc/PowerNet-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:53:46 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:12:03 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PowerNet-MIB"

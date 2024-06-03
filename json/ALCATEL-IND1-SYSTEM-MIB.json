@@ -5,12 +5,12 @@
       "hardentIND1System"
     ],
     "ALCATEL-IND1-VIRTUAL-CHASSIS-MIB": [
-      "virtualChassisOperChasId",
-      "VirtualOperChassisId"
+      "VirtualOperChassisId",
+      "virtualChassisOperChasId"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
@@ -26,24 +26,24 @@
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "Counter32",
-      "Gauge32",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
+      "Counter32",
       "Integer32",
-      "IpAddress"
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1SystemMIB": {
@@ -4602,8 +4602,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:01:36 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:20:25 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-SYSTEM-MIB"

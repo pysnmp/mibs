@@ -5,16 +5,16 @@
       "softentIND1EvbMib"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxServId",
+      "TmnxPortID",
       "TmnxEncapVal",
-      "TmnxPortID"
+      "TmnxServId"
     ],
     "IEEE8021-EVBB-MIB": [
-      "ieee8021BridgeEvbVSIMvFormat",
-      "ieee8021BridgeEvbVSIID",
-      "ieee8021BridgeEvbVSIVlanId",
-      "ieee8021BridgeEvbSbpPortNumber",
       "ieee8021BridgeEvbVSIIDType",
+      "ieee8021BridgeEvbVSIVlanId",
+      "ieee8021BridgeEvbVSIMvFormat",
+      "ieee8021BridgeEvbSbpPortNumber",
+      "ieee8021BridgeEvbVSIID",
       "ieee8021BridgeEvbVSITypeVersion"
     ],
     "IEEE8021-TC-MIB": [
@@ -34,23 +34,23 @@
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
       "Counter32",
-      "Gauge32",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
       "Integer32",
-      "IpAddress"
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1EVBMIB": {
@@ -544,8 +544,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-EVB-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:01:38 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:20:27 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-EVB-MIB"

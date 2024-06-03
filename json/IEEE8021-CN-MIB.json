@@ -3,8 +3,8 @@
     "class": "imports",
     "IEEE8021-TC-MIB": [
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021PriorityValue",
-      "ieee802dot1mibs"
+      "ieee802dot1mibs",
+      "IEEE8021PriorityValue"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -14,35 +14,35 @@
       "LldpV2DestAddressTableIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "systemGroup"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
       "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
       "TimeTicks",
-      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "iso",
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
       "MibIdentifier",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeInterval",
-      "DisplayString",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
       "RowStatus"
     ]
   },
@@ -1777,8 +1777,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:52:38 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:10:52 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-CN-MIB"

@@ -15,23 +15,23 @@
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
       "Counter32",
-      "Gauge32",
       "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
       "Integer32",
-      "IpAddress"
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1DVMRPMIB": {
@@ -647,8 +647,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DVMRP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:01:37 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:20:26 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-DVMRP-MIB"

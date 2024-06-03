@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "EQLGROUP-MIB": [
-      "UTFString",
-      "eqlGroupId"
+      "eqlGroupId",
+      "UTFString"
     ],
     "EQLMEMBER-MIB": [
       "eqlMemberIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeEntry",
-      "eqliscsiVolumeTargetIscsiName"
+      "eqliscsiVolumeTargetIscsiName",
+      "eqliscsiVolumeEntry"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "Counter64",
+      "enterprises",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "IpAddress",
       "Gauge32",
-      "Unsigned32",
       "iso",
-      "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
+      "RowPointer",
       "RowStatus",
-      "RowPointer"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eqlApplianceModule": {
@@ -6066,8 +6066,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLAPPLIANCE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:56:38 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:15:07 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLAPPLIANCE-MIB"

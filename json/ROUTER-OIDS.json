@@ -9,22 +9,22 @@
       "networkType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
       "Unsigned32",
+      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Counter32",
       "IpAddress"
     ],
@@ -331,8 +331,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/ROUTER-OIDS",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:56:47 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:15:13 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ROUTER-OIDS"

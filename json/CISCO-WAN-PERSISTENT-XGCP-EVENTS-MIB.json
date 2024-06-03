@@ -14,24 +14,24 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
       "Unsigned32",
       "iso",
-      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "TimeTicks",
       "Bits",
-      "TimeTicks"
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoWanPersistentXgcpEventsMIB": {
@@ -176,8 +176,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:59:00 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:16:55 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-WAN-PERSISTENT-XGCP-EVENTS-MIB"

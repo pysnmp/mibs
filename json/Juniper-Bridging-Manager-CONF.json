@@ -6,24 +6,24 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "AGENT-CAPABILITIES",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
       "Gauge32",
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter64",
       "IpAddress",
-      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
       "Integer32",
-      "iso"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -55,8 +55,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-Bridging-Manager-CONF",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:00:08 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:57 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-Bridging-Manager-CONF"

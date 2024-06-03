@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OG-PATTERN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-PATTERN-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:00:28 2024
-# On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 11:19:27 2024
+# On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ogMgmt, = mibBuilder.importSymbols("OG-SMI-MIB", "ogMgmt")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-Counter64, iso, Integer32, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, Counter32, Gauge32, Unsigned32, IpAddress, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "Integer32", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "Counter32", "Gauge32", "Unsigned32", "IpAddress", "MibIdentifier", "ObjectIdentity")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Counter32, TimeTicks, ModuleIdentity, Counter64, Gauge32, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, iso, ObjectIdentity, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "ModuleIdentity", "Counter64", "Gauge32", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "iso", "ObjectIdentity", "MibIdentifier", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ogPatternMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 10, 12))
 ogPatternMib.setRevisions(('2013-08-11 00:00', '2010-03-22 11:27', '2008-11-27 11:40',))
@@ -49,4 +49,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ogpatnNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 25049, 10, 12, 3, 2, 2)).setObjects(("OG-PATTERN-MIB", "ogpatnEventOccurred"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ogpatnNotificationsGroup = ogpatnNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("OG-PATTERN-MIB", ogpatnEventPortLabel=ogpatnEventPortLabel, ogPatternMib=ogPatternMib, ogPatternMibNotificationPrefix=ogPatternMibNotificationPrefix, ogpatnEventEntry=ogpatnEventEntry, ogpatnEventIndex=ogpatnEventIndex, ogPatternMibGroups=ogPatternMibGroups, ogpatnEventDescription=ogpatnEventDescription, ogPatternMibGroup=ogPatternMibGroup, ogpatnMibNotifications=ogpatnMibNotifications, ogpatnNotificationsGroup=ogpatnNotificationsGroup, ogPatternMibCompliance=ogPatternMibCompliance, ogPatternMibObjects=ogPatternMibObjects, ogPatternMibConformance=ogPatternMibConformance, ogPatternMibCompliances=ogPatternMibCompliances, ogpatnEventPortNumber=ogpatnEventPortNumber, ogpatnEventText=ogpatnEventText, PYSNMP_MODULE_ID=ogPatternMib, ogpatnEventTable=ogpatnEventTable, ogpatnEventOccurred=ogpatnEventOccurred, ogpatnEvent=ogpatnEvent)
+mibBuilder.exportSymbols("OG-PATTERN-MIB", ogpatnEventText=ogpatnEventText, ogPatternMibGroups=ogPatternMibGroups, ogPatternMibGroup=ogPatternMibGroup, ogPatternMibCompliance=ogPatternMibCompliance, ogPatternMibNotificationPrefix=ogPatternMibNotificationPrefix, ogpatnEventOccurred=ogpatnEventOccurred, ogpatnEventPortNumber=ogpatnEventPortNumber, ogPatternMibCompliances=ogPatternMibCompliances, ogpatnEventEntry=ogpatnEventEntry, ogPatternMib=ogPatternMib, ogpatnMibNotifications=ogpatnMibNotifications, ogpatnEventPortLabel=ogpatnEventPortLabel, ogpatnEvent=ogpatnEvent, PYSNMP_MODULE_ID=ogPatternMib, ogpatnNotificationsGroup=ogpatnNotificationsGroup, ogpatnEventDescription=ogpatnEventDescription, ogPatternMibConformance=ogPatternMibConformance, ogpatnEventTable=ogpatnEventTable, ogPatternMibObjects=ogPatternMibObjects, ogpatnEventIndex=ogpatnEventIndex)

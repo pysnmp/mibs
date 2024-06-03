@@ -5,45 +5,45 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetVersion",
       "InetAddressType",
+      "InetZoneIndex",
       "InetAddressPrefixLength",
-      "InetZoneIndex"
+      "InetVersion",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "zeroDotZero",
+      "TimeTicks",
       "IpAddress",
       "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "iso",
       "Integer32",
-      "zeroDotZero",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "mib-2",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Gauge32",
+      "mib-2",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "RowPointer",
-      "DisplayString",
       "PhysAddress",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "RowStatus",
       "TruthValue",
-      "TestAndIncr"
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TimeStamp"
     ]
   },
   "ipMIB": {
@@ -4778,8 +4778,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:52:55 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:11:11 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IP-MIB"

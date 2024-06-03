@@ -5,24 +5,24 @@
       "nbs"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "Gauge32"
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -243,8 +243,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-USER-SESSION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:00:06 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:49 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NBS-USER-SESSION-MIB"

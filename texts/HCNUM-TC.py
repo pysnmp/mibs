@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HCNUM-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/HCNUM-TC
-# Produced by pysmi-1.1.12 at Mon Jun  3 10:53:03 2024
-# On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 11:11:19 2024
+# On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Counter32, Counter64, NotificationType, Unsigned32, iso, Bits, Gauge32, mib_2, ObjectIdentity, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "Counter64", "NotificationType", "Unsigned32", "iso", "Bits", "Gauge32", "mib-2", "ObjectIdentity", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity")
+Bits, ModuleIdentity, Gauge32, TimeTicks, mib_2, iso, Counter32, MibIdentifier, Integer32, Unsigned32, IpAddress, NotificationType, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Gauge32", "TimeTicks", "mib-2", "iso", "Counter32", "MibIdentifier", "Integer32", "Unsigned32", "IpAddress", "NotificationType", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hcnumTC = ModuleIdentity((1, 3, 6, 1, 2, 1, 78))
 hcnumTC.setRevisions(('2000-06-08 00:00',))
@@ -28,4 +28,4 @@ class ZeroBasedCounter64(TextualConvention, Counter64):
     description = 'This TC describes an object which counts events with the\n        following semantics: objects of this type will be set to\n        zero(0) on creation and will thereafter count appropriate\n        events, wrapping back to zero(0) when the value 2^64 is\n        reached.\n\n        Provided that an application discovers the new object within\n        the minimum time to wrap it can use the initial value as a\n        delta since it last polled the table of which this object is\n        part.  It is important for a management station to be aware\n        of this minimum time and the actual time between polls, and\n        to discard data if the actual time is too long or there is\n        no defined minimum time.\n\n        Typically this TC is used in tables where the INDEX space is\n        constantly changing and/or the TimeFilter mechanism is in\n        use.\n\n        Note that this textual convention does not retain all the\n        semantics of the Counter64 base type. Specifically, a\n        Counter64 has an arbitrary initial value, but objects\n        defined with this TC are required to start at the value\n\n\n        zero.  This behavior is not likely to have any adverse\n        effects on management applications which are expecting\n        Counter64 semantics.\n\n        This textual convention represents a limited and short-term\n        solution, and may be deprecated as a long term solution is\n        defined and deployed to replace it.'
     status = 'current'
 
-mibBuilder.exportSymbols("HCNUM-TC", ZeroBasedCounter64=ZeroBasedCounter64, hcnumTC=hcnumTC, CounterBasedGauge64=CounterBasedGauge64, PYSNMP_MODULE_ID=hcnumTC)
+mibBuilder.exportSymbols("HCNUM-TC", PYSNMP_MODULE_ID=hcnumTC, ZeroBasedCounter64=ZeroBasedCounter64, hcnumTC=hcnumTC, CounterBasedGauge64=CounterBasedGauge64)

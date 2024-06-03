@@ -9,8 +9,8 @@
     ],
     "CISCO-TC": [
       "TimeIntervalSec",
-      "Unsigned64",
-      "CiscoMilliSeconds"
+      "CiscoMilliSeconds",
+      "Unsigned64"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -24,28 +24,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "iso",
       "Counter32",
-      "IpAddress",
-      "Integer32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
       "Bits",
-      "TimeTicks"
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "DateAndTime",
-      "TruthValue",
       "TimeInterval",
-      "TimeStamp"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoWanOptimizationMIB": {
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-OPTIMIZATION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:59:03 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:16:58 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-WAN-OPTIMIZATION-MIB"

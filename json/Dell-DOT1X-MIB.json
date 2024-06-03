@@ -13,8 +13,8 @@
       "PaeControlledPortStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
       "PortList",
+      "dot1qFdbId",
       "VlanIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -25,26 +25,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Unsigned32",
-      "Counter32"
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "rldot1x": {
@@ -1417,8 +1417,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DOT1X-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 10:55:54 2024",
-      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:14:16 2024",
+      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-DOT1X-MIB"
