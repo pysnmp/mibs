@@ -13,38 +13,38 @@
       "juniRouterIndex"
     ],
     "Juniper-TC": [
+      "JuniEnable",
+      "JuniInterfaceLocationValue",
       "JuniVrfGroupName",
       "JuniInterfaceLocationType",
-      "JuniName",
-      "JuniInterfaceLocationValue",
-      "JuniEnable"
+      "JuniName"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "Integer32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter64",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "TimeTicks",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniAaaMIB": {
@@ -9411,8 +9411,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-AAA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:16:33 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:42:33 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-AAA-MIB"

@@ -7,35 +7,35 @@
     "NBS-MIB": [
       "NbsTcTemperature",
       "NbsTcMilliVolt",
-      "nbs",
       "NbsTcMilliAmp",
+      "nbs",
+      "NbsTcStatusLevel",
       "NbsTcPartIndex",
-      "NbsTcStatusSimple",
-      "NbsTcStatusLevel"
+      "NbsTcStatusSimple"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
       "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Bits",
       "TimeTicks",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "iso",
       "NOTIFICATION-TYPE",
-      "iso"
+      "IpAddress",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nbsOdsysMib": {
@@ -1345,8 +1345,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-ODSYS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:16:02 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:42:32 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NBS-ODSYS-MIB"

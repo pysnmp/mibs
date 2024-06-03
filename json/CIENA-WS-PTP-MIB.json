@@ -5,47 +5,47 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "TraceMismatchFailMode",
-      "TraceMismatchMode",
       "TraceTxOperMode",
+      "StringMaxl32",
       "XcvrType",
-      "EnabledDisabledEnum",
+      "XcvrId",
+      "PtpId",
+      "TraceMismatchMode",
+      "TraceMismatchFailMode",
+      "Decimal2Dig",
+      "NameString",
+      "StringMaxl15",
       "Decimal2DigSmall",
       "ChannelsNumber",
-      "NameString",
-      "PtpId",
-      "XcvrId",
       "Decimal1Dig",
-      "StringMaxl32",
-      "StringMaxl15",
-      "Decimal2Dig",
-      "EnabledDisabledNaEnum"
+      "EnabledDisabledNaEnum",
+      "EnabledDisabledEnum"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Bits",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cienaWsPtpMIB": {
@@ -2228,8 +2228,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:09:48 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:37:16 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MIB"

@@ -3,33 +3,33 @@
     "class": "imports",
     "IB-SMI-MIB": [
       "ibDHCPOne",
-      "IbString",
-      "IbIpAddr"
+      "IbIpAddr",
+      "IbString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
       "MibIdentifier",
-      "Bits",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "Counter32",
       "TimeTicks",
+      "Integer32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ibDhcpModule": {
@@ -343,8 +343,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-DHCPONE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:14:33 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:41:33 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IB-DHCPONE-MIB"

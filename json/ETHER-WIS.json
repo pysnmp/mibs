@@ -6,44 +6,44 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "transmission",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
+      "Gauge32",
       "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "iso",
-      "Gauge32"
+      "transmission",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SONET-MIB": [
-      "sonetPathCurrentWidth",
-      "sonetMediumType",
-      "sonetMediumLineType",
-      "sonetSESthresholdSet",
-      "sonetPathStuff2",
       "sonetFarEndLineStuff2",
-      "sonetMediumCircuitIdentifier",
-      "sonetSectionStuff2",
-      "sonetMediumStuff2",
-      "sonetMediumLoopbackConfig",
-      "sonetMediumLineCoding",
       "sonetLineStuff2",
-      "sonetFarEndPathStuff2"
+      "sonetMediumStuff2",
+      "sonetMediumType",
+      "sonetPathStuff2",
+      "sonetMediumCircuitIdentifier",
+      "sonetSESthresholdSet",
+      "sonetPathCurrentWidth",
+      "sonetMediumLineType",
+      "sonetSectionStuff2",
+      "sonetMediumLineCoding",
+      "sonetFarEndPathStuff2",
+      "sonetMediumLoopbackConfig"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-WIS",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:45 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:35:19 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ETHER-WIS"

@@ -8,43 +8,43 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
+      "MwlAssociationState",
       "MwlApIfModeType",
       "MwlApType",
-      "MwlEncryptionAlgorithm",
+      "MwlCapabilityModeBits",
       "MwlOnOffSwitch",
-      "MwlAssociationState",
-      "MwlCapabilityModeBits"
+      "MwlEncryptionAlgorithm"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "Gauge32",
-      "Integer32",
       "MibIdentifier",
-      "Unsigned32",
+      "Bits",
       "Counter64",
-      "Counter32"
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "enterprises",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeInterval",
+      "DateAndTime",
       "RowStatus",
-      "TimeStamp",
       "TruthValue",
-      "DateAndTime"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "mwTopology": {
@@ -1175,8 +1175,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-TOPOLOGY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:12:32 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:39:36 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MERU-TOPOLOGY-MIB"

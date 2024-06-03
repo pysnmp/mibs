@@ -8,14 +8,14 @@
       "InterfaceIndex"
     ],
     "IPMROUTE-STD-MIB": [
+      "ipMRouteGroup",
+      "ipMRouteNextHopIfIndex",
+      "ipMRouteNextHopSource",
       "ipMRouteSourceMask",
       "ipMRouteNextHopGroup",
-      "ipMRouteNextHopAddress",
       "ipMRouteSource",
-      "ipMRouteGroup",
-      "ipMRouteNextHopSourceMask",
-      "ipMRouteNextHopSource",
-      "ipMRouteNextHopIfIndex"
+      "ipMRouteNextHopAddress",
+      "ipMRouteNextHopSourceMask"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -23,26 +23,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmPIMMIB": {
@@ -1235,8 +1235,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmPIM.mib",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:13:12 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:40:12 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HIRSCHMANN-PIM-MIB"

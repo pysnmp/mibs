@@ -6,51 +6,51 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysContact",
+      "sysName",
       "sysLocation",
       "sysDescr",
-      "sysName"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter32",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
       "iso",
-      "Integer32"
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "Integer32d1",
-      "mibRelease",
       "eventCounter",
       "FaultOK",
       "eventPriority",
-      "FloatString",
       "commonVarbindsCompliance",
+      "FloatString",
+      "Integer32d2",
       "eventTimeStamp",
+      "mibRelease",
       "commonGroup",
-      "Integer32d2"
+      "Integer32d1"
     ],
     "TWOWCOM-SMI": [
-      "dvbEncoder",
-      "dvbDecoder",
       "other",
-      "encoder",
-      "decoder"
+      "dvbDecoder",
+      "decoder",
+      "dvbEncoder",
+      "encoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:50 2024",
-      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:35:23 2024",
+      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"
