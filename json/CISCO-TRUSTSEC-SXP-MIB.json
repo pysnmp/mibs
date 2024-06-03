@@ -8,8 +8,8 @@
       "CiscoVrfName"
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
-      "CtsSxpConnectionStatus",
       "CtsSecurityGroupTag",
+      "CtsSxpConnectionStatus",
       "CtsPassword",
       "CtsPasswordEncryptionType"
     ],
@@ -17,40 +17,40 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressPrefixLength",
+      "InetAddressType",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
       "Unsigned32",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "Bits",
-      "Counter64",
       "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "ciscoTrustSecSxpMIB": {
@@ -2403,8 +2403,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-SXP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:16:57 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:20 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-TRUSTSEC-SXP-MIB"

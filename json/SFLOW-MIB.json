@@ -12,35 +12,35 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter32",
       "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "TimeTicks",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "Unsigned32",
       "iso",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks",
-      "Bits"
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
-  "sFlow": {
-    "name": "sFlow",
-    "oid": "1.3.6.1.4.1.14706",
+  "sFlowMIB": {
+    "name": "sFlowMIB",
+    "oid": "1.3.6.1.4.1.14706.1",
     "class": "moduleidentity",
     "revisions": [
       {
@@ -68,11 +68,6 @@
         "description": "Version 1.1 Adds sfDatagramVersion."
       }
     ]
-  },
-  "sFlowMIB": {
-    "name": "sFlowMIB",
-    "oid": "1.3.6.1.4.1.14706.1",
-    "class": "objectidentity"
   },
   "sFlowAgent": {
     "name": "sFlowAgent",
@@ -580,9 +575,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SFLOW-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:46 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/sflow.my",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:26:06 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SFLOW-MIB"

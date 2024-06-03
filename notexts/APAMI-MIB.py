@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module APAMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAMI-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:19:29 2024
-# On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 11:24:56 2024
+# On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
 ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, Bits, ObjectIdentity, TimeTicks, MibIdentifier, Unsigned32, iso, NotificationType, Counter64, Counter32, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "Bits", "ObjectIdentity", "TimeTicks", "MibIdentifier", "Unsigned32", "iso", "NotificationType", "Counter64", "Counter32", "IpAddress", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, TimeTicks, NotificationType, IpAddress, Bits, Gauge32, ObjectIdentity, MibIdentifier, Unsigned32, Counter64, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "NotificationType", "IpAddress", "Bits", "Gauge32", "ObjectIdentity", "MibIdentifier", "Unsigned32", "Counter64", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 apAMIModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 6))
 apAMIModule.setRevisions(('2012-07-16 00:00', '2014-06-26 00:00',))
 if mibBuilder.loadTexts: apAMIModule.setLastUpdated('201406260000Z')
@@ -31,4 +31,4 @@ apAMIModuleGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 6, 2, 1))
 apAMIMibObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 6, 2, 1, 1)).setObjects(("APAMI-MIB", "apAMISoapHttp"), ("APAMI-MIB", "apAMISoapHttpPort"), ("APAMI-MIB", "apAMISoapHttps"), ("APAMI-MIB", "apAMISoapHttpsPort"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     apAMIMibObjectsGroup = apAMIMibObjectsGroup.setStatus('current')
-mibBuilder.exportSymbols("APAMI-MIB", apAMISoapObjects=apAMISoapObjects, apAMISoapHttps=apAMISoapHttps, apAMIModuleConformance=apAMIModuleConformance, apAMISoapHttpsPort=apAMISoapHttpsPort, apAMISoapHttpPort=apAMISoapHttpPort, apAMIMibObjectsGroup=apAMIMibObjectsGroup, apAMISoapHttp=apAMISoapHttp, apAMIModule=apAMIModule, apAMIModuleGroups=apAMIModuleGroups, PYSNMP_MODULE_ID=apAMIModule, apAMIMIBObjects=apAMIMIBObjects)
+mibBuilder.exportSymbols("APAMI-MIB", apAMISoapHttpPort=apAMISoapHttpPort, apAMISoapHttpsPort=apAMISoapHttpsPort, apAMIMibObjectsGroup=apAMIMibObjectsGroup, apAMIModule=apAMIModule, apAMISoapObjects=apAMISoapObjects, apAMISoapHttp=apAMISoapHttp, apAMIModuleConformance=apAMIModuleConformance, apAMIModuleGroups=apAMIModuleGroups, apAMISoapHttps=apAMISoapHttps, apAMIMIBObjects=apAMIMIBObjects, PYSNMP_MODULE_ID=apAMIModule)

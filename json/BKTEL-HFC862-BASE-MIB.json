@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "experimental",
-      "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
       "Counter64",
-      "Unsigned32"
+      "experimental",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "DisplayString": {
@@ -145,8 +145,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bktel/BKTEL-HFC862-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:12:33 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:34 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BKTEL-HFC862-BASE-MIB"

@@ -10,20 +10,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "OBJECT-TYPE",
-      "iso",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
-      "MibIdentifier"
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -394,8 +394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/BASIS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:11:11 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:17:13 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BASIS-MIB"

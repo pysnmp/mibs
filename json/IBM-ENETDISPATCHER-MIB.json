@@ -6,32 +6,32 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "TRAP-TYPE",
       "Counter64",
-      "TRAP-TYPE"
+      "Gauge32",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-SMI-v1": [
-      "Counter32",
       "IpAddress",
-      "Integer32",
       "Gauge32",
-      "enterprises"
+      "enterprises",
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString",
@@ -1505,8 +1505,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-ENETDISPATCHER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:17:41 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:24 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IBM-ENETDISPATCHER-MIB"

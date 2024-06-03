@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremeAP",
       "ExtremeDeviceId",
-      "extremeLAC",
+      "WirelessRemoteConnectBindingType",
       "WPAKeyMgmtSet",
-      "WPACipherSet",
       "extremeV2Traps",
-      "extremeAgent",
+      "extremeAP",
+      "extremeLAC",
       "ClientAuthType",
-      "WirelessRemoteConnectBindingType"
+      "WPACipherSet",
+      "extremeAgent"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -21,31 +21,31 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "extremeWireless": {
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:15:31 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:21:23 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

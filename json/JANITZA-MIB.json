@@ -9,26 +9,26 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "enterprises",
       "NOTIFICATION-TYPE",
-      "mib-2",
       "Bits",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "mib-2",
+      "enterprises",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
       "Counter64",
-      "Unsigned32"
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "system": {
@@ -1128,8 +1128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/janitza/JANITZA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:17:50 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:42 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JANITZA-MIB"

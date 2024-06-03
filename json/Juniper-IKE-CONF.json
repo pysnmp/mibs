@@ -5,25 +5,25 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES"
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "iso",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -62,8 +62,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-IKE-CONF",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:57 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:24:29 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-IKE-CONF"

@@ -6,28 +6,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "Counter64",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeTicks",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "PhysAddress",
       "MacAddress",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "TimeTicks",
+      "PhysAddress"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -2331,8 +2331,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:22:24 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:27:29 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "UBQS-DHCP-MIB"

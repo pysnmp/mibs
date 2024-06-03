@@ -5,44 +5,44 @@
       "dlurDlusSessnStatus"
     ],
     "APPN-MIB": [
-      "appnIsInS2PNonFmdPius",
-      "appnIsInP2SFmdBytes",
-      "appnIsInS2PFmdBytes",
-      "appnIsInSessUpTime",
+      "appnLocalTgOperational",
+      "appnObjects",
+      "appnGroups",
+      "appnLsOperState",
+      "appnIsInS2PFmdPius",
       "appnIsInP2SNonFmdPius",
       "appnIsInP2SNonFmdBytes",
-      "appnPortOperState",
-      "appnCompliances",
-      "appnIsInP2SFmdPius",
+      "appnIsInP2SFmdBytes",
       "appnLocalTgCpCpSession",
-      "appnObjects",
-      "appnLsOperState",
+      "appnIsInS2PFmdBytes",
+      "appnPortOperState",
+      "appnIsInP2SFmdPius",
+      "appnIsInS2PNonFmdPius",
       "appnIsInS2PNonFmdBytes",
       "appnMIB",
-      "appnIsInS2PFmdPius",
-      "appnLocalTgOperational",
-      "appnGroups"
+      "appnIsInSessUpTime",
+      "appnCompliances"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "OBJECT-TYPE",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Integer32",
       "Gauge32",
-      "MibIdentifier"
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -369,8 +369,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPN-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:11:11 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:17:12 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APPN-TRAP-MIB"

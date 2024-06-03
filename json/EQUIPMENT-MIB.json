@@ -9,31 +9,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "iso",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "Counter32",
       "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
       "IpAddress",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "DateAndTime",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime"
     ],
     "TIMERANGE-MIB": [
       "swTimeRangeMgmtRangeName"
@@ -2065,8 +2065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/EQUIPMENT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:14:17 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:20:13 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQUIPMENT-MIB"

@@ -13,27 +13,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "iso"
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "DisplayString",
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "rlDot3adAgg": {
@@ -592,8 +592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-TRUNK-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:18:26 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:24:08 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-TRUNK-MIB"

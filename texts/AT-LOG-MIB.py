@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-LOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-LOG-MIB
-# Produced by pysmi-1.1.12 at Mon Jun  3 11:11:41 2024
-# On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 11:17:42 2024
+# On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, ModuleIdentity, Gauge32, Counter32, iso, IpAddress, Integer32, Unsigned32, Bits, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "Gauge32", "Counter32", "iso", "IpAddress", "Integer32", "Unsigned32", "Bits", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, NotificationType, Bits, Unsigned32, ObjectIdentity, iso, Gauge32, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, Counter32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Bits", "Unsigned32", "ObjectIdentity", "iso", "Gauge32", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "Counter32", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 log = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 601))
 log.setRevisions(('2016-06-23 00:00', '2012-06-08 00:00', '2012-06-07 00:00', '2011-05-30 00:00', '2011-04-18 00:00', '2010-09-07 00:00', '2010-06-14 05:11', '2008-10-08 00:00',))
 
@@ -65,4 +65,4 @@ if mibBuilder.loadTexts: clearLog.setDescription('Set with a value of 1 to clear
 logProcessKilled = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 601, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: logProcessKilled.setStatus('current')
 if mibBuilder.loadTexts: logProcessKilled.setDescription('The process name that a process daemon was killed. This MIB variable is a\n                placeholder for the logProcessKilledNotify, but can be read independently if required.\n                A new process killed event can update this variable. No message will be displayed if\n                the specified process has not been killed after the device was first booted.')
-mibBuilder.exportSymbols("AT-LOG-MIB", logTime=logTime, logOptions=logOptions, logProcessKilledNotify=logProcessKilledNotify, logNotifications=logNotifications, logProgram=logProgram, logProcessKilled=logProcessKilled, logMessage=logMessage, logFacility=logFacility, logTable=logTable, logIndex=logIndex, logSeverity=logSeverity, clearLog=clearLog, logSource=logSource, PYSNMP_MODULE_ID=log, log=log, logEntry=logEntry, logAll=logAll, logDate=logDate)
+mibBuilder.exportSymbols("AT-LOG-MIB", logProgram=logProgram, logProcessKilledNotify=logProcessKilledNotify, logMessage=logMessage, logTable=logTable, logProcessKilled=logProcessKilled, logFacility=logFacility, logSeverity=logSeverity, PYSNMP_MODULE_ID=log, logEntry=logEntry, logAll=logAll, logSource=logSource, logNotifications=logNotifications, clearLog=clearLog, logIndex=logIndex, logTime=logTime, logOptions=logOptions, logDate=logDate, log=log)

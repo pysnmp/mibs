@@ -5,23 +5,23 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "Unsigned64",
       "CiscoNetworkAddress",
+      "Unsigned64",
       "CiscoInetAddressMask",
       "TimeIntervalSec",
       "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsEquipmentPowerState",
+      "CucsSecurityUnitId",
       "CucsEquipmentPresence",
+      "CucsEquipmentPowerState",
       "CucsEquipmentOperability",
-      "CucsEquipmentSensorThresholdStatus",
-      "CucsSecurityUnitId"
+      "CucsEquipmentSensorThresholdStatus"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -31,33 +31,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "Counter64",
-      "Bits",
+      "Unsigned32",
       "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime",
       "TimeInterval",
-      "DisplayString",
+      "TimeStamp",
       "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "RowPointer"
     ]
   },
@@ -344,8 +344,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-SECURITY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 11:16:58 2024",
-      "On host fv-az525-771 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:23:20 2024",
+      "On host fv-az1766-862 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-SECURITY-MIB"
