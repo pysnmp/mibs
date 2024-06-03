@@ -6,33 +6,33 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "IpAddress",
+      "Counter64",
+      "enterprises",
+      "Bits",
       "Counter32",
       "iso",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Bits",
-      "Unsigned32"
+      "Gauge32",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DateAndTime",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "DateAndTime"
     ],
     "WWP-SMI": [
       "wwpModulesLeos"
@@ -3221,8 +3221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WWP-LEOS-SYSTEM-CONFIG",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:21:05 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:06:07 2024",
+      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WWP-LEOS-SYSTEM-CONFIG-MIB"

@@ -14,39 +14,39 @@
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "enterprises",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "OBJECT-TYPE",
       "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "MODULE-IDENTITY",
+      "enterprises",
+      "MibIdentifier",
       "Counter32",
+      "Counter64",
+      "Bits",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "StorageType",
-      "RowPointer",
-      "DisplayString",
-      "TimeStamp",
       "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowPointer",
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "eqlIpsecModule": {
@@ -1527,8 +1527,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLIPSEC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:22:53 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:54 2024",
+      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLIPSEC-MIB"

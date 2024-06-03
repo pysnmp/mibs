@@ -6,30 +6,30 @@
       "wirelesslan"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
       "iso",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "atkkWlanAccess": {
@@ -989,8 +989,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/ATKK-WLAN-ACCESS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:19:38 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:04:42 2024",
+      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ATKK-WLAN-ACCESS"

@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
+      "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
       "IpAddress",
-      "enterprises",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE"
+      "Counter32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -349,8 +349,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wollongong/WOLLONGONG-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:29:33 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:14:26 2024",
+      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WOLLONGONG-MIB"

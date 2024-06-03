@@ -3,9 +3,9 @@
     "class": "imports",
     "AUDIOCODES-TYPES-MIB": [
       "acGeneric",
-      "acPerformance",
       "acProducts",
       "acRegistrations",
+      "acPerformance",
       "acBoardMibs",
       "audioCodes"
     ],
@@ -19,24 +19,24 @@
     "SNMPv2-SMI": [
       "iso",
       "Counter64",
-      "TimeTicks",
-      "IpAddress",
-      "enterprises",
       "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Bits",
+      "enterprises",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Counter32",
-      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "TimeTicks",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TAddress",
       "DisplayString",
+      "TAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -7686,8 +7686,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-PMMEDIA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:20:18 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:05:22 2024",
+      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "AC-PM-Media-MIB"

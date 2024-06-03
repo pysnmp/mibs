@@ -5,48 +5,48 @@
       "ciscoMgmt"
     ],
     "CISCO-UNIFIED-COMPUTING-FAULT-MIB": [
-      "cucsFaultSeverity",
       "cucsFaultOccur",
-      "cucsFaultCreationTime",
-      "cucsFaultAffectedObjectId",
-      "cucsFaultDescription",
-      "cucsFaultCode",
-      "cucsFaultLastModificationTime",
+      "cucsFaultProbableCause",
       "cucsFaultAffectedObjectDn",
+      "cucsFaultCode",
+      "cucsFaultDescription",
+      "cucsFaultLastModificationTime",
+      "cucsFaultSeverity",
+      "cucsFaultCreationTime",
       "cucsFaultType",
-      "cucsFaultProbableCause"
+      "cucsFaultAffectedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIB",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "ciscoUnifiedComputingMIB"
     ],
     "CISCO-UNIFIED-COMPUTING-NOTIFS-MIB": [
       "cucsFaultActiveNotif",
       "cucsFaultClearNotif"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
+      "Unsigned32",
       "TimeTicks",
+      "Gauge32",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Bits",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoUnifiedComputingMIBConform": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFORM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 12:25:21 2024",
-      "On host fv-az1530-743 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:16 2024",
+      "On host fv-az1121-719 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CONFORM-MIB"
