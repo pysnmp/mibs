@@ -9,8 +9,8 @@
       "fcmInstanceIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -19,33 +19,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "Bits",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Counter32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Gauge32",
       "IpAddress",
-      "Unsigned32"
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "MacAddress"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -769,8 +769,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCOE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:03:57 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:13 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-FCOE-MIB"

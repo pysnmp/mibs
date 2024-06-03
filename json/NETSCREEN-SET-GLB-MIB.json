@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-SMI": [
-      "netscreenSettingMibModule",
-      "netscreenSetting"
+      "netscreenSetting",
+      "netscreenSettingMibModule"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
       "MibIdentifier",
-      "Gauge32"
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -426,8 +426,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-SET-GLB-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:07:54 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:11:35 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-SET-GLB-MIB"

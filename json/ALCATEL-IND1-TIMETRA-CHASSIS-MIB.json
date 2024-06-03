@@ -4,51 +4,51 @@
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
       "timetraSRMIBModules",
       "tmnxSRObjs",
-      "tmnxSRNotifyPrefix",
-      "tmnxSRConfs"
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxOperState",
       "TItemDescription",
+      "TNamedItem",
+      "TmnxAdminState",
       "TmnxPortID",
       "TmnxActionType",
-      "TNamedItemOrEmpty",
-      "TNamedItem",
-      "TmnxAdminState"
+      "TmnxOperState",
+      "TNamedItemOrEmpty"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
       "Gauge32",
+      "Counter32",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
-      "MacAddress",
-      "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
       "TimeInterval",
+      "TimeStamp",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
       "RowPointer"
     ]
   },
@@ -8570,8 +8570,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:07:13 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:11:02 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-CHASSIS-MIB"

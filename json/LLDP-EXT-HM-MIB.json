@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "LLDP-MIB": [
+      "lldpRemLocalPortNum",
+      "lldpRemIndex",
       "lldpRemTimeMark",
       "lldpExtensions",
-      "lldpRemIndex",
-      "lldpPortConfigEntry",
       "lldpLocPortNum",
-      "lldpRemLocalPortNum"
+      "lldpPortConfigEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
       "Counter64",
-      "Bits",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -1181,8 +1181,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_hm.mib",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:03:13 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:07:13 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-HM-MIB"

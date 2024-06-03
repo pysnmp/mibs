@@ -10,30 +10,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
+      "Gauge32",
       "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
       "Unsigned32",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
   },
@@ -648,8 +648,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/INTERFACETOPN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:58:05 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:16 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "INTERFACETOPN-MIB"

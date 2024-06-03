@@ -16,32 +16,32 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
       "InetAddressPrefixLength",
       "InetAddress",
+      "InetZoneIndex",
       "InetAddressType",
-      "InetZoneIndex"
+      "InetVersion"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Counter32",
+      "Bits",
       "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "iso",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
@@ -8227,8 +8227,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSYSMGMT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:06:19 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:10:06 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APSYSMGMT-MIB"

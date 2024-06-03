@@ -5,36 +5,36 @@
       "ifIndex"
     ],
     "PROTEON-MIB": [
-      "proElsSubSysEventMsg",
+      "proElsTrapSeqs",
       "proElsTrapSubSystem",
-      "proElsTrapEvent",
-      "proElsTrapSeqs"
+      "proElsSubSysEventMsg",
+      "proElsTrapEvent"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "Bits",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
-      "Integer32",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Counter64",
+      "TRAP-TYPE",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TRAP-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "proteon": {
@@ -487,8 +487,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM2210-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:04:29 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:31 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IBM2210-MIB"

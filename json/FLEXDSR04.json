@@ -6,51 +6,51 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
-      "sysDescr",
+      "sysContact",
       "sysLocation",
-      "sysContact"
+      "sysName",
+      "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
       "Counter64",
-      "TimeTicks"
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
       "DateAndTime",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "Integer32d1",
       "eventCounter",
-      "eventPriority",
-      "Integer32d2",
-      "mibRelease",
-      "commonGroup",
       "commonVarbindsCompliance",
+      "commonGroup",
       "FaultOK",
+      "Integer32d2",
+      "eventTimeStamp",
       "FloatString",
-      "eventTimeStamp"
+      "eventPriority",
+      "mibRelease",
+      "Integer32d1"
     ],
     "TWOWCOM-SMI": [
-      "encoder",
       "other",
-      "dvbDecoder",
+      "encoder",
       "dvbEncoder",
-      "decoder"
+      "decoder",
+      "dvbDecoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:58:10 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:20 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

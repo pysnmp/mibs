@@ -8,24 +8,24 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
-      "Counter64"
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "Bits",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -589,8 +589,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-STORMCTRL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:05:23 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:09:14 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-STORMCTRL-MIB"

@@ -6,24 +6,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32",
       "iso",
       "Bits",
-      "Counter64",
-      "IpAddress",
       "Counter32",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "UbiBridgeId": {
@@ -595,8 +595,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-TC",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:09:00 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:12:42 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "UBQS-TC"

@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fnSysSerial",
-      "FnIndex",
       "FnBoolState",
-      "fnAdminEntry",
-      "fortinet"
+      "FnIndex",
+      "fnSysSerial",
+      "fortinet",
+      "fnAdminEntry"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifEntry",
-      "ifName"
+      "ifName",
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressType",
       "InetPortNumber",
+      "InetAddressType",
       "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
@@ -30,20 +30,20 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
       "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
       "iso",
-      "OBJECT-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1187,8 +1187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTISANDBOX-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:32 2024",
-      "On host fv-az914-826 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 14:06:37 2024",
+      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTISANDBOX-MIB"
