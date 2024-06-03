@@ -5,31 +5,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "mib-2",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
       "Unsigned32",
-      "TimeTicks"
+      "Counter32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ],
     "T11-FC-SP-TC-MIB": [
       "T11FcSpPolicyHashFormat",
@@ -37,9 +37,9 @@
       "T11FcSpHashCalculationStatus"
     ],
     "T11-FC-ZONE-SERVER-MIB": [
-      "t11ZsFabricIndex",
       "t11ZsNotifyControlEntry",
       "t11ZsStatsEntry",
+      "t11ZsFabricIndex",
       "t11ZsServerEntry"
     ]
   },
@@ -532,8 +532,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-ZONING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:03:52 2024",
-      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:45 2024",
+      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-ZONING-MIB"

@@ -5,44 +5,44 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "MPLS-LSR-MIB": [
-      "MplsBitRate",
+      "MplsBurstSize",
       "MplsLSPID",
-      "MplsBurstSize"
+      "MplsBitRate"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
-      "Counter64",
-      "experimental",
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "iso",
+      "experimental",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus",
-      "RowPointer",
+      "TruthValue",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "DisplayString",
       "StorageType",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "mplsTeMIB": {
@@ -2152,8 +2152,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-TE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:03:51 2024",
-      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:44 2024",
+      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MPLS-TE-MIB"

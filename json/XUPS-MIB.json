@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteHumidity",
-      "xupsContactIndex",
       "xupsEnvRemoteTempLowerLimit",
-      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactIndex",
       "xupsContactType",
-      "xupsContactState",
+      "xupsEnvRemoteTempUpperLimit",
       "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactDescr",
+      "xupsContactState",
+      "xupsEnvRemoteHumidity",
       "xupsEnvRemoteTemp",
-      "xupsEnvRemoteTempUpperLimit"
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactDescr"
     ],
     "EATON-OIDS": [
       "xupsEnvironment",
       "eaton"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
       "TimeTicks",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
+      "iso",
       "Gauge32",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:07:03 2024",
-      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:11:08 2024",
+      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "XUPS-MIB"

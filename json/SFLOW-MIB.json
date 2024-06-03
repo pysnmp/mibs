@@ -12,25 +12,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "iso",
-      "enterprises",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "Gauge32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "enterprises",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
@@ -581,8 +581,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SFLOW-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:10:28 2024",
-      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:17:35 2024",
+      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SFLOW-MIB"

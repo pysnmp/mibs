@@ -5,13 +5,13 @@
       "fsp150cm"
     ],
     "BFD-STD-MIB": [
-      "bfdSessEntry",
-      "bfdSessIndex"
+      "bfdSessIndex",
+      "bfdSessEntry"
     ],
     "CM-COMMON-MIB": [
+      "SecondaryState",
       "OperationalState",
       "VlanPriority",
-      "SecondaryState",
       "VlanId",
       "AdminState"
     ],
@@ -19,9 +19,9 @@
       "neIndex"
     ],
     "F3-L3-MIB": [
+      "f3L3TrafficOspfInterfaceEntry",
       "f3VrfEntry",
       "f3L3TrafficBgpPeerEntry",
-      "f3L3TrafficOspfInterfaceEntry",
       "f3L3TrafficIPInterfaceEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
       "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
+      "MibIdentifier",
+      "Bits",
       "Integer32",
-      "Gauge32"
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus",
       "VariablePointer",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "f3BfdMIB": {
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:04:49 2024",
-      "On host fv-az883-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:08:43 2024",
+      "On host fv-az915-96 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"
