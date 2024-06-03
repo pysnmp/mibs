@@ -48,7 +48,7 @@ jobs:
             poetry-version: 1.5.1
       - name: Cache pysnmp
         id: cache-pysnmp
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: .pycache/
           key: ${{ runner.os }}-pysnmp          
