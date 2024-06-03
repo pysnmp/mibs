@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module COLUBRIS-USER-ACCOUNT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-USER-ACCOUNT-MIB.my
-# Produced by pysmi-1.1.12 at Mon Jun  3 03:04:35 2024
-# On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jun  3 10:57:49 2024
+# On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, MibIdentifier, Unsigned32, iso, Counter64, ObjectIdentity, Gauge32, TimeTicks, IpAddress, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "MibIdentifier", "Unsigned32", "iso", "Counter64", "ObjectIdentity", "Gauge32", "TimeTicks", "IpAddress", "ModuleIdentity", "Bits")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+NotificationType, MibIdentifier, iso, Gauge32, TimeTicks, IpAddress, ObjectIdentity, ModuleIdentity, Integer32, Counter64, Unsigned32, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibIdentifier", "iso", "Gauge32", "TimeTicks", "IpAddress", "ObjectIdentity", "ModuleIdentity", "Integer32", "Counter64", "Unsigned32", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 colubrisUserAccountMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 35))
 if mibBuilder.loadTexts: colubrisUserAccountMIB.setLastUpdated('200704180000Z')
@@ -63,4 +63,4 @@ colubrisUserAccountStatusMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 35, 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisUserAccountStatusMIBGroup = colubrisUserAccountStatusMIBGroup.setStatus('current')
 if mibBuilder.loadTexts: colubrisUserAccountStatusMIBGroup.setDescription('A collection of objects for User Account status.')
-mibBuilder.exportSymbols("COLUBRIS-USER-ACCOUNT-MIB", coUserAccStatus=coUserAccStatus, colubrisUserAccountMIBNotificationPrefix=colubrisUserAccountMIBNotificationPrefix, colubrisUserAccountMIBConformance=colubrisUserAccountMIBConformance, coUserAccPlanName=coUserAccPlanName, colubrisUserAccountMIBCompliance=colubrisUserAccountMIBCompliance, coUserAccFirstLoginTime=coUserAccFirstLoginTime, colubrisUserAccountStatusMIBGroup=colubrisUserAccountStatusMIBGroup, coUserAccRemainingOnlineTime=coUserAccRemainingOnlineTime, colubrisUserAccountMIBObjects=colubrisUserAccountMIBObjects, colubrisUserAccountMIBCompliances=colubrisUserAccountMIBCompliances, colubrisUserAccountMIBGroups=colubrisUserAccountMIBGroups, coUserAccRemainingSessionTime=coUserAccRemainingSessionTime, coUserAccIndex=coUserAccIndex, coUserAccExpirationTime=coUserAccExpirationTime, PYSNMP_MODULE_ID=colubrisUserAccountMIB, coUserAccountStatusTable=coUserAccountStatusTable, coUserAccountStatusEntry=coUserAccountStatusEntry, coUserAccUserName=coUserAccUserName, coUserAccountStatusGroup=coUserAccountStatusGroup, colubrisUserAccountMIBNotifications=colubrisUserAccountMIBNotifications, colubrisUserAccountMIB=colubrisUserAccountMIB)
+mibBuilder.exportSymbols("COLUBRIS-USER-ACCOUNT-MIB", coUserAccRemainingOnlineTime=coUserAccRemainingOnlineTime, coUserAccStatus=coUserAccStatus, colubrisUserAccountStatusMIBGroup=colubrisUserAccountStatusMIBGroup, colubrisUserAccountMIB=colubrisUserAccountMIB, colubrisUserAccountMIBConformance=colubrisUserAccountMIBConformance, coUserAccUserName=coUserAccUserName, coUserAccountStatusGroup=coUserAccountStatusGroup, coUserAccountStatusEntry=coUserAccountStatusEntry, coUserAccPlanName=coUserAccPlanName, coUserAccRemainingSessionTime=coUserAccRemainingSessionTime, colubrisUserAccountMIBCompliance=colubrisUserAccountMIBCompliance, coUserAccIndex=coUserAccIndex, colubrisUserAccountMIBObjects=colubrisUserAccountMIBObjects, colubrisUserAccountMIBCompliances=colubrisUserAccountMIBCompliances, colubrisUserAccountMIBNotifications=colubrisUserAccountMIBNotifications, coUserAccExpirationTime=coUserAccExpirationTime, PYSNMP_MODULE_ID=colubrisUserAccountMIB, colubrisUserAccountMIBGroups=colubrisUserAccountMIBGroups, colubrisUserAccountMIBNotificationPrefix=colubrisUserAccountMIBNotificationPrefix, coUserAccFirstLoginTime=coUserAccFirstLoginTime, coUserAccountStatusTable=coUserAccountStatusTable)

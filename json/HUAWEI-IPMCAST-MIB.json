@@ -9,15 +9,15 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetZoneIndex",
-      "InetVersion",
+      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetVersion",
+      "InetZoneIndex",
+      "InetAddressPrefixLength"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
       "TimeTicks",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "Counter64",
+      "Counter32",
       "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
       "Integer32",
-      "mib-2"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "mib-2",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue"
+      "RowStatus",
+      "StorageType",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hwMcast": {
@@ -2016,8 +2016,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPMCAST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:33 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:58:48 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-IPMCAST-MIB"

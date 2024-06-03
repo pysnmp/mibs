@@ -3,8 +3,8 @@
     "class": "imports",
     "BASIS-GENERIC-MIB": [
       "functionModuleType",
-      "moduleTrapAlarmSeverity",
-      "moduleSlotNumber"
+      "moduleSlotNumber",
+      "moduleTrapAlarmSeverity"
     ],
     "BASIS-MIB": [
       "basis"
@@ -14,29 +14,29 @@
       "shelfNodeName"
     ],
     "CISCO-VISM-ATM-TRUNK-MIB": [
-      "vismAal2CidAdminState",
+      "vismAal2CidLcn",
       "vismAal2CidNum",
-      "vismAal2CidState",
       "vismAal2CidFailReason",
-      "vismAal2CidLcn"
+      "vismAal2CidState",
+      "vismAal2CidAdminState"
     ],
     "CISCO-VISM-CAC-MIB": [
       "vismChanNum",
       "networkCacConfigState"
     ],
     "CISCO-VISM-CAS-MIB": [
-      "vismCasVariantName",
+      "vismCasVariantState",
       "vismCasFileName",
-      "vismCasVariantState"
+      "vismCasVariantName"
     ],
     "CISCO-VISM-CONN-MIB": [
-      "vismChanReroute",
-      "vismChanRowStatus",
-      "vismCnfChanNum",
       "vismChanActivityState",
+      "vismChanRowStatus",
       "vismChanStatusBitMap",
+      "vismCnfChanNum",
+      "vismChanPortNum",
       "vismChanLockingState",
-      "vismChanPortNum"
+      "vismChanReroute"
     ],
     "CISCO-VISM-DSX0-MIB": [
       "vismFreeDs0Count"
@@ -45,63 +45,63 @@
       "vismHdlcChanNum"
     ],
     "CISCO-VISM-MODULE-MIB": [
-      "vismIpAddress",
       "vismAppliedTemplate",
-      "vismConfigChangeTypeBitMap",
-      "vismMode",
-      "vismTrapStrIndex1",
-      "vismFreeDs0Threshold",
       "vismMemoryUtilization",
-      "vismAal2SubcellMuxing",
       "vismCPUUtilizationThreshold",
-      "vismTrapIntIndex2",
-      "vismFeatureBitMap",
+      "vismTrapIntIndex1",
       "vismCPUUtilization",
+      "vismFreeDs0Threshold",
+      "vismConfigChangeTypeBitMap",
+      "vismFeatureBitMap",
+      "vismTrapStrIndex1",
+      "vismIpAddress",
+      "vismAal2SubcellMuxing",
+      "vismMode",
       "vismMemoryUtilizationThreshold",
-      "vismTrapIntIndex1"
+      "vismTrapIntIndex2"
     ],
     "CISCO-VISM-PORT-MIB": [
+      "vismPortDs0ConfigBitMap",
       "vismPortType",
-      "vismPortState",
       "vismPortNum",
-      "vismPortDs0ConfigBitMap"
+      "vismPortState"
     ],
     "CISCO-VISM-SESSION-MIB": [
       "vismSessionSetNum",
-      "vismSessionSetState",
-      "vismRudpSessionState",
       "vismRudpSessionNum",
+      "vismSessionSetState",
+      "vismSessionGrpNum",
       "vismSessionGrpState",
-      "vismSessionGrpNum"
+      "vismRudpSessionState"
     ],
     "CISCO-VOICE-CAS-MODULE-MIB": [
       "cvcmCasTemplateName"
     ],
     "CISCO-WAN-ANNOUNCEMENT-MIB": [
+      "cwAnnFileCodec",
       "cwAnnFileName",
-      "cwAnnFileStatus",
-      "cwAnnFileCodec"
+      "cwAnnFileStatus"
     ],
     "CISCO-WAN-LAPD-TRUNK-MIB": [
-      "vismLapdTrunkState",
-      "vismLapdDlcIndex",
-      "vismLapdDlcSapi",
       "vismLapdDlcTei",
-      "vismLapdIndex",
-      "vismLapdDlcLinkState"
+      "vismLapdDlcIndex",
+      "vismLapdTrunkState",
+      "vismLapdDlcSapi",
+      "vismLapdDlcLinkState",
+      "vismLapdIndex"
     ],
     "CISCO-WAN-MG-MIB": [
-      "mgcAssociationState",
+      "mgEndpointState",
+      "mgDnsResolutionType",
+      "mgcResolutionIpAddress",
+      "mgcName",
       "mgEndpointLineNumber",
+      "mgcAssociationState",
+      "mgAdministrativeState",
+      "mgDomainName",
       "mgEndpointChannelMap",
       "mgcResolutionName",
-      "mgcName",
-      "mgDomainName",
-      "mgcResolutionIpAddress",
-      "mgAdministrativeState",
-      "mgEndpointState",
-      "mgcResolutionCommState",
-      "mgDnsResolutionType"
+      "mgcResolutionCommState"
     ],
     "CISCO-WAN-MGC-REDUN-MIB": [
       "mgcRedundancyGrpActState"
@@ -110,35 +110,35 @@
       "persistentXgcpEventName"
     ],
     "CISCO-WAN-RTP-CONN-MIB": [
+      "vismRtpConnAlarmState",
       "vismRtpFailReason",
-      "vismRtpLcn",
-      "vismRtpConnAlarmState"
+      "vismRtpLcn"
     ],
     "CISCO-WAN-SRCP-MIB": [
       "srcpPeerGrpTimeSinceHeartbeat",
       "srcpPeerTimeSinceHeartbeat"
     ],
     "CISCO-WAN-VISM-TONE-PLAN-MIB": [
-      "tonePlanVersionNumber",
-      "vismFrequency1",
-      "vismEventCode",
       "tonePlanFileName",
+      "vismEventCode",
+      "vismFrequency1",
+      "vismFrequency2",
       "tonePlanRegionName",
-      "vismFrequency2"
+      "tonePlanVersionNumber"
     ],
     "GENERICOBJECT-MIB": [
+      "genericLineType",
       "genericLineNum",
-      "genericTimeStamp",
-      "genericLineType"
+      "genericTimeStamp"
     ],
     "INT-SERV-MIB": [
       "intSrvFlowStatus"
     ],
     "RSVP-MIB": [
-      "rsvpSessionDestAddr",
-      "rsvpResvFwdStatus",
+      "rsvpResvStatus",
       "rsvpSenderStatus",
-      "rsvpResvStatus"
+      "rsvpSessionDestAddr",
+      "rsvpResvFwdStatus"
     ],
     "RTM-MIB": [
       "lastSequenceNumber"
@@ -148,21 +148,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
+      "Counter64",
       "Unsigned32",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
       "TRAP-TYPE",
       "Bits",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5478,8 +5478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-TRAPS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:37 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:59:00 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-VISM-TRAPS-MIB"

@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "Gauge32",
-      "Bits",
+      "Unsigned32",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32"
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snPortCARs": {
@@ -304,8 +304,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:52 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:58:59 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-CAR-MIB"

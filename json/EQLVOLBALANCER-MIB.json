@@ -9,15 +9,15 @@
       "eqlMemberIndex"
     ],
     "EQLRAID-MIB": [
-      "eqlRAIDDeviceUUID",
-      "eqlRAIDDeviceLUNIndex"
+      "eqlRAIDDeviceLUNIndex",
+      "eqlRAIDDeviceUUID"
     ],
     "EQLSTORAGEPOOL-MIB": [
       "eqlStoragePoolIndex"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeIndex",
-      "eqliscsiLocalMemberId"
+      "eqliscsiLocalMemberId",
+      "eqliscsiVolumeIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -26,34 +26,34 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Opaque",
-      "Unsigned32",
       "Integer32",
       "Counter32",
-      "iso",
       "Bits",
-      "enterprises",
-      "Gauge32",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "Opaque",
+      "Unsigned32",
+      "iso",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TruthValue",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowPointer"
     ]
   },
   "eqlvolbalancerModule": {
@@ -3905,8 +3905,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLVOLBALANCER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:03:23 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:56:38 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLVOLBALANCER-MIB"

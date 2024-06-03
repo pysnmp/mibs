@@ -5,36 +5,36 @@
       "huaweiUtility"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Unsigned32",
       "IpAddress",
+      "NOTIFICATION-TYPE",
       "iso",
       "Counter32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "OBJECT-TYPE",
       "Gauge32",
       "Integer32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "DisplayString",
       "RowStatus",
+      "DateAndTime",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "hwConfig": {
@@ -2136,8 +2136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-CONFIG-MAN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:33 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:58:48 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-CONFIG-MAN-MIB"

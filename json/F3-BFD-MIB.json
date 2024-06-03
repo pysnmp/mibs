@@ -9,10 +9,10 @@
       "bfdSessIndex"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
-      "SecondaryState",
       "OperationalState",
       "AdminState",
+      "VlanId",
+      "SecondaryState",
       "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
@@ -20,9 +20,9 @@
     ],
     "F3-L3-MIB": [
       "f3L3TrafficIPInterfaceEntry",
+      "f3L3TrafficBgpPeerEntry",
       "f3VrfEntry",
-      "f3L3TrafficOspfInterfaceEntry",
-      "f3L3TrafficBgpPeerEntry"
+      "f3L3TrafficOspfInterfaceEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -36,28 +36,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
       "Integer32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
-      "VariablePointer",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "StorageType",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "VariablePointer"
     ]
   },
   "f3BfdMIB": {
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:00:36 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:53:51 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"

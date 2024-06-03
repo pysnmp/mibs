@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
       "TimeTicks",
       "MibIdentifier",
-      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cienaWsNotificationMIB": {
@@ -1144,8 +1144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:01:36 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:54:52 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-NOTIFICATION-MIB"

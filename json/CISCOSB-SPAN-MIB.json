@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "CISCOSB-MIB": [
-      "switch001",
-      "rndNotifications"
+      "rndNotifications",
+      "switch001"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
       "Counter32",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "SpanDestinationPortType": {
@@ -314,8 +314,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-SPAN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:35 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:58:58 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-SPAN-MIB"

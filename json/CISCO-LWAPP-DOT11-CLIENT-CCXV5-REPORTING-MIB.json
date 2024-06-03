@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-DOT11-CLIENT-CCX-TC-MIB": [
-      "CiscoLwappDot11ClientKeyMgmtMethod",
-      "CiscoLwappDot11ClientEAPMethod",
+      "CiscoLwappDot11ClientCredentialType",
+      "CiscoLwappDot11ClientPowerSaveMode",
       "CiscoLwappDot11ClientReqStatus",
       "CiscoLwappDot11ClientAuthMethod",
-      "CiscoLwappDot11ClientRadioType",
-      "CiscoLwappDot11ClientCredentialType",
+      "CiscoLwappDot11ClientEAPMethod",
+      "CiscoLwappDot11ClientEncryptionMethod",
       "CiscoLwappDot11ClientSSId",
-      "CiscoLwappDot11ClientPowerSaveMode",
-      "CiscoLwappDot11ClientTxPowerMode",
-      "CiscoLwappDot11ClientEncryptionMethod"
+      "CiscoLwappDot11ClientKeyMgmtMethod",
+      "CiscoLwappDot11ClientRadioType",
+      "CiscoLwappDot11ClientTxPowerMode"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
-      "ciscoLwappDot11ClientCcxMIBObjects",
+      "ciscoLwappDot11ClientCCXV5ReportingMIBConform",
       "cldcClientMacAddress",
-      "ciscoLwappDot11ClientCCXV5ReportingMIBConform"
+      "ciscoLwappDot11ClientCcxMIBObjects"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -28,30 +28,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "Counter32",
       "Bits",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "ciscoLwappDot11ClientCCXv5ReportingMIB": {
@@ -2649,8 +2649,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:41 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:59:04 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CLIENT-CCXV5-REPORTING-MIB"

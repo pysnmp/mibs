@@ -17,30 +17,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Counter32",
       "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
       "DisplayString"
     ],
     "T11-FC-ZONE-SERVER-MIB": [
-      "t11ZsActiveZoneIndex",
-      "t11ZsActiveZoneMemberIndex"
+      "t11ZsActiveZoneMemberIndex",
+      "t11ZsActiveZoneIndex"
     ]
   },
   "hh3cFcZoneServer": {
@@ -1727,8 +1727,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FC-ZONE-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:02:05 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:55:21 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-FC-ZONE-SERVER-MIB"

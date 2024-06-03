@@ -5,9 +5,9 @@
       "IANAifType"
     ],
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -18,39 +18,39 @@
       "ng7000managedswitch"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
       "VlanIndex",
       "dot1qVlanIndex",
+      "dot1qFdbId",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "Counter32",
-      "IpAddress",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "MacAddress",
-      "TruthValue",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime"
+      "PhysAddress",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "fastPathSwitching": {
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:07:00 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 11:00:15 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"

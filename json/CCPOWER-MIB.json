@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "Counter64",
       "TimeTicks",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "enterprises",
+      "Unsigned32",
+      "TRAP-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "Integer32",
+      "enterprises",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ccpower": {
@@ -2088,8 +2088,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ccpower/CCPOWER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:01:09 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:54:26 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CCPOWER-MIB"

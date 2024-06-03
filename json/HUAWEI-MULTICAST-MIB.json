@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HUAWEI-L2VLAN-MIB": [
-      "hwL2VlanDescr",
-      "hwL2VlanIndex"
+      "hwL2VlanIndex",
+      "hwL2VlanDescr"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -13,36 +13,36 @@
       "InterfaceIndex"
     ],
     "IPV6-TC": [
-      "Ipv6IfIndexOrZero",
-      "Ipv6Address"
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "iso",
-      "Counter32",
-      "TimeTicks",
-      "MibIdentifier",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "Counter32",
+      "Counter64",
       "OBJECT-TYPE",
       "Gauge32",
       "Integer32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
       "RowStatus",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "hwMultiCastMIB": {
@@ -7505,8 +7505,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MULTICAST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:32 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:58:48 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MULTICAST-MIB"

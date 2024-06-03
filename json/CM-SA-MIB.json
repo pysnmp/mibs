@@ -5,21 +5,21 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "TrafficDirection",
-      "VlanId",
-      "SecondaryState",
-      "PerfCounter64",
       "OperationalState",
-      "AdminState",
+      "TrafficDirection",
       "IpVersion",
-      "CmPmBinAction",
       "IpPriorityMapMode",
-      "ScheduleType",
-      "VlanPriority",
-      "ClassOfServiceType",
       "SchedActivityStatus",
+      "MepDestinationType",
+      "AdminState",
+      "VlanId",
+      "ScheduleType",
       "PerfCounter32",
-      "MepDestinationType"
+      "PerfCounter64",
+      "CmPmBinAction",
+      "SecondaryState",
+      "ClassOfServiceType",
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
       "slotIndex",
@@ -42,30 +42,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
       "Integer32",
-      "IpAddress"
+      "Unsigned32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
-      "VariablePointer",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "StorageType",
       "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "DateAndTime",
+      "VariablePointer"
     ]
   },
   "cmServiceAssuranceMIB": {
@@ -11615,8 +11615,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:00:34 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:53:50 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CM-SA-MIB"

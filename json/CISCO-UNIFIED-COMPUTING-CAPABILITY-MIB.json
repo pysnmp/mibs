@@ -5,36 +5,36 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
-      "Unsigned64",
       "CiscoAlarmSeverity",
-      "TimeIntervalSec"
+      "Unsigned64",
+      "CiscoInetAddressMask",
+      "TimeIntervalSec",
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn"
+      "CucsManagedObjectDn",
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsFsmFlags",
-      "CucsCapabilityMgmtExtensionFsmTaskItem",
+      "CucsCapabilityCatalogueFsmStageName",
       "CucsCapabilityOperStatus",
+      "CucsCapabilityMgmtExtensionFsmStageName",
+      "CucsCapabilityCatalogueFsmCurrentFsm",
+      "CucsCapabilityMgmtExtensionFsmTaskItem",
+      "CucsCapabilityMgmtExtensionFsmCurrentFsm",
       "CucsFirmwareTransport",
+      "CucsFsmCompletion",
       "CucsFsmFsmStageStatus",
-      "CucsCapabilityUpdaterFsmStageName",
+      "CucsCapabilityUpdaterFsmCurrentFsm",
+      "CucsFsmFlags",
+      "CucsCapabilityUpdaterFsmTaskItem",
+      "CucsCapabilityCatalogueFsmTaskItem",
+      "CucsConditionRemoteInvRslt",
+      "CucsCapabilityAdminState",
       "CucsCapabilityPlatform",
       "CucsCapabilityFeatureStatus",
-      "CucsCapabilityMgmtExtensionFsmStageName",
-      "CucsCapabilityUpdaterFsmCurrentFsm",
-      "CucsCapabilityAdminState",
-      "CucsFsmCompletion",
-      "CucsCapabilityMgmtExtensionFsmCurrentFsm",
-      "CucsCapabilityCatalogueFsmCurrentFsm",
-      "CucsCapabilityCatalogueFsmStageName",
-      "CucsCapabilityCatalogueFsmTaskItem",
-      "CucsCapabilityUpdaterFsmTaskItem",
-      "CucsConditionRemoteInvRslt"
+      "CucsCapabilityUpdaterFsmStageName"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -48,30 +48,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
-      "TimeTicks",
       "Counter32",
-      "Unsigned32",
+      "IpAddress",
       "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TruthValue",
-      "TimeStamp",
-      "MacAddress",
-      "TimeInterval",
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "RowPointer",
+      "MacAddress",
+      "DateAndTime",
+      "TruthValue",
+      "TimeInterval",
+      "TimeStamp"
     ]
   },
   "cucsCapabilityObjects": {
@@ -2452,8 +2452,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CAPABILITY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 03:05:33 2024",
-      "On host fv-az736-440 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 10:58:56 2024",
+      "On host fv-az1986-135 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CAPABILITY-MIB"
