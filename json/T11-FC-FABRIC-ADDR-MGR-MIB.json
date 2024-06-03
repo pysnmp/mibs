@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcNameIdOrZero",
-      "FcDomainIdOrZero",
       "fcmSwitchIndex",
-      "fcmInstanceIndex"
+      "fcmInstanceIndex",
+      "FcDomainIdOrZero",
+      "FcNameIdOrZero"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "mib-2",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -1193,8 +1193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-FABRIC-ADDR-MGR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 13:35:19 2024",
-      "On host fv-az1210-277 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jun  3 13:39:08 2024",
+      "On host fv-az1530-906 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "T11-FC-FABRIC-ADDR-MGR-MIB"
