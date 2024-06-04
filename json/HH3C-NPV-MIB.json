@@ -5,8 +5,8 @@
       "Hh3cFcVsanIndex"
     ],
     "HH3C-VSAN-MIB": [
-      "hh3cVsanIndex",
-      "hh3cSan"
+      "hh3cSan",
+      "hh3cVsanIndex"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -17,27 +17,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "Counter64"
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
-      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "hh3cNpv": {
@@ -274,8 +274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-NPV-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:01:15 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:16:14 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-NPV-MIB"

@@ -8,29 +8,29 @@
       "CienaGlobalSeverity"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "iso",
-      "Counter64",
-      "Bits",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "iso",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "cienaGlobal": {
@@ -65,8 +65,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-GLOBAL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:00:47 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:15:47 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-GLOBAL-MIB"

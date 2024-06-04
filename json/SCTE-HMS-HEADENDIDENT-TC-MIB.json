@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
       "IpAddress",
+      "TimeTicks",
+      "iso",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "enterprises",
-      "MibIdentifier"
+      "Integer32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmsTextualConventionMIB": {
@@ -430,8 +430,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/scte/SCTE-HMS-HEADENDIDENT-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:58:39 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:13:38 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SCTE-HMS-HEADENDIDENT-TC-MIB"

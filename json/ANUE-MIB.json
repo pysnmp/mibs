@@ -7,11 +7,11 @@
       "ZeroBasedCounter64"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "InterfaceIndex",
+      "ifTable",
       "InterfaceIndexOrZero",
       "ifEntry",
-      "ifTable",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -21,37 +21,37 @@
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "Counter64",
       "Integer32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter32",
       "iso",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32",
       "MibIdentifier",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "enterprises",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp"
+      "DateAndTime"
     ],
     "SNMPv2-TM": [
-      "snmpUDPDomain",
-      "SnmpUDPAddress"
+      "SnmpUDPAddress",
+      "snmpUDPDomain"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:04:58 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:20:07 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"

@@ -18,37 +18,37 @@
       "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qTpGroupAddress",
+      "dot1qVlanIndex",
       "dot1qFdbId",
-      "dot1qTpFdbAddress",
-      "dot1qVlanIndex"
+      "dot1qTpGroupAddress",
+      "dot1qTpFdbAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
       "TimeTicks",
       "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "Bits",
       "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue",
-      "DisplayString",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "docsL2vpnMIB": {
@@ -1203,8 +1203,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-L2VPN-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:58:57 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:13:56 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DOCS-L2VPN-MIB"

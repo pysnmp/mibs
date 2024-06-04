@@ -5,37 +5,37 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-MIB": [
-      "lldpV2PortConfigEntry",
+      "lldpV2RemLocalDestMACAddress",
       "lldpV2RemIndex",
       "lldpV2RemTimeMark",
-      "lldpV2LocPortIfIndex",
-      "lldpV2RemLocalDestMACAddress",
-      "lldpV2RemLocalIfIndex"
+      "lldpV2PortConfigEntry",
+      "lldpV2RemLocalIfIndex",
+      "lldpV2LocPortIfIndex"
     ],
     "LLDP-V2-TC-MIB": [
       "LldpV2PowerPortClass"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "org",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter32",
-      "Integer32",
-      "Counter64",
+      "IpAddress",
+      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1373,8 +1373,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8023-DOT3-LLDP-EXT-V2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:58:41 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:13:39 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB"

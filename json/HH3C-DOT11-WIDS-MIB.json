@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "HH3C-DOT11-REF-MIB": [
+      "Hh3cDot11SSIDStringType",
       "hh3cDot11",
-      "Hh3cDot11ObjectIDType",
-      "Hh3cDot11RadioScopeType",
       "Hh3cDot11ChannelScopeType",
+      "Hh3cDot11RadioScopeType",
       "Hh3cDot11RadioType",
-      "Hh3cDot11SSIDStringType"
+      "Hh3cDot11ObjectIDType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "Counter64"
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
-      "DateAndTime",
       "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "hh3cDot11WIDS": {
@@ -2726,8 +2726,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-WIDS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:01:14 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:16:13 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-DOT11-WIDS-MIB"

@@ -5,18 +5,18 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "etherStatsEntry",
-      "OwnerString",
-      "hostControlEntry",
       "filter",
-      "historyControlEntry",
+      "hostControlEntry",
+      "OwnerString",
+      "channelEntry",
       "statistics",
+      "history",
+      "historyControlEntry",
+      "etherStatsEntry",
       "hosts",
       "matrixControlEntry",
       "matrix",
-      "filterEntry",
-      "channelEntry",
-      "history"
+      "filterEntry"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -24,34 +24,34 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Counter32",
       "Integer32",
       "iso",
-      "Unsigned32",
-      "mib-2",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "ringStationControlEntry",
-      "tokenRing",
-      "tokenRingPStatsEntry",
       "sourceRoutingStatsEntry",
-      "tokenRingMLStatsEntry"
+      "tokenRingPStatsEntry",
+      "tokenRingMLStatsEntry",
+      "tokenRing",
+      "ringStationControlEntry"
     ]
   },
   "rmon": {
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:59:54 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:14:54 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"

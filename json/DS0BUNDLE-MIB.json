@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Bits",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "transmission",
-      "Counter64",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
       "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
       "MODULE-IDENTITY",
+      "Bits",
       "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TestAndIncr",
-      "RowStatus"
+      "RowStatus",
+      "TestAndIncr"
     ]
   },
   "ds0Bundle": {
@@ -298,8 +298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DS0BUNDLE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:58:58 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:13:57 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DS0BUNDLE-MIB"

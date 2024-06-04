@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifAlias"
+      "ifAlias",
+      "InterfaceIndex"
     ],
     "NBS-CMMCENUM-MIB": [
       "NbsCmmcChannelBand"
     ],
     "NBS-MIB": [
-      "nbs",
-      "NbsTcMHz"
+      "NbsTcMHz",
+      "nbs"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "iso",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "Gauge32",
       "Counter32",
-      "TimeTicks"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -712,8 +712,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OSA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:05:46 2024",
-      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:20:58 2024",
+      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NBS-OSA-MIB"
