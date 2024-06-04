@@ -120,10 +120,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npm fund
-      - run: npm audit fix
+#      - run: npm fund
+#      - run: npm audit fix
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4.1.0
+        uses: cycjimmy/semantic-release-action@v4.0.0
         with:
           semantic_version: 17
           extra_plugins: |
