@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WHISP-GLOBAL-REG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/WHISP-GLOBAL-REG-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 08:50:44 2024
-# On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 09:27:44 2024
+# On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, ModuleIdentity, ObjectIdentity, Counter64, Integer32, Unsigned32, MibIdentifier, enterprises, Gauge32, iso, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "ObjectIdentity", "Counter64", "Integer32", "Unsigned32", "MibIdentifier", "enterprises", "Gauge32", "iso", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits")
+Bits, ObjectIdentity, NotificationType, ModuleIdentity, Counter32, Gauge32, enterprises, Unsigned32, Integer32, IpAddress, iso, TimeTicks, MibIdentifier, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ObjectIdentity", "NotificationType", "ModuleIdentity", "Counter32", "Gauge32", "enterprises", "Unsigned32", "Integer32", "IpAddress", "iso", "TimeTicks", "MibIdentifier", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 whispGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 161, 19, 1, 1, 1))
 if mibBuilder.loadTexts: whispGlobalRegModule.setLastUpdated('200304100000Z')
@@ -34,4 +34,4 @@ canopySnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 250))
 ucos = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 250, 256))
 prizmSnmpAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 1250))
 prizm = MibIdentifier((1, 3, 6, 1, 4, 1, 161, 19, 1000))
-mibBuilder.exportSymbols("WHISP-GLOBAL-REG-MIB", whispPlvModem=whispPlvModem, whispCMM=whispCMM, whispPlv=whispPlv, whispPlvRepeater=whispPlvRepeater, whispPlvGateway=whispPlvGateway, whispModules=whispModules, prizmSnmpAgent=prizmSnmpAgent, whispPlvBridge=whispPlvBridge, whispRoot=whispRoot, whispSm=whispSm, PYSNMP_MODULE_ID=whispGlobalRegModule, whispGeneric=whispGeneric, mot=mot, canopySnmpAgent=canopySnmpAgent, whispGlobalRegModule=whispGlobalRegModule, whispAps=whispAps, prizm=prizm, ucos=ucos, whispReg=whispReg, whispCMM4=whispCMM4, whispBox=whispBox, whispProducts=whispProducts)
+mibBuilder.exportSymbols("WHISP-GLOBAL-REG-MIB", whispRoot=whispRoot, whispPlvBridge=whispPlvBridge, whispCMM=whispCMM, whispPlv=whispPlv, whispPlvModem=whispPlvModem, whispAps=whispAps, whispProducts=whispProducts, prizm=prizm, canopySnmpAgent=canopySnmpAgent, whispModules=whispModules, whispPlvRepeater=whispPlvRepeater, whispGlobalRegModule=whispGlobalRegModule, whispPlvGateway=whispPlvGateway, whispGeneric=whispGeneric, mot=mot, whispCMM4=whispCMM4, whispReg=whispReg, whispSm=whispSm, whispBox=whispBox, PYSNMP_MODULE_ID=whispGlobalRegModule, ucos=ucos, prizmSnmpAgent=prizmSnmpAgent)

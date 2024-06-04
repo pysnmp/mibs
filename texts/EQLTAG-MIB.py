@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module EQLTAG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLTAG-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 08:53:02 2024
-# On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 09:29:56 2024
+# On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-UTFString, eqlStorageGroupAdminAccountIndex, eqlGroupId = mibBuilder.importSymbols("EQLGROUP-MIB", "UTFString", "eqlStorageGroupAdminAccountIndex", "eqlGroupId")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+eqlStorageGroupAdminAccountIndex, eqlGroupId, UTFString = mibBuilder.importSymbols("EQLGROUP-MIB", "eqlStorageGroupAdminAccountIndex", "eqlGroupId", "UTFString")
 eqliscsiVolumeIndex, eqliscsiLocalMemberId = mibBuilder.importSymbols("EQLVOLUME-MIB", "eqliscsiVolumeIndex", "eqliscsiLocalMemberId")
 equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Unsigned32, Counter64, Gauge32, enterprises, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, ObjectIdentity, Counter32, Bits, ModuleIdentity, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "Counter64", "Gauge32", "enterprises", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "ObjectIdentity", "Counter32", "Bits", "ModuleIdentity", "TimeTicks", "iso")
-DisplayString, TruthValue, RowPointer, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowPointer", "RowStatus", "TextualConvention")
+Counter64, ObjectIdentity, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, TimeTicks, enterprises, Counter32, Bits, Integer32, MibIdentifier, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "TimeTicks", "enterprises", "Counter32", "Bits", "Integer32", "MibIdentifier", "IpAddress", "Unsigned32")
+DisplayString, TruthValue, RowStatus, RowPointer, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "RowStatus", "RowPointer", "TextualConvention")
 eqltagModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 23))
 eqltagModule.setRevisions(('2011-10-02 00:00',))
 
@@ -83,4 +83,4 @@ if mibBuilder.loadTexts: eqlVolumeTagEntry.setDescription('An entry in the volum
 eqlVolumeTagValue = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 23, 1, 4, 1, 1), UTFString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: eqlVolumeTagValue.setStatus('current')
 if mibBuilder.loadTexts: eqlVolumeTagValue.setDescription('This field specifies the value of the tag.  For folders, \n                     this value is the name of the folder.  \n                     The tag value can be up to 63 characters plus NULL.')
-mibBuilder.exportSymbols("EQLTAG-MIB", eqlTagObjectIndex=eqlTagObjectIndex, eqlTagObjectTaggedObjectPointer=eqlTagObjectTaggedObjectPointer, eqlTagObjectRowStatus=eqlTagObjectRowStatus, eqlTagAdminAccountKey=eqlTagAdminAccountKey, eqlTagObjectTable=eqlTagObjectTable, eqlTagTable=eqlTagTable, eqlAdminAccountTagTable=eqlAdminAccountTagTable, eqlAdminAccountTagEntry=eqlAdminAccountTagEntry, eqltagModule=eqltagModule, eqlTagIndex=eqlTagIndex, eqlTagRowStatus=eqlTagRowStatus, eqltagConformance=eqltagConformance, eqlVolumeTagValue=eqlVolumeTagValue, eqltagObjects=eqltagObjects, eqlTagObjectEntry=eqlTagObjectEntry, eqlTagType=eqlTagType, eqlTagValue=eqlTagValue, eqlTagValueDescription=eqlTagValueDescription, eqlVolumeTagEntry=eqlVolumeTagEntry, eqlAdminAccountTagAccess=eqlAdminAccountTagAccess, PYSNMP_MODULE_ID=eqltagModule, eqlTagEntry=eqlTagEntry, eqltagNotifications=eqltagNotifications, eqlVolumeTagTable=eqlVolumeTagTable)
+mibBuilder.exportSymbols("EQLTAG-MIB", eqlVolumeTagTable=eqlVolumeTagTable, eqlVolumeTagValue=eqlVolumeTagValue, eqlTagObjectIndex=eqlTagObjectIndex, eqlTagEntry=eqlTagEntry, eqltagConformance=eqltagConformance, eqlTagObjectTable=eqlTagObjectTable, eqlTagRowStatus=eqlTagRowStatus, eqlTagObjectTaggedObjectPointer=eqlTagObjectTaggedObjectPointer, eqlAdminAccountTagEntry=eqlAdminAccountTagEntry, eqlTagObjectEntry=eqlTagObjectEntry, eqlVolumeTagEntry=eqlVolumeTagEntry, eqlTagTable=eqlTagTable, eqlTagValue=eqlTagValue, eqlTagObjectRowStatus=eqlTagObjectRowStatus, eqlTagIndex=eqlTagIndex, eqlTagAdminAccountKey=eqlTagAdminAccountKey, eqltagNotifications=eqltagNotifications, eqlTagType=eqlTagType, eqltagModule=eqltagModule, eqlTagValueDescription=eqlTagValueDescription, PYSNMP_MODULE_ID=eqltagModule, eqlAdminAccountTagAccess=eqlAdminAccountTagAccess, eqltagObjects=eqltagObjects, eqlAdminAccountTagTable=eqlAdminAccountTagTable)

@@ -5,31 +5,31 @@
       "snmpTargetAddrEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
       "IpAddress",
-      "Bits",
-      "Integer32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier"
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snmpResearch": {
@@ -99,8 +99,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/TGT-ADDRESS-MASK-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:50:25 2024",
-      "On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 09:27:26 2024",
+      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TGT-ADDRESS-MASK-MIB"

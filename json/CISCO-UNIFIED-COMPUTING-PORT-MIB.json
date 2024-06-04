@@ -5,73 +5,73 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
-      "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
       "Unsigned64",
+      "CiscoAlarmSeverity",
+      "CiscoNetworkAddress",
+      "CiscoInetAddressMask",
       "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "CucsManagedObjectDn"
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsNetworkPortRole",
-      "CucsPortPIoFsmTaskItem",
-      "CucsPortSubGroupSlotId",
-      "CucsFsmCompletion",
-      "CucsConditionRemoteInvRslt",
-      "CucsNetworkLocale",
-      "CucsNetworkConnectionType",
-      "CucsNetworkPortType",
-      "CucsPortGroupType",
-      "CucsLicenseState",
-      "CucsPortTrust",
-      "CucsPortSubGroupConfigState",
       "CucsNetworkTransport",
-      "CucsFsmFlags",
+      "CucsNetworkLocale",
       "CucsPortPIoFsmCurrentFsm",
+      "CucsNetworkConnectionType",
+      "CucsConditionRemoteInvRslt",
       "CucsPortPIoFsmStageName",
+      "CucsLicenseState",
+      "CucsPortSubGroupSlotId",
+      "CucsNetworkPortRole",
+      "CucsNetworkPortType",
+      "CucsPortPIoFsmTaskItem",
+      "CucsPortSubGroupConfigState",
+      "CucsPortTrust",
       "CucsFsmFsmStageStatus",
-      "CucsNetworkSwitchId"
+      "CucsFsmFlags",
+      "CucsFsmCompletion",
+      "CucsNetworkSwitchId",
+      "CucsPortGroupType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
       "TimeTicks",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
+      "iso",
       "Integer32",
-      "OBJECT-TYPE"
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "TruthValue",
-      "DateAndTime",
-      "TimeInterval",
       "RowPointer",
-      "TimeStamp"
+      "TimeInterval",
+      "TruthValue",
+      "MacAddress",
+      "TimeStamp",
+      "DateAndTime"
     ]
   },
   "cucsPortObjects": {
@@ -987,8 +987,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PORT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:55:32 2024",
-      "On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 09:32:07 2024",
+      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-PORT-MIB"

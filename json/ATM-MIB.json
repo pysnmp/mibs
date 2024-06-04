@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmAddr",
-      "AtmVorXLastChange",
+      "AtmVorXAdminStatus",
+      "AtmVpIdentifier",
       "AtmVorXOperStatus",
+      "AtmServiceCategory",
+      "AtmVcIdentifier",
       "AtmTrafficDescrParamIndex",
+      "AtmVorXLastChange",
+      "AtmConnKind",
       "atmNoClpNoScr",
       "AtmConnCastType",
-      "AtmVpIdentifier",
-      "AtmConnKind",
-      "AtmVorXAdminStatus",
-      "AtmVcIdentifier",
-      "AtmServiceCategory"
+      "AtmAddr"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -24,27 +24,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "Integer32",
       "mib-2",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:53:14 2024",
-      "On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 09:30:09 2024",
+      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"

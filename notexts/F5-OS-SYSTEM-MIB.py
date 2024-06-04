@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module F5-OS-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-OS-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 08:53:23 2024
-# On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 09:30:17 2024
+# On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 platform, = mibBuilder.importSymbols("F5-COMMON-SMI-MIB", "platform")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, iso, Counter64, Integer32, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, ObjectIdentity, ModuleIdentity, IpAddress, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "Counter64", "Integer32", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "ObjectIdentity", "ModuleIdentity", "IpAddress", "NotificationType", "TimeTicks")
+TimeTicks, ModuleIdentity, NotificationType, Counter32, Bits, Gauge32, Unsigned32, MibIdentifier, Counter64, ObjectIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ModuleIdentity", "NotificationType", "Counter32", "Bits", "Gauge32", "Unsigned32", "MibIdentifier", "Counter64", "ObjectIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 f5OsSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 12276, 1, 3))
 f5OsSystem.setRevisions(('2022-04-07 00:00',))
@@ -23,4 +23,4 @@ f5OsAppR2x00 = MibIdentifier((1, 3, 6, 1, 4, 1, 12276, 1, 3, 1, 3))
 f5OsAppR4x00 = MibIdentifier((1, 3, 6, 1, 4, 1, 12276, 1, 3, 1, 4))
 f5OsVelosCx410 = MibIdentifier((1, 3, 6, 1, 4, 1, 12276, 1, 3, 1, 5))
 f5OsVelosCx410Partition = MibIdentifier((1, 3, 6, 1, 4, 1, 12276, 1, 3, 1, 6))
-mibBuilder.exportSymbols("F5-OS-SYSTEM-MIB", f5OsAppR2x00=f5OsAppR2x00, f5OsAppR4x00=f5OsAppR4x00, f5OsAppR10x00=f5OsAppR10x00, PYSNMP_MODULE_ID=f5OsSystem, f5OsSystem=f5OsSystem, f5OsVelosCx410=f5OsVelosCx410, f5OsVelosCx410Partition=f5OsVelosCx410Partition, f5OsSystemModelOIDs=f5OsSystemModelOIDs, f5OsAppR5x00=f5OsAppR5x00)
+mibBuilder.exportSymbols("F5-OS-SYSTEM-MIB", f5OsVelosCx410=f5OsVelosCx410, f5OsAppR5x00=f5OsAppR5x00, PYSNMP_MODULE_ID=f5OsSystem, f5OsVelosCx410Partition=f5OsVelosCx410Partition, f5OsAppR2x00=f5OsAppR2x00, f5OsSystemModelOIDs=f5OsSystemModelOIDs, f5OsAppR4x00=f5OsAppR4x00, f5OsSystem=f5OsSystem, f5OsAppR10x00=f5OsAppR10x00)
