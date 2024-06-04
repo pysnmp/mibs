@@ -5,9 +5,9 @@
       "CounterBasedGauge64"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "JUNIPER-SMI": [
       "jnxL2tpMibRoot"
@@ -16,34 +16,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
       "transmission",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "Bits",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType",
-      "TruthValue"
+      "DateAndTime",
+      "StorageType"
     ]
   },
   "jnxL2tp": {
@@ -1959,8 +1959,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-L2TP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:55:13 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:14:52 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JNX-L2TP-MIB"

@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rlRs232": {
@@ -114,8 +114,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-BaudRate-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:56:30 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:16:05 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RADLAN-BaudRate-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AT-UDLD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-UDLD-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:48:13 2024
-# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 14:08:24 2024
+# On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, ObjectIdentity, MibIdentifier, Counter64, Integer32, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Gauge32, Counter32, IpAddress, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ObjectIdentity", "MibIdentifier", "Counter64", "Integer32", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Gauge32", "Counter32", "IpAddress", "Unsigned32", "NotificationType")
+iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, MibIdentifier, NotificationType, Bits, IpAddress, TimeTicks, Counter32, ModuleIdentity, ObjectIdentity, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "MibIdentifier", "NotificationType", "Bits", "IpAddress", "TimeTicks", "Counter32", "ModuleIdentity", "ObjectIdentity", "Gauge32", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 atUdld = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550))
 atUdld.setRevisions(('2011-11-22 00:00', '2011-05-15 00:00',))
@@ -32,4 +32,4 @@ if mibBuilder.loadTexts: atUdldPortRecoveredTrap.setDescription('Generated when 
 atUdldIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 1), InterfaceIndex()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atUdldIfIndex.setStatus('current')
 if mibBuilder.loadTexts: atUdldIfIndex.setDescription('The index value of an interface of which the link status\n                 is changed.')
-mibBuilder.exportSymbols("AT-UDLD-MIB", atUdldPortRecoveredTrap=atUdldPortRecoveredTrap, atUdldIfIndex=atUdldIfIndex, atUdldTrap=atUdldTrap, atUdld=atUdld, atUdldPortDisabledTrap=atUdldPortDisabledTrap, PYSNMP_MODULE_ID=atUdld)
+mibBuilder.exportSymbols("AT-UDLD-MIB", PYSNMP_MODULE_ID=atUdld, atUdldTrap=atUdldTrap, atUdld=atUdld, atUdldPortRecoveredTrap=atUdldPortRecoveredTrap, atUdldPortDisabledTrap=atUdldPortDisabledTrap, atUdldIfIndex=atUdldIfIndex)

@@ -10,21 +10,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "enterprises",
-      "Bits",
-      "Gauge32",
       "OBJECT-TYPE",
-      "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
       "IpAddress",
-      "Counter32"
+      "TimeTicks",
+      "enterprises",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3939,8 +3939,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avocent/PM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:48:51 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:09:02 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PM-MIB"

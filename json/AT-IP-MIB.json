@@ -8,33 +8,33 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
       "Counter64",
+      "iso",
+      "Bits",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter32",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atIpMib": {
@@ -183,8 +183,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-IP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:48:15 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:08:27 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "AT-IP-MIB"

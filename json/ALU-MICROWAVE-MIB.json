@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
-      "aluSARNotifyPrefix",
       "aluSARConfs",
-      "aluSARObjs",
-      "aluSARMIBModules"
+      "aluSARMIBModules",
+      "aluSARNotifyPrefix",
+      "aluSARObjs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "iso",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "RowStatus"
+      "TruthValue",
+      "TimeStamp"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxChassisIndex"
@@ -46,10 +46,10 @@
       "TmnxPortOperStatus"
     ],
     "TIMETRA-TC-MIB": [
-      "TNamedItemOrEmpty",
+      "TmnxDisplayStringURL",
       "TmnxPortID",
-      "TmnxActionType",
-      "TmnxDisplayStringURL"
+      "TNamedItemOrEmpty",
+      "TmnxActionType"
     ]
   },
   "aluMwMIBModule": {
@@ -4511,8 +4511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:56:22 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:16:14 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"

@@ -5,52 +5,52 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "NETGEAR-REF-MIB": [
       "AgentPortMask",
       "ng7000managedswitch"
     ],
     "Q-BRIDGE-MIB": [
+      "dot1qFdbId",
       "VlanIndex",
-      "VlanId",
       "dot1qVlanIndex",
-      "dot1qFdbId"
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "Integer32",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
       "IpAddress",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "DisplayString",
       "DateAndTime",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "MacAddress"
+      "DisplayString",
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "fastPathSwitching": {
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:54:58 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:14:54 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"

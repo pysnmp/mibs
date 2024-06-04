@@ -8,33 +8,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "transmission",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "transmission",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowPointer",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "RowPointer"
     ]
   },
   "optIfMibModule": {
@@ -7261,8 +7261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/OPT-IF-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:55:13 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:14:52 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OPT-IF-MIB"

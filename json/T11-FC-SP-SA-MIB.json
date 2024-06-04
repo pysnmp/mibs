@@ -15,41 +15,41 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "TimeTicks",
-      "iso"
+      "IpAddress",
+      "Bits",
+      "mib-2",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
-      "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "RowStatus",
+      "TruthValue",
+      "StorageType",
+      "DisplayString",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpPrecedence",
       "T11FcRoutingControl",
-      "T11FcSpType",
-      "T11FcSaDirection",
       "T11FcSpLifetimeLeft",
-      "T11FcSpSecurityProtocolId",
+      "T11FcSpType",
       "T11FcSpiIndex",
-      "T11FcSpTransforms",
-      "T11FcSpLifetimeLeftUnits"
+      "T11FcSpSecurityProtocolId",
+      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpPrecedence",
+      "T11FcSaDirection",
+      "T11FcSpTransforms"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:47:46 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:07:58 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

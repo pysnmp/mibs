@@ -12,26 +12,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "Bits",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "TimeTicks",
-      "Gauge32",
       "MibIdentifier",
-      "Integer32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE",
       "iso",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
       "StorageType",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "accessControl": {
@@ -824,8 +824,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-USER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:57:09 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:16:48 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-USER-MIB"

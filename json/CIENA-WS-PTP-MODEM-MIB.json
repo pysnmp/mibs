@@ -5,45 +5,45 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-PTP-MIB": [
-      "cwsPtpDiagnosticsEntry",
-      "cwsPtpTransmitterEntry"
+      "cwsPtpTransmitterEntry",
+      "cwsPtpDiagnosticsEntry"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "Decimal2Dig",
+      "Decimal1Dig",
       "RecoverLinkDispersionType",
       "ModemFrequency",
-      "TxPowerLvl",
-      "WlSpacing",
-      "PtpId",
-      "EnabledDisabledEnum",
-      "StringMaxl32",
-      "ModemChannel",
       "LineSysEnum",
       "OnOffEnum",
+      "StringSci",
+      "WlSpacing",
+      "Decimal2Dig",
+      "ModemChannel",
+      "TxPowerLvl",
       "ChannelsNumber",
-      "Decimal1Dig",
-      "StringSci"
+      "EnabledDisabledEnum",
+      "PtpId",
+      "StringMaxl32"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "TimeTicks",
       "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Counter32",
       "MibIdentifier",
-      "iso",
       "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PTP-MODEM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:49:37 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:09:47 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PTP-MODEM-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module JDSU-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jds/JDSU-SMI-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:54:00 2024
-# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 14:13:59 2024
+# On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Counter64, ModuleIdentity, iso, IpAddress, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, ObjectIdentity, Unsigned32, MibIdentifier, enterprises, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "ModuleIdentity", "iso", "IpAddress", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "ObjectIdentity", "Unsigned32", "MibIdentifier", "enterprises", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, Integer32, Bits, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, iso, ObjectIdentity, ModuleIdentity, Gauge32, TimeTicks, Unsigned32, NotificationType, enterprises, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Integer32", "Bits", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "iso", "ObjectIdentity", "ModuleIdentity", "Gauge32", "TimeTicks", "Unsigned32", "NotificationType", "enterprises", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 jdsuRoot = ModuleIdentity((1, 3, 6, 1, 4, 1, 35873))
 jdsuRoot.setRevisions(('2010-06-08 09:53', '2014-01-22 08:51',))
 if mibBuilder.loadTexts: jdsuRoot.setLastUpdated('201006080953Z')
@@ -29,4 +29,4 @@ jdsuNetworkEnterpriseTest = MibIdentifier((1, 3, 6, 1, 4, 1, 35873, 8))
 jdsuServiceAssurance = MibIdentifier((1, 3, 6, 1, 4, 1, 35873, 9))
 jdsuStorageProtocolTest = MibIdentifier((1, 3, 6, 1, 4, 1, 35873, 10))
 jdsuWirelessTest = MibIdentifier((1, 3, 6, 1, 4, 1, 35873, 11))
-mibBuilder.exportSymbols("JDSU-SMI-MIB", PYSNMP_MODULE_ID=jdsuRoot, jdsuCableNetworkTest=jdsuCableNetworkTest, jdsuDigitalVideoTest=jdsuDigitalVideoTest, jdsuMetroNetworkTest=jdsuMetroNetworkTest, jdsuStorageProtocolTest=jdsuStorageProtocolTest, jdsuDataIPTest=jdsuDataIPTest, jdsuAccessNetworkTest=jdsuAccessNetworkTest, jdsuLabManufacturingTest=jdsuLabManufacturingTest, jdsuNetworkEnterpriseTest=jdsuNetworkEnterpriseTest, jdsuRoot=jdsuRoot, jdsuServiceAssurance=jdsuServiceAssurance, jdsuRemoteFiberTest=jdsuRemoteFiberTest, jdsuWirelessTest=jdsuWirelessTest, jdsuOtu=jdsuOtu, jdsuFiberFieldTestSystems=jdsuFiberFieldTestSystems, jdsuOnmsi=jdsuOnmsi)
+mibBuilder.exportSymbols("JDSU-SMI-MIB", jdsuAccessNetworkTest=jdsuAccessNetworkTest, jdsuMetroNetworkTest=jdsuMetroNetworkTest, jdsuOtu=jdsuOtu, jdsuRemoteFiberTest=jdsuRemoteFiberTest, PYSNMP_MODULE_ID=jdsuRoot, jdsuServiceAssurance=jdsuServiceAssurance, jdsuWirelessTest=jdsuWirelessTest, jdsuRoot=jdsuRoot, jdsuDataIPTest=jdsuDataIPTest, jdsuDigitalVideoTest=jdsuDigitalVideoTest, jdsuOnmsi=jdsuOnmsi, jdsuFiberFieldTestSystems=jdsuFiberFieldTestSystems, jdsuCableNetworkTest=jdsuCableNetworkTest, jdsuStorageProtocolTest=jdsuStorageProtocolTest, jdsuNetworkEnterpriseTest=jdsuNetworkEnterpriseTest, jdsuLabManufacturingTest=jdsuLabManufacturingTest)

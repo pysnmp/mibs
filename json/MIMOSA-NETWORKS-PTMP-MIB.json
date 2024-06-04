@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "MIMOSA-MIB-TC": [
-      "Mimosa5GHzFrequency",
-      "DecimalOne",
       "Mimosa5GHzChannelNumber",
+      "DecimalOne",
+      "Mimosa5GHzFrequency",
       "DecimalTwo"
     ],
     "MIMOSA-NETWORKS-BASE-MIB": [
@@ -12,32 +12,32 @@
       "mimosaConformanceGroup"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks"
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString",
-      "TimeStamp"
+      "TruthValue"
     ]
   },
   "mimosaPtmp": {
@@ -1459,8 +1459,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mimosa/MIMOSA-NETWORKS-PTMP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:54:41 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:14:39 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MIMOSA-NETWORKS-PTMP-MIB"

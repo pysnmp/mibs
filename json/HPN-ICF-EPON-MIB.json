@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-LSW-DEV-ADM-MIB": [
-      "hpnicfLswSlotIndex",
-      "hpnicfLswFrameIndex"
+      "hpnicfLswFrameIndex",
+      "hpnicfLswSlotIndex"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfEpon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
       "Bits",
-      "Unsigned32"
+      "Counter32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "RowStatus",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "DateAndTime",
+      "MacAddress"
     ]
   },
   "hpnicfEponMibObjects": {
@@ -6503,8 +6503,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EPON-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:54:59 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:14:01 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-EPON-MIB"

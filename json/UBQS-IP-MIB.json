@@ -10,32 +10,32 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
       "Counter64",
-      "Unsigned32",
-      "iso",
-      "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "RowStatus"
     ],
     "UBQS-SMI": [
@@ -1035,8 +1035,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-IP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:58:17 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:17:36 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "UBQS-IP-MIB"

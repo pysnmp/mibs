@@ -5,47 +5,47 @@
       "hh3cCommon"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "RADIUS-ACC-CLIENT-MIB": [
       "radiusAccServerAddress",
-      "radiusAccServerIndex",
-      "radiusAccClientServerPortNumber"
+      "radiusAccClientServerPortNumber",
+      "radiusAccServerIndex"
     ],
     "RADIUS-AUTH-CLIENT-MIB": [
+      "radiusAuthServerAddress",
       "radiusAuthClientServerPortNumber",
-      "radiusAuthServerIndex",
-      "radiusAuthServerAddress"
+      "radiusAuthServerIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Counter32",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hh3cRadius": {
@@ -2070,8 +2070,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RADIUS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:50:05 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 14:10:14 2024",
+      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-RADIUS-MIB"
