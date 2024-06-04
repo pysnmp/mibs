@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-TC-MIB": [
-      "CItpTcCLLI",
-      "CItpTcInstanceNumber",
       "CItpTcLinkSLC",
-      "CItpTcQos",
-      "CItpTcLinksetId",
       "CItpTcNetworkName",
-      "CItpTcAclId",
-      "CItpTcPointCode",
-      "CItpTcPointCodeType",
-      "CItpTcServiceIndicator",
-      "CItpTcNetworkIndicator",
+      "CItpTcRouteTableName",
       "CItpTcDisplayPC",
+      "CItpTcLinksetId",
+      "CItpTcAclId",
+      "CItpTcPointCodeType",
+      "CItpTcPointCode",
+      "CItpTcNetworkIndicator",
+      "CItpTcQos",
+      "CItpTcServiceIndicator",
+      "CItpTcCLLI",
       "CItpTcLinkType",
-      "CItpTcRouteTableName"
+      "CItpTcInstanceNumber"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -32,32 +32,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "Integer32",
       "Gauge32",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
       "Unsigned32",
-      "iso"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ciscoGspMIB": {
@@ -5476,8 +5476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:04:57 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:35:03 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-GSP-MIB"

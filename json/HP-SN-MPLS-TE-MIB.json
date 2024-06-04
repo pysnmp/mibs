@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsBurstSize",
-      "MplsLsrIdentifier",
-      "MplsPathIndex",
-      "MplsTunnelAffinity",
-      "MplsTunnelIndex",
-      "MplsBitRate",
-      "MplsPathIndexOrZero",
       "MplsLSPID",
       "MplsTunnelInstanceIndex",
-      "mplsMIB"
+      "MplsPathIndexOrZero",
+      "MplsTunnelAffinity",
+      "MplsBitRate",
+      "MplsPathIndex",
+      "MplsLsrIdentifier",
+      "mplsMIB",
+      "MplsBurstSize",
+      "MplsTunnelIndex"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -20,8 +20,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -29,29 +29,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "IpAddress",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Integer32",
       "Counter64",
-      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "RowStatus",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "DisplayString"
+      "TimeStamp",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:05:16 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:34:55 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"

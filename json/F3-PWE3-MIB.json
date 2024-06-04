@@ -5,21 +5,21 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
-      "IpVersion",
-      "IpPriorityMapMode",
-      "OperationalState",
       "CmPmBinAction",
       "AdminState",
+      "CmPmIntervalType",
+      "OperationalState",
+      "IpPriorityMapMode",
+      "IpVersion",
+      "VlanId",
       "SecondaryState",
       "VlanPriority",
-      "PerfCounter64",
-      "CmPmIntervalType"
+      "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
-      "shelfIndex",
       "neIndex",
-      "slotIndex"
+      "slotIndex",
+      "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetNetPortIndex",
@@ -31,30 +31,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
       "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "StorageType",
-      "DisplayString",
       "RowStatus",
-      "MacAddress",
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "TruthValue",
-      "DateAndTime"
+      "VariablePointer",
+      "DisplayString",
+      "StorageType"
     ]
   },
   "f3Pwe3MIB": {
@@ -2081,8 +2081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PWE3-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:00:03 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:30:00 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-PWE3-MIB"

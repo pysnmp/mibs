@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TRAP-TYPE",
-      "Unsigned32",
       "MibIdentifier",
-      "Integer32",
-      "iso",
+      "TRAP-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
+      "Bits",
+      "Integer32",
+      "enterprises",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter64",
-      "enterprises",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "AlarmType": {
@@ -2111,8 +2111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/schneider/PM8ECCMIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:07:55 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:37:49 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PM8ECCMIB"

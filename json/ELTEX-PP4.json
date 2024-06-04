@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "mcTrapLParam3",
-      "elHardware",
-      "mcTrapID",
-      "mcTrapLParam2",
-      "mcTrapExState",
-      "mcTrapDescr",
       "eltrapGroup",
-      "mcTrapLParam1"
+      "mcTrapExState",
+      "mcTrapLParam1",
+      "elHardware",
+      "mcTrapLParam3",
+      "mcTrapLParam2",
+      "mcTrapDescr",
+      "mcTrapID"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeInterval",
-      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
+      "MacAddress",
       "RowStatus",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "pp4": {
@@ -6478,8 +6478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:02:23 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:32:20 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ELTEX-PP4"

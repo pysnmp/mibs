@@ -5,47 +5,47 @@
       "hh3cCommon"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "RADIUS-ACC-CLIENT-MIB": [
-      "radiusAccServerAddress",
       "radiusAccServerIndex",
+      "radiusAccServerAddress",
       "radiusAccClientServerPortNumber"
     ],
     "RADIUS-AUTH-CLIENT-MIB": [
       "radiusAuthServerIndex",
-      "radiusAuthClientServerPortNumber",
-      "radiusAuthServerAddress"
+      "radiusAuthServerAddress",
+      "radiusAuthClientServerPortNumber"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Bits",
-      "IpAddress",
+      "Unsigned32",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "hh3cRadius": {
@@ -2070,8 +2070,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RADIUS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:01:26 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:31:23 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-RADIUS-MIB"

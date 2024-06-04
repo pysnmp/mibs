@@ -12,48 +12,48 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
-      "dot1qVlanIndex",
+      "VlanId",
       "VlanIndex",
-      "VlanId"
+      "dot1qVlanIndex",
+      "dot1qFdbId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
-      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "DateAndTime",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
+      "TruthValue",
       "DisplayString",
-      "DateAndTime"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "fastPathSwitching": {
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:02:10 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:32:07 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

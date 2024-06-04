@@ -5,9 +5,9 @@
       "hh3cCommon"
     ],
     "IF-MIB": [
-      "ifDescr",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifDescr"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -17,25 +17,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "TimeTicks",
+      "iso",
       "OBJECT-TYPE",
       "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "hh3cLpbkdt": {
@@ -319,8 +319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LPBKDT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:01:25 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:31:22 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-LPBKDT-MIB"

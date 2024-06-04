@@ -5,24 +5,24 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "AGENT-CAPABILITIES",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Integer32",
       "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter32",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
@@ -144,8 +144,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-SONET-CONF",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:06:09 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:36:03 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-SONET-CONF"

@@ -5,45 +5,45 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
-      "TimeIntervalSec",
+      "CiscoAlarmSeverity",
       "Unsigned64",
-      "CiscoAlarmSeverity"
+      "TimeIntervalSec",
+      "CiscoNetworkAddress",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn"
+      "CucsManagedObjectDn",
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
+      "CucsLstorageConfigState",
+      "CucsLstorageControllerQualifierControllerType",
       "CucsStorageDiskRole",
       "CucsStorageLunType",
-      "CucsLstorageVirtualDriveDefIoPolicy",
-      "CucsLstorageVirtualDriveDefStripSize",
-      "CucsLstorageControllerQualifierControllerType",
-      "CucsLstorageConfigIssues",
-      "CucsLsConfigIssues",
-      "CucsLstorageVirtualDriveDefDriveCache",
-      "CucsLstorageAvailability",
-      "CucsLstorageVirtualDriveDefReadPolicy",
+      "CucsLstorageVirtualDriveDefWriteCachePolicy",
       "CucsLstorageBootDevice",
+      "CucsLstorageAvailability",
+      "CucsLstorageVirtualDriveDefStripSize",
+      "CucsStorageTechnologyConfig",
       "CucsLstorageAutoDeploy",
-      "CucsLstorageConfigState",
-      "CucsLstorageVirtualDriveDefAccessPolicy",
-      "CucsLstorageLunMapType",
-      "CucsStorageLocalDiskMode",
+      "CucsLstorageAdminState",
       "CucsPolicyPolicyOwner",
       "CucsStorageControllerId",
+      "CucsLstorageVirtualDriveDefIoPolicy",
+      "CucsLstorageConfigIssues",
+      "CucsLstorageVirtualDriveDefReadPolicy",
+      "CucsLstorageVirtualDriveDefDriveCache",
       "CucsLstorageDasScsiLunStorageClass",
-      "CucsStorageTechnologyConfig",
+      "CucsLsConfigIssues",
+      "CucsStorageLocalDiskMode",
       "CucsStorageUnitOperState",
-      "CucsLstorageAdminState",
-      "CucsLstorageVirtualDriveDefWriteCachePolicy"
+      "CucsLstorageVirtualDriveDefAccessPolicy",
+      "CucsLstorageLunMapType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -53,28 +53,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "Gauge32",
       "Integer32",
-      "IpAddress",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Unsigned32",
-      "iso"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DateAndTime",
-      "TruthValue",
-      "TimeInterval",
-      "RowPointer",
       "DisplayString",
+      "DateAndTime",
+      "MacAddress",
+      "TimeInterval",
+      "TruthValue",
+      "RowPointer",
       "TimeStamp",
       "TEXTUAL-CONVENTION"
     ]
@@ -1730,8 +1730,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:04:56 2024",
-      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:35:02 2024",
+      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB"
