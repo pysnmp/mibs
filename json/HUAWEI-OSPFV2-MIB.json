@@ -5,40 +5,40 @@
       "hwDatacomm"
     ],
     "OSPF-MIB": [
-      "ospfNbrIpAddr",
-      "ospfNbrRtrId",
-      "ospfNbrState",
-      "ospfLsdbRouterId",
-      "ospfLsdbLsid",
       "ospfNbrAddressLessIndex",
-      "ospfRouterId"
+      "ospfLsdbLsid",
+      "ospfNbrRtrId",
+      "ospfNbrIpAddr",
+      "ospfLsdbRouterId",
+      "ospfRouterId",
+      "ospfNbrState"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Integer32",
-      "iso",
-      "OBJECT-TYPE",
       "Counter64",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "Unsigned32"
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwOspfv2MIB": {
@@ -4236,8 +4236,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-OSPFV2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:24 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:31:47 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-OSPFV2-MIB"

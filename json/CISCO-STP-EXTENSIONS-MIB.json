@@ -8,10 +8,10 @@
       "ciscoMgmt"
     ],
     "CISCO-VTP-MIB": [
-      "VlanIndex",
       "vlanTrunkPortEntry",
-      "vtpVlanEditEntry",
-      "vtpVlanEntry"
+      "vtpVlanEntry",
+      "VlanIndex",
+      "vtpVlanEditEntry"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -19,27 +19,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
       "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "iso",
-      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
       "Bits",
-      "Counter64",
-      "MibIdentifier"
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoStpExtensionsMIB": {
@@ -5502,8 +5502,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-STP-EXTENSIONS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:36 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:31:58 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-STP-EXTENSIONS-MIB"

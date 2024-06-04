@@ -5,8 +5,8 @@
       "hwFrameIndex"
     ],
     "HUAWEI-ENVIRONMENT-MIB": [
-      "hwDigChannelIndex",
       "hwEnvEmuIndex",
+      "hwDigChannelIndex",
       "hwEnvEmuType"
     ],
     "HUAWEI-MIB": [
@@ -17,27 +17,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Integer32",
-      "iso",
-      "OBJECT-TYPE",
       "Counter64",
-      "Gauge32",
+      "MibIdentifier",
+      "iso",
       "Bits",
-      "Counter32"
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
-      "DisplayString",
-      "RowStatus",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "hwPower": {
@@ -4806,8 +4806,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-POWER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:24 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:31:47 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-POWER-MIB"

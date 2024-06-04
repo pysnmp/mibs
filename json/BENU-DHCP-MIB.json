@@ -5,32 +5,32 @@
       "benuWAG"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "IpAddress",
+      "Integer32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "IpAddress",
       "Unsigned32",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bDhcpMIB": {
@@ -2314,8 +2314,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:15:47 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:27:13 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BENU-DHCP-MIB"

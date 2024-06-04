@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -17,27 +17,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
       "OBJECT-TYPE",
-      "Bits",
+      "Unsigned32",
       "Counter64",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "ciscoLwappMobilityMIB": {
@@ -1726,8 +1726,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MOBILITY-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:35 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:31:56 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MOBILITY-MIB"

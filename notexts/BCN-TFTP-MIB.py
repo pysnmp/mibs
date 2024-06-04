@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-TFTP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-TFTP-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 08:15:48 2024
-# On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 08:27:14 2024
+# On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, TimeTicks, Gauge32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, ModuleIdentity, Unsigned32, Counter64, Counter32, NotificationType, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "TimeTicks", "Gauge32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "ModuleIdentity", "Unsigned32", "Counter64", "Counter32", "NotificationType", "Integer32", "Bits")
-TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+TimeTicks, iso, NotificationType, ModuleIdentity, Bits, ObjectIdentity, Gauge32, Counter32, MibIdentifier, Unsigned32, IpAddress, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "NotificationType", "ModuleIdentity", "Bits", "ObjectIdentity", "Gauge32", "Counter32", "MibIdentifier", "Unsigned32", "IpAddress", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 bcnTftpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 3, 1))
 bcnTftpMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnTftpMIB.setLastUpdated('201011301200Z')
@@ -58,4 +58,4 @@ bcnTftpStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 3, 4,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnTftpStatusCompliance = bcnTftpStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-TFTP-MIB", bcnTftpServiceGroups=bcnTftpServiceGroups, bcnTftpSerFilesSize=bcnTftpSerFilesSize, bcnTftpNotificationEventGroup=bcnTftpNotificationEventGroup, PYSNMP_MODULE_ID=bcnTftpMIB, bcnTftpSerPartialList=bcnTftpSerPartialList, bcnTftpMIB=bcnTftpMIB, bcnTftpSerDirs=bcnTftpSerDirs, bcnTftpServiceCompliances=bcnTftpServiceCompliances, bcnTftpNotificationEvents=bcnTftpNotificationEvents, bcnTftpSerOperState=bcnTftpSerOperState, bcnTftpNotificationDataGroup=bcnTftpNotificationDataGroup, bcnTftpServiceStatus=bcnTftpServiceStatus, bcnTftpAlarmSeverity=bcnTftpAlarmSeverity, bcnTftpServiceStatistics=bcnTftpServiceStatistics, bcnTftpSerFiles=bcnTftpSerFiles, bcnTftpStatusCompliance=bcnTftpStatusCompliance, bcnTftpAlarmInfo=bcnTftpAlarmInfo, bcnTftpNotification=bcnTftpNotification, bcnTftpConformance=bcnTftpConformance, bcnTftpServiceStatusGroup=bcnTftpServiceStatusGroup, bcnTftpObjects=bcnTftpObjects, bcnTftp=bcnTftp, bcnTftpAlarmNotif=bcnTftpAlarmNotif, bcnTftpNotificationData=bcnTftpNotificationData)
+mibBuilder.exportSymbols("BCN-TFTP-MIB", bcnTftpMIB=bcnTftpMIB, bcnTftpSerFilesSize=bcnTftpSerFilesSize, bcnTftpAlarmNotif=bcnTftpAlarmNotif, bcnTftpServiceStatistics=bcnTftpServiceStatistics, bcnTftpAlarmSeverity=bcnTftpAlarmSeverity, bcnTftpNotificationDataGroup=bcnTftpNotificationDataGroup, bcnTftpAlarmInfo=bcnTftpAlarmInfo, bcnTftpConformance=bcnTftpConformance, bcnTftp=bcnTftp, bcnTftpSerDirs=bcnTftpSerDirs, bcnTftpNotificationEvents=bcnTftpNotificationEvents, bcnTftpServiceStatus=bcnTftpServiceStatus, bcnTftpServiceStatusGroup=bcnTftpServiceStatusGroup, bcnTftpServiceCompliances=bcnTftpServiceCompliances, bcnTftpSerOperState=bcnTftpSerOperState, bcnTftpNotificationEventGroup=bcnTftpNotificationEventGroup, bcnTftpSerPartialList=bcnTftpSerPartialList, bcnTftpStatusCompliance=bcnTftpStatusCompliance, PYSNMP_MODULE_ID=bcnTftpMIB, bcnTftpServiceGroups=bcnTftpServiceGroups, bcnTftpNotificationData=bcnTftpNotificationData, bcnTftpNotification=bcnTftpNotification, bcnTftpObjects=bcnTftpObjects, bcnTftpSerFiles=bcnTftpSerFiles)

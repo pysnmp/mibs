@@ -16,24 +16,24 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "iso",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "IpAddress",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Unsigned32",
       "MibIdentifier",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -5766,8 +5766,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-RADIO-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:23:55 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:35:12 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-RADIO-SYSTEM-MIB"

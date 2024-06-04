@@ -8,47 +8,47 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddressType"
     ],
     "ISIS-MIB": [
-      "isisSysL1State",
-      "isisManAreaAddrExistState",
-      "isisISAdjEntry",
-      "isisSysInstance",
       "SystemID",
+      "isisSysInstance",
+      "isisISAdjEntry",
+      "isisSysL1State",
+      "isisSysL2State",
+      "isisManAreaAddrExistState",
       "isisISAdjState",
-      "SNPAAddress",
-      "isisSysL2State"
+      "SNPAAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "iso",
       "Bits",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "IpAddress",
-      "MibIdentifier",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "TimeInterval",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -5754,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-ISIS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:23:15 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:34:33 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-ISIS-MIB"

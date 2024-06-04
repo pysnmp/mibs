@@ -21,22 +21,22 @@
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
       "TmnxServId",
+      "TmnxVcIdOrNone",
+      "SdpBindId",
+      "ServiceOperStatus",
+      "TmnxCustId",
       "TmnxEncapVal",
       "TmnxVRtrID",
-      "ServiceOperStatus",
-      "TmnxVcIdOrNone",
       "TmnxPortID",
-      "SdpBindId",
-      "ServiceAdminStatus",
-      "TmnxCustId"
+      "ServiceAdminStatus"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-LDP-MIB": [
       "MplsLdpIdentifier"
@@ -45,34 +45,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "iso",
       "Bits",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
       "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "MacAddress",
-      "DateAndTime",
       "TruthValue",
-      "DisplayString"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "alcatelIND1ServiceMgrMIB": {
@@ -10497,8 +10497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-SERVICE-MGR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:23:15 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:34:33 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-SERVICE-MGR-MIB"

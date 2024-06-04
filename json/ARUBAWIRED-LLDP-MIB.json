@@ -8,36 +8,36 @@
       "entPhysicalIndex"
     ],
     "LLDP-MIB": [
-      "lldpRemLocalPortNum",
       "lldpLocPortNum",
+      "lldpRemIndex",
       "lldpRemTimeMark",
-      "lldpRemIndex"
+      "lldpRemLocalPortNum"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso"
+      "OBJECT-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "arubaWiredLldpMIB": {
@@ -1353,8 +1353,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-LLDP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:34 2024",
-      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:31:56 2024",
+      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ARUBAWIRED-LLDP-MIB"
