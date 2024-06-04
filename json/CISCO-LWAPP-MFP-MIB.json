@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApIfSmtDot11Bssid",
-      "cLApName",
       "cLApDot11IfSlotId",
-      "cLApSysMacAddress"
+      "cLApIfSmtDot11Bssid",
+      "cLApSysMacAddress",
+      "cLApName"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLMfpEventType",
+      "CLTimeBaseStatus",
       "CLMfpVersion",
-      "CLEventFrames",
-      "CLTimeBaseStatus"
+      "CLMfpEventType",
+      "CLEventFrames"
     ],
     "CISCO-LWAPP-WLAN-MIB": [
       "cLWlanIndex"
@@ -23,30 +23,30 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "iso",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "Integer32",
-      "Counter64",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks"
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
       "TimeInterval",
+      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
@@ -1029,8 +1029,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MFP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:35:03 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:53:19 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MFP-MIB"

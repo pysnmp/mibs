@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SIAE-EQUIPTYPE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-EQUIPTYPE-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:37:55 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:57:07 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-IpAddress, iso, Gauge32, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, Bits, ObjectIdentity, ModuleIdentity, Counter32, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "iso", "Gauge32", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "Bits", "ObjectIdentity", "ModuleIdentity", "Counter32", "Unsigned32", "MibIdentifier")
+IpAddress, Bits, Integer32, ModuleIdentity, Gauge32, Counter32, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, Counter64, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "Integer32", "ModuleIdentity", "Gauge32", "Counter32", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "Counter64", "MibIdentifier", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 equipTypeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 501))
 equipTypeMib.setRevisions(('2015-04-23 00:00', '2014-10-29 00:00', '2014-06-23 00:00', '2013-04-16 00:00',))
@@ -46,4 +46,4 @@ equipTypeEasyCellGateway = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 1, 5, 7
 if mibBuilder.loadTexts: equipTypeEasyCellGateway.setStatus('current')
 if mibBuilder.loadTexts: equipTypeEasyCellGateway.setDescription('EasyCellGateway')
 if mibBuilder.loadTexts: equipTypeEasyCellGateway.setReference('None')
-mibBuilder.exportSymbols("SIAE-EQUIPTYPE-MIB", PYSNMP_MODULE_ID=equipTypeMib, equipTypeUnknown=equipTypeUnknown, equipTypeALFO80HD=equipTypeALFO80HD, equipTypeEasyCellGateway=equipTypeEasyCellGateway, equipTypeALFOplus2=equipTypeALFOplus2, equipTypeALFO80HDsm=equipTypeALFO80HDsm, equipTypeList=equipTypeList, equipTypeAGS20=equipTypeAGS20, equipTypeMib=equipTypeMib)
+mibBuilder.exportSymbols("SIAE-EQUIPTYPE-MIB", equipTypeEasyCellGateway=equipTypeEasyCellGateway, equipTypeAGS20=equipTypeAGS20, equipTypeALFO80HDsm=equipTypeALFO80HDsm, equipTypeMib=equipTypeMib, equipTypeALFO80HD=equipTypeALFO80HD, equipTypeALFOplus2=equipTypeALFOplus2, PYSNMP_MODULE_ID=equipTypeMib, equipTypeUnknown=equipTypeUnknown, equipTypeList=equipTypeList)

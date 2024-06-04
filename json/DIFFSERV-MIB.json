@@ -2,52 +2,52 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-DSCP-TC": [
-      "DscpOrAny",
-      "Dscp"
+      "Dscp",
+      "DscpOrAny"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
+      "InetPortNumber",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetPortNumber"
+      "InetAddressType"
     ],
     "INTEGRATED-SERVICES-MIB": [
       "BurstSize"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "zeroDotZero",
       "IpAddress",
       "OBJECT-TYPE",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "mib-2",
+      "Counter32",
+      "Unsigned32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "Bits",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "Unsigned32"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
-      "StorageType",
+      "AutonomousType",
       "RowPointer",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "StorageType",
+      "RowStatus"
     ]
   },
   "diffServMib": {
@@ -2956,8 +2956,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:29:05 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:47:46 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DIFFSERV-MIB"

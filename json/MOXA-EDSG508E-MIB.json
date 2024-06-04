@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "IpAddress",
+      "Integer32",
       "Bits",
-      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
       "OBJECT-TYPE",
       "Counter64",
-      "Unsigned32",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "iso",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "MacAddress",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -9335,8 +9335,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/moxa/MOXA-EDSG508E-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:35:52 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:54:46 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MOXA-EDSG508E-MIB"

@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "iso",
+      "IpAddress",
       "Counter32",
-      "enterprises"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -213,8 +213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2n/TEL2N-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:29:08 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:47:49 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TEL2N-MIB"

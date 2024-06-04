@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module SL-MUX-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-MUX-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:36:37 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:55:47 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfIntervalCount, PerfCurrentCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount", "PerfTotalCount")
+PerfTotalCount, PerfIntervalCount, PerfCurrentCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfTotalCount", "PerfIntervalCount", "PerfCurrentCount")
 CleiCode, = mibBuilder.importSymbols("SL-ENTITY-MIB", "CleiCode")
 sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-NotificationType, IpAddress, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, TimeTicks, Counter32, Integer32, Bits, MibIdentifier, iso, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "TimeTicks", "Counter32", "Integer32", "Bits", "MibIdentifier", "iso", "ModuleIdentity", "Gauge32")
-DisplayString, TimeStamp, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TextualConvention", "TruthValue")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+NotificationType, Counter64, TimeTicks, iso, Unsigned32, IpAddress, MibIdentifier, Integer32, ObjectIdentity, ModuleIdentity, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter64", "TimeTicks", "iso", "Unsigned32", "IpAddress", "MibIdentifier", "Integer32", "ObjectIdentity", "ModuleIdentity", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits")
+TruthValue, DisplayString, TimeStamp, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TimeStamp", "TextualConvention")
 slMux = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 5))
 if mibBuilder.loadTexts: slMux.setLastUpdated('200008280000Z')
 if mibBuilder.loadTexts: slMux.setOrganization('PacketLight Networks Ltd.')
@@ -42,4 +42,4 @@ if mibBuilder.loadTexts: muxIfWaveLengthNm.setDescription('The WDM base wave len
 muxIfOscWaveLengthNm = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 5), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: muxIfOscWaveLengthNm.setStatus('current')
 if mibBuilder.loadTexts: muxIfOscWaveLengthNm.setDescription('The OSC WDM wave length.\n\t\tFor DWDM values are ituGrid[71] = 1490 or ituGrid[72] = 1510\n\t\tFor CWDM values are ituGrid[81] = 1290 or ituGrid[82] = 1310.')
-mibBuilder.exportSymbols("SL-MUX-MIB", muxIfTable=muxIfTable, muxIfOscWaveLengthNm=muxIfOscWaveLengthNm, muxIfEntry=muxIfEntry, PYSNMP_MODULE_ID=slMux, muxIfType=muxIfType, muxIfIndex=muxIfIndex, muxIfWaveSpacing=muxIfWaveSpacing, muxIfWaveLengthNm=muxIfWaveLengthNm, slMux=slMux)
+mibBuilder.exportSymbols("SL-MUX-MIB", muxIfEntry=muxIfEntry, muxIfType=muxIfType, slMux=slMux, muxIfOscWaveLengthNm=muxIfOscWaveLengthNm, PYSNMP_MODULE_ID=slMux, muxIfWaveSpacing=muxIfWaveSpacing, muxIfIndex=muxIfIndex, muxIfTable=muxIfTable, muxIfWaveLengthNm=muxIfWaveLengthNm)

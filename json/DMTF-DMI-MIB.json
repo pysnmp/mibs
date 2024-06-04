@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "MODULE-IDENTITY",
       "IpAddress",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "Bits",
+      "Unsigned32",
       "Integer32",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "enterprises",
-      "Unsigned32"
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1638,8 +1638,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DMTF-DMI-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:29:04 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:47:45 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DMTF-DMI-MIB"

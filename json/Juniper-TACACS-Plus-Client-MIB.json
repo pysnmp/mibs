@@ -5,32 +5,32 @@
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
       "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
       "RowStatus",
-      "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "juniTacacsPlusClientMIB": {
@@ -694,8 +694,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-TACACS-Plus-Client-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:36:03 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:55:14 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-TACACS-Plus-Client-MIB"

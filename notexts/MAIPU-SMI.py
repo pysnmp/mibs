@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MAIPU-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/maipu/MAIPU-SMI
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:35:30 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:54:26 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Counter32, Gauge32, Unsigned32, Integer32, ObjectIdentity, TimeTicks, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, IpAddress, Bits, enterprises, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "Gauge32", "Unsigned32", "Integer32", "ObjectIdentity", "TimeTicks", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "IpAddress", "Bits", "enterprises", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+enterprises, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, ObjectIdentity, Bits, NotificationType, Counter64, ModuleIdentity, Counter32, Integer32, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "ObjectIdentity", "Bits", "NotificationType", "Counter64", "ModuleIdentity", "Counter32", "Integer32", "TimeTicks", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 maipu = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651))
 maipu.setRevisions(('1901-01-01 00:00',))
 if mibBuilder.loadTexts: maipu.setLastUpdated('0101010000Z')
@@ -41,4 +41,4 @@ mpApp = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 6))
 if mibBuilder.loadTexts: mpApp.setStatus('current')
 mpOtherSys = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 7))
 if mibBuilder.loadTexts: mpOtherSys.setStatus('current')
-mibBuilder.exportSymbols("MAIPU-SMI", mpSystem=mpSystem, mpProducts=mpProducts, mpMgmt=mpMgmt, mpExperiment=mpExperiment, PYSNMP_MODULE_ID=maipu, mpRouterTech=mpRouterTech, mpApp=mpApp, mpOtherSys=mpOtherSys, mpVoipTech=mpVoipTech, mpSecurity=mpSecurity, mpSwitchTech=mpSwitchTech, mpTrapObject=mpTrapObject, maipu=maipu, mpSecurityTech=mpSecurityTech, mpMgmt2=mpMgmt2)
+mibBuilder.exportSymbols("MAIPU-SMI", mpMgmt=mpMgmt, mpProducts=mpProducts, mpMgmt2=mpMgmt2, PYSNMP_MODULE_ID=maipu, mpRouterTech=mpRouterTech, mpSwitchTech=mpSwitchTech, maipu=maipu, mpSecurity=mpSecurity, mpSystem=mpSystem, mpVoipTech=mpVoipTech, mpSecurityTech=mpSecurityTech, mpExperiment=mpExperiment, mpApp=mpApp, mpTrapObject=mpTrapObject, mpOtherSys=mpOtherSys)

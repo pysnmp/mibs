@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
+      "Counter32",
+      "Unsigned32",
       "Integer32",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "enterprises",
-      "Counter32"
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1249,8 +1249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Job-Monitoring-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:29:05 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:47:46 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Job-Monitoring-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WAYSTREAM-COPY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-COPY-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:38:37 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:57:50 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, ObjectIdentity, ModuleIdentity, Integer32, Unsigned32, IpAddress, iso, Gauge32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "ObjectIdentity", "ModuleIdentity", "Integer32", "Unsigned32", "IpAddress", "iso", "Gauge32", "TimeTicks")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, Counter64, Counter32, ModuleIdentity, Unsigned32, iso, Integer32, ObjectIdentity, TimeTicks, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "Counter64", "Counter32", "ModuleIdentity", "Unsigned32", "iso", "Integer32", "ObjectIdentity", "TimeTicks", "IpAddress", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 wsExperiment, = mibBuilder.importSymbols("WAYSTREAM-SMI", "wsExperiment")
 wsCopy = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 3, 2))
 wsCopy.setRevisions(('2017-02-10 11:00', '2011-01-11 17:35', '2009-03-23 11:17', '2008-09-10 15:38',))
@@ -45,4 +45,4 @@ if mibBuilder.loadTexts: wsCopyStatus.setDescription('The status of a filehandle
 wsCopyError = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: wsCopyError.setStatus('current')
 if mibBuilder.loadTexts: wsCopyError.setDescription("A textual description of the filehandle last\n                         error status. If the filehandle does not exist or\n                         has not been used for the last 24 hours, a 'No Error'\n                         message is returned.")
-mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopyEntry=wsCopyEntry, wsCopyNextState=wsCopyNextState, wsCopyError=wsCopyError, PYSNMP_MODULE_ID=wsCopy, wsCopyTable=wsCopyTable, wsCopySource=wsCopySource, wsCopyDestination=wsCopyDestination, wsCopyStatus=wsCopyStatus, wsCopyIndex=wsCopyIndex, wsCopy=wsCopy)
+mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopyNextState=wsCopyNextState, wsCopyEntry=wsCopyEntry, wsCopyTable=wsCopyTable, PYSNMP_MODULE_ID=wsCopy, wsCopy=wsCopy, wsCopyDestination=wsCopyDestination, wsCopyIndex=wsCopyIndex, wsCopyError=wsCopyError, wsCopySource=wsCopySource, wsCopyStatus=wsCopyStatus)

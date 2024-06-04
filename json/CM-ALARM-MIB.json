@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "ADVA-MIB": [
-      "fsp150cm",
-      "TrapAlarmSeverity"
+      "TrapAlarmSeverity",
+      "fsp150cm"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "slotIndex",
+      "neIndex",
       "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetNetPortIndex",
-      "cmEthernetAccPortIndex"
+      "cmEthernetAccPortIndex",
+      "cmEthernetNetPortIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Bits",
-      "Counter32",
       "Unsigned32",
       "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "VariablePointer",
+      "TruthValue",
       "DisplayString",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
   },
@@ -2416,8 +2416,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-ALARM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:30:00 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:48:41 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CM-ALARM-MIB"

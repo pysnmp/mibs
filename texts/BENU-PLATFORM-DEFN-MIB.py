@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BENU-PLATFORM-DEFN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-PLATFORM-DEFN-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:30:17 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:48:57 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 benuPlatform, = mibBuilder.importSymbols("BENU-PLATFORM-MIB", "benuPlatform")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, ObjectIdentity, Unsigned32, Integer32, NotificationType, Gauge32, MibIdentifier, Counter32, iso, Bits, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "Integer32", "NotificationType", "Gauge32", "MibIdentifier", "Counter32", "iso", "Bits", "Counter64", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, MibIdentifier, TimeTicks, NotificationType, IpAddress, Counter64, Gauge32, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibIdentifier", "TimeTicks", "NotificationType", "IpAddress", "Counter64", "Gauge32", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Integer32", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 benuPlatformDefn = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 1, 2))
 benuPlatformDefn.setRevisions(('2016-11-17 00:00', '2016-10-13 00:00', '2016-04-12 00:00', '2012-10-18 00:00',))
 
@@ -60,4 +60,4 @@ benuPortBridge = MibIdentifier((1, 3, 6, 1, 4, 1, 39406, 1, 2, 4, 11))
 benuPortLag = MibIdentifier((1, 3, 6, 1, 4, 1, 39406, 1, 2, 4, 12))
 benuPortMultiBind = MibIdentifier((1, 3, 6, 1, 4, 1, 39406, 1, 2, 4, 13))
 benuPortMultiBindLastResort = MibIdentifier((1, 3, 6, 1, 4, 1, 39406, 1, 2, 4, 14))
-mibBuilder.exportSymbols("BENU-PLATFORM-DEFN-MIB", Benu_Internal=Benu_Internal, benuPortTunnel=benuPortTunnel, benuCardUnknown=benuCardUnknown, Benu_xMEG_100=Benu_xMEG_100, benuPortLoopback=benuPortLoopback, benuPortT1=benuPortT1, benuPortATM=benuPortATM, benuPortNULL=benuPortNULL, benuPortPOS=benuPortPOS, benuPortl2tp=benuPortl2tp, benuPortIpGre=benuPortIpGre, benuChassisTypeMEG400=benuChassisTypeMEG400, benuPortEthernet=benuPortEthernet, platformUnknown=platformUnknown, PYSNMP_MODULE_ID=benuPlatformDefn, Benu_Virtual=Benu_Virtual, benuChassisTypeMEG100=benuChassisTypeMEG100, benuCardSwitchMesh=benuCardSwitchMesh, benuPortTypes=benuPortTypes, benuPortGige=benuPortGige, benuPortBridge=benuPortBridge, benuCardIO=benuCardIO, benuPlatformDefn=benuPlatformDefn, benuCardRSM=benuCardRSM, benuChassisTypeMEG50=benuChassisTypeMEG50, benuCardTypes=benuCardTypes, benuCardSEFP=benuCardSEFP, Benu_VMware=Benu_VMware, Benu_VirtualBox=Benu_VirtualBox, benuCardSwitchFabric=benuCardSwitchFabric, benuChassisTypeMEG1200=benuChassisTypeMEG1200, Benu_xMEG_10=Benu_xMEG_10, benuCardShelfMgr=benuCardShelfMgr, benuChassisTypes=benuChassisTypes, benuPortLag=benuPortLag, Benu_KVM=Benu_KVM, benuPortUnknown=benuPortUnknown, benuPortMultiBindLastResort=benuPortMultiBindLastResort, benuPlatformTypes=benuPlatformTypes, benuPortMultiBind=benuPortMultiBind, benuChassisTypeUnknown=benuChassisTypeUnknown)
+mibBuilder.exportSymbols("BENU-PLATFORM-DEFN-MIB", benuPlatformDefn=benuPlatformDefn, benuCardShelfMgr=benuCardShelfMgr, benuPortTypes=benuPortTypes, benuPortNULL=benuPortNULL, benuCardSwitchMesh=benuCardSwitchMesh, Benu_VMware=Benu_VMware, benuPortBridge=benuPortBridge, Benu_Virtual=Benu_Virtual, benuPortT1=benuPortT1, benuPortUnknown=benuPortUnknown, benuPortTunnel=benuPortTunnel, benuCardSwitchFabric=benuCardSwitchFabric, Benu_xMEG_100=Benu_xMEG_100, PYSNMP_MODULE_ID=benuPlatformDefn, Benu_VirtualBox=Benu_VirtualBox, benuPortATM=benuPortATM, benuChassisTypeMEG100=benuChassisTypeMEG100, benuPlatformTypes=benuPlatformTypes, benuChassisTypeMEG1200=benuChassisTypeMEG1200, benuPortMultiBindLastResort=benuPortMultiBindLastResort, Benu_xMEG_10=Benu_xMEG_10, benuCardRSM=benuCardRSM, Benu_KVM=Benu_KVM, Benu_Internal=Benu_Internal, platformUnknown=platformUnknown, benuChassisTypeMEG50=benuChassisTypeMEG50, benuPortLoopback=benuPortLoopback, benuChassisTypeUnknown=benuChassisTypeUnknown, benuCardTypes=benuCardTypes, benuPortMultiBind=benuPortMultiBind, benuChassisTypeMEG400=benuChassisTypeMEG400, benuChassisTypes=benuChassisTypes, benuPortl2tp=benuPortl2tp, benuCardUnknown=benuCardUnknown, benuCardSEFP=benuCardSEFP, benuPortEthernet=benuPortEthernet, benuPortLag=benuPortLag, benuCardIO=benuCardIO, benuPortPOS=benuPortPOS, benuPortGige=benuPortGige, benuPortIpGre=benuPortIpGre)

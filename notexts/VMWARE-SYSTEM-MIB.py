@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:38:35 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:57:49 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-MibIdentifier, Bits, IpAddress, Gauge32, ModuleIdentity, Counter32, Integer32, iso, Counter64, NotificationType, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "IpAddress", "Gauge32", "ModuleIdentity", "Counter32", "Integer32", "iso", "Counter64", "NotificationType", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ObjectIdentity, Bits, ModuleIdentity, Counter32, Counter64, MibIdentifier, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, Unsigned32, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Bits", "ModuleIdentity", "Counter32", "Counter64", "MibIdentifier", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "Unsigned32", "iso", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwSystem, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwSystem")
 vmwSystemMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 1, 10))
 vmwSystemMIB.setRevisions(('2010-08-02 00:00', '2008-01-12 00:00', '2007-12-27 00:00',))
@@ -36,4 +36,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 vmwSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 1, 10, 2, 2, 1)).setObjects(("VMWARE-SYSTEM-MIB", "vmwProdName"), ("VMWARE-SYSTEM-MIB", "vmwProdVersion"), ("VMWARE-SYSTEM-MIB", "vmwProdBuild"), ("VMWARE-SYSTEM-MIB", "vmwProdUpdate"), ("VMWARE-SYSTEM-MIB", "vmwProdPatch"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwSystemGroup = vmwSystemGroup.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-SYSTEM-MIB", vmwSystemGroup=vmwSystemGroup, vmwSystemMIBCompliances=vmwSystemMIBCompliances, vmwProdVersion=vmwProdVersion, vmwSysMIBBasicCompliance=vmwSysMIBBasicCompliance, vmwProdBuild=vmwProdBuild, vmwProdName=vmwProdName, vmwProdUpdate=vmwProdUpdate, vmwSysMIBGroups=vmwSysMIBGroups, vmwProdPatch=vmwProdPatch, PYSNMP_MODULE_ID=vmwSystemMIB, vmwSystemMIBConformance=vmwSystemMIBConformance, vmwSystemMIB=vmwSystemMIB)
+mibBuilder.exportSymbols("VMWARE-SYSTEM-MIB", vmwProdVersion=vmwProdVersion, vmwSystemMIB=vmwSystemMIB, PYSNMP_MODULE_ID=vmwSystemMIB, vmwSysMIBGroups=vmwSysMIBGroups, vmwSystemMIBCompliances=vmwSystemMIBCompliances, vmwProdBuild=vmwProdBuild, vmwProdName=vmwProdName, vmwProdUpdate=vmwProdUpdate, vmwSysMIBBasicCompliance=vmwSysMIBBasicCompliance, vmwSystemGroup=vmwSystemGroup, vmwSystemMIBConformance=vmwSystemMIBConformance, vmwProdPatch=vmwProdPatch)

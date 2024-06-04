@@ -5,30 +5,30 @@
       "hpnicfCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
+      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
       "Counter32",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Gauge32",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Bits",
-      "MibIdentifier"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "hpnicfRSA": {
@@ -420,8 +420,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-RSA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:34:55 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:54:59 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-RSA-MIB"

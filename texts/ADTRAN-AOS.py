@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ADTRAN-AOS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:29:13 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:47:53 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+adIdentityShared, adShared = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentityShared", "adShared")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, ObjectIdentity, TimeTicks, iso, ModuleIdentity, NotificationType, Unsigned32, MibIdentifier, Gauge32, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "ObjectIdentity", "TimeTicks", "iso", "ModuleIdentity", "NotificationType", "Unsigned32", "MibIdentifier", "Gauge32", "Integer32", "Bits")
+Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, Counter64, ModuleIdentity, IpAddress, Counter32, MibIdentifier, Unsigned32, Gauge32, iso, NotificationType, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "Counter64", "ModuleIdentity", "IpAddress", "Counter32", "MibIdentifier", "Unsigned32", "Gauge32", "iso", "NotificationType", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53))
 adGenAOSMib.setRevisions(('2014-09-10 00:00', '2012-04-27 00:00', '2010-07-05 00:00', '2004-10-20 00:00',))
@@ -32,4 +32,4 @@ adGenAOSPower = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 7))
 adGenAOSConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99))
 adGenAOSApplications = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 8))
 adGenAOSMef = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 9))
-mibBuilder.exportSymbols("ADTRAN-AOS", adGenAOSSwitch=adGenAOSSwitch, adGenAOSWan=adGenAOSWan, adGenAOSSecurity=adGenAOSSecurity, adGenAOSApplications=adGenAOSApplications, adGenAOSConformance=adGenAOSConformance, adGenAOSRouter=adGenAOSRouter, adGenAOSPower=adGenAOSPower, adGenAOSMef=adGenAOSMef, adGenAOSVoice=adGenAOSVoice, PYSNMP_MODULE_ID=adGenAOSMib, adGenAOS=adGenAOS, adGenAOSCommon=adGenAOSCommon, adGenAOSMib=adGenAOSMib)
+mibBuilder.exportSymbols("ADTRAN-AOS", PYSNMP_MODULE_ID=adGenAOSMib, adGenAOSCommon=adGenAOSCommon, adGenAOSMef=adGenAOSMef, adGenAOSRouter=adGenAOSRouter, adGenAOS=adGenAOS, adGenAOSMib=adGenAOSMib, adGenAOSSwitch=adGenAOSSwitch, adGenAOSApplications=adGenAOSApplications, adGenAOSConformance=adGenAOSConformance, adGenAOSVoice=adGenAOSVoice, adGenAOSWan=adGenAOSWan, adGenAOSSecurity=adGenAOSSecurity, adGenAOSPower=adGenAOSPower)

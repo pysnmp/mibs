@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CT-FLASH-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-FLASH-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:32:35 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:51:20 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 ctFlash, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctFlash")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, Integer32, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, ModuleIdentity, IpAddress, NotificationType, TimeTicks, Bits, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "ModuleIdentity", "IpAddress", "NotificationType", "TimeTicks", "Bits", "iso", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TimeTicks, Counter32, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, iso, ObjectIdentity, Bits, Integer32, ModuleIdentity, NotificationType, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "iso", "ObjectIdentity", "Bits", "Integer32", "ModuleIdentity", "NotificationType", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 flashStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 1))
 flashFile = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 2))
 flashCmd = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3))
@@ -84,4 +84,4 @@ if mibBuilder.loadTexts: flashCmdSize.setDescription('Size of the download file.
 flashBlockCount = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 10, 3, 11), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: flashBlockCount.setStatus('mandatory')
 if mibBuilder.loadTexts: flashBlockCount.setDescription('Current TFTP block count of an active session. If no\n                TFTP transfer is in progress, zero is returned.')
-mibBuilder.exportSymbols("CT-FLASH-MIB", flashFileTable=flashFileTable, flashCmdOperation=flashCmdOperation, flashFileSize=flashFileSize, flashCmdStatus=flashCmdStatus, flashCmdVersion=flashCmdVersion, flashFilename=flashFilename, flashCmdVolume=flashCmdVolume, flashVolumeStatusTable=flashVolumeStatusTable, flashFileVersion=flashFileVersion, flashBlockCount=flashBlockCount, flashCmdType=flashCmdType, flashVolFiles=flashVolFiles, flashCmdNetAddress=flashCmdNetAddress, flashCmdFile=flashCmdFile, flashCmd=flashCmd, flashFileEntry=flashFileEntry, flashCmdError=flashCmdError, flashVolume=flashVolume, flashCmdSize=flashCmdSize, flashFileID=flashFileID, flashVolSpace=flashVolSpace, flashVolumeStatusEntry=flashVolumeStatusEntry, flashFile=flashFile, flashCmdPath=flashCmdPath, flashStatus=flashStatus, flashFileType=flashFileType)
+mibBuilder.exportSymbols("CT-FLASH-MIB", flashFileType=flashFileType, flashCmdVersion=flashCmdVersion, flashFileVersion=flashFileVersion, flashCmdPath=flashCmdPath, flashCmdNetAddress=flashCmdNetAddress, flashFileEntry=flashFileEntry, flashCmdError=flashCmdError, flashCmdFile=flashCmdFile, flashCmdOperation=flashCmdOperation, flashVolumeStatusEntry=flashVolumeStatusEntry, flashStatus=flashStatus, flashFileID=flashFileID, flashFilename=flashFilename, flashCmdType=flashCmdType, flashFileTable=flashFileTable, flashFileSize=flashFileSize, flashVolume=flashVolume, flashVolSpace=flashVolSpace, flashBlockCount=flashBlockCount, flashCmdVolume=flashCmdVolume, flashCmd=flashCmd, flashVolFiles=flashVolFiles, flashVolumeStatusTable=flashVolumeStatusTable, flashCmdSize=flashCmdSize, flashFile=flashFile, flashCmdStatus=flashCmdStatus)

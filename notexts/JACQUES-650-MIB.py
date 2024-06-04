@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module JACQUES-650-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacques/JACQUES-650-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:35:09 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:53:57 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Gauge32, ObjectIdentity, Bits, Integer32, Counter64, iso, enterprises, TimeTicks, NotificationType, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, Counter32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "Bits", "Integer32", "Counter64", "iso", "enterprises", "TimeTicks", "NotificationType", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "Counter32", "Unsigned32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, ObjectIdentity, Unsigned32, Gauge32, IpAddress, Bits, ModuleIdentity, Counter32, Integer32, TimeTicks, MibIdentifier, NotificationType, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "IpAddress", "Bits", "ModuleIdentity", "Counter32", "Integer32", "TimeTicks", "MibIdentifier", "NotificationType", "enterprises")
+TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
 jacquesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 49759))
 jacquesMIB.setRevisions(('2017-03-26 00:00',))
 if mibBuilder.loadTexts: jacquesMIB.setLastUpdated('201703260000Z')
@@ -63,4 +63,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 jacquesEndpointNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 49759, 1, 2, 4)).setObjects(("JACQUES-650-MIB", "jacquesEndpointOnlineNotify"), ("JACQUES-650-MIB", "jacquesEndpointModeNotify"), ("JACQUES-650-MIB", "jacquesEndpointAlarmNotify"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     jacquesEndpointNotifyGroup = jacquesEndpointNotifyGroup.setStatus('current')
-mibBuilder.exportSymbols("JACQUES-650-MIB", jacquesMIBConformance=jacquesMIBConformance, jacquesAppUp=jacquesAppUp, jacquesMIB=jacquesMIB, jacquesNotify=jacquesNotify, jacquesEndpointOnlineNotify=jacquesEndpointOnlineNotify, jacquesEndpointModeNotify=jacquesEndpointModeNotify, jacquesAppNotifyPrePrefix=jacquesAppNotifyPrePrefix, PYSNMP_MODULE_ID=jacquesMIB, jacquesMIBCompliances=jacquesMIBCompliances, jacquesServerGroup=jacquesServerGroup, jacquesServerNotifyGroup=jacquesServerNotifyGroup, jacquesEndpointAlarmNotify=jacquesEndpointAlarmNotify, jacquesEndpointAlarmType=jacquesEndpointAlarmType, jacquesEndpointMode=jacquesEndpointMode, jacquesEndpointAlarmState=jacquesEndpointAlarmState, jacquesJccpserverUpNotify=jacquesJccpserverUpNotify, jacquesMIBGroups=jacquesMIBGroups, jacquesEndpointGroup=jacquesEndpointGroup, jacquesAppNotifyPrefix=jacquesAppNotifyPrefix, jacquesScalars=jacquesScalars, jacquesEndpointNotifyPrePrefix=jacquesEndpointNotifyPrePrefix, jacquesEndpointOnline=jacquesEndpointOnline, jacquesTag=jacquesTag, jacquesEndpointNotifyPrefix=jacquesEndpointNotifyPrefix, jacquesServerName=jacquesServerName, jacquesEndpointNotifyGroup=jacquesEndpointNotifyGroup, jacquesMIBCompliance=jacquesMIBCompliance)
+mibBuilder.exportSymbols("JACQUES-650-MIB", jacquesTag=jacquesTag, jacquesEndpointGroup=jacquesEndpointGroup, jacquesScalars=jacquesScalars, jacquesMIBGroups=jacquesMIBGroups, jacquesNotify=jacquesNotify, jacquesEndpointMode=jacquesEndpointMode, jacquesAppUp=jacquesAppUp, jacquesServerName=jacquesServerName, PYSNMP_MODULE_ID=jacquesMIB, jacquesAppNotifyPrefix=jacquesAppNotifyPrefix, jacquesEndpointAlarmState=jacquesEndpointAlarmState, jacquesEndpointModeNotify=jacquesEndpointModeNotify, jacquesServerGroup=jacquesServerGroup, jacquesServerNotifyGroup=jacquesServerNotifyGroup, jacquesEndpointNotifyPrePrefix=jacquesEndpointNotifyPrePrefix, jacquesEndpointAlarmType=jacquesEndpointAlarmType, jacquesMIB=jacquesMIB, jacquesMIBCompliances=jacquesMIBCompliances, jacquesJccpserverUpNotify=jacquesJccpserverUpNotify, jacquesEndpointNotifyGroup=jacquesEndpointNotifyGroup, jacquesEndpointAlarmNotify=jacquesEndpointAlarmNotify, jacquesEndpointNotifyPrefix=jacquesEndpointNotifyPrefix, jacquesEndpointOnlineNotify=jacquesEndpointOnlineNotify, jacquesMIBCompliance=jacquesMIBCompliance, jacquesEndpointOnline=jacquesEndpointOnline, jacquesAppNotifyPrePrefix=jacquesAppNotifyPrePrefix, jacquesMIBConformance=jacquesMIBConformance)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SYNOLOGY-DISK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-DISK-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:38:11 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:57:26 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Gauge32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, MibIdentifier, TimeTicks, iso, Bits, IpAddress, ObjectIdentity, ModuleIdentity, NotificationType, Integer32, Unsigned32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "MibIdentifier", "TimeTicks", "iso", "Bits", "IpAddress", "ObjectIdentity", "ModuleIdentity", "NotificationType", "Integer32", "Unsigned32", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Counter32, Gauge32, enterprises, ModuleIdentity, Unsigned32, Counter64, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, TimeTicks, IpAddress, MibIdentifier, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "enterprises", "ModuleIdentity", "Unsigned32", "Counter64", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "TimeTicks", "IpAddress", "MibIdentifier", "ObjectIdentity", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 synoDisk = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 2))
 synoDisk.setRevisions(('2013-09-11 00:00',))
 
@@ -57,4 +57,4 @@ diskGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 2, 2, 2, 1)).setObjects(("SYNOL
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     diskGroup = diskGroup.setStatus('current')
 if mibBuilder.loadTexts: diskGroup.setDescription('A collection of objects providing basic information\n             of an synology disk entity.')
-mibBuilder.exportSymbols("SYNOLOGY-DISK-MIB", diskIndex=diskIndex, diskCompliances=diskCompliances, diskTable=diskTable, synoDisk=synoDisk, diskModel=diskModel, PYSNMP_MODULE_ID=synoDisk, diskGroups=diskGroups, diskCompliance=diskCompliance, diskTemperature=diskTemperature, synology=synology, diskConformance=diskConformance, diskGroup=diskGroup, diskType=diskType, diskEntry=diskEntry, diskStatus=diskStatus, diskID=diskID)
+mibBuilder.exportSymbols("SYNOLOGY-DISK-MIB", diskID=diskID, diskEntry=diskEntry, diskTemperature=diskTemperature, diskConformance=diskConformance, synology=synology, diskTable=diskTable, diskIndex=diskIndex, diskCompliance=diskCompliance, diskType=diskType, diskStatus=diskStatus, diskCompliances=diskCompliances, diskGroups=diskGroups, diskGroup=diskGroup, synoDisk=synoDisk, PYSNMP_MODULE_ID=synoDisk, diskModel=diskModel)

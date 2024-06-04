@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PACKETLOGIC-OVERVIEW-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/procera/PACKETLOGIC-OVERVIEW-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:37:10 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:56:21 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, MibIdentifier, Bits, Integer32, Counter64, iso, Unsigned32, TimeTicks, Counter32, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Bits", "Integer32", "Counter64", "iso", "Unsigned32", "TimeTicks", "Counter32", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType")
-DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, Counter64, Bits, ModuleIdentity, MibIdentifier, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, Gauge32, ObjectIdentity, NotificationType, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "Bits", "ModuleIdentity", "MibIdentifier", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "Gauge32", "ObjectIdentity", "NotificationType", "IpAddress")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 systemOverview = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 40))
 systemOverview.setRevisions(('2019-09-12 15:00',))
 
@@ -43,4 +43,4 @@ if mibBuilder.loadTexts: machineId.setDescription('MACHINEID of the system')
 firmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 40, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: firmwareVersion.setStatus('current')
 if mibBuilder.loadTexts: firmwareVersion.setDescription('Firmware Version')
-mibBuilder.exportSymbols("PACKETLOGIC-OVERVIEW-MIB", overviewEntryIndex=overviewEntryIndex, systemOverview=systemOverview, overview=overview, configMd5Sum=configMd5Sum, machineId=machineId, model=model, PYSNMP_MODULE_ID=systemOverview, overviewEntry=overviewEntry, firmwareVersion=firmwareVersion)
+mibBuilder.exportSymbols("PACKETLOGIC-OVERVIEW-MIB", overview=overview, overviewEntryIndex=overviewEntryIndex, model=model, machineId=machineId, configMd5Sum=configMd5Sum, PYSNMP_MODULE_ID=systemOverview, firmwareVersion=firmwareVersion, systemOverview=systemOverview, overviewEntry=overviewEntry)

@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "AdminState",
       "RestartType",
-      "CmPmIntervalType",
-      "OperationalState",
       "SecondaryState",
+      "AdminState",
+      "UsbOperationalMode",
       "VlanId",
+      "CmPmIntervalType",
       "TDMFrequencySourceType",
-      "UsbOperationalMode"
+      "OperationalState"
     ],
     "CM-SYSTEM-MIB": [
       "CmAutoProvMode"
@@ -21,34 +21,34 @@
       "PhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Bits",
-      "Counter32",
       "Unsigned32",
       "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "VariablePointer",
+      "TruthValue",
       "DisplayString",
-      "StorageType"
+      "DateAndTime",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "cmEntityMIB": {
@@ -21184,8 +21184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-ENTITY-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:30:01 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:48:43 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CM-ENTITY-MIB"

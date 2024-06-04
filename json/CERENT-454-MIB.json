@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
-      "cerentProducts",
-      "cerentModules"
+      "cerentModules",
+      "cerentProducts"
     ],
     "CERENT-TC": [
-      "CerentPortNumber",
-      "CerentPeriod",
-      "CerentLocation",
       "CerentAlarmStatus",
+      "CerentNotificationClass",
+      "CerentLocation",
       "CerentMonitorType",
+      "CerentPeriod",
+      "CerentPortNumber",
       "CerentAlarmServiceAffecting",
-      "CerentAlarmSeverity",
-      "CerentNotificationClass"
+      "CerentAlarmSeverity"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "TimeTicks"
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cerent454MibModule": {
@@ -51426,8 +51426,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-454-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:34:59 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:53:18 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CERENT-454-MIB"

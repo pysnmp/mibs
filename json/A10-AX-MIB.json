@@ -16,23 +16,23 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "Bits",
-      "iso",
       "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32",
       "IpAddress",
-      "Integer32"
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "PhysAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -13336,8 +13336,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/a10/A10-AX-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:29:13 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:47:54 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "A10-AX-MIB"

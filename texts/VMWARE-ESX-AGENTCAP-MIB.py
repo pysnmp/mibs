@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-ESX-AGENTCAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ESX-AGENTCAP-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:38:37 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:57:50 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "AgentCapabilities")
-TimeTicks, Counter32, iso, Integer32, ModuleIdentity, NotificationType, Unsigned32, Counter64, Gauge32, MibIdentifier, ObjectIdentity, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "iso", "Integer32", "ModuleIdentity", "NotificationType", "Unsigned32", "Counter64", "Gauge32", "MibIdentifier", "ObjectIdentity", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationType, Unsigned32, ModuleIdentity, Counter64, TimeTicks, ObjectIdentity, Gauge32, IpAddress, Integer32, MibIdentifier, Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "ModuleIdentity", "Counter64", "TimeTicks", "ObjectIdentity", "Gauge32", "IpAddress", "Integer32", "MibIdentifier", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
 vmwAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 1))
 vmwAgentCapabilityMIB.setRevisions(('2020-03-27 00:00', '2017-10-13 00:00', '2016-04-22 00:00', '2015-01-12 00:00', '2014-08-02 00:00', '2012-10-03 00:00', '2012-07-13 00:00', '2010-10-18 00:00', '2008-10-27 00:00',))
@@ -85,4 +85,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwESX40x = vmwESX40x.setStatus('current')
 if mibBuilder.loadTexts: vmwESX40x.setDescription('Release 4.0.x for VMware ESX. The SNMP agent is now part of the hostd process')
 vmwESX40x.setReference('http://www.vmware.com/products')
-mibBuilder.exportSymbols("VMWARE-ESX-AGENTCAP-MIB", vmwESX51x=vmwESX51x, PYSNMP_MODULE_ID=vmwAgentCapabilityMIB, vmwESX55=vmwESX55, vmwAgentCapabilityMIB=vmwAgentCapabilityMIB, vmwESX50x=vmwESX50x, vmwESX65x=vmwESX65x, vmwESX41x=vmwESX41x, vmwESX67x=vmwESX67x, vmwESX40x=vmwESX40x, vmwEsxCapability=vmwEsxCapability, vmwESX60x=vmwESX60x, vmwESX70x=vmwESX70x)
+mibBuilder.exportSymbols("VMWARE-ESX-AGENTCAP-MIB", vmwESX60x=vmwESX60x, vmwEsxCapability=vmwEsxCapability, vmwESX51x=vmwESX51x, vmwESX40x=vmwESX40x, vmwESX67x=vmwESX67x, PYSNMP_MODULE_ID=vmwAgentCapabilityMIB, vmwESX65x=vmwESX65x, vmwESX70x=vmwESX70x, vmwAgentCapabilityMIB=vmwAgentCapabilityMIB, vmwESX55=vmwESX55, vmwESX50x=vmwESX50x, vmwESX41x=vmwESX41x)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module AH-SYSTEM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:29:15 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:47:56 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ahProduct, = mibBuilder.importSymbols("AH-SMI-MIB", "ahProduct")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Bits, MibIdentifier, IpAddress, TimeTicks, iso, Counter32, Counter64, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "MibIdentifier", "IpAddress", "TimeTicks", "iso", "Counter32", "Counter64", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter32, Bits, Unsigned32, MibIdentifier, iso, Counter64, Gauge32, IpAddress, ObjectIdentity, NotificationType, ModuleIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Unsigned32", "MibIdentifier", "iso", "Counter64", "Gauge32", "IpAddress", "ObjectIdentity", "NotificationType", "ModuleIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ahSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928, 1, 2))
 if mibBuilder.loadTexts: ahSystem.setLastUpdated('201608310000Z')
 if mibBuilder.loadTexts: ahSystem.setOrganization('Aerohive Networks, Inc')
@@ -39,4 +39,4 @@ ahEnvirmentFan = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 11), Integer32().subt
 if mibBuilder.loadTexts: ahEnvirmentFan.setStatus('current')
 ahFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 26928, 1, 2, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ahFirmwareVersion.setStatus('current')
-mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahSystemName=ahSystemName, ahUpTime=ahUpTime, ahSystemSerial=ahSystemSerial, ahCpuUtilization=ahCpuUtilization, ahDeviceMode=ahDeviceMode, ahEnvirmentTemp=ahEnvirmentTemp, ahEnvirmentFan=ahEnvirmentFan, ahSystem=ahSystem, ahFirmwareVersion=ahFirmwareVersion, ahClientCount=ahClientCount, ahMemUtilization=ahMemUtilization, ahSystemDescription=ahSystemDescription, ahHwVersion=ahHwVersion, PYSNMP_MODULE_ID=ahSystem)
+mibBuilder.exportSymbols("AH-SYSTEM-MIB", ahEnvirmentTemp=ahEnvirmentTemp, ahDeviceMode=ahDeviceMode, ahCpuUtilization=ahCpuUtilization, ahSystemName=ahSystemName, ahSystem=ahSystem, ahHwVersion=ahHwVersion, PYSNMP_MODULE_ID=ahSystem, ahFirmwareVersion=ahFirmwareVersion, ahEnvirmentFan=ahEnvirmentFan, ahMemUtilization=ahMemUtilization, ahClientCount=ahClientCount, ahSystemDescription=ahSystemDescription, ahSystemSerial=ahSystemSerial, ahUpTime=ahUpTime)

@@ -11,48 +11,48 @@
       "AddressFamilyNumbers"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "Integer32",
-      "OBJECT-IDENTITY",
       "Bits",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "Unsigned32",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "TimeTicks"
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TruthValue",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportDomain",
-      "TransportAddress"
+      "TransportAddress",
+      "TransportDomain"
     ]
   },
   "hwMinMMIB": {
@@ -3679,8 +3679,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MINM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:34:39 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:53:28 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MINM-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SUPERMICRO-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/supermicro/SUPERMICRO-SMI
-# Produced by pysmi-1.1.12 at Tue Jun  4 13:38:10 2024
-# On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 13:57:23 2024
+# On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Unsigned32, Counter32, NotificationType, IpAddress, Integer32, Counter64, iso, enterprises, TimeTicks, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "Counter32", "NotificationType", "IpAddress", "Integer32", "Counter64", "iso", "enterprises", "TimeTicks", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, TimeTicks, enterprises, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ObjectIdentity, Integer32, Counter32, Gauge32, ModuleIdentity, Unsigned32, Bits, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "enterprises", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "ModuleIdentity", "Unsigned32", "Bits", "Counter64", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 supermicro = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876))
 supermicro.setRevisions(('2001-10-26 00:00',))
@@ -29,4 +29,4 @@ if mibBuilder.loadTexts: smHealth.setDescription('smHealth is the main subtree f
 smSSMInfo = ObjectIdentity((1, 3, 6, 1, 4, 1, 10876, 100))
 if mibBuilder.loadTexts: smSSMInfo.setStatus('current')
 if mibBuilder.loadTexts: smSSMInfo.setDescription('smSSMInfo is the main subtree for ssm mib development.')
-mibBuilder.exportSymbols("SUPERMICRO-SMI", smHealth=smHealth, smSSMInfo=smSSMInfo, supermicro=supermicro, smProducts=smProducts, PYSNMP_MODULE_ID=supermicro)
+mibBuilder.exportSymbols("SUPERMICRO-SMI", smHealth=smHealth, smProducts=smProducts, PYSNMP_MODULE_ID=supermicro, smSSMInfo=smSSMInfo, supermicro=supermicro)

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
+      "entPhysicalIndex",
       "entPhysicalDescr",
-      "entPhysicalName",
-      "entPhysicalIndex"
+      "entPhysicalName"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -16,25 +16,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "iso",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
+      "Integer32",
       "Counter32",
+      "Gauge32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
+      "MibIdentifier",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -2645,8 +2645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-ENTITY-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 13:31:22 2024",
-      "On host fv-az573-215 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:50:04 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-ENTITY-EXT-MIB"
