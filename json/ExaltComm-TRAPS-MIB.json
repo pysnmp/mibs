@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ExaltComProducts": [
-      "locLinkState",
       "productsMIBNotifications",
+      "locLinkState",
       "modelName"
     ],
     "SNMPv2-CONF": [
@@ -11,24 +11,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "iso",
+      "Bits",
+      "Integer32",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "notifs": {
@@ -336,8 +336,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComm-TRAPS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:06:02 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:18:25 2024",
+      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ExaltComm-TRAPS-MIB"

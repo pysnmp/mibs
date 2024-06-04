@@ -5,32 +5,32 @@
       "one4net"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Opaque",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "enterprises"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "enterprises",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Opaque"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "DisplayString"
+      "TimeInterval"
     ]
   },
   "ipvs": {
@@ -568,8 +568,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/kemp/IPVS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:08:40 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:58 2024",
+      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPVS-MIB"

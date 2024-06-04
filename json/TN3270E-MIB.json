@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IANATn3270eTC-MIB": [
+      "IANATn3270ResourceType",
       "IANATn3270Functions",
-      "IANATn3270eAddress",
       "IANATn3270eAddrType",
-      "IANATn3270eLogData",
-      "IANATn3270eClientType",
       "IANATn3270DeviceType",
-      "IANATn3270ResourceType"
+      "IANATn3270eAddress",
+      "IANATn3270eLogData",
+      "IANATn3270eClientType"
     ],
     "SNA-NAU-MIB": [
       "snanauMIB"
@@ -18,32 +18,32 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
       "iso",
-      "Integer32",
       "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
       "Counter64",
+      "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "RowStatus",
       "DisplayString",
-      "RowStatus"
+      "TestAndIncr",
+      "TimeStamp",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ],
     "SYSAPPL-MIB": [
       "Utf8String"
@@ -1994,8 +1994,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TN3270E-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:01:52 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:14:26 2024",
+      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TN3270E-MIB"

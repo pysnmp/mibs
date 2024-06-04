@@ -9,23 +9,23 @@
       "netscreenTrapType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "Bits",
+      "Integer32",
       "Counter32",
+      "MibIdentifier",
       "iso",
       "Counter64",
-      "Integer32",
-      "Bits",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "Unsigned32",
+      "MODULE-IDENTITY",
       "IpAddress",
       "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -930,8 +930,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-BGP4-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:11:56 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:23:48 2024",
+      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-BGP4-MIB"

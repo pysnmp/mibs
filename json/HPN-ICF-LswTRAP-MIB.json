@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-LSW-DEV-ADM-MIB": [
-      "hpnicfLswSlotIndex",
       "hpnicfLswSubslotIndex",
+      "hpnicfLswSlotIndex",
       "hpnicfLswFrameIndex"
     ],
     "HPN-ICF-LswDEVM-MIB": [
+      "hpnicfDevMFirstTrapTime",
       "hpnicfDevMFanNum",
-      "hpnicfDevMPowerNum",
-      "hpnicfDevMFirstTrapTime"
+      "hpnicfDevMPowerNum"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicflswCommon"
@@ -19,24 +19,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Bits",
-      "MODULE-IDENTITY",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfLswTrapMib": {
@@ -428,8 +428,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswTRAP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:09:37 2024",
-      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:20:34 2024",
+      "On host fv-az530-683 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LswTRAP-MIB"
