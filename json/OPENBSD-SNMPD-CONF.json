@@ -38,38 +38,38 @@
       "sensorsMIBObjects"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpMIB"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
       "MibIdentifier",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-SNMPD-CONF",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:09:57 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:43:38 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "OPENBSD-SNMPD-CONF"

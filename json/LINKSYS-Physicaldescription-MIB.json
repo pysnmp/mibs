@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "ENTITY-SENSOR-MIB": [
-      "EntitySensorValue",
-      "EntitySensorStatus"
+      "EntitySensorStatus",
+      "EntitySensorValue"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "ifIndex",
       "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndexOrZero"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
       "rndErrorSeverity",
@@ -18,38 +18,38 @@
       "RlEnvMonState"
     ],
     "LINKSYS-MIB": [
-      "rndNotifications",
-      "rnd"
+      "rnd",
+      "rndNotifications"
     ],
     "MAU-MIB": [
       "JackType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
       "IpAddress",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
       "Bits",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "PhysAddress",
+      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "PhysAddress"
     ]
   },
   "rlPhysicalDescription": {
@@ -1520,8 +1520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:09:14 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:59 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-Physicaldescription-MIB"

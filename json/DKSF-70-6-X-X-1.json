@@ -10,26 +10,26 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Gauge32",
-      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "enterprises",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "IpAddress",
+      "Integer32",
       "Bits",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter32",
       "Unsigned32",
-      "Integer32"
+      "iso",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "uniPingServerSolutionV3": {
@@ -2206,8 +2206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netping/DKSF-70-6-X-X-1",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:09:37 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:43:19 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DKSF-70-6-X-X-1"

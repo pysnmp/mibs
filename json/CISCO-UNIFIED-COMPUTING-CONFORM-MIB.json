@@ -5,16 +5,16 @@
       "ciscoMgmt"
     ],
     "CISCO-UNIFIED-COMPUTING-FAULT-MIB": [
-      "cucsFaultOccur",
-      "cucsFaultSeverity",
-      "cucsFaultProbableCause",
       "cucsFaultType",
-      "cucsFaultCreationTime",
-      "cucsFaultAffectedObjectId",
-      "cucsFaultLastModificationTime",
-      "cucsFaultDescription",
       "cucsFaultCode",
-      "cucsFaultAffectedObjectDn"
+      "cucsFaultAffectedObjectDn",
+      "cucsFaultProbableCause",
+      "cucsFaultSeverity",
+      "cucsFaultLastModificationTime",
+      "cucsFaultOccur",
+      "cucsFaultAffectedObjectId",
+      "cucsFaultCreationTime",
+      "cucsFaultDescription"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIB",
@@ -25,28 +25,28 @@
       "cucsFaultActiveNotif"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
       "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Integer32",
-      "Bits",
       "Counter64",
       "Unsigned32",
+      "Integer32",
       "iso",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoUnifiedComputingMIBConform": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFORM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:12 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:09 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CONFORM-MIB"

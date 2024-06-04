@@ -5,54 +5,54 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaPortMode",
-      "ArubaIfType",
       "ArubaPoeState",
-      "ArubaDot1dState",
+      "ArubaPortDuplex",
       "ArubaPortSpeed",
       "ArubaEnableValue",
-      "ArubaPortDuplex",
-      "ArubaPortType",
       "ArubaOperStateValue",
+      "ArubaPortType",
+      "ArubaIfType",
+      "ArubaPortMode",
+      "ArubaDot1dState",
       "ArubaVlanValidRange"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "snmpModules",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Unsigned32",
       "Gauge32",
       "TimeTicks",
-      "Unsigned32"
+      "Integer32",
+      "snmpModules",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TAddress",
-      "StorageType",
-      "TruthValue",
-      "DisplayString",
-      "TDomain",
-      "MacAddress",
+      "TestAndIncr",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "RowStatus",
-      "TestAndIncr",
-      "TimeInterval"
+      "DisplayString",
+      "MacAddress",
+      "StorageType",
+      "TDomain",
+      "TimeInterval",
+      "TruthValue"
     ]
   },
   "wlsxIfExtMIB": {
@@ -1143,8 +1143,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-IFEXT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:03:16 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:37:13 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WLSX-IFEXT-MIB"

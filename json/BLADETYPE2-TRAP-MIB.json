@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "BLADETYPE2-NETWORK-MIB": [
-      "ipCurCfgGwAddr",
-      "vrrpCurCfgIfPasswd",
       "vrrpCurCfgVirtRtrAddr",
-      "vrrpCurCfgIfIndx",
       "ipCurCfgGwIndex",
+      "vrrpCurCfgIfPasswd",
+      "vrrpCurCfgIfIndx",
+      "ipCurCfgGwAddr",
       "vrrpCurCfgVirtRtrIndx"
     ],
     "BLADETYPE2-PHYSICAL-MIB": [
@@ -14,8 +14,8 @@
     ],
     "BLADETYPE2-SWITCH-MIB": [
       "agSlotNumber",
-      "agRackId",
-      "agChassis"
+      "agChassis",
+      "agRackId"
     ],
     "HP-SWITCH-PL-MIB": [
       "hpSwitchBladeType2-Mgmt"
@@ -30,25 +30,25 @@
       "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "TRAP-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
       "OBJECT-IDENTITY",
-      "Unsigned32",
       "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "iso",
       "Counter64",
-      "MibIdentifier"
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bt2Traps": {
@@ -910,8 +910,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/BLADETYPE2-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:30 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:25 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BLADETYPE2-TRAP-MIB"

@@ -10,29 +10,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "iso",
       "Gauge32",
       "mib-2",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32"
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "StorageType",
       "RowStatus",
-      "DisplayString",
-      "VariablePointer"
+      "VariablePointer",
+      "DateAndTime"
     ]
   },
   "schedMIB": {
@@ -790,8 +790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DISMAN-SCHEDULE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:15 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:36:15 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DISMAN-SCHEDULE-MIB"

@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "CISCO-FLOW-MONITOR-MIB": [
-      "cfmFlowMonitorId",
       "cfmFlowId",
-      "cfmFlowMetricsIntNumber"
+      "cfmFlowMetricsIntNumber",
+      "cfmFlowMonitorId"
     ],
     "CISCO-FLOW-MONITOR-TC-MIB": [
-      "FlowMetricScale",
+      "FlowBitRateUnits",
+      "FlowMetricPrecision",
       "FlowMetricValue",
       "FlowCfgRateType",
-      "FlowMetricPrecision",
-      "FlowBitRateUnits"
+      "FlowMetricScale"
     ],
     "CISCO-REPORT-INTERVAL-TC-MIB": [
       "ReportIntervalCount"
@@ -20,30 +20,30 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
-      "Bits",
-      "Integer32",
       "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE"
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "ciscoIpCbrMetricsMIB": {
@@ -596,8 +596,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-CBR-METRICS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:16 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:14 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IP-CBR-METRICS-MIB"

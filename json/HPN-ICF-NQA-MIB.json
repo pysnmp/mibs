@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingCtlOwnerIndex",
+      "pingCtlDescr",
+      "pingCtlTargetAddress",
+      "pingCtlTargetAddressType",
       "pingCtlTestName",
       "pingCtlEntry",
-      "pingCtlTargetAddress",
-      "pingCtlDescr",
       "pingCtlType",
-      "pingCtlTargetAddressType"
+      "pingCtlOwnerIndex"
     ],
     "HPN-ICF-OID-MIB": [
       "hpnicfRhw"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "Counter32",
+      "Gauge32",
+      "Integer32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "iso",
       "Counter64",
-      "MibIdentifier"
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hpnicfNqa": {
@@ -3081,8 +3081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-NQA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:30 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:25 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-NQA-MIB"

@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysContact",
+      "sysDescr",
       "sysLocation",
-      "sysName",
-      "sysDescr"
+      "sysName"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
       "OBJECT-TYPE",
       "Counter64",
-      "iso",
       "MibIdentifier",
-      "Gauge32",
-      "Counter32",
+      "IpAddress",
       "TimeTicks",
       "Integer32",
-      "MODULE-IDENTITY"
+      "iso",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "DateAndTime",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ],
     "TWOWCOM-COMMONVARBINDS": [
-      "eventCounter",
-      "commonVarbindsCompliance",
-      "commonGroup",
-      "FaultOK",
-      "Integer32d2",
       "eventTimeStamp",
-      "FloatString",
-      "eventPriority",
+      "Integer32d1",
+      "commonVarbindsCompliance",
       "mibRelease",
-      "Integer32d1"
+      "eventPriority",
+      "FaultOK",
+      "eventCounter",
+      "Integer32d2",
+      "commonGroup",
+      "FloatString"
     ],
     "TWOWCOM-SMI": [
+      "decoder",
       "other",
       "encoder",
-      "dvbEncoder",
-      "decoder",
-      "dvbDecoder"
+      "dvbDecoder",
+      "dvbEncoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:20 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:36:20 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

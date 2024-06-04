@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVclVci",
       "atmVplEntry",
-      "atmMIBObjects",
-      "atmVclEntry",
-      "atmVcCrossConnectEntry",
-      "atmVclVpi",
+      "atmVclVci",
       "atmInterfaceConfEntry",
+      "atmMIBObjects",
+      "atmVcCrossConnectEntry",
       "atmVpCrossConnectEntry",
-      "atmVplVpi"
+      "atmVclEntry",
+      "atmVplVpi",
+      "atmVclVpi"
     ],
     "ATM-TC-MIB": [
+      "AtmTrafficDescrParamIndex",
       "AtmAddr",
       "AtmIlmiNetworkPrefix",
-      "AtmVcIdentifier",
+      "AtmSigDescrParamIndex",
       "AtmInterfaceType",
-      "AtmVpIdentifier",
-      "AtmTrafficDescrParamIndex",
-      "AtmSigDescrParamIndex"
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -35,27 +35,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "iso",
       "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "atm2MIB": {
@@ -3395,8 +3395,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ATM2-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:16 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:36:16 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ATM2-MIB"

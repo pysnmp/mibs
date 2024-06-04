@@ -11,30 +11,30 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Counter64",
-      "Gauge32",
       "Unsigned32",
-      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rlProtectedPorts": {
@@ -163,8 +163,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-ProtectedPorts-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:05:16 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:39:05 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-ProtectedPorts-MIB"

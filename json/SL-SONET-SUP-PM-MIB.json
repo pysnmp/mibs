@@ -18,44 +18,44 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "transmission",
+      "iso",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "transmission",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "DateAndTime",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DisplayString"
     ],
     "SONET-MIB": [
       "sonetFarEndLineCurrentEntry",
-      "sonetFarEndVTCurrentEntry",
-      "sonetFarEndPathIntervalEntry",
-      "sonetSectionIntervalEntry",
-      "sonetFarEndPathCurrentEntry",
-      "sonetVTIntervalEntry",
       "sonetVTCurrentEntry",
+      "sonetFarEndVTCurrentEntry",
+      "sonetSectionIntervalEntry",
+      "sonetFarEndLineIntervalEntry",
+      "sonetFarEndPathIntervalEntry",
       "sonetPathCurrentEntry",
       "sonetFarEndVTIntervalEntry",
       "sonetLineIntervalEntry",
+      "sonetFarEndPathCurrentEntry",
       "sonetPathIntervalEntry",
+      "sonetMediumEntry",
       "sonetSectionCurrentEntry",
-      "sonetFarEndLineIntervalEntry",
-      "sonetLineCurrentEntry",
-      "sonetMediumEntry"
+      "sonetVTIntervalEntry",
+      "sonetLineCurrentEntry"
     ]
   },
   "sonetSupPmMIB": {
@@ -2608,8 +2608,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SONET-SUP-PM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:10:16 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:43:56 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SL-SONET-SUP-PM-MIB"

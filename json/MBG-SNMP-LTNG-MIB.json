@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "MBG-SNMP-ROOT-MIB": [
-      "MeinbergSwitch",
-      "mbgSnmpRoot"
+      "mbgSnmpRoot",
+      "MeinbergSwitch"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-TYPE",
-      "Bits"
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mbgLantimeNG": {
@@ -7697,8 +7697,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-LTNG-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:09:15 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:58 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MBG-SNMP-LTNG-MIB"

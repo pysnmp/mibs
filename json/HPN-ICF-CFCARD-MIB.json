@@ -10,24 +10,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "IpAddress",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "iso",
+      "Counter32",
+      "Gauge32",
+      "Integer32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
       "Counter64",
-      "MibIdentifier"
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hpnicfCfCardMIB": {
@@ -479,8 +479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-CFCARD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:08:31 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:25 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-CFCARD-MIB"

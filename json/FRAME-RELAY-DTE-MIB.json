@@ -10,26 +10,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Counter32",
       "TimeTicks",
+      "MibIdentifier",
       "IpAddress",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "transmission",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32"
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
   },
@@ -1277,8 +1277,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FRAME-RELAY-DTE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jun  3 14:02:16 2024",
-      "On host fv-az1456-954 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 02:36:16 2024",
+      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FRAME-RELAY-DTE-MIB"
