@@ -5,32 +5,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "OBJECT-TYPE",
       "iso",
-      "Unsigned32",
-      "Integer32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Counter32",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter64",
+      "mib-2",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
       "transmission",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "DisplayString",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sipMIB": {
@@ -1069,8 +1069,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SIP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:13:57 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:17:24 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIP-MIB"

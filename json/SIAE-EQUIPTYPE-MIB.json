@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
       "TimeTicks",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Unsigned32",
       "Gauge32",
-      "Integer32",
-      "MibIdentifier",
-      "iso"
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -96,8 +96,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-EQUIPTYPE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:03 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:26:09 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-EQUIPTYPE-MIB"

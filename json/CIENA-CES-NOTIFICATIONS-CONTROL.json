@@ -8,24 +8,24 @@
       "CienaGlobalState"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
       "Counter64",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1301,8 +1301,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-NOTIFICATIONS-CONTROL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:15:47 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:19:13 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-NOTIFICATIONS-CONTROL"

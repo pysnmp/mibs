@@ -5,38 +5,38 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Counter64",
       "Unsigned32",
-      "Counter32",
       "Integer32",
-      "TimeTicks",
-      "Gauge32",
       "IpAddress",
       "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Bits",
       "iso",
-      "OBJECT-TYPE"
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
       "PhysAddress",
+      "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "TimeStamp"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -1035,8 +1035,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-IP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:55 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:26:51 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "UBQS-IP-MIB"

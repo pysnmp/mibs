@@ -3,48 +3,48 @@
     "class": "imports",
     "F10-CHASSIS-MIB": [
       "chAlarmVarSlot",
-      "chAlarmVarPort",
       "chAlarmVarInteger",
-      "chAlarmVarString"
+      "chAlarmVarString",
+      "chAlarmVarPort"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
+      "F10ProcessorModuleType",
       "F10MfgDate",
       "F10SwDate",
+      "F10ChassisType",
       "F10SSeriesPortType",
-      "F10HundredthdB",
-      "F10ProcessorModuleType",
-      "F10ChassisType"
+      "F10HundredthdB"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "IpAddress",
       "TimeTicks",
-      "Integer32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
       "iso",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f10SSerChassisMib": {
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:16:46 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:20:11 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

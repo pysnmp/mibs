@@ -3,12 +3,12 @@
     "class": "imports",
     "ALARM-MIB": [
       "alarmActiveIndex",
-      "alarmClearIndex",
-      "alarmListName",
-      "alarmClearDateAndTime",
       "alarmModelState",
       "alarmModelIndex",
-      "alarmActiveDateAndTime"
+      "alarmClearDateAndTime",
+      "alarmActiveDateAndTime",
+      "alarmListName",
+      "alarmClearIndex"
     ],
     "CIENA-SMI": [
       "cienaCesConfig"
@@ -17,24 +17,24 @@
       "ItuPerceivedSeverity"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "TimeTicks",
       "IpAddress",
       "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -750,8 +750,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-ALARM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:15:47 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:19:13 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-CES-ALARM-MIB"

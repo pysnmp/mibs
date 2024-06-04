@@ -5,16 +5,16 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "TimeIntervalSec",
-      "CiscoNetworkAddress",
       "CiscoAlarmSeverity",
       "CiscoInetAddressMask",
+      "CiscoNetworkAddress",
+      "TimeIntervalSec",
       "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
       "CucsProcStatAdminState"
@@ -27,34 +27,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "Bits",
       "Counter64",
-      "Gauge32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TimeStamp",
-      "MacAddress",
-      "DateAndTime",
-      "DisplayString",
       "TruthValue",
+      "TimeStamp",
+      "TimeInterval",
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "cucsProcObjects": {
@@ -778,8 +778,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-PROC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:19:39 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:18 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-PROC-MIB"

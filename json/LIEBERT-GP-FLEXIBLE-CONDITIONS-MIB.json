@@ -8,23 +8,23 @@
       "liebertFlexibleConditionsModuleReg"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Integer32",
       "Counter32",
-      "Bits",
-      "iso",
       "Counter64"
     ],
     "SNMPv2-TC": [
@@ -5151,8 +5151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-FLEXIBLE-COND-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:20:37 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:39 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LIEBERT-GP-FLEXIBLE-CONDITIONS-MIB"

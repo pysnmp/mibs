@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "CounterBasedGauge64",
       "hcnumTC",
-      "ZeroBasedCounter64"
+      "ZeroBasedCounter64",
+      "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifTable",
-      "InterfaceIndexOrZero",
       "ifEntry",
-      "ifIndex"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex",
+      "ifTable"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -21,37 +21,37 @@
       "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
       "enterprises",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString",
+      "TruthValue"
     ],
     "SNMPv2-TM": [
-      "SnmpUDPAddress",
-      "snmpUDPDomain"
+      "snmpUDPDomain",
+      "SnmpUDPAddress"
     ]
   },
   "anueMIB": {
@@ -13010,8 +13010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixia/ANUE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:20:07 2024",
-      "On host fv-az1385-751 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:22 2024",
+      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ANUE-MIB"
