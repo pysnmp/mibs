@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "cmCommonMIB": {
@@ -1005,8 +1005,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-COMMON-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:43:05 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:59:52 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CM-COMMON-MIB"

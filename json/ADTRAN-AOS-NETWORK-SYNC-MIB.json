@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSCommon",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSCommon"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "iso",
       "Bits",
-      "TimeTicks",
+      "MibIdentifier",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter32",
       "Gauge32",
       "Integer32",
-      "IpAddress",
-      "iso",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adGenAOSNetSyncMib": {
@@ -297,8 +297,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-NETWORK-SYNC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:42:20 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:59:09 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-NETWORK-SYNC-MIB"

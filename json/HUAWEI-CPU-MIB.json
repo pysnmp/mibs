@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HUAWEI-DEVICE-MIB": [
-      "hwFrameIndex",
-      "hwSlotIndex"
+      "hwSlotIndex",
+      "hwFrameIndex"
     ],
     "HUAWEI-MIB": [
       "huaweiUtility"
@@ -15,19 +15,19 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "Bits",
+      "Unsigned32",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "iso",
+      "Bits",
+      "Integer32",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -350,8 +350,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-CPU-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:44 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:04:28 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-CPU-MIB"

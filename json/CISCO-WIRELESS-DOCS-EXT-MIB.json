@@ -6,49 +6,49 @@
     ],
     "CISCO-WIRELESS-DOCS-IF-MIB": [
       "cwdIfHeSuStatusIndex",
-      "cwdIfHeSuStatusIpAddress",
-      "cwdIfQosProfIndex",
-      "cwdIfQosProfileEntry",
       "cwdIfHeServiceEntry",
-      "cwdIfHeSuStatusUpChanIfIndex",
-      "cwdIfHeSuStatusServiceId",
-      "cwdIfHeMacEntry",
-      "cwdIfHeSuStatusEntry",
+      "cwdIfQosProfileEntry",
       "cwdIfHeSuStatusDownChanIfIndex",
-      "cwdIfHeSuStatusMacAddress"
+      "cwdIfHeMacEntry",
+      "cwdIfHeSuStatusMacAddress",
+      "cwdIfHeSuStatusIpAddress",
+      "cwdIfHeSuStatusUpChanIfIndex",
+      "cwdIfQosProfIndex",
+      "cwdIfHeSuStatusServiceId",
+      "cwdIfHeSuStatusEntry"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Bits",
-      "Gauge32"
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "TimeInterval",
       "TimeStamp",
       "DisplayString",
-      "MacAddress",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ciscoWirelessDocsExtMIB": {
@@ -1717,8 +1717,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-DOCS-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:53 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:05:02 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-DOCS-EXT-MIB"

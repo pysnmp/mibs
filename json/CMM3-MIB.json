@@ -7,34 +7,34 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "iso",
       "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Integer32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Integer32",
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "WHISP-GLOBAL-REG-MIB": [
+      "whispModules",
       "whispBox",
-      "whispCMM",
-      "whispModules"
+      "whispCMM"
     ],
     "WHISP-TCV2-MIB": [
-      "WhispMACAddress",
+      "EventString",
       "WhispLUID",
-      "EventString"
+      "WhispMACAddress"
     ]
   },
   "cmmIIIMibModule": {
@@ -3601,8 +3601,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/CMM3-MIB.txt",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:43:38 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:00:27 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CMM3-MIB"

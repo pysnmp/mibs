@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-MIB": [
-      "IndexIntegerNextFree",
-      "IndexInteger"
+      "IndexInteger",
+      "IndexIntegerNextFree"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "MibIdentifier",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "mib-2",
+      "Unsigned32",
       "Gauge32",
       "iso",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "NOTIFICATION-TYPE",
       "Bits",
+      "TimeTicks",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
       "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "isisMIB": {
@@ -4920,9 +4920,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ISIS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:42:09 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ISIS-MIB",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:01:16 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ISIS-MIB"

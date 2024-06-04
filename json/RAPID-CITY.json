@@ -5,127 +5,127 @@
       "AtmAddr"
     ],
     "BGP4-MIB": [
-      "bgpPeerState",
       "bgpPeerRemoteAddr",
-      "bgpPeerLastError"
+      "bgpPeerLastError",
+      "bgpPeerState"
     ],
     "DIFFSERV-MIB": [
       "IndexInteger"
     ],
     "DVMRP-MIB": [
-      "dvmrpInterfaceIfIndex",
-      "dvmrpInterfaceOperState",
       "dvmrpNeighborIfIndex",
+      "dvmrpInterfaceOperState",
+      "dvmrpInterfaceIfIndex",
       "dvmrpNeighborAddress"
     ],
     "IEEE8021-SECY-MIB": [
       "secyIfEntry"
     ],
     "IF-MIB": [
-      "ifAdminStatus",
       "ifIndex",
+      "ifAdminStatus",
       "ifOperStatus"
     ],
     "IGMP-MIB": [
       "igmpCacheIfIndex",
-      "igmpInterfaceIfIndex",
       "igmpCacheAddress",
-      "igmpInterfaceQuerier"
+      "igmpInterfaceQuerier",
+      "igmpInterfaceIfIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddressType",
       "InetPortNumber",
+      "InetAddressType",
+      "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
-      "ipNetToMediaNetAddress",
-      "ipNetToMediaPhysAddress"
+      "ipNetToMediaPhysAddress",
+      "ipNetToMediaNetAddress"
     ],
     "IPMROUTE-MIB": [
+      "ipMRouteInterfaceEntry",
       "ipMRouteNextHopEntry",
-      "ipMRouteEntry",
-      "ipMRouteInterfaceEntry"
+      "ipMRouteEntry"
     ],
     "IPV6-MIB": [
       "ipv6RouteEntry"
     ],
     "IPV6-MLD-MIB": [
-      "mldInterfaceIfIndex",
-      "mldInterfaceQuerier"
+      "mldInterfaceQuerier",
+      "mldInterfaceIfIndex"
     ],
     "IPV6-TC": [
-      "Ipv6Address",
       "Ipv6IfIndex",
-      "Ipv6AddressIfIdentifier",
       "Ipv6AddressPrefix",
-      "Ipv6IfIndexOrZero"
+      "Ipv6Address",
+      "Ipv6IfIndexOrZero",
+      "Ipv6AddressIfIdentifier"
     ],
     "LLDP-MIB": [
-      "AddressFamilyNumbers",
-      "LldpManAddress",
       "LldpPortId",
       "lldpRemEntry",
+      "LldpManAddress",
+      "AddressFamilyNumbers",
       "LldpPortIdSubtype",
       "LldpSystemCapabilitiesMap"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsExtendedTunnelId",
       "MplsTunnelInstanceIndex",
       "MplsTunnelIndex",
-      "MplsLSPID",
       "MplsLdpIdentifier",
+      "MplsExtendedTunnelId",
+      "MplsLSPID",
       "MplsLabel"
     ],
     "MSDP-MIB": [
       "msdpPeerState",
-      "msdpSACacheEntry",
+      "msdpPeerEntry",
       "msdpPeerFsmEstablishedTransitions",
-      "msdpPeerEntry"
+      "msdpSACacheEntry"
     ],
     "RADIUS-DYNAUTH-SERVER-MIB": [
       "radiusDynAuthClientEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpSecurityModel",
       "SnmpAdminString",
-      "SnmpSecurityLevel"
+      "SnmpSecurityLevel",
+      "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Counter32",
-      "MibIdentifier",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "iso",
       "OBJECT-TYPE",
       "enterprises",
-      "Bits",
-      "Counter64",
-      "iso"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "PhysAddress",
       "RowStatus",
-      "TimeInterval",
-      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "RowPointer",
+      "DateAndTime",
       "StorageType",
-      "TimeStamp"
+      "TimeStamp",
+      "TimeInterval",
+      "MacAddress",
+      "PhysAddress",
+      "DisplayString"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -145635,8 +145635,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:49:39 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:06:23 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RAPID-CITY"

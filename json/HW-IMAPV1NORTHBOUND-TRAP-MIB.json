@@ -7,21 +7,21 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
       "TRAP-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
       "Integer32",
       "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "Bits",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "enterprises"
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1989,8 +1989,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HW-IMAPV1NORTHBOUND-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:45 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:04:30 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HW-IMAPV1NORTHBOUND-TRAP-MIB"

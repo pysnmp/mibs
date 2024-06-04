@@ -5,15 +5,15 @@
       "AgentLogSeverity"
     ],
     "EdgeSwitch-REF-MIB": [
-      "AgentPortMask",
-      "fastPath"
+      "fastPath",
+      "AgentPortMask"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
@@ -21,39 +21,39 @@
       "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
+      "dot1qVlanIndex",
       "VlanIndex",
       "VlanId",
-      "dot1qVlanIndex"
+      "dot1qFdbId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier"
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
       "PhysAddress",
       "MacAddress",
-      "DisplayString",
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "DateAndTime"
     ]
   },
   "fastPathSwitching": {
@@ -15375,8 +15375,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:45:12 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:01:59 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-SWITCHING-MIB"

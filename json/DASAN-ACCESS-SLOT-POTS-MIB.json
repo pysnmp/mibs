@@ -16,30 +16,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
-      "mib-2",
+      "Counter64",
       "OBJECT-TYPE",
-      "BITS",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
       "Counter32",
+      "mib-2",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
       "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "BITS",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TestAndIncr",
-      "AutonomousType",
       "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "TestAndIncr"
     ]
   },
   "dasanAccessMib": {
@@ -990,8 +990,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ACCESS-SLOT-POTS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:44:57 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:01:42 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DASAN-ACCESS-SLOT-POTS-MIB"

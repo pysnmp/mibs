@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "HUAWEI-ETHOAM-MIB": [
-      "HWDot1agCfmIngressActionFieldValue",
+      "HWDot1agCfmRelayActionFieldValue",
       "HWDot1agCfmEgressActionFieldValue",
-      "HWDot1agCfmRelayActionFieldValue"
+      "HWDot1agCfmIngressActionFieldValue"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IEEE802171-CFM-MIB": [
-      "Dot1agCfmMaintDomainName",
       "Dot1agCfmMepIdOrZero",
-      "Dot1agCfmMaintAssocName"
+      "Dot1agCfmMaintAssocName",
+      "Dot1agCfmMaintDomainName"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -38,32 +38,32 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "MibIdentifier",
-      "mib-2",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-GROUP",
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "mib-2",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
+      "iso",
       "Bits",
       "Counter64",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
       "StorageType",
-      "TimeStamp",
+      "MacAddress",
+      "DisplayString",
+      "TimeInterval",
       "RowStatus",
       "TruthValue",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime",
+      "TimeStamp"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:46 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:04:31 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NQA-MIB"

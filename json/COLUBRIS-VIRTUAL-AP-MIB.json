@@ -5,40 +5,40 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisUsersAuthenticationMode",
-      "ColubrisProfileIndexOrZero",
       "ColubrisPriorityQueue",
+      "ColubrisProfileIndexOrZero",
       "ColubrisSSID",
-      "ColubrisSecurity"
+      "ColubrisSecurity",
+      "ColubrisUsersAuthenticationMode"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "Integer32",
       "Gauge32",
-      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Bits",
+      "Unsigned32",
+      "IpAddress",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "iso",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisVirtualApMIB": {
@@ -394,8 +394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-VIRTUAL-AP-MIB.my",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:46:48 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:03:31 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-VIRTUAL-AP-MIB"

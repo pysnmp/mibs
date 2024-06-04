@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "LIEBERT-GP-REGISTRATION-MIB": [
-      "lgpEnvironmental",
-      "liebertEnvironmentalModuleReg"
+      "liebertEnvironmentalModuleReg",
+      "lgpEnvironmental"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter64",
-      "Gauge32",
+      "IpAddress",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "Bits",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
       "Counter32",
-      "IpAddress"
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "liebertGlobalProductsEnvironmentalModule": {
@@ -3680,8 +3680,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-ENV-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:48:34 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:05:16 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LIEBERT-GP-ENVIRONMENTAL-MIB"

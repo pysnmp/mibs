@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "CERENT-GLOBAL-REGISTRY": [
-      "cerentGeneric",
       "cerentModules",
+      "cerentGeneric",
       "cerentRequirements"
     ],
     "CERENT-TC": [
-      "CerentAlarmServiceAffecting",
-      "CerentMonitorType",
-      "CerentLocation",
-      "CerentPeriod",
-      "CerentAlarmSeverity",
-      "CerentNotificationClass",
+      "CerentAlarmStatus",
       "CerentPortNumber",
-      "CerentAlarmStatus"
+      "CerentLocation",
+      "CerentAlarmSeverity",
+      "CerentMonitorType",
+      "CerentAlarmServiceAffecting",
+      "CerentNotificationClass",
+      "CerentPeriod"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Bits",
-      "Gauge32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "cerentGenericMibModule": {
@@ -53462,8 +53462,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CERENT-GENERIC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:52 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:05:00 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CERENT-GENERIC-MIB"

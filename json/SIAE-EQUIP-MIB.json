@@ -5,9 +5,9 @@
       "InterfaceIndex"
     ],
     "SIAE-ALARM-MIB": [
+      "alarmTrap",
       "AlarmSeverityCode",
-      "AlarmStatus",
-      "alarmTrap"
+      "AlarmStatus"
     ],
     "SIAE-EQUIPTYPE-MIB": [
       "equipTypeUnknown"
@@ -20,24 +20,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Bits",
-      "Counter32",
-      "Integer32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress"
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
       "DisplayString",
+      "AutonomousType",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -877,8 +877,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-EQUIP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:51:05 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:07:47 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SIAE-EQUIP-MIB"

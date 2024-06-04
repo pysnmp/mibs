@@ -2,43 +2,43 @@
   "imports": {
     "class": "imports",
     "IANA-RTPROTO-MIB": [
-      "IANAipRouteProtocol",
-      "IANAipMRouteProtocol"
+      "IANAipMRouteProtocol",
+      "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
       "OBJECT-TYPE",
-      "mib-2",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
       "Gauge32",
       "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "mib-2",
       "iso",
       "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "ipMRouteStdMIB": {
@@ -1071,8 +1071,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPMROUTE-STD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:48:21 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:05:51 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPMROUTE-STD-MIB"

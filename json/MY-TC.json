@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter64",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "myTextualConventions": {
@@ -125,8 +125,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-TC",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:50:52 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:07:34 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MY-TC"

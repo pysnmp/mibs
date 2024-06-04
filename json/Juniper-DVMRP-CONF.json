@@ -6,24 +6,24 @@
     ],
     "SNMPv2-CONF": [
       "AGENT-CAPABILITIES",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Gauge32",
       "TimeTicks",
-      "Unsigned32",
-      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "iso",
       "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter64"
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -62,8 +62,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DVMRP-CONF",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 11:49:10 2024",
-      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:05:50 2024",
+      "On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-DVMRP-CONF"

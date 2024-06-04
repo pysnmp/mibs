@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SFLOW-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sflow/SFLOW-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 11:50:59 2024
-# On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 12:07:41 2024
+# On host fv-az1433-299 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 OwnerString, = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-ModuleIdentity, Gauge32, TimeTicks, Bits, Unsigned32, iso, Counter32, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, enterprises, Counter64, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "TimeTicks", "Bits", "Unsigned32", "iso", "Counter32", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "enterprises", "Counter64", "Integer32", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+NotificationType, Counter32, Gauge32, Bits, TimeTicks, Unsigned32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, iso, IpAddress, ModuleIdentity, MibIdentifier, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter32", "Gauge32", "Bits", "TimeTicks", "Unsigned32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "iso", "IpAddress", "ModuleIdentity", "MibIdentifier", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 sFlow = ModuleIdentity((1, 3, 6, 1, 4, 1, 14706))
 sFlow.setRevisions(('2003-10-18 00:00', '2003-09-24 00:00', '2003-04-08 00:00', '2002-09-17 00:00', '2001-07-31 00:00', '2001-05-01 00:00',))
 
@@ -128,4 +128,4 @@ sFlowAgentGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 14706, 1, 2, 1, 1)).setObjects(
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     sFlowAgentGroup = sFlowAgentGroup.setStatus('current')
 if mibBuilder.loadTexts: sFlowAgentGroup.setDescription('A collection of objects for managing the generation and\n                  transportation of sFlow data records.')
-mibBuilder.exportSymbols("SFLOW-MIB", sFlowMIBConformance=sFlowMIBConformance, sFlowCpTable=sFlowCpTable, sFlowAgentGroup=sFlowAgentGroup, sFlowAgentAddress=sFlowAgentAddress, sFlowFsPacketSamplingRate=sFlowFsPacketSamplingRate, sFlowAgentAddressType=sFlowAgentAddressType, sFlowMIB=sFlowMIB, sFlowAgent=sFlowAgent, sFlowCpEntry=sFlowCpEntry, sFlowVersion=sFlowVersion, sFlowRcvrOwner=sFlowRcvrOwner, sFlowRcvrAddress=sFlowRcvrAddress, sFlowRcvrEntry=sFlowRcvrEntry, sFlowFsReceiver=sFlowFsReceiver, sFlowRcvrIndex=sFlowRcvrIndex, sFlowCompliance=sFlowCompliance, sFlowFsEntry=sFlowFsEntry, sFlowCpInstance=sFlowCpInstance, sFlowRcvrMaximumDatagramSize=sFlowRcvrMaximumDatagramSize, sFlow=sFlow, sFlowCpInterval=sFlowCpInterval, SFlowDataSource=SFlowDataSource, PYSNMP_MODULE_ID=sFlow, SFlowReceiver=SFlowReceiver, sFlowCpReceiver=sFlowCpReceiver, sFlowRcvrAddressType=sFlowRcvrAddressType, sFlowMIBGroups=sFlowMIBGroups, sFlowFsDataSource=sFlowFsDataSource, sFlowRcvrTimeout=sFlowRcvrTimeout, sFlowFsTable=sFlowFsTable, sFlowRcvrDatagramVersion=sFlowRcvrDatagramVersion, sFlowRcvrPort=sFlowRcvrPort, sFlowFsMaximumHeaderSize=sFlowFsMaximumHeaderSize, sFlowMIBCompliances=sFlowMIBCompliances, sFlowRcvrTable=sFlowRcvrTable, sFlowCpDataSource=sFlowCpDataSource, sFlowFsInstance=sFlowFsInstance, SFlowInstance=SFlowInstance)
+mibBuilder.exportSymbols("SFLOW-MIB", SFlowInstance=SFlowInstance, sFlowRcvrDatagramVersion=sFlowRcvrDatagramVersion, sFlowRcvrOwner=sFlowRcvrOwner, sFlowRcvrAddress=sFlowRcvrAddress, sFlowRcvrTimeout=sFlowRcvrTimeout, sFlowCpDataSource=sFlowCpDataSource, sFlowFsEntry=sFlowFsEntry, sFlowFsDataSource=sFlowFsDataSource, sFlowRcvrIndex=sFlowRcvrIndex, sFlowFsPacketSamplingRate=sFlowFsPacketSamplingRate, sFlowFsInstance=sFlowFsInstance, sFlowCpReceiver=sFlowCpReceiver, sFlowRcvrMaximumDatagramSize=sFlowRcvrMaximumDatagramSize, sFlowMIBCompliances=sFlowMIBCompliances, sFlowMIB=sFlowMIB, sFlowRcvrTable=sFlowRcvrTable, sFlowAgent=sFlowAgent, sFlowAgentAddress=sFlowAgentAddress, sFlowAgentAddressType=sFlowAgentAddressType, sFlowMIBConformance=sFlowMIBConformance, sFlowMIBGroups=sFlowMIBGroups, sFlowVersion=sFlowVersion, sFlowFsReceiver=sFlowFsReceiver, sFlowRcvrAddressType=sFlowRcvrAddressType, sFlow=sFlow, sFlowCompliance=sFlowCompliance, sFlowFsTable=sFlowFsTable, sFlowCpInterval=sFlowCpInterval, PYSNMP_MODULE_ID=sFlow, sFlowFsMaximumHeaderSize=sFlowFsMaximumHeaderSize, sFlowRcvrEntry=sFlowRcvrEntry, sFlowAgentGroup=sFlowAgentGroup, SFlowDataSource=SFlowDataSource, sFlowRcvrPort=sFlowRcvrPort, SFlowReceiver=SFlowReceiver, sFlowCpTable=sFlowCpTable, sFlowCpEntry=sFlowCpEntry, sFlowCpInstance=sFlowCpInstance)
