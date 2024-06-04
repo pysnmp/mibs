@@ -5,11 +5,11 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoAlarmSeverity",
       "CiscoInetAddressMask",
       "CiscoNetworkAddress",
       "TimeIntervalSec",
-      "Unsigned64"
+      "Unsigned64",
+      "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectId",
@@ -17,8 +17,8 @@
       "CucsManagedObjectDn"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -28,30 +28,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
       "Bits",
-      "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "TimeInterval",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "TimeInterval",
       "RowPointer",
       "DisplayString",
-      "DateAndTime"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cucsQueryresultObjects": {
@@ -324,8 +324,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:17 2024",
-      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:04:51 2024",
+      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-QUERYRESULT-MIB"

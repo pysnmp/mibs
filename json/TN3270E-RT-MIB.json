@@ -14,33 +14,33 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Counter64",
+      "Bits",
       "OBJECT-TYPE",
-      "iso",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
       "IpAddress",
       "Counter32",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Bits"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DateAndTime",
       "RowStatus",
-      "TestAndIncr"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "DateAndTime",
+      "DisplayString"
     ],
     "TN3270E-MIB": [
       "tn3270eClientGroupName",
-      "tn3270eResMapElementType",
-      "tn3270eSrvrConfIndex"
+      "tn3270eSrvrConfIndex",
+      "tn3270eResMapElementType"
     ]
   },
   "tn3270eRtMIB": {
@@ -948,8 +948,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TN3270E-RT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:17:24 2024",
-      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:59:07 2024",
+      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TN3270E-RT-MIB"

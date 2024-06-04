@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "IpAddress",
-      "Counter64",
       "MibIdentifier",
-      "Integer32",
-      "Bits",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "benuHttpServerMIB": {
@@ -336,8 +336,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-HTTP-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:18:37 2024",
-      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:00:21 2024",
+      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BENU-HTTP-SERVER-MIB"

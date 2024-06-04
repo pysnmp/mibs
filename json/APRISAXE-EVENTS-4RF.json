@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEObjects",
-      "aprisaXEEvents"
+      "aprisaXEEvents",
+      "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXECardType",
-      "AprisaXESlotNumber",
       "AprisaXEDataStatus",
+      "AprisaXESlotNumber",
       "AprisaXEAlarmType",
-      "AprisaXEPortNumber"
+      "AprisaXEPortNumber",
+      "AprisaXECardType"
     ],
     "COMMON-TC-4RF": [
-      "FourRFAlarmStatus",
       "FourRFAlarmSeverity",
-      "FourRFHardwareVersion",
       "FourRFAlarmEnabled",
+      "FourRFAlarmStatus",
       "FourRFImageVersion",
-      "FourRFAlarmPresent"
+      "FourRFAlarmPresent",
+      "FourRFHardwareVersion"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -28,28 +28,28 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "OBJECT-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
       "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "iso",
       "Integer32",
       "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier"
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:17:29 2024",
-      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 12:59:13 2024",
+      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

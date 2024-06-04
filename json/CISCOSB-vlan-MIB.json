@@ -5,8 +5,8 @@
       "dot1dBasePort"
     ],
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
       "VlanList2",
+      "VlanList3",
       "VlanList4",
       "VlanList1"
     ],
@@ -20,8 +20,8 @@
       "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qVlanIndex",
       "VlanIndex",
+      "dot1qVlanIndex",
       "PortList"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -32,27 +32,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
       "Bits",
-      "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "TimeTicks",
+      "Counter64",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "vlan": {
@@ -3444,8 +3444,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-vlan-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 12:23:17 2024",
-      "On host fv-az1789-327 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 13:04:51 2024",
+      "On host fv-az1108-994 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-vlan-MIB"
