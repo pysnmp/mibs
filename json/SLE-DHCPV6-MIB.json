@@ -10,29 +10,29 @@
       "InetAddressIPv6"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
       "Counter32",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
       "TimeTicks",
       "MibIdentifier",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -9006,8 +9006,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DHCPV6-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:39:07 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:48:10 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SLE-DHCPV6-MIB"

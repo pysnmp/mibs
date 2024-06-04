@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremeAgent",
-      "extremeV2Traps"
+      "extremeV2Traps",
+      "extremeAgent"
     ],
     "POWER-ETHERNET-MIB": [
-      "pethPsePortIndex",
       "pethMainPseGroupIndex",
-      "pethPsePortGroupIndex"
+      "pethPsePortGroupIndex",
+      "pethPsePortIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Integer32",
-      "MibIdentifier",
-      "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
       "NOTIFICATION-TYPE",
       "Bits",
+      "Counter32",
+      "Gauge32",
       "Counter64",
-      "MODULE-IDENTITY",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "iso"
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -579,8 +579,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:40:10 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:49:20 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-POE-MIB"

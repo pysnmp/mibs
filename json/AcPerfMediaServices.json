@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "enterprises",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -554,8 +554,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AcPerfMediaServices",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:37:25 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:46:25 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "AcPerfMediaServices"

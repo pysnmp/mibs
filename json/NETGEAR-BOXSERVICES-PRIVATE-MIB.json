@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "Gauge32",
       "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-TYPE",
       "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "fastPathBoxServices": {
@@ -832,8 +832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-BOXSERVICES-PRIVATE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:43:21 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:52:31 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-BOXSERVICES-PRIVATE-MIB"

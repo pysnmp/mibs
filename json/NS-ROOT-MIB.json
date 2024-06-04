@@ -13,21 +13,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "Counter32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-TYPE",
-      "enterprises",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "iso",
       "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -38005,8 +38005,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/NS-MIB-SMIV2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:37:59 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:47:05 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NS-ROOT-MIB"

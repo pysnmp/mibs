@@ -5,8 +5,8 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
@@ -14,43 +14,43 @@
       "InetAddressType"
     ],
     "NETGEAR-REF-MIB": [
-      "AgentPortMask",
-      "ng7000managedswitch"
+      "ng7000managedswitch",
+      "AgentPortMask"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qFdbId",
-      "dot1qVlanIndex",
       "VlanId",
-      "VlanIndex"
+      "VlanIndex",
+      "dot1qVlanIndex",
+      "dot1qFdbId"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
       "OBJECT-IDENTITY",
       "Counter32",
       "Bits",
-      "MODULE-IDENTITY"
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "PhysAddress",
-      "MacAddress",
-      "TruthValue"
+      "DateAndTime",
+      "MacAddress"
     ]
   },
   "fastPathSwitching": {
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:43:21 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:52:31 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"

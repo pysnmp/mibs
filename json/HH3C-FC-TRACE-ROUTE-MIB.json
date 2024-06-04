@@ -4,38 +4,38 @@
     "HH3C-FC-TC-MIB": [
       "Hh3cFcNameId",
       "Hh3cFcStartOper",
-      "Hh3cFcVsanIndex",
       "Hh3cFcAddressType",
+      "Hh3cFcVsanIndex",
       "Hh3cFcAddress"
     ],
     "HH3C-VSAN-MIB": [
       "hh3cSan"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "IpAddress",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "hh3cFcTraceRoute": {
@@ -373,8 +373,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FC-TRACE-ROUTE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:38:33 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:47:39 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-FC-TRACE-ROUTE-MIB"

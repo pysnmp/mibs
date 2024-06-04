@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "APRISAXE-MIB-4RF": [
-      "aprisaXEObjects",
-      "aprisaXEEvents"
+      "aprisaXEEvents",
+      "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEAlarmType",
-      "AprisaXEPortNumber",
       "AprisaXESlotNumber",
+      "AprisaXEAlarmType",
       "AprisaXEDataStatus",
+      "AprisaXEPortNumber",
       "AprisaXECardType"
     ],
     "COMMON-TC-4RF": [
-      "FourRFImageVersion",
+      "FourRFAlarmStatus",
       "FourRFAlarmEnabled",
       "FourRFAlarmPresent",
-      "FourRFHardwareVersion",
-      "FourRFAlarmStatus",
-      "FourRFAlarmSeverity"
+      "FourRFImageVersion",
+      "FourRFAlarmSeverity",
+      "FourRFHardwareVersion"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,25 +27,25 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
       "OBJECT-TYPE",
       "Unsigned32",
-      "iso",
-      "TimeTicks",
       "IpAddress",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:36:22 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:45:20 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

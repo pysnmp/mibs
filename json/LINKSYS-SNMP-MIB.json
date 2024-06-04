@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -18,30 +18,30 @@
       "usmUserEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
       "Bits",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlSNMP": {
@@ -1058,8 +1058,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-SNMP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 02:42:59 2024",
-      "On host fv-az1200-411 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 07:52:03 2024",
+      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-SNMP-MIB"
