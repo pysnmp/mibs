@@ -5,29 +5,29 @@
       "juniAgents"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES",
       "NOTIFICATION-GROUP",
-      "AGENT-CAPABILITIES"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Bits",
       "Integer32",
-      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
       "Counter32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "juniAutoConfAgent": {
@@ -66,8 +66,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-Autoconfigure-CONF",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:12:33 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:49:10 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Juniper-Autoconfigure-CONF"

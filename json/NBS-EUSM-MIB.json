@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "NBS-CMMC-MIB": [
-      "nbsCmmcSlotEntry",
-      "nbsCmmcPortEntry"
+      "nbsCmmcPortEntry",
+      "nbsCmmcSlotEntry"
     ],
     "NBS-MIB": [
       "nbs"
@@ -13,26 +13,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Counter32",
-      "Integer32",
       "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
       "Bits",
+      "Unsigned32",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "nbsEusmMib": {
@@ -3258,8 +3258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-EUSM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:12:13 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:49:02 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NBS-EUSM-MIB"

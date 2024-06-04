@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
-      "HCPerfIntervalCount",
       "HCPerfTotalCount",
-      "HCPerfCurrentCount"
+      "HCPerfCurrentCount",
+      "HCPerfIntervalCount"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
       "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "MibIdentifier",
-      "Unsigned32"
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
       "MacAddress",
-      "DateAndTime"
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:04:36 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:41:51 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

@@ -6,34 +6,34 @@
     ],
     "CISCO-TC": [
       "CiscoInetAddressMask",
-      "CiscoNetworkAddress",
+      "TimeIntervalSec",
       "CiscoAlarmSeverity",
       "Unsigned64",
-      "TimeIntervalSec"
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "CucsManagedObjectDn",
-      "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsGmetaVersion",
-      "CucsGmetaHolderFsmTaskItem",
-      "CucsConditionRemoteInvRslt",
-      "CucsGmetaInventoryStatus",
-      "CucsGmetaCategory",
-      "CucsGmetaPollInterval",
-      "CucsGmetaHolderFsmTaskFlags",
+      "CucsGmetaHolderFsmStageName",
       "CucsExtpolConnType",
+      "CucsConditionRemoteInvRslt",
       "CucsFsmFsmStageStatus",
       "CucsGmetaHolderFsmCurrentFsm",
+      "CucsGmetaInventoryStatus",
+      "CucsGmetaPollInterval",
       "CucsFsmCompletion",
-      "CucsGmetaHolderFsmStageName",
-      "CucsMoMoClassId"
+      "CucsGmetaHolderFsmTaskFlags",
+      "CucsMoMoClassId",
+      "CucsGmetaVersion",
+      "CucsGmetaCategory",
+      "CucsGmetaHolderFsmTaskItem"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -43,30 +43,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "MacAddress",
+      "DisplayString",
+      "RowPointer",
       "TruthValue",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
       "DateAndTime",
-      "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cucsGmetaObjects": {
@@ -1136,8 +1136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-GMETA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:10:30 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:52 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-GMETA-MIB"

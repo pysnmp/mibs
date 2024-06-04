@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "MY-SMI": [
-      "myWirelessProducts",
-      "myModules",
       "myRouterProducts",
-      "mySwitchProducts"
+      "myWirelessProducts",
+      "mySwitchProducts",
+      "myModules"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "Bits",
-      "OBJECT-TYPE",
+      "Counter64",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "iso",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "myProductsMIB": {
@@ -722,8 +722,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:14:22 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:50:52 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MY-PRODUCTS-MIB"

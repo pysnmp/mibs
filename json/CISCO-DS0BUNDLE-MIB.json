@@ -8,31 +8,31 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
       "iso",
+      "IpAddress",
       "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
       "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TestAndIncr",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ds0Bundle": {
@@ -169,8 +169,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DS0BUNDLE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:10:31 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:47:54 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DS0BUNDLE-MIB"

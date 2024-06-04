@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "iso",
-      "Bits",
-      "mib-2",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
+      "mib-2",
       "Gauge32",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3552,8 +3552,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPLETALK-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:04:52 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:42:09 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APPLETALK-MIB"

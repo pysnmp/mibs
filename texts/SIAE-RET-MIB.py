@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SIAE-RET-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-RET-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 10:14:33 2024
-# On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 11:51:02 2024
+# On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, NotificationType, ObjectIdentity, Unsigned32, Counter64, iso, TimeTicks, MibIdentifier, Bits, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "NotificationType", "ObjectIdentity", "Unsigned32", "Counter64", "iso", "TimeTicks", "MibIdentifier", "Bits", "Gauge32")
+Counter32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, NotificationType, Gauge32, Integer32, ModuleIdentity, IpAddress, TimeTicks, iso, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "NotificationType", "Gauge32", "Integer32", "ModuleIdentity", "IpAddress", "TimeTicks", "iso", "ObjectIdentity")
 TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 remElement = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 70))
 remElement.setRevisions(('2014-06-23 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
@@ -48,4 +48,4 @@ if mibBuilder.loadTexts: remoteElementRadioBranchId.setDescription('It reports t
 remoteElementRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 70, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: remoteElementRowStatus.setStatus('current')
 if mibBuilder.loadTexts: remoteElementRowStatus.setDescription('Status of this row of remoteElementTable.\n            ')
-mibBuilder.exportSymbols("SIAE-RET-MIB", remoteElementLabel=remoteElementLabel, remoteElementType=remoteElementType, remoteElementGosipAddress=remoteElementGosipAddress, remoteElementTable=remoteElementTable, remoteElementRadioBranchId=remoteElementRadioBranchId, remoteElementMibVersion=remoteElementMibVersion, remoteElementIpAddress=remoteElementIpAddress, remoteElementRowStatus=remoteElementRowStatus, PYSNMP_MODULE_ID=remElement, remoteElementEntry=remoteElementEntry, remElement=remElement)
+mibBuilder.exportSymbols("SIAE-RET-MIB", PYSNMP_MODULE_ID=remElement, remoteElementRadioBranchId=remoteElementRadioBranchId, remoteElementRowStatus=remoteElementRowStatus, remoteElementLabel=remoteElementLabel, remoteElementIpAddress=remoteElementIpAddress, remoteElementType=remoteElementType, remoteElementTable=remoteElementTable, remoteElementMibVersion=remoteElementMibVersion, remElement=remElement, remoteElementEntry=remoteElementEntry, remoteElementGosipAddress=remoteElementGosipAddress)

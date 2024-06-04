@@ -8,17 +8,17 @@
       "ifIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisIdSubtype",
-      "LldpSystemCapabilitiesMap",
-      "LldpChassisId",
-      "LldpPortIdSubtype",
-      "LldpPortId",
       "LldpManAddress",
+      "LldpSystemCapabilitiesMap",
+      "LldpPortId",
+      "LldpPortIdSubtype",
+      "LldpChassisId",
+      "LldpChassisIdSubtype",
       "LldpManAddrIfSubtype"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -29,24 +29,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Integer32",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
       "Bits",
       "Counter32",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString"
     ],
@@ -57,8 +57,8 @@
       "timetraSRMIBModules"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxEnabledDisabledAdminState",
-      "TmnxEnabledDisabled"
+      "TmnxEnabledDisabled",
+      "TmnxEnabledDisabledAdminState"
     ]
   },
   "tmnxLldpMIBModule": {
@@ -1599,8 +1599,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:13:44 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:50:31 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-LLDP-MIB"

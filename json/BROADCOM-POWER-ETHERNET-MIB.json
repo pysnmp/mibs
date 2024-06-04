@@ -5,8 +5,8 @@
       "fastPath"
     ],
     "POWER-ETHERNET-MIB": [
-      "pethMainPseEntry",
-      "pethPsePortEntry"
+      "pethPsePortEntry",
+      "pethMainPseEntry"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -15,22 +15,22 @@
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
-      "Counter32",
       "MibIdentifier",
-      "IpAddress",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -328,8 +328,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/BROADCOM-POWER-ETHERNET-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:48 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:44:58 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BROADCOM-POWER-ETHERNET-MIB"

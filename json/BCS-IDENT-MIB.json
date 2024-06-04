@@ -6,24 +6,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
-      "IpAddress",
+      "Integer32",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gi": {
@@ -1139,8 +1139,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/BCS-IDENT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:05:47 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:43:03 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BCS-IDENT-MIB"

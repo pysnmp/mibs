@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BEGEMOT-HAST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-HAST-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 10:13:32 2024
-# On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 11:49:59 2024
+# On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 begemot, = mibBuilder.importSymbols("BEGEMOT-MIB", "begemot")
-ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, TimeTicks, Unsigned32, Bits, Counter64, iso, MibIdentifier, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "TimeTicks", "Unsigned32", "Bits", "Counter64", "iso", "MibIdentifier", "IpAddress", "NotificationType")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+InterfaceIndex, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, Bits, ObjectIdentity, MibIdentifier, iso, NotificationType, Gauge32, Unsigned32, ModuleIdentity, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "ObjectIdentity", "MibIdentifier", "iso", "NotificationType", "Gauge32", "Unsigned32", "ModuleIdentity", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32")
+RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 begemotHast = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 220))
 begemotHast.setRevisions(('2013-04-13 00:00', '2013-07-01 00:00', '2013-12-29 00:00',))
 
@@ -114,4 +114,4 @@ if mibBuilder.loadTexts: hastResourceDoneQueue.setDescription('Number of process
 hastResourceIdleQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 220, 1, 2, 1, 27), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hastResourceIdleQueue.setStatus('current')
 if mibBuilder.loadTexts: hastResourceIdleQueue.setDescription('Number of request objects in the free bucket.')
-mibBuilder.exportSymbols("BEGEMOT-HAST-MIB", hastConfigFile=hastConfigFile, hastResourceTable=hastResourceTable, begemotHast=begemotHast, hastResourceFlushErrors=hastResourceFlushErrors, hastResourceExtentSize=hastResourceExtentSize, hastResourceActivemapUpdates=hastResourceActivemapUpdates, hastResourceDeletes=hastResourceDeletes, hastResourceWrites=hastResourceWrites, hastResourceDoneQueue=hastResourceDoneQueue, hastResourceFlushes=hastResourceFlushes, hastResourceReadErrors=hastResourceReadErrors, hastResourceKeepDirty=hastResourceKeepDirty, hastResourceReads=hastResourceReads, hastResourceReplication=hastResourceReplication, hastResourceLocalPath=hastResourceLocalPath, hastResourceRecvQueue=hastResourceRecvQueue, hastResourceWriteErrors=hastResourceWriteErrors, begemotHastObjects=begemotHastObjects, PYSNMP_MODULE_ID=begemotHast, hastResourceIndex=hastResourceIndex, hastResourceStatus=hastResourceStatus, hastConfig=hastConfig, hastResourceIdleQueue=hastResourceIdleQueue, hastResourceWorkerPid=hastResourceWorkerPid, hastResourceDirty=hastResourceDirty, hastResourceRemoteAddr=hastResourceRemoteAddr, hastResourceEntry=hastResourceEntry, hastResourceLocalQueue=hastResourceLocalQueue, hastResourceSendQueue=hastResourceSendQueue, hastResourceProvName=hastResourceProvName, hastResourceName=hastResourceName, hastResourceSourceAddr=hastResourceSourceAddr, hastResourceRole=hastResourceRole, hastResourceDeleteErrors=hastResourceDeleteErrors)
+mibBuilder.exportSymbols("BEGEMOT-HAST-MIB", hastResourceDeleteErrors=hastResourceDeleteErrors, hastConfig=hastConfig, hastResourceActivemapUpdates=hastResourceActivemapUpdates, hastResourceFlushes=hastResourceFlushes, hastResourceReplication=hastResourceReplication, hastResourceRecvQueue=hastResourceRecvQueue, begemotHast=begemotHast, hastResourceDirty=hastResourceDirty, hastResourceKeepDirty=hastResourceKeepDirty, hastResourceSourceAddr=hastResourceSourceAddr, hastResourceWriteErrors=hastResourceWriteErrors, hastResourceIdleQueue=hastResourceIdleQueue, hastResourceName=hastResourceName, hastResourceReadErrors=hastResourceReadErrors, hastConfigFile=hastConfigFile, hastResourceWrites=hastResourceWrites, hastResourceLocalQueue=hastResourceLocalQueue, hastResourceProvName=hastResourceProvName, hastResourceStatus=hastResourceStatus, hastResourceEntry=hastResourceEntry, hastResourceDeletes=hastResourceDeletes, begemotHastObjects=begemotHastObjects, hastResourceTable=hastResourceTable, PYSNMP_MODULE_ID=begemotHast, hastResourceIndex=hastResourceIndex, hastResourceRemoteAddr=hastResourceRemoteAddr, hastResourceSendQueue=hastResourceSendQueue, hastResourceWorkerPid=hastResourceWorkerPid, hastResourceDoneQueue=hastResourceDoneQueue, hastResourceLocalPath=hastResourceLocalPath, hastResourceFlushErrors=hastResourceFlushErrors, hastResourceExtentSize=hastResourceExtentSize, hastResourceRole=hastResourceRole, hastResourceReads=hastResourceReads)

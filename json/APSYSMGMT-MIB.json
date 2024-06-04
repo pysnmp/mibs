@@ -5,8 +5,8 @@
       "acmepacketMgmt"
     ],
     "ACMEPACKET-TC": [
-      "ApRedundancyState",
-      "ApHardwareModuleFamily"
+      "ApHardwareModuleFamily",
+      "ApRedundancyState"
     ],
     "APLICENSE-MIB": [
       "apLicenseDatabaseRegCap"
@@ -16,37 +16,37 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetZoneIndex",
-      "InetAddress",
       "InetAddressPrefixLength",
+      "InetAddressType",
       "InetVersion",
-      "InetAddressType"
+      "InetZoneIndex",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Bits",
       "OBJECT-TYPE",
       "TimeTicks",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Unsigned32",
       "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64"
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "apSystemManagementModule": {
@@ -8227,8 +8227,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APSYSMGMT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:13:06 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:49:35 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APSYSMGMT-MIB"

@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
       "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
       "TimeTicks",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "IpAddress"
+      "Counter32",
+      "OBJECT-TYPE",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "AgentNotifyLevel": {
@@ -86,8 +86,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINK-ID-REC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:47 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:44:56 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DLINK-ID-REC-MIB"

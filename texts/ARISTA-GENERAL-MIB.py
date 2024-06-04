@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ARISTA-GENERAL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-GENERAL-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 10:05:37 2024
-# On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun  4 11:42:53 2024
+# On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, Counter32, MibIdentifier, Unsigned32, ModuleIdentity, NotificationType, Gauge32, Counter64, Integer32, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "MibIdentifier", "Unsigned32", "ModuleIdentity", "NotificationType", "Gauge32", "Counter64", "Integer32", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "TimeTicks")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, Integer32, TimeTicks, Unsigned32, iso, ObjectIdentity, Bits, NotificationType, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "Integer32", "TimeTicks", "Unsigned32", "iso", "ObjectIdentity", "Bits", "NotificationType", "Counter64", "IpAddress")
 DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
 aristaGeneralMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 24))
 aristaGeneralMib.setRevisions(('2017-11-06 00:00',))
@@ -56,4 +56,4 @@ aristaGeneralMibGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 24, 2, 2, 1)).s
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaGeneralMibGroup = aristaGeneralMibGroup.setStatus('current')
 if mibBuilder.loadTexts: aristaGeneralMibGroup.setDescription('The collection of objects that provide reload cause\n        information for the CPU units in the system.')
-mibBuilder.exportSymbols("ARISTA-GENERAL-MIB", aristaGeneralMib=aristaGeneralMib, aristaReloadCauseIndex=aristaReloadCauseIndex, aristaReloadCauseTable=aristaReloadCauseTable, aristaReloadCauseEntry=aristaReloadCauseEntry, aristaReloadUnitIndex=aristaReloadUnitIndex, aristaGeneralMibGroup=aristaGeneralMibGroup, PYSNMP_MODULE_ID=aristaGeneralMib, aristaGeneralMibObjects=aristaGeneralMibObjects, aristaReloadCauseDescription=aristaReloadCauseDescription, aristaReloadTime=aristaReloadTime, aristaGeneralMibCompliance=aristaGeneralMibCompliance, aristaGeneralMibNotifications=aristaGeneralMibNotifications, aristaGeneralMibGroups=aristaGeneralMibGroups, aristaGeneralMibCompliances=aristaGeneralMibCompliances, aristaReloadIndex=aristaReloadIndex, aristaGeneralMibConformance=aristaGeneralMibConformance)
+mibBuilder.exportSymbols("ARISTA-GENERAL-MIB", aristaGeneralMibConformance=aristaGeneralMibConformance, aristaGeneralMibCompliance=aristaGeneralMibCompliance, aristaGeneralMibObjects=aristaGeneralMibObjects, aristaGeneralMibGroup=aristaGeneralMibGroup, aristaReloadCauseTable=aristaReloadCauseTable, aristaReloadUnitIndex=aristaReloadUnitIndex, aristaGeneralMibCompliances=aristaGeneralMibCompliances, aristaReloadTime=aristaReloadTime, aristaGeneralMibGroups=aristaGeneralMibGroups, aristaReloadCauseIndex=aristaReloadCauseIndex, aristaGeneralMib=aristaGeneralMib, aristaReloadIndex=aristaReloadIndex, PYSNMP_MODULE_ID=aristaGeneralMib, aristaReloadCauseDescription=aristaReloadCauseDescription, aristaGeneralMibNotifications=aristaGeneralMibNotifications, aristaReloadCauseEntry=aristaReloadCauseEntry)

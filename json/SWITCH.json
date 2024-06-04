@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "Integer32",
-      "enterprises",
-      "mib-2",
-      "TimeTicks",
-      "iso",
-      "IpAddress",
-      "Bits",
       "MibIdentifier",
-      "Counter32"
+      "Gauge32",
+      "TimeTicks",
+      "enterprises",
+      "Counter32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "mib-2",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TestAndIncr",
-      "DisplayString",
       "PhysAddress",
+      "AutonomousType",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "MacAddress",
       "RowStatus",
-      "AutonomousType"
+      "DisplayString",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TimeStamp",
+      "TruthValue"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:09:58 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:46:33 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipAddressEntry",
+      "ipv6InterfaceEntry",
       "ipNetToPhysicalEntry",
-      "ipv6RouterAdvertEntry",
-      "ipv6InterfaceEntry"
+      "ipv6RouterAdvertEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -30,33 +30,33 @@
       "rnd"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "OBJECT-IDENTITY",
       "mib-2",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "TimeTicks",
       "zeroDotZero",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Unsigned32",
-      "Counter32",
-      "Bits",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TimeInterval",
+      "TruthValue"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:11:56 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:48:51 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-IPv6"

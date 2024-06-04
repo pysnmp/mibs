@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
       "IpAddress",
-      "org",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "MibIdentifier",
-      "Unsigned32"
+      "iso",
+      "org",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021TcMib": {
@@ -568,8 +568,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:04:36 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:41:51 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-TC-MIB"

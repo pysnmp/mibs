@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
       "OBJECT-IDENTITY",
+      "Unsigned32",
       "mib-2",
-      "Gauge32",
-      "Counter64",
+      "Integer32",
+      "MibIdentifier",
       "iso",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "IpAddress",
-      "Counter32"
+      "Bits",
+      "Counter64",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -986,8 +986,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/janitza/JANITZA-MIB-UMG96",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:11:16 2024",
-      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 11:48:16 2024",
+      "On host fv-az1427-842 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JANITZA-MIB-UMG96"
