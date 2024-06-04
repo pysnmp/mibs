@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "enterprises",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
       "IpAddress",
-      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Counter32",
+      "enterprises",
+      "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "lenovoemc": {
@@ -1025,8 +1025,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lenovo/IOMEGANAS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:08:26 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:11:46 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IOMEGANAS-MIB"

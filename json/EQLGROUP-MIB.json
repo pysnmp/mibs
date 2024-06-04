@@ -9,32 +9,32 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "enterprises",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
       "Gauge32",
       "IpAddress",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowPointer",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "eqlgroupModule": {
@@ -6090,8 +6090,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLGROUP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:05:23 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:08:34 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLGROUP-MIB"

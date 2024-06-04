@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventCounter",
       "eventTimeStamp",
+      "eventCounter",
       "eventPriority",
       "mibRelease"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "SFNMFN",
-      "Input1Input2",
-      "OkNotOk",
-      "dvbT",
-      "SelectManualAuto",
-      "SelectOnOff",
-      "LocalRemote",
-      "MuteOk",
-      "PresentNotPresent",
       "FaultOK",
-      "WarningOK"
+      "SelectOnOff",
+      "dvbT",
+      "LocalRemote",
+      "Input1Input2",
+      "MuteOk",
+      "WarningOK",
+      "SFNMFN",
+      "SelectManualAuto",
+      "OkNotOk",
+      "PresentNotPresent"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
-      "sysName",
-      "sysDescr"
+      "sysDescr",
+      "sysName"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "Unsigned32",
-      "IpAddress",
-      "Counter64",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:10:56 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:14:17 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

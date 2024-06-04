@@ -5,8 +5,8 @@
       "EqptSlotIndex"
     ],
     "ASAM-TC-MIB": [
-      "NetworkTimeInMiliSeconds",
-      "NetworkTimeInSeconds"
+      "NetworkTimeInSeconds",
+      "NetworkTimeInMiliSeconds"
     ],
     "BRIDGE-MIB": [
       "MacAddress"
@@ -16,27 +16,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Counter32",
-      "Bits",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "DateAndTime",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DateAndTime"
     ],
     "SYSTEM-MIB": [
       "asam"
@@ -2551,8 +2551,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ASAM-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:10:31 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:13:45 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ASAM-SYSTEM-MIB"

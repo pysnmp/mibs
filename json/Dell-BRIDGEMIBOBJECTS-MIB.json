@@ -3,8 +3,8 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "dot1dBasePort",
-      "dot1dStpPort",
       "Timeout",
+      "dot1dStpPort",
       "BridgeId"
     ],
     "Dell-MIB": [
@@ -25,26 +25,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "OBJECT-IDENTITY",
       "iso",
-      "Counter32"
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "VlanList1": {
@@ -2573,8 +2573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-BRIDGEMIBOBJECTS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:04:39 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:48 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-BRIDGEMIBOBJECTS-MIB"

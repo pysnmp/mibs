@@ -5,8 +5,8 @@
       "EntryStatus"
     ],
     "RFC1381-MIB": [
-      "IfIndexType",
-      "PositiveInteger"
+      "PositiveInteger",
+      "IfIndexType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -14,25 +14,25 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Counter32",
-      "TRAP-TYPE",
-      "Bits",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "transmission",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
       "iso",
-      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "transmission",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TRAP-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "x25": {
@@ -2744,9 +2744,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RFC1382-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:26 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC1382-MIB",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:04:52 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RFC1382-MIB"

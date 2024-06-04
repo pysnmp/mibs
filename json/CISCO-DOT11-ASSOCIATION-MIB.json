@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "CISCO-DOT11-IF-MIB": [
+      "CDot11IfCipherType",
       "CDot11IfVlanIdOrZero",
-      "cd11IfAuxSsid",
-      "CDot11IfCipherType"
+      "cd11IfAuxSsid"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -27,25 +27,25 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
       "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ciscoDot11AssociationMIB": {
@@ -2084,8 +2084,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-ASSOCIATION-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:20 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:10:26 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DOT11-ASSOCIATION-MIB"

@@ -6,27 +6,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
-      "TimeTicks",
+      "IpAddress",
       "OBJECT-TYPE",
+      "TRAP-TYPE",
       "iso",
+      "Bits",
+      "enterprises",
       "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "wut": {
@@ -3383,8 +3383,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wut/WebGraph-Thermo-Hygrometer-US-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 10:12:08 2024",
-      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:15:30 2024",
+      "On host fv-az801-864 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WebGraph-Thermo-Hygrometer-US-MIB"
