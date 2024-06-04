@@ -7,26 +7,26 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
       "enterprises",
       "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
       "iso",
+      "MibIdentifier",
       "Unsigned32",
-      "IpAddress",
-      "Counter32"
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
+      "TruthValue",
+      "RowPointer",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -54,8 +54,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQUALLOGIC-SMI",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 09:30:00 2024",
-      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:05:23 2024",
+      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQUALLOGIC-SMI"

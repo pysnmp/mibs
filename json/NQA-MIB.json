@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "HUAWEI-ETHOAM-MIB": [
-      "HWDot1agCfmRelayActionFieldValue",
       "HWDot1agCfmEgressActionFieldValue",
-      "HWDot1agCfmIngressActionFieldValue"
+      "HWDot1agCfmIngressActionFieldValue",
+      "HWDot1agCfmRelayActionFieldValue"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -32,38 +32,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "MibIdentifier",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-GROUP",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Bits",
-      "NOTIFICATION-GROUP",
+      "Integer32",
+      "Counter32",
       "mib-2",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "Unsigned32"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "StorageType",
       "MacAddress",
+      "TruthValue",
+      "TimeInterval",
       "DateAndTime",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TimeInterval",
-      "StorageType",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 09:32:12 2024",
-      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:30 2024",
+      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NQA-MIB"

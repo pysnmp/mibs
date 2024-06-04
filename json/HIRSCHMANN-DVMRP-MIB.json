@@ -5,36 +5,36 @@
       "hmPlatform4Multicast"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
+      "Counter32",
       "MODULE-IDENTITY",
       "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Bits",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1076,8 +1076,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmDVMRP.mib",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 09:31:12 2024",
-      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:06:29 2024",
+      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HIRSCHMANN-DVMRP-MIB"

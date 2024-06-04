@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxEncryptAlgo",
       "JnxSAType",
-      "JnxAuthAlgo",
-      "JnxDiffHellmanGrp",
-      "JnxIkePeerRole",
-      "JnxEncapMode",
-      "JnxKeyType",
       "JnxIkePeerType",
-      "JnxRemotePeerType",
-      "JnxIkeHashAlgo",
+      "JnxDiffHellmanGrp",
+      "JnxAuthAlgo",
       "JnxIkeNegoMode",
-      "JnxIkeAuthMethod"
+      "JnxIkeAuthMethod",
+      "JnxEncryptAlgo",
+      "JnxEncapMode",
+      "JnxIkePeerRole",
+      "JnxKeyType",
+      "JnxRemotePeerType",
+      "JnxIkeHashAlgo"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -30,25 +30,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
+      "Bits",
+      "iso",
+      "TimeTicks",
       "MibIdentifier",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "DisplayString"
+      "TimeInterval"
     ]
   },
   "jnxIpSecMonitorMIB": {
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 09:33:31 2024",
-      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:09:13 2024",
+      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

@@ -6,13 +6,13 @@
     ],
     "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
       "DynamicTemplateName",
+      "DynamicTemplateTargetId",
       "DynamicTemplateType",
-      "DynamicTemplateTargetType",
-      "DynamicTemplateTargetId"
+      "DynamicTemplateTargetType"
     ],
     "CISCO-IP-URPF-MIB": [
-      "UnicastRpfOptions",
-      "UnicastRpfType"
+      "UnicastRpfType",
+      "UnicastRpfOptions"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -24,9 +24,9 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddressIPv4",
       "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -37,28 +37,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
+      "RowStatus",
       "TruthValue",
       "MacAddress",
-      "RowStatus"
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDynamicTemplateMIB": {
@@ -3213,8 +3213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 09:32:04 2024",
-      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:07:21 2024",
+      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DYNAMIC-TEMPLATE-MIB"

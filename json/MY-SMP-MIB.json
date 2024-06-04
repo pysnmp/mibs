@@ -11,39 +11,39 @@
       "Community"
     ],
     "MY-TC": [
-      "ConfigStatus",
-      "IfIndex"
+      "IfIndex",
+      "ConfigStatus"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "TimeTicks",
-      "Gauge32",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Integer32",
-      "IpAddress"
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
+      "DisplayString",
       "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "mySMPMIB": {
@@ -913,8 +913,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-SMP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 09:35:27 2024",
-      "On host fv-az1146-179 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 10:11:00 2024",
+      "On host fv-az1773-903 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MY-SMP-MIB"
