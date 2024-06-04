@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
       "VlanList2",
       "VlanList1",
-      "VlanList4"
+      "VlanList4",
+      "VlanList3"
     ],
     "CISCOSB-MIB": [
       "switch001"
@@ -22,25 +22,25 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
+      "IpAddress",
       "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Bits",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "rsDHCP": {
@@ -1627,8 +1627,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:31:56 2024",
-      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:55:26 2024",
+      "On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-DHCP-MIB"

@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsContactState",
-      "xupsEnvRemoteHumidity",
       "xupsEnvRemoteHumidityUpperLimit",
-      "xupsEnvRemoteTempUpperLimit",
-      "xupsContactDescr",
+      "xupsContactIndex",
       "xupsEnvRemoteTemp",
-      "xupsEnvRemoteHumidityLowerLimit",
       "xupsContactType",
+      "xupsEnvRemoteTempUpperLimit",
       "xupsEnvRemoteTempLowerLimit",
-      "xupsContactIndex"
+      "xupsEnvRemoteHumidity",
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsContactDescr",
+      "xupsContactState"
     ],
     "EATON-OIDS": [
       "xupsEnvironment",
@@ -26,24 +26,24 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Bits",
       "iso",
-      "MibIdentifier",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Counter32",
       "Integer32",
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:29:02 2024",
-      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:52:29 2024",
+      "On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "XUPS-MIB"

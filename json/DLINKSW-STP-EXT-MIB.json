@@ -5,8 +5,8 @@
       "dlinkIndustrialCommon"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021MstIdentifier",
-      "IEEE8021BridgePortNumber"
+      "IEEE8021BridgePortNumber",
+      "IEEE8021MstIdentifier"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -14,24 +14,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Bits",
       "MODULE-IDENTITY",
-      "iso",
       "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -372,8 +372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-STP-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 08:28:53 2024",
-      "On host fv-az1117-967 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:52:20 2024",
+      "On host fv-az2028-26 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-STP-EXT-MIB"
