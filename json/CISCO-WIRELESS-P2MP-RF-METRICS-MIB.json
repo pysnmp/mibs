@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "P2mpSnapshotAttribute",
-      "CwrFixedPointPrecision",
-      "CwrCollectionStatus",
-      "CwrFixedPointValue",
-      "CwrFixedPointScale",
-      "CwrUpdateTime",
-      "CwrCollectionAction",
       "CwrThreshLimitType",
-      "P2mpRadioSignalAttribute"
+      "CwrCollectionStatus",
+      "CwrUpdateTime",
+      "P2mpRadioSignalAttribute",
+      "P2mpSnapshotAttribute",
+      "CwrFixedPointScale",
+      "CwrFixedPointPrecision",
+      "CwrFixedPointValue",
+      "CwrCollectionAction"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -25,28 +25,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
       "iso",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "TimeInterval",
-      "MacAddress",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "ciscoWirelessRfMetricsMIB": {
@@ -1671,8 +1671,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:51:07 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:07:42 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "ExaltComm": [
-      "NtpClientEnableT",
-      "TimeZoneT",
-      "EthPortMode",
+      "Te1LboT",
+      "FileTransferTypeT",
+      "EthMainStatusT",
+      "exaltcommunications",
       "AlarmLevelT",
+      "VlanGroupT",
+      "EthAuxStatusT",
+      "Te1LineCodeT",
+      "Led4ColorT",
+      "AcmModulationT",
+      "NtpClientEnableT",
+      "Te1StatusT",
       "FileTransferStartT",
       "ExaltEnableT",
       "Te1LoopBackModeT",
+      "EthPortMode",
       "EnableStatusT",
-      "AuxNmsMode",
-      "FileTransferTypeT",
-      "AcmModulationT",
-      "VlanGroupT",
-      "Te1LboT",
       "VlanStatusT",
-      "EthAuxStatusT",
-      "exaltcommunications",
-      "Te1LineCodeT",
-      "EthMainStatusT",
-      "Te1StatusT",
-      "Led4ColorT"
+      "AuxNmsMode",
+      "TimeZoneT"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -29,20 +29,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "Integer32",
       "Counter32",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ExaltComProducts",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:49:08 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:06:02 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ExaltComProducts"

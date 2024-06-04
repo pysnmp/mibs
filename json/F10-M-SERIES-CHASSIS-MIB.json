@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "F10-CHASSIS-MIB": [
-      "chAlarmVarPort",
-      "chAlarmVarString",
       "chAlarmVarSlot",
-      "chAlarmVarInteger"
+      "chAlarmVarInteger",
+      "chAlarmVarString",
+      "chAlarmVarPort"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
+      "F10ProcessorModuleType",
+      "F10SwDate",
       "F10HundredthdB",
-      "F10MfgDate",
       "F10MSeriesPortType",
       "F10ChassisType",
-      "F10SwDate",
-      "F10ProcessorModuleType"
+      "F10MfgDate"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
       "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
       "Gauge32",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
       "MacAddress",
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "f10MSerChassisMib": {
@@ -2282,8 +2282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-M-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:48:12 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:05:00 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F10-M-SERIES-CHASSIS-MIB"

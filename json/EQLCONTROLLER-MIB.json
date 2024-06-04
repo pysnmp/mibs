@@ -15,25 +15,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "enterprises",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
       "iso",
       "Bits",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "MibIdentifier",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "eqlcontrollerModule": {
@@ -2084,8 +2084,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLCONTROLLER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:48:55 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:05:51 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EQLCONTROLLER-MIB"

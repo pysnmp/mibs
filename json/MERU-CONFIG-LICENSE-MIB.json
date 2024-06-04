@@ -12,35 +12,35 @@
       "MwlSofwControllerType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
       "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
       "Counter64",
-      "Integer32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "enterprises"
+      "Integer32",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TimeStamp",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "DisplayString",
+      "MacAddress",
+      "TimeInterval",
       "TruthValue",
-      "MacAddress"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mwConfigLicense": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-LICENSE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:49:28 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:06:25 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-LICENSE-MIB"

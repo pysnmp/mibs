@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "IpAddress",
+      "TimeTicks",
+      "mib-2",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "pwTcStdMIB": {
@@ -229,9 +229,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PW-TC-STD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:45:14 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PW-TC-STD-MIB",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:05:06 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PW-TC-STD-MIB"

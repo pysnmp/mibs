@@ -5,13 +5,13 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "MPLS-LSR-STD-MIB": [
@@ -24,33 +24,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "iso",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
-      "Counter32",
-      "Counter64",
       "MibIdentifier",
       "Unsigned32",
-      "Gauge32",
+      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ],
     "VPN-TC-STD-MIB": [
       "VPNIdOrZero"
@@ -1688,9 +1688,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-L3VPN-STD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:45:14 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-L3VPN-STD-MIB",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:08:01 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MPLS-L3VPN-STD-MIB"

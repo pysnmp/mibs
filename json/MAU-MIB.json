@@ -1,30 +1,40 @@
 {
   "imports": {
     "class": "imports",
+    "IANA-MAU-MIB": [
+      "IANAifMauTypeListBits",
+      "IANAifMauMediaAvailable",
+      "IANAifMauAutoNegCapBits",
+      "IANAifJackType"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "iso",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "mib-2",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
       "Counter64",
       "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TruthValue",
+      "AutonomousType",
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
@@ -35,12 +45,20 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2007-04-21 00:00",
+        "description": "Updated to reference IANA maintaned textual conventions for MAU types, Media Availability state, Auto Negotiation capabilities, and jack types, instead of using internally defined values. This version is published as RFC 4836."
+      },
+      {
+        "revision": "2003-09-19 00:00",
+        "description": "Updated to include support for 10 Gb/s MAUs. This resulted in the following revisions: - Added OBJECT-IDENTITY definitions for 10 gigabit MAU types - Added fiberLC jack type to JackType TC - Extended ifMauTypeListBits with bits for the 10 gigabit MAU types - Added enumerations to ifMauMediaAvailable, and updated its DESCRIPTION to reflect behaviour at 10 Gb/s - Added 64-bit version of ifMauFalseCarriers and added mauIfGrpHCStats object group to contain the new object - Deprecated mauModIfCompl2 and replaced it with mauModIfCompl3, which includes the new object group This version published as RFC 3636."
+      },
+      {
         "revision": "1999-08-24 04:00",
         "description": "This version published as RFC 2668. Updated to include support for 1000 Mb/sec MAUs and flow control negotiation."
       },
       {
         "revision": "1997-10-31 00:00",
-        "description": "This version published as RFC 2239."
+        "description": "Version published as RFC 2239."
       },
       {
         "revision": "1993-09-30 00:00",
@@ -73,11 +91,12 @@
           "fiberST": 10,
           "telco": 11,
           "mtrj": 12,
-          "hssdc": 13
+          "hssdc": 13,
+          "fiberLC": 14
         }
       }
     },
-    "status": "current"
+    "status": "deprecated"
   },
   "dot3RpMauBasicGroup": {
     "name": "dot3RpMauBasicGroup",
@@ -98,191 +117,6 @@
     "name": "dot3IfMauAutoNegGroup",
     "oid": "1.3.6.1.2.1.26.5",
     "class": "objectidentity"
-  },
-  "dot3MauType": {
-    "name": "dot3MauType",
-    "oid": "1.3.6.1.2.1.26.4",
-    "class": "objectidentity"
-  },
-  "dot3MauTypeAUI": {
-    "name": "dot3MauTypeAUI",
-    "oid": "1.3.6.1.2.1.26.4.1",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10Base5": {
-    "name": "dot3MauType10Base5",
-    "oid": "1.3.6.1.2.1.26.4.2",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauTypeFoirl": {
-    "name": "dot3MauTypeFoirl",
-    "oid": "1.3.6.1.2.1.26.4.3",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10Base2": {
-    "name": "dot3MauType10Base2",
-    "oid": "1.3.6.1.2.1.26.4.4",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseT": {
-    "name": "dot3MauType10BaseT",
-    "oid": "1.3.6.1.2.1.26.4.5",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseFP": {
-    "name": "dot3MauType10BaseFP",
-    "oid": "1.3.6.1.2.1.26.4.6",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseFB": {
-    "name": "dot3MauType10BaseFB",
-    "oid": "1.3.6.1.2.1.26.4.7",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseFL": {
-    "name": "dot3MauType10BaseFL",
-    "oid": "1.3.6.1.2.1.26.4.8",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10Broad36": {
-    "name": "dot3MauType10Broad36",
-    "oid": "1.3.6.1.2.1.26.4.9",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseTHD": {
-    "name": "dot3MauType10BaseTHD",
-    "oid": "1.3.6.1.2.1.26.4.10",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseTFD": {
-    "name": "dot3MauType10BaseTFD",
-    "oid": "1.3.6.1.2.1.26.4.11",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseFLHD": {
-    "name": "dot3MauType10BaseFLHD",
-    "oid": "1.3.6.1.2.1.26.4.12",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10BaseFLFD": {
-    "name": "dot3MauType10BaseFLFD",
-    "oid": "1.3.6.1.2.1.26.4.13",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseT4": {
-    "name": "dot3MauType100BaseT4",
-    "oid": "1.3.6.1.2.1.26.4.14",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseTXHD": {
-    "name": "dot3MauType100BaseTXHD",
-    "oid": "1.3.6.1.2.1.26.4.15",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseTXFD": {
-    "name": "dot3MauType100BaseTXFD",
-    "oid": "1.3.6.1.2.1.26.4.16",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseFXHD": {
-    "name": "dot3MauType100BaseFXHD",
-    "oid": "1.3.6.1.2.1.26.4.17",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseFXFD": {
-    "name": "dot3MauType100BaseFXFD",
-    "oid": "1.3.6.1.2.1.26.4.18",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseT2HD": {
-    "name": "dot3MauType100BaseT2HD",
-    "oid": "1.3.6.1.2.1.26.4.19",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType100BaseT2FD": {
-    "name": "dot3MauType100BaseT2FD",
-    "oid": "1.3.6.1.2.1.26.4.20",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseXHD": {
-    "name": "dot3MauType1000BaseXHD",
-    "oid": "1.3.6.1.2.1.26.4.21",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseXFD": {
-    "name": "dot3MauType1000BaseXFD",
-    "oid": "1.3.6.1.2.1.26.4.22",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseLXHD": {
-    "name": "dot3MauType1000BaseLXHD",
-    "oid": "1.3.6.1.2.1.26.4.23",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseLXFD": {
-    "name": "dot3MauType1000BaseLXFD",
-    "oid": "1.3.6.1.2.1.26.4.24",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseSXHD": {
-    "name": "dot3MauType1000BaseSXHD",
-    "oid": "1.3.6.1.2.1.26.4.25",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseSXFD": {
-    "name": "dot3MauType1000BaseSXFD",
-    "oid": "1.3.6.1.2.1.26.4.26",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseCXHD": {
-    "name": "dot3MauType1000BaseCXHD",
-    "oid": "1.3.6.1.2.1.26.4.27",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseCXFD": {
-    "name": "dot3MauType1000BaseCXFD",
-    "oid": "1.3.6.1.2.1.26.4.28",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseTHD": {
-    "name": "dot3MauType1000BaseTHD",
-    "oid": "1.3.6.1.2.1.26.4.29",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType1000BaseTFD": {
-    "name": "dot3MauType1000BaseTFD",
-    "oid": "1.3.6.1.2.1.26.4.30",
-    "class": "objectidentity",
-    "status": "current"
   },
   "rpMauTable": {
     "name": "rpMauTable",
@@ -383,7 +217,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OBJECT IDENTIFIER",
+      "type": "AutonomousType",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -417,23 +251,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "unknown": 2,
-          "available": 3,
-          "notAvailable": 4,
-          "remoteFault": 5,
-          "invalidSignal": 6,
-          "remoteJabber": 7,
-          "remoteLinkLoss": 8,
-          "remoteTest": 9,
-          "offline": 10,
-          "autoNegError": 11
-        }
-      }
+      "type": "IANAifMauMediaAvailable",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -558,7 +377,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "JackType",
+      "type": "IANAifJackType",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -598,16 +417,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2147483647
-          }
-        ]
-      }
+      "type": "InterfaceIndex",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -638,7 +449,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OBJECT IDENTIFIER",
+      "type": "AutonomousType",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -672,23 +483,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "unknown": 2,
-          "available": 3,
-          "notAvailable": 4,
-          "remoteFault": 5,
-          "invalidSignal": 6,
-          "remoteJabber": 7,
-          "remoteLinkLoss": 8,
-          "remoteTest": 9,
-          "offline": 10,
-          "autoNegError": 11
-        }
-      }
+      "type": "IANAifMauMediaAvailable",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -767,7 +563,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OBJECT IDENTIFIER",
+      "type": "AutonomousType",
       "class": "type"
     },
     "maxaccess": "read-write",
@@ -791,41 +587,20 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "bOther": 0,
-        "bAUI": 1,
-        "b10base5": 2,
-        "bFoirl": 3,
-        "b10base2": 4,
-        "b10baseT": 5,
-        "b10baseFP": 6,
-        "b10baseFB": 7,
-        "b10baseFL": 8,
-        "b10broad36": 9,
-        "b10baseTHD": 10,
-        "b10baseTFD": 11,
-        "b10baseFLHD": 12,
-        "b10baseFLFD": 13,
-        "b100baseT4": 14,
-        "b100baseTXHD": 15,
-        "b100baseTXFD": 16,
-        "b100baseFXHD": 17,
-        "b100baseFXFD": 18,
-        "b100baseT2HD": 19,
-        "b100baseT2FD": 20,
-        "b1000baseXHD": 21,
-        "b1000baseXFD": 22,
-        "b1000baseLXHD": 23,
-        "b1000baseLXFD": 24,
-        "b1000baseSXHD": 25,
-        "b1000baseSXFD": 26,
-        "b1000baseCXHD": 27,
-        "b1000baseCXFD": 28,
-        "b1000baseTHD": 29,
-        "b1000baseTFD": 30
-      }
+      "type": "IANAifMauTypeListBits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ifMauHCFalseCarriers": {
+    "name": "ifMauHCFalseCarriers",
+    "oid": "1.3.6.1.2.1.26.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -889,7 +664,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "JackType",
+      "type": "IANAifJackType",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1040,26 +815,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "bOther": 0,
-        "b10baseT": 1,
-        "b10baseTFD": 2,
-        "b100baseT4": 3,
-        "b100baseTX": 4,
-        "b100baseTXFD": 5,
-        "b100baseT2": 6,
-        "b100baseT2FD": 7,
-        "bfdxPause": 8,
-        "bfdxAPause": 9,
-        "bfdxSPause": 10,
-        "bfdxBPause": 11,
-        "b1000baseX": 12,
-        "b1000baseXFD": 13,
-        "b1000baseT": 14,
-        "b1000baseTFD": 15
-      }
+      "type": "IANAifMauAutoNegCapBits",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1070,26 +827,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "bOther": 0,
-        "b10baseT": 1,
-        "b10baseTFD": 2,
-        "b100baseT4": 3,
-        "b100baseTX": 4,
-        "b100baseTXFD": 5,
-        "b100baseT2": 6,
-        "b100baseT2FD": 7,
-        "bFdxPause": 8,
-        "bFdxAPause": 9,
-        "bFdxSPause": 10,
-        "bFdxBPause": 11,
-        "b1000baseX": 12,
-        "b1000baseXFD": 13,
-        "b1000baseT": 14,
-        "b1000baseTFD": 15
-      }
+      "type": "IANAifMauAutoNegCapBits",
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1100,26 +839,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "bOther": 0,
-        "b10baseT": 1,
-        "b10baseTFD": 2,
-        "b100baseT4": 3,
-        "b100baseTX": 4,
-        "b100baseTXFD": 5,
-        "b100baseT2": 6,
-        "b100baseT2FD": 7,
-        "bFdxPause": 8,
-        "bFdxAPause": 9,
-        "bFdxSPause": 10,
-        "bFdxBPause": 11,
-        "b1000baseX": 12,
-        "b1000baseXFD": 13,
-        "b1000baseT": 14,
-        "b1000baseTFD": 15
-      }
+      "type": "IANAifMauAutoNegCapBits",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1198,16 +919,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2147483647
-          }
-        ]
-      }
+      "type": "InterfaceIndex",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "deprecated"
@@ -1608,6 +1321,18 @@
     ],
     "status": "current"
   },
+  "mauIfGrpHCStats": {
+    "name": "mauIfGrpHCStats",
+    "oid": "1.3.6.1.2.1.26.6.1.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MAU-MIB",
+        "object": "ifMauHCFalseCarriers"
+      }
+    ],
+    "status": "current"
+  },
   "rpMauNotifications": {
     "name": "rpMauNotifications",
     "oid": "1.3.6.1.2.1.26.6.1.3.1",
@@ -1718,7 +1443,7 @@
         "module": "MAU-MIB"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "mauModRpCompl2": {
     "name": "mauModRpCompl2",
@@ -1744,11 +1469,47 @@
     ],
     "status": "current"
   },
+  "mauModIfCompl3": {
+    "name": "mauModIfCompl3",
+    "oid": "1.3.6.1.2.1.26.6.1.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mauIfGrpBasic",
+        "module": "MAU-MIB"
+      },
+      {
+        "object": "mauIfGrpHighCapacity",
+        "module": "MAU-MIB"
+      },
+      {
+        "object": "mauIfGrpHCStats",
+        "module": "MAU-MIB"
+      },
+      {
+        "object": "mauIfGrpJack",
+        "module": "MAU-MIB"
+      },
+      {
+        "object": "mauIfGrpAutoNeg2",
+        "module": "MAU-MIB"
+      },
+      {
+        "object": "mauIfGrpAutoNeg1000Mbps",
+        "module": "MAU-MIB"
+      },
+      {
+        "object": "ifMauNotifications",
+        "module": "MAU-MIB"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC2668-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:45:14 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MAU-MIB",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:05:01 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MAU-MIB"

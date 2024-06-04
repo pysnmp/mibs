@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "enterprises",
-      "MibIdentifier",
+      "Counter64",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "enterprises",
+      "Counter32",
       "TimeTicks",
-      "OBJECT-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
       "RowStatus",
       "DisplayString"
     ]
@@ -999,8 +999,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/WLC",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 07:53:17 2024",
-      "On host fv-az837-21 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun  4 08:10:48 2024",
+      "On host fv-az1110-484 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "WLC"
