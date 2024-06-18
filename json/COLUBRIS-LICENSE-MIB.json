@@ -5,29 +5,29 @@
       "colubrisMgmtV2"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "Bits",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "MibIdentifier",
+      "iso",
       "Counter64",
+      "MibIdentifier",
       "IpAddress",
       "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
       "Integer32",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisLicenseMIB": {
@@ -212,8 +212,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-LICENSE-MIB.my",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:39:40 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:35:26 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-LICENSE-MIB"

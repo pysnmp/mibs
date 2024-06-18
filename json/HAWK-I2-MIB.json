@@ -6,32 +6,32 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
       "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Unsigned32",
       "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "TimeTicks",
       "iso",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "enterprises",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "MacAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "hawki2MIB": {
@@ -4476,8 +4476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sinetica/HAWK-I2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:44:03 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:39:42 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HAWK-I2-MIB"

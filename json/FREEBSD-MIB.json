@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "iso",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
+      "enterprises",
+      "Counter64",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "freeBSD": {
@@ -71,8 +71,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/FREEBSD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:42:54 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:38:36 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "FREEBSD-MIB"

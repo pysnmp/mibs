@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ARRIS-C3-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-IF-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 01:35:47 2024
-# On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 18 02:31:41 2024
+# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ifEntry, = mibBuilder.importSymbols("IF-MIB", "ifEntry")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Bits, Counter64, iso, Unsigned32, Integer32, enterprises, NotificationType, MibIdentifier, TimeTicks, Counter32, Gauge32, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Bits", "Counter64", "iso", "Unsigned32", "Integer32", "enterprises", "NotificationType", "MibIdentifier", "TimeTicks", "Counter32", "Gauge32", "IpAddress", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+Integer32, iso, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, NotificationType, ObjectIdentity, Gauge32, MibIdentifier, Counter32, enterprises, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "NotificationType", "ObjectIdentity", "Gauge32", "MibIdentifier", "Counter32", "enterprises", "Bits", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cmtsC3IfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 12))
 if mibBuilder.loadTexts: cmtsC3IfMIB.setLastUpdated('200308200000Z')
 if mibBuilder.loadTexts: cmtsC3IfMIB.setOrganization('Arris International')
@@ -33,4 +33,4 @@ dcxIfOutputBitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 12, 1, 1, 
 if mibBuilder.loadTexts: dcxIfOutputBitRate.setStatus('current')
 dcxIfOutputPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 12, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dcxIfOutputPacketRate.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-IF-MIB", dcxIfTable=dcxIfTable, dcxIfInputBitRate=dcxIfInputBitRate, PYSNMP_MODULE_ID=cmtsC3IfMIB, dcxIfLoadInterval=dcxIfLoadInterval, dcxIfEntry=dcxIfEntry, dcxIfInputPacketRate=dcxIfInputPacketRate, cmtsC3IfMIB=cmtsC3IfMIB, dcxIfObjects=dcxIfObjects, dcxIfOutputPacketRate=dcxIfOutputPacketRate, dcxIfOutputBitRate=dcxIfOutputBitRate)
+mibBuilder.exportSymbols("ARRIS-C3-IF-MIB", dcxIfInputBitRate=dcxIfInputBitRate, dcxIfObjects=dcxIfObjects, dcxIfEntry=dcxIfEntry, dcxIfOutputPacketRate=dcxIfOutputPacketRate, dcxIfTable=dcxIfTable, PYSNMP_MODULE_ID=cmtsC3IfMIB, dcxIfLoadInterval=dcxIfLoadInterval, dcxIfInputPacketRate=dcxIfInputPacketRate, dcxIfOutputBitRate=dcxIfOutputBitRate, cmtsC3IfMIB=cmtsC3IfMIB)

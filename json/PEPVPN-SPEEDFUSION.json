@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "enterprises",
-      "IpAddress",
       "TimeTicks",
-      "Bits"
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "RowStatus",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "peplink": {
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/PEPVPN-SPEEDFUSION",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:42:49 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:38:31 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PEPVPN-SPEEDFUSION"

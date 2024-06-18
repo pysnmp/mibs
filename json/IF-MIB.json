@@ -5,39 +5,39 @@
       "IANAifType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "Counter32",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Gauge32",
       "iso",
       "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
-      "mib-2",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TruthValue",
+      "TestAndIncr",
       "PhysAddress",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
       "AutonomousType",
-      "TestAndIncr"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ifMIB": {
@@ -1724,8 +1724,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IF-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:35:10 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:31:04 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IF-MIB"

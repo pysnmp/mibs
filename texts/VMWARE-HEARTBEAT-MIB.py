@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-HEARTBEAT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-HEARTBEAT-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 01:44:40 2024
-# On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 18 02:40:19 2024
+# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
 sysUpTime, = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime")
-Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, Counter32, IpAddress, ModuleIdentity, Bits, Counter64, ObjectIdentity, iso, Integer32, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "Counter32", "IpAddress", "ModuleIdentity", "Bits", "Counter64", "ObjectIdentity", "iso", "Integer32", "TimeTicks", "MibIdentifier")
+Bits, IpAddress, Unsigned32, NotificationType, ModuleIdentity, Integer32, MibIdentifier, Counter32, ObjectIdentity, Gauge32, iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "Unsigned32", "NotificationType", "ModuleIdentity", "Integer32", "MibIdentifier", "Counter32", "ObjectIdentity", "Gauge32", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
 vmwHBMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 190, 66))
@@ -39,4 +39,4 @@ vmwHbNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 190, 2, 2
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwHbNotificationGroup = vmwHbNotificationGroup.setStatus('current')
 if mibBuilder.loadTexts: vmwHbNotificationGroup.setDescription('Notifications related to snmp agent reverse poll feature.')
-mibBuilder.exportSymbols("VMWARE-HEARTBEAT-MIB", vmwHbNotificationGroup=vmwHbNotificationGroup, vmwHbMIBConformance=vmwHbMIBConformance, vmwHbNotifications=vmwHbNotifications, vmwHbMIBCompliances=vmwHbMIBCompliances, vmwHbMIBBasicCompliance=vmwHbMIBBasicCompliance, vmwHbMIBGroups=vmwHbMIBGroups, vmwHBMIB=vmwHBMIB, vmwHbHeartbeat=vmwHbHeartbeat, PYSNMP_MODULE_ID=vmwHBMIB, vmwHb=vmwHb)
+mibBuilder.exportSymbols("VMWARE-HEARTBEAT-MIB", vmwHbMIBBasicCompliance=vmwHbMIBBasicCompliance, vmwHbMIBGroups=vmwHbMIBGroups, PYSNMP_MODULE_ID=vmwHBMIB, vmwHBMIB=vmwHBMIB, vmwHb=vmwHb, vmwHbMIBConformance=vmwHbMIBConformance, vmwHbNotificationGroup=vmwHbNotificationGroup, vmwHbMIBCompliances=vmwHbMIBCompliances, vmwHbHeartbeat=vmwHbHeartbeat, vmwHbNotifications=vmwHbNotifications)

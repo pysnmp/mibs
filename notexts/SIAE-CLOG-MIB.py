@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SIAE-CLOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-CLOG-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 01:43:54 2024
-# On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 18 02:39:35 2024
+# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 alarmTrap, = mibBuilder.importSymbols("SIAE-ALARM-MIB", "alarmTrap")
 equipIpSnmpAgentAddress, = mibBuilder.importSymbols("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 accessControlLoginIpAddress, = mibBuilder.importSymbols("SIAE-USER-MIB", "accessControlLoginIpAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, MibIdentifier, NotificationType, ModuleIdentity, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, ObjectIdentity, IpAddress, Integer32, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "NotificationType", "ModuleIdentity", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "ObjectIdentity", "IpAddress", "Integer32", "iso", "Gauge32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, MibIdentifier, IpAddress, Gauge32, Unsigned32, iso, ObjectIdentity, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "MibIdentifier", "IpAddress", "Gauge32", "Unsigned32", "iso", "ObjectIdentity", "Counter64", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commandLog = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 40))
 commandLog.setRevisions(('2015-03-23 00:00', '2014-06-23 00:00', '2014-02-03 00:00', '2013-12-18 00:00',))
@@ -45,4 +45,4 @@ commandLogLastCommandUser = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 40, 12), Di
 if mibBuilder.loadTexts: commandLogLastCommandUser.setStatus('current')
 commandLogFtpStatusTrap = NotificationType((1, 3, 6, 1, 4, 1, 3373, 1103, 0, 4001)).setObjects(("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress"), ("SIAE-CLOG-MIB", "commandLogFtpStatus"), ("SIAE-USER-MIB", "accessControlLoginIpAddress"))
 if mibBuilder.loadTexts: commandLogFtpStatusTrap.setStatus('current')
-mibBuilder.exportSymbols("SIAE-CLOG-MIB", commandLog=commandLog, commandLogMgmtInterfaceFilter=commandLogMgmtInterfaceFilter, commandLogFtpStatusTrapNotification=commandLogFtpStatusTrapNotification, commandLogEndTimeFilter=commandLogEndTimeFilter, commandLogLastCommandUser=commandLogLastCommandUser, commandLogMibVersion=commandLogMibVersion, commandLogActionRequest=commandLogActionRequest, commandLogUserNameFilter=commandLogUserNameFilter, commandLogLastCommandTime=commandLogLastCommandTime, PYSNMP_MODULE_ID=commandLog, commandLogFtpStatus=commandLogFtpStatus, commandLogFtpStatusTrap=commandLogFtpStatusTrap, commandLogStartTimeFilter=commandLogStartTimeFilter, commandLogSourceAddressFilter=commandLogSourceAddressFilter, commandLogFtpFile=commandLogFtpFile)
+mibBuilder.exportSymbols("SIAE-CLOG-MIB", commandLogActionRequest=commandLogActionRequest, commandLog=commandLog, commandLogEndTimeFilter=commandLogEndTimeFilter, commandLogFtpStatus=commandLogFtpStatus, commandLogStartTimeFilter=commandLogStartTimeFilter, commandLogFtpStatusTrapNotification=commandLogFtpStatusTrapNotification, PYSNMP_MODULE_ID=commandLog, commandLogMgmtInterfaceFilter=commandLogMgmtInterfaceFilter, commandLogMibVersion=commandLogMibVersion, commandLogLastCommandUser=commandLogLastCommandUser, commandLogFtpFile=commandLogFtpFile, commandLogUserNameFilter=commandLogUserNameFilter, commandLogSourceAddressFilter=commandLogSourceAddressFilter, commandLogFtpStatusTrap=commandLogFtpStatusTrap, commandLogLastCommandTime=commandLogLastCommandTime)

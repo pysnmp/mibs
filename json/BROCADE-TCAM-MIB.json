@@ -11,22 +11,22 @@
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
       "Integer32",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
+      "iso",
       "MibIdentifier",
+      "Counter64",
       "Unsigned32",
-      "TimeTicks",
-      "iso"
+      "Gauge32",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "bcsiTCAM": {
@@ -295,8 +295,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-TCAM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:38:56 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:34:45 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BROCADE-TCAM-MIB"

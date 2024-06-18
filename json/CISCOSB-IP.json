@@ -11,21 +11,21 @@
     "INET-ADDRESS-MIB": [
       "InetAddressType",
       "InetZoneIndex",
-      "InetAddress",
       "InetAddressPrefixLength",
-      "InetVersion"
+      "InetVersion",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
+      "ipCidrRouteMask",
       "ipCidrRouteTos",
-      "ipCidrRouteEntry",
-      "ipCidrRouteNextHop",
       "ipCidrRouteDest",
-      "ipCidrRouteMask"
+      "ipCidrRouteNextHop",
+      "ipCidrRouteEntry"
     ],
     "IP-MIB": [
-      "IpAddressOriginTC",
       "ipAddrEntry",
-      "IpAddressStatusTC"
+      "IpAddressStatusTC",
+      "IpAddressOriginTC"
     ],
     "RIPv2-MIB": [
       "rip2IfConfEntry"
@@ -37,30 +37,30 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
+      "Bits",
+      "Integer32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
-      "Integer32",
-      "Bits",
-      "Counter64",
       "IpAddress",
-      "Gauge32"
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "zeroDotZero",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TestAndIncr",
-      "TimeStamp",
-      "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "StorageType",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp",
+      "TestAndIncr",
       "RowPointer"
     ]
   },
@@ -1900,8 +1900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IP",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:41:06 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:42 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IP"

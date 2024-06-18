@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "hpnicfDot11APElementIndex",
+      "HpnicfDot11RFModeType",
+      "hpnicfDot11",
+      "HpnicfDot11ServicePolicyIDType",
       "HpnicfDot11TxPwrLevelScopeType",
       "HpnicfDot11SSIDStringType",
-      "HpnicfDot11ChannelScopeType",
-      "HpnicfDot11NotifyReasonType",
-      "HpnicfDot11ServicePolicyIDType",
-      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11RadioScopeType",
       "HpnicfDot11ObjectIDType",
-      "hpnicfDot11",
+      "HpnicfDot11NotifyReasonType",
       "HpnicfDot11MACModeType",
-      "HpnicfDot11RFModeType",
-      "HpnicfDot11RadioScopeType"
+      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11ChannelScopeType",
+      "hpnicfDot11APElementIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "Gauge32",
-      "iso",
       "IpAddress",
       "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "Integer32",
       "Bits",
       "MibIdentifier",
       "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TruthValue"
     ]
   },
@@ -8424,8 +8424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:40:51 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:36 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-APMT-MIB"

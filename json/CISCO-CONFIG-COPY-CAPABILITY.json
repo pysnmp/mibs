@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "CISCO-CONFIG-COPY-MIB": [
-      "ConfigCopyState",
+      "ConfigFileType",
       "ConfigCopyProtocol",
       "ConfigCopyFailCause",
-      "ConfigFileType"
+      "ConfigCopyState"
     ],
     "CISCO-SMI": [
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "AGENT-CAPABILITIES"
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
       "Bits",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Gauge32"
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue"
     ]
   },
   "ciscoConfigCopyCapability": {
@@ -124,8 +124,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CONFIG-COPY-CAPABILITY",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:41:06 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:48 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-CONFIG-COPY-CAPABILITY"

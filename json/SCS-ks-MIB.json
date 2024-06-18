@@ -6,35 +6,35 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysContact",
+      "sysName",
       "sysLocation",
-      "sysName"
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "IpAddress",
-      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
+      "enterprises",
+      "Integer32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "scs_ks": {
@@ -507,8 +507,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/SCS-ks-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:36:25 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:32:18 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SCS-ks-MIB"

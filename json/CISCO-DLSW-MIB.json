@@ -16,27 +16,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
       "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
       "IpAddress",
-      "Gauge32"
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "InstancePointer",
       "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "InstancePointer",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoDlswMIB": {
@@ -4009,8 +4009,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DLSW-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:40:59 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:46 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DLSW-MIB"

@@ -5,35 +5,35 @@
       "rnd"
     ],
     "IEEE8023-LAG-MIB": [
-      "dot3adAggIndex",
-      "dot3adAggPortIndex"
+      "dot3adAggPortIndex",
+      "dot3adAggIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Bits",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
       "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Counter32",
-      "Unsigned32",
-      "IpAddress"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "PhysAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "rlDot3adAgg": {
@@ -592,8 +592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-VRTX-TRUNK-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:37:49 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:33:40 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-VRTX-TRUNK-MIB"

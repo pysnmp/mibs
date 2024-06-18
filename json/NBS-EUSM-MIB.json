@@ -13,26 +13,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Counter32",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MibIdentifier",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "StorageType",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "nbsEusmMib": {
@@ -3258,8 +3258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-EUSM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:41:55 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:37:39 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "NBS-EUSM-MIB"

@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "EATON-EMP-MIB": [
-      "xupsEnvRemoteHumidity",
-      "xupsContactType",
-      "xupsEnvRemoteHumidityUpperLimit",
       "xupsContactState",
-      "xupsEnvRemoteTempLowerLimit",
-      "xupsEnvRemoteHumidityLowerLimit",
-      "xupsContactIndex",
       "xupsEnvRemoteTemp",
+      "xupsEnvRemoteTempLowerLimit",
+      "xupsContactType",
+      "xupsEnvRemoteHumidity",
       "xupsContactDescr",
+      "xupsEnvRemoteHumidityLowerLimit",
+      "xupsEnvRemoteHumidityUpperLimit",
+      "xupsContactIndex",
       "xupsEnvRemoteTempUpperLimit"
     ],
     "EATON-OIDS": [
@@ -18,32 +18,32 @@
       "xupsEnvironment"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "iso",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:37:58 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:33:46 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "XUPS-MIB"

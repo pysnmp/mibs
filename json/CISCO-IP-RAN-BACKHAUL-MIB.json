@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddress",
       "InetPortNumber",
-      "InetAddress"
+      "InetAddressType"
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
@@ -24,31 +24,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Integer32",
       "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Gauge32"
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "AutonomousType",
       "TruthValue",
-      "AutonomousType"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoIpRanBackHaulMIB": {
@@ -4137,8 +4137,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-RAN-BACKHAUL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:41:03 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:47 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IP-RAN-BACKHAUL-MIB"

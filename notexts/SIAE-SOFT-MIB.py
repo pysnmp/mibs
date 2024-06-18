@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-SOFT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SOFT-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 01:43:54 2024
-# On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 18 02:39:35 2024
+# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 alarmTrap, = mibBuilder.importSymbols("SIAE-ALARM-MIB", "alarmTrap")
 equipIpSnmpAgentAddress, = mibBuilder.importSymbols("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, MibIdentifier, NotificationType, ModuleIdentity, Bits, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ObjectIdentity, Unsigned32, IpAddress, Integer32, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "NotificationType", "ModuleIdentity", "Bits", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ObjectIdentity", "Unsigned32", "IpAddress", "Integer32", "iso", "Gauge32")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Bits, MibIdentifier, Gauge32, Unsigned32, iso, ObjectIdentity, Counter64, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Bits", "MibIdentifier", "Gauge32", "Unsigned32", "iso", "ObjectIdentity", "Counter64", "IpAddress", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 software = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 7))
 software.setRevisions(('2015-03-23 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
@@ -60,4 +60,4 @@ softwareRemoteIpAddressDwlServer = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 7, 1
 if mibBuilder.loadTexts: softwareRemoteIpAddressDwlServer.setStatus('current')
 softwareDownloadStatusTrap = NotificationType((1, 3, 6, 1, 4, 1, 3373, 1103, 0, 701)).setObjects(("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress"), ("SIAE-SOFT-MIB", "softwareDownloadStatus"))
 if mibBuilder.loadTexts: softwareDownloadStatusTrap.setStatus('current')
-mibBuilder.exportSymbols("SIAE-SOFT-MIB", softwareActionRequest=softwareActionRequest, softwareDownloadStatusTrapNotification=softwareDownloadStatusTrapNotification, PYSNMP_MODULE_ID=software, softwareIpAddressDwlServer=softwareIpAddressDwlServer, software=software, softwareUnitReleaseBench2=softwareUnitReleaseBench2, softwareUnitId=softwareUnitId, softwareUnitTable=softwareUnitTable, softwareRemoteIpAddressDwlServer=softwareRemoteIpAddressDwlServer, softwareUnitReleaseBench1=softwareUnitReleaseBench1, softwareDownloadStatus=softwareDownloadStatus, softwareType=softwareType, softwareUnitActualRelease=softwareUnitActualRelease, softwareDownloadfile=softwareDownloadfile, softwareEquipmentReleaseBench1Status=softwareEquipmentReleaseBench1Status, softwareUnitRecord=softwareUnitRecord, softwareGosipAddressDwlServer=softwareGosipAddressDwlServer, softwareMibVersion=softwareMibVersion, softwareEquipmentReleaseBench1=softwareEquipmentReleaseBench1, softwareEquipmentReleaseBench2Status=softwareEquipmentReleaseBench2Status, softwareElementId=softwareElementId, softwareDownloadStatusTrap=softwareDownloadStatusTrap, softwareEquipmentReleaseBench2=softwareEquipmentReleaseBench2)
+mibBuilder.exportSymbols("SIAE-SOFT-MIB", softwareType=softwareType, softwareRemoteIpAddressDwlServer=softwareRemoteIpAddressDwlServer, softwareDownloadStatusTrap=softwareDownloadStatusTrap, softwareMibVersion=softwareMibVersion, softwareUnitTable=softwareUnitTable, softwareEquipmentReleaseBench1Status=softwareEquipmentReleaseBench1Status, softwareElementId=softwareElementId, softwareUnitReleaseBench1=softwareUnitReleaseBench1, softwareEquipmentReleaseBench1=softwareEquipmentReleaseBench1, softwareGosipAddressDwlServer=softwareGosipAddressDwlServer, softwareUnitReleaseBench2=softwareUnitReleaseBench2, softwareUnitActualRelease=softwareUnitActualRelease, softwareUnitRecord=softwareUnitRecord, softwareEquipmentReleaseBench2=softwareEquipmentReleaseBench2, softwareEquipmentReleaseBench2Status=softwareEquipmentReleaseBench2Status, softwareActionRequest=softwareActionRequest, softwareIpAddressDwlServer=softwareIpAddressDwlServer, softwareDownloadfile=softwareDownloadfile, software=software, softwareUnitId=softwareUnitId, softwareDownloadStatusTrapNotification=softwareDownloadStatusTrapNotification, PYSNMP_MODULE_ID=software, softwareDownloadStatus=softwareDownloadStatus)

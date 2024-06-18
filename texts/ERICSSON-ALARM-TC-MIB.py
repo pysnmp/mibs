@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ERICSSON-ALARM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-TC-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 01:38:30 2024
-# On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 18 02:34:19 2024
+# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 ericssonModules, = mibBuilder.importSymbols("ERICSSON-TOP-MIB", "ericssonModules")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, ModuleIdentity, Counter32, Unsigned32, iso, NotificationType, Bits, ObjectIdentity, IpAddress, Gauge32, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ModuleIdentity", "Counter32", "Unsigned32", "iso", "NotificationType", "Bits", "ObjectIdentity", "IpAddress", "Gauge32", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, Counter32, NotificationType, Unsigned32, Counter64, iso, ObjectIdentity, TimeTicks, Integer32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "Counter32", "NotificationType", "Unsigned32", "Counter64", "iso", "ObjectIdentity", "TimeTicks", "Integer32", "Bits")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ericssonAlarmTCMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 183, 3))
 ericssonAlarmTCMIB.setRevisions(('2017-03-31 00:00', '2016-06-24 00:00', '2008-10-17 00:00',))
 
@@ -76,4 +76,4 @@ class EriAlarmRecordType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("alarmNew", 0), ("alarmChange", 1))
 
-mibBuilder.exportSymbols("ERICSSON-ALARM-TC-MIB", EriLargeAdditionalText=EriLargeAdditionalText, EriAdditionalText=EriAdditionalText, PYSNMP_MODULE_ID=ericssonAlarmTCMIB, EriAdditionalInfo=EriAdditionalInfo, EriAlarmSequenceNumber=EriAlarmSequenceNumber, EriLargeAdditionalInfo=EriLargeAdditionalInfo, ericssonAlarmTCMIB=ericssonAlarmTCMIB, EriAlarmSpecificProblem=EriAlarmSpecificProblem, EriAlarmType=EriAlarmType, EriAlarmIndex=EriAlarmIndex, EriAlarmRecordType=EriAlarmRecordType)
+mibBuilder.exportSymbols("ERICSSON-ALARM-TC-MIB", EriAlarmType=EriAlarmType, EriAlarmRecordType=EriAlarmRecordType, EriAdditionalInfo=EriAdditionalInfo, PYSNMP_MODULE_ID=ericssonAlarmTCMIB, ericssonAlarmTCMIB=ericssonAlarmTCMIB, EriAlarmSequenceNumber=EriAlarmSequenceNumber, EriAdditionalText=EriAdditionalText, EriAlarmIndex=EriAlarmIndex, EriAlarmSpecificProblem=EriAlarmSpecificProblem, EriLargeAdditionalText=EriLargeAdditionalText, EriLargeAdditionalInfo=EriLargeAdditionalInfo)

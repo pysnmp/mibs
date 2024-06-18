@@ -9,8 +9,8 @@
       "entPhysicalIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -21,28 +21,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Bits",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
       "IpAddress",
-      "Gauge32"
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus"
+      "StorageType",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "ciscoLicenseMgmtMIB": {
@@ -2456,8 +2456,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LICENSE-MGMT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 01:41:05 2024",
-      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:43 2024",
+      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-LICENSE-MGMT-MIB"
