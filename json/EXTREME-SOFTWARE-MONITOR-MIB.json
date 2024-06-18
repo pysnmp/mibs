@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremeAgent",
-      "PortList"
+      "PortList",
+      "extremeAgent"
     ],
     "EXTREME-SYSTEM-MIB": [
       "extremeImageDescription"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
       "MibIdentifier",
-      "Unsigned32"
+      "Unsigned32",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeSwMonitor": {
@@ -938,8 +938,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-SOFTWARE-MONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 14:11:48 2024",
-      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 01:38:56 2024",
+      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "EXTREME-SOFTWARE-MONITOR-MIB"

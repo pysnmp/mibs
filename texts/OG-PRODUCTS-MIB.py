@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OG-PRODUCTS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Tue Jun  4 14:15:10 2024
-# On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 18 01:42:18 2024
+# On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 ogProducts, ogModules = mibBuilder.importSymbols("OG-SMI-MIB", "ogProducts", "ogModules")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, Gauge32, NotificationType, Bits, Counter64, Counter32, ModuleIdentity, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "Gauge32", "NotificationType", "Bits", "Counter64", "Counter32", "ModuleIdentity", "iso", "IpAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, TimeTicks, IpAddress, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, MibIdentifier, Counter32, Counter64, NotificationType, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "IpAddress", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "MibIdentifier", "Counter32", "Counter64", "NotificationType", "Integer32", "ObjectIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ogProductsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049, 11, 2))
 ogProductsMib.setRevisions(('2018-06-15 00:00', '2016-06-27 00:00', '2016-02-10 00:00', '2015-06-02 00:00', '2013-08-11 00:00', '2011-08-15 01:23', '2010-04-15 11:27',))
@@ -45,4 +45,4 @@ ogACM500x = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 1, 80))
 ogACM550x = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 1, 81))
 ogACM700x = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 1, 90))
 ogACM70045 = MibIdentifier((1, 3, 6, 1, 4, 1, 25049, 1, 91))
-mibBuilder.exportSymbols("OG-PRODUCTS-MIB", PYSNMP_MODULE_ID=ogProductsMib, ogIM42xx=ogIM42xx, ogIM72xx=ogIM72xx, ogProductsMib=ogProductsMib, ogACM700x=ogACM700x, ogCM4001=ogCM4001, ogACM500x=ogACM500x, ogACM550x=ogACM550x, ogCM71xx=ogCM71xx, ogSD4002=ogSD4002, ogSD4002DX=ogSD4002DX, ogCM7196=ogCM7196, ogCM4008=ogCM4008, ogLighthouse5=ogLighthouse5, ogCM4002=ogCM4002, ogCD=ogCD, ogIM4004=ogIM4004, ogSD4001=ogSD4001, ogCM41xx=ogCM41xx, ogCMS61xx=ogCMS61xx, ogCMx86=ogCMx86, ogLighthouse=ogLighthouse, ogSD4008=ogSD4008, ogKCS61xx=ogKCS61xx, ogSD4001DW=ogSD4001DW, ogACM70045=ogACM70045)
+mibBuilder.exportSymbols("OG-PRODUCTS-MIB", ogLighthouse5=ogLighthouse5, ogLighthouse=ogLighthouse, ogIM42xx=ogIM42xx, ogCM41xx=ogCM41xx, ogProductsMib=ogProductsMib, ogSD4002DX=ogSD4002DX, ogKCS61xx=ogKCS61xx, ogACM70045=ogACM70045, ogCM4008=ogCM4008, ogCD=ogCD, ogIM4004=ogIM4004, ogACM550x=ogACM550x, ogSD4001DW=ogSD4001DW, ogCM4002=ogCM4002, ogSD4001=ogSD4001, ogCMS61xx=ogCMS61xx, ogSD4002=ogSD4002, ogIM72xx=ogIM72xx, ogACM700x=ogACM700x, ogCM7196=ogCM7196, ogSD4008=ogSD4008, ogACM500x=ogACM500x, ogCM71xx=ogCM71xx, ogCMx86=ogCMx86, ogCM4001=ogCM4001, PYSNMP_MODULE_ID=ogProductsMib)

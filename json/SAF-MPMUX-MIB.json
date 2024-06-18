@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Bits",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "IpAddress",
-      "iso",
-      "TRAP-TYPE",
-      "MODULE-IDENTITY",
+      "Integer32",
       "OBJECT-IDENTITY",
       "TimeTicks",
+      "iso",
+      "Unsigned32",
       "MibIdentifier",
+      "TRAP-TYPE",
       "Gauge32",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "saf": {
@@ -4604,8 +4604,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-MPMUX-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun  4 14:16:35 2024",
-      "On host fv-az693-600 platform Linux version 6.5.0-1021-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 18 01:43:46 2024",
+      "On host fv-az1446-447 platform Linux version 6.5.0-1021-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SAF-MPMUX-MIB"
