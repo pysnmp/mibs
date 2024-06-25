@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MITEL-APPCMN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mitel/MITEL-APPCMN-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:37:29 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:14:52 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
 ItuPerceivedSeverity, = mibBuilder.importSymbols("MITEL-CMNALM-MIB", "ItuPerceivedSeverity")
-mitelConfGroups, mitelPropApplications, mitelConfCompliances, mitelIdentification = mibBuilder.importSymbols("MITEL-MIB", "mitelConfGroups", "mitelPropApplications", "mitelConfCompliances", "mitelIdentification")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Gauge32, Unsigned32, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, iso, Counter64, IpAddress, Bits, Counter32, NotificationType, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "iso", "Counter64", "IpAddress", "Bits", "Counter32", "NotificationType", "ModuleIdentity", "TimeTicks")
+mitelIdentification, mitelConfGroups, mitelPropApplications, mitelConfCompliances = mibBuilder.importSymbols("MITEL-MIB", "mitelIdentification", "mitelConfGroups", "mitelPropApplications", "mitelConfCompliances")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, Gauge32, Unsigned32, Bits, Integer32, NotificationType, IpAddress, ObjectIdentity, iso, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "Gauge32", "Unsigned32", "Bits", "Integer32", "NotificationType", "IpAddress", "ObjectIdentity", "iso", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mitelAppCommon = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 1, 2))
 mitelAppCommon.setRevisions(('2014-02-11 12:00', '2005-02-21 21:34', '2004-01-30 00:00',))
@@ -48,4 +48,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mitelGrpAppCmn = ObjectGroup((1, 3, 6, 1, 4, 1, 1027, 5, 2, 3, 1)).setObjects(("MITEL-APPCMN-MIB", "mitelAppTblProductOid"), ("MITEL-APPCMN-MIB", "mitelAppTblProductManufacturer"), ("MITEL-APPCMN-MIB", "mitelAppTblProductName"), ("MITEL-APPCMN-MIB", "mitelAppTblProductVersion"), ("MITEL-APPCMN-MIB", "mitelAppTblProductDescr"), ("MITEL-APPCMN-MIB", "mitelAppTblAppAlrmStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mitelGrpAppCmn = mitelGrpAppCmn.setStatus('current')
-mibBuilder.exportSymbols("MITEL-APPCMN-MIB", mitelAppTblProductName=mitelAppTblProductName, mitelGrpAppCommon=mitelGrpAppCommon, mitelAppCommon=mitelAppCommon, mitelAppTblProductOid=mitelAppTblProductOid, mitelAppTblProductManufacturer=mitelAppTblProductManufacturer, mitelAppTableEntry=mitelAppTableEntry, mitelGrpAppCmn=mitelGrpAppCmn, mitelComplAppCmn=mitelComplAppCmn, mitelAppTblProductDescr=mitelAppTblProductDescr, mitelAppTblAppAlrmStatus=mitelAppTblAppAlrmStatus, mitelComplAppCommon=mitelComplAppCommon, mitelAppNumberOfApps=mitelAppNumberOfApps, PYSNMP_MODULE_ID=mitelAppCommon, mitelAppCmnObjects=mitelAppCmnObjects, mitelAppTable=mitelAppTable, mitelAppTblProductVersion=mitelAppTblProductVersion)
+mibBuilder.exportSymbols("MITEL-APPCMN-MIB", mitelAppTblProductName=mitelAppTblProductName, mitelAppNumberOfApps=mitelAppNumberOfApps, mitelAppCmnObjects=mitelAppCmnObjects, mitelComplAppCmn=mitelComplAppCmn, mitelAppTblProductOid=mitelAppTblProductOid, mitelAppTblProductDescr=mitelAppTblProductDescr, mitelGrpAppCommon=mitelGrpAppCommon, mitelComplAppCommon=mitelComplAppCommon, mitelGrpAppCmn=mitelGrpAppCmn, mitelAppTableEntry=mitelAppTableEntry, mitelAppCommon=mitelAppCommon, mitelAppTable=mitelAppTable, PYSNMP_MODULE_ID=mitelAppCommon, mitelAppTblProductManufacturer=mitelAppTblProductManufacturer, mitelAppTblProductVersion=mitelAppTblProductVersion, mitelAppTblAppAlrmStatus=mitelAppTblAppAlrmStatus)

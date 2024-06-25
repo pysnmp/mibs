@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module JACQUES-650-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jacques/JACQUES-650-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:36:53 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:14:12 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-NotificationType, IpAddress, Counter64, Gauge32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, TimeTicks, MibIdentifier, ModuleIdentity, ObjectIdentity, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "IpAddress", "Counter64", "Gauge32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "TimeTicks", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "Counter32", "Integer32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, NotificationType, Gauge32, Unsigned32, ModuleIdentity, Bits, TimeTicks, MibIdentifier, Counter32, enterprises, Counter64, Integer32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "Gauge32", "Unsigned32", "ModuleIdentity", "Bits", "TimeTicks", "MibIdentifier", "Counter32", "enterprises", "Counter64", "Integer32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 jacquesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 49759))
 jacquesMIB.setRevisions(('2017-03-26 00:00',))
 if mibBuilder.loadTexts: jacquesMIB.setLastUpdated('201703260000Z')
@@ -63,4 +63,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 jacquesEndpointNotifyGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 49759, 1, 2, 4)).setObjects(("JACQUES-650-MIB", "jacquesEndpointOnlineNotify"), ("JACQUES-650-MIB", "jacquesEndpointModeNotify"), ("JACQUES-650-MIB", "jacquesEndpointAlarmNotify"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     jacquesEndpointNotifyGroup = jacquesEndpointNotifyGroup.setStatus('current')
-mibBuilder.exportSymbols("JACQUES-650-MIB", jacquesMIBGroups=jacquesMIBGroups, jacquesEndpointNotifyPrefix=jacquesEndpointNotifyPrefix, jacquesMIBCompliance=jacquesMIBCompliance, jacquesAppUp=jacquesAppUp, jacquesScalars=jacquesScalars, jacquesEndpointAlarmNotify=jacquesEndpointAlarmNotify, jacquesEndpointNotifyPrePrefix=jacquesEndpointNotifyPrePrefix, jacquesEndpointOnline=jacquesEndpointOnline, jacquesEndpointAlarmState=jacquesEndpointAlarmState, jacquesMIBCompliances=jacquesMIBCompliances, jacquesEndpointNotifyGroup=jacquesEndpointNotifyGroup, jacquesServerName=jacquesServerName, jacquesEndpointAlarmType=jacquesEndpointAlarmType, jacquesJccpserverUpNotify=jacquesJccpserverUpNotify, jacquesEndpointGroup=jacquesEndpointGroup, jacquesEndpointMode=jacquesEndpointMode, jacquesAppNotifyPrefix=jacquesAppNotifyPrefix, jacquesMIB=jacquesMIB, jacquesTag=jacquesTag, jacquesNotify=jacquesNotify, jacquesMIBConformance=jacquesMIBConformance, jacquesEndpointModeNotify=jacquesEndpointModeNotify, PYSNMP_MODULE_ID=jacquesMIB, jacquesAppNotifyPrePrefix=jacquesAppNotifyPrePrefix, jacquesEndpointOnlineNotify=jacquesEndpointOnlineNotify, jacquesServerNotifyGroup=jacquesServerNotifyGroup, jacquesServerGroup=jacquesServerGroup)
+mibBuilder.exportSymbols("JACQUES-650-MIB", jacquesEndpointOnlineNotify=jacquesEndpointOnlineNotify, jacquesEndpointMode=jacquesEndpointMode, jacquesEndpointModeNotify=jacquesEndpointModeNotify, jacquesAppNotifyPrePrefix=jacquesAppNotifyPrePrefix, PYSNMP_MODULE_ID=jacquesMIB, jacquesMIBCompliances=jacquesMIBCompliances, jacquesServerNotifyGroup=jacquesServerNotifyGroup, jacquesEndpointOnline=jacquesEndpointOnline, jacquesEndpointNotifyPrefix=jacquesEndpointNotifyPrefix, jacquesEndpointAlarmState=jacquesEndpointAlarmState, jacquesJccpserverUpNotify=jacquesJccpserverUpNotify, jacquesMIBConformance=jacquesMIBConformance, jacquesNotify=jacquesNotify, jacquesEndpointNotifyGroup=jacquesEndpointNotifyGroup, jacquesEndpointNotifyPrePrefix=jacquesEndpointNotifyPrePrefix, jacquesTag=jacquesTag, jacquesScalars=jacquesScalars, jacquesEndpointGroup=jacquesEndpointGroup, jacquesServerName=jacquesServerName, jacquesAppUp=jacquesAppUp, jacquesAppNotifyPrefix=jacquesAppNotifyPrefix, jacquesEndpointAlarmType=jacquesEndpointAlarmType, jacquesMIBGroups=jacquesMIBGroups, jacquesMIB=jacquesMIB, jacquesEndpointAlarmNotify=jacquesEndpointAlarmNotify, jacquesServerGroup=jacquesServerGroup, jacquesMIBCompliance=jacquesMIBCompliance)

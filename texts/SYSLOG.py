@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SYSLOG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/SYSLOG
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:34:30 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:11:43 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 radioConfig, = mibBuilder.importSymbols("ExaltComProducts", "radioConfig")
-SyslogFilterSelectT, SyslogEnableT = mibBuilder.importSymbols("ExaltComm", "SyslogFilterSelectT", "SyslogEnableT")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, ObjectIdentity, Bits, Counter32, NotificationType, Unsigned32, Counter64, TimeTicks, Integer32, IpAddress, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "ObjectIdentity", "Bits", "Counter32", "NotificationType", "Unsigned32", "Counter64", "TimeTicks", "Integer32", "IpAddress", "ModuleIdentity", "Gauge32")
+SyslogEnableT, SyslogFilterSelectT = mibBuilder.importSymbols("ExaltComm", "SyslogEnableT", "SyslogFilterSelectT")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, Unsigned32, Bits, NotificationType, Gauge32, Counter64, ObjectIdentity, iso, Integer32, MibIdentifier, TimeTicks, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "Unsigned32", "Bits", "NotificationType", "Gauge32", "Counter64", "ObjectIdentity", "iso", "Integer32", "MibIdentifier", "TimeTicks", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 advSystemConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5))
 if mibBuilder.loadTexts: advSystemConfig.setStatus('current')
@@ -31,4 +31,4 @@ if mibBuilder.loadTexts: syslogFilterSelect.setDescription('logging filter selec
 commitSyslogSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 6, 1000), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitSyslogSettings.setStatus('current')
 if mibBuilder.loadTexts: commitSyslogSettings.setDescription('This command allows saving or clear the Syslog configuration.\n                            Option strings to be written are: save, clear, correspondingly saving changes to\n                            configuration to the persistent storage or clearing unsaved changes.')
-mibBuilder.exportSymbols("SYSLOG", syslogCfg=syslogCfg, syslogRemoteIpAddr=syslogRemoteIpAddr, commitSyslogSettings=commitSyslogSettings, syslogFilterSelect=syslogFilterSelect, syslogEnable=syslogEnable, advSystemConfig=advSystemConfig)
+mibBuilder.exportSymbols("SYSLOG", syslogEnable=syslogEnable, advSystemConfig=advSystemConfig, syslogRemoteIpAddr=syslogRemoteIpAddr, syslogFilterSelect=syslogFilterSelect, commitSyslogSettings=commitSyslogSettings, syslogCfg=syslogCfg)

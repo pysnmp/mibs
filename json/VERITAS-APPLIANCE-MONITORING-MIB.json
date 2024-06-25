@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "mib-2",
-      "Bits",
-      "IpAddress",
-      "MibIdentifier",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32",
-      "Gauge32",
+      "mib-2",
       "OBJECT-TYPE",
-      "Counter64"
+      "TimeTicks",
+      "Integer32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "applianceMonitoringMib": {
@@ -502,8 +502,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-APPLIANCE-MONITORING-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:40:12 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:17:40 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "VERITAS-APPLIANCE-MONITORING-MIB"

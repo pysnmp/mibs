@@ -7,25 +7,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
       "Bits",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
       "enterprises",
-      "OBJECT-TYPE"
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "iso",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "synoDisk": {
@@ -213,8 +213,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-DISK-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:39:55 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:17:22 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SYNOLOGY-DISK-MIB"

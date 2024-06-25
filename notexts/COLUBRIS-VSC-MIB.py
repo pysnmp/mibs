@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module COLUBRIS-VSC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-VSC-MIB.my
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:35:22 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:12:41 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
 ColubrisSSID, = mibBuilder.importSymbols("COLUBRIS-TC", "ColubrisSSID")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, TimeTicks, Unsigned32, ModuleIdentity, Counter64, IpAddress, Gauge32, Counter32, Bits, NotificationType, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "TimeTicks", "Unsigned32", "ModuleIdentity", "Counter64", "IpAddress", "Gauge32", "Counter32", "Bits", "NotificationType", "ObjectIdentity", "Integer32")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+iso, ObjectIdentity, ModuleIdentity, Bits, Counter32, NotificationType, Integer32, MibIdentifier, TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Unsigned32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ObjectIdentity", "ModuleIdentity", "Bits", "Counter32", "NotificationType", "Integer32", "MibIdentifier", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Unsigned32", "Counter64")
 TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
 colubrisVscMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 22))
 if mibBuilder.loadTexts: colubrisVscMIB.setLastUpdated('200607050000Z')
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 colubrisVscMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 22, 2, 2, 1)).setObjects(("COLUBRIS-VSC-MIB", "coVscCfgFriendlyVscName"), ("COLUBRIS-VSC-MIB", "coVscCfgSSID"), ("COLUBRIS-VSC-MIB", "coVscCfgAccessControlled"), ("COLUBRIS-VSC-MIB", "coVscCfgSecurity"), ("COLUBRIS-VSC-MIB", "coVscCfgEncryption"), ("COLUBRIS-VSC-MIB", "coVscCfg8021xAuthentication"), ("COLUBRIS-VSC-MIB", "coVscCfgMACAuthentication"), ("COLUBRIS-VSC-MIB", "coVscCfgHTMLAuthentication"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisVscMIBGroup = colubrisVscMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("COLUBRIS-VSC-MIB", coVscCfgSSID=coVscCfgSSID, coVscCfg8021xAuthentication=coVscCfg8021xAuthentication, coVscCfgIndex=coVscCfgIndex, coVscConfigGroup=coVscConfigGroup, colubrisVscMIBCompliances=colubrisVscMIBCompliances, coVscCfgSecurity=coVscCfgSecurity, coVscCfgAccessControlled=coVscCfgAccessControlled, colubrisVscMIBObjects=colubrisVscMIBObjects, coVscCfgHTMLAuthentication=coVscCfgHTMLAuthentication, coVscConfigEntry=coVscConfigEntry, colubrisVscMIBGroup=colubrisVscMIBGroup, colubrisVscMIB=colubrisVscMIB, coVscCfgEncryption=coVscCfgEncryption, coVscCfgFriendlyVscName=coVscCfgFriendlyVscName, PYSNMP_MODULE_ID=colubrisVscMIB, colubrisVscMIBCompliance=colubrisVscMIBCompliance, colubrisVscMIBGroups=colubrisVscMIBGroups, coVscConfigTable=coVscConfigTable, coVscCfgMACAuthentication=coVscCfgMACAuthentication, colubrisVscMIBConformance=colubrisVscMIBConformance)
+mibBuilder.exportSymbols("COLUBRIS-VSC-MIB", PYSNMP_MODULE_ID=colubrisVscMIB, coVscCfgSecurity=coVscCfgSecurity, coVscCfgFriendlyVscName=coVscCfgFriendlyVscName, colubrisVscMIBObjects=colubrisVscMIBObjects, coVscCfgEncryption=coVscCfgEncryption, colubrisVscMIBCompliance=colubrisVscMIBCompliance, colubrisVscMIBConformance=colubrisVscMIBConformance, colubrisVscMIB=colubrisVscMIB, coVscConfigGroup=coVscConfigGroup, coVscConfigEntry=coVscConfigEntry, coVscCfgMACAuthentication=coVscCfgMACAuthentication, colubrisVscMIBCompliances=colubrisVscMIBCompliances, coVscCfg8021xAuthentication=coVscCfg8021xAuthentication, colubrisVscMIBGroups=colubrisVscMIBGroups, colubrisVscMIBGroup=colubrisVscMIBGroup, coVscCfgHTMLAuthentication=coVscCfgHTMLAuthentication, coVscConfigTable=coVscConfigTable, coVscCfgSSID=coVscCfgSSID, coVscCfgAccessControlled=coVscCfgAccessControlled, coVscCfgIndex=coVscCfgIndex)

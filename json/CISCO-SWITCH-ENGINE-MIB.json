@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkProtocol",
-      "CiscoPort"
+      "CiscoPort",
+      "CiscoNetworkProtocol"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -15,8 +15,8 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "OwnerString",
       "ifIndex",
+      "OwnerString",
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
@@ -30,34 +30,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Integer32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
+      "Integer32",
+      "Unsigned32",
       "IpAddress",
       "iso",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
-      "TimeInterval"
+      "MacAddress",
+      "DisplayString",
+      "TimeInterval",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoSwitchEngineMIB": {
@@ -6625,8 +6625,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-ENGINE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:43 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:52 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-SWITCH-ENGINE-MIB"

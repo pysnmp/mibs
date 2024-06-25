@@ -6,37 +6,37 @@
     ],
     "CISCO-TC": [
       "Unsigned64",
-      "CiscoAlarmSeverity",
-      "CiscoInetAddressMask",
       "CiscoNetworkAddress",
-      "TimeIntervalSec"
+      "TimeIntervalSec",
+      "CiscoAlarmSeverity",
+      "CiscoInetAddressMask"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
       "CucsManagedObjectDn",
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsNfsMntAdminState",
-      "CucsNfsMountDefFsmCurrentFsm",
-      "CucsNfsMountDefFsmTaskItem",
-      "CucsNfsMountInstFsmTaskItem",
-      "CucsNfsMountInstFsmStageName",
-      "CucsNfsMountInstFsmCurrentFsm",
       "CucsPolicyPolicyOwner",
       "CucsNfsDefAdminState",
-      "CucsNfsMntOperState",
-      "CucsConditionRemoteInvRslt",
-      "CucsFsmFlags",
+      "CucsNfsMountInstFsmCurrentFsm",
+      "CucsNfsMountDefFsmTaskItem",
       "CucsNfsMountDefFsmStageName",
-      "CucsFsmFsmStageStatus",
-      "CucsNfsPurpose",
+      "CucsNfsMountInstFsmTaskItem",
+      "CucsNfsMntAdminState",
+      "CucsNfsMntOperState",
       "CucsNfsClientConfigState",
-      "CucsFsmCompletion"
+      "CucsNfsMountInstFsmStageName",
+      "CucsNfsMountDefFsmCurrentFsm",
+      "CucsFsmFlags",
+      "CucsFsmFsmStageStatus",
+      "CucsConditionRemoteInvRslt",
+      "CucsFsmCompletion",
+      "CucsNfsPurpose"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv4",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddressIPv4"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -46,29 +46,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Integer32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
+      "MacAddress",
+      "DisplayString",
       "DateAndTime",
       "TimeInterval",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowPointer"
     ]
   },
@@ -1523,8 +1523,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NFS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:45 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:54 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-NFS-MIB"

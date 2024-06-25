@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "Bits",
-      "IpAddress",
       "enterprises",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "iso",
+      "Unsigned32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -272,8 +272,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tycon/TPDIN2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:40:04 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:17:33 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "TPDIN2-MIB"

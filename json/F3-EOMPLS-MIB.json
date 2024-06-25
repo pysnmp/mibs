@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "PerfCounter64",
+      "VlanPriority",
+      "VlanId",
+      "CmPmBinAction",
       "SecondaryState",
       "AdminState",
       "OperationalState",
-      "CmPmIntervalType",
-      "VlanId",
-      "VlanPriority",
-      "CmPmBinAction",
-      "PerfCounter64"
+      "CmPmIntervalType"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -23,35 +23,35 @@
       "cmEthernetNetPortEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
       "IpAddress",
-      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "Counter64",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32"
+      "iso",
+      "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "VariablePointer",
-      "StorageType",
-      "TruthValue",
       "MacAddress",
+      "TruthValue",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString"
+      "StorageType"
     ]
   },
   "f3EoMplsMIB": {
@@ -1279,8 +1279,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOMPLS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:31:48 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:08:54 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "F3-EOMPLS-MIB"

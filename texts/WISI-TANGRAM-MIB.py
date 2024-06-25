@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WISI-TANGRAM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-TANGRAM-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:40:23 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:17:51 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Counter32, Bits, TimeTicks, ObjectIdentity, MibIdentifier, iso, Integer32, NotificationType, Counter64, IpAddress, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "Bits", "TimeTicks", "ObjectIdentity", "MibIdentifier", "iso", "Integer32", "NotificationType", "Counter64", "IpAddress", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, Unsigned32, ModuleIdentity, TimeTicks, IpAddress, NotificationType, iso, Gauge32, MibIdentifier, Bits, Counter32, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "ModuleIdentity", "TimeTicks", "IpAddress", "NotificationType", "iso", "Gauge32", "MibIdentifier", "Bits", "Counter32", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 tangram, = mibBuilder.importSymbols("WISI-ROOT-MIB", "tangram")
 tangramMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 7465, 20, 2, 9, 0))
 tangramMIB.setRevisions(('2016-09-08 00:00', '2014-04-29 00:00', '2012-12-06 09:00', '2012-10-31 00:00', '2011-12-13 00:00', '2011-04-12 00:00',))
@@ -43,4 +43,4 @@ class FloatingPoint(TextualConvention, OctetString):
     displayHint = '63a'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 63)
 
-mibBuilder.exportSymbols("WISI-TANGRAM-MIB", gtUnit=gtUnit, gtIP=gtIP, gtGenericObjectUsertrap=gtGenericObjectUsertrap, tangramMIB=tangramMIB, gtGenericNotifyUsertrap=gtGenericNotifyUsertrap, gtStandards=gtStandards, gtGenericObjects=gtGenericObjects, gtDVB=gtDVB, gtRF=gtRF, gtTS=gtTS, FloatingPoint=FloatingPoint, gtProcessing=gtProcessing, gtGenericNotifications=gtGenericNotifications, gtGeneric=gtGeneric, PYSNMP_MODULE_ID=tangramMIB)
+mibBuilder.exportSymbols("WISI-TANGRAM-MIB", gtGeneric=gtGeneric, gtGenericObjectUsertrap=gtGenericObjectUsertrap, gtUnit=gtUnit, gtTS=gtTS, gtProcessing=gtProcessing, gtGenericObjects=gtGenericObjects, gtRF=gtRF, tangramMIB=tangramMIB, gtDVB=gtDVB, gtGenericNotifyUsertrap=gtGenericNotifyUsertrap, gtStandards=gtStandards, gtIP=gtIP, PYSNMP_MODULE_ID=tangramMIB, gtGenericNotifications=gtGenericNotifications, FloatingPoint=FloatingPoint)

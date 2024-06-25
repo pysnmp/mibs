@@ -1,0 +1,1899 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "enterprises",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "DisplayString"
+    ]
+  },
+  "plugPowerMIB": {
+    "name": "plugPowerMIB",
+    "oid": "1.3.6.1.4.1.17022",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-03 00:00",
+        "description": "Seventh version."
+      }
+    ]
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "NonNegativeInteger": {
+    "name": "NonNegativeInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "FloatingPointNumber": {
+    "name": "FloatingPointNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "x",
+    "status": "current"
+  },
+  "fuelCellSys": {
+    "name": "fuelCellSys",
+    "oid": "1.3.6.1.4.1.17022.1",
+    "class": "objectidentity"
+  },
+  "fcsTSeries": {
+    "name": "fcsTSeries",
+    "oid": "1.3.6.1.4.1.17022.1.1",
+    "class": "objectidentity"
+  },
+  "fcsESeries": {
+    "name": "fcsESeries",
+    "oid": "1.3.6.1.4.1.17022.1.2",
+    "class": "objectidentity"
+  },
+  "fcsE2Gen2": {
+    "name": "fcsE2Gen2",
+    "oid": "1.3.6.1.4.1.17022.1.3",
+    "class": "objectidentity"
+  },
+  "fcsEObjects": {
+    "name": "fcsEObjects",
+    "oid": "1.3.6.1.4.1.17022.1.2.1",
+    "class": "objectidentity"
+  },
+  "fcsEMain": {
+    "name": "fcsEMain",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "fcsEMainManufacturerModel": {
+    "name": "fcsEMainManufacturerModel",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainMIBVersion010102": {
+    "name": "fcsEMainMIBVersion010102",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainName": {
+    "name": "fcsEMainName",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEMainLocation": {
+    "name": "fcsEMainLocation",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEMainDate": {
+    "name": "fcsEMainDate",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEMainTime": {
+    "name": "fcsEMainTime",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEMainAlarms": {
+    "name": "fcsEMainAlarms",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainSystemStatus": {
+    "name": "fcsEMainSystemStatus",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainChassisSerNum": {
+    "name": "fcsEMainChassisSerNum",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainCommCardVersion": {
+    "name": "fcsEMainCommCardVersion",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainConverterVersion": {
+    "name": "fcsEMainConverterVersion",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainPower": {
+    "name": "fcsEMainPower",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainPressurePSI": {
+    "name": "fcsEMainPressurePSI",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainHeater": {
+    "name": "fcsEMainHeater",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainLastRun": {
+    "name": "fcsEMainLastRun",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainTotalTime": {
+    "name": "fcsEMainTotalTime",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainKilowattHours": {
+    "name": "fcsEMainKilowattHours",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainSystemRuns": {
+    "name": "fcsEMainSystemRuns",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainChassisTemp": {
+    "name": "fcsEMainChassisTemp",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainBleedTempSensor": {
+    "name": "fcsEMainBleedTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEMainResetSystem": {
+    "name": "fcsEMainResetSystem",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEMainVolts": {
+    "name": "fcsEMainVolts",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainAmps": {
+    "name": "fcsEMainAmps",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEMainWatts": {
+    "name": "fcsEMainWatts",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERun": {
+    "name": "fcsERun",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "fcsERunStartStop": {
+    "name": "fcsERunStartStop",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "busy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunSystemStatus": {
+    "name": "fcsERunSystemStatus",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunStartStatus": {
+    "name": "fcsERunStartStatus",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunFloatVolt": {
+    "name": "fcsERunFloatVolt",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunLowVoltThreshold": {
+    "name": "fcsERunLowVoltThreshold",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunLowVoltStartMode": {
+    "name": "fcsERunLowVoltStartMode",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "float": 2,
+          "maintain": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunLowVoltTimer": {
+    "name": "fcsERunLowVoltTimer",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minutes005": 5,
+          "minutes010": 10,
+          "minutes015": 15,
+          "minutes020": 20,
+          "minutes025": 25,
+          "minutes030": 30,
+          "minutes035": 35,
+          "minutes040": 40,
+          "minutes045": 45,
+          "minutes050": 50,
+          "minutes055": 55,
+          "minutes060": 60,
+          "minutes065": 65,
+          "minutes070": 70,
+          "minutes075": 75,
+          "minutes080": 80,
+          "minutes085": 85,
+          "minutes090": 90,
+          "minutes095": 95,
+          "minutes100": 100,
+          "minutes105": 105,
+          "minutes110": 110,
+          "minutes115": 115,
+          "minutes120": 120,
+          "minutes240": 240
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunLowVoltageFloatTimeOut": {
+    "name": "fcsERunLowVoltageFloatTimeOut",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunContactStartDelay": {
+    "name": "fcsERunContactStartDelay",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunContactStartTimeOut": {
+    "name": "fcsERunContactStartTimeOut",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunPower": {
+    "name": "fcsERunPower",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunPressurePSI": {
+    "name": "fcsERunPressurePSI",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunLowH2PressureAlarm": {
+    "name": "fcsERunLowH2PressureAlarm",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunLowH2PressureAlert": {
+    "name": "fcsERunLowH2PressureAlert",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunLowH2PressureAlertStatus": {
+    "name": "fcsERunLowH2PressureAlertStatus",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunAuxOutAssigned": {
+    "name": "fcsERunAuxOutAssigned",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowH2Alert": 1,
+          "auxInput": 2,
+          "exercise": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunPowerLimiting": {
+    "name": "fcsERunPowerLimiting",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "percent020": 2,
+          "percent030": 3,
+          "percent040": 4,
+          "percent050": 5,
+          "percent060": 6,
+          "percent070": 7,
+          "percent080": 8,
+          "percent090": 9,
+          "percent100": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunClearNoPressureAlarm": {
+    "name": "fcsERunClearNoPressureAlarm",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunSystemLockTime": {
+    "name": "fcsERunSystemLockTime",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunSystemLockTimeOut": {
+    "name": "fcsERunSystemLockTimeOut",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunLockSystem": {
+    "name": "fcsERunLockSystem",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lock": 1,
+          "unlock": 2,
+          "locked": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunAuxInAssigned": {
+    "name": "fcsERunAuxInAssigned",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nothing": 1,
+          "lock": 2,
+          "door": 3,
+          "extLd1-2k": 4,
+          "extLd1-3k": 5,
+          "extLd2": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsERunVolts": {
+    "name": "fcsERunVolts",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunAmps": {
+    "name": "fcsERunAmps",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsERunWatts": {
+    "name": "fcsERunWatts",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEExercise": {
+    "name": "fcsEExercise",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "fcsEExerciseManualExercise": {
+    "name": "fcsEExerciseManualExercise",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "busy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEExerciseExerciseMode": {
+    "name": "fcsEExerciseExerciseMode",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoSchedule": 1,
+          "numOfDays": 2,
+          "dayOfMonth": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEExerciseNumOfDaysOrDayOfMonth": {
+    "name": "fcsEExerciseNumOfDaysOrDayOfMonth",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 45
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEExerciseTimeOfDay": {
+    "name": "fcsEExerciseTimeOfDay",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "at-0-AM": 1,
+          "at-1-AM": 2,
+          "at-2-AM": 3,
+          "at-3-AM": 4,
+          "at-4-AM": 5,
+          "at-5-AM": 6,
+          "at-6-AM": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEExerciseSetNextExerciseDate": {
+    "name": "fcsEExerciseSetNextExerciseDate",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEExerciseNextExerciseDate": {
+    "name": "fcsEExerciseNextExerciseDate",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEExerciseCond1StartStop": {
+    "name": "fcsEExerciseCond1StartStop",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "stop": 2,
+          "busy": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fcsEAlarm": {
+    "name": "fcsEAlarm",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "fcsEAlarms": {
+    "name": "fcsEAlarms",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEAlarmTable": {
+    "name": "fcsEAlarmTable",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsEAlarmEntry": {
+    "name": "fcsEAlarmEntry",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEAlarmId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcsEAlarmId": {
+    "name": "fcsEAlarmId",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcsEAlarmDescr": {
+    "name": "fcsEAlarmDescr",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEAlarmType": {
+    "name": "fcsEAlarmType",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "major": 1,
+          "minor": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsEAlarmTime": {
+    "name": "fcsEAlarmTime",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcsESystemAlarms": {
+    "name": "fcsESystemAlarms",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5",
+    "class": "objectidentity"
+  },
+  "fcsEAlarmNoCurrentAlarms": {
+    "name": "fcsEAlarmNoCurrentAlarms",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmVerMismatch": {
+    "name": "fcsMJAlarmVerMismatch",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmTermVoltsLow": {
+    "name": "fcsMJAlarmTermVoltsLow",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmTermVoltsHigh": {
+    "name": "fcsMJAlarmTermVoltsHigh",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmNoH2Pressure": {
+    "name": "fcsMJAlarmNoH2Pressure",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmCommLinkDown": {
+    "name": "fcsMJAlarmCommLinkDown",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmSafetyCheckFail": {
+    "name": "fcsMJAlarmSafetyCheckFail",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmH2SensorTopLtHigh": {
+    "name": "fcsMJAlarmH2SensorTopLtHigh",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmH2SensorBotRtHigh": {
+    "name": "fcsMJAlarmH2SensorBotRtHigh",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmH2SensorTopLtFail": {
+    "name": "fcsMJAlarmH2SensorTopLtFail",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmH2SensorBotRtFail": {
+    "name": "fcsMJAlarmH2SensorBotRtFail",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmSafetyFanFail": {
+    "name": "fcsMJAlarmSafetyFanFail",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmSafetyTempFail": {
+    "name": "fcsMJAlarmSafetyTempFail",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmModOpenCircuitVoltage": {
+    "name": "fcsMJAlarmModOpenCircuitVoltage",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmModShortedCircuitVoltage": {
+    "name": "fcsMJAlarmModShortedCircuitVoltage",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmModTooHighVoltage": {
+    "name": "fcsMJAlarmModTooHighVoltage",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmConverterID": {
+    "name": "fcsMJAlarmConverterID",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAllModTempSensorsFailed": {
+    "name": "fcsMJAllModTempSensorsFailed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmSystemIsDown": {
+    "name": "fcsMJAlarmSystemIsDown",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmModsTooCold": {
+    "name": "fcsMJAlarmModsTooCold",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModTopFailed": {
+    "name": "fcsMNAlarmModTopFailed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmMod2Failed": {
+    "name": "fcsMNAlarmMod2Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmMod3Failed": {
+    "name": "fcsMNAlarmMod3Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModBotFailed": {
+    "name": "fcsMNAlarmModBotFailed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmH2SensorTopLtLow": {
+    "name": "fcsMNAlarmH2SensorTopLtLow",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmH2SensorBotRtLow": {
+    "name": "fcsMNAlarmH2SensorBotRtLow",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmBleedTempSensor": {
+    "name": "fcsMNAlarmBleedTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModTopLtTempSensor": {
+    "name": "fcsMNAlarmModTopLtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModTopRtTempSensor": {
+    "name": "fcsMNAlarmModTopRtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModTwoLtTempSensor": {
+    "name": "fcsMNAlarmModTwoLtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModTwoRtTempSensor": {
+    "name": "fcsMNAlarmModTwoRtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.30",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModThreeLtTempSensor": {
+    "name": "fcsMNAlarmModThreeLtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.31",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModThreeRtTempSensor": {
+    "name": "fcsMNAlarmModThreeRtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.32",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModBotLtTempSensor": {
+    "name": "fcsMNAlarmModBotLtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.33",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmModBotRtTempSensor": {
+    "name": "fcsMNAlarmModBotRtTempSensor",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.34",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmExtFan1Failed": {
+    "name": "fcsMNAlarmExtFan1Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.35",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmExtFan2Failed": {
+    "name": "fcsMNAlarmExtFan2Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.36",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmExtFan3Failed": {
+    "name": "fcsMNAlarmExtFan3Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.37",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmExtFan4Failed": {
+    "name": "fcsMNAlarmExtFan4Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.38",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmExtFan5Failed": {
+    "name": "fcsMNAlarmExtFan5Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.39",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmExtFan6Failed": {
+    "name": "fcsMNAlarmExtFan6Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.40",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan1Failed": {
+    "name": "fcsMNAlarmRecFan1Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.41",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan2Failed": {
+    "name": "fcsMNAlarmRecFan2Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.42",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan3Failed": {
+    "name": "fcsMNAlarmRecFan3Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.43",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan4Failed": {
+    "name": "fcsMNAlarmRecFan4Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.44",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan5Failed": {
+    "name": "fcsMNAlarmRecFan5Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.45",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan6Failed": {
+    "name": "fcsMNAlarmRecFan6Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.46",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan7Failed": {
+    "name": "fcsMNAlarmRecFan7Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.47",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan8Failed": {
+    "name": "fcsMNAlarmRecFan8Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.48",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan9Failed": {
+    "name": "fcsMNAlarmRecFan9Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.49",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmRecFan10Failed": {
+    "name": "fcsMNAlarmRecFan10Failed",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.50",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmConverterCheckSumError": {
+    "name": "fcsMNAlarmConverterCheckSumError",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.51",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmModsTooHotToRun": {
+    "name": "fcsMJAlarmModsTooHotToRun",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.52",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmSystemLocked": {
+    "name": "fcsMJAlarmSystemLocked",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.53",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmCommCardCheckSumError": {
+    "name": "fcsMNAlarmCommCardCheckSumError",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.54",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmWebPagesCheckSumError": {
+    "name": "fcsMNAlarmWebPagesCheckSumError",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.55",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMJAlarmTesting": {
+    "name": "fcsMJAlarmTesting",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.56",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmTesting": {
+    "name": "fcsMNAlarmTesting",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.57",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmLowH2Pressure": {
+    "name": "fcsMNAlarmLowH2Pressure",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.58",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmDoorOpen": {
+    "name": "fcsMNAlarmDoorOpen",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.59",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsMNAlarmSystemDateInvalid": {
+    "name": "fcsMNAlarmSystemDateInvalid",
+    "oid": "1.3.6.1.4.1.17022.1.2.1.5.60",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "fcsETraps": {
+    "name": "fcsETraps",
+    "oid": "1.3.6.1.4.1.17022.1.2.2",
+    "class": "objectidentity"
+  },
+  "fcsETrapMJAlarmEntryAdded": {
+    "name": "fcsETrapMJAlarmEntryAdded",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEAlarmDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapMJAlarmEntryRemoved": {
+    "name": "fcsETrapMJAlarmEntryRemoved",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEAlarmDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapMNAlarmEntryAdded": {
+    "name": "fcsETrapMNAlarmEntryAdded",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEAlarmDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapMNAlarmEntryRemoved": {
+    "name": "fcsETrapMNAlarmEntryRemoved",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEAlarmDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapRunning": {
+    "name": "fcsETrapRunning",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainDate"
+      },
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapExercising": {
+    "name": "fcsETrapExercising",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainDate"
+      },
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapRunEnded": {
+    "name": "fcsETrapRunEnded",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainDate"
+      },
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapLowH2FuelAlertOn": {
+    "name": "fcsETrapLowH2FuelAlertOn",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainDate"
+      },
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "fcsETrapLowH2FuelAlertOff": {
+    "name": "fcsETrapLowH2FuelAlertOff",
+    "oid": "1.3.6.1.4.1.17022.1.2.2.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainDate"
+      },
+      {
+        "module": "PLUG-POWER-ESERIES-MIB",
+        "object": "fcsEMainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/plugpower/PLUG-POWER-ESERIES-MIB",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:16:05 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+    ],
+    "module": "PLUG-POWER-ESERIES-MIB"
+  }
+}

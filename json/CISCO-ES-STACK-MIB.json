@@ -10,22 +10,22 @@
       "sysLocation"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
-      "iso",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "TimeTicks",
+      "Integer32",
+      "enterprises",
+      "TRAP-TYPE",
+      "IpAddress",
       "Unsigned32",
+      "iso",
       "OBJECT-TYPE",
-      "enterprises"
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3287,8 +3287,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ES-STACK-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:43 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:53 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-ES-STACK-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module IANATn3270eTC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANATn3270eTC-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:30:25 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:07:30 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, Gauge32, mib_2, Counter32, TimeTicks, Bits, ObjectIdentity, ModuleIdentity, Counter64, IpAddress, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "Gauge32", "mib-2", "Counter32", "TimeTicks", "Bits", "ObjectIdentity", "ModuleIdentity", "Counter64", "IpAddress", "Integer32", "NotificationType")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, NotificationType, Unsigned32, Bits, ModuleIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Counter64, ObjectIdentity, MibIdentifier, Gauge32, Counter32, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "NotificationType", "Unsigned32", "Bits", "ModuleIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Counter64", "ObjectIdentity", "MibIdentifier", "Gauge32", "Counter32", "IpAddress", "Integer32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ianaTn3270eTcMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 61))
 ianaTn3270eTcMib.setRevisions(('2000-05-10 00:00', '1999-09-01 10:00',))
@@ -46,4 +46,4 @@ class IANATn3270DeviceType(TextualConvention, Integer32):
 class IANATn3270eLogData(TextualConvention, OctetString):
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(6, 2048), )
-mibBuilder.exportSymbols("IANATn3270eTC-MIB", ianaTn3270eTcMib=ianaTn3270eTcMib, IANATn3270ResourceType=IANATn3270ResourceType, IANATn3270eClientType=IANATn3270eClientType, IANATn3270eLogData=IANATn3270eLogData, IANATn3270DeviceType=IANATn3270DeviceType, PYSNMP_MODULE_ID=ianaTn3270eTcMib, IANATn3270Functions=IANATn3270Functions, IANATn3270eAddrType=IANATn3270eAddrType, IANATn3270eAddress=IANATn3270eAddress)
+mibBuilder.exportSymbols("IANATn3270eTC-MIB", IANATn3270eAddress=IANATn3270eAddress, IANATn3270ResourceType=IANATn3270ResourceType, IANATn3270eAddrType=IANATn3270eAddrType, IANATn3270eClientType=IANATn3270eClientType, IANATn3270eLogData=IANATn3270eLogData, IANATn3270DeviceType=IANATn3270DeviceType, IANATn3270Functions=IANATn3270Functions, ianaTn3270eTcMib=ianaTn3270eTcMib, PYSNMP_MODULE_ID=ianaTn3270eTcMib)

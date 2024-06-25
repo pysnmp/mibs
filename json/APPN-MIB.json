@@ -8,34 +8,34 @@
       "snanauMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Counter32",
       "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "iso",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "VariablePointer",
       "DateAndTime",
       "RowPointer",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp"
+      "TimeStamp",
+      "DisplayString",
+      "VariablePointer"
     ]
   },
   "appnMIB": {
@@ -5362,7 +5362,7 @@
         ]
       }
     },
-    "maxaccess": "accessible-for-notify",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "affectedObject": {
@@ -5374,7 +5374,7 @@
       "type": "VariablePointer",
       "class": "type"
     },
-    "maxaccess": "accessible-for-notify",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "appnConformance": {
@@ -7447,8 +7447,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/APPN-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:36 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:14:18 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APPN-MIB"

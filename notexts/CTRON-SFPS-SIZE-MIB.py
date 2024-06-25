@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-SFPS-SIZE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-SIZE-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:34:16 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:11:27 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-sfpsSizeService, sfpsSizeServiceAPI = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsSizeService", "sfpsSizeServiceAPI")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+sfpsSizeServiceAPI, sfpsSizeService = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsSizeServiceAPI", "sfpsSizeService")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, NotificationType, Integer32, IpAddress, TimeTicks, Unsigned32, ModuleIdentity, ObjectIdentity, Gauge32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "NotificationType", "Integer32", "IpAddress", "TimeTicks", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Gauge32", "Bits", "iso")
+Bits, iso, NotificationType, Counter64, Gauge32, ModuleIdentity, Integer32, Unsigned32, TimeTicks, ObjectIdentity, MibIdentifier, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "NotificationType", "Counter64", "Gauge32", "ModuleIdentity", "Integer32", "Unsigned32", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 sfpsSizeServiceTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 1, 14, 1, 1), )
 if mibBuilder.loadTexts: sfpsSizeServiceTable.setStatus('mandatory')
@@ -50,4 +50,4 @@ sfpsSizeServiceAPINumberSet = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 1, 14
 if mibBuilder.loadTexts: sfpsSizeServiceAPINumberSet.setStatus('mandatory')
 sfpsSizeServiceAPIVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 1, 14, 2, 7), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sfpsSizeServiceAPIVersion.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-SFPS-SIZE-MIB", sfpsSizeServiceNbrCalls=sfpsSizeServiceNbrCalls, sfpsSizeServiceIncrement=sfpsSizeServiceIncrement, sfpsSizeServiceHowGranted=sfpsSizeServiceHowGranted, sfpsSizeServiceGranted=sfpsSizeServiceGranted, sfpsSizeServiceAPINumberSet=sfpsSizeServiceAPINumberSet, sfpsSizeServiceRtnStatus=sfpsSizeServiceRtnStatus, sfpsSizeServiceDesired=sfpsSizeServiceDesired, sfpsSizeServiceTable=sfpsSizeServiceTable, sfpsSizeServiceId=sfpsSizeServiceId, sfpsSizeServiceTotalBytes=sfpsSizeServiceTotalBytes, sfpsSizeServiceName=sfpsSizeServiceName, sfpsSizeServiceAPIVersion=sfpsSizeServiceAPIVersion, sfpsSizeServiceAPIName=sfpsSizeServiceAPIName, sfpsSizeServiceAPIVerb=sfpsSizeServiceAPIVerb, sfpsSizeServiceEntry=sfpsSizeServiceEntry, sfpsSizeServiceAPIIncrement=sfpsSizeServiceAPIIncrement, sfpsSizeServiceAPIId=sfpsSizeServiceAPIId, sfpsSizeServiceElemSize=sfpsSizeServiceElemSize, sfpsSizeServiceAPIGrant=sfpsSizeServiceAPIGrant)
+mibBuilder.exportSymbols("CTRON-SFPS-SIZE-MIB", sfpsSizeServiceId=sfpsSizeServiceId, sfpsSizeServiceElemSize=sfpsSizeServiceElemSize, sfpsSizeServiceAPINumberSet=sfpsSizeServiceAPINumberSet, sfpsSizeServiceRtnStatus=sfpsSizeServiceRtnStatus, sfpsSizeServiceIncrement=sfpsSizeServiceIncrement, sfpsSizeServiceAPIId=sfpsSizeServiceAPIId, sfpsSizeServiceHowGranted=sfpsSizeServiceHowGranted, sfpsSizeServiceAPIName=sfpsSizeServiceAPIName, sfpsSizeServiceDesired=sfpsSizeServiceDesired, sfpsSizeServiceEntry=sfpsSizeServiceEntry, sfpsSizeServiceNbrCalls=sfpsSizeServiceNbrCalls, sfpsSizeServiceGranted=sfpsSizeServiceGranted, sfpsSizeServiceAPIIncrement=sfpsSizeServiceAPIIncrement, sfpsSizeServiceTotalBytes=sfpsSizeServiceTotalBytes, sfpsSizeServiceAPIVerb=sfpsSizeServiceAPIVerb, sfpsSizeServiceAPIVersion=sfpsSizeServiceAPIVersion, sfpsSizeServiceName=sfpsSizeServiceName, sfpsSizeServiceAPIGrant=sfpsSizeServiceAPIGrant, sfpsSizeServiceTable=sfpsSizeServiceTable)

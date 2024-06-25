@@ -5,48 +5,48 @@
       "dlurDlusSessnStatus"
     ],
     "APPN-MIB": [
-      "appnPortOperState",
+      "appnCompliances",
       "appnGroups",
-      "appnIsInP2SNonFmdBytes",
-      "appnMIB",
-      "appnIsInS2PNonFmdBytes",
-      "appnIsInP2SNonFmdPius",
-      "appnLocalTgOperational",
-      "appnIsInP2SFmdBytes",
-      "appnIsInS2PFmdPius",
-      "appnIsInSessUpTime",
       "appnIsInS2PFmdBytes",
-      "appnIsInP2SFmdPius",
+      "appnLocalTgOperational",
+      "appnMIB",
+      "appnLsOperState",
+      "appnIsInP2SNonFmdPius",
+      "appnIsInS2PFmdPius",
+      "appnIsInS2PNonFmdBytes",
       "appnObjects",
       "appnLocalTgCpCpSession",
-      "appnLsOperState",
-      "appnIsInS2PNonFmdPius",
-      "appnCompliances"
+      "appnIsInP2SFmdPius",
+      "appnIsInP2SFmdBytes",
+      "appnIsInP2SNonFmdBytes",
+      "appnIsInSessUpTime",
+      "appnPortOperState",
+      "appnIsInS2PNonFmdPius"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Bits",
-      "Integer32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "iso",
+      "MibIdentifier",
       "Unsigned32",
-      "TimeTicks"
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "appnTrapMIB": {
@@ -369,8 +369,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPN-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:30:53 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:07:58 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "APPN-TRAP-MIB"

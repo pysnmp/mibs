@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module COLUBRIS-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SMI.my
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:35:24 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:12:43 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, enterprises, NotificationType, Gauge32, Counter64, MibIdentifier, Unsigned32, ModuleIdentity, TimeTicks, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "enterprises", "NotificationType", "Gauge32", "Counter64", "MibIdentifier", "Unsigned32", "ModuleIdentity", "TimeTicks", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Unsigned32, Integer32, Gauge32, ObjectIdentity, Counter64, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, IpAddress, iso, Bits, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "Integer32", "Gauge32", "ObjectIdentity", "Counter64", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "IpAddress", "iso", "Bits", "enterprises")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubris = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744))
 if mibBuilder.loadTexts: colubris.setLastUpdated('200402100000Z')
 if mibBuilder.loadTexts: colubris.setOrganization('Colubris Networks, Inc.')
@@ -37,4 +37,4 @@ if mibBuilder.loadTexts: extensions.setDescription('Main subtree for OEM product
 variation = ObjectIdentity((1, 3, 6, 1, 4, 1, 8744, 7))
 if mibBuilder.loadTexts: variation.setStatus('current')
 if mibBuilder.loadTexts: variation.setDescription('Main subtree for variation MIBs development.')
-mibBuilder.exportSymbols("COLUBRIS-SMI", extensions=extensions, colubrisMgmtV2=colubrisMgmtV2, colubrisProducts=colubrisProducts, PYSNMP_MODULE_ID=colubris, colubrisMgmt=colubrisMgmt, colubrisModules=colubrisModules, colubrisExperiment=colubrisExperiment, colubris=colubris, variation=variation)
+mibBuilder.exportSymbols("COLUBRIS-SMI", colubrisProducts=colubrisProducts, colubrisExperiment=colubrisExperiment, PYSNMP_MODULE_ID=colubris, colubris=colubris, colubrisModules=colubrisModules, variation=variation, colubrisMgmtV2=colubrisMgmtV2, extensions=extensions, colubrisMgmt=colubrisMgmt)

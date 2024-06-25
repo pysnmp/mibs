@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WAYSTREAM-COPY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-COPY-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:40:18 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:17:47 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Bits, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, iso, ModuleIdentity, MibIdentifier, ObjectIdentity, Counter64, NotificationType, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "iso", "ModuleIdentity", "MibIdentifier", "ObjectIdentity", "Counter64", "NotificationType", "Gauge32")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ObjectIdentity, IpAddress, TimeTicks, iso, Bits, ModuleIdentity, Counter32, MibIdentifier, Counter64, NotificationType, Unsigned32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "ObjectIdentity", "IpAddress", "TimeTicks", "iso", "Bits", "ModuleIdentity", "Counter32", "MibIdentifier", "Counter64", "NotificationType", "Unsigned32", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 wsExperiment, = mibBuilder.importSymbols("WAYSTREAM-SMI", "wsExperiment")
 wsCopy = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 3, 2))
@@ -45,4 +45,4 @@ if mibBuilder.loadTexts: wsCopyStatus.setDescription('The status of a filehandle
 wsCopyError = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: wsCopyError.setStatus('current')
 if mibBuilder.loadTexts: wsCopyError.setDescription("A textual description of the filehandle last\n                         error status. If the filehandle does not exist or\n                         has not been used for the last 24 hours, a 'No Error'\n                         message is returned.")
-mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopyTable=wsCopyTable, wsCopyStatus=wsCopyStatus, wsCopyDestination=wsCopyDestination, wsCopyError=wsCopyError, PYSNMP_MODULE_ID=wsCopy, wsCopyNextState=wsCopyNextState, wsCopy=wsCopy, wsCopyIndex=wsCopyIndex, wsCopySource=wsCopySource, wsCopyEntry=wsCopyEntry)
+mibBuilder.exportSymbols("WAYSTREAM-COPY-MIB", wsCopyEntry=wsCopyEntry, PYSNMP_MODULE_ID=wsCopy, wsCopyDestination=wsCopyDestination, wsCopySource=wsCopySource, wsCopyTable=wsCopyTable, wsCopyIndex=wsCopyIndex, wsCopyStatus=wsCopyStatus, wsCopyError=wsCopyError, wsCopy=wsCopy, wsCopyNextState=wsCopyNextState)

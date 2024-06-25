@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HALON-SP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/halon/HALON-SP-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:35:11 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:12:26 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Integer32, iso, Bits, MibIdentifier, Unsigned32, TimeTicks, Counter64, NotificationType, Gauge32, IpAddress, ModuleIdentity, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Integer32", "iso", "Bits", "MibIdentifier", "Unsigned32", "TimeTicks", "Counter64", "NotificationType", "Gauge32", "IpAddress", "ModuleIdentity", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, Counter64, enterprises, TimeTicks, ObjectIdentity, MibIdentifier, NotificationType, Counter32, Gauge32, iso, Integer32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity", "Counter64", "enterprises", "TimeTicks", "ObjectIdentity", "MibIdentifier", "NotificationType", "Counter32", "Gauge32", "iso", "Integer32", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 halonSecuritySP = ModuleIdentity((1, 3, 6, 1, 4, 1, 33234, 1, 1))
 halonSecuritySP.setRevisions(('2013-02-07 11:32',))
@@ -59,4 +59,4 @@ if mibBuilder.loadTexts: statCreated.setDescription('Unix timestamp when created
 statUpdated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: statUpdated.setStatus('current')
 if mibBuilder.loadTexts: statUpdated.setDescription('Unix timestamp when last updated')
-mibBuilder.exportSymbols("HALON-SP-MIB", serialNumber=serialNumber, statTable=statTable, statKey3Index=statKey3Index, statCreated=statCreated, PYSNMP_MODULE_ID=halonSecuritySP, statUpdated=statUpdated, statKey1Index=statKey1Index, halonSecurityProducts=halonSecurityProducts, halonSecuritySPObjects=halonSecuritySPObjects, halonSecurity=halonSecurity, statEntry=statEntry, statCount=statCount, configurationRevision=configurationRevision, statKey2Index=statKey2Index, halonSecuritySP=halonSecuritySP, mailQueueLength=mailQueueLength, quarantinedMessages=quarantinedMessages)
+mibBuilder.exportSymbols("HALON-SP-MIB", halonSecuritySP=halonSecuritySP, halonSecurityProducts=halonSecurityProducts, PYSNMP_MODULE_ID=halonSecuritySP, statCreated=statCreated, serialNumber=serialNumber, configurationRevision=configurationRevision, statCount=statCount, halonSecurity=halonSecurity, quarantinedMessages=quarantinedMessages, statTable=statTable, statUpdated=statUpdated, halonSecuritySPObjects=halonSecuritySPObjects, statKey2Index=statKey2Index, statEntry=statEntry, statKey3Index=statKey3Index, mailQueueLength=mailQueueLength, statKey1Index=statKey1Index)

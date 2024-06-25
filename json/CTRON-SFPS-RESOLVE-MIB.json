@@ -2,48 +2,48 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "sfpsSubnetResolveAPI",
       "sfpsUnresolveTableStats",
-      "sfpsResolveStats",
-      "sfpsSwitchResolve",
-      "sfpsSubnetResolve",
-      "sfpsRelayAgentResolveStats",
-      "sfpsBlockResolve",
-      "sfpsBlockResolveStats",
-      "sfpsBlockResolveAPI",
-      "sfpsUnresolveTableAPI",
-      "sfpsMobilityStats",
-      "sfpsRelayAgentResolve",
-      "sfpsTableResolveAPI",
       "sfpsTableResolve",
-      "sfpsUnresolve",
+      "sfpsRelayAgentResolveStats",
+      "sfpsRelayAgentResolve",
+      "sfpsMobilityStats",
+      "sfpsSubnetResolve",
+      "sfpsSubnetResolveNvram",
+      "sfpsBlockResolveStats",
+      "sfpsSubnetResolveAPI",
+      "sfpsBlockResolve",
+      "sfpsTableResolveAPI",
+      "sfpsBlockResolveAPI",
       "sfpsSubnetResolveStats",
+      "sfpsUnresolveTableAPI",
+      "sfpsUnresolve",
+      "sfpsSwitchResolve",
       "sfpsISPResolve",
-      "sfpsSubnetResolveNvram"
+      "sfpsResolveStats"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
       "Bits",
+      "Counter64",
+      "MibIdentifier",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "HexInteger": {
@@ -2749,8 +2749,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-RESOLVE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:34:30 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:11:41 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CTRON-SFPS-RESOLVE-MIB"

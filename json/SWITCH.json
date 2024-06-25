@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "mib-2",
+      "iso",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter64",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
       "enterprises",
-      "Counter32",
-      "IpAddress"
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "PhysAddress",
-      "MacAddress",
       "TruthValue",
+      "MacAddress",
       "DateAndTime",
-      "TestAndIncr",
-      "TimeStamp",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "AutonomousType",
+      "TimeStamp",
+      "PhysAddress",
+      "TestAndIncr"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:35:07 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:12:28 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

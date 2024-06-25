@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-OBA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OBA-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:37:37 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:15:00 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 NbsTcMHz, nbs = mibBuilder.importSymbols("NBS-MIB", "NbsTcMHz", "nbs")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Bits, Integer32, TimeTicks, Unsigned32, ModuleIdentity, IpAddress, ObjectIdentity, NotificationType, Gauge32, Counter64, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Bits", "Integer32", "TimeTicks", "Unsigned32", "ModuleIdentity", "IpAddress", "ObjectIdentity", "NotificationType", "Gauge32", "Counter64", "Counter32", "iso")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
+Counter64, Bits, NotificationType, Gauge32, IpAddress, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, ModuleIdentity, iso, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "NotificationType", "Gauge32", "IpAddress", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "ModuleIdentity", "iso", "TimeTicks", "ObjectIdentity")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 nbsObaMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 240))
 if mibBuilder.loadTexts: nbsObaMib.setLastUpdated('201503270000Z')
 if mibBuilder.loadTexts: nbsObaMib.setOrganization('NBS')
@@ -105,4 +105,4 @@ if mibBuilder.loadTexts: nbsObaAlsIfIndex.setDescription('The ifindex associated
 nbsObaAlsState = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 240, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("enable", 2), ("disable", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsObaAlsState.setStatus('current')
 if mibBuilder.loadTexts: nbsObaAlsState.setDescription('Defines whether the Automatic Laser Shut-down (ALS) feature is enabled or disabled.')
-mibBuilder.exportSymbols("NBS-OBA-MIB", nbsObaDefineOduList=nbsObaDefineOduList, nbsObaDefineOrdinalIndex=nbsObaDefineOrdinalIndex, nbsObaInfoUnitSize=nbsObaInfoUnitSize, nbsObaMib=nbsObaMib, nbsObaDefineTable=nbsObaDefineTable, PYSNMP_MODULE_ID=nbsObaMib, nbsObaAlsGrp=nbsObaAlsGrp, nbsObaDefineEntry=nbsObaDefineEntry, nbsObaDefineMapType=nbsObaDefineMapType, nbsObaInfoMaxUnitsPerClientPort=nbsObaInfoMaxUnitsPerClientPort, nbsObaInfoLineIfIndex=nbsObaInfoLineIfIndex, nbsObaDefineOduCount=nbsObaDefineOduCount, nbsObaDefineLabel=nbsObaDefineLabel, nbsObaInfoEntry=nbsObaInfoEntry, nbsObaInfoAvails=nbsObaInfoAvails, nbsObaDefineGrp=nbsObaDefineGrp, nbsObaAlsState=nbsObaAlsState, nbsObaInfoTable=nbsObaInfoTable, nbsObaDefineLinePort=nbsObaDefineLinePort, nbsObaDefineRowStatus=nbsObaDefineRowStatus, nbsObaAlsIfIndex=nbsObaAlsIfIndex, nbsObaInfoGrp=nbsObaInfoGrp, nbsObaDefineTableSize=nbsObaDefineTableSize, nbsObaDefineAllocationInfo=nbsObaDefineAllocationInfo, nbsObaAlsTable=nbsObaAlsTable, nbsObaDefineClientPort=nbsObaDefineClientPort, nbsObaInfoMaxUnits=nbsObaInfoMaxUnits, nbsObaDefineCoupledWith=nbsObaDefineCoupledWith, nbsObaDefinePresentState=nbsObaDefinePresentState, nbsObaDefineOduType=nbsObaDefineOduType, nbsObaAlsEntry=nbsObaAlsEntry)
+mibBuilder.exportSymbols("NBS-OBA-MIB", nbsObaAlsEntry=nbsObaAlsEntry, nbsObaInfoEntry=nbsObaInfoEntry, nbsObaDefineTableSize=nbsObaDefineTableSize, nbsObaDefineLabel=nbsObaDefineLabel, nbsObaDefineEntry=nbsObaDefineEntry, nbsObaDefineMapType=nbsObaDefineMapType, nbsObaDefineRowStatus=nbsObaDefineRowStatus, nbsObaMib=nbsObaMib, nbsObaInfoLineIfIndex=nbsObaInfoLineIfIndex, nbsObaInfoTable=nbsObaInfoTable, nbsObaInfoUnitSize=nbsObaInfoUnitSize, nbsObaDefineCoupledWith=nbsObaDefineCoupledWith, nbsObaAlsGrp=nbsObaAlsGrp, nbsObaDefineOduCount=nbsObaDefineOduCount, nbsObaInfoGrp=nbsObaInfoGrp, nbsObaDefinePresentState=nbsObaDefinePresentState, nbsObaDefineOrdinalIndex=nbsObaDefineOrdinalIndex, nbsObaInfoAvails=nbsObaInfoAvails, nbsObaDefineOduType=nbsObaDefineOduType, nbsObaAlsIfIndex=nbsObaAlsIfIndex, nbsObaDefineClientPort=nbsObaDefineClientPort, nbsObaDefineGrp=nbsObaDefineGrp, nbsObaDefineTable=nbsObaDefineTable, nbsObaInfoMaxUnits=nbsObaInfoMaxUnits, nbsObaAlsTable=nbsObaAlsTable, nbsObaInfoMaxUnitsPerClientPort=nbsObaInfoMaxUnitsPerClientPort, nbsObaDefineLinePort=nbsObaDefineLinePort, nbsObaAlsState=nbsObaAlsState, nbsObaDefineAllocationInfo=nbsObaDefineAllocationInfo, nbsObaDefineOduList=nbsObaDefineOduList, PYSNMP_MODULE_ID=nbsObaMib)

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "A10-AX-MIB": [
-      "axLogging",
-      "axNotification"
+      "axNotification",
+      "axLogging"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType"
@@ -13,26 +13,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter32",
       "Bits",
+      "Counter64",
       "MODULE-IDENTITY",
       "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "iso",
       "Unsigned32",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
+      "DisplayString",
       "DateAndTime",
-      "DisplayString"
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "axNotificationObjects": {
@@ -2887,8 +2887,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/a10/A10-AX-NOTIFICATIONS",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:31:01 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:08:07 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "A10-AX-NOTIFICATIONS"

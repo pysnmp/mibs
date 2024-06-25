@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module LLDP-V2-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-V2-TC-MIB
-# Produced by pysmi-1.1.12 at Tue Jun 18 02:31:30 2024
-# On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Jun 25 14:08:37 2024
+# On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Counter64, ObjectIdentity, Bits, Integer32, TimeTicks, Gauge32, Counter32, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, NotificationType, org = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "ObjectIdentity", "Bits", "Integer32", "TimeTicks", "Gauge32", "Counter32", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "NotificationType", "org")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, Counter64, Gauge32, NotificationType, ObjectIdentity, ModuleIdentity, iso, TimeTicks, Integer32, MibIdentifier, Bits, org, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "Gauge32", "NotificationType", "ObjectIdentity", "ModuleIdentity", "iso", "TimeTicks", "Integer32", "MibIdentifier", "Bits", "org", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lldpV2TcMIB = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 12))
 lldpV2TcMIB.setRevisions(('2009-06-08 00:00',))
@@ -80,4 +80,4 @@ class LldpV2PowerPortClass(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
     namedValues = NamedValues(("pClassPSE", 1), ("pClassPD", 2))
 
-mibBuilder.exportSymbols("LLDP-V2-TC-MIB", PYSNMP_MODULE_ID=lldpV2TcMIB, LldpV2DestAddressTableIndex=LldpV2DestAddressTableIndex, LldpV2PortId=LldpV2PortId, LldpV2ChassisId=LldpV2ChassisId, LldpV2PowerPortClass=LldpV2PowerPortClass, LldpV2PortIdSubtype=LldpV2PortIdSubtype, LldpV2SystemCapabilitiesMap=LldpV2SystemCapabilitiesMap, lldpV2TcMIB=lldpV2TcMIB, LldpV2ManAddress=LldpV2ManAddress, LldpV2ChassisIdSubtype=LldpV2ChassisIdSubtype, LldpV2LinkAggStatusMap=LldpV2LinkAggStatusMap, LldpV2ManAddrIfSubtype=LldpV2ManAddrIfSubtype, ieee802dot1mibs=ieee802dot1mibs)
+mibBuilder.exportSymbols("LLDP-V2-TC-MIB", LldpV2ChassisId=LldpV2ChassisId, LldpV2PortId=LldpV2PortId, ieee802dot1mibs=ieee802dot1mibs, LldpV2ManAddrIfSubtype=LldpV2ManAddrIfSubtype, LldpV2PortIdSubtype=LldpV2PortIdSubtype, LldpV2ManAddress=LldpV2ManAddress, LldpV2DestAddressTableIndex=LldpV2DestAddressTableIndex, LldpV2PowerPortClass=LldpV2PowerPortClass, lldpV2TcMIB=lldpV2TcMIB, LldpV2ChassisIdSubtype=LldpV2ChassisIdSubtype, LldpV2SystemCapabilitiesMap=LldpV2SystemCapabilitiesMap, PYSNMP_MODULE_ID=lldpV2TcMIB, LldpV2LinkAggStatusMap=LldpV2LinkAggStatusMap)

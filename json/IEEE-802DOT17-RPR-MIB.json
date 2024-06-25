@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
-      "HCPerfCurrentCount",
       "HCPerfTotalCount",
-      "HCPerfIntervalCount"
+      "HCPerfIntervalCount",
+      "HCPerfCurrentCount"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -18,32 +18,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
       "OBJECT-TYPE",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "TimeTicks",
       "Integer32",
-      "Counter32"
+      "Bits",
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:30:36 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:07:40 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

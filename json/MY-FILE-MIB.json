@@ -6,30 +6,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
       "IpAddress",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "myFileMIB": {
@@ -341,8 +341,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-FILE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:39:27 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:16:55 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "MY-FILE-MIB"

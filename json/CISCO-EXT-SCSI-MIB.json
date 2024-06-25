@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "CISCO-SCSI-MIB": [
-      "ciscoScsiInstanceEntry",
       "ScsiIndexValue",
       "ciscoScsiDscTgtEntry",
-      "ciscoScsiDscLunEntry"
+      "ciscoScsiDscLunEntry",
+      "ciscoScsiInstanceEntry"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "VsanIndex",
+      "FcAddressId",
       "DomainId",
-      "FcAddressId"
+      "VsanIndex"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
       "TimeStamp",
       "DisplayString",
-      "TestAndIncr"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoExtScsiMIB": {
@@ -1102,8 +1102,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-EXT-SCSI-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:47 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:55 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-EXT-SCSI-MIB"

@@ -5,25 +5,25 @@
       "ciscoDSGUtilities"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -161,8 +161,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DMN-DSG-SYSTEMTOOL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:44 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:53 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DMN-DSG-SYSTEMTOOL-MIB"

@@ -3,8 +3,8 @@
     "class": "imports",
     "CISCO-IETF-DHCP-SERVER-MIB": [
       "cDhcpv4ServerClientPhysicalAddress",
-      "cDhcpv4ServerSubnetFreeAddresses",
       "cDhcpv4ServerSubnetFreeAddrHighThreshold",
+      "cDhcpv4ServerSubnetFreeAddresses",
       "cDhcpv4ServerSubnetEntry",
       "cDhcpv4ServerSubnetFreeAddrLowThreshold"
     ],
@@ -12,39 +12,39 @@
       "ciscoExperiment"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "Bits",
       "OBJECT-IDENTITY",
-      "Integer32",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
-      "TimeTicks",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
-      "TimeInterval"
+      "DisplayString",
+      "TimeInterval",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoIetfDhcpSrvExtMIB": {
@@ -1437,8 +1437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-DHCP-SERVER-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:36:46 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:54 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-DHCP-SERVER-EXT-MIB"

@@ -6,8 +6,8 @@
       "InetAddressType"
     ],
     "PAN-COMMON-MIB": [
-      "panCommonEventEventsV2",
-      "panCommonEventObjs"
+      "panCommonEventObjs",
+      "panCommonEventEventsV2"
     ],
     "PAN-GLOBAL-REG": [
       "panModules",
@@ -21,26 +21,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Integer32",
       "Counter32",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "iso",
       "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter64",
       "TimeTicks",
-      "iso"
+      "Bits",
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "panTrapMibsModule": {
@@ -44636,8 +44636,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-TRAPS",
-      "Produced by pysmi-1.1.12 at Tue Jun 18 02:38:22 2024",
-      "On host fv-az849-858 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Jun 25 14:15:47 2024",
+      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "PAN-TRAPS"
