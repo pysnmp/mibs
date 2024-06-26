@@ -5,24 +5,24 @@
       "dkt"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
       "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MibIdentifier",
       "Integer32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "Gauge32",
       "Bits"
     ],
     "SNMPv2-TC": [
@@ -102,8 +102,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-CATV-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:10:37 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:33:06 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DKT-CATV-MIB"

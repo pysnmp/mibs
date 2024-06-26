@@ -8,30 +8,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
       "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cienaWsPlatformEncryptionMIB": {
@@ -396,8 +396,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PLATFORM-ENCRYPTION-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:09:49 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:32:20 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-PLATFORM-ENCRYPTION-MIB"

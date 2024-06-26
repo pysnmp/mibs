@@ -5,8 +5,8 @@
       "rnd"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -16,27 +16,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "iso",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "IpAddress",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
       "MibIdentifier",
-      "Integer32",
       "Counter64",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "MacAddress"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "rlBridgeSecurity": {
@@ -1215,8 +1215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-BRIDGE-SECURITY",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:10:51 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:33:19 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "Dell-BRIDGE-SECURITY"

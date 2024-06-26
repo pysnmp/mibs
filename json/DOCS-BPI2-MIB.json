@@ -8,8 +8,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -20,28 +20,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Bits",
-      "Gauge32",
+      "Unsigned32",
+      "Counter32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
       "TimeTicks",
-      "Counter64"
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsBpi2MIB": {
@@ -3539,8 +3539,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-BPI-PLUS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:07:58 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:30:31 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DOCS-BPI2-MIB"

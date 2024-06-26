@@ -8,31 +8,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Bits",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "StorageType"
+      "DisplayString",
+      "StorageType",
+      "RowStatus"
     ]
   },
   "ciscoDiameterSGMIB": {
@@ -298,8 +298,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIAMETER-SG-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:54 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:36:23 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-DIAMETER-SG-MIB"

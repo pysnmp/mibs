@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
-      "AristaBgp4V2AddressFamilyIdentifierTC",
       "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
+      "AristaBgp4V2AddressFamilyIdentifierTC",
       "AristaBgp4V2IdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetPortNumber"
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Unsigned32",
-      "Counter32",
-      "Integer32",
-      "iso",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "Counter32",
+      "IpAddress",
       "MibIdentifier",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "RowPointer",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "RowPointer",
       "TimeStamp"
     ]
   },
@@ -1865,8 +1865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:08:43 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:31:15 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "ARISTA-BGP4V2-MIB"

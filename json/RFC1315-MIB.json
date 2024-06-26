@@ -6,26 +6,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Bits",
-      "Gauge32",
+      "Unsigned32",
+      "Counter32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "iso",
+      "Gauge32",
+      "TRAP-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "transmission",
-      "Unsigned32",
       "TimeTicks",
-      "Counter64"
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "frame_relay": {
@@ -622,8 +622,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC1315-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:07:58 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:30:30 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "RFC1315-MIB"

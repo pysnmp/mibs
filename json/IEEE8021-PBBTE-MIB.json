@@ -8,47 +8,47 @@
       "ieee8021QBridgeVlanCurrentComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbTeProtectionGroupId",
-      "IEEE8021PbbTeTSidId",
-      "ieee802dot1mibs",
-      "IEEE8021PbbTeEsp",
       "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbTeEsp",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbTeProtectionGroupActiveRequests",
       "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021PbbTeProtectionGroupConfigAdmin"
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbTeProtectionGroupId",
+      "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "ieee802dot1mibs",
+      "IEEE8021PbbTeProtectionGroupActiveRequests",
+      "IEEE8021PbbTeTSidId"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "Integer32",
-      "Bits",
       "Gauge32",
-      "MibIdentifier"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "StorageType"
+      "StorageType",
+      "DisplayString"
     ]
   },
   "ieee8021PbbTeMib": {
@@ -1079,8 +1079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:07:41 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:30:14 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBBTE-MIB"

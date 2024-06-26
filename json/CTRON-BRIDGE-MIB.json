@@ -13,23 +13,23 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Bits",
       "Counter64",
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "IpAddress",
+      "Gauge32",
+      "Bits",
       "Unsigned32",
+      "iso",
       "OBJECT-TYPE",
-      "Integer32"
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ctBridgeStp": {
@@ -1896,8 +1896,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:11:41 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:34:09 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CTRON-BRIDGE-MIB"

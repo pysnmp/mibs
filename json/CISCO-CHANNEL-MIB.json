@@ -5,32 +5,32 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
       "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier"
+      "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TimeStamp",
+      "RowStatus"
     ]
   },
   "channel": {
@@ -2057,8 +2057,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CHANNEL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:57 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:36:25 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-CHANNEL-MIB"

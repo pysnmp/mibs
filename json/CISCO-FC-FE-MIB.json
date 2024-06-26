@@ -8,18 +8,18 @@
       "ciscoMgmt"
     ],
     "CISCO-ST-TC": [
-      "FcNameId",
       "FcClassOfServices",
-      "FcIfSpeed",
-      "FcIfServiceStateType",
-      "FcPortTypes",
-      "FcAddressId",
+      "FcPortTxTypes",
       "FcPortModuleTypes",
-      "FcPortTxTypes"
+      "FcAddressId",
+      "FcNameId",
+      "FcIfSpeed",
+      "FcPortTypes",
+      "FcIfServiceStateType"
     ],
     "CISCO-TC": [
-      "MicroSeconds",
-      "CiscoMilliSeconds"
+      "CiscoMilliSeconds",
+      "MicroSeconds"
     ],
     "CISCO-VSAN-MIB": [
       "vsanIndex"
@@ -31,36 +31,36 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Bits",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "OBJECT-TYPE",
-      "Counter32",
-      "MibIdentifier"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue"
     ]
   },
@@ -7307,8 +7307,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-FE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:13:55 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:36:24 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "CISCO-FC-FE-MIB"

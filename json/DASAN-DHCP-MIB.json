@@ -5,34 +5,34 @@
       "dasanMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "enterprises",
-      "iso",
-      "TimeTicks",
-      "snmpModules",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "mib-2",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "Counter32",
+      "snmpModules",
+      "mib-2",
+      "enterprises",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
       "MibIdentifier",
-      "Counter32"
+      "Bits",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "org": {
@@ -485,8 +485,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:10:48 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:33:16 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DASAN-DHCP-MIB"

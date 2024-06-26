@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "experimental",
+      "OBJECT-TYPE",
+      "iso",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "experimental"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ipsAuthModule": {
@@ -876,8 +876,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/IPS-AUTH-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:11:33 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:33:59 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "IPS-AUTH-MIB"

@@ -9,26 +9,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "enterprises",
-      "Counter64",
       "iso",
-      "IpAddress",
       "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "brother": {
@@ -20492,8 +20492,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brother/BROTHER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:09:19 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:31:51 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "BROTHER-MIB"

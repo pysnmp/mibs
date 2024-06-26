@@ -5,29 +5,29 @@
       "dlinkIndustrialCommon"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
       "iso",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1100,8 +1100,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IF-COUNTER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:10:48 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:33:17 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-IF-COUNTER-MIB"

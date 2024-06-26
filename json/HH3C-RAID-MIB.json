@@ -7,36 +7,36 @@
     "HH3C-STORAGE-REF-MIB": [
       "hh3cStorageRef",
       "Hh3cStorageOwnerType",
-      "Hh3cStorageEnableState",
       "Hh3cStorageActionType",
+      "Hh3cStorageEnableState",
       "Hh3cRaidIDType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
+      "Gauge32",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Integer32",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Gauge32"
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
       "DateAndTime",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "hh3cRaid": {
@@ -814,8 +814,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-RAID-MIB",
-      "Produced by pysmi-1.1.12 at Tue Jun 25 14:10:18 2024",
-      "On host fv-az837-278 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jun 26 13:32:48 2024",
+      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
     ],
     "module": "HH3C-RAID-MIB"
