@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "ifDescr"
+      "ifDescr",
+      "ifIndex"
     ],
     "JUNIPER-SMI": [
       "jnxOtnNotifications",
       "jnxOtnMibRoot"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "Counter64",
       "TimeTicks",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Integer32",
       "MibIdentifier",
+      "Gauge32",
       "Unsigned32",
-      "IpAddress",
-      "Gauge32"
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxOtnMib": {
@@ -1152,8 +1152,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-OTN-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:16:11 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:23:09 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-OTN-MIB"

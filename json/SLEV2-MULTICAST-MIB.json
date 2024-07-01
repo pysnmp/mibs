@@ -12,8 +12,8 @@
       "InetAddressIPv6"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -21,26 +21,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "BITS",
-      "Bits",
-      "Counter32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "iso",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64"
+      "BITS"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp"
     ]
   },
   "sleV2Multicast": {
@@ -36859,8 +36859,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-MULTICAST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:11:57 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:18:39 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SLEV2-MULTICAST-MIB"

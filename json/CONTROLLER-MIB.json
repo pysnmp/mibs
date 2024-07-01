@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Bits",
       "Integer32",
+      "enterprises",
+      "TimeTicks",
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "iso",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso"
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -744,8 +744,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ucopia/CONTROLLER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:18:34 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:25:40 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CONTROLLER-MIB"

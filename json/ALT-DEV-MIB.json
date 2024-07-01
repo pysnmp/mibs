@@ -1,0 +1,1094 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "Integer32",
+      "enterprises",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altergyInc": {
+    "name": "altergyInc",
+    "oid": "1.3.6.1.4.1.52248",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-02-12 19:40",
+        "description": "First draft"
+      }
+    ]
+  },
+  "altergyConformance": {
+    "name": "altergyConformance",
+    "oid": "1.3.6.1.4.1.52248.99",
+    "class": "objectidentity"
+  },
+  "altergyGroups": {
+    "name": "altergyGroups",
+    "oid": "1.3.6.1.4.1.52248.99.1",
+    "class": "objectidentity"
+  },
+  "altergyCompliances": {
+    "name": "altergyCompliances",
+    "oid": "1.3.6.1.4.1.52248.99.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.3.6.1.4.1.52248.99.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altergyDevGroup1",
+        "module": "ALT-DEV-MIB"
+      },
+      {
+        "object": "altergyDevGroup2",
+        "module": "ALT-DEV-MIB"
+      },
+      {
+        "object": "altergyDevGroup3",
+        "module": "ALT-DEV-MIB"
+      },
+      {
+        "object": "altergyDevGroup4",
+        "module": "ALT-DEV-MIB"
+      },
+      {
+        "object": "altergyDevTrapGroup",
+        "module": "ALT-DEV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyDevGroup1": {
+    "name": "altergyDevGroup1",
+    "oid": "1.3.6.1.4.1.52248.99.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevFWVer"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevState"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevVbus"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevIout"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAlarmStr"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevImax"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevTboard"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevPpump"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevTburner"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevTexhaust"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevTpurifier"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyDevGroup2": {
+    "name": "altergyDevGroup2",
+    "oid": "1.3.6.1.4.1.52248.99.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAlarm0"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAlarm1"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAlarm2"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAlarm3"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevFuelPressA"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevFuelPressB"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAdc0"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAdc1"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAdc2"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevAdc3"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevDigIn0"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevDigIn1"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevDigIn2"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevDigIn3"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevDigOut0"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevDigOut1"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevIntTankLevel"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevExtTankLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyDevGroup3": {
+    "name": "altergyDevGroup3",
+    "oid": "1.3.6.1.4.1.52248.99.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevVset"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevIset"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevMode"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevVon"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevVoff"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyDevGroup4": {
+    "name": "altergyDevGroup4",
+    "oid": "1.3.6.1.4.1.52248.99.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevIp"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevGateway"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyDevNetmask"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyDevTrapGroup": {
+    "name": "altergyDevTrapGroup",
+    "oid": "1.3.6.1.4.1.52248.99.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapStart"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapStop"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapStartDR"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapStopDR"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapHold"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapOperational"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapSoftReset"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapHardReset"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapOpCleared"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapFuelWarnA"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapWarn1Cleared"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapFuelWarnB"
+      },
+      {
+        "module": "ALT-DEV-MIB",
+        "object": "altergyTrapWarn2Cleared"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyDevInfoScalars": {
+    "name": "altergyDevInfoScalars",
+    "oid": "1.3.6.1.4.1.52248.1",
+    "class": "objectidentity"
+  },
+  "altergyDevInfoArrays": {
+    "name": "altergyDevInfoArrays",
+    "oid": "1.3.6.1.4.1.52248.2",
+    "class": "objectidentity"
+  },
+  "altergyDevAlarm": {
+    "name": "altergyDevAlarm",
+    "oid": "1.3.6.1.4.1.52248.2.1",
+    "class": "objectidentity"
+  },
+  "altergyDevFuelPress": {
+    "name": "altergyDevFuelPress",
+    "oid": "1.3.6.1.4.1.52248.2.2",
+    "class": "objectidentity"
+  },
+  "altergyDevAdc": {
+    "name": "altergyDevAdc",
+    "oid": "1.3.6.1.4.1.52248.2.3",
+    "class": "objectidentity"
+  },
+  "altergyDevDigIn": {
+    "name": "altergyDevDigIn",
+    "oid": "1.3.6.1.4.1.52248.2.4",
+    "class": "objectidentity"
+  },
+  "altergyDevDigOut": {
+    "name": "altergyDevDigOut",
+    "oid": "1.3.6.1.4.1.52248.2.5",
+    "class": "objectidentity"
+  },
+  "altergyDevTankLevel": {
+    "name": "altergyDevTankLevel",
+    "oid": "1.3.6.1.4.1.52248.2.10",
+    "class": "objectidentity"
+  },
+  "altergyDevOpSettings": {
+    "name": "altergyDevOpSettings",
+    "oid": "1.3.6.1.4.1.52248.5",
+    "class": "objectidentity"
+  },
+  "altergyDevNetSettings": {
+    "name": "altergyDevNetSettings",
+    "oid": "1.3.6.1.4.1.52248.10",
+    "class": "objectidentity"
+  },
+  "altergyDevTraps": {
+    "name": "altergyDevTraps",
+    "oid": "1.3.6.1.4.1.52248.50",
+    "class": "objectidentity"
+  },
+  "altergyDevFWVer": {
+    "name": "altergyDevFWVer",
+    "oid": "1.3.6.1.4.1.52248.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevState": {
+    "name": "altergyDevState",
+    "oid": "1.3.6.1.4.1.52248.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resetInit": 0,
+          "reset": 1,
+          "selfcheckInit": 9,
+          "selfcheck": 10,
+          "offlineInit": 11,
+          "offline": 12,
+          "leakCheckInit": 14,
+          "leakCheck": 15,
+          "warmupInit": 17,
+          "warmup": 18,
+          "idleInit": 19,
+          "idle": 20,
+          "startStackInit": 29,
+          "startStack": 30,
+          "refreshInit": 48,
+          "refresh": 50,
+          "startFanInit": 59,
+          "startFan": 60,
+          "checkVoutInit": 64,
+          "checkVout": 65,
+          "startPCSInit": 69,
+          "startPCS": 70,
+          "runInit": 79,
+          "run": 80,
+          "tripInit": 84,
+          "trip": 85,
+          "shutdownInit": 89,
+          "shutdown": 90,
+          "healthCheckInit": 100,
+          "healthCheck": 102,
+          "stackCoolInit": 104,
+          "stackCool": 105,
+          "stackLoadInit": 107,
+          "stackLoad": 108,
+          "bleedLineInit": 109,
+          "bleedLine": 110,
+          "airPurgeInit": 129,
+          "airPurge": 130,
+          "badConfigInit": 194,
+          "badConfig": 195,
+          "bootInit": 196,
+          "boot": 197,
+          "stopInit": 198,
+          "stop": 199,
+          "bufferPrepInit": 219,
+          "bufferPrep": 220,
+          "vacuumInit": 229,
+          "vacuum": 230,
+          "cooldownInit": 239,
+          "cooldown": 240,
+          "serviceinit": 251,
+          "service": 252,
+          "testinit": 254,
+          "test": 255
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevVbus": {
+    "name": "altergyDevVbus",
+    "oid": "1.3.6.1.4.1.52248.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevIout": {
+    "name": "altergyDevIout",
+    "oid": "1.3.6.1.4.1.52248.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAlarmStr": {
+    "name": "altergyDevAlarmStr",
+    "oid": "1.3.6.1.4.1.52248.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevImax": {
+    "name": "altergyDevImax",
+    "oid": "1.3.6.1.4.1.52248.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevTboard": {
+    "name": "altergyDevTboard",
+    "oid": "1.3.6.1.4.1.52248.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevBoardSN": {
+    "name": "altergyDevBoardSN",
+    "oid": "1.3.6.1.4.1.52248.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevPpump": {
+    "name": "altergyDevPpump",
+    "oid": "1.3.6.1.4.1.52248.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevTburner": {
+    "name": "altergyDevTburner",
+    "oid": "1.3.6.1.4.1.52248.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevTexhaust": {
+    "name": "altergyDevTexhaust",
+    "oid": "1.3.6.1.4.1.52248.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevTpurifier": {
+    "name": "altergyDevTpurifier",
+    "oid": "1.3.6.1.4.1.52248.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAlarm0": {
+    "name": "altergyDevAlarm0",
+    "oid": "1.3.6.1.4.1.52248.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAlarm1": {
+    "name": "altergyDevAlarm1",
+    "oid": "1.3.6.1.4.1.52248.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAlarm2": {
+    "name": "altergyDevAlarm2",
+    "oid": "1.3.6.1.4.1.52248.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAlarm3": {
+    "name": "altergyDevAlarm3",
+    "oid": "1.3.6.1.4.1.52248.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevFuelPressA": {
+    "name": "altergyDevFuelPressA",
+    "oid": "1.3.6.1.4.1.52248.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevFuelPressB": {
+    "name": "altergyDevFuelPressB",
+    "oid": "1.3.6.1.4.1.52248.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAdc0": {
+    "name": "altergyDevAdc0",
+    "oid": "1.3.6.1.4.1.52248.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAdc1": {
+    "name": "altergyDevAdc1",
+    "oid": "1.3.6.1.4.1.52248.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAdc2": {
+    "name": "altergyDevAdc2",
+    "oid": "1.3.6.1.4.1.52248.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevAdc3": {
+    "name": "altergyDevAdc3",
+    "oid": "1.3.6.1.4.1.52248.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevDigIn0": {
+    "name": "altergyDevDigIn0",
+    "oid": "1.3.6.1.4.1.52248.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevDigIn1": {
+    "name": "altergyDevDigIn1",
+    "oid": "1.3.6.1.4.1.52248.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevDigIn2": {
+    "name": "altergyDevDigIn2",
+    "oid": "1.3.6.1.4.1.52248.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevDigIn3": {
+    "name": "altergyDevDigIn3",
+    "oid": "1.3.6.1.4.1.52248.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevDigOut0": {
+    "name": "altergyDevDigOut0",
+    "oid": "1.3.6.1.4.1.52248.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevDigOut1": {
+    "name": "altergyDevDigOut1",
+    "oid": "1.3.6.1.4.1.52248.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevIntTankLevel": {
+    "name": "altergyDevIntTankLevel",
+    "oid": "1.3.6.1.4.1.52248.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevExtTankLevel": {
+    "name": "altergyDevExtTankLevel",
+    "oid": "1.3.6.1.4.1.52248.2.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altergyDevVset": {
+    "name": "altergyDevVset",
+    "oid": "1.3.6.1.4.1.52248.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevIset": {
+    "name": "altergyDevIset",
+    "oid": "1.3.6.1.4.1.52248.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevMode": {
+    "name": "altergyDevMode",
+    "oid": "1.3.6.1.4.1.52248.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevVon": {
+    "name": "altergyDevVon",
+    "oid": "1.3.6.1.4.1.52248.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevVoff": {
+    "name": "altergyDevVoff",
+    "oid": "1.3.6.1.4.1.52248.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevIp": {
+    "name": "altergyDevIp",
+    "oid": "1.3.6.1.4.1.52248.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevGateway": {
+    "name": "altergyDevGateway",
+    "oid": "1.3.6.1.4.1.52248.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyDevNetmask": {
+    "name": "altergyDevNetmask",
+    "oid": "1.3.6.1.4.1.52248.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "altergyTrapStart": {
+    "name": "altergyTrapStart",
+    "oid": "1.3.6.1.4.1.52248.50.6065",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapStop": {
+    "name": "altergyTrapStop",
+    "oid": "1.3.6.1.4.1.52248.50.6066",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapStartDR": {
+    "name": "altergyTrapStartDR",
+    "oid": "1.3.6.1.4.1.52248.50.6067",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapStopDR": {
+    "name": "altergyTrapStopDR",
+    "oid": "1.3.6.1.4.1.52248.50.6068",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapHold": {
+    "name": "altergyTrapHold",
+    "oid": "1.3.6.1.4.1.52248.50.6069",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapOperational": {
+    "name": "altergyTrapOperational",
+    "oid": "1.3.6.1.4.1.52248.50.6070",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapSoftReset": {
+    "name": "altergyTrapSoftReset",
+    "oid": "1.3.6.1.4.1.52248.50.6071",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapHardReset": {
+    "name": "altergyTrapHardReset",
+    "oid": "1.3.6.1.4.1.52248.50.6072",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapOpCleared": {
+    "name": "altergyTrapOpCleared",
+    "oid": "1.3.6.1.4.1.52248.50.6073",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapFuelWarnA": {
+    "name": "altergyTrapFuelWarnA",
+    "oid": "1.3.6.1.4.1.52248.50.7070",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapWarn1Cleared": {
+    "name": "altergyTrapWarn1Cleared",
+    "oid": "1.3.6.1.4.1.52248.50.7071",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapFuelWarnB": {
+    "name": "altergyTrapFuelWarnB",
+    "oid": "1.3.6.1.4.1.52248.50.7072",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "altergyTrapWarn2Cleared": {
+    "name": "altergyTrapWarn2Cleared",
+    "oid": "1.3.6.1.4.1.52248.50.7073",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/altergy/ALT-DEV-MIB",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:16:18 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "ALT-DEV-MIB"
+  }
+}

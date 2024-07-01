@@ -8,8 +8,8 @@
       "InterfaceIndex"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -17,26 +17,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "IpAddress",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "BITS",
-      "Bits",
-      "Counter32",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "iso",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64"
+      "BITS"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sleDhcp": {
@@ -6065,8 +6065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:11:58 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:18:41 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SLE-DHCP-MIB"

@@ -5,28 +5,28 @@
       "silverpeakModules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "OBJECT-IDENTITY",
+      "iso",
       "Integer32",
       "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Gauge32",
-      "Bits",
       "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
+      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "silverpeakTextualConventions": {
@@ -108,8 +108,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/silverpeak/SILVERPEAK-TC",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:18:05 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:25:11 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SILVERPEAK-TC"

@@ -7,12 +7,12 @@
     ],
     "FD-OLT-MIB": [
       "oltId",
-      "directionId",
-      "linkId"
+      "linkId",
+      "directionId"
     ],
     "FD-ONU-MIB": [
-      "uniPortId",
-      "onuId"
+      "onuId",
+      "uniPortId"
     ],
     "FD-SWITCH-MIB": [
       "swSniPortId"
@@ -21,25 +21,25 @@
       "ponCardSlotId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "iso",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "Gauge32"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2998,8 +2998,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-PERFORMANCE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:10:43 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:17:19 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "FD-PERFORMANCE-MIB"

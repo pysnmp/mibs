@@ -8,30 +8,30 @@
       "mplsVpnVrfName"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "OBJECT-TYPE",
+      "Bits",
       "Counter32",
-      "Integer32",
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "hwASPFEudm": {
@@ -484,8 +484,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ASPF-EUDM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:14:49 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:21:28 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-ASPF-EUDM-MIB"

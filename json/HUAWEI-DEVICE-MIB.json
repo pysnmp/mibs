@@ -8,46 +8,46 @@
       "huaweiUtility"
     ],
     "HUAWEI-TC-MIB": [
+      "HWPCBType",
       "HWPortType",
       "HWFrameType",
-      "HWSubPCBType",
-      "HWPCBType"
+      "HWSubPCBType"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "MibIdentifier",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "Counter64",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
+      "DateAndTime",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwDev": {
@@ -10065,8 +10065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DEVICE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:14:47 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:21:27 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-DEVICE-MIB"

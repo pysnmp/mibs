@@ -5,8 +5,8 @@
       "SnmpAdminString"
     ],
     "SNMP-TARGET-MIB": [
-      "snmpTargetParamsName",
-      "snmpTargetAddrName"
+      "snmpTargetAddrName",
+      "snmpTargetParamsName"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -14,30 +14,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "OBJECT-TYPE",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Counter32",
+      "Integer32",
+      "snmpDomains",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
       "mib-2",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "snmpDomains",
-      "TimeTicks",
-      "MibIdentifier",
       "Bits",
-      "Integer32",
-      "Gauge32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "StorageType",
       "AutonomousType",
-      "DisplayString"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snmpTlstmMIB": {
@@ -861,8 +861,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-TLS-TM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:09:12 2024",
-      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:15:45 2024",
+      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SNMP-TLS-TM-MIB"
