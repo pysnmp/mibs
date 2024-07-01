@@ -15,8 +15,8 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "OwnerString",
+      "InterfaceIndexOrZero",
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
@@ -35,28 +35,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
+      "Counter32",
       "Unsigned32",
-      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "MibIdentifier",
+      "iso",
+      "Counter64",
       "Integer32",
-      "IpAddress",
-      "Counter32"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TruthValue",
       "DisplayString",
-      "TimeStamp",
+      "TimeInterval",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
       "MacAddress"
     ]
   },
@@ -6625,9 +6625,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-ENGINE-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:36:21 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:15:01 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-SWITCH-ENGINE-MIB"
   }

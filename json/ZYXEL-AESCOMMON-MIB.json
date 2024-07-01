@@ -5,28 +5,28 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
       "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "MibIdentifier",
       "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "ZYXEL-MIB": [
       "aesSeriesCommon"
@@ -707,9 +707,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-AESCOMMON-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:40:24 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:19:08 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ZYXEL-AESCOMMON-MIB"
   }

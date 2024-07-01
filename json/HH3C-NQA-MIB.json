@@ -2,20 +2,20 @@
   "imports": {
     "class": "imports",
     "DISMAN-PING-MIB": [
-      "pingCtlTargetAddress",
-      "pingCtlDescr",
-      "pingCtlTestName",
       "pingCtlEntry",
+      "pingCtlTargetAddress",
+      "pingCtlType",
+      "pingCtlTestName",
+      "pingCtlDescr",
       "pingCtlOwnerIndex",
-      "pingCtlTargetAddressType",
-      "pingCtlType"
+      "pingCtlTargetAddressType"
     ],
     "HH3C-OID-MIB": [
       "hh3cRhw"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -25,26 +25,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
-      "Counter64",
       "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "IpAddress",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
       "Unsigned32",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "hh3cNqa": {
@@ -3670,9 +3670,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-NQA-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:32:48 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:11:30 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HH3C-NQA-MIB"
   }

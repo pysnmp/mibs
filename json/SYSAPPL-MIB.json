@@ -8,25 +8,25 @@
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "mib-2",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "sysApplMIB": {
@@ -1482,9 +1482,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SYSAPPL-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:30:31 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:09:12 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SYSAPPL-MIB"
   }

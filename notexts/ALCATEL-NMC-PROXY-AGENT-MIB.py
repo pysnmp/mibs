@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-NMC-PROXY-AGENT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/ALCATEL-NMC-PROXY-AGENT-MIB
-# Produced by pysmi-1.1.12 at Wed Jun 26 13:30:47 2024
-# On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner
-# Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Jul  1 09:09:27 2024
+# On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner
+# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 openViewSeverity, = mibBuilder.importSymbols("HPOV-NNM-MIB", "openViewSeverity")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, NotificationType, enterprises, Bits, NotificationType, ModuleIdentity, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, Gauge32, TimeTicks, MibIdentifier, IpAddress, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "enterprises", "Bits", "NotificationType", "ModuleIdentity", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "Gauge32", "TimeTicks", "MibIdentifier", "IpAddress", "Counter64", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, ModuleIdentity, Counter32, ObjectIdentity, NotificationType, Unsigned32, IpAddress, MibIdentifier, Integer32, Bits, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "Counter32", "ObjectIdentity", "NotificationType", "Unsigned32", "IpAddress", "MibIdentifier", "Integer32", "Bits", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "TimeTicks", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 alcatel = MibIdentifier((1, 3, 6, 1, 4, 1, 637))
 abs = MibIdentifier((1, 3, 6, 1, 4, 1, 637, 64))
 nmc4755 = MibIdentifier((1, 3, 6, 1, 4, 1, 637, 64, 0))
@@ -87,4 +87,4 @@ startProxyTrap = NotificationType((1, 3, 6, 1, 4, 1, 637, 64, 0, 10, 1, 2) + (0,
 stopProxyTrap = NotificationType((1, 3, 6, 1, 4, 1, 637, 64, 0, 10, 1, 2) + (0,5))
 eventLostTrap = NotificationType((1, 3, 6, 1, 4, 1, 637, 64, 0, 10, 1, 2) + (0,6))
 topClassStateTrap = NotificationType((1, 3, 6, 1, 4, 1, 637, 64, 0, 10, 1, 2) + (0,7)).setObjects(("ALCATEL-NMC-PROXY-AGENT-MIB", "classId1"), ("ALCATEL-NMC-PROXY-AGENT-MIB", "rdnValue1"), ("ALCATEL-NMC-PROXY-AGENT-MIB", "severity"), ("ALCATEL-NMC-PROXY-AGENT-MIB", "objectNumber"), ("ALCATEL-NMC-PROXY-AGENT-MIB", "parentNumber"))
-mibBuilder.exportSymbols("ALCATEL-NMC-PROXY-AGENT-MIB", board=board, baseClass=baseClass, classId2=classId2, nmc4755=nmc4755, dect=dect, severity=severity, classId1=classId1, classId4=classId4, shelf=shelf, notificationId=notificationId, rdn1=rdn1, rdn3=rdn3, objectClass=objectClass, rdnValue2=rdnValue2, packedCmipTrap=packedCmipTrap, cmipTrap=cmipTrap, classId5=classId5, containmentTree=containmentTree, topClass=topClass, a4400=a4400, rdnValues=rdnValues, nmcProxyAgent=nmcProxyAgent, startProxyTrap=startProxyTrap, terminal=terminal, rdn2=rdn2, packedForm=packedForm, rdnDepth=rdnDepth, eventTime=eventTime, rdn4=rdn4, abs=abs, actOrSuEvents=actOrSuEvents, logicalLinks=logicalLinks, nmcProxyTraps=nmcProxyTraps, objectInstance=objectInstance, notification=notification, addText=addText, objectNumber=objectNumber, alcatel=alcatel, probableCause=probableCause, rdn5=rdn5, eventType=eventType, rdnValue5=rdnValue5, rdnValue1=rdnValue1, voiceIds=voiceIds, parentNumber=parentNumber, startOfResyncTrap=startOfResyncTrap, rdnValue3=rdnValue3, cmipEventArg=cmipEventArg, topClassStateTrap=topClassStateTrap, rdnValue4=rdnValue4, stopProxyTrap=stopProxyTrap, eventLostTrap=eventLostTrap, classId3=classId3)
+mibBuilder.exportSymbols("ALCATEL-NMC-PROXY-AGENT-MIB", objectNumber=objectNumber, eventType=eventType, terminal=terminal, stopProxyTrap=stopProxyTrap, rdn5=rdn5, notificationId=notificationId, rdn2=rdn2, notification=notification, containmentTree=containmentTree, actOrSuEvents=actOrSuEvents, rdn1=rdn1, abs=abs, a4400=a4400, nmc4755=nmc4755, startProxyTrap=startProxyTrap, board=board, classId3=classId3, nmcProxyTraps=nmcProxyTraps, logicalLinks=logicalLinks, rdnValue2=rdnValue2, topClassStateTrap=topClassStateTrap, rdnValues=rdnValues, rdn4=rdn4, dect=dect, rdnValue1=rdnValue1, addText=addText, nmcProxyAgent=nmcProxyAgent, objectInstance=objectInstance, voiceIds=voiceIds, cmipTrap=cmipTrap, objectClass=objectClass, rdnValue3=rdnValue3, classId2=classId2, cmipEventArg=cmipEventArg, rdnValue5=rdnValue5, probableCause=probableCause, classId5=classId5, parentNumber=parentNumber, packedForm=packedForm, shelf=shelf, eventTime=eventTime, packedCmipTrap=packedCmipTrap, startOfResyncTrap=startOfResyncTrap, topClass=topClass, alcatel=alcatel, rdn3=rdn3, classId1=classId1, classId4=classId4, eventLostTrap=eventLostTrap, rdnDepth=rdnDepth, severity=severity, rdnValue4=rdnValue4, baseClass=baseClass)

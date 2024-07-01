@@ -5,32 +5,32 @@
       "acmepacketAgentCapability"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
-      "Counter32",
       "Integer32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "mib-2",
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "Counter32",
+      "Counter64",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "iso",
       "snmpModules",
-      "OBJECT-IDENTITY"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "apAgentCap2Module": {
@@ -53,9 +53,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/oracle/APAGENTCAP2-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:37:52 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:16:36 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "APAGENTCAP2-MIB"
   }

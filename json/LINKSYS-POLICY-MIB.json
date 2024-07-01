@@ -5,51 +5,51 @@
       "diffServClassifierEntry"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
-      "VlanList4",
       "VlanList1",
-      "VlanList2"
+      "VlanList4",
+      "VlanList2",
+      "VlanList3"
     ],
     "LINKSYS-MIB": [
-      "rnd",
       "VlanPriority",
-      "Percents"
+      "Percents",
+      "rnd"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "zeroDotZero",
-      "iso",
-      "MibIdentifier",
       "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "zeroDotZero",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "RowPointer"
     ]
   },
   "InterfaceType": {
@@ -5400,9 +5400,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:37:04 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:15:47 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-POLICY-MIB"
   }

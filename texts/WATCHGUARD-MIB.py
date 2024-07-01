@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WATCHGUARD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/WATCHGUARD-MIB
-# Produced by pysmi-1.1.12 at Wed Jun 26 13:37:48 2024
-# On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner
-# Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Jul  1 09:16:32 2024
+# On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner
+# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Unsigned32, TimeTicks, Gauge32, Counter64, ModuleIdentity, NotificationType, Bits, ObjectIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Integer32, iso, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "TimeTicks", "Gauge32", "Counter64", "ModuleIdentity", "NotificationType", "Bits", "ObjectIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Integer32", "iso", "enterprises")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, Gauge32, IpAddress, enterprises, ObjectIdentity, MibIdentifier, NotificationType, ModuleIdentity, Counter64, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "IpAddress", "enterprises", "ObjectIdentity", "MibIdentifier", "NotificationType", "ModuleIdentity", "Counter64", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "Unsigned32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 watchguard = MibIdentifier((1, 3, 6, 1, 4, 1, 3097))
 wgProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1))
 fbXSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4))
@@ -30,4 +30,4 @@ fbX6500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 13))
 fbX8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 14))
 fbX8500e = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 15))
 fbX8500e_F = MibIdentifier((1, 3, 6, 1, 4, 1, 3097, 1, 4, 16)).setLabel("fbX8500e-F")
-mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX1250e=fbX1250e, wgProducts=wgProducts, fbX550e=fbX550e, fbX5000=fbX5000, fbX8000=fbX8000, fbX6000=fbX6000, fbX750e=fbX750e, fbXSeries=fbXSeries, fbX2500=fbX2500, fbX500=fbX500, fbX700=fbX700, fbX8500e=fbX8500e, fbX1250e_4=fbX1250e_4, fbX5500e=fbX5500e, fbX6500e=fbX6500e, fbX8500e_F=fbX8500e_F, fbX750e_4=fbX750e_4, watchguard=watchguard, fbX1000=fbX1000)
+mibBuilder.exportSymbols("WATCHGUARD-MIB", fbX6000=fbX6000, fbX500=fbX500, fbX750e=fbX750e, fbX8500e_F=fbX8500e_F, fbX1250e_4=fbX1250e_4, fbX750e_4=fbX750e_4, fbX6500e=fbX6500e, fbX550e=fbX550e, watchguard=watchguard, fbX5000=fbX5000, wgProducts=wgProducts, fbX8500e=fbX8500e, fbX1000=fbX1000, fbX700=fbX700, fbX8000=fbX8000, fbX1250e=fbX1250e, fbX2500=fbX2500, fbX5500e=fbX5500e, fbXSeries=fbXSeries)

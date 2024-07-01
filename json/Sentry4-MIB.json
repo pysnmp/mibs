@@ -8,20 +8,20 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "IpAddress",
       "iso",
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "enterprises",
-      "Bits",
-      "OBJECT-IDENTITY",
       "Gauge32",
-      "Integer32"
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -8503,9 +8503,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sentry/Sentry4-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:39:15 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:18:00 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Sentry4-MIB"
   }

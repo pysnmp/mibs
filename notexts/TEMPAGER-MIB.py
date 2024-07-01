@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TEMPAGER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/TEMPAGER-MIB
-# Produced by pysmi-1.1.12 at Wed Jun 26 13:31:37 2024
-# On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner
-# Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Jul  1 09:10:18 2024
+# On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner
+# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Gauge32, Integer32, ModuleIdentity, iso, Counter32, IpAddress, ObjectIdentity, NotificationType, Counter64, enterprises, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Gauge32", "Integer32", "ModuleIdentity", "iso", "Counter32", "IpAddress", "ObjectIdentity", "NotificationType", "Counter64", "enterprises", "TimeTicks", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+ModuleIdentity, NotificationType, NotificationType, iso, enterprises, Gauge32, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, TimeTicks, Unsigned32, Integer32, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "NotificationType", "iso", "enterprises", "Gauge32", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "TimeTicks", "Unsigned32", "Integer32", "ObjectIdentity", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 avtech = MibIdentifier((1, 3, 6, 1, 4, 1, 20916))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1))
 tempager = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 1))
@@ -68,4 +68,4 @@ alarmstart3_t4 = NotificationType((1, 3, 6, 1, 4, 1, 20916, 1, 1) + (0,5)).setLa
 alarmclear3_t4 = NotificationType((1, 3, 6, 1, 4, 1, 20916, 1, 1) + (0,6)).setLabel("alarmclear3-t4").setObjects(("TEMPAGER-MIB", "alarmmessage"), ("TEMPAGER-MIB", "tempreading3c"), ("TEMPAGER-MIB", "tempreading3f"))
 alarmstart4_t4 = NotificationType((1, 3, 6, 1, 4, 1, 20916, 1, 1) + (0,7)).setLabel("alarmstart4-t4").setObjects(("TEMPAGER-MIB", "alarmmessage"), ("TEMPAGER-MIB", "tempreading4c"), ("TEMPAGER-MIB", "tempreading4f"))
 alarmclear4_t4 = NotificationType((1, 3, 6, 1, 4, 1, 20916, 1, 1) + (0,8)).setLabel("alarmclear4-t4").setObjects(("TEMPAGER-MIB", "alarmmessage"), ("TEMPAGER-MIB", "tempreading4c"), ("TEMPAGER-MIB", "tempreading4f"))
-mibBuilder.exportSymbols("TEMPAGER-MIB", tempager=tempager, lowerlimit2=lowerlimit2, tempreading1f=tempreading1f, tempreading2f=tempreading2f, tempreading4c=tempreading4c, products=products, tempreading1c=tempreading1c, alarmclear4_t4=alarmclear4_t4, alarmstart4_t4=alarmstart4_t4, alarmclear2_t4=alarmclear2_t4, traps=traps, alarmstart2_t4=alarmstart2_t4, upperlimit4=upperlimit4, alarmstart3_t4=alarmstart3_t4, alarmtemp1=alarmtemp1, sensors=sensors, alarmstart1_t4=alarmstart1_t4, upperlimit3=upperlimit3, upperlimit2=upperlimit2, temperature=temperature, tempreading4f=tempreading4f, alarmmessage=alarmmessage, tempager_snmp_trap=tempager_snmp_trap, avtech=avtech, lowerlimit3=lowerlimit3, alarmclear3_t4=alarmclear3_t4, lowerlimit4=lowerlimit4, alarmtemp2=alarmtemp2, alarmtemp4=alarmtemp4, thresholds=thresholds, alarmtemp3=alarmtemp3, lowerlimit1=lowerlimit1, tempreading3f=tempreading3f, tempreading3c=tempreading3c, tempreading2c=tempreading2c, upperlimit1=upperlimit1)
+mibBuilder.exportSymbols("TEMPAGER-MIB", lowerlimit1=lowerlimit1, tempreading1c=tempreading1c, avtech=avtech, alarmtemp4=alarmtemp4, alarmstart2_t4=alarmstart2_t4, alarmstart3_t4=alarmstart3_t4, tempager_snmp_trap=tempager_snmp_trap, lowerlimit3=lowerlimit3, alarmmessage=alarmmessage, tempreading1f=tempreading1f, alarmstart1_t4=alarmstart1_t4, alarmtemp3=alarmtemp3, upperlimit1=upperlimit1, lowerlimit4=lowerlimit4, upperlimit4=upperlimit4, thresholds=thresholds, tempreading4f=tempreading4f, temperature=temperature, alarmtemp1=alarmtemp1, alarmclear3_t4=alarmclear3_t4, upperlimit3=upperlimit3, tempreading2f=tempreading2f, alarmclear4_t4=alarmclear4_t4, tempreading4c=tempreading4c, sensors=sensors, tempager=tempager, tempreading3c=tempreading3c, upperlimit2=upperlimit2, alarmclear2_t4=alarmclear2_t4, tempreading3f=tempreading3f, traps=traps, alarmtemp2=alarmtemp2, products=products, tempreading2c=tempreading2c, lowerlimit2=lowerlimit2, alarmstart4_t4=alarmstart4_t4)

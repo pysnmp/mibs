@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
       "PerfCurrentCount",
+      "PerfTotalCount",
       "PerfIntervalCount"
     ],
     "SL-NE-MIB": [
@@ -19,26 +19,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
       "Integer32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks"
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "slSonetMib": {
@@ -1071,9 +1071,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SONET-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:38:02 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:16:46 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SL-SONET-MIB"
   }

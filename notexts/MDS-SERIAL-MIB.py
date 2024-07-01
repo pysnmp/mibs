@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MDS-SERIAL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SERIAL-MIB
-# Produced by pysmi-1.1.12 at Wed Jun 26 13:34:37 2024
-# On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner
-# Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Jul  1 09:13:21 2024
+# On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner
+# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 mdsServices, = mibBuilder.importSymbols("MDS-ORBIT-SMI-MIB", "mdsServices")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Unsigned32, TimeTicks, Gauge32, ObjectIdentity, NotificationType, MibIdentifier, ModuleIdentity, Integer32, iso, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "Gauge32", "ObjectIdentity", "NotificationType", "MibIdentifier", "ModuleIdentity", "Integer32", "iso", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+ObjectIdentity, Gauge32, ModuleIdentity, Counter64, iso, Counter32, TimeTicks, NotificationType, IpAddress, Integer32, MibIdentifier, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "ModuleIdentity", "Counter64", "iso", "Counter32", "TimeTicks", "NotificationType", "IpAddress", "Integer32", "MibIdentifier", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 mdsSerialMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 10, 3, 2))
 mdsSerialMIB.setRevisions(('2018-05-16 00:00', '2014-05-12 00:00',))
 if mibBuilder.loadTexts: mdsSerialMIB.setLastUpdated('201805160000Z')
@@ -55,4 +55,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mSerStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4130, 10, 3, 2, 3, 2, 1)).setObjects(("MDS-SERIAL-MIB", "mSerTermServerSerialPort"), ("MDS-SERIAL-MIB", "mSerTermServerDescription"), ("MDS-SERIAL-MIB", "mSerTermServerEnabled"), ("MDS-SERIAL-MIB", "mSerTermServerIpTxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerIpTxBytes"), ("MDS-SERIAL-MIB", "mSerTermServerIpRxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerIpRxBytes"), ("MDS-SERIAL-MIB", "mSerTermServerSerialTxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerSerialTxBytes"), ("MDS-SERIAL-MIB", "mSerTermServerSerialRxPackets"), ("MDS-SERIAL-MIB", "mSerTermServerSerialRxBytes"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mSerStatusGroup = mSerStatusGroup.setStatus('current')
-mibBuilder.exportSymbols("MDS-SERIAL-MIB", mSerCompliance=mSerCompliance, mSerTermServerDescription=mSerTermServerDescription, mSerStatusGroup=mSerStatusGroup, mSerTermServerIpRxBytes=mSerTermServerIpRxBytes, mdsSerialMIB=mdsSerialMIB, mdsSerMIBGroups=mdsSerMIBGroups, mSerTermServerSerialRxBytes=mSerTermServerSerialRxBytes, mSerTermServerSerialRxPackets=mSerTermServerSerialRxPackets, mSerConfig=mSerConfig, mSerTermServerEnabled=mSerTermServerEnabled, mSerTermServerIpRxPackets=mSerTermServerIpRxPackets, mSerMIBObjects=mSerMIBObjects, mdsSerMIBCompliances=mdsSerMIBCompliances, mSerTermServerStatusEntry=mSerTermServerStatusEntry, mSerTermServerIpTxBytes=mSerTermServerIpTxBytes, mSerTermServerStatusTable=mSerTermServerStatusTable, mSerTermServerSerialPort=mSerTermServerSerialPort, mdsSerMIBConformance=mdsSerMIBConformance, mSerStatus=mSerStatus, PYSNMP_MODULE_ID=mdsSerialMIB, mSerTermServerSerialTxBytes=mSerTermServerSerialTxBytes, mSerTermServerSerialTxPackets=mSerTermServerSerialTxPackets, mSerTermServerIpTxPackets=mSerTermServerIpTxPackets)
+mibBuilder.exportSymbols("MDS-SERIAL-MIB", mdsSerMIBConformance=mdsSerMIBConformance, mSerConfig=mSerConfig, mSerTermServerSerialPort=mSerTermServerSerialPort, mSerTermServerIpRxPackets=mSerTermServerIpRxPackets, mSerMIBObjects=mSerMIBObjects, PYSNMP_MODULE_ID=mdsSerialMIB, mSerStatusGroup=mSerStatusGroup, mSerTermServerIpTxPackets=mSerTermServerIpTxPackets, mSerTermServerIpTxBytes=mSerTermServerIpTxBytes, mdsSerMIBCompliances=mdsSerMIBCompliances, mdsSerialMIB=mdsSerialMIB, mSerStatus=mSerStatus, mSerTermServerSerialRxPackets=mSerTermServerSerialRxPackets, mSerTermServerIpRxBytes=mSerTermServerIpRxBytes, mSerTermServerDescription=mSerTermServerDescription, mSerCompliance=mSerCompliance, mdsSerMIBGroups=mdsSerMIBGroups, mSerTermServerStatusEntry=mSerTermServerStatusEntry, mSerTermServerSerialRxBytes=mSerTermServerSerialRxBytes, mSerTermServerStatusTable=mSerTermServerStatusTable, mSerTermServerEnabled=mSerTermServerEnabled, mSerTermServerSerialTxBytes=mSerTermServerSerialTxBytes, mSerTermServerSerialTxPackets=mSerTermServerSerialTxPackets)

@@ -10,28 +10,28 @@
       "hpnicfRhw"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
       "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64",
       "Counter32",
-      "Gauge32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hpnicfLswdevMMib": {
@@ -706,9 +706,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-LswDEVM-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:36:21 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:15:06 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-LswDEVM-MIB"
   }

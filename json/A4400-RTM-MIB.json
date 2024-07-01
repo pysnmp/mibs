@@ -5,29 +5,29 @@
       "a4400CPU"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "iso",
       "Counter32",
+      "Bits",
+      "enterprises",
       "Counter64",
       "Unsigned32",
-      "Integer32",
-      "iso",
       "MibIdentifier",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Integer32",
       "TimeTicks",
-      "enterprises",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ipDomainTable": {
@@ -450,9 +450,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/A4400-RTM-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:30:49 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:09:30 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "A4400-RTM-MIB"
   }

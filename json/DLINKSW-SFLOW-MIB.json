@@ -5,39 +5,39 @@
       "dlinkIndustrialCommon"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
       "InetAddressIPv6",
       "InetAddress",
-      "InetAddressType",
-      "InetAddressIPv4"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "Unsigned32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwSFlowMIB": {
@@ -763,9 +763,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SFLOW-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:33:17 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:11:59 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-SFLOW-MIB"
   }

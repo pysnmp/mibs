@@ -7,25 +7,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
       "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ],
     "SPC200": [
       "plcBasePortIndex"
@@ -111,9 +111,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPIDCOM-TRAPS",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:32:02 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:10:43 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SPIDCOM-TRAPS"
   }

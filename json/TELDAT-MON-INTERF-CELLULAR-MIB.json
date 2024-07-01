@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "TimeTicks"
+      "Counter32",
+      "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -976,9 +976,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-INTERF-CELLULAR-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jun 26 13:39:42 2024",
-      "On host fv-az1984-994 platform Linux version 6.5.0-1022-azure by user runner",
-      "Using Python version 3.10.14 (main, May  8 2024, 15:05:35) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Jul  1 09:18:26 2024",
+      "On host fv-az532-988 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TELDAT-MON-INTERF-CELLULAR-MIB"
   }
