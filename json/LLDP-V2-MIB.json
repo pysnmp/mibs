@@ -9,51 +9,51 @@
       "ifGeneralInformationGroup"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2ManAddrIfSubtype",
-      "LldpV2ManAddress",
       "LldpV2PortId",
-      "ieee802dot1mibs",
-      "LldpV2DestAddressTableIndex",
       "LldpV2ChassisIdSubtype",
-      "LldpV2PortIdSubtype",
       "LldpV2SystemCapabilitiesMap",
-      "LldpV2ChassisId"
+      "LldpV2DestAddressTableIndex",
+      "LldpV2ChassisId",
+      "ieee802dot1mibs",
+      "LldpV2PortIdSubtype",
+      "LldpV2ManAddrIfSubtype",
+      "LldpV2ManAddress"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
+      "TimeTicks",
+      "iso",
       "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Counter64",
-      "TimeTicks",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits"
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
       "TimeStamp",
       "TruthValue",
-      "DisplayString",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:15:28 2024",
-      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 10:50:13 2024",
+      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"

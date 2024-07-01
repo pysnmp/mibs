@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "CISCO-RTTMON-MIB": [
+      "rttMonStats",
       "rttMonCtrlAdminIndex",
-      "rttMonLatestOper",
-      "rttMonStats"
+      "rttMonLatestOper"
     ],
     "CISCO-RTTMON-TC-MIB": [
       "RttResponseSense"
@@ -13,30 +13,30 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "Counter32",
       "Unsigned32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoRttMonRtpMIB": {
@@ -1418,8 +1418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-RTP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:21:23 2024",
-      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 10:56:33 2024",
+      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-RTTMON-RTP-MIB"

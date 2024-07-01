@@ -7,29 +7,29 @@
     "CISCO-TC": [
       "Unsigned64",
       "CiscoNetworkAddress",
-      "TimeIntervalSec",
       "CiscoInetAddressMask",
+      "TimeIntervalSec",
       "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
+      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectDn",
-      "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "CucsManagedObjectId"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
       "CucsMgmtAdminState",
-      "CucsNetworkIfStatsUnits",
-      "CucsNetworkElementOperability",
       "CucsEquipmentSensorThresholdStatus",
-      "CucsEquipmentEvacState",
-      "CucsNetworkIfStatsType",
       "CucsNetworkSwitchId",
       "CucsNetworkInventoryStatus",
-      "CucsNetworkVlanCountStatus"
+      "CucsNetworkIfStatsUnits",
+      "CucsEquipmentEvacState",
+      "CucsNetworkVlanCountStatus",
+      "CucsNetworkIfStatsType",
+      "CucsNetworkElementOperability"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -39,30 +39,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Counter32",
       "Unsigned32",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DateAndTime",
+      "TimeStamp",
       "RowPointer",
       "TruthValue",
-      "DateAndTime",
-      "DisplayString",
-      "TimeInterval",
-      "TimeStamp",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "cucsNetworkObjects": {
@@ -1456,8 +1456,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NETWORK-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:21:22 2024",
-      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 10:56:31 2024",
+      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-NETWORK-MIB"

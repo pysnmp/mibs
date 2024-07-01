@@ -9,22 +9,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "IpAddress",
-      "enterprises",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-TYPE",
       "TRAP-TYPE",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "enterprises",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5636,8 +5636,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aten/ATEN-PE-CFG_int.mib",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:16:44 2024",
-      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 10:51:31 2024",
+      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ATEN-PE-CFG"

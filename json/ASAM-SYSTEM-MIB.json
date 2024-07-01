@@ -5,8 +5,8 @@
       "EqptSlotIndex"
     ],
     "ASAM-TC-MIB": [
-      "NetworkTimeInSeconds",
-      "NetworkTimeInMiliSeconds"
+      "NetworkTimeInMiliSeconds",
+      "NetworkTimeInSeconds"
     ],
     "BRIDGE-MIB": [
       "MacAddress"
@@ -16,27 +16,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
       "Integer32",
       "MibIdentifier",
       "Gauge32",
       "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "TimeTicks"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "DateAndTime",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ],
     "SYSTEM-MIB": [
       "asam"
@@ -2551,8 +2551,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ASAM-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 09:24:22 2024",
-      "On host fv-az735-465 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 10:58:49 2024",
+      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ASAM-SYSTEM-MIB"
