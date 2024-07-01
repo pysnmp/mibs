@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-SAFE-MODE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-SAFE-MODE-MIB
-# Produced by pysmi-1.1.12 at Mon Jul  1 10:59:17 2024
-# On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jul  1 11:18:37 2024
+# On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
 AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, NotificationType, Unsigned32, TimeTicks, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, Integer32, ObjectIdentity, Bits, iso, ModuleIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "Unsigned32", "TimeTicks", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "Integer32", "ObjectIdentity", "Bits", "iso", "ModuleIdentity", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleIdentity, Counter32, Integer32, Unsigned32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, NotificationType, IpAddress, Counter64, TimeTicks, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "Integer32", "Unsigned32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "NotificationType", "IpAddress", "Counter64", "TimeTicks", "Gauge32", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 safeMode = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 99))
 safeMode.setRevisions(('2016-03-10 00:00',))
 if mibBuilder.loadTexts: safeMode.setLastUpdated('201603100000Z')
@@ -33,4 +33,4 @@ safeModeRescueIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 7), IpAdd
 if mibBuilder.loadTexts: safeModeRescueIpAddress.setStatus('current')
 safeModeRescueIpNetMask = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 8), IpAddress()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: safeModeRescueIpNetMask.setStatus('current')
-mibBuilder.exportSymbols("SIAE-SAFE-MODE-MIB", safeModeRescueIpAddress=safeModeRescueIpAddress, safeModeAlarm=safeModeAlarm, safeModeRescueIpNetMask=safeModeRescueIpNetMask, safeModeAlarmSeverityCode=safeModeAlarmSeverityCode, PYSNMP_MODULE_ID=safeMode, safeModeRescuePwd=safeModeRescuePwd, safeModeRescueAdminStatus=safeModeRescueAdminStatus, safeMode=safeMode, safeModeStatus=safeModeStatus, safeModeMibVersion=safeModeMibVersion)
+mibBuilder.exportSymbols("SIAE-SAFE-MODE-MIB", safeModeRescueIpAddress=safeModeRescueIpAddress, PYSNMP_MODULE_ID=safeMode, safeModeAlarmSeverityCode=safeModeAlarmSeverityCode, safeModeRescueIpNetMask=safeModeRescueIpNetMask, safeModeMibVersion=safeModeMibVersion, safeMode=safeMode, safeModeRescueAdminStatus=safeModeRescueAdminStatus, safeModeStatus=safeModeStatus, safeModeRescuePwd=safeModeRescuePwd, safeModeAlarm=safeModeAlarm)

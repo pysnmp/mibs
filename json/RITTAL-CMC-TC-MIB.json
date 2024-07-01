@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysContact",
-      "sysLocation",
+      "sysDescr",
       "sysName",
-      "sysDescr"
+      "sysLocation",
+      "sysContact"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "Counter32",
-      "Bits",
-      "iso",
-      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "enterprises",
       "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "Counter64",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "TRAP-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32",
-      "enterprises"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4481,8 +4481,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-TC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:59:02 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:18:17 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RITTAL-CMC-TC-MIB"

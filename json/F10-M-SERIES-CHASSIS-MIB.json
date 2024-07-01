@@ -3,48 +3,48 @@
     "class": "imports",
     "F10-CHASSIS-MIB": [
       "chAlarmVarSlot",
-      "chAlarmVarString",
       "chAlarmVarInteger",
-      "chAlarmVarPort"
+      "chAlarmVarPort",
+      "chAlarmVarString"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
     ],
     "FORCE10-TC": [
-      "F10HundredthdB",
-      "F10MSeriesPortType",
-      "F10MfgDate",
       "F10ChassisType",
+      "F10SwDate",
       "F10ProcessorModuleType",
-      "F10SwDate"
+      "F10MfgDate",
+      "F10HundredthdB",
+      "F10MSeriesPortType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "Counter32",
       "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "iso",
+      "Counter64",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
       "Bits",
       "OBJECT-TYPE",
-      "iso"
+      "Unsigned32",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "DateAndTime",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f10MSerChassisMib": {
@@ -2282,8 +2282,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-M-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:53:20 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:12:06 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F10-M-SERIES-CHASSIS-MIB"

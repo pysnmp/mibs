@@ -11,25 +11,25 @@
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Integer32",
+      "iso",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Counter32",
       "Bits",
+      "MibIdentifier",
       "IpAddress",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "iso"
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -836,8 +836,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VLL-STATISTIC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:56:05 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:14:52 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VLL-STATISTIC-MIB"

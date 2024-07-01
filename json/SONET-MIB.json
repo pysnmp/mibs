@@ -5,8 +5,8 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -15,25 +15,25 @@
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "Unsigned32",
+      "TimeTicks",
       "MODULE-IDENTITY",
       "transmission",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "sonetMIB": {
@@ -2476,8 +2476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SONET-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:50:31 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:09:13 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SONET-MIB"

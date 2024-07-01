@@ -8,25 +8,25 @@
       "ctPriorityExt"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Bits",
       "Counter32",
       "Gauge32",
       "OBJECT-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -407,8 +407,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-RATE-POLICING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:54:08 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:12:57 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CTRON-RATE-POLICING-MIB"

@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "SIAE-ALARM-MIB": [
-      "AlarmSeverityCode",
-      "AlarmStatus"
+      "AlarmStatus",
+      "AlarmSeverityCode"
     ],
     "SIAE-TREE-MIB": [
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "pmRxPwr": {
@@ -840,8 +840,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PMRXPWR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:59:21 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:18:41 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SIAE-PMRXPWR-MIB"

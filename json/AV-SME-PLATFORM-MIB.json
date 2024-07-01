@@ -22,25 +22,25 @@
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
       "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "TimeTicks",
-      "Gauge32"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "avSMEPlatformMIB": {
@@ -435,8 +435,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avaya/AV-SME-PLATFORM-MIB.mib",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:51:36 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:10:19 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "AV-SME-PLATFORM-MIB"

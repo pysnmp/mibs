@@ -5,25 +5,25 @@
       "juniProfileAgents"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES",
-      "NOTIFICATION-GROUP"
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "MibIdentifier",
       "Gauge32",
-      "Bits",
-      "TimeTicks",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -120,8 +120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-IP-Profile-CONF",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 10:57:26 2024",
-      "On host fv-az665-510 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul  1 11:16:40 2024",
+      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Juniper-IP-Profile-CONF"
