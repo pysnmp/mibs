@@ -13,25 +13,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
-      "IpAddress",
       "OBJECT-IDENTITY",
+      "Counter32",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "Counter32",
+      "IpAddress",
+      "TimeTicks",
       "enterprises",
+      "MibIdentifier",
       "Gauge32",
+      "Counter64",
+      "Unsigned32",
+      "Integer32",
       "Bits",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "netScaler": {
@@ -2731,8 +2731,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/citrix/SDX-MIB-SMIV2-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:54:11 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:44:03 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MIB"

@@ -5,8 +5,8 @@
       "InterfaceIndexOrZero"
     ],
     "MPLS-LDP-STD-MIB": [
-      "mplsLdpEntityLdpId",
-      "mplsLdpEntityIndex"
+      "mplsLdpEntityIndex",
+      "mplsLdpEntityLdpId"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
@@ -17,26 +17,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "MibIdentifier",
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "mplsLdpGenericStdMIB": {
@@ -270,8 +270,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LDP-GENERIC-STD-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:52:27 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:42:18 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MPLS-LDP-GENERIC-STD-MIB"

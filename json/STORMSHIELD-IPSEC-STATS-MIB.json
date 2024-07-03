@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "IpAddress",
       "Integer32",
       "Gauge32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
       "Bits",
-      "IpAddress",
+      "Unsigned32",
       "Counter32",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "STORMSHIELD-SMI-MIB": [
       "stormshieldMIB"
@@ -126,8 +126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-IPSEC-STATS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 10:01:30 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:51:25 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "STORMSHIELD-IPSEC-STATS-MIB"

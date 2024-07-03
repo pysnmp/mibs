@@ -5,25 +5,25 @@
       "garderos"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Gauge32",
       "iso",
-      "Counter64",
       "Counter32",
-      "MibIdentifier",
-      "Bits"
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -140,8 +140,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/garderos/GARDEROS-PRODUCT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:56:34 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:46:26 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "GARDEROS-PRODUCT-MIB"

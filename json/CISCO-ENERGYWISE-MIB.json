@@ -12,8 +12,8 @@
       "entityMIBObjects"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
+      "InetAddress",
       "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -21,33 +21,33 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Bits",
       "Unsigned32",
-      "Counter64"
+      "TimeTicks",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString",
       "StorageType",
+      "MacAddress",
       "RowStatus",
+      "TimeStamp",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoEnergywiseMIB": {
@@ -2820,8 +2820,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENERGYWISE-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:58:19 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:48:12 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENERGYWISE-MIB"

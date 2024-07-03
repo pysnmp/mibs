@@ -5,13 +5,13 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "ifDescr",
       "ifAdminStatus",
       "InterfaceIndexOrZero",
-      "ifOperStatus",
-      "InterfaceIndex",
+      "ifIndex",
       "ifName",
-      "ifDescr"
+      "InterfaceIndex",
+      "ifOperStatus"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -20,31 +20,31 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "Bits",
-      "Counter64",
-      "Counter32",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Counter32",
       "OBJECT-IDENTITY",
+      "iso",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "hwMFlpMIB": {
@@ -1897,8 +1897,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-MFLP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:58:02 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:47:54 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-MFLP-MIB"

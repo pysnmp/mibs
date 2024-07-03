@@ -11,18 +11,18 @@
       "docsQosServiceFlowId"
     ],
     "ENTITY-MIB": [
-      "entityPhysical2Group",
-      "PhysicalIndexOrZero",
-      "entityMappingGroup",
-      "entityPhysical3Group",
-      "PhysicalIndex",
-      "entPhysicalSerialNum",
-      "entPhysicalAlias",
-      "entityLogical2Group",
       "entityPhysicalGroup",
+      "PhysicalIndexOrZero",
+      "entPhysicalSerialNum",
+      "entityPhysical2Group",
+      "entityPhysical3Group",
+      "entityMappingGroup",
+      "entPhysicalAssetID",
+      "PhysicalIndex",
       "entityGeneralGroup",
-      "entPhysicalClass",
-      "entPhysicalAssetID"
+      "entityLogical2Group",
+      "entPhysicalAlias",
+      "entPhysicalClass"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -30,9 +30,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -46,29 +46,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
       "Counter32",
       "MibIdentifier",
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits"
+      "Bits",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "AutonomousType",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "RowStatus",
-      "AutonomousType",
       "StorageType",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "docsIfMCmtsMib": {
@@ -2953,8 +2953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-M-CMTS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:52:26 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:42:17 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF-M-CMTS-MIB"

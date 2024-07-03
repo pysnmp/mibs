@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "enterprises",
-      "iso",
+      "TimeTicks",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "iso",
       "Gauge32",
       "Counter64",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-TYPE",
+      "enterprises",
       "IpAddress",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "test": {
@@ -576,8 +576,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hikvision/HIK-DEVICE-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:56:51 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:46:44 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HIK-DEVICE-MIB"

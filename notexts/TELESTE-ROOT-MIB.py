@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TELESTE-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teleste/TELESTE-ROOT-MIB
-# Produced by pysmi-1.1.12 at Wed Jul  3 10:01:35 2024
-# On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Jul  3 10:51:30 2024
+# On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, Integer32, IpAddress, TimeTicks, Counter64, iso, Counter32, NotificationType, ModuleIdentity, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ObjectIdentity, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "IpAddress", "TimeTicks", "Counter64", "iso", "Counter32", "NotificationType", "ModuleIdentity", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ObjectIdentity", "enterprises")
+ModuleIdentity, TimeTicks, Counter32, Bits, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, NotificationType, ObjectIdentity, IpAddress, iso, MibIdentifier, Gauge32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "Counter32", "Bits", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "NotificationType", "ObjectIdentity", "IpAddress", "iso", "MibIdentifier", "Gauge32", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 class TDisplayString(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
@@ -66,4 +66,4 @@ ntpcontrol = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 100, 4))
 hfcOptics = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 100, 10))
 headEnd = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 100, 20))
 experimental = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 999))
-mibBuilder.exportSymbols("TELESTE-ROOT-MIB", Uint16=Uint16, Uint8=Uint8, etth=etth, dvx=dvx, TPhysAddress=TPhysAddress, easi=easi, emt=emt, acx=acx, common=common, Int16=Int16, pilotGenerator=pilotGenerator, hmsModem=hmsModem, spectrumAnalyser=spectrumAnalyser, bk=bk, gendata=gendata, hdo=hdo, functional=functional, dvo=dvo, Int8=Int8, headEnd=headEnd, inf=inf, DateAndTime=DateAndTime, ftth=ftth, Uint32=Uint32, ntpcontrol=ntpcontrol, teleste=teleste, experimental=experimental, TDisplayString=TDisplayString, atmux=atmux, hfcOptics=hfcOptics, cfo=cfo, ems=ems, bxx=bxx, ValueStatus=ValueStatus, luminato=luminato)
+mibBuilder.exportSymbols("TELESTE-ROOT-MIB", ValueStatus=ValueStatus, acx=acx, hfcOptics=hfcOptics, atmux=atmux, DateAndTime=DateAndTime, Int16=Int16, ntpcontrol=ntpcontrol, Uint8=Uint8, common=common, TDisplayString=TDisplayString, Uint16=Uint16, bxx=bxx, ftth=ftth, bk=bk, easi=easi, pilotGenerator=pilotGenerator, TPhysAddress=TPhysAddress, Int8=Int8, functional=functional, teleste=teleste, experimental=experimental, luminato=luminato, emt=emt, hmsModem=hmsModem, spectrumAnalyser=spectrumAnalyser, dvo=dvo, gendata=gendata, inf=inf, Uint32=Uint32, dvx=dvx, ems=ems, headEnd=headEnd, etth=etth, hdo=hdo, cfo=cfo)

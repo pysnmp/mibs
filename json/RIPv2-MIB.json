@@ -7,26 +7,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "Gauge32",
-      "Counter32",
-      "MibIdentifier",
       "Counter64",
-      "Integer32",
-      "Unsigned32",
+      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "Unsigned32",
       "MODULE-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "mib-2"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32",
+      "mib-2",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rip2": {
@@ -646,9 +646,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RIPv2-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:52:27 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RIPv2-MIB",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:46:54 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RIPv2-MIB"

@@ -7,41 +7,41 @@
     "CISCO-TC": [
       "Unsigned64",
       "TimeIntervalSec",
-      "CiscoNetworkAddress",
+      "CiscoInetAddressMask",
       "CiscoAlarmSeverity",
-      "CiscoInetAddressMask"
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
       "ciscoUnifiedComputingMIBObjects",
-      "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectId",
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsPolicySuspendState",
-      "CucsPolicyPolicyResolveType",
-      "CucsPolicyControlEpFsmStageName",
-      "CucsPolicyRepairStateType",
       "CucsPolicyPolicyScopeFsmCurrentFsm",
-      "CucsPolicyResumeAckState",
-      "CucsConditionRemoteInvRslt",
-      "CucsPolicyRegistrationStateType",
-      "CucsPolicyPolicyOwner",
-      "CucsPolicyIdResolvePolicyType",
-      "CucsPolicyControlEpFsmTaskItem",
-      "CucsPolicyPolicyScopeFsmStageName",
-      "CucsPolicyControlEpFsmCurrentFsm",
-      "CucsPolicyControlSource",
-      "CucsPolicyControlledTypeFsmStageName",
-      "CucsPolicyControlledTypeFsmTaskItem",
       "CucsFsmCompletion",
-      "CucsPolicyPolicyOperStatus",
-      "CucsPolicyControlledTypeFsmCurrentFsm",
-      "CucsPolicyCleanupMode",
-      "CucsPolicyPolicyScopeFsmTaskItem",
-      "CucsFsmFlags",
-      "CucsFsmFsmStageStatus",
+      "CucsPolicyPolicyResolveType",
       "CucsPolicyState",
-      "CucsPolicyControlEpType"
+      "CucsPolicyResumeAckState",
+      "CucsPolicyPolicyScopeFsmStageName",
+      "CucsPolicyControlledTypeFsmStageName",
+      "CucsFsmFsmStageStatus",
+      "CucsPolicyRegistrationStateType",
+      "CucsPolicyPolicyOperStatus",
+      "CucsPolicyControlEpType",
+      "CucsPolicyIdResolvePolicyType",
+      "CucsConditionRemoteInvRslt",
+      "CucsPolicyPolicyScopeFsmTaskItem",
+      "CucsPolicyControlledTypeFsmCurrentFsm",
+      "CucsPolicyControlEpFsmTaskItem",
+      "CucsPolicyControlEpFsmCurrentFsm",
+      "CucsPolicyRepairStateType",
+      "CucsPolicySuspendState",
+      "CucsPolicyControlEpFsmStageName",
+      "CucsFsmFlags",
+      "CucsPolicyCleanupMode",
+      "CucsPolicyPolicyOwner",
+      "CucsPolicyControlledTypeFsmTaskItem",
+      "CucsPolicyControlSource"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -55,30 +55,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
       "Bits",
       "Unsigned32",
-      "Counter64"
+      "TimeTicks",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "MacAddress",
-      "RowPointer",
-      "DateAndTime",
       "TimeInterval",
+      "RowPointer",
+      "MacAddress",
+      "TimeStamp",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "cucsPolicyObjects": {
@@ -4262,8 +4262,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:58:23 2024",
-      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:48:16 2024",
+      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-POLICY-MIB"
