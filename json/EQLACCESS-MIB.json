@@ -15,8 +15,8 @@
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -24,27 +24,27 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "MibIdentifier",
-      "enterprises",
-      "iso",
       "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
+      "RowStatus",
       "RowPointer",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eqlAccessModule": {
@@ -1274,8 +1274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLACCESS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:22:32 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:05:31 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "EQLACCESS-MIB"

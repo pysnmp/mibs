@@ -5,33 +5,33 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "mib-2",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "IpAddress",
       "Counter32",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
       "Counter64",
-      "OBJECT-TYPE"
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
+      "RowStatus",
       "DisplayString",
       "MacAddress",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TestAndIncr",
       "TimeStamp"
     ]
   },
@@ -2542,8 +2542,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-REPEATER-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:18:54 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:02:00 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SNMP-REPEATER-MIB"

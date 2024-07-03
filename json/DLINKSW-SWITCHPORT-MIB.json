@@ -9,29 +9,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
       "MibIdentifier",
       "Counter64",
-      "TimeTicks",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
       "Integer32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwSwitchPortMIB": {
@@ -247,8 +247,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-SWITCHPORT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:21:46 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:04:48 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-SWITCHPORT-MIB"

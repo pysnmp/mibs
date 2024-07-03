@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Bits",
       "mib-2",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
       "IpAddress",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Integer32",
-      "iso"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -698,8 +698,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANAifType-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:18:27 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:01:34 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IANAifType-MIB"

@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "HCNUM-TC": [
-      "ZeroBasedCounter64",
-      "CounterBasedGauge64"
+      "CounterBasedGauge64",
+      "ZeroBasedCounter64"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
       "IpAddress",
-      "enterprises",
-      "mib-2",
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "iso",
       "snmpModules",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Counter64",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
-      "TimeStamp",
-      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "TestAndIncr",
+      "DisplayString",
+      "TimeStamp",
+      "DateAndTime"
     ]
   },
   "netappModuleId": {
@@ -42746,8 +42746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netapp/NETAPP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:26:05 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:08:53 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "NETAPP-MIB"

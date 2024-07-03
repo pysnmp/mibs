@@ -3,59 +3,59 @@
     "class": "imports",
     "FC-MGMT-MIB": [
       "FcDomainIdOrZero",
-      "fcmInstanceIndex",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "fcmInstanceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetPortNumber",
       "InetAddressType",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Gauge32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
       "Counter32",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "mib-2",
-      "OBJECT-TYPE"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "StorageType",
-      "TruthValue",
       "TimeStamp"
     ],
     "T11-FC-NAME-SERVER-MIB": [
       "T11NsGs4RejectReasonCode"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpPolicyHashFormat",
-      "T11FcSpAlphaNumNameOrAbsent",
-      "T11FcSpPolicyNameType",
-      "T11FcSpPolicyName",
-      "T11FcSpPolicyObjectType",
+      "T11FcSpAlphaNumName",
       "T11FcSpPolicyHashValue",
-      "T11FcSpHashCalculationStatus",
-      "T11FcSpAlphaNumName"
+      "T11FcSpPolicyName",
+      "T11FcSpPolicyNameType",
+      "T11FcSpPolicyObjectType",
+      "T11FcSpAlphaNumNameOrAbsent",
+      "T11FcSpPolicyHashFormat",
+      "T11FcSpHashCalculationStatus"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -3776,8 +3776,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:18:54 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:02:01 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-POLICY-MIB"

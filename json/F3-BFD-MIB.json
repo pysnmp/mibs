@@ -9,9 +9,9 @@
       "bfdSessEntry"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
-      "SecondaryState",
       "VlanPriority",
+      "SecondaryState",
+      "VlanId",
       "OperationalState",
       "AdminState"
     ],
@@ -19,10 +19,10 @@
       "neIndex"
     ],
     "F3-L3-MIB": [
-      "f3L3TrafficOspfInterfaceEntry",
       "f3VrfEntry",
-      "f3L3TrafficBgpPeerEntry",
-      "f3L3TrafficIPInterfaceEntry"
+      "f3L3TrafficOspfInterfaceEntry",
+      "f3L3TrafficIPInterfaceEntry",
+      "f3L3TrafficBgpPeerEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -31,32 +31,32 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "iso",
       "MODULE-IDENTITY",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "iso",
+      "Bits",
       "Gauge32",
-      "Counter32"
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "StorageType",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "RowStatus",
       "VariablePointer",
-      "DisplayString",
-      "StorageType",
       "TruthValue"
     ]
   },
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:19:50 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:02:56 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"

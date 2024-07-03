@@ -8,49 +8,49 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetVersion",
       "InetZoneIndex",
-      "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetVersion",
+      "InetAddress",
+      "InetAddressType",
+      "InetAddressPrefixLength"
     ],
     "IP-MIB": [
       "IpAddressStatusTC",
       "IpAddressOriginTC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "Gauge32",
       "mib-2",
       "zeroDotZero",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
-      "RowStatus",
       "StorageType",
       "DisplayString",
-      "PhysAddress",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "RowStatus",
       "TruthValue",
-      "TestAndIncr"
+      "TimeStamp",
+      "TestAndIncr",
+      "PhysAddress",
+      "RowPointer"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:21:47 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:04:49 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Dell-rlIP-MIB"

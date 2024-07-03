@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
       "Bits",
-      "Gauge32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Unsigned32",
-      "iso",
       "Counter32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ],
     "TELDAT-SW-STRUCTURE-MIB": [
       "telProdNpMonInterfRouter"
@@ -1633,8 +1633,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-INTERF-WLAN-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:28:39 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:11:15 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TELDAT-MON-INTERF-WLAN-MIB"

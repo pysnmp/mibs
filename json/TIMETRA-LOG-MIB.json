@@ -2,83 +2,83 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString",
-      "SnmpSecurityLevel",
-      "SnmpMessageProcessingModel"
+      "SnmpMessageProcessingModel",
+      "SnmpSecurityLevel"
     ],
     "SNMP-NOTIFICATION-MIB": [
       "snmpNotifyEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysDescr",
-      "sysObjectID"
+      "sysObjectID",
+      "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Unsigned32",
       "Counter32",
-      "Gauge32"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "TimeStamp",
+      "StorageType",
       "RowStatus",
       "TruthValue",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-FILTER-MIB": [
-      "TFilterActionOrDefault",
-      "TFilterAction"
+      "TFilterAction",
+      "TFilterActionOrDefault"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
       "timetraSRMIBModules",
       "tmnxSRConfs",
-      "tmnxSRObjs"
+      "tmnxSRObjs",
+      "tmnxSRNotifyPrefix"
     ],
     "TIMETRA-TC-MIB": [
-      "TNamedItemOrEmpty",
-      "THsmdaCounterIdOrZero",
-      "TmnxSyslogFacility",
-      "TmnxUdpPort",
-      "TmnxAccPlcyAACounters",
-      "TmnxAccPlcyQICounters",
-      "THsmdaCounterIdOrZeroOrAll",
-      "TmnxAccPlcyAASubAttributes",
       "TmnxAccPlcyOICounters",
-      "TQueueId",
+      "TNamedItemOrEmpty",
+      "TmnxAccPlcyPolicerECounters",
+      "TmnxAdminState",
+      "TmnxSyslogFacility",
       "TQueueIdOrAll",
+      "TmnxUdpPort",
+      "TmnxOperState",
+      "THsmdaCounterIdOrZero",
+      "TmnxAccPlcyQICounters",
+      "TmnxAccPlcyAACounters",
+      "THsmdaCounterIdOrZeroOrAll",
+      "TmnxAccPlcyPolicerICounters",
+      "TQueueId",
+      "TItemDescription",
       "TNamedItem",
       "TmnxAccPlcyOECounters",
-      "TmnxOperState",
-      "TmnxAccPlcyPolicerECounters",
+      "TmnxAccPlcyAASubAttributes",
       "TmnxActionType",
-      "TItemDescription",
-      "TmnxSyslogSeverity",
       "TmnxAccPlcyQECounters",
-      "TmnxAccPlcyPolicerICounters",
-      "TmnxAdminState"
+      "TmnxSyslogSeverity"
     ]
   },
   "timetraLogMIBModule": {
@@ -8739,8 +8739,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LOG-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:27:38 2024",
-      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:10:23 2024",
+      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-LOG-MIB"
