@@ -5,9 +5,9 @@
       "capCPUCurrentUtilization"
     ],
     "CTRON-SSR-HARDWARE-MIB": [
+      "sysHwPowerSupply",
       "sysHwTemperature",
       "sysHwModuleSlotNumber",
-      "sysHwPowerSupply",
       "sysHwFan"
     ],
     "CTRON-SSR-POLICY-MIB": [
@@ -15,8 +15,8 @@
       "polAclItem"
     ],
     "CTRON-SSR-SMI-MIB": [
-      "ssrTraps",
-      "ssrMibs"
+      "ssrMibs",
+      "ssrTraps"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -26,24 +26,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
+      "iso",
       "Counter64",
+      "Gauge32",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "Counter32"
+      "Counter32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ssrTrapsMIB": {
@@ -531,8 +531,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:11:16 2024",
-      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:36:45 2024",
+      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CTRON-SSR-TRAP-MIB"

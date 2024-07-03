@@ -15,23 +15,23 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Counter64",
-      "TimeTicks",
       "Gauge32",
+      "IpAddress",
       "MODULE-IDENTITY",
       "Integer32",
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
+      "Bits",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoCallTrackerModemMIB": {
@@ -1632,8 +1632,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALL-TRACKER-MODEM-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:13:09 2024",
-      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:38:55 2024",
+      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-CALL-TRACKER-MODEM-MIB"

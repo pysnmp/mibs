@@ -5,39 +5,39 @@
       "wlsxEnterpriseMibModules"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Integer32",
-      "MibIdentifier",
       "iso",
+      "Bits",
+      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Counter32",
       "Unsigned32",
-      "snmpModules"
+      "MODULE-IDENTITY",
+      "snmpModules",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TDomain",
-      "DisplayString",
-      "StorageType",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeInterval",
       "PhysAddress",
       "TAddress",
+      "TimeInterval",
+      "DisplayString",
+      "RowStatus",
       "TestAndIncr",
       "MacAddress",
-      "RowStatus"
+      "TDomain",
+      "StorageType"
     ]
   },
   "wlsxCtsMIB": {
@@ -158,8 +158,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-CTS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:08:27 2024",
-      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:59 2024",
+      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "WLSX-CTS-MIB"

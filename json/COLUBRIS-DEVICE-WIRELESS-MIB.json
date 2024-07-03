@@ -8,36 +8,36 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisSSIDOrNone",
       "ColubrisNotificationEnable",
+      "ColubrisSSIDOrNone",
       "ColubrisRadioType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
+      "IpAddress",
       "Integer32",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "IpAddress",
-      "Unsigned32",
       "iso",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "colubrisDeviceWirelessMIB": {
@@ -3125,8 +3125,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-DEVICE-WIRELESS-MIB.my",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:12:24 2024",
-      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:37:49 2024",
+      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-DEVICE-WIRELESS-MIB"
