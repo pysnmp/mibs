@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OG-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SMI-MIB
-# Produced by pysmi-1.1.12 at Wed Jul  3 13:09:13 2024
-# On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Jul  3 13:32:43 2024
+# On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Unsigned32, MibIdentifier, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, enterprises, Integer32, Gauge32, ModuleIdentity, Counter32, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "MibIdentifier", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "enterprises", "Integer32", "Gauge32", "ModuleIdentity", "Counter32", "Bits", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+iso, Counter32, MibIdentifier, Gauge32, Counter64, NotificationType, ModuleIdentity, Bits, enterprises, TimeTicks, ObjectIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "MibIdentifier", "Gauge32", "Counter64", "NotificationType", "ModuleIdentity", "Bits", "enterprises", "TimeTicks", "ObjectIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 opengear = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049))
 opengear.setRevisions(('2018-06-15 00:00', '2013-11-15 00:00', '2013-08-11 00:00', '2010-03-22 11:27', '2005-02-24 01:00',))
 if mibBuilder.loadTexts: opengear.setLastUpdated('201806150000Z')
@@ -39,4 +39,4 @@ ogModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 11))
 if mibBuilder.loadTexts: ogModules.setStatus('current')
 ogSpecific = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 18))
 if mibBuilder.loadTexts: ogSpecific.setStatus('current')
-mibBuilder.exportSymbols("OG-SMI-MIB", otherEnterprises=otherEnterprises, ogSpecific=ogSpecific, PYSNMP_MODULE_ID=opengear, ogExperimental=ogExperimental, ogProducts=ogProducts, ogInternal=ogInternal, ogReserved1=ogReserved1, ogMgmt=ogMgmt, ogReserved2=ogReserved2, ogModules=ogModules, ogAgentCapability=ogAgentCapability, ogConfig=ogConfig, ogLegacyMgmt=ogLegacyMgmt, opengear=opengear)
+mibBuilder.exportSymbols("OG-SMI-MIB", ogMgmt=ogMgmt, ogReserved2=ogReserved2, ogReserved1=ogReserved1, ogConfig=ogConfig, ogSpecific=ogSpecific, ogProducts=ogProducts, ogModules=ogModules, ogLegacyMgmt=ogLegacyMgmt, PYSNMP_MODULE_ID=opengear, otherEnterprises=otherEnterprises, ogAgentCapability=ogAgentCapability, ogInternal=ogInternal, ogExperimental=ogExperimental, opengear=opengear)

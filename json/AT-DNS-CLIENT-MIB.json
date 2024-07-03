@@ -8,28 +8,28 @@
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Integer32",
-      "Gauge32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "IpAddress",
       "Bits",
-      "TimeTicks",
       "Counter64",
       "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -174,8 +174,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-DNS-CLIENT",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:02:30 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:25:57 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "AT-DNS-CLIENT-MIB"

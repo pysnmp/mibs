@@ -9,26 +9,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Opaque",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
       "TimeTicks",
-      "enterprises",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Opaque",
       "Unsigned32",
-      "Counter64"
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "DisplayString",
+      "StorageType",
       "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
@@ -74852,8 +74852,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-SERVER-IBMC-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:07:33 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:03 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-SERVER-IBMC-MIB"

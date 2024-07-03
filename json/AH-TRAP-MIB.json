@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "AH-SMI-MIB": [
-      "AhString",
-      "ahAPTrap",
+      "AhNodeID",
       "AhMACProtocol",
-      "AhNodeID"
+      "ahAPTrap",
+      "AhString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
-      "TruthValue",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "TruthValue",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "Counter64",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1777,8 +1777,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:02:14 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:25:40 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "AH-TRAP-MIB"

@@ -9,21 +9,21 @@
       "Cisco2KVlanList"
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
-      "CtsAclNameOrEmpty",
-      "CtsGenerationId",
-      "CtsSecurityGroupTag",
-      "CtsAclName",
+      "CtsAclListOrEmpty",
       "CtsSgaclMonitorMode",
       "CtsAclList",
-      "CtsAclListOrEmpty"
+      "CtsSecurityGroupTag",
+      "CtsGenerationId",
+      "CtsAclName",
+      "CtsAclNameOrEmpty"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -32,33 +32,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Gauge32",
       "MibIdentifier",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "iso"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "StorageType",
+      "RowStatus",
       "DateAndTime",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "ciscoTrustSecPolicyMIB": {
@@ -3036,8 +3036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:07:56 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:14 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-TRUSTSEC-POLICY-MIB"

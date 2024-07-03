@@ -12,28 +12,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
       "TimeTicks",
-      "Bits",
-      "MibIdentifier",
+      "Counter64",
       "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "Counter64"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DateAndTime"
+      "RowStatus",
+      "DisplayString",
+      "DateAndTime",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwBRASVsm": {
@@ -1233,8 +1233,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-VSM-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:07:34 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:04 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-BRAS-VSM-MIB"

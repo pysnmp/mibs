@@ -5,45 +5,45 @@
       "giproducts"
     ],
     "BCS-TRAPS-MIB": [
-      "trapChangedValueIpAddress",
-      "trapAdditionalInfoInteger1",
-      "trapNetworkElemSerialNum",
-      "trapAdditionalInfoInteger3",
-      "trapNetworkElemModelNumber",
-      "trapChangedValueInteger",
-      "trapIdentifier",
-      "trapPerceivedSeverity",
-      "trapNetworkElemAvailStatus",
-      "trapSequenceId",
-      "trapChangedValueDisplayString",
       "trapChangedValueOID",
+      "trapNetworkElemModelNumber",
       "trapAdditionalInfoInteger2",
-      "trapNetworkElemAdminState",
+      "trapNetworkElemAlarmStatus",
+      "trapNetworkElemSerialNum",
       "trapChangedObjectId",
-      "trapNetworkElemOperState",
-      "trapText",
+      "trapIdentifier",
+      "trapNetworkElemAdminState",
+      "trapAdditionalInfoInteger1",
+      "trapChangedValueInteger",
+      "trapSequenceId",
+      "trapPerceivedSeverity",
       "trapNETrapLastTrapTimeStamp",
-      "trapNetworkElemAlarmStatus"
+      "trapNetworkElemAvailStatus",
+      "trapNetworkElemOperState",
+      "trapChangedValueIpAddress",
+      "trapAdditionalInfoInteger3",
+      "trapChangedValueDisplayString",
+      "trapText"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "Gauge32",
       "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -26993,8 +26993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/APEX-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:02:56 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:26:22 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "APEX-MIB"

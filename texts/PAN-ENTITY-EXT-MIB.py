@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PAN-ENTITY-EXT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-ENTITY-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Jul  3 13:09:32 2024
-# On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Jul  3 13:33:02 2024
+# On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
 panModules, = mibBuilder.importSymbols("PAN-GLOBAL-REG", "panModules")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Bits, TimeTicks, Unsigned32, iso, IpAddress, Counter32, Integer32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, NotificationType, ObjectIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "Unsigned32", "iso", "IpAddress", "Counter32", "Integer32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "NotificationType", "ObjectIdentity", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+NotificationType, Counter32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, IpAddress, Gauge32, Unsigned32, ObjectIdentity, Bits, MibIdentifier, ModuleIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "IpAddress", "Gauge32", "Unsigned32", "ObjectIdentity", "Bits", "MibIdentifier", "ModuleIdentity", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 panEntityMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 25461, 1, 1, 7))
 panEntityMIBModule.setRevisions(('2012-11-05 11:06',))
 
@@ -95,4 +95,4 @@ panEntityMIBPowerSupplyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 25461, 1, 1, 7, 2,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     panEntityMIBPowerSupplyGroup = panEntityMIBPowerSupplyGroup.setStatus('current')
 if mibBuilder.loadTexts: panEntityMIBPowerSupplyGroup.setDescription('The collection of objects which are used\n        to monitor Power Supply information')
-mibBuilder.exportSymbols("PAN-ENTITY-EXT-MIB", panEntityFanTrayTable=panEntityFanTrayTable, panEntityMIBFRUModuleGroup=panEntityMIBFRUModuleGroup, panEntityMIBChassisGroup=panEntityMIBChassisGroup, panEntityFRUModuleTable=panEntityFRUModuleTable, panEntityMIBPowerSupplyGroup=panEntityMIBPowerSupplyGroup, panEntityFRUModuleGroup=panEntityFRUModuleGroup, panEntityMIBConformance=panEntityMIBConformance, panEntityMIBGroups=panEntityMIBGroups, panEntityMIBObjects=panEntityMIBObjects, panEntryFRUModuleNumPorts=panEntryFRUModuleNumPorts, panEntityFRUModuleEntry=panEntityFRUModuleEntry, panEntryFanTrayPowerUsed=panEntryFanTrayPowerUsed, panEntryPowerSupplyPowerCapacity=panEntryPowerSupplyPowerCapacity, panEntityFanTrayGroup=panEntityFanTrayGroup, panEntityMIBCompliances=panEntityMIBCompliances, panEntityChassisGroup=panEntityChassisGroup, panEntryFRUModulePowerUsed=panEntryFRUModulePowerUsed, panEntityPowerSupplyTable=panEntityPowerSupplyTable, panEntityPowerSupplyGroup=panEntityPowerSupplyGroup, PYSNMP_MODULE_ID=panEntityMIBModule, panEntityTotalPowerUsed=panEntityTotalPowerUsed, panEntityTotalPowerAvail=panEntityTotalPowerAvail, panEntityMIBCompliance=panEntityMIBCompliance, panEntityPowerSupplyEntry=panEntityPowerSupplyEntry, panEntityMIBModule=panEntityMIBModule, panEntityFanTrayEntry=panEntityFanTrayEntry, panEntityMIBFanTrayGroup=panEntityMIBFanTrayGroup)
+mibBuilder.exportSymbols("PAN-ENTITY-EXT-MIB", panEntityTotalPowerAvail=panEntityTotalPowerAvail, panEntityFRUModuleTable=panEntityFRUModuleTable, panEntryPowerSupplyPowerCapacity=panEntryPowerSupplyPowerCapacity, panEntityTotalPowerUsed=panEntityTotalPowerUsed, PYSNMP_MODULE_ID=panEntityMIBModule, panEntryFRUModuleNumPorts=panEntryFRUModuleNumPorts, panEntityMIBFanTrayGroup=panEntityMIBFanTrayGroup, panEntityFanTrayTable=panEntityFanTrayTable, panEntityMIBConformance=panEntityMIBConformance, panEntityFRUModuleGroup=panEntityFRUModuleGroup, panEntityPowerSupplyTable=panEntityPowerSupplyTable, panEntityMIBChassisGroup=panEntityMIBChassisGroup, panEntityMIBGroups=panEntityMIBGroups, panEntityMIBFRUModuleGroup=panEntityMIBFRUModuleGroup, panEntityFanTrayEntry=panEntityFanTrayEntry, panEntityMIBPowerSupplyGroup=panEntityMIBPowerSupplyGroup, panEntityFRUModuleEntry=panEntityFRUModuleEntry, panEntityMIBCompliances=panEntityMIBCompliances, panEntityMIBCompliance=panEntityMIBCompliance, panEntityChassisGroup=panEntityChassisGroup, panEntityPowerSupplyGroup=panEntityPowerSupplyGroup, panEntityPowerSupplyEntry=panEntityPowerSupplyEntry, panEntryFanTrayPowerUsed=panEntryFanTrayPowerUsed, panEntityFanTrayGroup=panEntityFanTrayGroup, panEntryFRUModulePowerUsed=panEntryFRUModulePowerUsed, panEntityMIBModule=panEntityMIBModule, panEntityMIBObjects=panEntityMIBObjects)

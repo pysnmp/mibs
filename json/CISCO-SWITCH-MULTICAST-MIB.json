@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "EntPhysicalIndexOrZero",
-      "CiscoInterfaceIndexList"
+      "CiscoInterfaceIndexList",
+      "EntPhysicalIndexOrZero"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex"
@@ -16,9 +16,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "MPLS-VPN-MIB": [
       "MplsVpnId"
@@ -27,33 +27,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "iso",
       "OBJECT-IDENTITY",
-      "TimeTicks",
+      "Integer32",
       "Gauge32",
       "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "iso"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus"
+      "RowStatus",
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "ciscoSwitchMulticastMIB": {
@@ -1567,8 +1567,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-MULTICAST-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:07:59 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:17 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-SWITCH-MULTICAST-MIB"

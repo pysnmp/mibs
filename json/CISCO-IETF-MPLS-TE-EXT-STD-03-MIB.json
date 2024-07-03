@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "CISCO-MPLS-TC-EXT-STD-MIB": [
-      "CMplsNodeId",
-      "CMplsLocalId",
       "CMplsIccId",
-      "CMplsGlobalId"
+      "CMplsGlobalId",
+      "CMplsNodeId",
+      "CMplsLocalId"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -17,39 +17,39 @@
     ],
     "MPLS-TE-STD-MIB": [
       "mplsTunnelIngressLSRId",
-      "mplsTunnelInstance",
       "mplsTunnelIndex",
+      "mplsTunnelInstance",
       "mplsTunnelEgressLSRId"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Gauge32",
       "MibIdentifier",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "iso",
-      "zeroDotZero"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowPointer",
-      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "cmplsTeExtStdMIB": {
@@ -657,8 +657,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-EXT-STD-03-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:07:56 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:14 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"

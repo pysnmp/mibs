@@ -8,49 +8,49 @@
       "CiscoVrfName"
     ],
     "CISCO-TRUSTSEC-TC-MIB": [
-      "CtsPassword",
-      "CtsPasswordEncryptionType",
+      "CtsSecurityGroupTag",
       "CtsSxpConnectionStatus",
-      "CtsSecurityGroupTag"
+      "CtsPasswordEncryptionType",
+      "CtsPassword"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Gauge32",
       "MibIdentifier",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Unsigned32",
-      "Integer32",
-      "iso"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "ciscoTrustSecSxpMIB": {
@@ -2403,8 +2403,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TRUSTSEC-SXP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:07:59 2024",
-      "On host fv-az1249-950 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:17 2024",
+      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-TRUSTSEC-SXP-MIB"
