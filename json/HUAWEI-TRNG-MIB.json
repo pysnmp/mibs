@@ -5,31 +5,31 @@
       "hwDatacomm"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Unsigned32",
+      "Integer32",
+      "iso",
       "Bits",
-      "Counter32"
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime",
       "TruthValue"
     ]
   },
@@ -446,8 +446,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-TRNG-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:38:50 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:58:03 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-TRNG-MIB"

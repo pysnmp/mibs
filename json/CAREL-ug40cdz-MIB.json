@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysLocation",
@@ -12,25 +12,25 @@
       "sysContact"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "enterprises",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Integer32",
-      "Counter64",
-      "Bits",
+      "Unsigned32",
+      "Counter32",
       "iso",
-      "Unsigned32"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "Counter64",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ug40cdzMIB": {
@@ -3402,8 +3402,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/CAREL-ug40cdz-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:34:28 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:53:52 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CAREL-ug40cdz-MIB"

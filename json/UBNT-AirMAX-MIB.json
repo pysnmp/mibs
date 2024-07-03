@@ -3,30 +3,30 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
-      "Bits",
+      "MODULE-IDENTITY",
       "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Counter64",
       "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Integer32",
+      "Gauge32",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress",
+      "TruthValue"
     ],
     "UBNT-MIB": [
       "ubntAirosGroups",
@@ -1682,8 +1682,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-AirMAX-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:42:42 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 10:01:45 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "UBNT-AirMAX-MIB"

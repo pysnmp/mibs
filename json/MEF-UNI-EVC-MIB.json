@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ENTITY-STATE-TC-MIB": [
-      "EntityAdminState",
-      "EntityOperState"
+      "EntityOperState",
+      "EntityAdminState"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021PriorityValue"
@@ -20,28 +20,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
+      "iso",
       "IpAddress",
+      "enterprises",
+      "Gauge32",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
       "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "Counter32",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
       "TimeTicks",
-      "MibIdentifier",
-      "iso"
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "RowStatus",
+      "MacAddress",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "mefUniEvcMib": {
@@ -2689,8 +2689,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MEF-UNI-EVC-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:01 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:52:27 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MEF-UNI-EVC-MIB"

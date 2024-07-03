@@ -5,39 +5,39 @@
       "sleMgmt"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelIngressLSRId",
-      "mplsTunnelInstance",
+      "mplsTunnelIndex",
       "mplsTunnelEgressLSRId",
-      "mplsTunnelIndex"
+      "mplsTunnelInstance",
+      "mplsTunnelIngressLSRId"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "TimeTicks",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "iso",
-      "Counter32",
+      "zeroDotZero",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
-      "Integer32"
+      "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "sleMplsTpNode": {
@@ -215,8 +215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-PRO-IF-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:35:53 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:55:13 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-PRO-IF-MIB"

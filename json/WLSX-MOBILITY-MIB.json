@@ -5,48 +5,48 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
+      "ArubaPhyType",
+      "ArubaEncryptionMethods",
+      "ArubaActiveState",
       "ArubaFrameType",
       "ArubaAuthenticationMethods",
       "ArubaEnableValue",
-      "ArubaActiveState",
-      "ArubaPhyType",
-      "ArubaRogueApType",
-      "ArubaEncryptionMethods"
+      "ArubaRogueApType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Bits",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "IpAddress",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE",
       "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "snmpModules",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "PhysAddress",
-      "TAddress",
-      "TimeInterval",
-      "DisplayString",
-      "RowStatus",
       "TestAndIncr",
       "MacAddress",
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TDomain",
-      "StorageType"
+      "TruthValue",
+      "PhysAddress",
+      "StorageType",
+      "DisplayString",
+      "TAddress"
     ]
   },
   "wlsxMobilityMIB": {
@@ -892,8 +892,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MOBILITY-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:59 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:53:24 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "WLSX-MOBILITY-MIB"

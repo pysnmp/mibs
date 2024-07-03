@@ -5,13 +5,13 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisProfileIndexOrZero",
-      "ColubrisNotificationEnable",
-      "ColubrisUsersAuthenticationType",
-      "ColubrisSecurity",
-      "ColubrisUsersAuthenticationMode",
       "ColubrisPriorityQueue",
-      "ColubrisSSIDOrNone"
+      "ColubrisNotificationEnable",
+      "ColubrisSSIDOrNone",
+      "ColubrisUsersAuthenticationType",
+      "ColubrisProfileIndexOrZero",
+      "ColubrisUsersAuthenticationMode",
+      "ColubrisSecurity"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -22,27 +22,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Bits",
+      "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
       "iso",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "MacAddress",
+      "TruthValue"
     ]
   },
   "colubrisPublicAccessMIB": {
@@ -1573,8 +1573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PUBLIC-ACCESS-MIB.my",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:37:49 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:57:02 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-PUBLIC-ACCESS-MIB"

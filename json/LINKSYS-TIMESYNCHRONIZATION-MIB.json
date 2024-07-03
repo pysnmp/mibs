@@ -5,8 +5,8 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "LINKSYS-MIB": [
       "rnd"
@@ -16,26 +16,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "iso",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
       "IpAddress",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "Gauge32",
       "Counter64",
       "MODULE-IDENTITY",
-      "Counter32",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus"
     ]
   },
   "rlTimeSynchronization": {
@@ -2688,8 +2688,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-TIMESYNCHRONIZATION-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:39:57 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:59:00 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-TIMESYNCHRONIZATION-MIB"

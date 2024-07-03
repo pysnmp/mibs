@@ -10,31 +10,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
       "TimeTicks",
-      "Bits"
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TDomain",
-      "TEXTUAL-CONVENTION",
       "TAddress",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TDomain"
     ]
   },
   "adGenAOSSnmpMib": {
@@ -365,8 +365,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSSNMP",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:12 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:52:38 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOSSNMP"

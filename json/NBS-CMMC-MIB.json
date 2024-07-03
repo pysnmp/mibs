@@ -5,41 +5,41 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "NBS-CMMCENUM-MIB": [
       "NbsCmmcEnumPortConnector",
       "NbsCmmcEnumSlotOperationType",
-      "NbsCmmcEnumSlotType",
-      "NbsCmmcEnumChassisType"
+      "NbsCmmcEnumChassisType",
+      "NbsCmmcEnumSlotType"
     ],
     "NBS-MIB": [
       "nbs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "iso",
       "Integer32",
-      "TimeTicks",
-      "Counter64",
+      "MibIdentifier",
       "Unsigned32",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "TimeTicks",
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nbsCmmcMib": {
@@ -10415,8 +10415,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-CMMC-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:40:04 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:59:16 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "NBS-CMMC-MIB"

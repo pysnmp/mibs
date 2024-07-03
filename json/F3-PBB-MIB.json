@@ -8,45 +8,45 @@
       "PerfCounter64"
     ],
     "CM-FACILITY-MIB": [
-      "cmEthernetAccPortEntry",
-      "cmEthernetNetPortEntry",
       "cmFlowEntry",
-      "FlowTagControl"
+      "FlowTagControl",
+      "cmEthernetNetPortEntry",
+      "cmEthernetAccPortEntry"
     ],
     "CM-IP-MIB": [
       "ipManagementTunnelEntry"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmEthernetNetPortHistoryEntry",
-      "cmEthernetNetPortStatsEntry"
+      "cmEthernetNetPortStatsEntry",
+      "cmEthernetNetPortHistoryEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "Gauge32",
       "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "iso",
-      "Counter64",
-      "OBJECT-TYPE"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "VariablePointer"
     ]
   },
   "f3PBBMIB": {
@@ -662,8 +662,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PBB-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:59 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:53:23 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F3-PBB-MIB"

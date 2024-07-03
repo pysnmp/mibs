@@ -8,31 +8,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
+      "Counter64",
       "Integer32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
+      "enterprises",
       "TimeTicks",
+      "Bits",
+      "Counter32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
       "iso",
-      "enterprises",
-      "Counter32",
-      "MibIdentifier"
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cmtsFftMIB": {
@@ -457,8 +457,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-CMTS-FFT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:57 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:53:22 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ARRIS-CMTS-FFT-MIB"

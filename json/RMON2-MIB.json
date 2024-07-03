@@ -5,53 +5,53 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "matrixControlEntry",
-      "hostControlEntry",
-      "filterEntry",
-      "history",
-      "etherStatsEntry",
       "matrix",
-      "hosts",
-      "filter",
-      "historyControlEntry",
       "OwnerString",
+      "etherStatsEntry",
+      "historyControlEntry",
+      "hosts",
+      "channelEntry",
+      "filterEntry",
       "statistics",
-      "channelEntry"
+      "hostControlEntry",
+      "history",
+      "matrixControlEntry",
+      "filter"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Unsigned32",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "iso",
-      "Counter64",
       "TimeTicks",
       "Counter32",
       "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "Counter64",
       "MibIdentifier",
-      "IpAddress"
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION"
     ],
     "TOKEN-RING-RMON-MIB": [
       "tokenRingPStatsEntry",
       "sourceRoutingStatsEntry",
-      "tokenRing",
+      "ringStationControlEntry",
       "tokenRingMLStatsEntry",
-      "ringStationControlEntry"
+      "tokenRing"
     ]
   },
   "rmon": {
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 09:33:32 2024",
-      "On host fv-az1766-730 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:52:58 2024",
+      "On host fv-az530-296 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"
