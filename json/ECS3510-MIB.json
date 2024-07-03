@@ -3,66 +3,66 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "BridgeId",
-      "Timeout",
       "dot1dStpPortEntry",
+      "Timeout",
       "dot1dStpPort"
     ],
     "IEEE8021-CFM-MIB": [
-      "Dot1agCfmMepId",
       "dot1agCfmMepDbRMepIdentifier",
+      "Dot1agCfmMepId",
+      "dot1agCfmMdIndex",
       "dot1agCfmMaIndex",
-      "dot1agCfmMepIdentifier",
-      "dot1agCfmMdIndex"
+      "dot1agCfmMepIdentifier"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
     ],
     "IF-MIB": [
-      "ifOperStatus",
+      "ifIndex",
       "InterfaceIndex",
-      "ifIndex"
+      "ifOperStatus"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressIPv6"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanIndex",
       "dot1qVlanStaticEntry",
       "VlanId",
-      "VlanIndex",
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "Unsigned32",
       "Counter32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "TimeTicks",
+      "MibIdentifier",
       "Bits",
-      "enterprises",
       "iso",
-      "Integer32",
-      "Unsigned32"
+      "enterprises",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TruthValue",
-      "MacAddress",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "ecs3510_28tMIB": {
@@ -29346,8 +29346,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS3510-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:02:46 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:22:22 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ECS3510-MIB"

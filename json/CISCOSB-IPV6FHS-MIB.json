@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList3",
       "VlanList1",
       "VlanList4",
+      "VlanList3",
       "VlanList2"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
+      "rlMacMulticast",
       "switch001",
-      "rndNotifications",
-      "rlMacMulticast"
+      "rndNotifications"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -26,36 +26,36 @@
       "InetAddressPrefixLength"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
+      "VlanIndex",
       "VlanId",
-      "VlanIndex"
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "iso",
       "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
       "OBJECT-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "Bits"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "MacAddress",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIpv6Fhs": {
@@ -8432,8 +8432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPV6FHS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:05:21 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:24:40 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPV6FHS-MIB"

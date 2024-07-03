@@ -2,68 +2,68 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVclVpi",
       "atmVclOperStatus",
-      "atmVplOperStatus",
-      "atmVpCrossConnectL2HOperStatus",
-      "atmVclEntry",
-      "atmVcCrossConnectL2HOperStatus",
+      "atmVclVci",
       "atmVcCrossConnectEntry",
-      "atmVpCrossConnectEntry",
-      "atmVcCrossConnectH2LOperStatus",
+      "atmVplOperStatus",
+      "atmVcCrossConnectL2HOperStatus",
       "atmVplVpi",
-      "atmVpCrossConnectH2LOperStatus",
       "atmVplEntry",
-      "atmVclVci"
+      "atmVclEntry",
+      "atmVpCrossConnectL2HOperStatus",
+      "atmVpCrossConnectEntry",
+      "atmVclVpi",
+      "atmVcCrossConnectH2LOperStatus",
+      "atmVpCrossConnectH2LOperStatus"
     ],
     "ENTITY-MIB": [
-      "entPhysicalClass",
       "entPhysicalIndex",
-      "entPhysicalContainedIn",
-      "entPhysicalParentRelPos"
+      "entPhysicalParentRelPos",
+      "entPhysicalClass",
+      "entPhysicalContainedIn"
     ],
     "HOST-RESOURCES-MIB": [
       "hrSWInstalledIndex",
       "hrSWInstalledName"
     ],
     "IF-MIB": [
-      "ifIndex",
       "OwnerString",
+      "ifIndex",
       "ifOperStatus"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "Counter64",
-      "enterprises",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "enterprises",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TestAndIncr",
       "TimeInterval",
-      "RowPointer",
+      "RowStatus",
+      "TimeStamp",
+      "TruthValue",
+      "DateAndTime",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
       "AutonomousType",
       "DisplayString",
-      "DateAndTime",
-      "TimeStamp",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowPointer"
     ]
   },
   "atmfM4MIB": {
@@ -5869,8 +5869,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-SNMP-M4-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 11:58:58 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:18:30 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-SNMP-M4-MIB"

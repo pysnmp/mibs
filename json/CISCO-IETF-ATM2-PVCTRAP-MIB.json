@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmVclVpi",
       "atmInterfaceConfEntry",
+      "atmVclVpi",
       "atmVclVci"
     ],
     "CISCO-SMI": [
@@ -13,31 +13,31 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "iso",
-      "MODULE-IDENTITY"
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DisplayString",
+      "TimeStamp"
     ]
   },
   "ciscoIetfAtm2PvctrapMIB": {
@@ -319,8 +319,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-ATM2-PVCTRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:05:19 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:24:39 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-ATM2-PVCTRAP-MIB"

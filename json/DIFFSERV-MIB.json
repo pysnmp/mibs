@@ -24,30 +24,30 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "zeroDotZero",
-      "mib-2",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
+      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Gauge32",
+      "iso",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Gauge32",
+      "Counter32",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "zeroDotZero",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "AutonomousType",
       "RowPointer",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "diffServMib": {
@@ -2955,9 +2955,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:00:28 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIFFSERV-MIB",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:18:54 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DIFFSERV-MIB"

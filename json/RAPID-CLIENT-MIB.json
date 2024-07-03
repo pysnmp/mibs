@@ -9,21 +9,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "enterprises",
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
+      "MibIdentifier",
       "iso",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Unsigned32",
       "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
@@ -441,8 +441,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CLIENT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:06:59 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:26:34 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RAPID-CLIENT-MIB"

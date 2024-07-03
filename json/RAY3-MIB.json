@@ -10,27 +10,27 @@
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "enterprises",
-      "mib-2",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Counter64",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
       "TimeTicks",
-      "IpAddress"
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "enterprises"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "racom": {
@@ -1614,8 +1614,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ray/RAY3-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:08:01 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:27:48 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RAY3-MIB"

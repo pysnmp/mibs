@@ -2,23 +2,23 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventTimeStamp",
       "eventCounter",
+      "mibRelease",
       "eventPriority",
-      "mibRelease"
+      "eventTimeStamp"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "OkNotOk",
-      "dvbT",
       "WarningOK",
-      "PresentNotPresent",
-      "MuteOk",
-      "Input1Input2",
-      "SFNMFN",
-      "FaultOK",
-      "SelectManualAuto",
       "SelectOnOff",
-      "LocalRemote"
+      "MuteOk",
+      "FaultOK",
+      "PresentNotPresent",
+      "SFNMFN",
+      "dvbT",
+      "OkNotOk",
+      "Input1Input2",
+      "LocalRemote",
+      "SelectManualAuto"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -31,20 +31,20 @@
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-TYPE",
+      "Integer32",
       "iso",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "Counter32",
       "MibIdentifier",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1590,8 +1590,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-DVBT-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:08:10 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:27:58 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IRT-DVBT-SINGLETRANSMITTER-MIB"

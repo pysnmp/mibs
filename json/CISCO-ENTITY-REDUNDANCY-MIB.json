@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-ENTITY-REDUNDANCY-TC-MIB": [
-      "CeRedunMbrStatus",
-      "CeRedunArch",
-      "CeRedunMode",
       "CeRedunScope",
-      "CeRedunStateCategories",
       "CeRedunReasonCategories",
+      "CeRedunMode",
+      "CeRedunArch",
       "CeRedunSwitchCommand",
-      "CeRedunType"
+      "CeRedunStateCategories",
+      "CeRedunType",
+      "CeRedunMbrStatus"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -25,34 +25,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "Bits",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "iso",
-      "MODULE-IDENTITY"
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TruthValue",
       "AutonomousType",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue"
+      "StorageType"
     ]
   },
   "ciscoEntityRedunMIB": {
@@ -1296,8 +1296,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ENTITY-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:05:19 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:24:39 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-ENTITY-REDUNDANCY-MIB"

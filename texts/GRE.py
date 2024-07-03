@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module GRE (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/GRE
-# Produced by pysmi-1.1.12 at Wed Jul  3 12:07:15 2024
-# On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Jul  3 12:27:07 2024
+# On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, iso, Bits, MibIdentifier, ModuleIdentity, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, enterprises, Counter64, TimeTicks, Gauge32, Integer32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Bits", "MibIdentifier", "ModuleIdentity", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "enterprises", "Counter64", "TimeTicks", "Gauge32", "Integer32", "NotificationType")
-TextualConvention, RowStatus, DisplayString, TruthValue, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "TruthValue", "MacAddress")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, ObjectIdentity, IpAddress, Counter64, enterprises, iso, MibIdentifier, Integer32, ModuleIdentity, Gauge32, TimeTicks, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "ObjectIdentity", "IpAddress", "Counter64", "enterprises", "iso", "MibIdentifier", "Integer32", "ModuleIdentity", "Gauge32", "TimeTicks", "Unsigned32", "NotificationType")
+TruthValue, RowStatus, TextualConvention, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString", "MacAddress")
 peplink = MibIdentifier((1, 3, 6, 1, 4, 1, 23695))
 productMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200))
 generalMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200, 1))
@@ -62,4 +62,4 @@ if mibBuilder.loadTexts: greStatusRemoteNetwork.setDescription('GRE remote netwo
 greStatusRemoteSubnet = MibTableColumn((1, 3, 6, 1, 4, 1, 23695, 200, 1, 11, 1, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: greStatusRemoteSubnet.setStatus('current')
 if mibBuilder.loadTexts: greStatusRemoteSubnet.setDescription('GRE remote network subnet.')
-mibBuilder.exportSymbols("GRE", greStatusRemoteNetworkTable=greStatusRemoteNetworkTable, greStatusProfileName=greStatusProfileName, greStatusRemoteSubnet=greStatusRemoteSubnet, greInfo=greInfo, greStatusConnectionState=greStatusConnectionState, greStatusTunnelLocalIpAddress=greStatusTunnelLocalIpAddress, greStatusRemoteIpAddress=greStatusRemoteIpAddress, greStatusRemoteNetworkId=greStatusRemoteNetworkId, greStatusEntry=greStatusEntry, PYSNMP_MODULE_ID=greInfo, greStatusRemoteNetworkEntry=greStatusRemoteNetworkEntry, greStatusTable=greStatusTable, productMib=productMib, greStatusTunnelRemoteIpAddress=greStatusTunnelRemoteIpAddress, greMib=greMib, greStatusLocalIpAddress=greStatusLocalIpAddress, greStatusRemoteNetwork=greStatusRemoteNetwork, peplink=peplink, greStatusId=greStatusId, generalMib=generalMib)
+mibBuilder.exportSymbols("GRE", greStatusTunnelRemoteIpAddress=greStatusTunnelRemoteIpAddress, greStatusProfileName=greStatusProfileName, greStatusRemoteIpAddress=greStatusRemoteIpAddress, greStatusRemoteSubnet=greStatusRemoteSubnet, greStatusLocalIpAddress=greStatusLocalIpAddress, greStatusEntry=greStatusEntry, greStatusTunnelLocalIpAddress=greStatusTunnelLocalIpAddress, greStatusTable=greStatusTable, generalMib=generalMib, peplink=peplink, greStatusId=greStatusId, greStatusRemoteNetworkId=greStatusRemoteNetworkId, greMib=greMib, greInfo=greInfo, greStatusRemoteNetworkTable=greStatusRemoteNetworkTable, productMib=productMib, greStatusRemoteNetworkEntry=greStatusRemoteNetworkEntry, greStatusConnectionState=greStatusConnectionState, greStatusRemoteNetwork=greStatusRemoteNetwork, PYSNMP_MODULE_ID=greInfo)

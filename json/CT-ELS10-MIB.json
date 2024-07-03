@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dStpPortDesignatedRoot",
       "dot1dStpPortDesignatedCost",
+      "dot1dStpHelloTime",
+      "dot1dStpPortDesignatedPort",
+      "dot1dStpPortDesignatedBridge",
+      "dot1dStpPortState",
       "dot1dStpForwardDelay",
       "dot1dStpDesignatedRoot",
+      "dot1dStpRootCost",
       "dot1dStpMaxAge",
-      "dot1dStpPortState",
-      "dot1dStpHelloTime",
-      "dot1dStpRootPort",
-      "dot1dStpPortDesignatedBridge",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpRootCost"
+      "dot1dStpPortDesignatedRoot",
+      "dot1dStpRootPort"
     ],
     "IF-MIB": [
+      "ifOutErrors",
       "ifOutDiscards",
-      "ifInErrors",
-      "ifOutErrors"
+      "ifInErrors"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -27,22 +27,22 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "enterprises",
       "Counter32",
       "TRAP-TYPE",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Bits"
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:03:03 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:22:37 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CT-ELS10-MIB"

@@ -5,40 +5,40 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
       "NOTIFICATION-TYPE",
+      "Integer32",
       "experimental",
       "Gauge32",
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "iso",
       "Bits",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "IpAddress",
+      "Counter32",
       "Counter64",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "StorageType",
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TruthValue",
       "TimeStamp"
     ]
   },
@@ -1850,9 +1850,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/MPLS-VPN-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:05:00 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-VPN-MIB",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:18:54 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MPLS-VPN-MIB"

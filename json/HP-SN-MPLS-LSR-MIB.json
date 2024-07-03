@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "mplsMIB",
       "MplsLabel",
-      "MplsBurstSize",
-      "MplsBitRate",
       "MplsLSPID",
-      "MplsInitialCreationSource"
+      "MplsBurstSize",
+      "mplsMIB",
+      "MplsInitialCreationSource",
+      "MplsBitRate"
     ],
     "HP-SN-ROOT-MIB": [
       "snMpls"
@@ -30,27 +30,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
       "Gauge32",
       "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
       "RowPointer",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "StorageType",
-      "TruthValue",
       "RowStatus",
       "TimeStamp"
     ]
@@ -1832,8 +1832,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 12:05:36 2024",
-      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:25:54 2024",
+      "On host fv-az1022-995 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-LSR-MIB"
