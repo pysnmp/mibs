@@ -1,0 +1,241 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALPHA-RESOURCE-MIB": [
+      "ScaledNumber",
+      "simple"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "Counter64",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "converterSystem": {
+    "name": "converterSystem",
+    "oid": "1.3.6.1.4.1.7309.5.3.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-28 00:00",
+        "description": " Updated to follow MIB structure conformance rules. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-07-23 00:00",
+        "description": "Fixed MIB syntax warnings."
+      },
+      {
+        "revision": "2015-06-23 00:00",
+        "description": "General revision."
+      }
+    ]
+  },
+  "convSysTotalOutputCurrent": {
+    "name": "convSysTotalOutputCurrent",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysTotalOutputPower": {
+    "name": "convSysTotalOutputPower",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysTotalCapacityInstalledAmps": {
+    "name": "convSysTotalCapacityInstalledAmps",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysTotalCapacityInstalledPower": {
+    "name": "convSysTotalCapacityInstalledPower",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysAverageConverterOutputVoltage": {
+    "name": "convSysAverageConverterOutputVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysAverageConverterInputVoltage": {
+    "name": "convSysAverageConverterInputVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysSystemVoltage": {
+    "name": "convSysSystemVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysTotalLoadCurrent": {
+    "name": "convSysTotalLoadCurrent",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "convSysSystemNumber": {
+    "name": "convSysSystemNumber",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "conformance": {
+    "name": "conformance",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.100",
+    "class": "objectidentity"
+  },
+  "compliances": {
+    "name": "compliances",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.100.1",
+    "class": "objectidentity"
+  },
+  "compliance": {
+    "name": "compliance",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.100.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "converterGroup",
+        "module": "ALPHA-CONVERTER-SYS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "converterGroups": {
+    "name": "converterGroups",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.100.2",
+    "class": "objectidentity"
+  },
+  "converterGroup": {
+    "name": "converterGroup",
+    "oid": "1.3.6.1.4.1.7309.5.3.2.100.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysTotalOutputCurrent"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysTotalOutputPower"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysTotalCapacityInstalledAmps"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysTotalCapacityInstalledPower"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysAverageConverterOutputVoltage"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysAverageConverterInputVoltage"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysSystemVoltage"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysTotalLoadCurrent"
+      },
+      {
+        "module": "ALPHA-CONVERTER-SYS-MIB",
+        "object": "convSysSystemNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/ALPHA-CONVERTER-SYS-MIB",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:08:00 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "ALPHA-CONVERTER-SYS-MIB"
+  }
+}

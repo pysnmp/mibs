@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module BLUECOAT-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-LICENSE-MIB
-# Produced by pysmi-1.1.12 at Mon Jul  1 11:10:34 2024
-# On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Jul  3 09:08:50 2024
+# On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
 blueCoatMgmt, = mibBuilder.importSymbols("BLUECOAT-MIB", "blueCoatMgmt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks, Bits, iso, NotificationType, Unsigned32, Gauge32, MibIdentifier, ModuleIdentity, IpAddress, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks", "Bits", "iso", "NotificationType", "Unsigned32", "Gauge32", "MibIdentifier", "ModuleIdentity", "IpAddress", "Counter64")
-DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+NotificationType, Integer32, Counter32, ObjectIdentity, iso, TimeTicks, Gauge32, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Counter32", "ObjectIdentity", "iso", "TimeTicks", "Gauge32", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "Unsigned32", "Bits")
+DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
 appLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3417, 2, 16))
 appLicenseMIB.setRevisions(('2015-01-13 03:00',))
 
@@ -84,4 +84,4 @@ appLicenseMIBNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 3417, 2, 16, 3, 3
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     appLicenseMIBNotifGroup = appLicenseMIBNotifGroup.setStatus('current')
 if mibBuilder.loadTexts: appLicenseMIBNotifGroup.setDescription('Group of Appliance License notifications.')
-mibBuilder.exportSymbols("BLUECOAT-LICENSE-MIB", appLicenseStatusEntry=appLicenseStatusEntry, appLicenseStateTrap=appLicenseStateTrap, appLicenseMIBNotifGroup=appLicenseMIBNotifGroup, appLicenseStatusTable=appLicenseStatusTable, appLicenseMIBGroup=appLicenseMIBGroup, appLicenseMIBConformance=appLicenseMIBConformance, appLicenseMIBNotificationsPrefix=appLicenseMIBNotificationsPrefix, LicenseState=LicenseState, appLicenseMIB=appLicenseMIB, appLicenseMIBNotifGroups=appLicenseMIBNotifGroups, LicenseExpireType=LicenseExpireType, appLicenseStatusFeatureName=appLicenseStatusFeatureName, appLicenseMIBObjects=appLicenseMIBObjects, appLicenseStatusIndex=appLicenseStatusIndex, appLicenseMIBCompliances=appLicenseMIBCompliances, appLicenseMIBGroups=appLicenseMIBGroups, appLicenseMIBCompliance=appLicenseMIBCompliance, appLicenseStatusApplicationName=appLicenseStatusApplicationName, appLicense=appLicense, PYSNMP_MODULE_ID=appLicenseMIB, appLicenseStatusExpireDate=appLicenseStatusExpireDate, appLicenseStatusLicenseState=appLicenseStatusLicenseState, appLicenseStatusComponentName=appLicenseStatusComponentName, appLicenseStatusExpireType=appLicenseStatusExpireType, appLicenseMIBNotifications=appLicenseMIBNotifications)
+mibBuilder.exportSymbols("BLUECOAT-LICENSE-MIB", appLicenseMIBNotifGroup=appLicenseMIBNotifGroup, LicenseExpireType=LicenseExpireType, appLicenseMIBNotificationsPrefix=appLicenseMIBNotificationsPrefix, appLicenseMIBObjects=appLicenseMIBObjects, LicenseState=LicenseState, appLicenseStatusTable=appLicenseStatusTable, appLicenseStatusComponentName=appLicenseStatusComponentName, appLicenseMIBConformance=appLicenseMIBConformance, appLicense=appLicense, appLicenseMIBCompliance=appLicenseMIBCompliance, appLicenseMIBGroup=appLicenseMIBGroup, appLicenseStatusIndex=appLicenseStatusIndex, appLicenseStatusFeatureName=appLicenseStatusFeatureName, appLicenseMIBNotifGroups=appLicenseMIBNotifGroups, appLicenseStatusApplicationName=appLicenseStatusApplicationName, appLicenseMIBGroups=appLicenseMIBGroups, PYSNMP_MODULE_ID=appLicenseMIB, appLicenseStatusExpireType=appLicenseStatusExpireType, appLicenseMIBCompliances=appLicenseMIBCompliances, appLicenseStatusLicenseState=appLicenseStatusLicenseState, appLicenseStatusExpireDate=appLicenseStatusExpireDate, appLicenseMIB=appLicenseMIB, appLicenseStatusEntry=appLicenseStatusEntry, appLicenseMIBNotifications=appLicenseMIBNotifications, appLicenseStateTrap=appLicenseStateTrap)

@@ -13,24 +13,24 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Bits",
-      "MibIdentifier",
       "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hmTracking": {
@@ -581,8 +581,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmtracking.mib",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:13:57 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:12:13 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HMTRACKING-SNMP-MIB"

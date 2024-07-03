@@ -5,38 +5,38 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressIPv6"
+      "InetAddressIPv6",
+      "InetAddress"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
       "TimeTicks",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "iso",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter32"
+      "IpAddress",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "MacAddress"
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -1302,8 +1302,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-MULTICAST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:19:51 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:18:01 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "UBQS-MULTICAST-MIB"

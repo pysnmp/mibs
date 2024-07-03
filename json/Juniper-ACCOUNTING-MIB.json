@@ -3,8 +3,8 @@
     "class": "imports",
     "ACCOUNTING-CONTROL-MIB": [
       "acctngSelectionIndex",
-      "acctngSelectionEntry",
-      "acctngFileEntry"
+      "acctngFileEntry",
+      "acctngSelectionEntry"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -16,11 +16,11 @@
       "JuniPolicyAttachmentType"
     ],
     "Juniper-TC": [
-      "JuniEnable",
-      "JuniAcctngAdminType",
-      "JuniInterfaceDescrFormat",
       "JuniInterfaceLocation",
-      "JuniAcctngOperType"
+      "JuniAcctngOperType",
+      "JuniEnable",
+      "JuniInterfaceDescrFormat",
+      "JuniAcctngAdminType"
     ],
     "Juniper-UNI-IF-MIB": [
       "juniIfType"
@@ -31,25 +31,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "juniAcctngMIB": {
@@ -1645,8 +1645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ACCOUNTING-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:16:40 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:14:58 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Juniper-ACCOUNTING-MIB"

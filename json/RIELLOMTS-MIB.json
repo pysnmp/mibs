@@ -9,21 +9,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "iso",
       "Bits",
+      "Gauge32",
       "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "TRAP-TYPE",
-      "Gauge32"
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -870,8 +870,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/riello/RIELLOMTS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:18:18 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:16:32 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RIELLOMTS-MIB"

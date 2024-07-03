@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
       "Gauge32",
-      "Bits"
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "DisplayString": {
@@ -777,8 +777,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:16:18 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:14:37 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HP-SN-IP-ACL-MIB"

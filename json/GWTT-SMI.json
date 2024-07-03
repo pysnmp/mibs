@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
       "MibIdentifier",
       "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "IpAddress",
-      "enterprises",
       "Counter32",
-      "NOTIFICATION-TYPE",
+      "enterprises",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "Unsigned32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "gwtt": {
@@ -55,8 +55,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gwd/GWTT-SMI",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:13:43 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:11:58 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "GWTT-SMI"

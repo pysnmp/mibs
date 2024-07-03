@@ -1,0 +1,1709 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "enterprises",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "Counter64",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "alpha": {
+    "name": "alpha",
+    "oid": "1.3.6.1.4.1.7309",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2023-04-03 00:00",
+        "description": "Updated the type of some index columns to be a string, matching the value type that has been exposed for a long time. "
+      },
+      {
+        "revision": "2019-11-15 00:00",
+        "description": "Added the configurationChoiceList table to support the other configuration tables, allowing the ability to see what possible choices there are for choice values. "
+      },
+      {
+        "revision": "2019-04-12 00:00",
+        "description": "Added alert table and conformance group. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2016-11-15 00:00",
+        "description": "Added conformance group for alarms to follow MIB structure conformance rules. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-10-19 00:00",
+        "description": " Added alarm table(s) to allow active polling of alarm states available in the Cordex HP. "
+      },
+      {
+        "revision": "2015-07-28 00:00",
+        "description": " Updated to follow MIB structure conformance rules. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-06-23 00:00",
+        "description": "General version, Cordex HP Controller"
+      }
+    ]
+  },
+  "ScaledNumber": {
+    "name": "ScaledNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "controller": {
+    "name": "controller",
+    "oid": "1.3.6.1.4.1.7309.5",
+    "class": "objectidentity"
+  },
+  "controllerInfo": {
+    "name": "controllerInfo",
+    "oid": "1.3.6.1.4.1.7309.5.1",
+    "class": "objectidentity"
+  },
+  "resource": {
+    "name": "resource",
+    "oid": "1.3.6.1.4.1.7309.5.2",
+    "class": "objectidentity"
+  },
+  "simple": {
+    "name": "simple",
+    "oid": "1.3.6.1.4.1.7309.5.3",
+    "class": "objectidentity"
+  },
+  "controllerInfoName": {
+    "name": "controllerInfoName",
+    "oid": "1.3.6.1.4.1.7309.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerInfoDescription": {
+    "name": "controllerInfoDescription",
+    "oid": "1.3.6.1.4.1.7309.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerInfoSoftwareVersion": {
+    "name": "controllerInfoSoftwareVersion",
+    "oid": "1.3.6.1.4.1.7309.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerInfoOperatingSystemVersion": {
+    "name": "controllerInfoOperatingSystemVersion",
+    "oid": "1.3.6.1.4.1.7309.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerInfoHardwareVersion": {
+    "name": "controllerInfoHardwareVersion",
+    "oid": "1.3.6.1.4.1.7309.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerExtInfoTable": {
+    "name": "controllerExtInfoTable",
+    "oid": "1.3.6.1.4.1.7309.5.1.100",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "controllerExtInfoEntry": {
+    "name": "controllerExtInfoEntry",
+    "oid": "1.3.6.1.4.1.7309.5.1.100.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerExtInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "controllerExtInfoIndex": {
+    "name": "controllerExtInfoIndex",
+    "oid": "1.3.6.1.4.1.7309.5.1.100.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "controllerExtInfoName": {
+    "name": "controllerExtInfoName",
+    "oid": "1.3.6.1.4.1.7309.5.1.100.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerExtInfoStringValue": {
+    "name": "controllerExtInfoStringValue",
+    "oid": "1.3.6.1.4.1.7309.5.1.100.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerExtInfoUnit": {
+    "name": "controllerExtInfoUnit",
+    "oid": "1.3.6.1.4.1.7309.5.1.100.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "controllerExtInfoNumberValue": {
+    "name": "controllerExtInfoNumberValue",
+    "oid": "1.3.6.1.4.1.7309.5.1.100.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentList": {
+    "name": "componentList",
+    "oid": "1.3.6.1.4.1.7309.5.2.1",
+    "class": "objectidentity"
+  },
+  "componentListCount": {
+    "name": "componentListCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentListTable": {
+    "name": "componentListTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "componentListEntry": {
+    "name": "componentListEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "componentListReference": {
+    "name": "componentListReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "componentListStaticName": {
+    "name": "componentListStaticName",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentListConfiguredName": {
+    "name": "componentListConfiguredName",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "componentListType": {
+    "name": "componentListType",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "componentListModelNumber": {
+    "name": "componentListModelNumber",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentListSerialNumber": {
+    "name": "componentListSerialNumber",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "componentListSystemPointer": {
+    "name": "componentListSystemPointer",
+    "oid": "1.3.6.1.4.1.7309.5.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataList": {
+    "name": "dataList",
+    "oid": "1.3.6.1.4.1.7309.5.2.2",
+    "class": "objectidentity"
+  },
+  "dataListCount": {
+    "name": "dataListCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataListTable": {
+    "name": "dataListTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataListEntry": {
+    "name": "dataListEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataListReference": {
+    "name": "dataListReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataListName": {
+    "name": "dataListName",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dataListType": {
+    "name": "dataListType",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataListUnit": {
+    "name": "dataListUnit",
+    "oid": "1.3.6.1.4.1.7309.5.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "data": {
+    "name": "data",
+    "oid": "1.3.6.1.4.1.7309.5.2.3",
+    "class": "objectidentity"
+  },
+  "dataCount": {
+    "name": "dataCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataTable": {
+    "name": "dataTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataEntry": {
+    "name": "dataEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataListReference",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dataReference": {
+    "name": "dataReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dataNumberValue": {
+    "name": "dataNumberValue",
+    "oid": "1.3.6.1.4.1.7309.5.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataStringValue": {
+    "name": "dataStringValue",
+    "oid": "1.3.6.1.4.1.7309.5.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationList": {
+    "name": "configurationList",
+    "oid": "1.3.6.1.4.1.7309.5.2.4",
+    "class": "objectidentity"
+  },
+  "configurationListCount": {
+    "name": "configurationListCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationListTable": {
+    "name": "configurationListTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configurationListEntry": {
+    "name": "configurationListEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "configurationListReference": {
+    "name": "configurationListReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configurationListName": {
+    "name": "configurationListName",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationListType": {
+    "name": "configurationListType",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationListUnit": {
+    "name": "configurationListUnit",
+    "oid": "1.3.6.1.4.1.7309.5.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configuration": {
+    "name": "configuration",
+    "oid": "1.3.6.1.4.1.7309.5.2.5",
+    "class": "objectidentity"
+  },
+  "configurationCount": {
+    "name": "configurationCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationTable": {
+    "name": "configurationTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configurationEntry": {
+    "name": "configurationEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationListReference",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "configurationReference": {
+    "name": "configurationReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configurationNumberValue": {
+    "name": "configurationNumberValue",
+    "oid": "1.3.6.1.4.1.7309.5.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configurationStringValue": {
+    "name": "configurationStringValue",
+    "oid": "1.3.6.1.4.1.7309.5.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commandList": {
+    "name": "commandList",
+    "oid": "1.3.6.1.4.1.7309.5.2.6",
+    "class": "objectidentity"
+  },
+  "commandListCount": {
+    "name": "commandListCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commandListTable": {
+    "name": "commandListTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commandListEntry": {
+    "name": "commandListEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "commandListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commandListReference": {
+    "name": "commandListReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commandListName": {
+    "name": "commandListName",
+    "oid": "1.3.6.1.4.1.7309.5.2.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "command": {
+    "name": "command",
+    "oid": "1.3.6.1.4.1.7309.5.2.7",
+    "class": "objectidentity"
+  },
+  "commandCount": {
+    "name": "commandCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commandTable": {
+    "name": "commandTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commandEntry": {
+    "name": "commandEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "commandListReference",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commandReference": {
+    "name": "commandReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commandTrigger": {
+    "name": "commandTrigger",
+    "oid": "1.3.6.1.4.1.7309.5.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alarmType": {
+    "name": "alarmType",
+    "oid": "1.3.6.1.4.1.7309.5.2.8",
+    "class": "objectidentity"
+  },
+  "alarmTypeCount": {
+    "name": "alarmTypeCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmTypeTable": {
+    "name": "alarmTypeTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmTypeEntry": {
+    "name": "alarmTypeEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alarmTypeReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmTypeReference": {
+    "name": "alarmTypeReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmTypeName": {
+    "name": "alarmTypeName",
+    "oid": "1.3.6.1.4.1.7309.5.2.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarm": {
+    "name": "alarm",
+    "oid": "1.3.6.1.4.1.7309.5.2.9",
+    "class": "objectidentity"
+  },
+  "alarmCount": {
+    "name": "alarmCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmTable": {
+    "name": "alarmTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmEntry": {
+    "name": "alarmEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alarmTypeReference",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmState": {
+    "name": "alarmState",
+    "oid": "1.3.6.1.4.1.7309.5.2.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alert": {
+    "name": "alert",
+    "oid": "1.3.6.1.4.1.7309.5.2.10",
+    "class": "objectidentity"
+  },
+  "alertCount": {
+    "name": "alertCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alertTable": {
+    "name": "alertTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alertEntry": {
+    "name": "alertEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alertTypeName": {
+    "name": "alertTypeName",
+    "oid": "1.3.6.1.4.1.7309.5.2.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationChoiceList": {
+    "name": "configurationChoiceList",
+    "oid": "1.3.6.1.4.1.7309.5.2.11",
+    "class": "objectidentity"
+  },
+  "configurationChoiceListCount": {
+    "name": "configurationChoiceListCount",
+    "oid": "1.3.6.1.4.1.7309.5.2.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationChoiceListTable": {
+    "name": "configurationChoiceListTable",
+    "oid": "1.3.6.1.4.1.7309.5.2.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configurationChoiceListEntry": {
+    "name": "configurationChoiceListEntry",
+    "oid": "1.3.6.1.4.1.7309.5.2.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListType",
+        "implied": 0
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationChoiceListReference",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "configurationChoiceListReference": {
+    "name": "configurationChoiceListReference",
+    "oid": "1.3.6.1.4.1.7309.5.2.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "configurationChoiceListIndex": {
+    "name": "configurationChoiceListIndex",
+    "oid": "1.3.6.1.4.1.7309.5.2.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "configurationChoiceListName": {
+    "name": "configurationChoiceListName",
+    "oid": "1.3.6.1.4.1.7309.5.2.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "resourceConformance": {
+    "name": "resourceConformance",
+    "oid": "1.3.6.1.4.1.7309.5.2.100",
+    "class": "objectidentity"
+  },
+  "resourceCompliances": {
+    "name": "resourceCompliances",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1",
+    "class": "objectidentity"
+  },
+  "resourceCompliance": {
+    "name": "resourceCompliance",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alphaControllerGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaComponentGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaDataTypeGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaDataGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaConfigurationTypeGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaConfigurationGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaCommandTypeGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaCommandGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaAlarmGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaAlertGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      },
+      {
+        "object": "alphaConfigurationChoicesGroup",
+        "module": "ALPHA-RESOURCE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "resourceGroups": {
+    "name": "resourceGroups",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2",
+    "class": "objectidentity"
+  },
+  "alphaControllerGroup": {
+    "name": "alphaControllerGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoDescription"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoSoftwareVersion"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoOperatingSystemVersion"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerInfoHardwareVersion"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerExtInfoName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerExtInfoStringValue"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerExtInfoUnit"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "controllerExtInfoNumberValue"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaComponentGroup": {
+    "name": "alphaComponentGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListStaticName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListConfiguredName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListModelNumber"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListSerialNumber"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "componentListSystemPointer"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaDataTypeGroup": {
+    "name": "alphaDataTypeGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataListCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataListName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataListUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaDataGroup": {
+    "name": "alphaDataGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataNumberValue"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "dataStringValue"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaConfigurationTypeGroup": {
+    "name": "alphaConfigurationTypeGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationListCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationListName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationListType"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationListUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaConfigurationGroup": {
+    "name": "alphaConfigurationGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationStringValue"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationNumberValue"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaCommandTypeGroup": {
+    "name": "alphaCommandTypeGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "commandListCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "commandListName"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaCommandGroup": {
+    "name": "alphaCommandGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "commandCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "commandTrigger"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaAlarmGroup": {
+    "name": "alphaAlarmGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alarmTypeCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alarmTypeName"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alarmCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alarmState"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaAlertGroup": {
+    "name": "alphaAlertGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alertCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "alertTypeName"
+      }
+    ],
+    "status": "current"
+  },
+  "alphaConfigurationChoicesGroup": {
+    "name": "alphaConfigurationChoicesGroup",
+    "oid": "1.3.6.1.4.1.7309.5.2.100.1.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationChoiceListCount"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationChoiceListIndex"
+      },
+      {
+        "module": "ALPHA-RESOURCE-MIB",
+        "object": "configurationChoiceListName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/ALPHA-RESOURCE-MIB",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:08:00 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "ALPHA-RESOURCE-MIB"
+  }
+}

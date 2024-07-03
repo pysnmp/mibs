@@ -1,0 +1,63 @@
+#
+# PySNMP MIB module ALPHA-CONVERTER-SYS-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/ALPHA-CONVERTER-SYS-MIB
+# Produced by pysmi-1.1.12 at Wed Jul  3 09:07:58 2024
+# On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner
+# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+#
+ScaledNumber, simple = mibBuilder.importSymbols("ALPHA-RESOURCE-MIB", "ScaledNumber", "simple")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter64, ObjectIdentity, Counter32, Integer32, Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, iso, TimeTicks, Unsigned32, ModuleIdentity, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "Counter32", "Integer32", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "iso", "TimeTicks", "Unsigned32", "ModuleIdentity", "IpAddress", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+converterSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2))
+converterSystem.setRevisions(('2015-07-28 00:00', '2015-07-23 00:00', '2015-06-23 00:00',))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    if mibBuilder.loadTexts: converterSystem.setRevisionsDescriptions(('\n\t\t\tUpdated to follow MIB structure conformance rules.  Tested with \n\t\t\tSimpleWeb: http://www.simpleweb.org      \n\t\t\tPassed highest level of compliance.  (level 6)\n\t\t\t', 'Fixed MIB syntax warnings.', 'General revision.',))
+if mibBuilder.loadTexts: converterSystem.setLastUpdated('201507280000Z')
+if mibBuilder.loadTexts: converterSystem.setOrganization('Alpha Technologies Ltd.')
+if mibBuilder.loadTexts: converterSystem.setContactInfo('Alpha Technologies Ltd.\n\t\t\t  7700 Riverfront Gate\n\t\t\t  Burnaby, BC  V5J 5M4\n\t\t\t  Canada\n\n\t\t\t  Tel: 1-604-436-5900\n\t\t\t  Fax: 1-604-436-1233')
+if mibBuilder.loadTexts: converterSystem.setDescription('This MIB defines the notification block(s) available in system controllers.')
+convSysTotalOutputCurrent = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 1), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysTotalOutputCurrent.setStatus('current')
+if mibBuilder.loadTexts: convSysTotalOutputCurrent.setDescription('Total converter output current in AMPS.')
+convSysTotalOutputPower = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 2), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysTotalOutputPower.setStatus('current')
+if mibBuilder.loadTexts: convSysTotalOutputPower.setDescription('Total converter output power in WATTS.')
+convSysTotalCapacityInstalledAmps = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 3), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysTotalCapacityInstalledAmps.setStatus('current')
+if mibBuilder.loadTexts: convSysTotalCapacityInstalledAmps.setDescription('A converter output current multiplied by the number of converters installed.')
+convSysTotalCapacityInstalledPower = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 4), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysTotalCapacityInstalledPower.setStatus('current')
+if mibBuilder.loadTexts: convSysTotalCapacityInstalledPower.setDescription('A converter output power multiplied by the number of converters installed.')
+convSysAverageConverterOutputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 5), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysAverageConverterOutputVoltage.setStatus('current')
+if mibBuilder.loadTexts: convSysAverageConverterOutputVoltage.setDescription('Average converter output voltage.')
+convSysAverageConverterInputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 6), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysAverageConverterInputVoltage.setStatus('current')
+if mibBuilder.loadTexts: convSysAverageConverterInputVoltage.setDescription('Average input voltage supplied to the converters.')
+convSysSystemVoltage = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 7), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysSystemVoltage.setStatus('current')
+if mibBuilder.loadTexts: convSysSystemVoltage.setDescription('System voltage.')
+convSysTotalLoadCurrent = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 8), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysTotalLoadCurrent.setStatus('current')
+if mibBuilder.loadTexts: convSysTotalLoadCurrent.setDescription('Total load current.')
+convSysSystemNumber = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 9), ScaledNumber()).setMaxAccess("readonly")
+if mibBuilder.loadTexts: convSysSystemNumber.setStatus('current')
+if mibBuilder.loadTexts: convSysSystemNumber.setDescription('Snmp ID# assigned to the system.')
+conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 100))
+compliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 100, 1))
+compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 100, 1, 1)).setObjects(("ALPHA-CONVERTER-SYS-MIB", "converterGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    compliance = compliance.setStatus('current')
+if mibBuilder.loadTexts: compliance.setDescription('The compliance statement for systems supporting the Alpha Converter System MIB.')
+converterGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 100, 2))
+converterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7309, 5, 3, 2, 100, 2, 1)).setObjects(("ALPHA-CONVERTER-SYS-MIB", "convSysTotalOutputCurrent"), ("ALPHA-CONVERTER-SYS-MIB", "convSysTotalOutputPower"), ("ALPHA-CONVERTER-SYS-MIB", "convSysTotalCapacityInstalledAmps"), ("ALPHA-CONVERTER-SYS-MIB", "convSysTotalCapacityInstalledPower"), ("ALPHA-CONVERTER-SYS-MIB", "convSysAverageConverterOutputVoltage"), ("ALPHA-CONVERTER-SYS-MIB", "convSysAverageConverterInputVoltage"), ("ALPHA-CONVERTER-SYS-MIB", "convSysSystemVoltage"), ("ALPHA-CONVERTER-SYS-MIB", "convSysTotalLoadCurrent"), ("ALPHA-CONVERTER-SYS-MIB", "convSysSystemNumber"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    converterGroup = converterGroup.setStatus('current')
+if mibBuilder.loadTexts: converterGroup.setDescription('Alpha converter System data list group.')
+mibBuilder.exportSymbols("ALPHA-CONVERTER-SYS-MIB", converterGroup=converterGroup, convSysTotalCapacityInstalledAmps=convSysTotalCapacityInstalledAmps, convSysAverageConverterInputVoltage=convSysAverageConverterInputVoltage, convSysTotalOutputCurrent=convSysTotalOutputCurrent, convSysAverageConverterOutputVoltage=convSysAverageConverterOutputVoltage, convSysTotalOutputPower=convSysTotalOutputPower, compliances=compliances, compliance=compliance, convSysTotalCapacityInstalledPower=convSysTotalCapacityInstalledPower, convSysSystemVoltage=convSysSystemVoltage, convSysTotalLoadCurrent=convSysTotalLoadCurrent, convSysSystemNumber=convSysSystemNumber, converterGroups=converterGroups, converterSystem=converterSystem, conformance=conformance, PYSNMP_MODULE_ID=converterSystem)

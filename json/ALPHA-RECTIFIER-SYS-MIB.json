@@ -1,0 +1,809 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALPHA-RESOURCE-MIB": [
+      "ScaledNumber",
+      "simple"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter32",
+      "Counter64",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rectifierSystem": {
+    "name": "rectifierSystem",
+    "oid": "1.3.6.1.4.1.7309.5.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-12-12 00:00",
+        "description": " Added fields for statistic counters for various rectifier states. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2017-04-06 00:00",
+        "description": " Added fields for power save and some battery fields. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-07-28 00:00",
+        "description": " Updated to follow MIB structure conformance rules. Tested with SimpleWeb: http://www.simpleweb.org Passed highest level of compliance. (level 6) "
+      },
+      {
+        "revision": "2015-07-23 00:00",
+        "description": "Fixed MIB syntax warnings."
+      },
+      {
+        "revision": "2015-06-23 00:00",
+        "description": "General revision."
+      }
+    ]
+  },
+  "rectSysTotalOutputCurrent": {
+    "name": "rectSysTotalOutputCurrent",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysTotalOutputPower": {
+    "name": "rectSysTotalOutputPower",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysTotalCapacityInstalledAmps": {
+    "name": "rectSysTotalCapacityInstalledAmps",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysTotalCapacityInstalledPower": {
+    "name": "rectSysTotalCapacityInstalledPower",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysAverageRectifierOutputVoltage": {
+    "name": "rectSysAverageRectifierOutputVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysAverageRectifierACInputVoltage": {
+    "name": "rectSysAverageRectifierACInputVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysAveragePhase1Voltage": {
+    "name": "rectSysAveragePhase1Voltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysAveragePhase2Voltage": {
+    "name": "rectSysAveragePhase2Voltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysAveragePhase3Voltage": {
+    "name": "rectSysAveragePhase3Voltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysSystemVoltage": {
+    "name": "rectSysSystemVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysTotalLoadCurrent": {
+    "name": "rectSysTotalLoadCurrent",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysBatteryVoltage": {
+    "name": "rectSysBatteryVoltage",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysBatteryCurrent": {
+    "name": "rectSysBatteryCurrent",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysBatteryTemperature": {
+    "name": "rectSysBatteryTemperature",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysSystemNumber": {
+    "name": "rectSysSystemNumber",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedRequiredCapacityInWatts": {
+    "name": "rectSysEstimatedRequiredCapacityInWatts",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedRequiredCapacityInAmps": {
+    "name": "rectSysEstimatedRequiredCapacityInAmps",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedAvailableCapacityInWatts": {
+    "name": "rectSysEstimatedAvailableCapacityInWatts",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedAvailableCapacityInAmps": {
+    "name": "rectSysEstimatedAvailableCapacityInAmps",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedRedundantCapacityInWatts": {
+    "name": "rectSysEstimatedRedundantCapacityInWatts",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedRedundantCapacityInAmps": {
+    "name": "rectSysEstimatedRedundantCapacityInAmps",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedStandbyCapacityInWatts": {
+    "name": "rectSysEstimatedStandbyCapacityInWatts",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedStandbyCapacityInAmps": {
+    "name": "rectSysEstimatedStandbyCapacityInAmps",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysPowerAveragePower": {
+    "name": "rectSysPowerAveragePower",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysModulesSupplyingPower": {
+    "name": "rectSysModulesSupplyingPower",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysModulesInStandby": {
+    "name": "rectSysModulesInStandby",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedCapacityRemainingCurrent": {
+    "name": "rectSysEstimatedCapacityRemainingCurrent",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedCapacityRemainingPower": {
+    "name": "rectSysEstimatedCapacityRemainingPower",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedSOCPercent": {
+    "name": "rectSysEstimatedSOCPercent",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedBatteryRuntime": {
+    "name": "rectSysEstimatedBatteryRuntime",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectSysEstimatedBatteryHealthPercent": {
+    "name": "rectSysEstimatedBatteryHealthPercent",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfAcquiredRectifiers": {
+    "name": "rectNumberOfAcquiredRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfSourcingRectifiers": {
+    "name": "rectNumberOfSourcingRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfFailedRectifiers": {
+    "name": "rectNumberOfFailedRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfMinorAlertRectifiers": {
+    "name": "rectNumberOfMinorAlertRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfCommsLostRectifiers": {
+    "name": "rectNumberOfCommsLostRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfCommsNormalRectifiers": {
+    "name": "rectNumberOfCommsNormalRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfACFailedRectifiers": {
+    "name": "rectNumberOfACFailedRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfRectifiersWithConfigError": {
+    "name": "rectNumberOfRectifiersWithConfigError",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfRectifiersInPowerLimit": {
+    "name": "rectNumberOfRectifiersInPowerLimit",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfRectifiersInCurrentLimit": {
+    "name": "rectNumberOfRectifiersInCurrentLimit",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfFanFailRectifiers": {
+    "name": "rectNumberOfFanFailRectifiers",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectNumberOfRectifiersInBootloader": {
+    "name": "rectNumberOfRectifiersInBootloader",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rectMaxRectifierAmbientTemperature": {
+    "name": "rectMaxRectifierAmbientTemperature",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScaledNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "conformance": {
+    "name": "conformance",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.100",
+    "class": "objectidentity"
+  },
+  "compliances": {
+    "name": "compliances",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.100.1",
+    "class": "objectidentity"
+  },
+  "compliance": {
+    "name": "compliance",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.100.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rectifierGroup",
+        "module": "ALPHA-RECTIFIER-SYS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rectifierGroups": {
+    "name": "rectifierGroups",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.100.2",
+    "class": "objectidentity"
+  },
+  "rectifierGroup": {
+    "name": "rectifierGroup",
+    "oid": "1.3.6.1.4.1.7309.5.3.1.100.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysTotalOutputCurrent"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysTotalOutputPower"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysTotalCapacityInstalledAmps"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysTotalCapacityInstalledPower"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysAverageRectifierOutputVoltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysAverageRectifierACInputVoltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysAveragePhase1Voltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysAveragePhase2Voltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysAveragePhase3Voltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysSystemVoltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysTotalLoadCurrent"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysBatteryVoltage"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysBatteryCurrent"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysBatteryTemperature"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysSystemNumber"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedRequiredCapacityInWatts"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedRequiredCapacityInAmps"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedAvailableCapacityInWatts"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedAvailableCapacityInAmps"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedRedundantCapacityInWatts"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedRedundantCapacityInAmps"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedStandbyCapacityInWatts"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedStandbyCapacityInAmps"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysPowerAveragePower"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysModulesSupplyingPower"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysModulesInStandby"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedCapacityRemainingCurrent"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedCapacityRemainingPower"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedSOCPercent"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedBatteryRuntime"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectSysEstimatedBatteryHealthPercent"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfAcquiredRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfSourcingRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfFailedRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfMinorAlertRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfCommsLostRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfCommsNormalRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfACFailedRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfRectifiersWithConfigError"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfRectifiersInPowerLimit"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfRectifiersInCurrentLimit"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfFanFailRectifiers"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectNumberOfRectifiersInBootloader"
+      },
+      {
+        "module": "ALPHA-RECTIFIER-SYS-MIB",
+        "object": "rectMaxRectifierAmbientTemperature"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/ALPHA-RECTIFIER-SYS-MIB",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:08:00 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "ALPHA-RECTIFIER-SYS-MIB"
+  }
+}

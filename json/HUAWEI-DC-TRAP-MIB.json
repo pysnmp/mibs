@@ -12,29 +12,29 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
+      "IpAddress",
       "Counter64",
       "Bits",
-      "MibIdentifier",
-      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwDCTrapMIB": {
@@ -2234,8 +2234,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-DC-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:14:53 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:13:10 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-DC-TRAP-MIB"

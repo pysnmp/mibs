@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "EPON-EOC-MIB": [
-      "OperSwitch",
-      "DeviceOperation",
       "DeviceStatus",
+      "OperSwitch",
       "DeviceType",
+      "DeviceOperation",
       "epon"
     ],
     "FD-OLT-MIB": [
-      "oltId",
-      "linkId"
+      "linkId",
+      "oltId"
     ],
     "FD-SYSTEM-MIB": [
       "ponCardSlotId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "TimeTicks"
+      "Counter64",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -5389,8 +5389,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-ONU-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:10:47 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:09:04 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "FD-ONU-MIB"

@@ -5,25 +5,25 @@
       "hwBRASMib"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "Bits",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
       "Integer32",
-      "Unsigned32"
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -325,8 +325,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-MULTICAST-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul  1 11:14:54 2024",
-      "On host fv-az1493-704 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 09:13:11 2024",
+      "On host fv-az2021-432 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-BRAS-MULTICAST-MIB"
