@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "enterprises",
+      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "enterprises",
       "Counter64",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "IpAddress",
+      "iso",
       "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "resources": {
@@ -525,8 +525,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FROGFOOT-RESOURCES-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 10:42:18 2024",
-      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 11:59:22 2024",
+      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "FROGFOOT-RESOURCES-MIB"

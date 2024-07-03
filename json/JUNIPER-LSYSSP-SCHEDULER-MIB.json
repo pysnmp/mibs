@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
+      "Unsigned32",
       "IpAddress",
-      "Counter32",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "iso"
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -246,8 +246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-LSYSSP-SCHEDULER-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 10:49:15 2024",
-      "On host fv-az1251-584 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Jul  3 12:06:27 2024",
+      "On host fv-az768-763 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-LSYSSP-SCHEDULER-MIB"
