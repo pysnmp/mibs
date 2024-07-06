@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
       "Gauge32",
-      "enterprises",
-      "OBJECT-TYPE",
+      "Bits",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Bits",
-      "iso",
-      "IpAddress",
       "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Unsigned32",
+      "iso",
       "Counter64",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "jdsuRoot": {
@@ -115,8 +115,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jds/JDSU-SMI-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:37 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:11:02 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "JDSU-SMI-MIB"

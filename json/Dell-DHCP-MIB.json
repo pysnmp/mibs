@@ -3,9 +3,9 @@
     "class": "imports",
     "Dell-BRIDGEMIBOBJECTS-MIB": [
       "VlanList1",
-      "VlanList2",
       "VlanList3",
-      "VlanList4"
+      "VlanList4",
+      "VlanList2"
     ],
     "Dell-MIB": [
       "rnd"
@@ -17,30 +17,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
       "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsDHCP": {
@@ -1609,8 +1609,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DHCP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:28:17 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:07:40 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Dell-DHCP-MIB"

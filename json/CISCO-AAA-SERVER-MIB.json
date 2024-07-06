@@ -10,27 +10,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "MibIdentifier",
       "Counter32",
       "Counter64",
-      "Bits",
       "Unsigned32",
-      "iso",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Integer32",
+      "IpAddress",
       "Gauge32",
-      "MibIdentifier",
+      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "IpAddress"
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoAAAServerMIB": {
@@ -882,8 +882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-AAA-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:16 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:10:41 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-AAA-SERVER-MIB"

@@ -7,20 +7,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "enterprises",
       "OBJECT-IDENTITY",
+      "Integer32",
       "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "Counter32",
-      "Bits",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "Integer32",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
       "Gauge32"
     ],
     "SNMPv2-TC": [
@@ -14616,8 +14616,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dantel/WEBMON-EDGE-MATRIX-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:27:35 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:06:58 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "WEBMON-EDGE-MATRIX-MIB"

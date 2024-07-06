@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,38 +18,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
       "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "iso",
+      "Unsigned32",
       "enterprises",
       "mib-2",
-      "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32"
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "TestAndIncr",
-      "DisplayString",
-      "AutonomousType",
       "TruthValue",
-      "RowStatus",
       "TimeStamp",
+      "AutonomousType",
+      "DisplayString",
+      "RowStatus",
       "DateAndTime",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
       "MacAddress"
     ],
     "VRRP-MIB": [
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:29:51 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:09:16 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

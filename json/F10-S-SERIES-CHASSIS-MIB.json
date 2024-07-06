@@ -3,9 +3,9 @@
     "class": "imports",
     "F10-CHASSIS-MIB": [
       "chAlarmVarString",
-      "chAlarmVarInteger",
       "chAlarmVarPort",
-      "chAlarmVarSlot"
+      "chAlarmVarSlot",
+      "chAlarmVarInteger"
     ],
     "FORCE10-SMI": [
       "f10Mgmt"
@@ -13,38 +13,38 @@
     "FORCE10-TC": [
       "F10SwDate",
       "F10ProcessorModuleType",
-      "F10ChassisType",
       "F10HundredthdB",
+      "F10SSeriesPortType",
       "F10MfgDate",
-      "F10SSeriesPortType"
+      "F10ChassisType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Bits",
-      "Counter64",
+      "iso",
+      "IpAddress",
+      "Gauge32",
       "TimeTicks",
       "Counter32",
-      "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DateAndTime",
-      "MacAddress"
+      "DateAndTime"
     ]
   },
   "f10SSerChassisMib": {
@@ -2028,8 +2028,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/F10-S-SERIES-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:28:17 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:07:40 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F10-S-SERIES-CHASSIS-MIB"

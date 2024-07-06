@@ -6,8 +6,8 @@
       "cLApDot11IfSlotId"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLDot11RfParamMode",
-      "CLDot11Channel"
+      "CLDot11Channel",
+      "CLDot11RfParamMode"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,26 +18,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
       "Unsigned32",
       "OBJECT-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "MibIdentifier",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLwappClRoamMIB": {
@@ -982,8 +982,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-CLIENT-ROAMING-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:14 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:10:38 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-CLIENT-ROAMING-MIB"

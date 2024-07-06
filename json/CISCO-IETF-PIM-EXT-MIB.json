@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IETF-PIM-MIB": [
-      "cPimCRPEntry",
-      "cPimIfEntry",
+      "cPimNbrAddress",
+      "cPimNbrEntry",
       "cPimIfStatus",
-      "cPimNbrAddressType",
+      "cPimNbrIfIndex",
       "cPimInetMRouteEntry",
       "cPimInetMRouteNextHopEntry",
-      "cPimNbrIfIndex",
-      "cPimNbrEntry",
-      "cPimNbrAddress"
+      "cPimIfEntry",
+      "cPimNbrAddressType",
+      "cPimCRPEntry"
     ],
     "CISCO-PIM-MIB": [
       "cpimRPMappingChangeType"
@@ -26,8 +26,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -35,25 +35,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
+      "MibIdentifier",
       "Counter32",
       "Counter64",
-      "Bits",
       "Unsigned32",
-      "iso",
       "OBJECT-IDENTITY",
-      "Integer32",
       "Gauge32",
-      "MibIdentifier",
+      "Bits",
+      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoIetfPimExtMIB": {
@@ -1882,8 +1882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PIM-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:31:11 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:10:36 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-PIM-EXT-MIB"

@@ -5,13 +5,13 @@
       "Dscp"
     ],
     "LLDP-MIB": [
-      "lldpExtensions",
-      "lldpRemChassisIdSubtype",
+      "lldpLocPortNum",
+      "lldpRemIndex",
       "lldpRemLocalPortNum",
       "lldpRemChassisId",
-      "lldpRemIndex",
+      "lldpRemChassisIdSubtype",
+      "lldpExtensions",
       "lldpRemTimeMark",
-      "lldpLocPortNum",
       "lldpPortConfigEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -23,24 +23,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "Integer32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -1765,8 +1765,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/tia/LLDP-EXT-MED-MIB",
-      "Produced by pysmi-1.1.12 at Wed Jul  3 13:25:10 2024",
-      "On host fv-az693-695 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Sat Jul  6 01:04:32 2024",
+      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-MED-MIB"
