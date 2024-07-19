@@ -6,51 +6,51 @@
       "IndexInteger"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
+      "InetPortNumber",
       "InetAddressPrefixLength",
-      "InetPortNumber"
+      "InetAddressType"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
+      "MplsLsrIdentifier",
       "MplsLdpIdentifier",
       "MplsRetentionMode",
       "MplsLdpLabelType",
-      "MplsLspType",
       "mplsStdMIB",
       "MplsLabelDistributionMethod",
-      "MplsLsrIdentifier"
+      "MplsLspType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Unsigned32",
-      "IpAddress",
       "Counter32",
-      "Integer32",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "iso",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "TimeInterval",
+      "StorageType",
+      "DisplayString",
       "TruthValue",
       "RowStatus",
-      "DisplayString",
-      "StorageType",
+      "TimeInterval",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2173,8 +2173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-LDP-STD-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 13:03:54 2024",
-      "On host fv-az1788-365 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 13:07:39 2024",
+      "On host fv-az1144-364 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MPLS-LDP-STD-MIB"
