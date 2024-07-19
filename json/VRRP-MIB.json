@@ -5,40 +5,40 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "iso",
+      "Integer32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "Unsigned32",
       "IpAddress",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "TimeInterval",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "TruthValue",
-      "StorageType",
-      "TimeInterval"
+      "DisplayString",
+      "StorageType"
     ]
   },
   "vrrpMIB": {
@@ -1768,8 +1768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/VRRP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 12:50:32 2024",
-      "On host fv-az1040-741 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 13:01:05 2024",
+      "On host fv-az1532-428 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "VRRP-MIB"
