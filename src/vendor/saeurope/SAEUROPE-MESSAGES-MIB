@@ -1,0 +1,421 @@
+--  **************************************************************************
+--  File SA_EUROPE_Messages_SMIv2.mib
+--
+--  Copyright (c) 2002-2005 by Scientific-Atlanta Europe nv
+--
+--  This document (SNMP MIB file) is the intellectual property of 
+--  Scientific Atlanta Europe nv and contains confidential information. 
+--  All reproduction and communication to third parties is strictly prohibited
+--  without prior consent of Scientific-Atlanta Europe nv.
+--
+--  **************************************************************************
+
+
+SAEUROPE-MESSAGES-MIB    
+
+DEFINITIONS ::= BEGIN
+
+IMPORTS 
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32
+        FROM SNMPv2-SMI
+    OBJECT-GROUP
+        FROM SNMPv2-CONF   
+    MODULE-COMPLIANCE
+        FROM SNMPv2-CONF
+    DisplayString
+        FROM SNMPv2-TC
+    messages, messagesMIBGroups 
+        FROM SAEUROPE-ROOT-MIB;
+
+saEuropeMessages 
+    MODULE-IDENTITY
+
+    LAST-UPDATED "201511101300Z"    
+
+		ORGANIZATION 
+				"Synamedia"
+		CONTACT-INFO 
+				"https://www.synamedia.com/video-professional-services/"
+
+    DESCRIPTION
+        "MIB for SA Europe Messages"
+
+		REVISION "201511101300Z"		-- November 10, 2015 at 13:00 GMT
+		DESCRIPTION 
+				"Updated contact info." 
+
+    REVISION     "200509070900Z"
+    DESCRIPTION
+        "V01.01.00
+         Added columns for physical entity, stream network port IP
+         address and stream UDP port. Elaborated comments."
+        
+    REVISION     "200211301400Z"
+    DESCRIPTION
+        "V01.00.03       
+         Initial version of the SA Europe Messages MIB.
+         Changes to MIB name and OID names, contents of the MIB are 
+         the same as BarcoNet Messages MIB V01.00.02."
+
+    REVISION     "200207011730Z"
+    DESCRIPTION
+        "V01.00.02       
+         msgNewestNumber added to messagesObjectGroup.
+         Small editorial changes."
+
+    REVISION     "200206211330Z"
+    DESCRIPTION
+        "V01.00.01       
+         messagesObjectGroup is chosen as mandatory group."
+
+    REVISION     "200108311330Z"
+    DESCRIPTION
+        "V01.00.00       
+         Initial version of the Messages MIB"
+
+::= { messages 1 }
+
+-- ***************************************************************************
+-- messages sub-tree
+--
+--
+--
+--
+-- ***************************************************************************
+
+msgOldestNumber OBJECT-TYPE
+    SYNTAX      Integer32 (1..32767)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The oldest sequence number of the messages in the message buffer."
+    ::= { saEuropeMessages 1 }
+
+msgNewestNumber OBJECT-TYPE
+    SYNTAX      Integer32 (1..32767)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The most recent sequence number of the messages in the message buffer."
+    ::= { saEuropeMessages 2 }
+
+msgMaxSequenceNumber    OBJECT-TYPE
+    SYNTAX      Integer32 (1..32767)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "The largest sequence number that can be used for the messages in the
+         message buffer. After this the message numbers wrap around."
+    ::= { saEuropeMessages 3 }
+
+messageTable OBJECT-TYPE
+  SYNTAX      SEQUENCE OF MessageEntry
+  MAX-ACCESS  not-accessible
+  STATUS      current
+  DESCRIPTION
+      "A list of message entries. "
+  ::= { saEuropeMessages 4 }
+
+messageEntry OBJECT-TYPE
+  SYNTAX      MessageEntry
+  MAX-ACCESS  not-accessible
+  STATUS      current
+  DESCRIPTION 
+      "A message entry holding a message." 
+  INDEX   { msgSequenceNumber }
+  ::= { messageTable 1 }
+
+MessageEntry ::=
+  SEQUENCE {
+              msgSequenceNumber
+                Integer32,
+              msgId 
+                Integer32,
+              msgSourceName
+                DisplayString,
+              msgText
+                DisplayString,
+              msgSubject
+                DisplayString,
+              msgGenerationTime
+                DisplayString,
+              msgBehaviour
+                INTEGER,
+              msgClass
+                INTEGER,
+              msgSubClass
+                Integer32,
+              msgSubClassNbr
+                Integer32,
+              msgDetailPresent
+                OCTET STRING,
+              msgStatus
+                INTEGER ,
+              msgSeverity
+                INTEGER ,
+              msgDetail
+                OCTET STRING,
+              msgPhysicalEntity
+                OBJECT IDENTIFIER
+              }
+
+msgSequenceNumber   OBJECT-TYPE
+    SYNTAX      Integer32 (1..32767)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION 
+        "The message sequence number is a unique number to identify the
+         message in a message buffer."
+    ::=  { messageEntry 1 }
+
+msgId   OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This variable is a unique ID identifying the message. It may be
+         identical to the msgSequenceNumber, but does not have to."
+    ::= { messageEntry 2 }
+
+msgSourceName   OBJECT-TYPE
+    SYNTAX      DisplayString 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Name of the device that generated the message."
+    ::= { messageEntry 3 }
+
+msgText OBJECT-TYPE
+    SYNTAX      DisplayString 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Brief textual description of the type of message.
+         Example: 'Input Loss'."
+    ::= { messageEntry 4 }
+
+msgSubject  OBJECT-TYPE
+    SYNTAX      DisplayString 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Textual description of the alarm subject.
+         Example: 'Quad Input Processor 2B'."
+    ::= { messageEntry 5 }
+
+msgGenerationTime OBJECT-TYPE
+    SYNTAX      DisplayString 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Message generation time, specified in the timezone configured on
+         the device that sends this message. DST (daylight savings time)
+         must be taken into account. Format: YYYY/MM/DD HH:MM:SS"
+    ::= { messageEntry 6 }
+                 
+msgBehaviour    OBJECT-TYPE
+    SYNTAX  INTEGER {
+            notPending(0),
+            clearedByUser(1),
+            clearedBySystem(2)
+            }
+    MAX-ACCESS  read-only
+    STATUS  current
+    DESCRIPTION
+        "msgBehaviour defines whether an alarm status is associated with
+         the message being sent, and if so, whether the alarm status should
+         be reset by an operator (clearedbyUser) or by a subsequent message
+         (clearedBySystem)."
+    ::= { messageEntry 7 }
+
+msgClass    OBJECT-TYPE
+    SYNTAX  INTEGER {
+            communication(0),
+            quality(1),
+            processing(2),
+            equipment(3),
+            environmental(4),
+            indeterminate(5)
+            }
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "msgClass defines which aspect of the functionality of a device the
+         message pertains to."
+    ::= { messageEntry 8 }
+
+msgSubClass OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "msgSubClass defines more in detail to which aspect of a device the
+         message relates. Examples:
+         
+          0 -- communication
+          1 -- internal clock of the device
+          2 -- scheduling
+          3 -- external devices
+          8 -- measurement results
+          9 -- periodically reported messages
+         10 -- result of device action
+         11 -- result of operator action
+         12 -- alarm correlation
+         24 -- software
+         25 -- hardware
+         32 -- software
+         33 -- hardware
+         34 -- IIC bus
+         35 -- hardware fault
+         36 -- device status"
+    ::= { messageEntry 9 }
+
+msgSubClassNbr  OBJECT-TYPE
+    SYNTAX      Integer32 
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "msgSubClassNbr defines the message type, and is subordinate to
+         msgSubClass. Examples:                                            
+         
+         msgSubClass msgSubClassNbr Description
+               0           0        Communication -- test
+               0           1        Communication -- unit not responding
+               0          17        Communication -- scrambler channel error
+               1           0        Clock -- synchronization request
+               1           1        Clock -- failure
+               2           0        Scheduler -- started
+               2           1        Scheduler -- restarted
+               2           2        Scheduler -- stopped
+               
+         Please contact Synamedia for the complete list."
+    ::= { messageEntry 10 }
+
+msgDetailPresent    OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Indicates whether msgDetail should be interpreted or not. The bit
+         pattern 00000000 means that msgDetail should be ignored, and the
+         bit pattern 00000001 means that msgDetail contains meaningful
+         information."
+    ::= { messageEntry 11 }
+
+
+msgStatus   OBJECT-TYPE
+    SYNTAX  INTEGER {
+            open(0),
+            closed(1),
+            openMinorUpper(2),
+            openMinorLower(3),
+            openMajorUpper(4),
+            openMajorLower(5),
+            closedMinorUpper(6),
+            closedMinorLower(7),
+            closedMajorUpper(8),
+            closedMajorLower(9),
+            notDefined(10),
+            notValid(11)
+            }
+    MAX-ACCESS  read-only
+    STATUS  current
+    DESCRIPTION
+        "Defines the action on the pending status associated with the
+         message being sent."
+    ::= { messageEntry 12 }
+
+msgSeverity OBJECT-TYPE
+    SYNTAX  INTEGER {
+            indeterminate(0),
+            critical(1),
+            major(2),
+            minor(3),
+            warning(4),
+            cleared(5),
+            information(6)
+            }
+    MAX-ACCESS  read-only
+    STATUS  current
+    DESCRIPTION
+        "Message severity."
+    ::= { messageEntry 13 }
+
+msgDetail OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(320))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "Message detail. Values of parameters that help explaining the
+         message being sent can be specified in this text string."
+    ::= { messageEntry 14 }
+                                                                 
+msgPhysicalEntity OBJECT-TYPE
+    SYNTAX     OBJECT IDENTIFIER
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Physical entity this message is related to. This can be a board in
+         the device, a port on a board in the device, a temperature sensor
+         in the device, ... The object identifier refers to a row in the
+         entPhysicalTable of the ENTITY-MIB."
+    ::= { messageEntry 15 }
+                                                               
+
+-- ***************************************************************************
+-- messages sub-tree
+--
+--
+--
+--
+-- ***************************************************************************
+
+
+messagesModuleCompliance MODULE-COMPLIANCE
+    STATUS  current
+    DESCRIPTION
+        "The compliance statement for entities which
+         implement the SA Europe Messages MIB"
+    MODULE  MANDATORY-GROUPS
+        { 
+        messagesObjectGroup
+        }       
+    ::= { messagesMIBGroups 1 }
+
+messagesObjectGroup OBJECT-GROUP
+    OBJECTS {
+        msgOldestNumber, 
+        msgNewestNumber,
+        msgSourceName, 
+        msgMaxSequenceNumber,
+        msgId, 
+        msgSourceName, 
+        msgText, 
+        msgSubject,
+        msgGenerationTime,
+        msgBehaviour,
+        msgClass,
+        msgSubClass,
+        msgSubClassNbr,
+        msgDetailPresent,
+        msgStatus,
+        msgSeverity,
+        msgSequenceNumber,
+        msgDetail
+        }
+    STATUS  current
+    DESCRIPTION
+        "Mandatory objects for all devices implementing the
+         SA Europe messages MIB."
+    ::= { messagesMIBGroups 2 }
+                             
+msgPhysicalGroup OBJECT-GROUP
+    OBJECTS {
+        msgPhysicalEntity
+        }
+    STATUS  current
+    DESCRIPTION
+        "Objects related to physical entities."
+    ::= { messagesMIBGroups 3 }
+                             
+END
