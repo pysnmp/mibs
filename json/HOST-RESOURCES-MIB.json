@@ -10,28 +10,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Counter32",
-      "mib-2",
+      "IpAddress",
       "Gauge32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "mib-2",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "DisplayString",
+      "AutonomousType",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hostResourcesMibModule": {
@@ -1723,8 +1723,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/HOST-RESOURCES-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 13:10:42 2024",
-      "On host fv-az849-313 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 13:23:13 2024",
+      "On host fv-az2031-780 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HOST-RESOURCES-MIB"

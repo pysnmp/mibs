@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "MibIdentifier",
-      "transmission",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Gauge32",
       "Bits",
       "Counter32",
-      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "transmission",
+      "Gauge32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -440,8 +440,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-TC-STD-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 13:11:07 2024",
-      "On host fv-az849-313 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 13:23:39 2024",
+      "On host fv-az2031-780 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MPLS-TC-STD-MIB"
