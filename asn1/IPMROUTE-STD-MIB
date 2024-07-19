@@ -1,3 +1,15 @@
+-- *****************************************************************
+-- IPMROUTE-STD-MIB.my:  IPMROUTE STD MIB file
+--
+-- October 2000.
+--
+-- Copyright (c) 2000, 2001 by cisco Systems, Inc.
+-- All rights reserved.
+-- 
+-- *****************************************************************
+
+-- This mib was extracted from RFC 2932.
+
 IPMROUTE-STD-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -44,6 +56,9 @@ LanguageTag ::= TEXTUAL-CONVENTION
             "An RFC 1766-style language tag, with all alphabetic
             characters converted to lowercase.  This restriction is
             intended to make the lexical ordering imposed by SNMP useful
+
+
+
 
 
             when applied to language tags.  Note that it is
@@ -93,6 +108,9 @@ ipMRouteTable OBJECT-TYPE
             information for IP datagrams sent by particular sources to
             the IP multicast groups known to this router."
     ::= { ipMRoute 2 }
+
+
+
 
 
 
@@ -146,6 +164,9 @@ ipMRouteSource OBJECT-TYPE
     DESCRIPTION
 
 
+
+
+
             "The network address which when combined with the
             corresponding value of ipMRouteSourceMask identifies the
             sources for which this entry contains multicast routing
@@ -193,6 +214,9 @@ ipMRouteUpTime OBJECT-TYPE
             "The time since the multicast routing information
             represented by this entry was learned by the router."
     ::= { ipMRouteEntry 6 }
+
+
+
 
 
 
@@ -246,6 +270,9 @@ ipMRouteProtocol OBJECT-TYPE
     DESCRIPTION
 
 
+
+
+
             "The multicast routing protocol via which this multicast
             forwarding entry was learned."
     ::= { ipMRouteEntry 11 }
@@ -294,6 +321,9 @@ ipMRouteRtType OBJECT-TYPE
             in the unicast RIB, but was placed in the multicast RIB
             (instead or in addition) due to local configuration, such as
             when running PIM over RIP.  A value of multicast means that
+
+
+
 
 
             the route was explicitly added to the multicast RIB by the
@@ -346,6 +376,9 @@ IpMRouteNextHopEntry ::= SEQUENCE {
     ipMRouteNextHopGroup              IpAddress,
 
 
+
+
+
     ipMRouteNextHopSource             IpAddress,
     ipMRouteNextHopSourceMask         IpAddress,
     ipMRouteNextHopIfIndex            InterfaceIndex,
@@ -394,6 +427,9 @@ ipMRouteNextHopIfIndex OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
+
+
 
 
             "The ifIndex value of the interface for the outgoing
@@ -446,6 +482,9 @@ ipMRouteNextHopExpiryTime OBJECT-TYPE
             this entry does not specify next-hop timers.  The value 0
 
 
+
+
+
             indicates that the entry is not subject to aging."
     ::= { ipMRouteNextHopEntry 8 }
 
@@ -494,6 +533,9 @@ ipMRouteInterfaceTable OBJECT-TYPE
 ipMRouteInterfaceEntry OBJECT-TYPE
     SYNTAX     IpMRouteInterfaceEntry
     MAX-ACCESS not-accessible
+
+
+
 
 
     STATUS     current
@@ -546,6 +588,9 @@ ipMRouteInterfaceProtocol OBJECT-TYPE
 ipMRouteInterfaceRateLimit OBJECT-TYPE
 
 
+
+
+
     SYNTAX     Integer32
     MAX-ACCESS read-write
     STATUS     current
@@ -594,6 +639,9 @@ ipMRouteInterfaceHCOutMcastOctets OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The number of octets of multicast packets that have been
+
+
+
 
 
             sent on the interface.  This object is a 64-bit version of
@@ -646,6 +694,9 @@ ipMRouteBoundaryAddress OBJECT-TYPE
     SYNTAX     IpAddress
 
 
+
+
+
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
@@ -694,6 +745,9 @@ ipMRouteScopeNameEntry OBJECT-TYPE
     DESCRIPTION
             "An entry (conceptual row) in the ipMRouteScopeNameTable
             representing a multicast scope name."
+
+
+
 
 
     INDEX      { ipMRouteScopeNameAddress,
@@ -746,6 +800,9 @@ ipMRouteScopeNameString OBJECT-TYPE
     MAX-ACCESS read-create
 
 
+
+
+
     STATUS     current
     DESCRIPTION
             "The textual name associated with the multicast scope.  The
@@ -794,6 +851,9 @@ ipMRouteMIBCompliance MODULE-COMPLIANCE
             "The compliance statement for the IP Multicast MIB."
     MODULE  -- this module
     MANDATORY-GROUPS { ipMRouteMIBBasicGroup,
+
+
+
 
 
                        ipMRouteMIBRouteGroup}
@@ -846,6 +906,9 @@ ipMRouteMIBBasicGroup OBJECT-GROUP
 
 
 
+
+
+
 ipMRouteMIBHopCountGroup OBJECT-GROUP
     OBJECTS { ipMRouteNextHopClosestMemberHops }
     STATUS  current
@@ -894,6 +957,9 @@ ipMRouteMIBRouteGroup OBJECT-GROUP
 
 ipMRouteMIBPktsGroup OBJECT-GROUP
     OBJECTS { ipMRoutePkts, ipMRouteDifferentInIfPackets,
+
+
+
 
 
               ipMRouteOctets }

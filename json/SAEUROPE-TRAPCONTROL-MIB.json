@@ -1,0 +1,264 @@
+{
+  "imports": {
+    "class": "imports",
+    "SAEUROPE-MESSAGES-MIB": [
+      "msgSequenceNumber",
+      "msgId",
+      "msgText",
+      "msgGenerationTime",
+      "msgPhysicalEntity",
+      "msgSubClass",
+      "msgDetailPresent",
+      "msgSubject",
+      "msgBehaviour",
+      "msgClass",
+      "msgSeverity",
+      "msgSourceName",
+      "msgSubClassNbr",
+      "msgDetail",
+      "msgStatus"
+    ],
+    "SAEUROPE-ROOT-MIB": [
+      "trapControl",
+      "trapControlMIBGroups"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "saEuropeTrapControl": {
+    "name": "saEuropeTrapControl",
+    "oid": "1.3.6.1.4.1.1482.20.1.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-10 13:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2005-09-09 08:00",
+        "description": "V01.01.00 Added trapControlMsgTrap2."
+      },
+      {
+        "revision": "2002-11-30 14:00",
+        "description": "V01.00.03 Initial version of the SA Europe Trap Control MIB. Changes to MIB name and OID names, contents of the MIB are the same as BarcoNet Trap Control MIB V01.00.02."
+      },
+      {
+        "revision": "2002-07-02 17:30",
+        "description": "V01.00.02 Small editorial changes."
+      },
+      {
+        "revision": "2002-06-21 13:30",
+        "description": "V01.00.01 trapControlNotificationGroup is chosen as mandatory group."
+      },
+      {
+        "revision": "2001-08-31 13:30",
+        "description": "V01.00.00 Initial version of the Trap Control MIB."
+      }
+    ]
+  },
+  "trapControlTrapRoot": {
+    "name": "trapControlTrapRoot",
+    "oid": "1.3.6.1.4.1.1482.20.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "trapControlTrap": {
+    "name": "trapControlTrap",
+    "oid": "1.3.6.1.4.1.1482.20.1.1.1.1.0",
+    "class": "objectidentity"
+  },
+  "trapControlMsgTrap": {
+    "name": "trapControlMsgTrap",
+    "oid": "1.3.6.1.4.1.1482.20.1.1.1.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgId"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSourceName"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgText"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubject"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgGenerationTime"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgBehaviour"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgClass"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubClass"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubClassNbr"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgDetailPresent"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgStatus"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSeverity"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSequenceNumber"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "trapControlMsgTrap2": {
+    "name": "trapControlMsgTrap2",
+    "oid": "1.3.6.1.4.1.1482.20.1.1.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgId"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSourceName"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgText"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubject"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgGenerationTime"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgBehaviour"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgClass"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubClass"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubClassNbr"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgDetailPresent"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgStatus"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSeverity"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgDetail"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgPhysicalEntity"
+      }
+    ],
+    "status": "current"
+  },
+  "trapControlModuleCompliance": {
+    "name": "trapControlModuleCompliance",
+    "oid": "1.3.6.1.4.1.1482.1.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "trapControlNotificationGroup",
+        "module": "SAEUROPE-TRAPCONTROL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "trapControlNotificationGroup": {
+    "name": "trapControlNotificationGroup",
+    "oid": "1.3.6.1.4.1.1482.1.1.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SAEUROPE-TRAPCONTROL-MIB",
+        "object": "trapControlMsgTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "trapControlNotificationGroup2": {
+    "name": "trapControlNotificationGroup2",
+    "oid": "1.3.6.1.4.1.1482.1.1.1.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SAEUROPE-TRAPCONTROL-MIB",
+        "object": "trapControlMsgTrap2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-TRAPCONTROL-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:41:05 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "SAEUROPE-TRAPCONTROL-MIB"
+  }
+}

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -11,29 +11,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "mib-2",
-      "Unsigned32",
       "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
-      "Counter64"
+      "TimeTicks",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
       "TestAndIncr",
-      "RowStatus"
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "intSrv": {
@@ -855,15 +855,23 @@
       {
         "module": "INTEGRATED-SERVICES-MIB",
         "object": "intSrvFlowStatus"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowFlowId"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowMaxTU"
       }
     ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/INTEGRATED-SERVICES-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:33 2024",
-      "On host fv-az1499-371 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/INTEGRATED-SERVICES-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:39:07 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "INTEGRATED-SERVICES-MIB"

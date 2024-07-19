@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "Integer32",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "enterprises",
-      "Counter32",
-      "Unsigned32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
-      "IpAddress"
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sensorsMIBObjects": {
@@ -219,8 +219,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-SENSORS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:58:55 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:39:42 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "OPENBSD-SENSORS-MIB"

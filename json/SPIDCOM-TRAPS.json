@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
       "TimeTicks",
-      "iso",
-      "Counter64",
-      "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Bits",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DisplayString"
     ],
     "SPC200": [
       "plcBasePortIndex"
     ],
     "SPIDCOM-ALARM-MIB": [
+      "ItuAlarmProbableCause",
       "neAlarmActivePhoto",
-      "ItuAlarmType",
-      "ItuAlarmProbableCause"
+      "ItuAlarmType"
     ],
     "SPIDCOM-NOTIFICATION-MIB": [
       "specificSpidcomTrap"
@@ -111,8 +111,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPIDCOM-TRAPS",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:52:34 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:33:34 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SPIDCOM-TRAPS"

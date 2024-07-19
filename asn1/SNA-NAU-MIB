@@ -1,3 +1,15 @@
+-- *****************************************************************
+-- SNA NAU MIB
+--
+-- Jan 1996, Barry Chan
+--
+-- Copyright (c) 1996 by cisco Systems, Inc.
+-- All rights reserved.
+-- *****************************************************************
+--
+-- This mib was extracted from RFC 1666
+
+
 SNA-NAU-MIB DEFINITIONS ::= BEGIN
 
 -- This MIB module contains objects necessary
@@ -19,9 +31,11 @@ IMPORTS
         DisplayString, RowStatus, TimeStamp, InstancePointer
                 FROM SNMPv2-TC
 
-        Counter32, Gauge32, Integer32, mib-2,
+        Counter32, Gauge32, Integer32,
         OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE
                 FROM SNMPv2-SMI
+	mib-2
+		FROM RFC1213-MIB
 
         MODULE-COMPLIANCE, OBJECT-GROUP
                 FROM SNMPv2-CONF;
@@ -44,6 +58,11 @@ snanauMIB MODULE-IDENTITY
                         331 Newman Springs Road
                         Red Bank, NJ 07701
                         Tel:    1 908 758 2642
+
+
+
+
+
                         E-mail: dck2@mail.bellcore.com
 
                         Kitty Shih (editor)
@@ -92,6 +111,11 @@ snaNodeAdminTable OBJECT-TYPE
                 configuration parameters for an SNA Node.  Link
                 specific configuration objects are contained in
                 a separate MIB module (e.g., SNA DLC MIB)
+
+
+
+
+
                 corresponding to the link type.
                 The table snaNodeAdminLinkTable contains objects
                 which identify the relationship between node instances
@@ -140,6 +164,11 @@ snaNodeAdminEntry OBJECT-TYPE
 
 SnaNodeAdminEntry ::= SEQUENCE {
         snaNodeAdminIndex
+
+
+
+
+
                 Integer32,
         snaNodeAdminName
                 DisplayString,
@@ -188,6 +217,11 @@ snaNodeAdminName OBJECT-TYPE
                 Node for use during Node activation.
                 In Type 2.1 networks, this is a fully-qualified name,
                 meaning that the Node name is preceded by the NetId (if
+
+
+
+
+
                 present) with a period as the delimiter.
 
                 A write operation to this object will
@@ -237,6 +271,10 @@ snaNodeAdminXidFormat OBJECT-TYPE
                 of the SNA services)."
         ::= { snaNodeAdminEntry 4 }
 
+
+
+
+
 snaNodeAdminBlockNum OBJECT-TYPE
         SYNTAX  DisplayString (SIZE(3))
         MAX-ACCESS  read-create
@@ -285,6 +323,11 @@ snaNodeAdminEnablingMethod OBJECT-TYPE
 
                 other (1)  - may be used for proprietary methods
                    not listed in this enumeration,
+
+
+
+
+
                 startup (2) - at SNA services' initialization time
                    (this is the default),
                 demand (3) - only when LU is requested by application,
@@ -333,6 +376,11 @@ snaNodeAdminLuTermDefault OBJECT-TYPE
                         either an SNA LUSTAT (LU Status) request on
                         the LU-LU session or an SNA NOTIFY request on
                         the SSCP-LU session indicating that the LU has
+
+
+
+
+
                         been powered off. Sending both is also
                         acceptable. The result should be that the
                         remote session LU partner will send an UNBIND
@@ -381,6 +429,11 @@ snaNodeAdminHostDescription OBJECT-TYPE
                   value is the null string.
 
                   A write operation to this object may immediately
+
+
+
+
+
                   change the operational value reflected
                   in snaNodeOperHostDescription depending
                   on the Agent implementation."
@@ -429,6 +482,11 @@ snaNodeAdminState OBJECT-TYPE
                   active (2)
                   }
           MAX-ACCESS  read-create
+
+
+
+
+
           STATUS  current
           DESCRIPTION
                   "The value indicates the desired operational
@@ -477,6 +535,11 @@ snaNodeAdminRowStatus OBJECT-TYPE
                   snaNodeAdminTable and the snaNodeOperTable.
                   (b) The Agent detects that a row is in the
                   'notReady (3)' state for greater than a
+
+
+
+
+
                   default period of 5 minutes.
                   (c) All rows with the snaNodeAdminRowStatus object's
                   value of 'notReady (3)' will be removed upon the
@@ -525,6 +588,11 @@ snaNodeOperTable OBJECT-TYPE
                   actual status of the Node. The entries in this
                   table cannot be created or modified by a
                   Management Station.
+
+
+
+
+
                   This table augments the snaNodeAdminTable."
           ::= { snaNode 3 }
 
@@ -536,7 +604,8 @@ snaNodeOperEntry OBJECT-TYPE
                   "The entry contains parameters which describe the
                   state of one Node. The entries are created by the
                   Agent. They have read-only access."
-          AUGMENTS   { snaNodeAdminEntry }
+        INDEX  { snaNodeAdminIndex }
+--          AUGMENTS   { snaNodeAdminEntry }
           ::= { snaNodeOperTable 1 }
 
 SnaNodeOperEntry ::= SEQUENCE {
@@ -573,6 +642,10 @@ SnaNodeOperEntry ::= SEQUENCE {
           snaNodeOperActFailureReason
                   INTEGER
           }
+
+
+
+
 
 snaNodeOperName OBJECT-TYPE
           SYNTAX  DisplayString (SIZE(0..17))
@@ -622,6 +695,11 @@ snaNodeOperBlockNum OBJECT-TYPE
           DESCRIPTION
                   "The value identifies the block number for this Node
                   instance. It is the first 3 hexadecimal digits
+
+
+
+
+
                   of the SNA Node id."
           ::= { snaNodeOperEntry 4 }
 
@@ -670,6 +748,11 @@ snaNodeOperLuTermDefault OBJECT-TYPE
           DESCRIPTION
                 "The value identifies the default method used to
                 deactivate LUs for this Node.
+
+
+
+
+
                 For LU6.2s, 'unbind(1)' is the only valid value.
 
                 unbind(1) -   terminate the LU-LU session by sending
@@ -718,6 +801,11 @@ snaNodeOperHostDescription OBJECT-TYPE
                    associated with this Node.
                    Since SSCP Id's may not be unique
                    across hosts, the host description
+
+
+
+
+
                    is required to uniquely identify the SSCP."
           ::= { snaNodeOperEntry 9 }
 
@@ -766,6 +854,11 @@ snaNodeOperState OBJECT-TYPE
                   active (2),
                   waiting (3),
                   stopping (4)
+
+
+
+
+
                   }
           MAX-ACCESS  read-only
           STATUS  current
@@ -814,6 +907,11 @@ snaNodeOperLastStateChange OBJECT-TYPE
           STATUS  current
           DESCRIPTION
                   "The timestamp (e.g., the Agent's sysUpTime value)
+
+
+
+
+
                   at the last state change of the Node."
           ::= { snaNodeOperEntry 14 }
 
@@ -862,6 +960,11 @@ snaNodeOperTableLastChange OBJECT-TYPE
                   snaNodeAdminRowStatus object.
 
                   This object can be used to reduce frequent
+
+
+
+
+
                   retrievals of the snaNodeOperTable by a Management
                   Station. It is expected that a Management Station
                   will periodically poll this object and compare its
@@ -910,6 +1013,11 @@ SnaPu20StatsEntry ::= SEQUENCE {
                   Counter32,
           snaPu20StatsReceivedBytes
                   Counter32,
+
+
+
+
+
           snaPu20StatsSentPius
                   Counter32,
           snaPu20StatsReceivedPius
@@ -957,6 +1065,11 @@ snaPu20StatsReceivedPius OBJECT-TYPE
           DESCRIPTION
                   "The number of PIUs received by this Node."
           ::= { snaPu20StatsEntry 4 }
+
+
+
+
+
 
 snaPu20StatsSentNegativeResps OBJECT-TYPE
           SYNTAX  Counter32
@@ -1006,6 +1119,11 @@ snaPu20StatsBindLus OBJECT-TYPE
                   host."
           ::= { snaPu20StatsEntry 9 }
 
+
+
+
+
+
 -- ***************************************************************
 -- The following table contains the association between Nodes and
 -- link identifiers.
@@ -1054,6 +1172,11 @@ snaNodeLinkAdminEntry OBJECT-TYPE
 SnaNodeLinkAdminEntry ::= SEQUENCE {
           snaNodeLinkAdminIndex
                   Integer32,
+
+
+
+
+
           snaNodeLinkAdminSpecific
                   InstancePointer,
           snaNodeLinkAdminMaxPiu
@@ -1102,6 +1225,11 @@ snaNodeLinkAdminRowStatus OBJECT-TYPE
           DESCRIPTION
                 "This object is used by a Management Station to
                 create or delete the row entry in the
+
+
+
+
+
                 snaNodeLinkAdminTable.
                 To activate a row, a Management Station sets the value
                 to 'active (1)' or 'notReady (3)'.  Upon successful
@@ -1150,6 +1278,11 @@ snaNodeLinkAdminTableLastChange OBJECT-TYPE
                   previous one.
                   A difference indicates that some Node operational
                   information has been changed. Only then will the
+
+
+
+
+
                   Management Station retrieve the entire table."
           ::= { snaNode 7 }
 
@@ -1181,7 +1314,9 @@ snaNodeLinkOperEntry OBJECT-TYPE
                   "Entry contains all current parameters for one
                   Node link. The objects in the entry have
                   read-only access."
-          AUGMENTS   { snaNodeLinkAdminEntry }
+          INDEX   { snaNodeAdminIndex,
+                    snaNodeLinkAdminIndex }
+--          AUGMENTS   { snaNodeLinkAdminEntry }
           ::= { snaNodeLinkOperTable 1 }
 
 SnaNodeLinkOperEntry ::= SEQUENCE {
@@ -1198,6 +1333,11 @@ snaNodeLinkOperSpecific OBJECT-TYPE
           DESCRIPTION
                   "This value points to the row in the table
                   containing information on the link instance.
+
+
+
+
+
                   (e.g., the sdlcLSOperTable of
                   the SNA DLC MIB module)."
           ::= { snaNodeLinkOperEntry 1 }
@@ -1237,6 +1377,19 @@ snaNodeLinkOperTableLastChange OBJECT-TYPE
                   information has been changed. Only then will the
                   Management Station retrieve the entire table."
           ::= { snaNode 9 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- ***************************************************************
 -- Traps
@@ -1283,6 +1436,13 @@ snaNodeActFailTrap NOTIFICATION-TYPE
 -- ***************************************************************
 -- The following table contains LU configuration parameters.
 -- ***************************************************************
+
+
+
+
+
+
+
 
 snaLuAdminTable OBJECT-TYPE
         SYNTAX  SEQUENCE OF SnaLuAdminEntry
@@ -1332,6 +1492,11 @@ snaLuAdminLuIndex OBJECT-TYPE
         STATUS  current
         DESCRIPTION
                 "This value identifies the unique index for an
+
+
+
+
+
                  LU instance within a Node."
         ::= { snaLuAdminEntry 1 }
 
@@ -1380,6 +1545,11 @@ snaLuAdminType OBJECT-TYPE
         MAX-ACCESS  read-create
         STATUS  current
         DESCRIPTION
+
+
+
+
+
                 "This value identifies the LU type.
 
                 A write operation to this object will
@@ -1428,6 +1598,11 @@ snaLuAdminDisplayModel OBJECT-TYPE
                 invalid(1),
                 model2A(2),
                 model2B(3),
+
+
+
+
+
                 model3A(4),
                 model3B(5),
                 model4A(6),
@@ -1476,6 +1651,11 @@ snaLuAdminTerm OBJECT-TYPE
                 }
         MAX-ACCESS  read-create
         STATUS  current
+
+
+
+
+
         DESCRIPTION
                 "This value identifies the desired method for
                 deactivation of this LU. This value overrides the
@@ -1524,6 +1704,11 @@ snaLuAdminRowStatus OBJECT-TYPE
                 automatically creates a corresponding entry in the
                 snaLuOperTable with snaLuOperState equal to
                 'inactive (1)'.
+
+
+
+
+
                 Row deletion can be Management Station or Agent
                 initiated:
                 (a) The Management Station can set the value to
@@ -1566,12 +1751,18 @@ snaLuOperEntry OBJECT-TYPE
                 for an LU.
                 Each entry is created by the Agent.  All entries
                 have read-only access."
-        AUGMENTS        { snaLuAdminEntry }
+        INDEX   { snaNodeAdminIndex, snaLuAdminLuIndex }
+--        AUGMENTS        { snaLuAdminEntry }
         ::= { snaLuOperTable 1 }
 
 SnaLuOperEntry ::= SEQUENCE {
         snaLuOperName
                 DisplayString,
+
+
+
+
+
         snaLuOperSnaName
                 DisplayString,
         snaLuOperType
@@ -1620,6 +1811,11 @@ snaLuOperType OBJECT-TYPE
                 lu7(8)
                 }
         MAX-ACCESS  read-only
+
+
+
+
+
         STATUS  current
         DESCRIPTION
                 "The value identifies the current LU type."
@@ -1668,6 +1864,11 @@ snaLuOperDisplayModel OBJECT-TYPE
                 model3A(4),
                 model3B(5),
                 model4A(6),
+
+
+
+
+
                 model4B(7),
                 model5A(8),
                 model5B(9),
@@ -1716,6 +1917,11 @@ snaLuOperTerm OBJECT-TYPE
                         been powered off. Sending both is also
                         acceptable. The result should be that the
                         remote session LU partner will send an UNBIND
+
+
+
+
+
                         to terminate the session."
         ::= { snaLuOperEntry 7 }
 
@@ -1764,6 +1970,11 @@ snaLuOperSessnCount OBJECT-TYPE
 snaLuSessnTable OBJECT-TYPE
         SYNTAX  SEQUENCE OF SnaLuSessnEntry
         MAX-ACCESS  not-accessible
+
+
+
+
+
         STATUS  current
         DESCRIPTION
                 "This is a table containing objects which describe the
@@ -1812,6 +2023,11 @@ SnaLuSessnEntry ::= SEQUENCE {
                 INTEGER,
         snaLuSessnRcvPacingSize
                 INTEGER,
+
+
+
+
+
         snaLuSessnActiveTime
                 TimeStamp,
         snaLuSessnAdminState
@@ -1860,6 +2076,11 @@ snaLuSessnLocalApplName OBJECT-TYPE
         STATUS  current
         DESCRIPTION
                 "The name of the local application using this LU.
+
+
+
+
+
                 If the local application is unknown, then this object
                 contains a zero length string."
         ::= { snaLuSessnEntry 3 }
@@ -1908,6 +2129,11 @@ snaLuSessnSndPacingSize OBJECT-TYPE
 snaLuSessnRcvPacingSize OBJECT-TYPE
         SYNTAX  INTEGER (1..63)
         MAX-ACCESS  read-only
+
+
+
+
+
         STATUS  current
         DESCRIPTION
                 "The size of the receive pacing window on this
@@ -1957,6 +2183,10 @@ snaLuSessnAdminState OBJECT-TYPE
                 the same as deactivating the LU."
         ::= { snaLuSessnEntry 10 }
 
+
+
+
+
 snaLuSessnOperState OBJECT-TYPE
         SYNTAX  INTEGER {
                 unbound (1),
@@ -2005,6 +2235,11 @@ snaLuSessnTerminationRu OBJECT-TYPE
                 other (1),
                 bindFailure (2),
                 unbind (3)
+
+
+
+
+
                 }
         MAX-ACCESS  read-only
         STATUS  current
@@ -2053,6 +2288,11 @@ snaLuSessnStatsTable OBJECT-TYPE
                 relating to LU sessions.
                 The entries in this table augment the entries in
                 the snaLuSessnTable and cannot be created by
+
+
+
+
+
                 a Management Station."
         ::= { snaLu 4 }
 
@@ -2066,7 +2306,11 @@ snaLuSessnStatsEntry OBJECT-TYPE
                 Objects in this table have read-only access.
                 Each session from snaLuSessnTable
                 has one entry in this table."
-        AUGMENTS   { snaLuSessnEntry }
+        INDEX   { snaNodeAdminIndex,
+                   snaLuAdminLuIndex,
+                   snaLuSessnRluIndex,
+                   snaLuSessnIndex }
+--        AUGMENTS   { snaLuSessnEntry }
         ::= { snaLuSessnStatsTable 1 }
 
 SnaLuSessnStatsEntry ::= SEQUENCE {
@@ -2101,6 +2345,11 @@ snaLuSessnStatsReceivedBytes OBJECT-TYPE
         ::= { snaLuSessnStatsEntry 2 }
 
 snaLuSessnStatsSentRus OBJECT-TYPE
+
+
+
+
+
         SYNTAX  Counter32
         MAX-ACCESS  read-only
         STATUS  current
@@ -2149,6 +2398,11 @@ snaLuStateChangeTrap NOTIFICATION-TYPE
         DESCRIPTION
                 "This trap indicates that the operational state
                 (i.e., snaLuOperState value) of the LU has changed.
+
+
+
+
+
                 The value of snaLuOperName indicates the name of the
                 LU.
                 The value of snaLuOperSnaName indicates the SNA name
@@ -2198,6 +2452,10 @@ snaLuSessnBindFailTrap NOTIFICATION-TYPE
 -- the number of transactions within each response time range.
 -- ***************************************************************
 
+
+
+
+
 snaLuRtmTable OBJECT-TYPE
         SYNTAX  SEQUENCE OF SnaLuRtmEntry
         MAX-ACCESS  not-accessible
@@ -2246,6 +2504,11 @@ SnaLuRtmEntry ::= SEQUENCE {
                 Counter32,
         snaLuRtmCounter4
                 Counter32,
+
+
+
+
+
         snaLuRtmOverFlows
                 Counter32,
         snaLuRtmObjPercent
@@ -2294,6 +2557,11 @@ snaLuRtmStateTime  OBJECT-TYPE
         STATUS  current
         DESCRIPTION
                 "The timestamp (e.g., the Agent's sysUpTime value)
+
+
+
+
+
                 when this session's RTM state (e.g., snaLuRtmState)
                 changes value."
         ::= { snaLuRtmEntry 4 }
@@ -2342,6 +2610,11 @@ snaLuRtmBoundary3 OBJECT-TYPE
         ::= { snaLuRtmEntry 8 }
 
 snaLuRtmBoundary4 OBJECT-TYPE
+
+
+
+
+
         SYNTAX  Integer32
         MAX-ACCESS  read-only
         STATUS  current
@@ -2390,6 +2663,11 @@ snaLuRtmOverFlows OBJECT-TYPE
         SYNTAX  Counter32
         MAX-ACCESS  read-only
         STATUS  current
+
+
+
+
+
         DESCRIPTION
                 "This value indicates the number of transactions which
                 exceed the highest range specified by the
@@ -2439,6 +2717,10 @@ snaLuRtmNumTrans OBJECT-TYPE
                 snaLuRtmState changed to 'on(2)') for this LU."
         ::= { snaLuRtmEntry 17 }
 
+
+
+
+
 snaLuRtmLastRspTime OBJECT-TYPE
         SYNTAX  Integer32
         MAX-ACCESS  read-only
@@ -2487,6 +2769,11 @@ snanauCompliance  MODULE-COMPLIANCE
                         entities which implement PU type 2.0"
                 GROUP  snaMgtToolsRtmGroup
                 DESCRIPTION
+
+
+
+
+
                         "The snaMgtToolsGroup is mandatory only for
                         those entities which implement LU type 2
                         and RTM."
@@ -2535,6 +2822,11 @@ snanauCompliance  MODULE-COMPLIANCE
                         access to this object."
 
                 OBJECT  snaNodeAdminLuTermDefault
+
+
+
+
+
                 MIN-ACCESS  read-write
                 DESCRIPTION
                         "An Agent is required to implement read-write
@@ -2583,6 +2875,11 @@ snanauCompliance  MODULE-COMPLIANCE
 
                 OBJECT  snaLuAdminSnaName
                 MIN-ACCESS  read-write
+
+
+
+
+
                 DESCRIPTION
                         "An Agent is required to implement read-write
                         access to this object."
@@ -2631,6 +2928,11 @@ snaNodeGroup  OBJECT-GROUP
                 snaNodeAdminEnablingMethod,
                 snaNodeAdminLuTermDefault,
                 snaNodeAdminMaxLu,
+
+
+
+
+
                 snaNodeAdminHostDescription,
                 snaNodeAdminStopMethod,
                 snaNodeAdminState,
@@ -2679,6 +2981,11 @@ snaLuGroup  OBJECT-GROUP
                 snaLuOperSnaName,
                 snaLuOperType,
                 snaLuOperDepType,
+
+
+
+
+
                 snaLuOperLocalAddress,
                 snaLuOperDisplayModel,
                 snaLuOperTerm,
@@ -2727,6 +3034,11 @@ snaPu20Group  OBJECT-GROUP
                 snaPu20StatsReceivedNegativeResps,
                 snaPu20StatsActLus,
                 snaPu20StatsInActLus,
+
+
+
+
+
                 snaPu20StatsBindLus }
         STATUS  current
         DESCRIPTION

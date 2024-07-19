@@ -2,107 +2,107 @@
   "imports": {
     "class": "imports",
     "DISMAN-SCRIPT-MIB": [
-      "smRunIndex",
-      "smRunEntry",
+      "smLaunchError",
       "smLaunchEntry",
-      "smLaunchName",
-      "smLaunchOwner",
-      "smLaunchScriptOwner",
       "smLaunchScriptName",
-      "smLaunchError"
+      "smLaunchOwner",
+      "smRunEntry",
+      "smLaunchScriptOwner",
+      "smLaunchName",
+      "smRunIndex"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressIPv6",
       "InetPortNumber",
+      "InetAddressPrefixLength",
+      "InetAddressIPv6",
       "InetAddressType"
     ],
     "SNMP-COMMUNITY-MIB": [
       "snmpCommunityEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
       "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
       "Bits",
       "IpAddress",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString",
-      "RowStatus",
-      "TruthValue",
-      "MacAddress",
       "RowPointer",
-      "TimeStamp"
+      "DateAndTime",
+      "TimeStamp",
+      "MacAddress",
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TIMETRA-CHASSIS-MIB": [
-      "tmnxChassisBaseMacAddress",
       "tmnxHwClass",
       "tmnxCpmCardNum",
-      "tmnxChassisNotifyHwIndex",
-      "tmnxChassisIndex",
-      "TmnxSlotNum",
+      "tmnxHwID",
       "tmnxCpmCardSlotNum",
-      "tmnxHwID"
+      "TmnxSlotNum",
+      "tmnxChassisNotifyHwIndex",
+      "tmnxChassisBaseMacAddress",
+      "tmnxChassisIndex"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "timetraSRMIBModules",
       "tmnxSRNotifyPrefix",
-      "tmnxSRObjs",
-      "tmnxSRConfs"
+      "timetraSRMIBModules",
+      "tmnxSRConfs",
+      "tmnxSRObjs"
     ],
     "TIMETRA-LOG-MIB": [
-      "tmnxLogExecRollbackOpIndex",
-      "tmnxEhsHandlerDescription",
       "tmnxEhsHEntryMinDelayInterval",
       "tmnxEhsHEntryScriptPlcyName",
       "tmnxEhsHEntryMinDelay",
       "tmnxLogExecRollbackOpType",
+      "tmnxEhsHandlerDescription",
+      "tmnxLogExecRollbackOpIndex",
       "tmnxEhsHEntryScriptPlcyOwner"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxLongDisplayString",
+      "TmnxActionType",
+      "TItemDescription",
       "TmnxCliEngine",
+      "TLDisplayString",
+      "TmnxUuid",
+      "TDSCPNameOrEmpty",
+      "TmnxAdminStateTruthValue",
+      "TTcpUdpPort",
+      "TNamedItem",
+      "TmnxEnabledDisabled",
       "TmnxVRtrID",
       "TmnxOperState",
-      "TLNamedItemOrEmpty",
-      "TmnxActionType",
-      "TmnxAdminStateTruthValue",
-      "TNamedItem",
-      "IpAddressPrefixLength",
-      "TDSCPNameOrEmpty",
       "TLNamedItem",
       "TmnxVRtrIDOrZero",
-      "TTcpUdpPort",
       "TmnxAdminState",
-      "TLDisplayString",
-      "TmnxScriptAuthType",
-      "TmnxServId",
       "TNamedItemOrEmpty",
-      "TItemDescription",
-      "TmnxEnabledDisabled",
+      "TmnxServId",
       "TmnxDisplayStringURL",
-      "TmnxUuid"
+      "TLNamedItemOrEmpty",
+      "TmnxScriptAuthType",
+      "IpAddressPrefixLength",
+      "TmnxLongDisplayString"
     ]
   },
   "timetraSysMIBModule": {
@@ -19037,8 +19037,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:59:47 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:40:33 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-SYSTEM-MIB"

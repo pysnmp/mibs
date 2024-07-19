@@ -5,24 +5,24 @@
       "ericssonModules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "iso",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "IpAddress",
+      "Bits",
       "TimeTicks",
       "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -186,8 +186,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-TC-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:54:40 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:35:39 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ERICSSON-ALARM-TC-MIB"

@@ -9,11 +9,11 @@
       "InetAddressType"
     ],
     "POWER-ETHERNET-MIB": [
-      "pethPsePortIndex",
+      "pethPsePortPowerDeniedCounter",
       "pethPsePortOverLoadCounter",
       "pethMainPseGroupIndex",
-      "pethPsePortShortCounter",
-      "pethPsePortPowerDeniedCounter"
+      "pethPsePortIndex",
+      "pethPsePortShortCounter"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -24,25 +24,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwPoeExtMIB": {
@@ -927,8 +927,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-POE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:53:53 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:51 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-POE-MIB"

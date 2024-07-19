@@ -778,7 +778,8 @@ intSrvCompliances OBJECT IDENTIFIER ::= { intSrvConformance 2 }
             intSrvFlowBestEffort, intSrvFlowRate, intSrvFlowBurst,
             intSrvFlowWeight, intSrvFlowQueue, intSrvFlowMinTU,
             intSrvFlowDiscard, intSrvFlowPoliced, intSrvFlowService,
-            intSrvFlowIfAddr, intSrvFlowOrder, intSrvFlowStatus
+            intSrvFlowIfAddr, intSrvFlowOrder, intSrvFlowStatus,
+            intSrvFlowFlowId, intSrvFlowMaxTU
         }
         STATUS  current
         DESCRIPTION

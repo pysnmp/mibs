@@ -1,3 +1,15 @@
+-- *****************************************************************
+-- Descriptions of managed objects for ADSL DMT line interfaces.
+--
+-- March 1999, Patrick Gili
+--
+-- Copyright (c) 1999, 2000 by cisco Systems, Inc.
+-- All rights reserved.
+-- *****************************************************************
+--
+-- This mib was extracted from RFC xxxx
+
+
 ADSL-TC-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS

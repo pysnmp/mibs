@@ -8,13 +8,13 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlVpnStatus",
       "MwlAddressAssignmentType",
-      "MwlIpMode",
+      "MwlVpnStatus",
+      "MwlL2SecurityMode",
+      "MwlIpv6AddrType",
       "MwlApIfModeType",
       "MwlDeviceType",
-      "MwlIpv6AddrType",
-      "MwlL2SecurityMode"
+      "MwlIpMode"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -22,30 +22,30 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
       "TimeTicks",
-      "Gauge32",
-      "enterprises",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "IpAddress",
-      "Counter64"
+      "OBJECT-TYPE",
+      "enterprises",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress",
-      "TimeInterval",
       "RowStatus",
       "DateAndTime",
-      "TimeStamp"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "TruthValue",
+      "TimeStamp",
+      "MacAddress"
     ]
   },
   "mwConfigStation": {
@@ -510,8 +510,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-STATION-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:55:12 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:36:10 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-STATION-MIB"

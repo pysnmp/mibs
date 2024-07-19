@@ -1,0 +1,75 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "enterprises",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mystrotv": {
+    "name": "mystrotv",
+    "oid": "1.3.6.1.4.1.14373",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-11-05 23:24",
+        "description": "1.0"
+      }
+    ]
+  },
+  "reg": {
+    "name": "reg",
+    "oid": "1.3.6.1.4.1.14373.1",
+    "class": "objectidentity"
+  },
+  "generic": {
+    "name": "generic",
+    "oid": "1.3.6.1.4.1.14373.2",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.14373.3",
+    "class": "objectidentity"
+  },
+  "caps": {
+    "name": "caps",
+    "oid": "1.3.6.1.4.1.14373.4",
+    "class": "objectidentity"
+  },
+  "reqs": {
+    "name": "reqs",
+    "oid": "1.3.6.1.4.1.14373.5",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mystro/MYSTRO-ROOT-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:39:12 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "MYSTRO-ROOT-MIB"
+  }
+}

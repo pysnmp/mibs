@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "BASIS-MIB": [
-      "bbChanCnfGrp",
-      "bbChanStateGrp"
+      "bbChanStateGrp",
+      "bbChanCnfGrp"
     ],
     "CISCOWAN-SMI": [
       "ciscoWan"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "Bits",
-      "Gauge32",
-      "Counter32",
-      "Unsigned32",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
       "Counter64",
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoWanBbifAtmConnMIB": {
@@ -1611,8 +1611,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-BBIF-ATM-CONN-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:56:44 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:37:38 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-WAN-BBIF-ATM-CONN-MIB"

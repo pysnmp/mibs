@@ -1,0 +1,509 @@
+{
+  "imports": {
+    "class": "imports",
+    "SAEUROPE-ROOT-MIB": [
+      "messagesMIBGroups",
+      "messages"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "saEuropeMessages": {
+    "name": "saEuropeMessages",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-10 13:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2005-09-07 09:00",
+        "description": "V01.01.00 Added columns for physical entity, stream network port IP address and stream UDP port. Elaborated comments."
+      },
+      {
+        "revision": "2002-11-30 14:00",
+        "description": "V01.00.03 Initial version of the SA Europe Messages MIB. Changes to MIB name and OID names, contents of the MIB are the same as BarcoNet Messages MIB V01.00.02."
+      },
+      {
+        "revision": "2002-07-01 17:30",
+        "description": "V01.00.02 msgNewestNumber added to messagesObjectGroup. Small editorial changes."
+      },
+      {
+        "revision": "2002-06-21 13:30",
+        "description": "V01.00.01 messagesObjectGroup is chosen as mandatory group."
+      },
+      {
+        "revision": "2001-08-31 13:30",
+        "description": "V01.00.00 Initial version of the Messages MIB"
+      }
+    ]
+  },
+  "msgOldestNumber": {
+    "name": "msgOldestNumber",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgNewestNumber": {
+    "name": "msgNewestNumber",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgMaxSequenceNumber": {
+    "name": "msgMaxSequenceNumber",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "messageTable": {
+    "name": "messageTable",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "messageEntry": {
+    "name": "messageEntry",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSequenceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "msgSequenceNumber": {
+    "name": "msgSequenceNumber",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32767
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgId": {
+    "name": "msgId",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgSourceName": {
+    "name": "msgSourceName",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgText": {
+    "name": "msgText",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgSubject": {
+    "name": "msgSubject",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgGenerationTime": {
+    "name": "msgGenerationTime",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgBehaviour": {
+    "name": "msgBehaviour",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPending": 0,
+          "clearedByUser": 1,
+          "clearedBySystem": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgClass": {
+    "name": "msgClass",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "communication": 0,
+          "quality": 1,
+          "processing": 2,
+          "equipment": 3,
+          "environmental": 4,
+          "indeterminate": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgSubClass": {
+    "name": "msgSubClass",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgSubClassNbr": {
+    "name": "msgSubClassNbr",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgDetailPresent": {
+    "name": "msgDetailPresent",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgStatus": {
+    "name": "msgStatus",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 0,
+          "closed": 1,
+          "openMinorUpper": 2,
+          "openMinorLower": 3,
+          "openMajorUpper": 4,
+          "openMajorLower": 5,
+          "closedMinorUpper": 6,
+          "closedMinorLower": 7,
+          "closedMajorUpper": 8,
+          "closedMajorLower": 9,
+          "notDefined": 10,
+          "notValid": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgSeverity": {
+    "name": "msgSeverity",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "indeterminate": 0,
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "cleared": 5,
+          "information": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgDetail": {
+    "name": "msgDetail",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 320,
+            "max": 320
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "msgPhysicalEntity": {
+    "name": "msgPhysicalEntity",
+    "oid": "1.3.6.1.4.1.1482.20.1.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "messagesModuleCompliance": {
+    "name": "messagesModuleCompliance",
+    "oid": "1.3.6.1.4.1.1482.1.1.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "messagesObjectGroup",
+        "module": "SAEUROPE-MESSAGES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "messagesObjectGroup": {
+    "name": "messagesObjectGroup",
+    "oid": "1.3.6.1.4.1.1482.1.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgOldestNumber"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgNewestNumber"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSourceName"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgMaxSequenceNumber"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgId"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSourceName"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgText"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubject"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgGenerationTime"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgBehaviour"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgClass"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubClass"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSubClassNbr"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgDetailPresent"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgStatus"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSeverity"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgSequenceNumber"
+      },
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgDetail"
+      }
+    ],
+    "status": "current"
+  },
+  "msgPhysicalGroup": {
+    "name": "msgPhysicalGroup",
+    "oid": "1.3.6.1.4.1.1482.1.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAEUROPE-MESSAGES-MIB",
+        "object": "msgPhysicalEntity"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-MESSAGES-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:41:05 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "SAEUROPE-MESSAGES-MIB"
+  }
+}

@@ -1,4 +1,11 @@
+
 IF-INVERTED-STACK-MIB DEFINITIONS ::= BEGIN
+
+-- *****************************************************************************
+--  Copyright (C) The Internet Society (2000).  All Rights Reserved.
+--  This version of this MIB module is part of RFC 2864; see the RFC itself for
+--  full legal notices.
+-- *****************************************************************************
 
 IMPORTS
   MODULE-IDENTITY, OBJECT-TYPE, mib-2      FROM SNMPv2-SMI
@@ -39,8 +46,6 @@ ifInvStackTable  OBJECT-TYPE
    STATUS        current
    DESCRIPTION
           "A table containing information on the relationships between
-
-
           the multiple sub-layers of network interfaces.  In
           particular, it contains information on which sub-layers run
           'underneath' which other sub-layers, where each sub-layer
@@ -89,8 +94,6 @@ IfInvStackEntry ::=
    }
 
 ifInvStackStatus  OBJECT-TYPE
-
-
   SYNTAX         RowStatus
   MAX-ACCESS     read-only
   STATUS         current
@@ -134,12 +137,6 @@ ifInvCompliance MODULE-COMPLIANCE
       SYNTAX       INTEGER { active(1) }
       DESCRIPTION
           "Support is only required for 'active'."
-
-
-
-
-
-
 
   MODULE  IF-MIB
       MANDATORY-GROUPS { ifStackGroup2 }

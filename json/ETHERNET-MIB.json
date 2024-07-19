@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ExaltComProducts": [
-      "remEthAlarms",
+      "interface",
       "locEthAlarms",
-      "interface"
+      "remEthAlarms"
     ],
     "ExaltComm": [
-      "EthernetMgmtTypeT",
       "EnableStatusT",
-      "AlarmLevelT"
+      "AlarmLevelT",
+      "EthernetMgmtTypeT"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -18,23 +18,23 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "iso",
-      "Unsigned32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Counter64",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Gauge32"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "EthernetFunctionT": {
@@ -399,8 +399,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/ETHERNET-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:54:50 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:35:49 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ETHERNET-MIB"

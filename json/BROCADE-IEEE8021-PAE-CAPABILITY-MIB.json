@@ -10,24 +10,24 @@
       "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
+      "Gauge32",
       "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Integer32",
-      "TimeTicks",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "Counter64",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "brocadeIeee8021PaeCapability": {
@@ -51,8 +51,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-IEEE8021-PAE-CAPABILITY-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:55:03 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:36:03 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "BROCADE-IEEE8021-PAE-CAPABILITY-MIB"

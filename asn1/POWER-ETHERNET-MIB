@@ -1,3 +1,11 @@
+-- *****************************************************************
+-- POWER-ETHERNET-MIB
+--
+-- This mib was extracted from RFC 3621
+--
+-- Copyright (c) 2006, 2009 by Cisco Systems, Inc.
+-- All rights reserved.
+-- *****************************************************************
 POWER-ETHERNET-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -17,6 +25,7 @@ IMPORTS
          LAST-UPDATED    "200311240000Z"  -- November 24, 2003
          ORGANIZATION "IETF Ethernet Interfaces and Hub MIB
                        Working Group"
+
          CONTACT-INFO
          "
           WG Charter:
@@ -64,6 +73,7 @@ IMPORTS
              Copyright (c) The Internet Society (2003).  This version
              of this MIB module is part of RFC 3621; See the RFC
              itself for full legal notices."
+
        REVISION    "200311240000Z"  -- November 24, 2003
        DESCRIPTION "Initial version, published as RFC 3621."
        ::= { mib-2 105 }
@@ -545,6 +555,7 @@ pethCompliance MODULE-COMPLIANCE
        DESCRIPTION
                "Describes the requirements for conformance to the
                Power Ethernet MIB."
+
        MODULE  -- this module
            MANDATORY-GROUPS { pethPsePortGroup,
                               pethPsePortNotificationGroup,
@@ -615,3 +626,4 @@ pethPsePortNotificationGroup NOTIFICATION-GROUP
       ::= { pethGroups 5 }
 
 END
+

@@ -1,0 +1,350 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "enterprises",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "saEuropeRoot": {
+    "name": "saEuropeRoot",
+    "oid": "1.3.6.1.4.1.1482.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-10-20 11:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2015-11-10 13:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2003-01-17 09:00",
+        "description": "V01.00.08 switches, switchesMIBGroups, analogDemodulators and analogDemodulatorsMIBGroups added."
+      },
+      {
+        "revision": "2002-12-02 12:00",
+        "description": "V01.00.07 Initial version of the SA Europe Root MIB. Changes to MIB name and OID names, small editorial changes. Contents of the MIB are the same as BarcoNet Root SMIv2 MIB V01.00.06."
+      },
+      {
+        "revision": "2002-07-01 11:00",
+        "description": "V01.00.06 enterprises is now imported from SNMPv2-SMI."
+      },
+      {
+        "revision": "2002-03-20 12:00",
+        "description": "V01.00.05 Removed trapDestinationMIBGroup, this OID will be included in the trap destination MIB."
+      },
+      {
+        "revision": "2002-03-06 16:00",
+        "description": "V01.00.04 Changes made to UTC time, to be compliant with older versions, MODULE-IDENTITY imported from SNMPv2-SMI, barcoNet OID placed placed after the MODULE-IDENTITY definition."
+      },
+      {
+        "revision": "2002-02-06 16:00",
+        "description": "V01.00.03 siProcessors replaced with tsProcessors, siProcessorsMIBGroups replaced with tsProcessorsMIBGroups, transponders OID replaced with hms OID, transpondersMIBGroups replaced with hmsMIBGroups, hms and netSenseHMS OID's deleted from the BarcoNet Root MIB, hmsMIBGroups and netSenseHMSMIBGroups deleted."
+      },
+      {
+        "revision": "2002-01-16 11:15",
+        "description": "V01.00.02 Extended with trapDestinationMIBGroup."
+      },
+      {
+        "revision": "2002-01-16 11:15",
+        "description": "V01.00.01 Extended with the following categories: digitalCableReceivers, digitalCableReceiversMIBGroups, digitalTerrestrialModulators, digitalTerrestrialModulatorsMIBGroups, videoOnDemand, videoOnDemandMIBGroups, netSenseHMS and netSenseHMSMIBGroups."
+      },
+      {
+        "revision": "2001-08-29 12:15",
+        "description": "V01.00.00 Initial version of the BarcoNet Root MIB"
+      }
+    ]
+  },
+  "saEurope": {
+    "name": "saEurope",
+    "oid": "1.3.6.1.4.1.1482",
+    "class": "objectidentity"
+  },
+  "mibGroups": {
+    "name": "mibGroups",
+    "oid": "1.3.6.1.4.1.1482.1",
+    "class": "objectidentity"
+  },
+  "commonMIBGroups": {
+    "name": "commonMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.1",
+    "class": "objectidentity"
+  },
+  "trapControlMIBGroups": {
+    "name": "trapControlMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.1.1",
+    "class": "objectidentity"
+  },
+  "messagesMIBGroups": {
+    "name": "messagesMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.1.2",
+    "class": "objectidentity"
+  },
+  "clockMIBGroups": {
+    "name": "clockMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.1.3",
+    "class": "objectidentity"
+  },
+  "devicesMIBGroups": {
+    "name": "devicesMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3",
+    "class": "objectidentity"
+  },
+  "backbonesMIBGroups": {
+    "name": "backbonesMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.1",
+    "class": "objectidentity"
+  },
+  "headendsMIBGroups": {
+    "name": "headendsMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2",
+    "class": "objectidentity"
+  },
+  "scramblersMIBGroups": {
+    "name": "scramblersMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.1",
+    "class": "objectidentity"
+  },
+  "tsProcessorsMIBGroups": {
+    "name": "tsProcessorsMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "descramblersMIBGroups": {
+    "name": "descramblersMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.3",
+    "class": "objectidentity"
+  },
+  "digitalSatelliteReceiversMIBGroups": {
+    "name": "digitalSatelliteReceiversMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.4",
+    "class": "objectidentity"
+  },
+  "digitalTerrestrialReceiversMIBGroups": {
+    "name": "digitalTerrestrialReceiversMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.5",
+    "class": "objectidentity"
+  },
+  "mpegIIDecodersMIBGroups": {
+    "name": "mpegIIDecodersMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.6",
+    "class": "objectidentity"
+  },
+  "digitalSwitchesMIBGroups": {
+    "name": "digitalSwitchesMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.7",
+    "class": "objectidentity"
+  },
+  "upconvertersMIBGroups": {
+    "name": "upconvertersMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.8",
+    "class": "objectidentity"
+  },
+  "terminalAdaptersMIBGroups": {
+    "name": "terminalAdaptersMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.9",
+    "class": "objectidentity"
+  },
+  "mpegIIEncodersMIBGroups": {
+    "name": "mpegIIEncodersMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.10",
+    "class": "objectidentity"
+  },
+  "digitalCableReceiversMIBGroups": {
+    "name": "digitalCableReceiversMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.11",
+    "class": "objectidentity"
+  },
+  "digitalTerrestrialModulatorsMIBGroups": {
+    "name": "digitalTerrestrialModulatorsMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.12",
+    "class": "objectidentity"
+  },
+  "videoOnDemandMIBGroups": {
+    "name": "videoOnDemandMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.13",
+    "class": "objectidentity"
+  },
+  "switchesMIBGroups": {
+    "name": "switchesMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.14",
+    "class": "objectidentity"
+  },
+  "analogDemodulatorsMIBGroups": {
+    "name": "analogDemodulatorsMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.2.15",
+    "class": "objectidentity"
+  },
+  "monitoringAndManagementMIBGroups": {
+    "name": "monitoringAndManagementMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.3",
+    "class": "objectidentity"
+  },
+  "hmsMIBGroups": {
+    "name": "hmsMIBGroups",
+    "oid": "1.3.6.1.4.1.1482.1.3.4",
+    "class": "objectidentity"
+  },
+  "copernicus": {
+    "name": "copernicus",
+    "oid": "1.3.6.1.4.1.1482.2",
+    "class": "objectidentity"
+  },
+  "equipment": {
+    "name": "equipment",
+    "oid": "1.3.6.1.4.1.1482.20",
+    "class": "objectidentity"
+  },
+  "common": {
+    "name": "common",
+    "oid": "1.3.6.1.4.1.1482.20.1",
+    "class": "objectidentity"
+  },
+  "trapControl": {
+    "name": "trapControl",
+    "oid": "1.3.6.1.4.1.1482.20.1.1",
+    "class": "objectidentity"
+  },
+  "messages": {
+    "name": "messages",
+    "oid": "1.3.6.1.4.1.1482.20.1.2",
+    "class": "objectidentity"
+  },
+  "clock": {
+    "name": "clock",
+    "oid": "1.3.6.1.4.1.1482.20.1.3",
+    "class": "objectidentity"
+  },
+  "devices": {
+    "name": "devices",
+    "oid": "1.3.6.1.4.1.1482.20.3",
+    "class": "objectidentity"
+  },
+  "backbones": {
+    "name": "backbones",
+    "oid": "1.3.6.1.4.1.1482.20.3.1",
+    "class": "objectidentity"
+  },
+  "headends": {
+    "name": "headends",
+    "oid": "1.3.6.1.4.1.1482.20.3.2",
+    "class": "objectidentity"
+  },
+  "scramblers": {
+    "name": "scramblers",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.1",
+    "class": "objectidentity"
+  },
+  "tsProcessors": {
+    "name": "tsProcessors",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.2",
+    "class": "objectidentity"
+  },
+  "descramblers": {
+    "name": "descramblers",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.3",
+    "class": "objectidentity"
+  },
+  "digitalSatelliteReceivers": {
+    "name": "digitalSatelliteReceivers",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.4",
+    "class": "objectidentity"
+  },
+  "digitalTerrestrialReceivers": {
+    "name": "digitalTerrestrialReceivers",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.5",
+    "class": "objectidentity"
+  },
+  "mpegIIDecoders": {
+    "name": "mpegIIDecoders",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.6",
+    "class": "objectidentity"
+  },
+  "digitalSwitches": {
+    "name": "digitalSwitches",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.7",
+    "class": "objectidentity"
+  },
+  "upconverters": {
+    "name": "upconverters",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.8",
+    "class": "objectidentity"
+  },
+  "terminalAdapters": {
+    "name": "terminalAdapters",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.9",
+    "class": "objectidentity"
+  },
+  "mpegIIEncoders": {
+    "name": "mpegIIEncoders",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.10",
+    "class": "objectidentity"
+  },
+  "digitalCableReceivers": {
+    "name": "digitalCableReceivers",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.11",
+    "class": "objectidentity"
+  },
+  "digitalTerrestrialModulators": {
+    "name": "digitalTerrestrialModulators",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.12",
+    "class": "objectidentity"
+  },
+  "videoOnDemand": {
+    "name": "videoOnDemand",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.13",
+    "class": "objectidentity"
+  },
+  "switches": {
+    "name": "switches",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.14",
+    "class": "objectidentity"
+  },
+  "analogDemodulators": {
+    "name": "analogDemodulators",
+    "oid": "1.3.6.1.4.1.1482.20.3.2.15",
+    "class": "objectidentity"
+  },
+  "monitoringAndManagement": {
+    "name": "monitoringAndManagement",
+    "oid": "1.3.6.1.4.1.1482.20.3.3",
+    "class": "objectidentity"
+  },
+  "hms": {
+    "name": "hms",
+    "oid": "1.3.6.1.4.1.1482.20.3.4",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-ROOT-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:41:05 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "SAEUROPE-ROOT-MIB"
+  }
+}

@@ -1,0 +1,526 @@
+{
+  "imports": {
+    "class": "imports",
+    "MYSTRO-ROOT-MIB": [
+      "generic"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "enterprises",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "Counter64",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "UDP-MIB": [
+      "udpLocalPort",
+      "udpLocalAddress"
+    ]
+  },
+  "videoport": {
+    "name": "videoport",
+    "oid": "1.3.6.1.4.1.14373.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-11-05 01:00",
+        "description": ""
+      }
+    ]
+  },
+  "org": {
+    "name": "org",
+    "oid": "1.3",
+    "class": "objectidentity"
+  },
+  "dod": {
+    "name": "dod",
+    "oid": "1.3.6",
+    "class": "objectidentity"
+  },
+  "internet": {
+    "name": "internet",
+    "oid": "1.3.6.1",
+    "class": "objectidentity"
+  },
+  "private": {
+    "name": "private",
+    "oid": "1.3.6.1.4",
+    "class": "objectidentity"
+  },
+  "enterprises": {
+    "name": "enterprises",
+    "oid": "1.3.6.1.4.1",
+    "class": "objectidentity"
+  },
+  "videoServicesTable": {
+    "name": "videoServicesTable",
+    "oid": "1.3.6.1.4.1.14373.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "videoServicesEntry": {
+    "name": "videoServicesEntry",
+    "oid": "1.3.6.1.4.1.14373.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "serviceID",
+        "implied": 0
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "definition",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "serviceID": {
+    "name": "serviceID",
+    "oid": "1.3.6.1.4.1.14373.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "definition": {
+    "name": "definition",
+    "oid": "1.3.6.1.4.1.14373.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stddef": 1,
+          "highdef": 2,
+          "mixture": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "transportType": {
+    "name": "transportType",
+    "oid": "1.3.6.1.4.1.14373.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "asi": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bitRate": {
+    "name": "bitRate",
+    "oid": "1.3.6.1.4.1.14373.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "udpServicesTable": {
+    "name": "udpServicesTable",
+    "oid": "1.3.6.1.4.1.14373.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "udpServicesEntry": {
+    "name": "udpServicesEntry",
+    "oid": "1.3.6.1.4.1.14373.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "serviceID",
+        "implied": 0
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "definition",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "destIPAddr": {
+    "name": "destIPAddr",
+    "oid": "1.3.6.1.4.1.14373.2.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataUdpPort": {
+    "name": "dataUdpPort",
+    "oid": "1.3.6.1.4.1.14373.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trickModeUdpPort": {
+    "name": "trickModeUdpPort",
+    "oid": "1.3.6.1.4.1.14373.2.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "asiServicesTable": {
+    "name": "asiServicesTable",
+    "oid": "1.3.6.1.4.1.14373.2.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "asiServicesEntry": {
+    "name": "asiServicesEntry",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "serviceID",
+        "implied": 0
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "definition",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "progNumber": {
+    "name": "progNumber",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483648,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidPMT": {
+    "name": "pidPMT",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidVideo": {
+    "name": "pidVideo",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidAudio0": {
+    "name": "pidAudio0",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidAudio1": {
+    "name": "pidAudio1",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidAudio2": {
+    "name": "pidAudio2",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidAudio3": {
+    "name": "pidAudio3",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidAudio4": {
+    "name": "pidAudio4",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pidAudio5": {
+    "name": "pidAudio5",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "connector": {
+    "name": "connector",
+    "oid": "1.3.6.1.4.1.14373.2.1.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notifications": {
+    "name": "notifications",
+    "oid": "1.3.6.1.4.1.14373.2.1.500",
+    "class": "objectidentity"
+  },
+  "addService": {
+    "name": "addService",
+    "oid": "1.3.6.1.4.1.14373.2.1.500.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "serviceID"
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "definition"
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "transportType"
+      }
+    ],
+    "status": "current"
+  },
+  "removeService": {
+    "name": "removeService",
+    "oid": "1.3.6.1.4.1.14373.2.1.500.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "serviceID"
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "definition"
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "transportType"
+      }
+    ],
+    "status": "current"
+  },
+  "updateService": {
+    "name": "updateService",
+    "oid": "1.3.6.1.4.1.14373.2.1.500.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "serviceID"
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "definition"
+      },
+      {
+        "module": "MYSTRO-VIDEOPORT-MIB",
+        "object": "transportType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mystro/MYSTRO-VIDEOPORT-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:39:12 2024",
+      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+    ],
+    "module": "MYSTRO-VIDEOPORT-MIB"
+  }
+}
