@@ -6,15 +6,15 @@ metadata:
   name: default-mibserver
   labels:
     type: local
-    helm.sh/chart: mibserver-1.14.10
+    helm.sh/chart: mibserver-1.15.10
     app.kubernetes.io/name: mibserver
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "1.14.10"
+    app.kubernetes.io/version: "1.15.10"
     app.kubernetes.io/managed-by: Helm
 spec:
   storageClassName: microk8s-hostpath
   capacity:
-    storage: 3Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   hostPath:
