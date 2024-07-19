@@ -5,26 +5,26 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
       "iso",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "transmission",
-      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "TimeTicks",
+      "MibIdentifier",
+      "transmission",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
       "Bits",
-      "Unsigned32"
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -572,8 +572,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOT12-IF-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 13:07:38 2024",
-      "On host fv-az1144-364 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 13:11:06 2024",
+      "On host fv-az849-313 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOT12-IF-MIB"
