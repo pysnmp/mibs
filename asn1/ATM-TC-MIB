@@ -1,4 +1,3 @@
-
      ATM-TC-MIB DEFINITIONS ::= BEGIN
 
      IMPORTS
@@ -166,7 +165,6 @@ AtmInterfaceType ::= TEXTUAL-CONVENTION
 
             Other: Connection setup procedures other than
                those listed below.
-
             Auto-configuration:
                Indicates that the connection setup
                procedures are to be determined dynamically,
@@ -214,7 +212,6 @@ AtmInterfaceType ::= TEXTUAL-CONVENTION
                ATM Forum, Private Network-Network Interface
                Specification, Version 1.0, af-pnni-0055.000,
                (March 1996).
-
             ATM Forum B-ICI:
                ATM Forum, B-ICI Specification, Version 2.0,
                af-bici-0013.002, (November 1995).
@@ -550,7 +547,6 @@ atmClpTransparentScr  OBJECT-IDENTITY
         This traffic descriptor type is applicable to
         connections following the VBR.1 conformance
         definition.
-
         Connections specifying this traffic descriptor
         type will be rejected at UNI 3.0 or UNI 3.1
         interfaces.  For a similar traffic descriptor

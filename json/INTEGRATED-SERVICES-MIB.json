@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "mib-2",
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Bits",
       "iso",
       "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier"
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
       "RowStatus",
       "DisplayString",
-      "TestAndIncr",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "intSrv": {
@@ -855,23 +855,15 @@
       {
         "module": "INTEGRATED-SERVICES-MIB",
         "object": "intSrvFlowStatus"
-      },
-      {
-        "module": "INTEGRATED-SERVICES-MIB",
-        "object": "intSrvFlowFlowId"
-      },
-      {
-        "module": "INTEGRATED-SERVICES-MIB",
-        "object": "intSrvFlowMaxTU"
       }
     ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/INTEGRATED-SERVICES-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:38:49 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/INTEGRATED-SERVICES-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:33 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "INTEGRATED-SERVICES-MIB"

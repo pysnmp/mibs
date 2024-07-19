@@ -11,32 +11,32 @@
       "ipAdEntAddr"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "snmpModules",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Counter64",
       "Gauge32",
-      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "iso",
-      "TimeTicks",
-      "Counter32"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "marsMIB": {
@@ -3731,8 +3731,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPATM-IPMC-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:31:49 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:34 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IPATM-IPMC-MIB"

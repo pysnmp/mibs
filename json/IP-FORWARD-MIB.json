@@ -8,38 +8,38 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetAutonomousSystemNumber",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength",
+      "InetAddressType"
     ],
     "IP-MIB": [
       "ip"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Gauge32",
+      "IpAddress",
       "OBJECT-TYPE",
-      "Counter64"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Counter64",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1265,9 +1265,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IP-FORWARD-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:38:27 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IP-FORWARD-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:34 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IP-FORWARD-MIB"

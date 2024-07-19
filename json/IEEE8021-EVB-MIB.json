@@ -5,9 +5,9 @@
       "ieee8021BridgePhyPort"
     ],
     "IEEE8021-TC-MIB": [
-      "ieee802dot1mibs",
+      "IEEE8021BridgePortNumber",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumber"
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -16,33 +16,33 @@
       "VlanIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
       "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "ieee8021BridgeEvbMib": {
@@ -2246,8 +2246,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-EVB-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:31:32 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:17 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-EVB-MIB"

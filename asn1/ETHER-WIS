@@ -26,8 +26,8 @@ etherWisMIB MODULE-IDENTITY
               http://www.ietf.org/html.charters/hubmib-charter.html
 
             Mailing Lists:
-              General Discussion: hubmib@ietf.org <mailto:hubmib@ietf.org>
-              To Subscribe: hubmib-request@ietf.org <mailto:hubmib-request@ietf.org>
+              General Discussion: hubmib@ietf.org
+              To Subscribe: hubmib-request@ietf.org
               In Body: subscribe your_email_address
 
              Chair: Dan Romascanu
@@ -36,14 +36,16 @@ etherWisMIB MODULE-IDENTITY
                     Tel Aviv 61131
                     Israel
                Tel: +972 3 645 8414
-            E-mail: dromasca@avaya.com <mailto:dromasca@avaya.com>
+            E-mail: dromasca@avaya.com
 
             Editor: C. M. Heard
             Postal: 600 Rainbow Dr. #141
                     Mountain View, CA 94041-2542
                     USA
                Tel: +1 650-964-8391
-            E-mail: heard@pobox.com <mailto:heard@pobox.com>"
+            E-mail: heard@pobox.com"
+
+
 
     DESCRIPTION
       "The objects in this MIB module are used in conjunction
@@ -73,11 +75,11 @@ etherWisMIB MODULE-IDENTITY
       Data Input/Output (MDIO) Interface'.
 
       Copyright (C) The Internet Society (2003).  This version
-      of this MIB module is part of RFC 3637 </rfcs/rfc3637.html>;  see the RFC
+      of this MIB module is part of RFC 3637;  see the RFC
       itself for full legal notices."
 
     REVISION    "200309190000Z"  -- September 19, 2003
-    DESCRIPTION "Initial version, published as RFC 3637 </rfcs/rfc3637.html>."
+    DESCRIPTION "Initial version, published as RFC 3637."
 
     ::= { transmission 134 }
 
@@ -89,6 +91,13 @@ etherWisObjectsPath OBJECT IDENTIFIER ::= { etherWisMIB 2 }
 
 etherWisConformance OBJECT IDENTIFIER ::= { etherWisMIB 3 }
 
+
+
+
+
+
+
+
 -- groups in the Ethernet WIS MIB module
 
 etherWisDevice      OBJECT IDENTIFIER ::= { etherWisObjects 1 }
@@ -98,6 +107,7 @@ etherWisSection     OBJECT IDENTIFIER ::= { etherWisObjects 2 }
 etherWisPath        OBJECT IDENTIFIER ::= { etherWisObjectsPath 1 }
 
 etherWisFarEndPath  OBJECT IDENTIFIER ::= { etherWisObjectsPath 2 }
+
 
 -- The Device group
 
@@ -129,6 +139,15 @@ EtherWisDeviceEntry ::=
         etherWisDeviceRxTestPatternMode     INTEGER,
         etherWisDeviceRxTestPatternErrors   Gauge32
         }
+
+
+
+
+
+
+
+
+
 
 etherWisDeviceTxTestPatternMode OBJECT-TYPE
     SYNTAX  INTEGER {
@@ -172,6 +191,15 @@ etherWisDeviceRxTestPatternMode OBJECT-TYPE
     MAX-ACCESS  read-write
     STATUS  current
 
+
+
+
+
+
+
+
+
+
     DESCRIPTION
        "This variable controls the receive test pattern mode.
        The value none(1) puts the the WIS receive path into the
@@ -214,6 +242,14 @@ etherWisDeviceRxTestPatternErrors OBJECT-TYPE
        (2.8.1), and 45.2.2.8, 10G WIS test pattern error counter
        register (2.9)."
      ::= { etherWisDeviceEntry 3 }
+
+
+
+
+
+
+
+
 
 -- The Section group
 
@@ -261,6 +297,11 @@ etherWisSectionCurrentJ0Transmitted OBJECT-TYPE
        "[IEEE 802.3 Std.], 30.8.1.1.8, aJ0ValueTX."
      ::= { etherWisSectionCurrentEntry 1 }
 
+
+
+
+
+
 etherWisSectionCurrentJ0Received OBJECT-TYPE
     SYNTAX  OCTET STRING (SIZE (16))
     MAX-ACCESS  read-only
@@ -271,6 +312,7 @@ etherWisSectionCurrentJ0Received OBJECT-TYPE
     REFERENCE
        "[IEEE 802.3 Std.], 30.8.1.1.9, aJ0ValueRX."
      ::= { etherWisSectionCurrentEntry 2 }
+
 
 -- The Path group
 
@@ -302,6 +344,14 @@ EtherWisPathCurrentEntry ::=
         etherWisPathCurrentJ1Transmitted    OCTET STRING,
         etherWisPathCurrentJ1Received       OCTET STRING
         }
+
+
+
+
+
+
+
+
 
 etherWisPathCurrentStatus OBJECT-TYPE
     SYNTAX  BITS {
@@ -342,6 +392,18 @@ etherWisPathCurrentStatus OBJECT-TYPE
           MUST be set in the corresponding instance of
           sonetPathCurrentStatus.
 
+
+
+
+
+
+
+
+
+
+
+
+
        etherWisPathLCD(3)
           This bit is set to indicate that an
           LCD-P (Loss of Codegroup Delination - Path)
@@ -379,6 +441,19 @@ etherWisPathCurrentJ1Received OBJECT-TYPE
     REFERENCE
        "[IEEE 802.3 Std.], 30.8.1.1.24, aJ1ValueRX."
      ::= { etherWisPathCurrentEntry 3 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- The Far End Path group
 
@@ -428,6 +503,9 @@ etherWisFarEndPathCurrentStatus OBJECT-TYPE
           PLM-P or LCD-P) is currently being signaled
           in G1 bits 5-7.
 
+
+
+
        etherWisFarEndServerDefect(1)
           A far end server defect (i.e., far end
           LOP-P or AIS-P) is currently being signaled
@@ -437,6 +515,7 @@ etherWisFarEndPathCurrentStatus OBJECT-TYPE
     REFERENCE
        "[IEEE 802.3 Std.], 30.8.1.1.25, aFarEndPathStatus."
      ::= { etherWisFarEndPathCurrentEntry 1 }
+
 
 --
 --     Conformance Statements
@@ -468,6 +547,15 @@ etherWisDeviceGroupExtra OBJECT-GROUP
        "A collection of objects that support
        optional WIS device test features."
      ::= { etherWisGroups 2 }
+
+
+
+
+
+
+
+
+
 
 etherWisSectionGroup OBJECT-GROUP
     OBJECTS {
@@ -518,6 +606,8 @@ etherWisCompliance MODULE-COMPLIANCE
        EtherLike-MIB          dot3Compliance2
        MAU-MIB                mauModIfCompl3"
 
+
+
     MODULE  -- this module
         MANDATORY-GROUPS {
             etherWisDeviceGroupBasic,
@@ -559,6 +649,15 @@ etherWisCompliance MODULE-COMPLIANCE
             "An implementation is not required to
             allow values other than zero to be
             written to this object."
+
+
+
+
+
+
+
+
+
 
     MODULE SONET-MIB
         MANDATORY-GROUPS {
@@ -607,6 +706,9 @@ etherWisCompliance MODULE-COMPLIANCE
         DESCRIPTION
             "Write access is not required, nor is support for values
             other than sonetNoLoop(0) and sonetFacilityLoop(1)."
+
+
+
 
         OBJECT       sonetSESthresholdSet
         MIN-ACCESS   read-only

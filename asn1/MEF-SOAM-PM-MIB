@@ -11,7 +11,7 @@ MEF-SOAM-PM-MIB DEFINITIONS ::= BEGIN
     Dot1afCfmIndexIntegerNextFree, Dot1agCfmMepIdOrZero
              FROM IEEE8021-CFM-MIB   -- IEEE 802.1ag
     IEEE8021PriorityValue
-        FROM IEEE8021-TC-MIB    -- IEEE 802.1ap
+             FROM IEEE8021-TC-MIB    -- IEEE 802.1ap
     MefSoamTcOperationTimeType, MefSoamTcDataPatternType, MefSoamTcTestPatternType,
     MefSoamTcAvailabilityType, MefSoamTcDelayMeasurementBinType, 
     MefSoamTcMeasurementPeriodType, MefSoamTcSessionType, MefSoamTcStatusType
@@ -31,167 +31,169 @@ mefSoamPmMib MODULE-IDENTITY
         Fax:     +1 310-642-2808"
     DESCRIPTION
             "This MIB module contains the management objects for the
-            management of Ethernet Services Operations, Administration
-            and Maintenance for Performance Monitoring.
-
-            Copyright 2010, 2011, 2012 Metro Ethernet Forum
-            All rights reserved.
-
-    ****************************************************************************
-    Reference Overview
-
-    A number of base documents have been used to create the Textual Conventions
-    MIB, the SOAM-PM MIB and SOAM-FM extension MIB. The following are the 
-    abbreviations for the baseline documents:
-
-    [CFM] refers to 'Connectivity Fault Management', IEEE 802.1ag-2007, 
-        December 2007
-    [MEF7.1] refers to MEF 7.1 'Phase 2 EMS-NMS Information Model', 
-        October 2009
-    [MEF17] refers to MEF 17 'Service OAM Requirements & Framework - Phase 1',
-        April 2007
-    [MEF10.2.1] refers to MEF 10.2.1 'Ethernet Services Attributes Phase 2', 
-        January 2011
-    [MEF SOAM-PM] refers to MEF 35 'Service OAM Performance Monitoring
-        Implementation Agreement', January 2012
-    [MEF SOAM-FM] refers to MEF 30 'Service OAM Fault Management Implementation
-        Agreement', January 2011
-    [Q.840.1] refers to 'ITU-T Requirements and analysis for NMS-EMS
-        management interface of Ethernet over Transport and Metro Ethernet
-        Network (EoT/MEN)', March 2007
-    [Y.1731] refers to ITU-T Y.1731 'OAM functions and mechanisms for Ethernet 
-        based networks', February 2011
-    ****************************************************************************
-
-    Abbreviations Used 
-
-Term         Definition
-Availability Performance   A measure of the percentage of time within a
-                specified time interval during which the frame loss is small 
-Backward     OAM information sent from the Responder MEP to the Controller MEP. For
-                LM it indicates the frame counts/loss from the Responder MEP to the
-                Controller MEP. For DM is indicates the delay and delay variation
-                from the Responder MEP to the Controller MEP. 
-BSS          Business Support System
-CCM          Continuity Check Message
-CFM          Connectivity Fault Management 
-CHLI         Consecutive High Loss Interval, a sequence of small time  intervals
+             management of Ethernet Services Operations, Administration
+             and Maintenance for Performance Monitoring.
+ 
+             Copyright 2010, 2011, 2012 Metro Ethernet Forum
+             All rights reserved.
+            
+             ****************************************************************************
+             Reference Overview
+            
+             A number of base documents have been used to create the Textual Conventions
+             MIB, the SOAM-PM MIB and SOAM-FM extension MIB. The following are the
+             abbreviations for the baseline documents:
+            
+             [CFM] refers to 'Connectivity Fault Management', IEEE 802.1ag-2007,
+             December 2007
+             [MEF7.1] refers to MEF 7.1 'Phase 2 EMS-NMS Information Model',
+             October 2009
+             [MEF17] refers to MEF 17 'Service OAM Requirements & Framework - Phase 1',
+             April 2007
+             [MEF10.2.1] refers to MEF 10.2.1 'Ethernet Services Attributes Phase 2',
+             January 2011
+             [MEF SOAM-PM] refers to MEF 35 'Service OAM Performance Monitoring
+             Implementation Agreement', January 2012
+             [MEF SOAM-FM] refers to MEF 30 'Service OAM Fault Management Implementation
+             Agreement', January 2011
+             for NMS-EMS
+             management interface of Ethernet over Transport and Metro Ethernet
+             Network (EoT/MEN)', March 2007
+             [Y.1731] refers to ITU-T Y.1731 'OAM functions and mechanisms for Ethernet
+             based networks', February 2011
+             ****************************************************************************
+            
+             Abbreviations Used
+            
+             Term Definition
+             Availability Performance A measure of the percentage of time within a
+             specified time interval during which the frame loss is small
+             Backward OAM information sent from the Responder MEP to the Controller MEP. For
+             LM it indicates the frame counts/loss from the Responder MEP to the
+             Controller MEP. For DM is indicates the delay and delay variation
+             from the Responder MEP to the Controller MEP.
+             BSS Business Support System
+             CCM Continuity Check Message
+             CFM Connectivity Fault Management
+             CHLI Consecutive High Loss Interval, a sequence of small time intervals
              contained in T, each with high frame loss ratio
-Controller MEP   The Controller MEP initiates SOAM PDUs, and receives responses
-                from the Responder MEP. 
-CoS          Class of Service 
-DM           Delay Measurement
-Dual-Ended   A type of process where a MEP sends measurement information to a peer
-                MEP that will perform the calculations.
-EMS          Element Management System
-ETH-DM       Ethernet Delay Measurement function 
-ETH-LM       Ethernet Loss Measurement function 
-ETH-SLM      Ethernet Synthetic Frame Loss Measurement function 
-EVC          Ethernet Virtual Connection 
-FD           Frame Delay 
-FDR          Frame Delay Range 
-FLR          Frame Loss Ratio 
-FM           Fault Management 
-Forward      OAM information sent from the Controller MEP to the Responder MEP.
-               For LM it indicates the frame counts/loss from the Controller MEP
-               to the Responder MEP. For DM is indicates the delay and delay
-               variation from the Controller MEP to the Responder MEP. 
-HLI          High Loss Interval, a small time interval contained in T with a
-                high frame loss ratio 
-IEEE         Institute of Electrical and Electronics Engineers
-IETF         Internet Engineering Task Force
-IFDV         Inter-Frame Delay Variation 
-ITU-T        International Telecommunication Union - Telecommunication
-                Standardization Bureau
-LAN          Local Area Network 
-LM           Loss Measurement 
-MAC          Media Access Control 
-MA           Maintenance Association (equivalent to a MEG) 
-MD           Maintenance Domain (equivalent to a OAM Domain in MEF 17) 
-MD Level     Maintenance Domain Level (equivalent to a MEG level) 
-ME           Maintenance Entity 
-Measurement Bin   A Measurement Bin is a counter that stores the number of
-                performance measurements falling within a specified range, during
-                a Measurement Interval 
-Measurement Interval   A period of time during which measurements are taken.
-               Measurements initiated during one Measurement Interval are kept
-               separate from measurements taken during other Measurement Intervals.
-               It is important to note that this is different from T.
-MEF         Metro Ethernet Forum
-MEG         Maintenance Entity Group (equivalent to a MA) 
-MEG Level   Maintenance Entity Group Level (equivalent to MD Level) 
-MEN         Metro Ethernet Network 
-MEP         Maintenance Association End Point or MEG End Point 
-MFD         Mean Frame Delay 
-MIB         Management Information Base 
-MIP         Maintenance Domain Intermediate Point or MEG Intermediate Point 
-MP          Maintenance Point. One of either a MEP or a MIP 
-NE          Network Element 
-NMS         Network Management System 
-OAM         Operations, Administration, and Maintenance On-Demand   OAM actions that are initiated via manual intervention for a limited
-               time to carry out diagnostics.  On-Demand OAM can result in
-               singular or periodic OAM actions during the diagnostic time
-               interval 
-One-way     A measurement performed in the forward or backward direction. For
-               example from MEP A to MEP B or from MEP B to MEP A. 
-OSS         Operations Support System 
-PDU         Protocol Data Unit 
-PM          Performance Monitoring 
-PM Function  A MEP capability specified for performance monitoring purposes
-               (e.g., Single-Ended Delay, Single-Ended Synthetic Loss) 
-PM Session  A PM Session is the application of a given PM Function between a given
-              pair of MEPs and using a given CoS Frame Set over some (possibly
-              indefinite) period of time. 
-PM Solution A PM Solution is a set of related requirements that when implemented
-               allow a given set of performance metrics to be measured using a
-               given set of PM functions. 
-PM Tool     A generic term used to discuss the application of a PM Function.
-Proactive   OAM actions that are carried on continuously to permit timely reporting
-               of fault and/or performance status. 
-Resiliency  Performance The number of High Loss Intervals and Consecutive High
-               Loss Intervals in T 
-Responder MEP   In a single-ended session, the Responder MEP receives SOAM PDUs,
-               from the Controller MEP, and transmits a response to the
-               Controller MEP. SOAM-PM 
-RFC         Request for Comment
-Service Frame   An Ethernet frame transmitted across the UNI toward the Service
-               Provider or an Ethernet frame transmitted across the UNI toward
-               the Subscriber 
-Single-Ended   A type of process where a MEP sends a measurement request and the
-               peer MEP replies with the requested information so the originating
-               MEP can calculate the measurement.
-Sink MEP    In a dual-ended session, the Sink MEP receives SOAM PDUs, from the
-               Controller MEP and performs the performance calculations. 
-SLM         Synthetic Loss Measurement 
-SNMP        Simple Network Management Protocol
-SNMP Agent  An SNMP entity containing one or more command responder and/or
-               notification originator applications (along with their associated
-               SNMP engine).  Typically implemented in an NE. 
-SNMP Manager   An SNMP entity containing one or more command generator and/or
-               notification receiver applications (along with their associated
-               SNMP engine). Typically implemented in an EMS or NMS. 
-SOAM        Service OAM 
-SOAM PDU    Service OAM frame, or Protocol Data Unit. Specifically, those PDUs
-               defined in [IEEE 802.1ag], [ITU-T Y.1731], or MEF specifications
-Synthetic Traffic   SOAM traffic that emulates service traffic in order to measure
-              the performance experience. Delay measurements must use synthetic
-              traffic, because user traffic does not contain standardized
-              timestamp fields. Other measurements, such as Frame Loss, may also
-              use synthetic frames for certain advantages (e.g., ability to
-              measure loss in multipoint services). 
-T           Time Interval for SLS Metrics.  The time over which a Performance
-               Metric is defined.  T is at least as large as the Measurement
-               Interval, and generally consists of multiple Measurement
-               Intervals. 
-TC          Textual Conventions 
-TLV         Type Length Value, a method of encoding Objects
-Two-way     A measurement of the performance of frames that flow from the
-               Controller MEP to Responder MEP and back again. 
-UML         Unified Modeling Language
-UTC         Coordinated Universal Time 
-UNI         User-to-Network Interface 
-VLAN        Virtual LAN
-"
+             Controller MEP The Controller MEP initiates SOAM PDUs, and receives responses
+             from the Responder MEP.
+             CoS Class of Service
+             DM Delay Measurement
+             Dual-Ended A type of process where a MEP sends measurement information to a peer
+             MEP that will perform the calculations.
+             EMS Element Management System
+             ETH-DM Ethernet Delay Measurement function
+             ETH-LM Ethernet Loss Measurement function
+             ETH-SLM Ethernet Synthetic Frame Loss Measurement function
+             EVC Ethernet Virtual Connection
+             FD Frame Delay
+             FDR Frame Delay Range
+             FLR Frame Loss Ratio
+             FM Fault Management
+             Forward OAM information sent from the Controller MEP to the Responder MEP.
+             For LM it indicates the frame counts/loss from the Controller MEP
+             to the Responder MEP. For DM is indicates the delay and delay
+             variation from the Controller MEP to the Responder MEP.
+             HLI High Loss Interval, a small time interval contained in T with a
+             high frame loss ratio
+             IEEE Institute of Electrical and Electronics Engineers
+             IETF Internet Engineering Task Force
+             IFDV Inter-Frame Delay Variation
+             ITU-T International Telecommunication Union - Telecommunication
+             Standardization Bureau
+             LAN Local Area Network
+             LM Loss Measurement
+             MAC Media Access Control
+             MA Maintenance Association (equivalent to a MEG)
+             MD Maintenance Domain (equivalent to a OAM Domain in MEF 17)
+             MD Level Maintenance Domain Level (equivalent to a MEG level)
+             ME Maintenance Entity
+             Measurement Bin A Measurement Bin is a counter that stores the number of
+             performance measurements falling within a specified range, during
+             a Measurement Interval
+             Measurement Interval A period of time during which measurements are taken.
+             Measurements initiated during one Measurement Interval are kept
+             separate from measurements taken during other Measurement Intervals.
+             It is important to note that this is different from T.
+             MEF Metro Ethernet Forum
+             MEG Maintenance Entity Group (equivalent to a MA)
+             MEG Level Maintenance Entity Group Level (equivalent to MD Level)
+             MEN Metro 963 Ethernet Network
+             MEP Maintenance Association End Point or MEG End Point
+             MFD Mean Frame Delay
+             MIB Management Information Base
+             MIP Maintenance Domain Intermediate Point or MEG Intermediate Point
+             MP Maintenance Point. One of either a MEP or a MIP
+             NE Network Element
+             NMS Network Management System
+             OAM Operations, Administration, and Maintenance
+             On-Demand OAM actions that are initiated via manual intervention for a limited
+             time to carry out diagnostics. On-Demand OAM can result in
+             singular or periodic OAM actions during the diagnostic time
+             interval
+             One-way A measurement performed in the forward or backward direction. For
+             example from MEP A to MEP B or from MEP B to MEP A.
+             OSS Operations Support System
+             PDU Protocol Data Unit
+             PM Performance Monitoring
+             PM Function A MEP capability specified for performance monitoring purposes
+             (e.g., Single-Ended Delay, Single-Ended Synthetic Loss)
+             PM Session A PM Session is the application of a given PM Function between a given
+             pair of MEPs and using a given CoS Frame Set over some (possibly
+             indefinite) period of time.
+             PM Solution A PM Solution is a set of related requirements that when implemented
+             allow a given set of performance metrics to be measured using a
+             given set of PM functions.
+             PM Tool A generic term used to discuss the application of a PM Function.
+             Proactive OAM actions that are carried on continuously to permit timely reporting
+             of fault and/or performance status.
+             Resiliency Performance The number of High Loss Intervals and Consecutive High
+             Loss Intervals in T
+             Responder MEP In a single-ended session, the Responder MEP receives SOAM PDUs,
+             from the Controller MEP, and transmits a response to the
+             Controller MEP. SOAM-PM
+             RFC Request for Comment
+             Service Frame An Ethernet frame transmitted across the UNI toward the Service
+             Provider or an Ethernet frame transmitted across the UNI toward
+             the Subscriber
+             Single-Ended A type of process where a MEP sends a measurement request and the
+             peer MEP replies with the requested information so the originating
+             MEP can calculate the measurement.
+             Sink MEP In a dual-ended session, the Sink MEP receives SOAM PDUs, from the
+             Controller MEP and performs the performance calculations.
+             SLM Synthetic Loss Measurement
+             SNMP Simple Network Management Protocol
+             SNMP Agent An SNMP entity containing one or more command responder and/or
+             notification originator applications (along with their associated
+             SNMP engine). Typically implemented in an NE.
+             SNMP Manager An SNMP entity containing one or more command generator and/or
+             notification receiver applications (along with their associated
+             SNMP engine). Typically implemented in an EMS or NMS.
+             SOAM Service OAM
+             SOAM PDU Service OAM frame, or Protocol Data Unit. Specifically, those PDUs
+             defined in [IEEE 802.1ag], [ITU-T Y.1731], or MEF specifications
+             Synthetic Traffic SOAM traffic that emulates service traffic in order to measure
+             the performance experience. Delay measurements must use synthetic
+             traffic, because user traffic does not contain standardized
+             timestamp fields. Other measurements, such as Frame Loss, may also
+             use synthetic frames for certain advantages (e.g., ability to
+             measure loss in multipoint services).
+             T Time Interval for SLS Metricss. The time over which a Performance
+             Metric is defined. T is at least as large as the Measurement
+             Interval, and generally consists of multiple Measurement
+                        Intervals
+             TC Textual Conventions
+             TLV Type Length Value, a method of encoding Objects
+             Two-way A measurement of the performance of frames that flow from the
+             Controller MEP to Responder MEP and back again.
+             UML Unified Modeling Language
+             UTC Coordinated Universal Time
+             UNI User-to-Network Interface
+             VLAN Virtual LAN
+           
+            "
     REVISION        "201201131200Z" -- January 13, 2012
     DESCRIPTION
             "Initial Version."
@@ -212,6 +214,7 @@ mefSoamPmLmObjects       OBJECT IDENTIFIER ::= { mefSoamPmMibObjects 2 }
 mefSoamPmDmObjects       OBJECT IDENTIFIER ::= { mefSoamPmMibObjects 3 }
 mefSoamPmNotificationCfg OBJECT IDENTIFIER ::= { mefSoamPmMibObjects 4 }
 mefSoamPmNotificationObj OBJECT IDENTIFIER ::= { mefSoamPmMibObjects 5 }
+
 
 -- *****************************************************************************
 -- Ethernet MEP Performance Monitoring Configuration
@@ -1516,6 +1519,7 @@ mefSoamLmMeasuredStatsAvailBackwardLastTransitionTime OBJECT-TYPE
     REFERENCE
        "[MEF SOAM-PM] R83"
     ::= { mefSoamLmMeasuredStatsEntry 6 }
+
 
 -- *****************************************************************************
 -- Ethernet Loss Measurement Current Availability Statistic Table
@@ -7644,7 +7648,4 @@ mefSoamPmMibCompliance MODULE-COMPLIANCE
         requirement."
     ::= { mefSoamPmMibCompliances 1 }
  
-
 END
-
-

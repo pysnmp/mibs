@@ -43,6 +43,8 @@ T11FabricIndex ::= TEXTUAL-CONVENTION
 
            In an environment that is conformant to FC-SW-3, where
 
+
+
            there is always exactly one Fabric in a single physical
            infrastructure, the value of this Fabric Index will
            always be 1.
@@ -65,6 +67,3 @@ T11FabricIndex ::= TEXTUAL-CONVENTION
     SYNTAX      Unsigned32 (0..4095)
 
 END
-
-
-

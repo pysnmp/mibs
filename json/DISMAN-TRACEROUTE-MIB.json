@@ -8,41 +8,41 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Bits",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "IpAddress",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "mib-2",
       "iso",
-      "TimeTicks",
-      "Counter32"
+      "Counter64",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "DateAndTime",
+      "DisplayString",
+      "TruthValue",
       "StorageType",
-      "TruthValue"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "traceRouteMIB": {
@@ -1725,8 +1725,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DISMAN-TRACEROUTE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:31:50 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:34 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DISMAN-TRACEROUTE-MIB"

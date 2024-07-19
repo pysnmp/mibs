@@ -5,42 +5,42 @@
       "InterfaceIndex"
     ],
     "IPMROUTE-STD-MIB": [
-      "ipMRouteNextHopSource",
-      "ipMRouteSourceMask",
-      "ipMRouteNextHopIfIndex",
       "ipMRouteNextHopSourceMask",
-      "ipMRouteNextHopGroup",
+      "ipMRouteNextHopIfIndex",
+      "ipMRouteNextHopSource",
       "ipMRouteNextHopAddress",
-      "ipMRouteSource",
-      "ipMRouteGroup"
+      "ipMRouteSourceMask",
+      "ipMRouteGroup",
+      "ipMRouteNextHopGroup",
+      "ipMRouteSource"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "experimental",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
       "Counter32",
+      "MODULE-IDENTITY",
       "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "experimental",
+      "OBJECT-IDENTITY",
       "iso",
       "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "pimMIB": {
@@ -418,15 +418,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
+      "type": "Bits",
       "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 1
-          }
-        ]
+      "bits": {
+        "rpt": 0,
+        "spt": 1
       }
     },
     "maxaccess": "read-only",
@@ -970,6 +966,18 @@
     ],
     "status": "current"
   },
+  "pimNotificationGroup": {
+    "name": "pimNotificationGroup",
+    "oid": "1.3.6.1.3.61.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PIM-MIB",
+        "object": "pimNeighborLoss"
+      }
+    ],
+    "status": "current"
+  },
   "pimV2MIBGroup": {
     "name": "pimV2MIBGroup",
     "oid": "1.3.6.1.3.61.2.2.2",
@@ -1224,9 +1232,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/PIM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:38:49 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PIM-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:33 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "PIM-MIB"

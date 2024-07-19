@@ -5,38 +5,38 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Bits",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "transmission",
       "OBJECT-IDENTITY",
       "iso",
-      "TimeTicks",
-      "Counter32"
+      "Counter64",
+      "transmission",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hdsl2ShdslMIB": {
@@ -2987,8 +2987,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/HDSL2-SHDSL-LINE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:31:49 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:54:33 2024",
+      "On host fv-az568-357 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HDSL2-SHDSL-LINE-MIB"

@@ -38,7 +38,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
    --  see at the end of the module
 
   -- Groups under fcFeMIBObjects
-
   fcFeConfig       OBJECT IDENTIFIER ::= { fcFeMIBObjects 1 }
   fcFeStatus       OBJECT IDENTIFIER ::= { fcFeMIBObjects 2 }
   fcFeError        OBJECT IDENTIFIER ::= { fcFeMIBObjects 3 }
@@ -328,6 +327,7 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
              FcFeFxPortIndex,
          fcFxPortName
              FcNameId,
+
          -- FxPort common service parameters
          fcFxPortFcphVersionHigh
              FcphVersion,
@@ -712,7 +712,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
           more NxPort attached to it."
   ::= { fcFeStatus 3 }
 
-
   fcFxLoginEntry OBJECT-TYPE
       SYNTAX      FcFxLoginEntry
       MAX-ACCESS  not-accessible
@@ -1049,6 +1048,7 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
 
   -- the Class 1 Accounting table
   -- This table contains, one entry for each FxPort in the Fabric
+
   -- Element, Counter32s for certain types of events occurred in the
   -- the FxPorts since the the management agent has re-initialized.
 
@@ -1576,7 +1576,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
   ::= { fcFxPortCapEntry 13 }
 
   -- conformance information
-
   fcFeMIBConformance OBJECT IDENTIFIER  ::= { fcFeMIB 2 }
   fcFeMIBCompliances  OBJECT IDENTIFIER ::= { fcFeMIBConformance 1 }
   fcFeMIBGroups       OBJECT IDENTIFIER ::= { fcFeMIBConformance 2 }
