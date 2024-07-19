@@ -12,25 +12,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -45,8 +45,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2005-05-06 00:00",
-        "description": "Published as part of IEEE Std 802.1AB-2005 initial version."
+        "revision": "2004-11-22 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2004 initial version."
       }
     ]
   },
@@ -231,6 +231,7 @@
         ]
       }
     },
+    "displayhint": "d",
     "status": "current"
   },
   "LldpPortList": {
@@ -500,7 +501,7 @@
     },
     "default": {
       "default": {
-        "value": "00000000",
+        "value": "",
         "format": "hex"
       }
     },
@@ -1863,9 +1864,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 12:26:50 2024",
-      "On host fv-az1984-587 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/lldp.mib",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 12:36:34 2024",
+      "On host fv-az1766-821 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LLDP-MIB"

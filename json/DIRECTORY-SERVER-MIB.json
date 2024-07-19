@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "NETWORK-SERVICES-MIB": [
-      "URLString",
       "applIndex",
+      "URLString",
       "DistinguishedName"
     ],
     "RMON2-MIB": [
@@ -11,30 +11,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "TimeTicks",
       "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
+      "Unsigned32",
       "IpAddress",
       "iso",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
       "mib-2",
-      "Bits"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "dsMIB": {
@@ -914,8 +914,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIRECTORY-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 12:27:06 2024",
-      "On host fv-az1984-587 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 12:36:52 2024",
+      "On host fv-az1766-821 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DIRECTORY-SERVER-MIB"
