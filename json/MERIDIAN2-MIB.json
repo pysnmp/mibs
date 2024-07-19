@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "iso",
+      "Integer32",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Unsigned32",
+      "Counter64",
+      "IpAddress",
       "enterprises",
-      "Integer32",
+      "iso",
       "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress"
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -3985,8 +3985,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/endrun/MERIDIAN2-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:04:22 2024",
-      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:35:11 2024",
+      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "MERIDIAN2-MIB"

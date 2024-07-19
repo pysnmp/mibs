@@ -5,23 +5,23 @@
       "benuWAG"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-TYPE",
+      "IpAddress",
       "TimeTicks",
-      "Counter32",
-      "MibIdentifier",
+      "Integer32",
       "iso",
-      "Bits",
+      "MibIdentifier",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter32",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64"
     ],
     "SNMPv2-TC": [
@@ -1322,8 +1322,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-TWAG-STATS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:02:15 2024",
-      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:33:05 2024",
+      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "BENU-TWAG-STATS-MIB"

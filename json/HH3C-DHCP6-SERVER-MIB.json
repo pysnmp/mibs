@@ -12,25 +12,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Counter32",
       "IpAddress",
-      "iso",
-      "Counter64"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "hh3cDHCP6Server": {
@@ -268,8 +268,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DHCP6-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:03:20 2024",
-      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:34:10 2024",
+      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HH3C-DHCP6-SERVER-MIB"

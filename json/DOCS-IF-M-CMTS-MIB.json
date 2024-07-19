@@ -11,18 +11,18 @@
       "docsQosServiceFlowId"
     ],
     "ENTITY-MIB": [
-      "PhysicalIndexOrZero",
-      "entityMappingGroup",
-      "entityGeneralGroup",
       "PhysicalIndex",
-      "entPhysicalAssetID",
-      "entityPhysicalGroup",
-      "entityLogical2Group",
-      "entPhysicalClass",
       "entityPhysical2Group",
-      "entityPhysical3Group",
+      "PhysicalIndexOrZero",
+      "entPhysicalAssetID",
       "entPhysicalSerialNum",
-      "entPhysicalAlias"
+      "entityPhysicalGroup",
+      "entPhysicalAlias",
+      "entityGeneralGroup",
+      "entityMappingGroup",
+      "entPhysicalClass",
+      "entityLogical2Group",
+      "entityPhysical3Group"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -30,9 +30,9 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddress",
-      "InetPortNumber",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -41,34 +41,34 @@
       "SnmpTagValue"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter64",
-      "MibIdentifier",
       "Bits",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
+      "Integer32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter32",
+      "IpAddress",
       "Gauge32",
+      "Counter64",
       "Unsigned32",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "iso",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
-      "TruthValue",
-      "DisplayString",
       "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "TruthValue"
     ]
   },
   "docsIfMCmtsMib": {
@@ -2953,8 +2953,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-M-CMTS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:00 2024",
-      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:31:49 2024",
+      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF-M-CMTS-MIB"

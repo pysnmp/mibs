@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
-      "VlanPriority",
       "AdminState",
-      "CmPmBinAction",
-      "SecondaryState",
-      "PerfCounter64",
       "OperationalState",
-      "IpVersion"
+      "PerfCounter64",
+      "IpVersion",
+      "CmPmBinAction",
+      "VlanId",
+      "SecondaryState",
+      "VlanPriority"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -24,34 +24,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
       "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Integer32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "MibIdentifier"
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "StorageType",
-      "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString",
+      "MacAddress",
+      "DateAndTime",
+      "StorageType",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "VariablePointer"
     ]
   },
@@ -8131,8 +8131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-TWAMP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:58 2024",
-      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:32:46 2024",
+      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F3-TWAMP-MIB"

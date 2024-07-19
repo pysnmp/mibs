@@ -5,30 +5,30 @@
       "dlink-common-mgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "Bits",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "swTimeRangeMIB": {
@@ -321,8 +321,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/TIMERANGE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:03:50 2024",
-      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 11:34:38 2024",
+      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TIMERANGE-MIB"
