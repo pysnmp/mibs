@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "iso",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
       "Counter32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TRAP-TYPE",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -14351,8 +14351,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cyberpower/CPS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:08 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:42:55 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CPS-MIB"

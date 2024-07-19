@@ -5,9 +5,9 @@
       "InterfaceIndexOrZero"
     ],
     "SIAE-ALARM-MIB": [
+      "AlarmSeverityCode",
       "alarmTrap",
-      "AlarmStatus",
-      "AlarmSeverityCode"
+      "AlarmStatus"
     ],
     "SIAE-EQUIP-MIB": [
       "equipIpSnmpAgentAddress"
@@ -20,26 +20,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "IpAddress",
+      "MibIdentifier",
       "Gauge32",
-      "Unsigned32",
-      "Integer32",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
       "iso",
+      "Counter64",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "radioSystem": {
@@ -5766,8 +5766,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-RADIO-SYSTEM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:41:21 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:49:46 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SIAE-RADIO-SYSTEM-MIB"

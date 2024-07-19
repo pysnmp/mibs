@@ -5,39 +5,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-IDENTITY",
-      "enterprises",
       "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "mib-2",
-      "zeroDotZero",
-      "Gauge32",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "zeroDotZero",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "iso",
+      "enterprises",
+      "Bits",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowPointer",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ],
     "TRANSPORT-ADDRESS-MIB": [
-      "TransportAddress",
-      "TransportAddressType"
+      "TransportAddressType",
+      "TransportAddress"
     ]
   },
   "hp": {
@@ -1850,8 +1850,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPVC-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:39:06 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:46:41 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HPVC-MIB"

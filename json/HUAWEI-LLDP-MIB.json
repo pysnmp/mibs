@@ -11,46 +11,46 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
-      "lldpRemLocalPortNum",
-      "lldpRemEntry",
-      "LldpManAddress",
-      "LldpManAddrIfSubtype",
-      "LldpSystemCapabilitiesMap",
-      "LldpPortId",
-      "lldpRemTimeMark",
       "lldpPortConfigPortNum",
-      "LldpPortNumber",
       "lldpLocSysCapEnabled",
+      "lldpRemEntry",
+      "LldpManAddrIfSubtype",
+      "LldpChassisId",
+      "LldpPortId",
       "lldpLocSysCapSupported",
-      "lldpRemIndex"
+      "lldpRemTimeMark",
+      "lldpRemIndex",
+      "lldpRemLocalPortNum",
+      "LldpSystemCapabilitiesMap",
+      "LldpPortNumber",
+      "LldpManAddress"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "Integer32",
+      "Bits",
       "IpAddress",
-      "TimeTicks",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
       "Counter64",
-      "Integer32",
-      "iso",
       "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "MacAddress",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "hwLldpMIB": {
@@ -1289,8 +1289,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-LLDP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:37:39 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:46:26 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-LLDP-MIB"

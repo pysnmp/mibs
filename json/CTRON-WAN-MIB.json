@@ -9,24 +9,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
       "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "Index": {
@@ -3747,8 +3747,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-WAN-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:35:47 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:44:30 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CTRON-WAN-MIB"

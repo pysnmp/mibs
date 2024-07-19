@@ -10,35 +10,35 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "IpAddress",
-      "OBJECT-TYPE",
       "TimeTicks",
+      "Gauge32",
       "Bits",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Integer32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32"
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
+      "DateAndTime",
       "StorageType",
+      "MacAddress",
       "TimeStamp",
-      "TruthValue",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "RowStatus"
     ]
   },
   "ciscoCableSpectrumMIB": {
@@ -3235,8 +3235,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CABLE-SPECTRUM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:37:40 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:46:51 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-CABLE-SPECTRUM-MIB"

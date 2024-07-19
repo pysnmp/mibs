@@ -3,48 +3,48 @@
     "class": "imports",
     "ATM-TC-MIB": [
       "AtmVcIdentifier",
-      "AtmTrafficDescrParamIndex",
-      "AtmVorXLastChange",
       "AtmConnKind",
-      "AtmVpIdentifier",
-      "AtmConnCastType",
       "AtmVorXOperStatus",
-      "AtmServiceCategory",
-      "AtmVorXAdminStatus",
+      "AtmVorXLastChange",
       "atmNoClpNoScr",
-      "AtmAddr"
+      "AtmConnCastType",
+      "AtmVorXAdminStatus",
+      "AtmServiceCategory",
+      "AtmAddr",
+      "AtmVpIdentifier",
+      "AtmTrafficDescrParamIndex"
     ],
     "IF-MIB": [
       "ifIndex",
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "OBJECT-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "mib-2",
+      "TimeTicks",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "iso",
       "Unsigned32",
-      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
       "MODULE-IDENTITY",
-      "mib-2",
-      "MibIdentifier"
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:35:47 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:44:30 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"

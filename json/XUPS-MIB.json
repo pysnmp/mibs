@@ -3,47 +3,47 @@
     "class": "imports",
     "EATON-EMP-MIB": [
       "xupsContactState",
-      "xupsContactDescr",
-      "xupsEnvRemoteTempLowerLimit",
-      "xupsEnvRemoteHumidityUpperLimit",
-      "xupsContactType",
       "xupsEnvRemoteHumidityLowerLimit",
-      "xupsEnvRemoteHumidity",
       "xupsContactIndex",
       "xupsEnvRemoteTemp",
-      "xupsEnvRemoteTempUpperLimit"
+      "xupsEnvRemoteHumidityUpperLimit",
+      "xupsEnvRemoteHumidity",
+      "xupsContactDescr",
+      "xupsEnvRemoteTempUpperLimit",
+      "xupsEnvRemoteTempLowerLimit",
+      "xupsContactType"
     ],
     "EATON-OIDS": [
-      "eaton",
-      "xupsEnvironment"
+      "xupsEnvironment",
+      "eaton"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "iso",
       "Counter64",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "xupsMIB": {
@@ -5135,8 +5135,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/XUPS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:35:05 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:43:49 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "XUPS-MIB"

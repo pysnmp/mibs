@@ -6,12 +6,12 @@
       "fcSwitch"
     ],
     "Brocade-TC": [
-      "SwDomainIndex",
-      "SwPortIndex",
       "SwSensorIndex",
+      "SwNbIndex",
+      "SwDomainIndex",
       "SwTrunkMaster",
-      "FcWwn",
-      "SwNbIndex"
+      "SwPortIndex",
+      "FcWwn"
     ],
     "FCMGMT-MIB": [
       "connUnitPortStatEntry"
@@ -21,20 +21,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
       "Gauge32",
+      "OBJECT-TYPE",
       "MibIdentifier",
       "Integer32",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter64",
       "Bits",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso"
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -5513,8 +5513,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/SW-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:36:03 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:44:46 2024",
+      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SW-MIB"
