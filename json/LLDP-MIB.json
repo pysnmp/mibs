@@ -12,25 +12,25 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
       "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Integer32",
+      "Unsigned32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "TimeTicks"
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
@@ -45,8 +45,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2004-11-22 00:00",
-        "description": "Published as part of IEEE Std 802.1AB-2004 initial version."
+        "revision": "2005-05-06 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2005 initial version."
       }
     ]
   },
@@ -231,7 +231,6 @@
         ]
       }
     },
-    "displayhint": "d",
     "status": "current"
   },
   "LldpPortList": {
@@ -501,7 +500,7 @@
     },
     "default": {
       "default": {
-        "value": "",
+        "value": "00000000",
         "format": "hex"
       }
     },
@@ -1864,9 +1863,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/lldp.mib",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 12:36:34 2024",
-      "On host fv-az1766-821 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LLDP-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 12:38:16 2024",
+      "On host fv-az1247-562 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LLDP-MIB"

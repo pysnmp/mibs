@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module DIFFSERV-DSCP-TC (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/DIFFSERV-DSCP-TC
-# Produced by pysmi-1.1.12 at Fri Jul 19 12:36:24 2024
-# On host fv-az1766-821 platform Linux version 6.5.0-1023-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Jul 19 12:37:47 2024
+# On host fv-az1247-562 platform Linux version 6.5.0-1023-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, ModuleIdentity, Bits, mib_2, TimeTicks, Counter32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, ObjectIdentity, iso, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Bits", "mib-2", "TimeTicks", "Counter32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "ObjectIdentity", "iso", "Unsigned32", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Gauge32, mib_2, Bits, TimeTicks, Unsigned32, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, IpAddress, ModuleIdentity, MibIdentifier, ObjectIdentity, Counter64, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "mib-2", "Bits", "TimeTicks", "Unsigned32", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "IpAddress", "ModuleIdentity", "MibIdentifier", "ObjectIdentity", "Counter64", "Counter32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 diffServDSCPTC = ModuleIdentity((1, 3, 6, 1, 2, 1, 96))
 diffServDSCPTC.setRevisions(('2002-05-09 00:00',))
 if mibBuilder.loadTexts: diffServDSCPTC.setLastUpdated('200205090000Z')
@@ -26,4 +26,4 @@ class DscpOrAny(TextualConvention, Integer32):
     status = 'current'
     displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 63), )
-mibBuilder.exportSymbols("DIFFSERV-DSCP-TC", diffServDSCPTC=diffServDSCPTC, PYSNMP_MODULE_ID=diffServDSCPTC, DscpOrAny=DscpOrAny, Dscp=Dscp)
+mibBuilder.exportSymbols("DIFFSERV-DSCP-TC", DscpOrAny=DscpOrAny, Dscp=Dscp, PYSNMP_MODULE_ID=diffServDSCPTC, diffServDSCPTC=diffServDSCPTC)
