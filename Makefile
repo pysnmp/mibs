@@ -33,7 +33,7 @@ localmibs:
 	find src/vendor -type d -maxdepth 1 -mindepth 1   | sort >list.tmp
 	while read line; do ./scripts/localmibs.sh "$$line"; done < list.tmp
 
-index: standard vendor ##generate index
+index: vendor standard  ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
 
