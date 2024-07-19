@@ -5,28 +5,28 @@
       "adGenAOSVoice"
     ],
     "ADTRAN-MIB": [
-      "adShared",
-      "adIdentity"
+      "adIdentity",
+      "adShared"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "TimeTicks",
       "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "Counter64",
-      "Counter32",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "Counter64",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -1295,8 +1295,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-MEDIAGATEWAY-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:58:35 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:10 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ADTRAN-AOS-MEDIAGATEWAY-MIB"

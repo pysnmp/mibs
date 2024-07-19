@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "Counter64",
-      "enterprises",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
       "Gauge32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "Bits",
+      "iso",
+      "Counter64",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises",
       "Counter32",
-      "Bits"
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2502,8 +2502,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/TELECOM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:21 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:04:01 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TELECOM-MIB"

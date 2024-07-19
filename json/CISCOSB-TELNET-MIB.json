@@ -5,33 +5,33 @@
       "switch001"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
+      "Counter32",
+      "IpAddress",
       "Bits",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE",
       "iso",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlTelnet": {
@@ -225,8 +225,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-TELNET-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:04:20 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:06:45 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-TELNET-MIB"

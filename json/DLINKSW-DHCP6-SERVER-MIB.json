@@ -12,31 +12,31 @@
       "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter32",
-      "Counter64",
       "Integer32",
-      "iso",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "Gauge32",
+      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DateAndTime"
     ]
   },
@@ -1696,8 +1696,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP6-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:12 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:03:51 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP6-SERVER-MIB"

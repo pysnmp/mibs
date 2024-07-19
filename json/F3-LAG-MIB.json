@@ -8,8 +8,8 @@
       "CmPmBinAction"
     ],
     "CM-ENTITY-MIB": [
-      "shelfIndex",
       "neIndex",
+      "shelfIndex",
       "slotIndex"
     ],
     "IF-MIB": [
@@ -21,27 +21,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "Gauge32",
+      "TimeTicks",
       "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "StorageType",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
       "VariablePointer"
     ]
@@ -920,8 +920,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-LAG-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:59:19 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:58 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F3-LAG-MIB"

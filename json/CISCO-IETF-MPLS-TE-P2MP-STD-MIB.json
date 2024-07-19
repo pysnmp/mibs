@@ -5,57 +5,57 @@
       "ciscoExperiment"
     ],
     "DIFFSERV-MIB": [
-      "IndexInteger",
-      "IndexIntegerNextFree"
+      "IndexIntegerNextFree",
+      "IndexInteger"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLabel",
-      "MplsPathIndexOrZero"
+      "MplsPathIndexOrZero",
+      "MplsLabel"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelEgressLSRId",
-      "mplsTunnelIngressLSRId",
       "mplsTunnelIndex",
-      "mplsTunnelInstance"
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelInstance",
+      "mplsTunnelEgressLSRId"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
       "Bits",
+      "Integer32",
       "Unsigned32",
-      "OBJECT-TYPE",
       "iso",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "StorageType",
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "StorageType",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "cmplsTeP2mpStdMIB": {
@@ -1348,8 +1348,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-MPLS-TE-P2MP-STD-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:04:20 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:06:45 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-MPLS-TE-P2MP-STD-MIB"

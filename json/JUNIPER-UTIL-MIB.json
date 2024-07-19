@@ -10,24 +10,24 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
       "Counter32",
       "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxUtil": {
@@ -392,8 +392,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-UTIL-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 10:05:22 2024",
-      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:08:26 2024",
+      "On host fv-az1771-969 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-UTIL-MIB"
