@@ -5,12 +5,12 @@
       "Dscp"
     ],
     "Dell-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "Dell-MIB": [
-      "rndNotifications",
-      "rnd"
+      "rnd",
+      "rndNotifications"
     ],
     "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
       "AddressFamilyNumbers"
@@ -19,12 +19,12 @@
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "lldpRemTimeMark",
-      "LldpPortNumber",
-      "LldpPortList",
-      "lldpRemLocalPortNum",
       "lldpRemIndex",
-      "LldpManAddress"
+      "LldpManAddress",
+      "lldpRemTimeMark",
+      "LldpPortList",
+      "LldpPortNumber",
+      "lldpRemLocalPortNum"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -35,26 +35,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "Counter32",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Integer32",
-      "OBJECT-TYPE",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Gauge32"
+      "Integer32",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlLldp": {
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-LLDP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:43:42 2024",
-      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:01:13 2024",
+      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Dell-LLDP-MIB"

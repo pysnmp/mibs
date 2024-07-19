@@ -8,50 +8,50 @@
       "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
-      "neIndex",
       "networkElementEntry",
       "shelfIndex",
+      "neIndex",
       "slotIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmMPFlowIndex",
-      "cmFlowEntry",
       "cmFlowIndex",
+      "cmFlowEntry",
       "cmEthernetAccPortIndex"
     ],
     "CM-PERFORMANCE-MIB": [
-      "cmFlowHistoryEntry",
-      "cmFlowStatsEntry"
+      "cmFlowStatsEntry",
+      "cmFlowHistoryEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "Counter32",
-      "Counter64",
-      "Bits",
-      "MibIdentifier",
-      "Gauge32",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "Unsigned32",
+      "Bits",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "VariablePointer",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TruthValue",
+      "StorageType",
       "RowStatus",
       "MacAddress",
-      "StorageType",
-      "TEXTUAL-CONVENTION"
+      "VariablePointer"
     ]
   },
   "f3BridgeMIB": {
@@ -1479,8 +1479,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:41:45 2024",
-      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:59:17 2024",
+      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "F3-BRIDGE-MIB"

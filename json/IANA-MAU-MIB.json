@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
       "MODULE-IDENTITY",
-      "Counter32",
       "Integer32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier",
       "Unsigned32",
       "Bits",
-      "Counter64",
       "mib-2",
-      "iso",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -707,8 +707,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-MAU-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:40:26 2024",
-      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:57:58 2024",
+      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IANA-MAU-MIB"

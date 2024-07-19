@@ -45,20 +45,20 @@
       "snmpMIB"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
+      "iso",
+      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Counter32",
+      "Counter64",
       "MODULE-IDENTITY",
       "Unsigned32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "IpAddress",
       "TimeTicks",
-      "Counter64",
-      "iso",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -68,8 +68,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/openbsd/OPENBSD-SNMPD-CONF",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:48:07 2024",
-      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 10:05:40 2024",
+      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "OPENBSD-SNMPD-CONF"

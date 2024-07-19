@@ -5,53 +5,53 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "matrixControlEntry",
-      "hostControlEntry",
-      "matrix",
-      "filterEntry",
-      "channelEntry",
+      "historyControlEntry",
       "OwnerString",
-      "etherStatsEntry",
-      "history",
-      "hosts",
       "filter",
+      "etherStatsEntry",
+      "hosts",
+      "filterEntry",
+      "matrix",
+      "history",
+      "channelEntry",
       "statistics",
-      "historyControlEntry"
+      "hostControlEntry",
+      "matrixControlEntry"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Counter64",
-      "Bits",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
       "Unsigned32",
-      "iso",
+      "Counter32",
+      "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "tokenRingMLStatsEntry",
-      "tokenRingPStatsEntry",
-      "ringStationControlEntry",
+      "sourceRoutingStatsEntry",
       "tokenRing",
-      "sourceRoutingStatsEntry"
+      "tokenRingMLStatsEntry",
+      "ringStationControlEntry",
+      "tokenRingPStatsEntry"
     ]
   },
   "rmon": {
@@ -5004,8 +5004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:41:23 2024",
-      "On host fv-az1778-45 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:58:55 2024",
+      "On host fv-az1251-884 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RMON2-MIB"
