@@ -7,44 +7,44 @@
       "eqlGroupId"
     ],
     "EQLVOLUME-MIB": [
-      "eqliscsiVolumeIndex",
       "ACLAppliesTo",
-      "eqliscsiLocalMemberId"
+      "eqliscsiLocalMemberId",
+      "eqliscsiVolumeIndex"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "MibIdentifier",
+      "Integer32",
       "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "iso",
       "enterprises"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "RowPointer"
+      "RowStatus",
+      "TruthValue",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "eqlAccessModule": {
@@ -1274,8 +1274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLACCESS-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:08:22 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:54:40 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "EQLACCESS-MIB"

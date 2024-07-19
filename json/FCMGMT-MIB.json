@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "experimental",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "MibIdentifier",
-      "Counter64",
-      "TRAP-TYPE",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "experimental",
       "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "Counter32",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "TRAP-TYPE",
+      "Gauge32",
       "Integer32",
-      "IpAddress"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -208,7 +208,7 @@
       "type": "DisplayString",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-write",
     "status": "mandatory"
   },
   "statusChangeTime": {
@@ -276,16 +276,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -560,16 +552,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -677,7 +661,7 @@
       "type": "FcEventSeverity",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-write",
     "status": "mandatory"
   },
   "connUnitNumEvents": {
@@ -750,16 +734,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -842,16 +818,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -1018,16 +986,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -1067,7 +1027,7 @@
           "not-present": 3,
           "hub-port": 4,
           "n-port": 5,
-          "l-port": 6,
+          "nl-port": 6,
           "fl-port": 7,
           "f-port": 8,
           "e-port": 9,
@@ -1243,16 +1203,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 3,
-            "max": 3
-          }
-        ]
-      }
+      "type": "FcAddressId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -1499,16 +1451,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -1543,7 +1487,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "obsolete"
+    "status": "deprecated"
   },
   "connUnitREventTime": {
     "name": "connUnitREventTime",
@@ -1556,7 +1500,7 @@
       "constraints": {
         "size": [
           {
-            "min": 15,
+            "min": 0,
             "max": 15
           }
         ]
@@ -1668,16 +1612,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -1693,7 +1629,7 @@
       "constraints": {
         "range": [
           {
-            "min": 0,
+            "min": 1,
             "max": 2147483647
           }
         ]
@@ -1713,8 +1649,8 @@
       "constraints": {
         "size": [
           {
-            "min": 64,
-            "max": 64
+            "min": 16,
+            "max": 16
           }
         ]
       }
@@ -1740,16 +1676,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -1765,8 +1693,8 @@
       "constraints": {
         "size": [
           {
-            "min": 64,
-            "max": 64
+            "min": 16,
+            "max": 16
           }
         ]
       }
@@ -1792,16 +1720,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 16,
-            "max": 16
-          }
-        ]
-      }
+      "type": "FcGlobalId",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -2950,11 +2870,6 @@
         "module": "FCMGMT-MIB",
         "object": "connUnitSnsPortIndex",
         "implied": 0
-      },
-      {
-        "module": "FCMGMT-MIB",
-        "object": "connUnitSnsPortIdentifier",
-        "implied": 0
       }
     ],
     "status": "mandatory"
@@ -3403,9 +3318,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/FCMGMT-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:08:47 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/draft-ietf-ipfc-fcmgmt-int-mib-04",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:58 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "FCMGMT-MIB"

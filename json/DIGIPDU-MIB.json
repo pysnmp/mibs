@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
-      "Gauge32",
-      "TRAP-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
       "enterprises",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "MibIdentifier",
       "Counter64",
+      "TRAP-TYPE",
+      "Integer32",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -3601,8 +3601,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/planet/DIGIPDU-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:12:47 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:59:26 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DIGIPDU-MIB"

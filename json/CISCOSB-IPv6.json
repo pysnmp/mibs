@@ -18,48 +18,48 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAutonomousSystemNumber",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipv6InterfaceEntry",
+      "ipNetToPhysicalEntry",
       "ipv6RouterAdvertEntry",
-      "ipAddressEntry",
-      "ipNetToPhysicalEntry"
+      "ipAddressEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "zeroDotZero",
-      "Unsigned32",
       "TimeTicks",
+      "zeroDotZero",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Gauge32",
+      "Integer32",
+      "Unsigned32",
       "iso",
-      "IpAddress",
       "Bits",
-      "OBJECT-TYPE"
+      "Counter32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "mib-2",
+      "OBJECT-TYPE",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TruthValue",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "rlIPv6": {
@@ -2460,8 +2460,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPv6",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:10:41 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:56:49 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPv6"

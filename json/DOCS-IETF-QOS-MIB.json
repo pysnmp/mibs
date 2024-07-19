@@ -10,8 +10,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -22,30 +22,30 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
       "TimeTicks",
       "Unsigned32",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "mib-2",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "RowStatus",
-      "MacAddress",
-      "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
+      "StorageType"
     ]
   },
   "docsIetfQosMIB": {
@@ -3128,8 +3128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-QOS-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:04:50 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:58 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-IETF-QOS-MIB"

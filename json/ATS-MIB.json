@@ -6,30 +6,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TRAP-TYPE",
-      "Bits",
-      "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
+      "enterprises",
       "iso",
       "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
       "Integer32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "UPS-MIB": [
-      "PositiveInteger",
-      "NonNegativeInteger"
+      "NonNegativeInteger",
+      "PositiveInteger"
     ]
   },
   "ats": {
@@ -2060,8 +2060,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ats/ATS-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:05:51 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:52:00 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "ATS-MIB"

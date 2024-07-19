@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
+      "enterprises",
       "TimeTicks",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "iso",
       "NOTIFICATION-TYPE",
       "Bits",
-      "OBJECT-TYPE",
-      "enterprises"
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -41,8 +41,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/AIRESPACE-REF-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:10:42 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:56:49 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "AIRESPACE-REF-MIB"

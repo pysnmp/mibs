@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "iso",
       "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "enterprises",
-      "iso"
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -97,8 +97,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-SMI",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:04:54 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:51:02 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "TWOWCOM-SMI"

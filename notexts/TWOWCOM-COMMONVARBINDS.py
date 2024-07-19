@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module TWOWCOM-COMMONVARBINDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-COMMONVARBINDS
-# Produced by pysmi-1.1.12 at Sat Jul  6 01:04:52 2024
-# On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Jul 19 08:51:00 2024
+# On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, Counter32, Unsigned32, TimeTicks, Integer32, ObjectIdentity, Bits, Gauge32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, MibIdentifier, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter32", "Unsigned32", "TimeTicks", "Integer32", "ObjectIdentity", "Bits", "Gauge32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "MibIdentifier", "IpAddress")
-TextualConvention, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "DateAndTime")
+Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, MibIdentifier, Bits, Counter64, ModuleIdentity, Integer32, NotificationType, ObjectIdentity, TimeTicks, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "MibIdentifier", "Bits", "Counter64", "ModuleIdentity", "Integer32", "NotificationType", "ObjectIdentity", "TimeTicks", "Gauge32", "iso")
+TextualConvention, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "DisplayString")
 twowcom, = mibBuilder.importSymbols("TWOWCOM-SMI", "twowcom")
 commonVarbinds = ModuleIdentity((1, 3, 6, 1, 4, 1, 21529, 11, 1))
 commonVarbinds.setRevisions(('2011-05-26 12:00', '2010-02-17 16:00', '2009-02-06 13:30', '2008-04-28 15:17', '2008-03-26 15:36', '2007-04-26 08:52', '2006-10-26 16:13',))
@@ -83,4 +83,4 @@ eventCounter = MibScalar((1, 3, 6, 1, 4, 1, 21529, 11, 1, 4), Counter32()).setMa
 if mibBuilder.loadTexts: eventCounter.setStatus('current')
 mibRelease = MibScalar((1, 3, 6, 1, 4, 1, 21529, 11, 1, 5), DateAndTime()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mibRelease.setStatus('current')
-mibBuilder.exportSymbols("TWOWCOM-COMMONVARBINDS", FaultOK=FaultOK, Integer32h=Integer32h, Unsigned16x=Unsigned16x, PYSNMP_MODULE_ID=commonVarbinds, eventPriority=eventPriority, eventTimeStamp=eventTimeStamp, Integer32d=Integer32d, mibRelease=mibRelease, common=common, Integer32d1=Integer32d1, ValidFlag=ValidFlag, SelectYesNo=SelectYesNo, Integer32d3=Integer32d3, eventCounter=eventCounter, SelectOnOff=SelectOnOff, ActiveNotActive=ActiveNotActive, commonGroup=commonGroup, commonVarbinds=commonVarbinds, Integer32d2=Integer32d2, FloatString=FloatString)
+mibBuilder.exportSymbols("TWOWCOM-COMMONVARBINDS", PYSNMP_MODULE_ID=commonVarbinds, Integer32d3=Integer32d3, ValidFlag=ValidFlag, eventTimeStamp=eventTimeStamp, Unsigned16x=Unsigned16x, eventPriority=eventPriority, commonVarbinds=commonVarbinds, Integer32h=Integer32h, Integer32d2=Integer32d2, Integer32d=Integer32d, commonGroup=commonGroup, Integer32d1=Integer32d1, SelectOnOff=SelectOnOff, eventCounter=eventCounter, ActiveNotActive=ActiveNotActive, mibRelease=mibRelease, SelectYesNo=SelectYesNo, FaultOK=FaultOK, common=common, FloatString=FloatString)

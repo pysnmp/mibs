@@ -5,35 +5,35 @@
       "sleMgmt"
     ],
     "MPLS-TE-STD-MIB": [
-      "mplsTunnelIngressLSRId",
-      "mplsTunnelIndex",
       "mplsTunnelInstance",
-      "mplsTunnelEgressLSRId"
+      "mplsTunnelEgressLSRId",
+      "mplsTunnelIngressLSRId",
+      "mplsTunnelIndex"
     ],
     "SLE-TC-MIB": [
       "SleControlStatusType",
       "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
       "iso",
+      "Gauge32",
       "zeroDotZero",
-      "Counter64",
+      "Unsigned32",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "OBJECT-IDENTITY",
+      "Integer32",
       "Counter32",
       "MibIdentifier",
+      "Counter64",
       "TimeTicks",
-      "Bits",
-      "Unsigned32"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -215,8 +215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MPLS-TP-PRO-IF-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:07:39 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:53:58 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SLE-MPLS-TP-PRO-IF-MIB"

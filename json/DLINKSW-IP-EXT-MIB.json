@@ -5,16 +5,16 @@
       "dlinkIndustrialCommon"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressIPv4",
+      "InetAddressPrefixLength",
+      "InetAddressIPv6",
       "InetAddressType",
       "InetPortNumber",
-      "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -22,27 +22,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
       "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Counter64",
+      "iso",
+      "IpAddress",
       "OBJECT-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "RowStatus"
+      "TruthValue",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "dlinkSwIpExtMIB": {
@@ -1783,8 +1783,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IP-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:07:39 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:53:52 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-IP-EXT-MIB"

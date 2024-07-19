@@ -5,38 +5,38 @@
       "lldpExtensions",
       "lldpRemLocalPortNum",
       "lldpRemTimeMark",
+      "lldpLocPortNum",
       "lldpPortConfigEntry",
-      "lldpRemIndex",
-      "lldpLocPortNum"
+      "lldpRemIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Unsigned32",
       "iso",
-      "OBJECT-TYPE"
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "lldpXPnoMIB": {
@@ -645,8 +645,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_pno.mib",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:09:29 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:55:44 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-PNO-MIB"

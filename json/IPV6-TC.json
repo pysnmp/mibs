@@ -6,24 +6,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
       "MibIdentifier",
+      "Counter64",
+      "iso",
       "OBJECT-TYPE",
-      "Gauge32"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "Ipv6Address": {
@@ -119,8 +119,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPV6-TC",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:11:03 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:57:26 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IPV6-TC"

@@ -6,25 +6,25 @@
       "docsIfCmtsCmStatusEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "OBJECT-TYPE",
       "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
       "Bits",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "Unsigned32",
+      "Counter64",
       "MODULE-IDENTITY",
       "Counter32",
-      "Counter64"
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -187,9 +187,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DOCS-IF-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:05:46 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF-EXT-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:57 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF-EXT-MIB"

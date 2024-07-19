@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Counter32",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter64",
+      "enterprises",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "TRAP-TYPE",
       "MibIdentifier",
       "IpAddress",
-      "enterprises"
+      "Integer32",
+      "iso",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "powertek": {
@@ -4595,8 +4595,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bladeshelter/SPSv1-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:06:09 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:52:17 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "SPSv1-MIB"

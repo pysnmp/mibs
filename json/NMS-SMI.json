@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "enterprises",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter32",
       "iso",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Bits",
       "Unsigned32",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "IpAddress",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "enterprises",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nms": {
@@ -94,9 +94,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/NMS-SMI",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:06:06 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/NMS-SMI",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:58 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "NMS-SMI"

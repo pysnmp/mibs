@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module STORMSHIELD-PROPERTY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB
-# Produced by pysmi-1.1.12 at Sat Jul  6 01:14:02 2024
-# On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Jul 19 09:00:43 2024
+# On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, Counter64, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, Integer32, NotificationType, ObjectIdentity, TimeTicks, iso, Counter32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "Integer32", "NotificationType", "ObjectIdentity", "TimeTicks", "iso", "Counter32", "Bits")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, NotificationType, Counter64, Gauge32, iso, ObjectIdentity, MibIdentifier, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "NotificationType", "Counter64", "Gauge32", "iso", "ObjectIdentity", "MibIdentifier", "Bits", "TimeTicks")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsProductProperty = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 0))
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: snsClone.setDescription("Firewall licence 'clone' token
 snsHADialup = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 0, 15), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsHADialup.setStatus('current')
 if mibBuilder.loadTexts: snsHADialup.setDescription("Firewall licence 'HA-dialup' token")
-mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsClone=snsClone, snsNbSerial=snsNbSerial, snsVersion=snsVersion, snsSystemName=snsSystemName, snsSystemLanguage=snsSystemLanguage, snsSerialNumber=snsSerialNumber, snsHADialup=snsHADialup, snsNbDialup=snsNbDialup, snsNbEther=snsNbEther, snsWatchdog=snsWatchdog, snsNbLoopback=snsNbLoopback, snsProductProperty=snsProductProperty, snsNbVlan=snsNbVlan, snsNbPPTP=snsNbPPTP, snsLed=snsLed, snsModel=snsModel, PYSNMP_MODULE_ID=snsProductProperty)
+mibBuilder.exportSymbols("STORMSHIELD-PROPERTY-MIB", snsProductProperty=snsProductProperty, snsSerialNumber=snsSerialNumber, snsNbSerial=snsNbSerial, snsNbDialup=snsNbDialup, snsSystemLanguage=snsSystemLanguage, snsNbLoopback=snsNbLoopback, snsLed=snsLed, snsModel=snsModel, snsWatchdog=snsWatchdog, snsNbEther=snsNbEther, snsVersion=snsVersion, PYSNMP_MODULE_ID=snsProductProperty, snsNbVlan=snsNbVlan, snsNbPPTP=snsNbPPTP, snsClone=snsClone, snsHADialup=snsHADialup, snsSystemName=snsSystemName)

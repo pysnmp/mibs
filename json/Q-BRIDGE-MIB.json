@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dBasePort",
       "dot1dBridge",
+      "dot1dBasePort",
       "dot1dBasePortEntry"
     ],
     "P-BRIDGE-MIB": [
@@ -21,27 +21,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Counter32",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "Gauge32"
+      "IpAddress",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "qBridgeMIB": {
@@ -2182,8 +2182,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/Q-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:11:03 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:57:09 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "Q-BRIDGE-MIB"

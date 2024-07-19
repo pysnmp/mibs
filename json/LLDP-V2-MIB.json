@@ -9,51 +9,51 @@
       "InterfaceIndex"
     ],
     "LLDP-V2-TC-MIB": [
-      "LldpV2ChassisId",
+      "LldpV2ManAddress",
       "LldpV2ChassisIdSubtype",
+      "LldpV2DestAddressTableIndex",
+      "LldpV2SystemCapabilitiesMap",
+      "ieee802dot1mibs",
+      "LldpV2ChassisId",
       "LldpV2PortIdSubtype",
       "LldpV2PortId",
-      "LldpV2SystemCapabilitiesMap",
-      "LldpV2ManAddrIfSubtype",
-      "ieee802dot1mibs",
-      "LldpV2ManAddress",
-      "LldpV2DestAddressTableIndex"
+      "LldpV2ManAddrIfSubtype"
     ],
     "RMON2-MIB": [
-      "ZeroBasedCounter32",
-      "TimeFilter"
+      "TimeFilter",
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter32",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Counter64",
-      "TimeTicks",
       "MibIdentifier",
-      "Integer32"
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
-      "TruthValue",
-      "TimeStamp",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TimeStamp",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "lldpV2MIB": {
@@ -2073,8 +2073,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-V2-MIB",
-      "Produced by pysmi-1.1.12 at Sat Jul  6 01:04:32 2024",
-      "On host fv-az1532-138 platform Linux version 6.5.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:40 2024",
+      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-MIB"
