@@ -34,6 +34,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
 
          Co-author:  Bob Lynch
                      Overture Networks
+
+
          EMail:      bob.lynch@overturenetworks.com
 
          Co-author:  Kenneth Rehbehn
@@ -82,6 +84,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
    -- ---------------------------------------------------------
    -- ---------------------------------------------------------
    -- Object Identifiers
+
+
    -- ---------------------------------------------------------
    -- ---------------------------------------------------------
 
@@ -130,6 +134,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
    -- Bundle Table
    -- ---------------------------------------------------------
    -- ---------------------------------------------------------
+
+
    mfrBundleTable OBJECT-TYPE
       SYNTAX  SEQUENCE OF MfrBundleEntry
       MAX-ACCESS  not-accessible
@@ -178,6 +184,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
             Integer32,
          mfrBundleTimerHello
             INTEGER,
+
+
          mfrBundleTimerAck
             INTEGER,
          mfrBundleCountMaxRetry
@@ -226,6 +234,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
 
           For example: if the value of mfrBundleIfIndex is 10,
           then a corresponding entry should be present in
+
+
           the ifTable with an index of 10 and an ifType of 163."
       ::= { mfrBundleEntry 2 }
 
@@ -274,6 +284,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
       STATUS  current
       DESCRIPTION
          "The maximum fragment size supported.  Note that this
+
+
           is only valid if mfrBundleFragmentation is set to enable(1).
 
           Zero is not a valid fragment size.
@@ -322,6 +334,7 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
          mfrBundleActivationClassC (3),
          mfrBundleActivationClassD (4)
          }
+
 
       MAX-ACCESS  read-create
       STATUS  current
@@ -372,6 +385,7 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
          "The maximum delay difference between the bundle
           links.
 
+
           A value of -1 indicates that this object does not contain
           a valid value"
       DEFVAL { -1 }
@@ -419,6 +433,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
       DESCRIPTION
          "The number of links that are active."
       ::= {  mfrBundleEntry 16 }
+
+
 
    mfrBundleBandwidth OBJECT-TYPE
        SYNTAX  Integer32
@@ -468,6 +484,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
            the mfrBundleIndex given an ifIndex.  The mapping of
            mfrBundleIndex to ifIndex is provided by the
            mfrBundleIfIndex entry in the mfrBundleTable."
+
+
       ::= { mfrMibBundleObjects 4 }
 
    mfrBundleIfIndexMappingEntry OBJECT-TYPE
@@ -516,6 +534,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
              ifAdminStatus  - the bundle link admin status
              ifOperStatus   - the bundle link operational
                               status
+
+
              ifSpeed        - the bandwidth of the bundle
                               link interface
              ifInUcastPkts  - the number of frames received
@@ -564,6 +584,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
          mfrBundleLinkUnexpectedSequence
             Counter32,
          mfrBundleLinkMismatch
+
+
             Counter32
          }
 
@@ -612,6 +634,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
       ::= { mfrBundleLinkEntry 4 }
 
    mfrBundleLinkFarEndName OBJECT-TYPE
+
+
       SYNTAX  SnmpAdminString
       MAX-ACCESS  read-only
       STATUS  current
@@ -660,6 +684,7 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
          "Number of valid MFR control frames received."
       REFERENCE "FRF.16 section 3.2"
       ::= { mfrBundleLinkEntry 9 }
+
 
    mfrBundleLinkFramesControlInvalid OBJECT-TYPE
       SYNTAX  Counter32
@@ -710,6 +735,7 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
       REFERENCE "FRF.16 section 4.2.3.2"
       ::= { mfrBundleLinkEntry 13 }
 
+
    mfrBundleLinkMismatch OBJECT-TYPE
       SYNTAX  Counter32
       UNITS "Bundle Name Mismatch Events"
@@ -758,6 +784,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
 
           Note: The mfrBundleLinkMismatch counter is incremented when
                 the trap is sent."
+
+
       REFERENCE "FRF.16 section 4.3.2.4"
        ::= { mfrMibTrapsPrefix 1 }
 
@@ -806,6 +834,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
       DESCRIPTION
           "Write access is not required, but the value used must be
            reported."
+
+
       OBJECT     mfrBundleSeqNumSize
       MIN-ACCESS read-only
       DESCRIPTION
@@ -854,6 +884,8 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
    mfrMibBundleLinkGroup   OBJECT-GROUP
       OBJECTS {
          mfrBundleLinkRowStatus,
+
+
          mfrBundleLinkConfigBundleIndex,
          mfrBundleLinkNearEndName,
          mfrBundleLinkState,
@@ -881,4 +913,5 @@ FR-MFR-MIB DEFINITIONS ::= BEGIN
       DESCRIPTION
           "Group of objects describing notifications (traps)."
       ::= { mfrMibGroups 3 }
+
 END

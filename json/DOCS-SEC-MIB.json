@@ -9,10 +9,10 @@
       "docsIf3CmtsCmRegStatusId"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddress"
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -21,33 +21,33 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DateAndTime",
       "TruthValue",
+      "MacAddress",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DateAndTime"
+      "RowStatus"
     ]
   },
   "docsSecMib": {
@@ -798,8 +798,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-SEC-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:58 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:34 2024",
+      "On host fv-az1499-371 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-SEC-MIB"

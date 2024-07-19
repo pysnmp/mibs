@@ -1,14 +1,3 @@
--- *****************************************************************
--- PTOPO MIB: Extracted from RFC 2922 
--- 
--- Apr 2001, Arvind Prabhudev
---
--- Copyright (c) 2001 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
-
-
-
 PTOPO-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -18,14 +7,15 @@ IMPORTS
     TEXTUAL-CONVENTION, AutonomousType, RowStatus, TimeStamp, TruthValue
         FROM SNMPv2-TC
     MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+
+
         FROM SNMPv2-CONF
     TimeFilter
         FROM RMON2-MIB
     PhysicalIndex
         FROM ENTITY-MIB
     AddressFamilyNumbers
-        FROM IANA-ADDRESS-FAMILY-NUMBERS-MIB
-    ; 
+        FROM IANA-ADDRESS-FAMILY-NUMBERS-MIB;
 
 ptopoMIB MODULE-IDENTITY
     LAST-UPDATED "200009210000Z"
@@ -59,6 +49,7 @@ ptopoMIB MODULE-IDENTITY
     ::= { mib-2 79 }
 
 ptopoMIBObjects   OBJECT IDENTIFIER ::= { ptopoMIB 1 }
+
 
 -- MIB groups
 ptopoData         OBJECT IDENTIFIER ::= { ptopoMIBObjects 1 }
@@ -167,6 +158,7 @@ PtopoPortIdType ::= TEXTUAL-CONVENTION
             identifier based on the ifAlias MIB object.
 
 
+
             The enumeration 'portIdPortEntPhysicalAlias(2)' represents a
             port identifier based on the value of entPhysicalAlias for a
             port or backplane component (i.e., entPhysicalClass value of
@@ -220,6 +212,7 @@ PtopoPortId ::= TEXTUAL-CONVENTION
             the PtopoGenAddr address value in network byte order."
     SYNTAX      OCTET STRING (SIZE (1..32))
 
+
 PtopoAddrSeenState ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION
@@ -263,6 +256,7 @@ PtopoAddrSeenState ::= TEXTUAL-CONVENTION
 --  ***********************************************************
 
 -- Connection Table
+
 
 
 ptopoConnTable OBJECT-TYPE
@@ -313,6 +307,8 @@ PtopoConnEntry ::= SEQUENCE {
       ptopoConnAgentNetAddr        PtopoGenAddr,
       ptopoConnMultiMacSASeen      PtopoAddrSeenState,
       ptopoConnMultiNetSASeen      PtopoAddrSeenState,
+
+
       ptopoConnIsStatic            TruthValue,
       ptopoConnLastVerifyTime      TimeStamp,
       ptopoConnRowStatus           RowStatus
@@ -410,6 +406,7 @@ ptopoConnRemotePort  OBJECT-TYPE
     DESCRIPTION
             "The string value used to identify the port component
             associated with the remote connection endpoint.
+
 
 
             This object may not be modified if the associated
@@ -661,6 +658,7 @@ ptopoConfigTrapInterval OBJECT-TYPE
             throttling or transmission loss.
 
 
+
             If notification transmission is enabled, the suggested
             default throttling period is 60 seconds, but transmission
             should be disabled by default.
@@ -705,6 +703,7 @@ ptopoConfigMaxHoldTime OBJECT-TYPE
     DEFVAL { 300 }
     ::= { ptopoConfig 2 }
 
+
 -- PTOPO MIB Notification Definitions
 ptopoMIBNotifications  OBJECT IDENTIFIER ::= { ptopoMIB 2 }
 ptopoMIBTrapPrefix     OBJECT IDENTIFIER ::=
@@ -730,6 +729,7 @@ ptopoConfigChange NOTIFICATION-TYPE
             'ptopoConfigTrapInterval' object."
    ::= { ptopoMIBTrapPrefix 1 }
 
+
 -- PTOPO Registration Points
 ptopoRegistrationPoints  OBJECT IDENTIFIER ::= { ptopoMIB 3 }
 
@@ -740,11 +740,13 @@ ptopoDiscoveryMechanisms OBJECT IDENTIFIER ::=
 ptopoDiscoveryLocal      OBJECT IDENTIFIER ::=
       { ptopoDiscoveryMechanisms 1 }
 
+
 -- conformance information
 ptopoConformance OBJECT IDENTIFIER ::= { ptopoMIB 4 }
 
 ptopoCompliances OBJECT IDENTIFIER ::= { ptopoConformance 1 }
 ptopoGroups      OBJECT IDENTIFIER ::= { ptopoConformance 2 }
+
 
 -- compliance statements
 ptopoCompliance MODULE-COMPLIANCE

@@ -9,15 +9,15 @@
       "IANAipMRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetZoneIndex",
       "InetAddressType",
-      "InetVersion",
-      "InetAddress"
+      "InetAddress",
+      "InetZoneIndex",
+      "InetAddressPrefixLength",
+      "InetVersion"
     ],
     "LANGTAG-TC-MIB": [
       "LangTag"
@@ -26,34 +26,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
       "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "mib-2",
+      "Unsigned32",
+      "iso",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "RowStatus",
       "TruthValue",
+      "StorageType",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "TimeStamp",
+      "RowStatus"
     ]
   },
   "ipMcastMIB": {
@@ -1855,8 +1855,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMCAST-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:58 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:33 2024",
+      "On host fv-az1499-371 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IPMCAST-MIB"

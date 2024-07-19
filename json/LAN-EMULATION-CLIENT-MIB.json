@@ -5,33 +5,33 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "Counter64",
-      "Counter32",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-TYPE",
       "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "enterprises",
       "Unsigned32",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Bits",
-      "MODULE-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
+      "MacAddress",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "atmfLanEmulation": {
@@ -2175,9 +2175,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/LAN-EMULATION-CLIENT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:57:09 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/LAN-EMULATION-CLIENT-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:33 2024",
+      "On host fv-az1499-371 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "LAN-EMULATION-CLIENT-MIB"

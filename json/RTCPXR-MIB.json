@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
+      "InetPortNumber",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "iso",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
       "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "mib-2",
+      "iso",
       "Integer32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeStamp",
-      "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowPointer"
     ]
   },
   "rtcpXrMIB": {
@@ -2559,8 +2559,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RTCP-XR-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:50:58 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:33 2024",
+      "On host fv-az1499-371 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "RTCPXR-MIB"

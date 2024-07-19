@@ -255,6 +255,7 @@ radiusAuthClientID OBJECT-TYPE
        ::= { radiusAuthClientEntry 3 }
 
 -- Server Counters
+
 --
 -- Responses = AccessAccepts + AccessRejects + AccessChallenges
 --
@@ -349,7 +350,6 @@ radiusAuthServUnknownTypes OBJECT-TYPE
              "The number of RADIUS packets of unknown type which
               were received from this client."
        ::= { radiusAuthClientEntry  12 }
-
 
 -- conformance information
 

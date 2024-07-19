@@ -1,30 +1,15 @@
--- *****************************************************************
--- RS-232-MIB.my:  RS-232 MIB file
---
--- June 1994, Nick Thille
---
--- Copyright (c) 1994-1996 by cisco Systems, Inc.
--- All rights reserved.
--- 
--- *****************************************************************
-
--- Original source document:  draft-ietf-charmib-rs232-mib-03.txt
--- Compliant with RFC1659, can be re-sourced if necessary, but code is
--- the same.
-
-
 RS-232-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
-    MODULE-IDENTITY, OBJECT-TYPE,
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
     Counter32, Integer32
         FROM SNMPv2-SMI
-    MODULE-COMPLIANCE, OBJECT-GROUP
-        FROM SNMPv2-CONF
     InterfaceIndex
         FROM IF-MIB
     transmission
-        FROM RFC1213-MIB;
+        FROM RFC1213-MIB
+    MODULE-COMPLIANCE, OBJECT-GROUP
+        FROM SNMPv2-CONF;
 
 
 rs232 MODULE-IDENTITY
@@ -44,31 +29,7 @@ rs232 MODULE-IDENTITY
     ::= { transmission 33 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- Generic RS-232-like information
-
 
 rs232Number OBJECT-TYPE
     SYNTAX Integer32
@@ -80,9 +41,7 @@ rs232Number OBJECT-TYPE
     ::= { rs232 1 }
 
 
-
 -- RS-232-like General Port Table
-
 
 rs232PortTable OBJECT-TYPE
     SYNTAX SEQUENCE OF Rs232PortEntry
@@ -208,9 +167,7 @@ rs232PortOutFlowType OBJECT-TYPE
     ::= { rs232PortEntry 8 }
 
 
-
 -- RS-232-like Asynchronous Port Table
-
 
 rs232AsyncPortTable OBJECT-TYPE
     SYNTAX SEQUENCE OF Rs232AsyncPortEntry
@@ -333,9 +290,7 @@ rs232AsyncPortOverrunErrs OBJECT-TYPE
     ::= { rs232AsyncPortEntry 8 }
 
 
-
 -- RS-232-like Synchronous Port Table
-
 
 rs232SyncPortTable OBJECT-TYPE
     SYNTAX SEQUENCE OF Rs232SyncPortEntry
@@ -403,7 +358,7 @@ rs232SyncPortClockSource OBJECT-TYPE
     STATUS current
     DESCRIPTION
         "Source of the port's bit rate clock. 'split' means
-        the transmit clock is internal and the receive clock
+        the tranmit clock is internal and the receive clock
         is external."
     ::= { rs232SyncPortEntry 2 }
 
@@ -538,7 +493,6 @@ rs232SyncPortMode OBJECT-TYPE
     DESCRIPTION
         "The mode of operation of the port with respect to the
          direction and simultaneity of data transfer.
-
            fdx              when frames on the data link can be
                             transmitted and received at the same
                             time
@@ -577,9 +531,7 @@ rs232SyncPortMinFlags OBJECT-TYPE
     ::= { rs232SyncPortEntry 14 }
 
 
-
 -- Input Signal Table
-
 
 rs232InSigTable OBJECT-TYPE
     SYNTAX SEQUENCE OF Rs232InSigEntry
@@ -664,9 +616,7 @@ rs232InSigChanges OBJECT-TYPE
     ::= { rs232InSigEntry 4 }
 
 
-
 -- Output Signal Table
-
 
 rs232OutSigTable OBJECT-TYPE
     SYNTAX SEQUENCE OF Rs232OutSigEntry
@@ -751,9 +701,7 @@ rs232OutSigChanges OBJECT-TYPE
     ::= { rs232OutSigEntry 4 }
 
 
-
 -- conformance information
-
 
 rs232Conformance OBJECT IDENTIFIER ::= { rs232 7 }
 
@@ -785,10 +733,7 @@ rs232Compliance MODULE-COMPLIANCE
              interfaces Rs-232-like."
     ::= { rs232Compliances 1 }
 
-
-
 -- units of conformance
-
 
 rs232Group    OBJECT-GROUP
     OBJECTS { rs232Number, rs232PortIndex, rs232PortType,

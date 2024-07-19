@@ -1,248 +1,57 @@
 {
   "imports": {
     "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "Bits",
       "NOTIFICATION-TYPE",
       "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
       "experimental",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter32"
+      "Unsigned32",
+      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
     ]
   },
-  "ipMRouteMIB": {
-    "name": "ipMRouteMIB",
+  "ipMRoute1MIB": {
+    "name": "ipMRoute1MIB",
     "oid": "1.3.6.1.3.60",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "1994-11-04 11:59",
-        "description": "Initial version of this MIB module."
-      },
-      {
-        "revision": "1997-01-06 00:00",
-        "description": "Update per draft-ietf-idmr-multicast-routmib-04.txt."
-      },
-      {
-        "revision": "1997-05-20 00:00",
-        "description": "Update per draft-ietf-idmr-multicast-routmib-05.txt."
-      },
-      {
-        "revision": "1997-12-18 00:00",
-        "description": "Update per draft-ietf-idmr-multicast-routmib-06.txt."
-      },
-      {
-        "revision": "1999-02-08 00:00",
-        "description": "Update per draft-ietf-idmr-multicast-routmib-07.txt."
+        "revision": "1999-07-22 12:00",
+        "description": "Initial version, published as RFC xxxx (to be filled in by RFC-Editor)."
       }
     ]
   },
-  "ipMRouteMIBObjects": {
-    "name": "ipMRouteMIBObjects",
-    "oid": "1.3.6.1.3.60.1",
-    "class": "objectidentity"
-  },
-  "ipMRoute": {
-    "name": "ipMRoute",
-    "oid": "1.3.6.1.3.60.1.1",
-    "class": "objectidentity"
-  },
-  "ipMRouteEnable": {
-    "name": "ipMRouteEnable",
-    "oid": "1.3.6.1.3.60.1.1.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "enabled": 1,
-          "disabled": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "ipMRouteTable": {
-    "name": "ipMRouteTable",
-    "oid": "1.3.6.1.3.60.1.1.2",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "ipMRouteEntry": {
-    "name": "ipMRouteEntry",
-    "oid": "1.3.6.1.3.60.1.1.2.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "IPMROUTE-MIB",
-        "object": "ipMRouteGroup",
-        "implied": 0
-      },
-      {
-        "module": "IPMROUTE-MIB",
-        "object": "ipMRouteSource",
-        "implied": 0
-      },
-      {
-        "module": "IPMROUTE-MIB",
-        "object": "ipMRouteSourceMask",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "ipMRouteGroup": {
-    "name": "ipMRouteGroup",
-    "oid": "1.3.6.1.3.60.1.1.2.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "ipMRouteSource": {
-    "name": "ipMRouteSource",
-    "oid": "1.3.6.1.3.60.1.1.2.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "ipMRouteSourceMask": {
-    "name": "ipMRouteSourceMask",
-    "oid": "1.3.6.1.3.60.1.1.2.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "ipMRouteUpstreamNeighbor": {
-    "name": "ipMRouteUpstreamNeighbor",
-    "oid": "1.3.6.1.3.60.1.1.2.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IpAddress",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRouteInIfIndex": {
-    "name": "ipMRouteInIfIndex",
-    "oid": "1.3.6.1.3.60.1.1.2.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRouteUpTime": {
-    "name": "ipMRouteUpTime",
-    "oid": "1.3.6.1.3.60.1.1.2.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRouteExpiryTime": {
-    "name": "ipMRouteExpiryTime",
-    "oid": "1.3.6.1.3.60.1.1.2.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRoutePkts": {
-    "name": "ipMRoutePkts",
-    "oid": "1.3.6.1.3.60.1.1.2.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRouteDifferentInIfPackets": {
-    "name": "ipMRouteDifferentInIfPackets",
-    "oid": "1.3.6.1.3.60.1.1.2.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRouteOctets": {
-    "name": "ipMRouteOctets",
-    "oid": "1.3.6.1.3.60.1.1.2.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ipMRouteProtocol": {
-    "name": "ipMRouteProtocol",
-    "oid": "1.3.6.1.3.60.1.1.2.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
+  "IpMRoute1Protocol": {
+    "name": "IpMRoute1Protocol",
+    "class": "textualconvention",
+    "type": {
       "type": "INTEGER",
       "class": "type",
       "constraints": {
@@ -256,15 +65,221 @@
           "cbt": 7,
           "pimSparseMode": 8,
           "pimDenseMode": 9,
-          "igmpOnly": 10
+          "igmpOnly": 10,
+          "bgmp": 11,
+          "msdp": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ipMRoute1MIBObjects": {
+    "name": "ipMRoute1MIBObjects",
+    "oid": "1.3.6.1.3.60.1",
+    "class": "objectidentity"
+  },
+  "ipMRoute1": {
+    "name": "ipMRoute1",
+    "oid": "1.3.6.1.3.60.1.1",
+    "class": "objectidentity"
+  },
+  "ipMRoute1Enable": {
+    "name": "ipMRoute1Enable",
+    "oid": "1.3.6.1.3.60.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
         }
       }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteRtProto": {
-    "name": "ipMRouteRtProto",
+  "ipMRoute1EntryCount": {
+    "name": "ipMRoute1EntryCount",
+    "oid": "1.3.6.1.3.60.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1Table": {
+    "name": "ipMRoute1Table",
+    "oid": "1.3.6.1.3.60.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1Entry": {
+    "name": "ipMRoute1Entry",
+    "oid": "1.3.6.1.3.60.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1Group",
+        "implied": 0
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1Source",
+        "implied": 0
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1SourceMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipMRoute1Group": {
+    "name": "ipMRoute1Group",
+    "oid": "1.3.6.1.3.60.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1Source": {
+    "name": "ipMRoute1Source",
+    "oid": "1.3.6.1.3.60.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1SourceMask": {
+    "name": "ipMRoute1SourceMask",
+    "oid": "1.3.6.1.3.60.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1UpstreamNeighbor": {
+    "name": "ipMRoute1UpstreamNeighbor",
+    "oid": "1.3.6.1.3.60.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1InIfIndex": {
+    "name": "ipMRoute1InIfIndex",
+    "oid": "1.3.6.1.3.60.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1UpTime": {
+    "name": "ipMRoute1UpTime",
+    "oid": "1.3.6.1.3.60.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1ExpiryTime": {
+    "name": "ipMRoute1ExpiryTime",
+    "oid": "1.3.6.1.3.60.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1Pkts": {
+    "name": "ipMRoute1Pkts",
+    "oid": "1.3.6.1.3.60.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1DifferentInIfPackets": {
+    "name": "ipMRoute1DifferentInIfPackets",
+    "oid": "1.3.6.1.3.60.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1Octets": {
+    "name": "ipMRoute1Octets",
+    "oid": "1.3.6.1.3.60.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1Protocol": {
+    "name": "ipMRoute1Protocol",
+    "oid": "1.3.6.1.3.60.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpMRoute1Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1RtProto": {
+    "name": "ipMRoute1RtProto",
     "oid": "1.3.6.1.3.60.1.1.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
@@ -296,8 +311,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteRtAddress": {
-    "name": "ipMRouteRtAddress",
+  "ipMRoute1RtAddress": {
+    "name": "ipMRoute1RtAddress",
     "oid": "1.3.6.1.3.60.1.1.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
@@ -308,8 +323,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteRtMask": {
-    "name": "ipMRouteRtMask",
+  "ipMRoute1RtMask": {
+    "name": "ipMRoute1RtMask",
     "oid": "1.3.6.1.3.60.1.1.2.1.14",
     "nodetype": "column",
     "class": "objecttype",
@@ -320,8 +335,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteRtType": {
-    "name": "ipMRouteRtType",
+  "ipMRoute1RtType": {
+    "name": "ipMRoute1RtType",
     "oid": "1.3.6.1.3.60.1.1.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
@@ -338,16 +353,28 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteNextHopTable": {
-    "name": "ipMRouteNextHopTable",
+  "ipMRoute1HCOctets": {
+    "name": "ipMRoute1HCOctets",
+    "oid": "1.3.6.1.3.60.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1NextHopTable": {
+    "name": "ipMRoute1NextHopTable",
     "oid": "1.3.6.1.3.60.1.1.3",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteNextHopEntry": {
-    "name": "ipMRouteNextHopEntry",
+  "ipMRoute1NextHopEntry": {
+    "name": "ipMRoute1NextHopEntry",
     "oid": "1.3.6.1.3.60.1.1.3.1",
     "nodetype": "row",
     "class": "objecttype",
@@ -355,34 +382,34 @@
     "indices": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopGroup",
+        "object": "ipMRoute1NextHopGroup",
         "implied": 0
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopSource",
+        "object": "ipMRoute1NextHopSource",
         "implied": 0
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopSourceMask",
+        "object": "ipMRoute1NextHopSourceMask",
         "implied": 0
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopIfIndex",
+        "object": "ipMRoute1NextHopIfIndex",
         "implied": 0
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopAddress",
+        "object": "ipMRoute1NextHopAddress",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "ipMRouteNextHopGroup": {
-    "name": "ipMRouteNextHopGroup",
+  "ipMRoute1NextHopGroup": {
+    "name": "ipMRoute1NextHopGroup",
     "oid": "1.3.6.1.3.60.1.1.3.1.1",
     "nodetype": "column",
     "class": "objecttype",
@@ -393,8 +420,8 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteNextHopSource": {
-    "name": "ipMRouteNextHopSource",
+  "ipMRoute1NextHopSource": {
+    "name": "ipMRoute1NextHopSource",
     "oid": "1.3.6.1.3.60.1.1.3.1.2",
     "nodetype": "column",
     "class": "objecttype",
@@ -405,8 +432,8 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteNextHopSourceMask": {
-    "name": "ipMRouteNextHopSourceMask",
+  "ipMRoute1NextHopSourceMask": {
+    "name": "ipMRoute1NextHopSourceMask",
     "oid": "1.3.6.1.3.60.1.1.3.1.3",
     "nodetype": "column",
     "class": "objecttype",
@@ -417,28 +444,20 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteNextHopIfIndex": {
-    "name": "ipMRouteNextHopIfIndex",
+  "ipMRoute1NextHopIfIndex": {
+    "name": "ipMRoute1NextHopIfIndex",
     "oid": "1.3.6.1.3.60.1.1.3.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
+      "type": "InterfaceIndex",
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteNextHopAddress": {
-    "name": "ipMRouteNextHopAddress",
+  "ipMRoute1NextHopAddress": {
+    "name": "ipMRoute1NextHopAddress",
     "oid": "1.3.6.1.3.60.1.1.3.1.5",
     "nodetype": "column",
     "class": "objecttype",
@@ -449,8 +468,8 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteNextHopState": {
-    "name": "ipMRouteNextHopState",
+  "ipMRoute1NextHopState": {
+    "name": "ipMRoute1NextHopState",
     "oid": "1.3.6.1.3.60.1.1.3.1.6",
     "nodetype": "column",
     "class": "objecttype",
@@ -467,8 +486,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteNextHopUpTime": {
-    "name": "ipMRouteNextHopUpTime",
+  "ipMRoute1NextHopUpTime": {
+    "name": "ipMRoute1NextHopUpTime",
     "oid": "1.3.6.1.3.60.1.1.3.1.7",
     "nodetype": "column",
     "class": "objecttype",
@@ -479,8 +498,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteNextHopExpiryTime": {
-    "name": "ipMRouteNextHopExpiryTime",
+  "ipMRoute1NextHopExpiryTime": {
+    "name": "ipMRoute1NextHopExpiryTime",
     "oid": "1.3.6.1.3.60.1.1.3.1.8",
     "nodetype": "column",
     "class": "objecttype",
@@ -491,8 +510,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteNextHopClosestMemberHops": {
-    "name": "ipMRouteNextHopClosestMemberHops",
+  "ipMRoute1NextHopClosestMemberHops": {
+    "name": "ipMRoute1NextHopClosestMemberHops",
     "oid": "1.3.6.1.3.60.1.1.3.1.9",
     "nodetype": "column",
     "class": "objecttype",
@@ -503,34 +522,20 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteNextHopProtocol": {
-    "name": "ipMRouteNextHopProtocol",
+  "ipMRoute1NextHopProtocol": {
+    "name": "ipMRoute1NextHopProtocol",
     "oid": "1.3.6.1.3.60.1.1.3.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "local": 2,
-          "netmgmt": 3,
-          "dvmrp": 4,
-          "mospf": 5,
-          "pimSparseDense": 6,
-          "cbt": 7,
-          "pimSparseMode": 8,
-          "pimDenseMode": 9,
-          "igmpOnly": 10
-        }
-      }
+      "type": "IpMRoute1Protocol",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteNextHopPkts": {
-    "name": "ipMRouteNextHopPkts",
+  "ipMRoute1NextHopPkts": {
+    "name": "ipMRoute1NextHopPkts",
     "oid": "1.3.6.1.3.60.1.1.3.1.11",
     "nodetype": "column",
     "class": "objecttype",
@@ -541,16 +546,16 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteInterfaceTable": {
-    "name": "ipMRouteInterfaceTable",
+  "ipMRoute1InterfaceTable": {
+    "name": "ipMRoute1InterfaceTable",
     "oid": "1.3.6.1.3.60.1.1.4",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteInterfaceEntry": {
-    "name": "ipMRouteInterfaceEntry",
+  "ipMRoute1InterfaceEntry": {
+    "name": "ipMRoute1InterfaceEntry",
     "oid": "1.3.6.1.3.60.1.1.4.1",
     "nodetype": "row",
     "class": "objecttype",
@@ -558,15 +563,27 @@
     "indices": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInterfaceIfIndex",
+        "object": "ipMRoute1InterfaceIfIndex",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "ipMRouteInterfaceIfIndex": {
-    "name": "ipMRouteInterfaceIfIndex",
+  "ipMRoute1InterfaceIfIndex": {
+    "name": "ipMRoute1InterfaceIfIndex",
     "oid": "1.3.6.1.3.60.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1InterfaceTtl": {
+    "name": "ipMRoute1InterfaceTtl",
+    "oid": "1.3.6.1.3.60.1.1.4.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -576,54 +593,28 @@
         "range": [
           {
             "min": 0,
-            "max": 2147483647
+            "max": 255
           }
         ]
-      }
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "ipMRouteInterfaceTtl": {
-    "name": "ipMRouteInterfaceTtl",
-    "oid": "1.3.6.1.3.60.1.1.4.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "ipMRouteInterfaceProtocol": {
-    "name": "ipMRouteInterfaceProtocol",
-    "oid": "1.3.6.1.3.60.1.1.4.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "local": 2,
-          "netmgmt": 3,
-          "dvmrp": 4,
-          "mospf": 5,
-          "pimSparseDense": 6,
-          "cbt": 7,
-          "pimSparseMode": 8,
-          "pimDenseMode": 9,
-          "igmpOnly": 10
-        }
       }
     },
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteInterfaceRateLimit": {
-    "name": "ipMRouteInterfaceRateLimit",
+  "ipMRoute1InterfaceProtocol": {
+    "name": "ipMRoute1InterfaceProtocol",
+    "oid": "1.3.6.1.3.60.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpMRoute1Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1InterfaceRateLimit": {
+    "name": "ipMRoute1InterfaceRateLimit",
     "oid": "1.3.6.1.3.60.1.1.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
@@ -631,11 +622,11 @@
       "type": "Integer32",
       "class": "type"
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteInterfaceInMcastOctets": {
-    "name": "ipMRouteInterfaceInMcastOctets",
+  "ipMRoute1InterfaceInMcastOctets": {
+    "name": "ipMRoute1InterfaceInMcastOctets",
     "oid": "1.3.6.1.3.60.1.1.4.1.5",
     "nodetype": "column",
     "class": "objecttype",
@@ -646,8 +637,8 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteInterfaceOutMcastOctets": {
-    "name": "ipMRouteInterfaceOutMcastOctets",
+  "ipMRoute1InterfaceOutMcastOctets": {
+    "name": "ipMRoute1InterfaceOutMcastOctets",
     "oid": "1.3.6.1.3.60.1.1.4.1.6",
     "nodetype": "column",
     "class": "objecttype",
@@ -658,16 +649,40 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteBoundaryTable": {
-    "name": "ipMRouteBoundaryTable",
+  "ipMRoute1InterfaceHCInMcastOctets": {
+    "name": "ipMRoute1InterfaceHCInMcastOctets",
+    "oid": "1.3.6.1.3.60.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1InterfaceHCOutMcastOctets": {
+    "name": "ipMRoute1InterfaceHCOutMcastOctets",
+    "oid": "1.3.6.1.3.60.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1BoundaryTable": {
+    "name": "ipMRoute1BoundaryTable",
     "oid": "1.3.6.1.3.60.1.1.5",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteBoundaryEntry": {
-    "name": "ipMRouteBoundaryEntry",
+  "ipMRoute1BoundaryEntry": {
+    "name": "ipMRoute1BoundaryEntry",
     "oid": "1.3.6.1.3.60.1.1.5.1",
     "nodetype": "row",
     "class": "objecttype",
@@ -675,44 +690,36 @@
     "indices": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteBoundaryIfIndex",
+        "object": "ipMRoute1BoundaryIfIndex",
         "implied": 0
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteBoundaryAddress",
+        "object": "ipMRoute1BoundaryAddress",
         "implied": 0
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteBoundaryAddressMask",
+        "object": "ipMRoute1BoundaryAddressMask",
         "implied": 0
       }
     ],
     "status": "current"
   },
-  "ipMRouteBoundaryIfIndex": {
-    "name": "ipMRouteBoundaryIfIndex",
+  "ipMRoute1BoundaryIfIndex": {
+    "name": "ipMRoute1BoundaryIfIndex",
     "oid": "1.3.6.1.3.60.1.1.5.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
+      "type": "InterfaceIndex",
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteBoundaryAddress": {
-    "name": "ipMRouteBoundaryAddress",
+  "ipMRoute1BoundaryAddress": {
+    "name": "ipMRoute1BoundaryAddress",
     "oid": "1.3.6.1.3.60.1.1.5.1.2",
     "nodetype": "column",
     "class": "objecttype",
@@ -723,8 +730,8 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteBoundaryAddressMask": {
-    "name": "ipMRouteBoundaryAddressMask",
+  "ipMRoute1BoundaryAddressMask": {
+    "name": "ipMRoute1BoundaryAddressMask",
     "oid": "1.3.6.1.3.60.1.1.5.1.3",
     "nodetype": "column",
     "class": "objecttype",
@@ -735,8 +742,8 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "ipMRouteBoundaryStatus": {
-    "name": "ipMRouteBoundaryStatus",
+  "ipMRoute1BoundaryStatus": {
+    "name": "ipMRoute1BoundaryStatus",
     "oid": "1.3.6.1.3.60.1.1.5.1.4",
     "nodetype": "column",
     "class": "objecttype",
@@ -744,193 +751,360 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-only",
     "status": "current"
   },
-  "ipMRouteMIBConformance": {
-    "name": "ipMRouteMIBConformance",
+  "ipMRoute1ScopeNameTable": {
+    "name": "ipMRoute1ScopeNameTable",
+    "oid": "1.3.6.1.3.60.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameEntry": {
+    "name": "ipMRoute1ScopeNameEntry",
+    "oid": "1.3.6.1.3.60.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1ScopeNameAddress",
+        "implied": 0
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1ScopeNameAddressMask",
+        "implied": 0
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1ScopeNameLanguage",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameAddress": {
+    "name": "ipMRoute1ScopeNameAddress",
+    "oid": "1.3.6.1.3.60.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameAddressMask": {
+    "name": "ipMRoute1ScopeNameAddressMask",
+    "oid": "1.3.6.1.3.60.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameLanguage": {
+    "name": "ipMRoute1ScopeNameLanguage",
+    "oid": "1.3.6.1.3.60.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameString": {
+    "name": "ipMRoute1ScopeNameString",
+    "oid": "1.3.6.1.3.60.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameDefault": {
+    "name": "ipMRoute1ScopeNameDefault",
+    "oid": "1.3.6.1.3.60.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1ScopeNameStatus": {
+    "name": "ipMRoute1ScopeNameStatus",
+    "oid": "1.3.6.1.3.60.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipMRoute1MIBConformance": {
+    "name": "ipMRoute1MIBConformance",
     "oid": "1.3.6.1.3.60.2",
     "class": "objectidentity"
   },
-  "ipMRouteMIBCompliances": {
-    "name": "ipMRouteMIBCompliances",
+  "ipMRoute1MIBCompliances": {
+    "name": "ipMRoute1MIBCompliances",
     "oid": "1.3.6.1.3.60.2.1",
     "class": "objectidentity"
   },
-  "ipMRouteMIBGroups": {
-    "name": "ipMRouteMIBGroups",
+  "ipMRoute1MIBGroups": {
+    "name": "ipMRoute1MIBGroups",
     "oid": "1.3.6.1.3.60.2.2",
     "class": "objectidentity"
   },
-  "ipMRouteMIBCompliance": {
-    "name": "ipMRouteMIBCompliance",
+  "ipMRoute1MIBCompliance": {
+    "name": "ipMRoute1MIBCompliance",
     "oid": "1.3.6.1.3.60.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
-        "object": "ipMRouteMIBBasicGroup",
+        "object": "ipMRoute1MIBBasicGroup",
         "module": "IPMROUTE-MIB"
       },
       {
-        "object": "ipMRouteMIBRouteGroup",
+        "object": "ipMRoute1MIBRouteGroup",
         "module": "IPMROUTE-MIB"
       },
       {
-        "object": "ipMRouteMIBBoundaryGroup",
+        "object": "ipMRoute1MIBBoundaryGroup",
+        "module": "IPMROUTE-MIB"
+      },
+      {
+        "object": "ipMRoute1MIBHCInterfaceGroup",
         "module": "IPMROUTE-MIB"
       }
     ],
     "status": "current"
   },
-  "ipMRouteMIBBasicGroup": {
-    "name": "ipMRouteMIBBasicGroup",
+  "ipMRoute1MIBBasicGroup": {
+    "name": "ipMRoute1MIBBasicGroup",
     "oid": "1.3.6.1.3.60.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteEnable"
+        "object": "ipMRoute1Enable"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteUpstreamNeighbor"
+        "object": "ipMRoute1EntryCount"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInIfIndex"
+        "object": "ipMRoute1UpstreamNeighbor"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteUpTime"
+        "object": "ipMRoute1InIfIndex"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteExpiryTime"
+        "object": "ipMRoute1UpTime"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRoutePkts"
+        "object": "ipMRoute1ExpiryTime"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteDifferentInIfPackets"
+        "object": "ipMRoute1NextHopState"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteOctets"
+        "object": "ipMRoute1NextHopUpTime"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopState"
+        "object": "ipMRoute1NextHopExpiryTime"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopUpTime"
+        "object": "ipMRoute1NextHopProtocol"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopExpiryTime"
+        "object": "ipMRoute1NextHopPkts"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopProtocol"
+        "object": "ipMRoute1InterfaceTtl"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopPkts"
+        "object": "ipMRoute1InterfaceProtocol"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInterfaceTtl"
+        "object": "ipMRoute1InterfaceRateLimit"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInterfaceProtocol"
+        "object": "ipMRoute1InterfaceInMcastOctets"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInterfaceRateLimit"
+        "object": "ipMRoute1InterfaceOutMcastOctets"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInterfaceInMcastOctets"
-      },
-      {
-        "module": "IPMROUTE-MIB",
-        "object": "ipMRouteInterfaceOutMcastOctets"
-      },
-      {
-        "module": "IPMROUTE-MIB",
-        "object": "ipMRouteProtocol"
+        "object": "ipMRoute1Protocol"
       }
     ],
     "status": "current"
   },
-  "ipMRouteMIBHopCountGroup": {
-    "name": "ipMRouteMIBHopCountGroup",
+  "ipMRoute1MIBHopCountGroup": {
+    "name": "ipMRoute1MIBHopCountGroup",
     "oid": "1.3.6.1.3.60.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopClosestMemberHops"
+        "object": "ipMRoute1NextHopClosestMemberHops"
       }
     ],
     "status": "current"
   },
-  "ipMRouteMIBBoundaryGroup": {
-    "name": "ipMRouteMIBBoundaryGroup",
+  "ipMRoute1MIBBoundaryGroup": {
+    "name": "ipMRoute1MIBBoundaryGroup",
     "oid": "1.3.6.1.3.60.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteBoundaryStatus"
+        "object": "ipMRoute1BoundaryStatus"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1ScopeNameString"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1ScopeNameDefault"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1ScopeNameStatus"
       }
     ],
     "status": "current"
   },
-  "ipMRouteMIBPktsOutGroup": {
-    "name": "ipMRouteMIBPktsOutGroup",
+  "ipMRoute1MIBPktsOutGroup": {
+    "name": "ipMRoute1MIBPktsOutGroup",
     "oid": "1.3.6.1.3.60.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteNextHopPkts"
+        "object": "ipMRoute1NextHopPkts"
       }
     ],
     "status": "current"
   },
-  "ipMRouteMIBRouteGroup": {
-    "name": "ipMRouteMIBRouteGroup",
+  "ipMRoute1MIBHCInterfaceGroup": {
+    "name": "ipMRoute1MIBHCInterfaceGroup",
+    "oid": "1.3.6.1.3.60.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1InterfaceHCInMcastOctets"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1InterfaceHCOutMcastOctets"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1HCOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "ipMRoute1MIBRouteGroup": {
+    "name": "ipMRoute1MIBRouteGroup",
     "oid": "1.3.6.1.3.60.2.2.6",
     "class": "objectgroup",
     "objects": [
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteRtProto"
+        "object": "ipMRoute1RtProto"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteRtAddress"
+        "object": "ipMRoute1RtAddress"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteRtMask"
+        "object": "ipMRoute1RtMask"
       },
       {
         "module": "IPMROUTE-MIB",
-        "object": "ipMRouteRtType"
+        "object": "ipMRoute1RtType"
+      }
+    ],
+    "status": "current"
+  },
+  "ipMRoute1MIBPktsGroup": {
+    "name": "ipMRoute1MIBPktsGroup",
+    "oid": "1.3.6.1.3.60.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1Pkts"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1DifferentInIfPackets"
+      },
+      {
+        "module": "IPMROUTE-MIB",
+        "object": "ipMRoute1Octets"
       }
     ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IPMROUTE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 08:58:45 2024",
-      "On host fv-az1149-759 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPMROUTE-MIB",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 09:34:34 2024",
+      "On host fv-az1499-371 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IPMROUTE-MIB"

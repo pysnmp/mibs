@@ -24,6 +24,10 @@ pimStdMIB MODULE-IDENTITY
     CONTACT-INFO
             "Email: pim@ietf.org
             WG charter:
+
+
+
+
             http://www.ietf.org/html.charters/pim-charter.html"
     DESCRIPTION
             "The MIB module for management of PIM routers.
@@ -72,6 +76,9 @@ PimMode ::= TEXTUAL-CONVENTION
 PimGroupMappingOriginType ::= TEXTUAL-CONVENTION
     STATUS     current
     DESCRIPTION
+
+
+
             "The mechanism by which a PIM group mapping was learned.
 
             fixed(1)     Link-local or unroutable group mappings.
@@ -119,6 +126,9 @@ pimKeepalivePeriod OBJECT-TYPE
             messages received to maintain it.  This timer period is
             called the Keepalive_Period in the PIM-SM specification.  It
             is called the SourceLifetime in the PIM-DM specification.
+
+
+
 
             The storage type of this object is determined by
             pimDeviceConfigStorageType."
@@ -168,6 +178,9 @@ pimSGEntries OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The number of entries in the pimSGTable."
+
+
+
     ::= { pim 18 }
 
 pimSGIEntries OBJECT-TYPE
@@ -216,6 +229,8 @@ pimInAsserts OBJECT-TYPE
             are multicast to all routers on a network.  This counter is
             incremented by all routers that receive an assert, not only
             those routers that are contesting the assert.
+
+
 
             Discontinuities in the value of this counter can occur at
             re-initialization of the management system, for example,
@@ -266,6 +281,8 @@ pimLastAssertSourceAddressType OBJECT-TYPE
             then this object is set to unknown(0)."
     ::= { pim 27 }
 
+
+
 pimLastAssertSourceAddress OBJECT-TYPE
     SYNTAX     InetAddress (SIZE (0|4|8|16|20))
     MAX-ACCESS read-only
@@ -314,6 +331,9 @@ pimNeighborLossCount OBJECT-TYPE
 
 pimInvalidRegisterNotificationPeriod OBJECT-TYPE
     SYNTAX     Unsigned32 (10..65535)
+
+
+
     UNITS      "seconds"
     MAX-ACCESS read-write
     STATUS     current
@@ -362,6 +382,9 @@ pimInvalidRegisterMsgsRcvd OBJECT-TYPE
 
             Multicast data carried by invalid Register messages is
             discarded.  The discarded data is from a source directly
+
+
+
             connected to pimInvalidRegisterOrigin, and is addressed to
             pimInvalidRegisterGroup.
 
@@ -410,6 +433,8 @@ pimInvalidRegisterRp OBJECT-TYPE
             "The RP address to which the last invalid Register message
             received by this device was delivered."
     ::= { pim 36 }
+
+
 
 pimInvalidJoinPruneNotificationPeriod OBJECT-TYPE
     SYNTAX     Unsigned32 (10..65535)
@@ -460,6 +485,8 @@ pimInvalidJoinPruneMsgsRcvd OBJECT-TYPE
             The RP address contained in the invalid Join/Prune is
             pimInvalidJoinPruneRp.
 
+
+
             Invalid Join/Prune messages are discarded.  This may result
             in loss of multicast data affecting listeners downstream of
             pimInvalidJoinPruneOrigin, for multicast data addressed to
@@ -508,6 +535,9 @@ pimInvalidJoinPruneRp OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The RP address carried in the last invalid Join/Prune
+
+
+
             message received by this device."
     ::= { pim 42 }
 
@@ -556,6 +586,9 @@ pimInterfaceElectionNotificationPeriod OBJECT-TYPE
     UNITS      "seconds"
     MAX-ACCESS read-write
     STATUS     current
+
+
+
     DESCRIPTION
             "The minimum time that must elapse between
             pimInterfaceElection notifications originated by this
@@ -604,6 +637,9 @@ pimRefreshInterval OBJECT-TYPE
             The storage type of this object is determined by
             pimDeviceConfigStorageType."
     REFERENCE "RFC 3973 section 4.8"
+
+
+
     DEFVAL { 60 }
     ::= { pim 47 }
 
@@ -651,6 +687,9 @@ pimInterfaceEntry OBJECT-TYPE
     INDEX      { pimInterfaceIfIndex,
                  pimInterfaceIPVersion }
     ::= { pimInterfaceTable 1 }
+
+
+
 
 PimInterfaceEntry ::= SEQUENCE {
     pimInterfaceIfIndex              InterfaceIndex,
@@ -700,6 +739,9 @@ pimInterfaceIPVersion OBJECT-TYPE
             may be configured in multiple modes concurrently, e.g., IPv4
             and IPv6; however, the traffic is considered to be logically
             separate."
+
+
+
     ::= { pimInterfaceEntry 2 }
 
 pimInterfaceAddressType OBJECT-TYPE
@@ -748,6 +790,9 @@ pimInterfaceDRPriority OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The Designated Router Priority value inserted into the DR
+
+
+
             Priority option in PIM Hello messages transmitted on this
             interface.  Numerically higher values for this object
             indicate higher priorities."
@@ -797,6 +842,8 @@ pimInterfaceTrigHelloInterval OBJECT-TYPE
     DEFVAL { 5 }
     ::= { pimInterfaceEntry 10 }
 
+
+
 pimInterfaceHelloHoldtime OBJECT-TYPE
     SYNTAX     Unsigned32 (0..65535)
     UNITS      "seconds"
@@ -845,6 +892,9 @@ pimInterfaceJoinPruneHoldtime OBJECT-TYPE
             pimInterfacePruneLimitInterval."
     REFERENCE "RFC 4601 sections 4.5.3 and 4.9.5"
     DEFVAL { 210 }
+
+
+
     ::= { pimInterfaceEntry 13 }
 
 pimInterfaceDFElectionRobustness OBJECT-TYPE
@@ -893,6 +943,9 @@ pimInterfaceOverrideInterval OBJECT-TYPE
     DESCRIPTION
             "The value this router inserts into the Override_Interval
             field of the LAN Prune Delay option in the PIM Hello
+
+
+
             messages it sends on this interface.
 
             When overriding a prune, PIM routers pick a random timer
@@ -941,6 +994,9 @@ pimInterfaceSuppressionEnabled OBJECT-TYPE
             This object is always TRUE if pimInterfaceLanDelayEnabled is
             FALSE."
     REFERENCE "RFC 4601 section 4.3.3"
+
+
+
     ::= { pimInterfaceEntry 20 }
 
 pimInterfaceBidirCapable OBJECT-TYPE
@@ -990,6 +1046,8 @@ pimInterfaceStubInterface OBJECT-TYPE
     DEFVAL { false }
     ::= { pimInterfaceEntry 23 }
 
+
+
 pimInterfacePruneLimitInterval OBJECT-TYPE
     SYNTAX     Unsigned32 (0..65535)
     UNITS      "seconds"
@@ -1038,6 +1096,9 @@ pimInterfaceStatus OBJECT-TYPE
             interface.
 
             This status object can be set to active(1) without setting
+
+
+
             any other columnar objects in this entry.
 
             All writeable objects in this entry can be modified when the
@@ -1086,6 +1147,9 @@ PimNeighborEntry ::= SEQUENCE {
     pimNeighborGenerationIDValue    Unsigned32,
     pimNeighborUpTime               TimeTicks,
     pimNeighborExpiryTime           TimeTicks,
+
+
+
     pimNeighborDRPriorityPresent    TruthValue,
     pimNeighborDRPriority           Unsigned32,
     pimNeighborLanPruneDelayPresent TruthValue,
@@ -1134,6 +1198,9 @@ pimNeighborGenerationIDPresent OBJECT-TYPE
     ::= { pimNeighborEntry 4 }
 
 pimNeighborGenerationIDValue OBJECT-TYPE
+
+
+
     SYNTAX     Unsigned32
     MAX-ACCESS read-only
     STATUS     current
@@ -1182,6 +1249,9 @@ pimNeighborDRPriority OBJECT-TYPE
             PIM Hello message received from this neighbor.  This object
             is always zero if pimNeighborDRPriorityPresent is FALSE."
     REFERENCE "RFC 4601 section 4.3.2"
+
+
+
     ::= { pimNeighborEntry 9 }
 
 pimNeighborLanPruneDelayPresent OBJECT-TYPE
@@ -1230,6 +1300,9 @@ pimNeighborOverrideInterval OBJECT-TYPE
     ::= { pimNeighborEntry 13 }
 
 pimNeighborBidirCapable OBJECT-TYPE
+
+
+
     SYNTAX     TruthValue
     MAX-ACCESS read-only
     STATUS     current
@@ -1278,6 +1351,9 @@ pimNbrSecAddressEntry OBJECT-TYPE
     ::= { pimNbrSecAddressTable 1 }
 
 PimNbrSecAddressEntry ::= SEQUENCE {
+
+
+
     pimNbrSecAddressIfIndex InterfaceIndex,
     pimNbrSecAddressType    InetAddressType,
     pimNbrSecAddressPrimary InetAddress,
@@ -1326,6 +1402,9 @@ pimNbrSecAddress OBJECT-TYPE
 --
 
 pimStarGTable OBJECT-TYPE
+
+
+
     SYNTAX     SEQUENCE OF PimStarGEntry
     MAX-ACCESS not-accessible
     STATUS     current
@@ -1374,6 +1453,9 @@ pimStarGAddressType OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The address type of this multicast group."
+
+
+
     ::= { pimStarGEntry 1 }
 
 pimStarGGrpAddress OBJECT-TYPE
@@ -1394,7 +1476,7 @@ pimStarGUpTime OBJECT-TYPE
     ::= { pimStarGEntry 3 }
 
 pimStarGPimMode OBJECT-TYPE
-    SYNTAX     PimMode 
+    SYNTAX     PimMode { asm(3), bidir(4) }
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -1422,6 +1504,9 @@ pimStarGRPAddress OBJECT-TYPE
 
 pimStarGPimModeOrigin OBJECT-TYPE
     SYNTAX     PimGroupMappingOriginType
+
+
+
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -1470,6 +1555,9 @@ pimStarGUpstreamNeighborType OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The primary address type of the upstream neighbor, or
+
+
+
             unknown(0) if the upstream neighbor address is unknown or is
             not a PIM neighbor."
     ::= { pimStarGEntry 11 }
@@ -1517,6 +1605,9 @@ pimStarGRPFNextHop OBJECT-TYPE
             in the PIM-SM specification."
     REFERENCE "RFC 4601 section 4.5.5"
     ::= { pimStarGEntry 15 }
+
+
+
 
 pimStarGRPFRouteProtocol OBJECT-TYPE
     SYNTAX     IANAipRouteProtocol
@@ -1566,6 +1657,9 @@ pimStarGRPFRouteMetricPref OBJECT-TYPE
 
 pimStarGRPFRouteMetric OBJECT-TYPE
     SYNTAX     Unsigned32
+
+
+
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -1614,6 +1708,9 @@ PimStarGIEntry ::= SEQUENCE {
 }
 
 pimStarGIIfIndex OBJECT-TYPE
+
+
+
     SYNTAX     InterfaceIndex
     MAX-ACCESS not-accessible
     STATUS     current
@@ -1662,6 +1759,9 @@ pimStarGIPrunePendingTimer OBJECT-TYPE
     SYNTAX     TimeTicks
     MAX-ACCESS read-only
     STATUS     current
+
+
+
     DESCRIPTION
             "The time remaining before the local router acts on a (*,G)
             Prune message received on this interface, during which the
@@ -1710,6 +1810,9 @@ pimStarGIAssertTimer OBJECT-TYPE
             time remaining before the local router next sends a (*,G)
             Assert message on this interface.  If pimStarGIAssertState
             is 'iAmAssertLoser', this is the time remaining before the
+
+
+
             (*,G) Assert state expires.  If pimStarGIAssertState is
             'noInfo', this is zero.  This timer is called the (*,G)
             Assert Timer in the PIM-SM specification."
@@ -1758,6 +1861,9 @@ pimStarGIAssertWinnerMetric OBJECT-TYPE
 
 --
 -- The PIM (S,G) State Table
+
+
+
 --
 
 pimSGTable OBJECT-TYPE
@@ -1806,6 +1912,9 @@ PimSGEntry ::= SEQUENCE {
     pimSGRPRegisterPMBRAddress     InetAddress,
     pimSGUpstreamPruneState        INTEGER,
     pimSGUpstreamPruneLimitTimer   TimeTicks,
+
+
+
     pimSGOriginatorState           INTEGER,
     pimSGSourceActiveTimer         TimeTicks,
     pimSGStateRefreshTimer         TimeTicks
@@ -1847,20 +1956,22 @@ pimSGUpTime OBJECT-TYPE
     ::= { pimSGEntry 4 }
 
 pimSGPimMode OBJECT-TYPE
-    SYNTAX     PimMode 
+    SYNTAX     PimMode { ssm(2), asm(3) }
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
             "Whether pimSGGrpAddress is an SSM (Source Specific
             Multicast, used with PIM-SM) or ASM (Any Source Multicast,
-            used with PIM-SM), or DM (Dense Mode)  group."
+            used with PIM-SM) group."
+
+
+
     REFERENCE "RFC 4601 section 4.5.2, RFC 3569, and
                'IP Multicast MIB' (August 2007) ipMcastSsmRangeTable"
     ::= { pimSGEntry 5 }
 
 pimSGUpstreamJoinState OBJECT-TYPE
     SYNTAX     INTEGER {
-                  notApplicable (0),
                   notJoined (1),
                   joined (2)
                }
@@ -1903,6 +2014,9 @@ pimSGUpstreamNeighbor OBJECT-TYPE
 
 pimSGRPFIfIndex OBJECT-TYPE
     SYNTAX     InterfaceIndexOrZero
+
+
+
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -1951,6 +2065,9 @@ pimSGRPFRouteAddress OBJECT-TYPE
             InetAddressType is given by the pimSGRPFNextHopType object.
 
             This address object is only significant up to
+
+
+
             pimSGRPFRoutePrefixLength bits.  The remainder of the
             address bits are zero."
     ::= { pimSGEntry 13 }
@@ -1999,6 +2116,9 @@ pimSGKeepaliveTimer OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
+
+
+
             "The time remaining before this (S,G) state expires, in
             the absence of explicit (S,G) local membership or (S,G)
             Join messages received to maintain it.  This timer is
@@ -2047,6 +2167,9 @@ pimSGRPRegisterPMBRAddressType OBJECT-TYPE
     DESCRIPTION
             "The address type of the first PIM Multicast Border Router
             to send a Register message with the Border bit set.  This
+
+
+
             object is unknown(0) if the local router is not the RP for
             the group."
     ::= { pimSGEntry 21 }
@@ -2064,7 +2187,6 @@ pimSGRPRegisterPMBRAddress OBJECT-TYPE
 
 pimSGUpstreamPruneState OBJECT-TYPE
     SYNTAX     INTEGER {
-                  notApplicable (0),
                   forwarding (1),
                   ackpending (2),
                   pruned (3)
@@ -2094,9 +2216,11 @@ pimSGUpstreamPruneLimitTimer OBJECT-TYPE
 
 pimSGOriginatorState OBJECT-TYPE
     SYNTAX     INTEGER {
-                  notApplicable (0),
                   notOriginator (1),
                   originator (2)
+
+
+
                }
     MAX-ACCESS read-only
     STATUS     current
@@ -2145,6 +2269,9 @@ pimSGITable OBJECT-TYPE
     DESCRIPTION
             "The (conceptual) table listing the interface-specific (S,G)
             state that PIM has."
+
+
+
     REFERENCE "RFC 4601 section 4.1.4"
     ::= { pim 7 }
 
@@ -2193,6 +2320,9 @@ pimSGIUpTime OBJECT-TYPE
     ::= { pimSGIEntry 2 }
 
 pimSGILocalMembership OBJECT-TYPE
+
+
+
     SYNTAX     TruthValue
     MAX-ACCESS read-only
     STATUS     current
@@ -2209,8 +2339,7 @@ pimSGIJoinPruneState OBJECT-TYPE
     SYNTAX     INTEGER {
                   noInfo (1),
                   join (2),
-                  prunePending (3),
-                  pruned (4)
+                  prunePending (3)
                }
     MAX-ACCESS read-only
     STATUS     current
@@ -2242,6 +2371,9 @@ pimSGIJoinExpiryTimer OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The time remaining before (S,G) Join state for this
+
+
+
             interface expires.  This timer is called the (S,G) Join
             Expiry Timer in the PIM-SM specification.  This object is
             zero if the timer is not running.  A value of 'FFFFFFFF'h
@@ -2289,6 +2421,9 @@ pimSGIAssertWinnerAddressType OBJECT-TYPE
             address type of the assert winner; otherwise, this object is
             unknown(0)."
     ::= { pimSGIEntry 9 }
+
+
+
 
 pimSGIAssertWinnerAddress OBJECT-TYPE
     SYNTAX     InetAddress (SIZE (0|4|8|16|20))
@@ -2338,6 +2473,9 @@ pimSGRptEntry OBJECT-TYPE
     SYNTAX     PimSGRptEntry
     MAX-ACCESS not-accessible
     STATUS     current
+
+
+
     DESCRIPTION
             "An entry (conceptual row) in the pimSGRptTable."
     INDEX      { pimStarGAddressType,
@@ -2386,6 +2524,9 @@ pimSGRptUpstreamPruneState OBJECT-TYPE
     ::= { pimSGRptEntry 3 }
 
 pimSGRptUpstreamOverrideTimer OBJECT-TYPE
+
+
+
     SYNTAX     TimeTicks
     MAX-ACCESS read-only
     STATUS     current
@@ -2434,6 +2575,9 @@ PimSGRptIEntry ::= SEQUENCE {
 }
 
 pimSGRptIIfIndex OBJECT-TYPE
+
+
+
     SYNTAX     InterfaceIndex
     MAX-ACCESS not-accessible
     STATUS     current
@@ -2482,6 +2626,9 @@ pimSGRptIJoinPruneState OBJECT-TYPE
 pimSGRptIPrunePendingTimer OBJECT-TYPE
     SYNTAX     TimeTicks
     MAX-ACCESS read-only
+
+
+
     STATUS     current
     DESCRIPTION
             "The time remaining before the local router starts pruning
@@ -2529,6 +2676,9 @@ pimBidirDFElectionEntry OBJECT-TYPE
                  pimBidirDFElectionRPAddress,
                  pimBidirDFElectionIfIndex }
     ::= { pimBidirDFElectionTable 1 }
+
+
+
 
 PimBidirDFElectionEntry ::= SEQUENCE {
     pimBidirDFElectionAddressType       InetAddressType,
@@ -2578,6 +2728,9 @@ pimBidirDFElectionWinnerAddressType OBJECT-TYPE
     DESCRIPTION
             "The primary address type of the winner of the DF Election
             process.  A value of unknown(0) indicates there is currently
+
+
+
             no DF."
     ::= { pimBidirDFElectionEntry 4 }
 
@@ -2626,6 +2779,9 @@ pimBidirDFElectionState OBJECT-TYPE
                   dfBackoff(4)
                }
     MAX-ACCESS read-only
+
+
+
     STATUS     current
     DESCRIPTION
             "The state of this interface with respect to DF-Election for
@@ -2673,6 +2829,9 @@ pimStaticRPEntry OBJECT-TYPE
                  pimStaticRPGrpAddress,
                  pimStaticRPGrpPrefixLength }
     ::= { pimStaticRPTable 1 }
+
+
+
 
 PimStaticRPEntry ::= SEQUENCE {
     pimStaticRPAddressType      InetAddressType,
@@ -2722,6 +2881,9 @@ pimStaticRPGrpPrefixLength OBJECT-TYPE
             entry.  The InetAddressType is given by the
             pimStaticRPAddressType object.  If pimStaticRPAddressType is
             'ipv4' or 'ipv4z', this object must be in the range 4..32.
+
+
+
             If pimStaticRPGrpAddressType is 'ipv6' or 'ipv6z', this
             object must be in the range 8..128."
     ::= { pimStaticRPEntry 3 }
@@ -2737,15 +2899,15 @@ pimStaticRPRPAddress OBJECT-TYPE
     ::= { pimStaticRPEntry 4 }
 
 pimStaticRPPimMode OBJECT-TYPE
-    SYNTAX     PimMode 
+    SYNTAX     PimMode { ssm(2), asm(3), bidir(4) }
     MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
             "The PIM mode to be used for groups in this group prefix.
 
-            If this object is set to ssm(2) or dm(5), then 
-            pimStaticRPRPAddress must be set to zero.  No RP 
-            operations are ever possible for PIM Mode SSM or DM."
+            If this object is set to ssm(2), then pimStaticRPRPAddress
+            must be set to zero.  No RP operations are ever possible for
+            PIM Mode SSM."
     REFERENCE "RFC 4601 section 3.7, RFC 3569, and
                'IP Multicast MIB' (August 2007) ipMcastSsmRangeTable"
     DEFVAL { asm }
@@ -2770,6 +2932,9 @@ pimStaticRPOverrideDynamic OBJECT-TYPE
     DEFVAL { false }
     ::= { pimStaticRPEntry 6 }
 
+
+
+
 pimStaticRPPrecedence OBJECT-TYPE
     SYNTAX     Unsigned32
     MAX-ACCESS read-create
@@ -2790,10 +2955,7 @@ pimStaticRPPrecedence OBJECT-TYPE
             effects when applied to other routers.
 
             Do not use this object unless fine control of static RP
-            behavior on the local router is required.
-
-            A value of 65535 is used to represent an 'undefined' value
-            indicating that this object is not being used."
+            behavior on the local router is required."
     ::= { pimStaticRPEntry 7 }
 
 pimStaticRPRowStatus OBJECT-TYPE
@@ -2821,6 +2983,8 @@ pimStaticRPStorageType OBJECT-TYPE
             objects in the row."
     DEFVAL { nonVolatile }
     ::= { pimStaticRPEntry 9 }
+
+
 
 --
 -- The PIM Anycast-RP Set Table
@@ -2870,6 +3034,9 @@ pimAnycastRPSetEntry OBJECT-TYPE
     ::= { pimAnycastRPSetTable 1 }
 
 PimAnycastRPSetEntry ::= SEQUENCE {
+
+
+
     pimAnycastRPSetAddressType     InetAddressType,
     pimAnycastRPSetAnycastAddress  InetAddress,
     pimAnycastRPSetRouterAddress   InetAddress,
@@ -2917,6 +3084,9 @@ pimAnycastRPSetLocalRouter OBJECT-TYPE
     DESCRIPTION
             "Whether this entry corresponds to the local router."
     ::= { pimAnycastRPSetEntry 4 }
+
+
+
 
 pimAnycastRPSetRowStatus OBJECT-TYPE
     SYNTAX     RowStatus
@@ -2966,6 +3136,9 @@ pimGroupMappingTable OBJECT-TYPE
                unroutable group addresses.  These rows are never
                destroyed.
 
+
+
+
             -  Rows with a pimGroupMappingOrigin value of 'embedded' are
                created by the router to correspond to group prefixes
                that are to be treated as being in Embedded-RP format.
@@ -3014,6 +3187,9 @@ pimGroupMappingTable OBJECT-TYPE
 
             5. If there are still multiple selected rows, the subset
                that has the highest precedence (the lowest numerical
+
+
+
                value for pimGroupMappingPrecedence) is selected.
 
             6. If there are still multiple selected rows, the row
@@ -3063,6 +3239,8 @@ pimGroupMappingOrigin OBJECT-TYPE
             "The mechanism by which this group mapping was learned."
     ::= { pimGroupMappingEntry 1 }
 
+
+
 pimGroupMappingAddressType OBJECT-TYPE
     SYNTAX     InetAddressType
     MAX-ACCESS not-accessible
@@ -3111,6 +3289,9 @@ pimGroupMappingRPAddressType OBJECT-TYPE
     DESCRIPTION
             "The address type of the RP to be used for groups within
             this group prefix, or unknown(0) if no RP is to be used or
+
+
+
             if the RP address is unknown.  This object must be
             unknown(0) if pimGroupMappingPimMode is ssm(2), or if
             pimGroupMappingOrigin is embedded(6)."
@@ -3159,6 +3340,9 @@ pimNeighborLoss NOTIFICATION-TYPE
     STATUS     current
     DESCRIPTION
             "A pimNeighborLoss notification signifies the loss of an
+
+
+
             adjacency with a neighbor.  This notification should be
             generated when the neighbor timer expires, and the router
             has no other neighbors on the same interface with the same
@@ -3207,6 +3391,9 @@ pimInvalidJoinPrune NOTIFICATION-TYPE
             pimInvalidJoinPruneMsgsRcvd is incremented, subject to the
             rate limit specified by
             pimInvalidJoinPruneNotificationPeriod."
+
+
+
     REFERENCE "RFC 4601 section 4.5.2"
     ::= { pimNotifications 3 }
 
@@ -3255,6 +3442,9 @@ pimMIBGroups      OBJECT IDENTIFIER ::= { pimMIBConformance 2 }
 pimMIBComplianceAsm MODULE-COMPLIANCE
     STATUS  current
     DESCRIPTION
+
+
+
              "The compliance statement for routers which are running
              PIM-SM (Sparse Mode)."
     MODULE  -- this module
@@ -3303,6 +3493,9 @@ pimMIBComplianceAsm MODULE-COMPLIANCE
 
 pimMIBComplianceBidir MODULE-COMPLIANCE
     STATUS  current
+
+
+
     DESCRIPTION
             "The compliance statement for routers which are running
             Bidir-PIM."
@@ -3351,6 +3544,9 @@ pimMIBComplianceBidir MODULE-COMPLIANCE
     ::= { pimMIBCompliances 2 }
 
 pimMIBComplianceSsm MODULE-COMPLIANCE
+
+
+
     STATUS  current
     DESCRIPTION
             "The compliance statement for routers which are running
@@ -3399,6 +3595,9 @@ pimMIBComplianceDm MODULE-COMPLIANCE
                        pimSsmGroup,
                        pimRPConfigGroup,
                        pimSmGroup,
+
+
+
                        pimDmGroup }
 
       GROUP   pimNotificationGroup
@@ -3447,6 +3646,9 @@ pimTopologyGroup OBJECT-GROUP
     OBJECTS { pimInterfaceAddressType,
               pimInterfaceAddress,
               pimInterfaceGenerationIDValue,
+
+
+
               pimInterfaceDR,
               pimInterfaceDRPriorityEnabled,
               pimInterfaceHelloHoldtime,
@@ -3495,6 +3697,9 @@ pimTuningParametersGroup OBJECT-GROUP
               pimInterfaceDomainBorder,
               pimInterfaceStubInterface,
               pimInterfaceStatus,
+
+
+
               pimInterfaceStorageType
             }
     STATUS  current
@@ -3543,6 +3748,9 @@ pimSsmGroup OBJECT-GROUP
               pimSGIJoinExpiryTimer,
               pimSGIAssertState,
               pimSGIAssertTimer,
+
+
+
               pimSGIAssertWinnerAddressType,
               pimSGIAssertWinnerAddress,
               pimSGIAssertWinnerMetricPref,
@@ -3591,6 +3799,9 @@ pimSmGroup OBJECT-GROUP
               pimStarGRPFRouteMetric,
               pimStarGIUpTime,
               pimStarGILocalMembership,
+
+
+
               pimStarGIJoinPruneState,
               pimStarGIPrunePendingTimer,
               pimStarGIJoinExpiryTimer,
@@ -3639,6 +3850,9 @@ pimAnycastRpGroup OBJECT-GROUP
               pimAnycastRPSetStorageType
             }
     STATUS  current
+
+
+
     DESCRIPTION
             "A collection of objects to support management of the PIM
             Anycast-RP mechanism."
@@ -3687,6 +3901,9 @@ pimNetMgmtNotificationGroup NOTIFICATION-GROUP
     DESCRIPTION
             "A collection of notifications for signaling PIM network
             management events."
+
+
+
     ::= { pimMIBGroups 12 }
 
 pimDiagnosticsGroup OBJECT-GROUP
@@ -3726,6 +3943,17 @@ pimDmGroup OBJECT-GROUP
             pimSmGroup are also required."
     REFERENCE "RFC 3973"
     ::= { pimMIBGroups 14 }
+
+
+
+
+
+
+
+
+
+
+
 
 pimDeviceStorageGroup OBJECT-GROUP
     OBJECTS { pimDeviceConfigStorageType

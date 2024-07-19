@@ -40,6 +40,8 @@ interfaceTopNConformance   OBJECT IDENTIFIER ::= { interfaceTopNMIB 3 }
 -- The objects must be elements in tables indexed only by an
 -- InterfaceIndex object.
 -- The objects  chosen by the
+
+
 -- management station may be sampled over a management
 -- station-specified time interval, making the report rate based.
 -- The management station also specifies the number of interfaces
@@ -88,6 +90,8 @@ interfaceTopNCaps   OBJECT-TYPE
                dot3StatsLateCollisions(29),
                dot3StatsExcessiveCollisions(30),
                dot3StatsInternalMacTxErrors(31),
+
+
                dot3StatsCarrierSenseErrors(32),
                dot3StatsFrameTooLongs(33),
                dot3StatsInternalMacRxErrors(34),
@@ -136,6 +140,8 @@ interfaceTopNCaps   OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
+
+
 "The type(s) of sorting capabilities supported by the agent.
 
 If the agent can perform sorting of interfaces according to the
@@ -184,6 +190,8 @@ then the 'ifOutErrors' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
 values of ifInMulticastPkts, as defined in [RFC2863],
+
+
 then the 'ifInMulticastPkts' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
@@ -232,6 +240,8 @@ then the 'dot3StatsAlignmentErrors' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
 values of dot3StatsFCSErrors, as defined in [RFC2665],
+
+
 then the 'dot3StatsFCSErrors' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
@@ -280,6 +290,8 @@ then the 'dot3StatsSymbolErrors' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
 values of dot3InPauseFrames, as defined in [RFC2665],
+
+
 then the 'dot3InPauseFrames' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
@@ -328,6 +340,8 @@ values of dot5StatsSoftErrors, as defined in [RFC1748],
 then the 'dot5StatsSoftErrors' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
+
+
 values of dot5StatsHardErrors, as defined in [RFC1748],
 then the 'dot5StatsHardErrors' bit will be set.
 
@@ -376,6 +390,8 @@ values of etherStatsBroadcastPkts, as defined in [RFC2819],
 then the 'etherStatsBroadcastPkts' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
+
+
 values of etherStatsMulticastPkts, as defined in [RFC2819],
 then the 'etherStatsMulticastPkts' bit will be set.
 
@@ -424,9 +440,12 @@ values of etherStatsPkts512to1023Octets, as defined in [RFC2819],
 then the 'etherStatsPkts512to1023Octets' bit will be set.
 
 If the agent can perform sorting of interfaces according to the
+
+
 values of etherStatsPkts1024to1518Octets, as defined in
 [RFC2819], then the 'etherStatsPkts1024to1518Octets' bit will
 be set.
+
 
 If the agent can perform sorting of interfaces according to the
 values of dot1dTpPortInFrames, as defined in [RFC1493],
@@ -441,6 +460,8 @@ values of dot1dTpPortInDiscards, as defined in [RFC1493],
 then the 'dot1dTpPortInDiscards' bit will be set."
 
     ::= { interfaceTopNObjects 1 }
+
+
 
   interfaceTopNControlTable OBJECT-TYPE
        SYNTAX      SEQUENCE OF InterfaceTopNControlEntry
@@ -469,6 +490,8 @@ then the 'dot1dTpPortInDiscards' bit will be set."
            Integer32,
        interfaceTopNObjectVariable
            INTEGER,
+
+
        interfaceTopNObjectSampleType
            INTEGER,
        interfaceTopNNormalizationReq
@@ -503,6 +526,7 @@ then the 'dot1dTpPortInDiscards' bit will be set."
           one top N report prepared for a probe."
        ::= { interfaceTopNControlEntry 1 }
 
+
 interfaceTopNObjectVariable OBJECT-TYPE
     SYNTAX INTEGER   {
                ifInOctets(0),
@@ -516,6 +540,8 @@ interfaceTopNObjectVariable OBJECT-TYPE
                ifOutNUcastPkts(8),
                ifOutDiscards(9),
                ifOutErrors(10),
+
+
                ifInMulticastPkts(11),
                ifInBroadcastPkts(12),
                ifOutMulticastPkts(13),
@@ -564,6 +590,8 @@ interfaceTopNObjectVariable OBJECT-TYPE
                etherStatsDropEvents(56),
                etherStatsOctets(57),
                etherStatsPkts(58),
+
+
                etherStatsBroadcastPkts(59),
                etherStatsMulticastPkts(60),
                etherStatsCRCAlignErrors(61),
@@ -612,6 +640,8 @@ interfaceTopNObjectVariable OBJECT-TYPE
     object in those views that have read access to all objects on
     the probe.
 
+
+
     During a set operation, if the supplied variable name is not
     available in the selected MIB view, or does not conform the
     other conditions mentioned above, a badValue error must be
@@ -653,12 +683,15 @@ interfaceTopNObjectSampleType OBJECT-TYPE
      interfaceTopNControlStatus object is equal to active(1)."
   ::= { interfaceTopNControlEntry 3 }
 
+
 interfaceTopNNormalizationReq OBJECT-TYPE
     SYNTAX TruthValue
     MAX-ACCESS read-create
     STATUS current
     DESCRIPTION
     "This object indicates whether  normalization is required in the
+
+
     computation of the selected value.
 
     If the value of this object is 'true', the value of
@@ -707,6 +740,8 @@ interfaceTopNNormalizationFactor OBJECT-TYPE
   1,000,000 otherwise.
 
   At row creation the agent SHOULD set the value of this object to
+
+
   the effective speed of the interface."
 ::= { interfaceTopNControlEntry 5 }
 
@@ -755,6 +790,8 @@ interfaceTopNTimeRemaining OBJECT-TYPE
         collected during this sampling interval.
 
         When the associated interfaceTopNTimeRemaining
+
+
         object is set, this object shall be set by the
         agent to the same value and shall not be modified
         until the next time the interfaceTopNTimeRemaining
@@ -803,6 +840,8 @@ interfaceTopNTimeRemaining OBJECT-TYPE
        "The value of sysUpTime when this top N report was
        last started.  In other words, this is the time that
        the associated interfaceTopNTimeRemaining object was
+
+
        modified to start the requested report.
 
        If the report has not yet been started, the value
@@ -828,6 +867,7 @@ interfaceTopNTimeRemaining OBJECT-TYPE
         of this object is zero."
      ::= { interfaceTopNControlEntry 12 }
 
+
    interfaceTopNRowStatus OBJECT-TYPE
        SYNTAX      RowStatus
        MAX-ACCESS  read-create
@@ -841,6 +881,7 @@ interfaceTopNTimeRemaining OBJECT-TYPE
               agent."
        ::= { interfaceTopNControlEntry 13 }
 
+
    -- Interface Top "N" reports
 
    interfaceTopNTable OBJECT-TYPE
@@ -849,6 +890,8 @@ interfaceTopNTimeRemaining OBJECT-TYPE
        STATUS      current
        DESCRIPTION
          "A table of reports for the top `N' ports based on
+
+
          setting of associated control table entries. The
          maximum number of entries depends on the number
          of entries in table interfaceTopNControlTable and
@@ -897,6 +940,8 @@ interfaceTopNTimeRemaining OBJECT-TYPE
          entries with decreasing values of interfaceTopNValue
          or interfaceTopNValue64, whichever applies,
          until index N is assigned to the entry with the
+
+
          lowest value of interfaceTopNValue /
          interfaceTopNValue64 or there are no
          more interfaceTopNEntries.
@@ -945,6 +990,8 @@ interfaceTopNTimeRemaining OBJECT-TYPE
          32-bit counter or Gauge or when
          interfaceTopNObjectSampleType equals bandwidthPercentage(3),
          and will be zero for all other cases."
+
+
        ::= { interfaceTopNEntry 3 }
 
    interfaceTopNValue64 OBJECT-TYPE
@@ -963,6 +1010,7 @@ interfaceTopNTimeRemaining OBJECT-TYPE
          cases when interfaceTopNObjectVariable points to
          a 64-bit counter, and will be zero for all other cases."
        ::= { interfaceTopNEntry 4 }
+
 
 --
 -- Notifications Section
@@ -992,6 +1040,8 @@ interfaceTopNGroup OBJECT-GROUP
        interfaceTopNCaps,
        interfaceTopNObjectVariable,
        interfaceTopNObjectSampleType,
+
+
        interfaceTopNNormalizationReq,
        interfaceTopNNormalizationFactor,
        interfaceTopNTimeRemaining,
