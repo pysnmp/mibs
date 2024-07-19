@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevServerDhcp",
-      "docsDevEvLevel",
-      "docsDevEvId",
-      "docsDevEvText",
-      "docsDevSwServer",
       "docsDevSwFilename",
-      "docsDevServerTime"
+      "docsDevServerTime",
+      "docsDevEvId",
+      "docsDevEvLevel",
+      "docsDevEvText",
+      "docsDevServerDhcp",
+      "docsDevSwServer"
     ],
     "DOCS-IF-MIB": [
       "docsIfCmCmtsAddress",
-      "docsIfCmStatusModulationType",
+      "docsIfDocsisBaseCapability",
       "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmStatusModulationType",
       "docsIfCmtsCmStatusDocsisRegMode",
-      "docsIfCmtsCmStatusModulationType",
       "docsIfCmStatusDocsisOperMode",
-      "docsIfDocsisBaseCapability"
+      "docsIfCmtsCmStatusModulationType"
     ],
     "IF-MIB": [
       "ifPhysAddress"
@@ -28,21 +28,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "mib-2",
+      "Integer32",
       "Gauge32",
-      "Counter64",
+      "Counter32",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
       "MibIdentifier",
-      "Bits"
+      "iso",
+      "mib-2",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1485,8 +1485,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 12:38:14 2024",
-      "On host fv-az1247-562 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 12:50:55 2024",
+      "On host fv-az1040-741 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB"

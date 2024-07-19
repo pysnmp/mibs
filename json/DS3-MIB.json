@@ -15,27 +15,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "transmission",
-      "IpAddress",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
       "NOTIFICATION-TYPE",
+      "Integer32",
       "Gauge32",
-      "Counter64",
+      "Counter32",
       "MODULE-IDENTITY",
+      "transmission",
+      "OBJECT-TYPE",
+      "Bits",
       "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
       "MibIdentifier",
-      "Bits"
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "ds3": {
@@ -1926,8 +1926,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DS3-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 12:38:15 2024",
-      "On host fv-az1247-562 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Jul 19 12:50:55 2024",
+      "On host fv-az1040-741 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DS3-MIB"
