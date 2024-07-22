@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "mib-2",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "Counter64",
       "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Unsigned32",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -136,8 +136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/HC-PerfHist-TC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 06:05:26 2024",
-      "On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 07:10:54 2024",
+      "On host fv-az711-557 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "HC-PerfHist-TC-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IANAifType-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANAifType-MIB
-# Produced by pysmi-1.1.12 at Mon Jul 22 06:05:15 2024
-# On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner
+# Produced by pysmi-1.1.12 at Mon Jul 22 07:10:44 2024
+# On host fv-az711-557 platform Linux version 6.5.0-1023-azure by user runner
 # Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, ObjectIdentity, Bits, TimeTicks, iso, mib_2, ModuleIdentity, IpAddress, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, MibIdentifier, Integer32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "Bits", "TimeTicks", "iso", "mib-2", "ModuleIdentity", "IpAddress", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "MibIdentifier", "Integer32", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TimeTicks, iso, mib_2, Integer32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, Gauge32, Counter32, NotificationType, ObjectIdentity, Unsigned32, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "mib-2", "Integer32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "Gauge32", "Counter32", "NotificationType", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ianaifType = ModuleIdentity((1, 3, 6, 1, 2, 1, 30))
 ianaifType.setRevisions(('2017-03-30 00:00', '2017-01-19 00:00', '2016-11-23 00:00', '2016-06-16 00:00', '2016-06-09 00:00', '2016-06-08 00:00', '2016-05-19 00:00', '2016-05-03 00:00', '2016-04-29 00:00', '2014-09-24 00:00', '2014-09-19 00:00', '2014-07-03 00:00', '2014-05-22 00:00', '2012-05-17 00:00', '2012-01-11 00:00', '2011-12-18 00:00', '2011-10-26 00:00', '2011-09-07 00:00', '2011-07-22 00:00', '2011-06-03 00:00', '2010-09-21 00:00', '2010-07-21 00:00', '2010-02-11 00:00', '2010-02-08 00:00', '2009-05-06 00:00', '2009-02-06 00:00', '2008-10-09 00:00', '2008-08-12 00:00', '2008-07-22 00:00', '2008-06-24 00:00', '2008-05-29 00:00', '2007-09-13 00:00', '2007-05-29 00:00', '2007-03-08 00:00', '2007-01-23 00:00', '2006-10-17 00:00', '2006-09-25 00:00', '2006-08-17 00:00', '2006-08-11 00:00', '2006-07-25 00:00', '2006-06-14 00:00', '2006-03-31 00:00', '2006-03-30 00:00', '2005-12-22 00:00', '2005-10-10 00:00', '2005-09-09 00:00', '2005-05-27 00:00', '2005-03-03 00:00', '2004-11-22 00:00', '2004-06-17 00:00', '2004-05-12 00:00', '2004-05-07 00:00', '2003-08-25 00:00', '2003-08-18 00:00', '2003-08-07 00:00', '2003-03-18 00:00', '2003-01-13 00:00', '2002-10-17 00:00', '2002-07-16 00:00', '2002-07-10 00:00', '2002-06-19 00:00', '2002-01-04 00:00', '2001-12-20 00:00', '2001-11-15 00:00', '2001-11-06 00:00', '2001-11-02 00:00', '2001-10-16 00:00', '2001-09-19 00:00', '2001-05-11 00:00', '2001-01-12 00:00', '2000-12-19 00:00', '2000-12-07 00:00', '2000-12-04 00:00', '2000-10-17 00:00', '2000-10-02 00:00', '2000-09-01 00:00', '2000-08-24 00:00', '2000-08-23 00:00', '2000-08-22 00:00', '2000-04-25 00:00', '2000-03-06 00:00', '1999-10-08 14:30', '1994-01-31 00:00',))
 

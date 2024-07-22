@@ -10,45 +10,45 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "Counter64",
       "Counter32",
+      "iso",
       "IpAddress",
-      "MibIdentifier",
-      "mib-2",
-      "Integer32",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
       "Bits",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
       "StorageType",
-      "TruthValue",
       "AutonomousType",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "TruthValue",
       "DisplayString"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpSignFunctions",
-      "T11FcSpLifetimeLeft",
-      "T11FcSpHashFunctions",
-      "T11FcSpDhGroups",
-      "T11FcSpAuthRejReasonCodeExp",
       "T11FcSpLifetimeLeftUnits",
-      "T11FcSpAuthRejectReasonCode"
+      "T11FcSpAuthRejReasonCodeExp",
+      "T11FcSpAuthRejectReasonCode",
+      "T11FcSpLifetimeLeft",
+      "T11FcSpSignFunctions",
+      "T11FcSpDhGroups",
+      "T11FcSpHashFunctions"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 06:05:43 2024",
-      "On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 07:11:11 2024",
+      "On host fv-az711-557 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

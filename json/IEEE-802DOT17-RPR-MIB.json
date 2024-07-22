@@ -23,28 +23,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
       "Counter64",
+      "Bits",
       "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Integer32",
+      "IpAddress",
       "MibIdentifier",
+      "Integer32",
       "iso",
       "OBJECT-IDENTITY",
-      "Bits",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress",
-      "TimeStamp"
+      "TimeStamp",
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 06:05:26 2024",
-      "On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 07:10:54 2024",
+      "On host fv-az711-557 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"

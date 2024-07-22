@@ -13,31 +13,31 @@
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "iso",
       "Unsigned32",
-      "Counter32",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "mib-2",
-      "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "Bits",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Bits",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter32",
+      "iso",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TestAndIncr",
       "AutonomousType",
       "TimeStamp",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr"
     ]
   },
   "ifMIB": {
@@ -1724,8 +1724,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IF-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 06:05:18 2024",
-      "On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 07:10:47 2024",
+      "On host fv-az711-557 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IF-MIB"
