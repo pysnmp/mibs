@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
       "mib-2",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -132,9 +132,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANA-ADDRESS-FAMILY-NUMBERS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 05:57:25 2024",
-      "On host fv-az700-995 platform Linux version 6.5.0-1023-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-ADDRESS-FAMILY-NUMBERS-MIB",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 06:05:14 2024",
+      "On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "IANA-ADDRESS-FAMILY-NUMBERS-MIB"

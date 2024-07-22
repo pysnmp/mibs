@@ -3,40 +3,40 @@
     "class": "imports",
     "DOCS-IF-MIB": [
       "docsIfCmServiceId",
-      "docsIfCmtsServiceId",
-      "docsIfMib"
+      "docsIfMib",
+      "docsIfCmtsServiceId"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "iso",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Bits",
-      "TimeTicks",
+      "Counter64",
+      "Counter32",
       "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "RowStatus",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "docsBpiMIB": {
@@ -1922,8 +1922,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-BPI-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 05:57:43 2024",
-      "On host fv-az700-995 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 06:05:43 2024",
+      "On host fv-az1756-666 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "DOCS-BPI-MIB"
