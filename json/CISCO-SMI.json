@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Bits",
-      "Integer32",
-      "enterprises",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "Counter32",
       "IpAddress",
       "iso",
-      "Counter32",
+      "Bits",
+      "enterprises",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -398,8 +398,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/CISCO-SMI",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 07:10:47 2024",
-      "On host fv-az711-557 platform Linux version 6.5.0-1023-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Jul 22 07:57:40 2024",
+      "On host fv-az1424-207 platform Linux version 6.5.0-1023-azure by user runner",
       "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
     ],
     "module": "CISCO-SMI"
