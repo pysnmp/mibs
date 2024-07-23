@@ -6,8 +6,8 @@
       "FcAddressIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -15,39 +15,39 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter64",
       "IpAddress",
       "NOTIFICATION-TYPE",
-      "iso",
-      "mib-2",
+      "TimeTicks",
+      "Gauge32",
+      "MibIdentifier",
       "Counter32",
-      "TimeTicks"
+      "Counter64",
+      "mib-2",
+      "OBJECT-TYPE",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus",
       "AutonomousType",
-      "TimeStamp",
+      "TruthValue",
+      "StorageType",
       "DisplayString",
-      "StorageType"
+      "TEXTUAL-CONVENTION"
     ],
     "T11-FC-SP-TC-MIB": [
       "T11FcSpTransforms",
       "T11FcSpiIndex",
-      "T11FcRoutingControl",
       "T11FcSpLifetimeLeftUnits",
       "T11FcSpType",
-      "T11FcSpSecurityProtocolId",
       "T11FcSpPrecedence",
+      "T11FcSpSecurityProtocolId",
+      "T11FcRoutingControl",
       "T11FcSpLifetimeLeft",
       "T11FcSaDirection"
     ],
@@ -2746,9 +2746,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 07:58:04 2024",
-      "On host fv-az1424-207 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Jul 23 02:33:02 2024",
+      "On host fv-az841-799 platform Linux version 6.5.0-1024-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"
   }

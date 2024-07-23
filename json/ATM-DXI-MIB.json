@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "enterprises",
-      "iso",
-      "Bits",
       "Gauge32",
       "Integer32",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -199,9 +199,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-DXI-MIB",
-      "Produced by pysmi-1.1.12 at Mon Jul 22 07:57:40 2024",
-      "On host fv-az1424-207 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Jul 23 02:32:37 2024",
+      "On host fv-az841-799 platform Linux version 6.5.0-1024-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ATM-DXI-MIB"
   }
