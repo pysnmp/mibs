@@ -6,22 +6,22 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMPv2-TC-v1",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:35:28 2024",
-      "On host fv-az1014-42 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Sep  6 12:40:02 2024",
+      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SNMPv2-CONF-v1"

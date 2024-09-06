@@ -5,31 +5,31 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "iso",
       "IpAddress",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "dot1dBridge": {
@@ -1413,8 +1413,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:35:04 2024",
-      "On host fv-az1014-42 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Sep  6 12:39:38 2024",
+      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "BRIDGE-MIB"

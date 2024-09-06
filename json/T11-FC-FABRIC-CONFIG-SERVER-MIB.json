@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "fcmSwitchIndex",
-      "fcmInstanceIndex",
+      "FcPortType",
       "FcAddressIdOrZero",
+      "fcmInstanceIndex",
       "FcNameIdOrZero",
-      "FcDomainIdOrZero",
-      "FcPortType"
+      "fcmSwitchIndex",
+      "FcDomainIdOrZero"
     ],
     "NETWORK-SERVICES-MIB": [
       "URLString"
@@ -16,32 +16,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "mib-2",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "iso",
       "MibIdentifier",
-      "IpAddress",
-      "Bits"
+      "Counter32",
+      "Bits",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
@@ -2072,8 +2072,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-FABRIC-CONFIG-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:35:28 2024",
-      "On host fv-az1014-42 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Sep  6 12:40:02 2024",
+      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"

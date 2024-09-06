@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
+      "adslLineEntry",
+      "adslAturIntervalEntry",
       "adslAtucIntervalEntry",
+      "adslLineConfProfileEntry",
       "adslAturPerfDataEntry",
       "adslAtucPerfDataEntry",
       "adslMIB",
-      "adslLineAlarmConfProfileEntry",
-      "adslAturIntervalEntry",
-      "adslLineConfProfileEntry",
-      "adslLineEntry"
+      "adslLineAlarmConfProfileEntry"
     ],
     "ADSL-TC-MIB": [
-      "AdslPerfPrevDayCount",
-      "AdslPerfCurrDayCount"
+      "AdslPerfCurrDayCount",
+      "AdslPerfPrevDayCount"
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
@@ -23,29 +23,29 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "iso",
       "MibIdentifier",
-      "IpAddress",
-      "Bits"
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "adslExtMIB": {
@@ -1192,8 +1192,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ADSL-LINE-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:35:28 2024",
-      "On host fv-az1014-42 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Sep  6 12:40:02 2024",
+      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ADSL-LINE-EXT-MIB"
