@@ -10,46 +10,46 @@
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
       "OBJECT-TYPE",
       "TimeTicks",
-      "Gauge32",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier",
       "Bits",
       "Counter32",
       "mib-2",
-      "Unsigned32",
-      "MibIdentifier"
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "AutonomousType",
-      "StorageType",
       "TruthValue",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus",
       "TimeStamp",
       "DisplayString"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpSecurityProtocolId",
-      "T11FcSpLifetimeLeft",
       "T11FcSpPrecedence",
       "T11FcRoutingControl",
-      "T11FcSpTransforms",
       "T11FcSpiIndex",
+      "T11FcSpSecurityProtocolId",
+      "T11FcSaDirection",
       "T11FcSpLifetimeLeftUnits",
-      "T11FcSpType",
-      "T11FcSaDirection"
+      "T11FcSpTransforms",
+      "T11FcSpLifetimeLeft",
+      "T11FcSpType"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -2746,8 +2746,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-SA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 09:59:46 2024",
-      "On host fv-az654-905 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:04:58 2024",
+      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-SA-MIB"

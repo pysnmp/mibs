@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "RFC1271-MIB": [
-      "statistics",
-      "rmon",
       "EntryStatus",
+      "history",
+      "rmon",
       "OwnerString",
-      "history"
+      "statistics"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
       "Integer32",
+      "Bits",
+      "Counter64",
       "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
       "iso",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "Unsigned32",
       "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "MacAddress": {
@@ -2359,8 +2359,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/TOKEN-RING-RMON-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 09:59:29 2024",
-      "On host fv-az654-905 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:04:40 2024",
+      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "TOKEN-RING-RMON-MIB"

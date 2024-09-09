@@ -3,48 +3,48 @@
     "class": "imports",
     "ATM-TC-MIB": [
       "AtmVorXOperStatus",
-      "AtmConnCastType",
-      "AtmServiceCategory",
-      "AtmVpIdentifier",
       "AtmAddr",
-      "AtmTrafficDescrParamIndex",
-      "AtmVorXLastChange",
-      "AtmVorXAdminStatus",
-      "AtmConnKind",
       "atmNoClpNoScr",
-      "AtmVcIdentifier"
+      "AtmVorXAdminStatus",
+      "AtmVcIdentifier",
+      "AtmConnKind",
+      "AtmVpIdentifier",
+      "AtmServiceCategory",
+      "AtmConnCastType",
+      "AtmTrafficDescrParamIndex",
+      "AtmVorXLastChange"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "mib-2",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Bits",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
       "iso",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 09:59:22 2024",
-      "On host fv-az654-905 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:04:33 2024",
+      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"
