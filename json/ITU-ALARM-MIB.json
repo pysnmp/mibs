@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ALARM-MIB": [
-      "alarmListName",
-      "alarmActiveDateAndTime",
       "alarmModelIndex",
+      "alarmActiveDateAndTime",
+      "alarmListName",
       "alarmActiveIndex"
     ],
     "IANA-ITU-ALARM-TC-MIB": [
@@ -12,8 +12,8 @@
       "IANAItuProbableCause"
     ],
     "ITU-ALARM-TC-MIB": [
-      "ItuPerceivedSeverity",
-      "ItuTrendIndication"
+      "ItuTrendIndication",
+      "ItuPerceivedSeverity"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -22,31 +22,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Bits",
       "Integer32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "iso",
-      "IpAddress",
-      "Counter64",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "mib-2",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowPointer",
       "AutonomousType",
+      "RowPointer",
       "DisplayString"
     ]
   },
@@ -539,8 +539,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ITU-ALARM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:26:36 2024",
-      "On host fv-az714-878 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:27:23 2024",
+      "On host fv-az735-752 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ITU-ALARM-MIB"
