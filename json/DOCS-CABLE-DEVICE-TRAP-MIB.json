@@ -3,52 +3,52 @@
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
       "docsDevServerDhcp",
-      "docsDevSwFilename",
-      "docsDevEvLevel",
-      "docsDevNotification",
-      "docsDevServerTime",
       "docsDevSwServer",
+      "docsDevNotification",
+      "docsDevSwFilename",
       "docsDevEvId",
+      "docsDevServerTime",
+      "docsDev",
       "docsDevEvText",
-      "docsDev"
+      "docsDevEvLevel"
     ],
     "DOCS-IF-EXT-MIB": [
-      "docsIfDocsisOperMode",
+      "docsIfDocsisCapability",
       "docsIfCmtsCmStatusDocsisMode",
-      "docsIfDocsisCapability"
+      "docsIfDocsisOperMode"
     ],
     "DOCS-IF-MIB": [
       "docsIfCmtsCmStatusDocsisRegMode",
-      "docsIfCmCmtsAddress",
       "docsIfCmtsCmStatusModulationType",
-      "docsIfDocsisBaseCapability",
+      "docsIfCmCmtsAddress",
       "docsIfCmStatusModulationType",
-      "docsIfCmStatusDocsisOperMode",
-      "docsIfCmtsCmStatusMacAddress"
+      "docsIfCmtsCmStatusMacAddress",
+      "docsIfDocsisBaseCapability",
+      "docsIfCmStatusDocsisOperMode"
     ],
     "IF-MIB": [
       "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
       "iso",
+      "Integer32",
+      "OBJECT-TYPE",
       "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits",
-      "MibIdentifier",
       "Counter32",
-      "OBJECT-TYPE",
-      "Gauge32",
       "IpAddress",
-      "Counter64",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Unsigned32"
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1720,8 +1720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-CABLE-DEVICE-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 09:46:55 2024",
-      "On host fv-az1433-282 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 09:50:18 2024",
+      "On host fv-az1445-184 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-TRAP-MIB"
