@@ -7,25 +7,25 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Unsigned32",
-      "IpAddress",
-      "enterprises",
-      "iso",
       "Counter32",
-      "Counter64",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "TRAP-TYPE",
+      "Bits",
       "Integer32",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
       "OBJECT-TYPE",
-      "Bits"
+      "enterprises",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ppc": {
@@ -2408,8 +2408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/XPPC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:18:30 2024",
-      "On host fv-az1114-386 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:26:37 2024",
+      "On host fv-az714-878 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "XPPC-MIB"
