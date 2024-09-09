@@ -3,36 +3,36 @@
     "class": "imports",
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
+      "IpAddress",
       "NOTIFICATION-TYPE",
+      "experimental",
+      "iso",
+      "Unsigned32",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "experimental",
-      "Counter64",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TestAndIncr",
+      "TruthValue",
       "RowStatus"
     ]
   },
@@ -5141,8 +5141,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/ISIS-D13-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:39:38 2024",
-      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:41 2024",
+      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ISIS-D13-MIB"

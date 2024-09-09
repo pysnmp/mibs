@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "MPLS-TC-EXT-STD-MIB": [
-      "MplsCcId",
-      "MplsNodeId",
       "MplsGlobalId",
+      "MplsNodeId",
+      "MplsCcId",
       "MplsIccId"
     ],
     "MPLS-TC-STD-MIB": [
       "mplsStdMIB"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Unsigned32",
+      "Bits",
       "iso",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "Integer32",
       "Gauge32",
+      "TimeTicks",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mplsIdStdMIB": {
@@ -191,8 +191,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-ID-STD-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:40:03 2024",
-      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 09:00:07 2024",
+      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "MPLS-ID-STD-MIB"

@@ -6,42 +6,42 @@
     ],
     "LLDP-MIB": [
       "lldpLocPortNum",
-      "lldpPortConfigEntry",
-      "lldpExtensions",
       "lldpRemIndex",
-      "lldpRemLocalPortNum",
-      "lldpRemChassisId",
+      "lldpPortConfigEntry",
       "lldpRemChassisIdSubtype",
-      "lldpRemTimeMark"
+      "lldpRemTimeMark",
+      "lldpExtensions",
+      "lldpRemLocalPortNum",
+      "lldpRemChassisId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "iso",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Bits",
+      "IpAddress",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Integer32"
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "lldpXMedMIB": {
@@ -1765,8 +1765,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-MED-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:39:45 2024",
-      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:48 2024",
+      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-MED-MIB"

@@ -7,13 +7,13 @@
       "ieee8021BridgeBasePortEntry"
     ],
     "IEEE8021-TC-MIB": [
-      "ieee802dot1mibs",
-      "IEEE8021VlanIndex",
       "IEEE8021BridgePortNumberOrZero",
-      "IEEE8021PortAcceptableFrameTypes",
-      "IEEE8021BridgePortNumber",
       "IEEE8021VlanIndexOrWildcard",
-      "IEEE8021PbbComponentIdentifier"
+      "IEEE8021PortAcceptableFrameTypes",
+      "ieee802dot1mibs",
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021VlanIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
@@ -27,32 +27,32 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
-      "Gauge32",
       "Integer32",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Counter64",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "StorageType",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "StorageType"
+      "TruthValue"
     ]
   },
   "ieee8021QBridgeMib": {
@@ -2483,8 +2483,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Q-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:39:45 2024",
-      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:48 2024",
+      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-Q-BRIDGE-MIB"

@@ -3,29 +3,29 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
       "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
+      "mib-2",
+      "Integer32",
       "OBJECT-TYPE",
       "Unsigned32",
-      "iso",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
+      "iso",
       "Gauge32",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rmonMibModule": {
@@ -3990,8 +3990,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RMON-MIB",
-      "Produced by pysmi-1.1.12 at Fri Sep  6 12:39:45 2024",
-      "On host fv-az1247-362 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:48 2024",
+      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "RMON-MIB"
