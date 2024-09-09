@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "IANATn3270eTC-MIB": [
-      "IANATn3270eAddrType",
-      "IANATn3270eAddress"
+      "IANATn3270eAddress",
+      "IANATn3270eAddrType"
     ],
     "SNA-NAU-MIB": [
       "snanauMIB"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "IpAddress",
-      "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-TYPE"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TestAndIncr",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TimeStamp"
     ],
     "TN3270E-MIB": [
-      "tn3270eResMapElementType",
+      "tn3270eSrvrConfIndex",
       "tn3270eClientGroupName",
-      "tn3270eSrvrConfIndex"
+      "tn3270eResMapElementType"
     ]
   },
   "tn3270eRtMIB": {
@@ -948,8 +948,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TN3270E-RT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 09:01:45 2024",
-      "On host fv-az1206-704 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 09:45:12 2024",
+      "On host fv-az573-941 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "TN3270E-RT-MIB"
