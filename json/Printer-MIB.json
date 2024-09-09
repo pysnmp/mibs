@@ -9,45 +9,45 @@
       "IANACharset"
     ],
     "IANA-PRINTER-MIB": [
-      "PrtOutputTypeTC",
-      "PrtAlertGroupTC",
-      "PrtChannelTypeTC",
-      "PrtConsoleColorTC",
       "PrtMarkerMarkTechTC",
-      "PrtInputTypeTC",
-      "PrtMarkerSuppliesTypeTC",
-      "PrtInterpreterLangFamilyTC",
-      "PrtConsoleDisableTC",
-      "PrtCoverStatusTC",
       "PrtAlertTrainingLevelTC",
-      "PrtGeneralResetTC",
+      "PrtOutputTypeTC",
+      "PrtCoverStatusTC",
+      "PrtInterpreterLangFamilyTC",
+      "PrtMarkerSuppliesTypeTC",
+      "PrtConsoleColorTC",
+      "PrtChannelTypeTC",
+      "PrtMediaPathTypeTC",
       "PrtAlertCodeTC",
-      "PrtMediaPathTypeTC"
+      "PrtConsoleDisableTC",
+      "PrtAlertGroupTC",
+      "PrtInputTypeTC",
+      "PrtGeneralResetTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "mib-2",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
       "IpAddress",
-      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
-      "Counter32"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Printer-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:34:27 2024",
-      "On host fv-az1251-860 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:58:44 2024",
+      "On host fv-az1245-503 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "Printer-MIB"

@@ -5,32 +5,32 @@
       "ResourceId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "mib-2",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
       "MibIdentifier",
+      "mib-2",
       "Bits",
-      "Counter32"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
+      "StorageType",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "RowStatus"
     ]
   },
   "arcMibModule": {
@@ -311,8 +311,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ARC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:34:27 2024",
-      "On host fv-az1251-860 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:58:44 2024",
+      "On host fv-az1245-503 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ARC-MIB"

@@ -6,18 +6,18 @@
       "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PriorityValue",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021PbbIngressEgress",
-      "IEEE8021PriorityCodePoint",
+      "IEEE8021PbbServiceIdentifier",
       "IEEE8021BridgePortNumber",
       "ieee802dot1mibs",
+      "IEEE8021PbbIngressEgress",
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021PriorityValue",
       "IEEE8021PbbServiceIdentifierOrUnassigned"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -31,28 +31,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "OBJECT-TYPE",
       "Bits",
-      "Gauge32",
-      "Counter32",
+      "Integer32",
+      "Counter64",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32",
+      "TimeTicks",
+      "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Counter64",
+      "Counter32",
       "Unsigned32",
-      "TimeTicks"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "RowStatus",
-      "TruthValue",
-      "StorageType"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
+      "StorageType",
+      "TruthValue"
     ]
   },
   "ieee8021PbbMib": {
@@ -1408,8 +1408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBB-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:34:11 2024",
-      "On host fv-az1251-860 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:58:27 2024",
+      "On host fv-az1245-503 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBB-MIB"
