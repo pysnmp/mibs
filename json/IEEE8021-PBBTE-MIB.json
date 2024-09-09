@@ -8,16 +8,16 @@
       "ieee8021QBridgeVlanCurrentComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbTeProtectionGroupConfigAdmin",
-      "IEEE8021PbbTeTSidId",
-      "IEEE8021PbbTeEsp",
-      "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PbbTeProtectionGroupId",
-      "IEEE8021VlanIndexOrWildcard",
-      "ieee802dot1mibs",
-      "IEEE8021PbbComponentIdentifier",
       "IEEE8021PbbTeProtectionGroupActiveRequests",
-      "IEEE8021BridgePortNumber"
+      "IEEE8021BridgePortNumber",
+      "ieee802dot1mibs",
+      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbTeProtectionGroupConfigAdmin",
+      "IEEE8021VlanIndexOrWildcard",
+      "IEEE8021PbbTeTSidId",
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021PbbTeEsp",
+      "IEEE8021PbbTeProtectionGroupId"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
@@ -28,27 +28,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "Bits",
-      "iso",
+      "OBJECT-TYPE",
       "Gauge32",
       "IpAddress",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "StorageType",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021PbbTeMib": {
@@ -1079,8 +1079,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PBBTE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:48 2024",
-      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 09:01:27 2024",
+      "On host fv-az1206-704 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PBBTE-MIB"

@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "mib-2",
-      "Bits",
+      "Counter32",
+      "MibIdentifier",
       "Counter64",
       "Integer32",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Unsigned32",
       "IpAddress",
-      "MibIdentifier",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaAddressFamilyNumbers": {
@@ -133,8 +133,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-ADDRESS-FAMILY-NUMBERS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:35 2024",
-      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 09:01:15 2024",
+      "On host fv-az1206-704 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IANA-ADDRESS-FAMILY-NUMBERS-MIB"

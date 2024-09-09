@@ -5,35 +5,35 @@
       "ciscoExperiment"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "OwnerString"
+      "OwnerString",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "Counter32",
-      "Bits",
-      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "Counter64"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "atmRmon": {
@@ -2065,8 +2065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-RMON-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 08:59:40 2024",
-      "On host fv-az1567-109 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 09:01:21 2024",
+      "On host fv-az1206-704 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ATM-RMON-MIB"
