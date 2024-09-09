@@ -5,23 +5,23 @@
       "dlurDlusSessnStatus"
     ],
     "APPN-MIB": [
-      "appnIsInSessUpTime",
-      "appnPortOperState",
-      "appnIsInP2SNonFmdBytes",
-      "appnIsInS2PFmdPius",
-      "appnGroups",
       "appnIsInS2PFmdBytes",
-      "appnLocalTgCpCpSession",
+      "appnIsInP2SNonFmdBytes",
       "appnLocalTgOperational",
-      "appnLsOperState",
+      "appnPortOperState",
       "appnIsInS2PNonFmdBytes",
-      "appnCompliances",
-      "appnMIB",
       "appnIsInP2SFmdPius",
+      "appnMIB",
+      "appnIsInS2PFmdPius",
+      "appnIsInP2SFmdBytes",
+      "appnLsOperState",
+      "appnGroups",
       "appnIsInP2SNonFmdPius",
-      "appnObjects",
+      "appnCompliances",
       "appnIsInS2PNonFmdPius",
-      "appnIsInP2SFmdBytes"
+      "appnLocalTgCpCpSession",
+      "appnObjects",
+      "appnIsInSessUpTime"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -29,19 +29,19 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "iso",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
@@ -369,8 +369,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPN-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:27:23 2024",
-      "On host fv-az735-752 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:34:28 2024",
+      "On host fv-az1251-860 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "APPN-TRAP-MIB"

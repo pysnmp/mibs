@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "FcNameIdOrZero",
-      "fcmInstanceIndex"
+      "fcmInstanceIndex",
+      "FcNameIdOrZero"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -15,40 +15,40 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "iso",
+      "OBJECT-IDENTITY",
       "mib-2",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "IpAddress",
       "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
       "AutonomousType",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "StorageType"
+      "TimeStamp",
+      "TruthValue"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpSignFunctions",
+      "T11FcSpLifetimeLeft",
       "T11FcSpHashFunctions",
       "T11FcSpAuthRejectReasonCode",
-      "T11FcSpLifetimeLeft",
-      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpDhGroups",
       "T11FcSpAuthRejReasonCodeExp",
-      "T11FcSpDhGroups"
+      "T11FcSpSignFunctions",
+      "T11FcSpLifetimeLeftUnits"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:27:23 2024",
-      "On host fv-az735-752 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:34:28 2024",
+      "On host fv-az1251-860 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

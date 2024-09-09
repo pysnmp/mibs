@@ -10,19 +10,19 @@
     ],
     "IANA-PRINTER-MIB": [
       "PrtOutputTypeTC",
-      "PrtMediaPathTypeTC",
-      "PrtGeneralResetTC",
-      "PrtChannelTypeTC",
-      "PrtConsoleDisableTC",
       "PrtAlertGroupTC",
-      "PrtMarkerSuppliesTypeTC",
-      "PrtInputTypeTC",
-      "PrtMarkerMarkTechTC",
+      "PrtChannelTypeTC",
       "PrtConsoleColorTC",
-      "PrtAlertCodeTC",
+      "PrtMarkerMarkTechTC",
+      "PrtInputTypeTC",
+      "PrtMarkerSuppliesTypeTC",
+      "PrtInterpreterLangFamilyTC",
+      "PrtConsoleDisableTC",
       "PrtCoverStatusTC",
       "PrtAlertTrainingLevelTC",
-      "PrtInterpreterLangFamilyTC"
+      "PrtGeneralResetTC",
+      "PrtAlertCodeTC",
+      "PrtMediaPathTypeTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -33,20 +33,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
       "TimeTicks",
+      "Integer32",
       "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "mib-2",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
       "Counter64",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Printer-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:27:23 2024",
-      "On host fv-az735-752 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:34:27 2024",
+      "On host fv-az1251-860 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "Printer-MIB"
