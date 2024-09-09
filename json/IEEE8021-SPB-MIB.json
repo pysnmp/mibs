@@ -5,55 +5,55 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMaIndex",
       "dot1agCfmMdIndex",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMepEntry",
+      "dot1agCfmMaIndex"
     ],
     "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbIngressEgress",
       "ieee802dot1mibs",
       "IEEE8021PbbServiceIdentifier",
-      "IEEE8021PbbIngressEgress",
-      "IEEE8021BridgePortNumber",
       "IEEE8021PbbTeEsp"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
       "VlanId",
-      "VlanIdOrAny",
-      "VlanIdOrNone"
+      "VlanIdOrAny"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Integer32",
       "Bits",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021SpbMib": {
@@ -3153,8 +3153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:04:40 2024",
-      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:18:13 2024",
+      "On host fv-az1114-386 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

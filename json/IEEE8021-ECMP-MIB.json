@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePort",
-      "ieee8021BridgeBasePortComponentId"
+      "ieee8021BridgeBasePortComponentId",
+      "ieee8021BridgeBasePort"
     ],
     "IEEE8021-Q-BRIDGE-MIB": [
-      "ieee8021QBridgeTpFdbEntry",
-      "ieee8021QBridgePortVlanStatisticsEntry"
+      "ieee8021QBridgePortVlanStatisticsEntry",
+      "ieee8021QBridgeTpFdbEntry"
     ],
     "IEEE8021-SPB-MIB": [
       "ieee8021SpbTopIx",
-      "IEEE8021SpbBridgePriority",
-      "ieee8021SpbmTopSrvTableEntry"
+      "ieee8021SpbmTopSrvTableEntry",
+      "IEEE8021SpbBridgePriority"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs"
@@ -22,31 +22,31 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Integer32",
       "Bits",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ieee8021EcmpMib": {
@@ -489,8 +489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-ECMP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep  9 10:04:40 2024",
-      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Sep  9 10:18:13 2024",
+      "On host fv-az1114-386 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-ECMP-MIB"
