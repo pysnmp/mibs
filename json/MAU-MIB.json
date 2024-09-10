@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
       "Counter64",
-      "Gauge32",
-      "mib-2",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Integer32",
-      "Bits",
+      "mib-2",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "OBJECT-TYPE",
-      "IpAddress"
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "mauMod": {
@@ -1747,8 +1747,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC2668-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:01:19 2024",
-      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:30 2024",
+      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "MAU-MIB"

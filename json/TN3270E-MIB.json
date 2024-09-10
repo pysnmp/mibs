@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IANATn3270eTC-MIB": [
-      "IANATn3270eAddress",
       "IANATn3270DeviceType",
-      "IANATn3270ResourceType",
       "IANATn3270Functions",
       "IANATn3270eLogData",
-      "IANATn3270eClientType",
-      "IANATn3270eAddrType"
+      "IANATn3270eAddrType",
+      "IANATn3270ResourceType",
+      "IANATn3270eAddress",
+      "IANATn3270eClientType"
     ],
     "SNA-NAU-MIB": [
       "snanauMIB"
@@ -17,33 +17,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
       "Integer32",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "Counter64",
-      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "iso",
       "OBJECT-TYPE",
-      "IpAddress"
+      "Unsigned32",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "TestAndIncr",
       "DateAndTime",
-      "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ],
     "SYSAPPL-MIB": [
       "Utf8String"
@@ -1994,8 +1994,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TN3270E-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:01:20 2024",
-      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
+      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "TN3270E-MIB"

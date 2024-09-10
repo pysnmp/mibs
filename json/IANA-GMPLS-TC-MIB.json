@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
       "mib-2",
-      "MibIdentifier",
-      "Integer32",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
+      "Counter32",
       "Counter64",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "iso",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -196,8 +196,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-GMPLS-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:00:51 2024",
-      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:02 2024",
+      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IANA-GMPLS-TC-MIB"

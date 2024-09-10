@@ -5,63 +5,63 @@
       "IndexIntegerNextFree"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "ifCounterDiscontinuityGroup",
-      "ifGeneralInformationGroup",
-      "InterfaceIndexOrZero"
+      "ifGeneralInformationGroup"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressPrefixLength"
     ],
     "MPLS-TC-STD-MIB": [
-      "TeHopAddressAS",
-      "MplsPathIndex",
-      "MplsExtendedTunnelId",
-      "MplsBurstSize",
-      "TeHopAddress",
-      "TeHopAddressUnnum",
-      "MplsTunnelAffinity",
-      "MplsPathIndexOrZero",
-      "MplsBitRate",
       "MplsTunnelInstanceIndex",
-      "MplsOwner",
-      "TeHopAddressType",
+      "TeHopAddressUnnum",
+      "MplsBurstSize",
       "MplsLSPID",
+      "TeHopAddressType",
+      "TeHopAddress",
+      "MplsExtendedTunnelId",
+      "MplsPathIndexOrZero",
+      "MplsTunnelAffinity",
+      "MplsBitRate",
+      "MplsOwner",
+      "TeHopAddressAS",
       "mplsStdMIB",
-      "MplsTunnelIndex"
+      "MplsTunnelIndex",
+      "MplsPathIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
+      "MibIdentifier",
       "zeroDotZero",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Integer32",
-      "Bits",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "iso",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "Counter32",
       "OBJECT-TYPE",
-      "IpAddress"
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "StorageType",
-      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "RowPointer"
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "mplsTeStdMIB": {
@@ -2339,8 +2339,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MPLS-TE-STD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:01:19 2024",
-      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
+      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "MPLS-TE-STD-MIB"
