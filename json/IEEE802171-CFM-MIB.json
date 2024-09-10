@@ -8,46 +8,46 @@
       "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpPortIdSubtype",
-      "LldpPortId",
-      "LldpChassisId",
+      "LldpManAddress",
       "LldpChassisIdSubtype",
-      "LldpManAddress"
+      "LldpPortIdSubtype",
+      "LldpChassisId",
+      "LldpPortId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "zeroDotZero",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Unsigned32"
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "TimeStamp"
     ],
     "TRANSPORT-ADDRESS-MIB": [
       "TransportDomain",
@@ -3089,8 +3089,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE802171-CFM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 09:55:41 2024",
-      "On host fv-az840-814 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 10 10:01:02 2024",
+      "On host fv-az985-782 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE802171-CFM-MIB"
