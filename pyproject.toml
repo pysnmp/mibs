@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pysnmp-mibs"
-version = "1.15.11"
+version = "1.15.12-beta.1"
 description = ""
 authors = ["rfaircloth-splunk <rfaircloth@splunk.com>"]
 license = "BSD-2-Clause"
@@ -11,7 +11,7 @@ pysnmp-pysmi = "^1.1.12"
 pyyaml = { version = "!=6.0.0" }
 
 [tool.poetry.dev-dependencies]
-pre-commit = "^3.7.1"
+pre-commit = "^3.8.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
