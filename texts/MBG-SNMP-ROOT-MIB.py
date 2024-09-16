@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module MBG-SNMP-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-ROOT-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:38:24 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:58:00 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, NotificationType, IpAddress, Counter32, Gauge32, Counter64, TimeTicks, ModuleIdentity, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, ObjectIdentity, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "IpAddress", "Counter32", "Gauge32", "Counter64", "TimeTicks", "ModuleIdentity", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "ObjectIdentity", "iso", "Bits")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, ObjectIdentity, Bits, IpAddress, NotificationType, enterprises, TimeTicks, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Unsigned32, Counter64, MibIdentifier, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "Bits", "IpAddress", "NotificationType", "enterprises", "TimeTicks", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Unsigned32", "Counter64", "MibIdentifier", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mbgSnmpRoot = ModuleIdentity((1, 3, 6, 1, 4, 1, 5597))
 mbgSnmpRoot.setRevisions(('2012-01-25 07:45', '2011-10-14 06:30',))
@@ -26,4 +26,4 @@ class MeinbergSwitch(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("off", 0), ("on", 1))
 
-mibBuilder.exportSymbols("MBG-SNMP-ROOT-MIB", MeinbergSwitch=MeinbergSwitch, PYSNMP_MODULE_ID=mbgSnmpRoot, mbgSnmpRoot=mbgSnmpRoot)
+mibBuilder.exportSymbols("MBG-SNMP-ROOT-MIB", PYSNMP_MODULE_ID=mbgSnmpRoot, MeinbergSwitch=MeinbergSwitch, mbgSnmpRoot=mbgSnmpRoot)

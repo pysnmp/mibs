@@ -5,29 +5,29 @@
       "DocsX509ASN1DEREncodedCertificate"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
       "enterprises",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Bits",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cableLabs": {
@@ -35,34 +35,6 @@
     "oid": "1.3.6.1.4.1.4491",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2017-04-13 00:00",
-        "description": "Revised per ECN CLAB-DEF-MIB-N-17.0157-1."
-      },
-      {
-        "revision": "2016-07-28 00:00",
-        "description": "Revised Version includes ECN MIB-CLABDEF-N-16.0149-3."
-      },
-      {
-        "revision": "2016-03-16 00:00",
-        "description": "Revised Version includes ECNs MIB-CLABDEF-N-15.0138-1 and MIB-CLABDEF-N-16.0142-1."
-      },
-      {
-        "revision": "2012-08-09 00:00",
-        "description": "Revised Version includes ECN MIB-CLABDEF-N-12.0113-1 and published as CL-SP-MIB-CLABDEF-I10-120809"
-      },
-      {
-        "revision": "2011-02-10 00:00",
-        "description": "Revised Version includes ECN MIB-CLABDEF-N-10.0092-1 and published as CL-SP-MIB-CLABDEF-I09-110210"
-      },
-      {
-        "revision": "2009-08-11 00:00",
-        "description": "Revised Version includes ECN MIB-CLABDEF-N-08.0039-2 and published as CL-SP-MIB-CLABDEF-I08-090811"
-      },
-      {
-        "revision": "2008-03-06 00:00",
-        "description": "Revised Version includes ECN MIB-CLABDEF-N-07.0032-4 and published as CL-SP-MIB-CLABDEF-I07."
-      },
       {
         "revision": "2007-01-19 17:00",
         "description": "This revision published as CL-SP-MIB-CLABDEF-I06."
@@ -113,11 +85,6 @@
     "oid": "1.3.6.1.4.1.4491.2.4",
     "class": "objectidentity"
   },
-  "clabProjWireless": {
-    "name": "clabProjWireless",
-    "oid": "1.3.6.1.4.1.4491.2.5",
-    "class": "objectidentity"
-  },
   "clabSecurity": {
     "name": "clabSecurity",
     "oid": "1.3.6.1.4.1.4491.3",
@@ -128,14 +95,169 @@
     "oid": "1.3.6.1.4.1.4491.3.1",
     "class": "objectidentity"
   },
-  "clabSecOlcaObject": {
-    "name": "clabSecOlcaObject",
-    "oid": "1.3.6.1.4.1.4491.3.2",
-    "class": "objectidentity"
-  },
   "clabCommonMibs": {
     "name": "clabCommonMibs",
     "oid": "1.3.6.1.4.1.4491.4",
+    "class": "objectidentity"
+  },
+  "dsgMIB": {
+    "name": "dsgMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.1",
+    "class": "objectidentity"
+  },
+  "docsLoadBalanceMib": {
+    "name": "docsLoadBalanceMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.2",
+    "class": "objectidentity"
+  },
+  "dsgIfMIB": {
+    "name": "dsgIfMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.3",
+    "class": "objectidentity"
+  },
+  "dsgIfStdMib": {
+    "name": "dsgIfStdMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.4",
+    "class": "objectidentity"
+  },
+  "docsIfExt2Mib": {
+    "name": "docsIfExt2Mib",
+    "oid": "1.3.6.1.4.1.4491.2.1.5",
+    "class": "objectidentity"
+  },
+  "docsIfMCmtsMib": {
+    "name": "docsIfMCmtsMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.6",
+    "class": "objectidentity"
+  },
+  "dtiMib": {
+    "name": "dtiMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.7",
+    "class": "objectidentity"
+  },
+  "docsL2vpnMIB": {
+    "name": "docsL2vpnMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.8",
+    "class": "objectidentity"
+  },
+  "docsDiagMib": {
+    "name": "docsDiagMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.9",
+    "class": "objectidentity"
+  },
+  "docsSubmgt3Mib": {
+    "name": "docsSubmgt3Mib",
+    "oid": "1.3.6.1.4.1.4491.2.1.10",
+    "class": "objectidentity"
+  },
+  "docsSecMib": {
+    "name": "docsSecMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.11",
+    "class": "objectidentity"
+  },
+  "docsTestMIB": {
+    "name": "docsTestMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.12",
+    "class": "objectidentity"
+  },
+  "sledMib": {
+    "name": "sledMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.13",
+    "class": "objectidentity"
+  },
+  "esafeMib": {
+    "name": "esafeMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.14",
+    "class": "objectidentity"
+  },
+  "teaPwMIB": {
+    "name": "teaPwMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.15",
+    "class": "objectidentity"
+  },
+  "teaPwTDMMIB": {
+    "name": "teaPwTDMMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.16",
+    "class": "objectidentity"
+  },
+  "teaPwTcMIB": {
+    "name": "teaPwTcMIB",
+    "oid": "1.3.6.1.4.1.4491.2.1.17",
+    "class": "objectidentity"
+  },
+  "docsMcastMib": {
+    "name": "docsMcastMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.18",
+    "class": "objectidentity"
+  },
+  "docsMcastAuthMib": {
+    "name": "docsMcastAuthMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.19",
+    "class": "objectidentity"
+  },
+  "docsIf3Mib": {
+    "name": "docsIf3Mib",
+    "oid": "1.3.6.1.4.1.4491.2.1.20",
+    "class": "objectidentity"
+  },
+  "docsQos3Mib": {
+    "name": "docsQos3Mib",
+    "oid": "1.3.6.1.4.1.4491.2.1.21",
+    "class": "objectidentity"
+  },
+  "cabhPsDevMib": {
+    "name": "cabhPsDevMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.1",
+    "class": "objectidentity"
+  },
+  "cabhSecMib": {
+    "name": "cabhSecMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.2",
+    "class": "objectidentity"
+  },
+  "cabhCapMib": {
+    "name": "cabhCapMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.3",
+    "class": "objectidentity"
+  },
+  "cabhCdpMib": {
+    "name": "cabhCdpMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.4",
+    "class": "objectidentity"
+  },
+  "cabhCtpMib": {
+    "name": "cabhCtpMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.5",
+    "class": "objectidentity"
+  },
+  "cabhQosMib": {
+    "name": "cabhQosMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.6",
+    "class": "objectidentity"
+  },
+  "cabhCsaMib": {
+    "name": "cabhCsaMib",
+    "oid": "1.3.6.1.4.1.4491.2.4.7",
+    "class": "objectidentity"
+  },
+  "cabhQos2Mib": {
+    "name": "cabhQos2Mib",
+    "oid": "1.3.6.1.4.1.4491.2.4.8",
+    "class": "objectidentity"
+  },
+  "pktcMtaMib": {
+    "name": "pktcMtaMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.1",
+    "class": "objectidentity"
+  },
+  "pktcSigMib": {
+    "name": "pktcSigMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.2",
+    "class": "objectidentity"
+  },
+  "pktcEventMib": {
+    "name": "pktcEventMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.3",
     "class": "objectidentity"
   },
   "pktcSecurity": {
@@ -153,29 +275,39 @@
     "oid": "1.3.6.1.4.1.4491.2.2.6",
     "class": "objectidentity"
   },
+  "pktcEnMtaMib": {
+    "name": "pktcEnMtaMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.6.1",
+    "class": "objectidentity"
+  },
+  "pktcEnSigMib": {
+    "name": "pktcEnSigMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.6.2",
+    "class": "objectidentity"
+  },
+  "pktcEnEventMib": {
+    "name": "pktcEnEventMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.6.3",
+    "class": "objectidentity"
+  },
+  "pktcEnSecurityMib": {
+    "name": "pktcEnSecurityMib",
+    "oid": "1.3.6.1.4.1.4491.2.2.6.4",
+    "class": "objectidentity"
+  },
   "pktcPACMMibs": {
     "name": "pktcPACMMibs",
     "oid": "1.3.6.1.4.1.4491.2.2.7",
     "class": "objectidentity"
   },
-  "pktcApplicationMibs": {
-    "name": "pktcApplicationMibs",
+  "pktcServiceMibs": {
+    "name": "pktcServiceMibs",
     "oid": "1.3.6.1.4.1.4491.2.2.8",
     "class": "objectidentity"
   },
   "pktcSupportMibs": {
     "name": "pktcSupportMibs",
     "oid": "1.3.6.1.4.1.4491.2.2.9",
-    "class": "objectidentity"
-  },
-  "pktcEUEMibs": {
-    "name": "pktcEUEMibs",
-    "oid": "1.3.6.1.4.1.4491.2.2.10",
-    "class": "objectidentity"
-  },
-  "pktcSMAMibs": {
-    "name": "pktcSMAMibs",
-    "oid": "1.3.6.1.4.1.4491.2.2.11",
     "class": "objectidentity"
   },
   "pktcPACMTC": {
@@ -196,11 +328,6 @@
   "pktcESSupportMibs": {
     "name": "pktcESSupportMibs",
     "oid": "1.3.6.1.4.1.4491.2.2.9.1",
-    "class": "objectidentity"
-  },
-  "pktcEUEDeviceMibs": {
-    "name": "pktcEUEDeviceMibs",
-    "oid": "1.3.6.1.4.1.4491.2.2.10.1",
     "class": "objectidentity"
   },
   "clabSrvcPrvdrRootCACert": {
@@ -273,55 +400,11 @@
     "oid": "1.3.6.1.4.1.4491.4.2",
     "class": "objectidentity"
   },
-  "clabGREMib": {
-    "name": "clabGREMib",
-    "oid": "1.3.6.1.4.1.4491.4.3",
-    "class": "objectidentity"
-  },
-  "clabMAPMib": {
-    "name": "clabMAPMib",
-    "oid": "1.3.6.1.4.1.4491.4.4",
-    "class": "objectidentity"
-  },
-  "clabDNSMib": {
-    "name": "clabDNSMib",
-    "oid": "1.3.6.1.4.1.4491.4.5",
-    "class": "objectidentity"
-  },
-  "clabGWMib": {
-    "name": "clabGWMib",
-    "oid": "1.3.6.1.4.1.4491.4.6",
-    "class": "objectidentity"
-  },
-  "clabAniDevMib": {
-    "name": "clabAniDevMib",
-    "oid": "1.3.6.1.4.1.4491.4.7",
-    "class": "objectidentity"
-  },
-  "DocsL2vpnIfList": {
-    "name": "DocsL2vpnIfList",
-    "class": "textualconvention",
-    "type": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "eCm": 0,
-        "cmci": 1,
-        "docsCableMacLayer": 2,
-        "docsCableDownstream": 3,
-        "docsCableUpstream": 4,
-        "eMta": 16,
-        "eStbIp": 17,
-        "eStbDsg": 18
-      }
-    },
-    "status": "current"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/CLAB-DEF-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:32 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CLAB-DEF-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:35 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CLAB-DEF-MIB"

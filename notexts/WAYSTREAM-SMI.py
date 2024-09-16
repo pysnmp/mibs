@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WAYSTREAM-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/waystream/WAYSTREAM-SMI
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:41:22 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 15:01:36 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, Integer32, MibIdentifier, ModuleIdentity, enterprises, iso, Counter64, Gauge32, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, ObjectIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Integer32", "MibIdentifier", "ModuleIdentity", "enterprises", "iso", "Counter64", "Gauge32", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "ObjectIdentity", "TimeTicks")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, Unsigned32, Gauge32, Integer32, MibIdentifier, Counter64, IpAddress, enterprises, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Gauge32", "Integer32", "MibIdentifier", "Counter64", "IpAddress", "enterprises", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "Bits")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 waystream = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303))
 waystream.setRevisions(('2017-02-10 11:00', '2011-01-11 18:01', '2009-03-23 10:39', '2008-01-17 14:05', '2007-05-11 12:28',))
@@ -29,4 +29,4 @@ wsModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 9303, 5))
 if mibBuilder.loadTexts: wsModules.setStatus('current')
 pfSW = ObjectIdentity((1, 3, 6, 1, 4, 1, 9303, 6))
 if mibBuilder.loadTexts: pfSW.setStatus('current')
-mibBuilder.exportSymbols("WAYSTREAM-SMI", wsProduct=wsProduct, wsMgmt=wsMgmt, wsExperiment=wsExperiment, wsConfig=wsConfig, ipdConfig=ipdConfig, pfSW=pfSW, wsModules=wsModules, waystream=waystream, PYSNMP_MODULE_ID=waystream)
+mibBuilder.exportSymbols("WAYSTREAM-SMI", PYSNMP_MODULE_ID=waystream, ipdConfig=ipdConfig, wsExperiment=wsExperiment, pfSW=pfSW, waystream=waystream, wsProduct=wsProduct, wsConfig=wsConfig, wsModules=wsModules, wsMgmt=wsMgmt)

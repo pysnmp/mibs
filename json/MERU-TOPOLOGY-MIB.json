@@ -8,42 +8,42 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlEncryptionAlgorithm",
-      "MwlAssociationState",
-      "MwlApIfModeType",
-      "MwlApType",
       "MwlCapabilityModeBits",
-      "MwlOnOffSwitch"
+      "MwlAssociationState",
+      "MwlOnOffSwitch",
+      "MwlApType",
+      "MwlEncryptionAlgorithm",
+      "MwlApIfModeType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "enterprises",
-      "Gauge32",
-      "Counter32",
+      "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "iso",
+      "enterprises",
+      "Unsigned32",
       "OBJECT-TYPE",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TruthValue",
+      "DisplayString",
       "DateAndTime",
       "TimeInterval",
       "MacAddress",
-      "DisplayString",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp"
     ]
   },
@@ -1175,9 +1175,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-TOPOLOGY-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:35:51 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:55:04 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "MERU-TOPOLOGY-MIB"
   }

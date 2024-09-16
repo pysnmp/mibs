@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LANTRONIX-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/lantronix/LANTRONIX-MIB.mib
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:38:01 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:57:30 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, NotificationType, Bits, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, TimeTicks, IpAddress, Counter64, iso, Counter32, Integer32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "NotificationType", "Bits", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "TimeTicks", "IpAddress", "Counter64", "iso", "Counter32", "Integer32", "enterprises")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+MibIdentifier, TimeTicks, Bits, IpAddress, iso, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, enterprises, ObjectIdentity, Integer32, ModuleIdentity, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "TimeTicks", "Bits", "IpAddress", "iso", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "enterprises", "ObjectIdentity", "Integer32", "ModuleIdentity", "Gauge32", "Counter32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 lantronix = ModuleIdentity((1, 3, 6, 1, 4, 1, 244))
 lantronix.setRevisions(('2007-03-01 00:00', '2006-11-10 00:00', '2004-12-13 00:00',))
 
@@ -29,4 +29,4 @@ sls = MibIdentifier((1, 3, 6, 1, 4, 1, 244, 1, 11))
 ltxlna = MibIdentifier((1, 3, 6, 1, 4, 1, 244, 10))
 ltxlrp = MibIdentifier((1, 3, 6, 1, 4, 1, 244, 11))
 ltxlsw = MibIdentifier((1, 3, 6, 1, 4, 1, 244, 12))
-mibBuilder.exportSymbols("LANTRONIX-MIB", slc=slc, slm=slm, ltxlsw=ltxlsw, products=products, slp=slp, sls=sls, PYSNMP_MODULE_ID=lantronix, ltxlna=ltxlna, lantronix=lantronix, ltxlrp=ltxlrp, slk=slk)
+mibBuilder.exportSymbols("LANTRONIX-MIB", slm=slm, ltxlsw=ltxlsw, slc=slc, PYSNMP_MODULE_ID=lantronix, sls=sls, slp=slp, slk=slk, ltxlrp=ltxlrp, ltxlna=ltxlna, lantronix=lantronix, products=products)

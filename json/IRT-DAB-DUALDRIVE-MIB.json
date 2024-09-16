@@ -1,0 +1,3411 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "SelectManualAuto",
+      "SelectOnOff",
+      "ExecutedNotExecuted",
+      "LocalRemote",
+      "dab",
+      "PresentNotPresent",
+      "FaultOK",
+      "ReadyNotReady",
+      "Input1Input2",
+      "OkNotOk",
+      "MuteOk"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "dabDualDrive": {
+    "name": "dabDualDrive",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change SFNMode, LocalMode (description) and Module-COMPLIANCE"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "dabEventsDD": {
+    "name": "dabEventsDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0",
+    "class": "objectidentity"
+  },
+  "dabDDInputPreselectionEvent": {
+    "name": "dabDDInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDInputAutomaticEvent": {
+    "name": "dabDDInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDPreselectionExciterEvent": {
+    "name": "dabDDPreselectionExciterEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDPreselectionExciter"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDTransmitterOpModeEvent": {
+    "name": "dabDDTransmitterOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDTransmitterOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDReserveControlEvent": {
+    "name": "dabDDReserveControlEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDReserveControl"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDRFPresentEvent": {
+    "name": "dabDDRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDResetFaultEvent": {
+    "name": "dabDDResetFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDResetFault"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dabDDAmplifierFaultEvent": {
+    "name": "dabDDAmplifierFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDAmplifierWarningEvent": {
+    "name": "dabDDAmplifierWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDActiveExciterEvent": {
+    "name": "dabDDActiveExciterEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDActiveExciter"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDLocalModeEvent": {
+    "name": "dabDDLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDControlUnitFaultEvent": {
+    "name": "dabDDControlUnitFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDControlUnitFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDSwitchOverModeEvent": {
+    "name": "dabDDSwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDSwitchOverReadyEvent": {
+    "name": "dabDDSwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDSwitchOverExecutedEvent": {
+    "name": "dabDDSwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDSwitchOverFaultEvent": {
+    "name": "dabDDSwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAInput1OKEvent": {
+    "name": "dabDDExciterAInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAInput2OKEvent": {
+    "name": "dabDDExciterAInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterALocalModeEvent": {
+    "name": "dabDDExciterALocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterALocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAFaultEvent": {
+    "name": "dabDDExciterAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAWarningEvent": {
+    "name": "dabDDExciterAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAActiveInputEvent": {
+    "name": "dabDDExciterAActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAActiveInput"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterASFNModeEvent": {
+    "name": "dabDDExciterASFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterASFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterARefFaultEvent": {
+    "name": "dabDDExciterARefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterARefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAMuteEvent": {
+    "name": "dabDDExciterAMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterAWarningTimeStampEvent": {
+    "name": "dabDDExciterAWarningTimeStampEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBInput1OKEvent": {
+    "name": "dabDDExciterBInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBInput2OKEvent": {
+    "name": "dabDDExciterBInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBLocalModeEvent": {
+    "name": "dabDDExciterBLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBFaultEvent": {
+    "name": "dabDDExciterBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBWarningEvent": {
+    "name": "dabDDExciterBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBActiveInputEvent": {
+    "name": "dabDDExciterBActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBSFNModeEvent": {
+    "name": "dabDDExciterBSFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBSFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBRefFaultEvent": {
+    "name": "dabDDExciterBRefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBRefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBMuteEvent": {
+    "name": "dabDDExciterBMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDExciterBWarningTimeStampEvent": {
+    "name": "dabDDExciterBWarningTimeStampEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "dabDDGeneral": {
+    "name": "dabDDGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1",
+    "class": "objectidentity"
+  },
+  "dabDDInputPreselection": {
+    "name": "dabDDInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDInputAutomatic": {
+    "name": "dabDDInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDPreselectionExciter": {
+    "name": "dabDDPreselectionExciter",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "exciterA": 1,
+          "exciterB": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDTransmitterOpMode": {
+    "name": "dabDDTransmitterOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDReserveControl": {
+    "name": "dabDDReserveControl",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDRFPresent": {
+    "name": "dabDDRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDResetFault": {
+    "name": "dabDDResetFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabDDAmplifierFault": {
+    "name": "dabDDAmplifierFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDAmplifierWarning": {
+    "name": "dabDDAmplifierWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDActiveExciter": {
+    "name": "dabDDActiveExciter",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "exciterA": 1,
+          "exciterB": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDLocalMode": {
+    "name": "dabDDLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDControlUnitFault": {
+    "name": "dabDDControlUnitFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDSwitchOverMode": {
+    "name": "dabDDSwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverReady": {
+    "name": "dabDDSwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDSwitchOverExecuted": {
+    "name": "dabDDSwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDSwitchOverFault": {
+    "name": "dabDDSwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterA": {
+    "name": "dabDDExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2",
+    "class": "objectidentity"
+  },
+  "dabDDExciterAInput1OK": {
+    "name": "dabDDExciterAInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterAInput2OK": {
+    "name": "dabDDExciterAInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterALocalMode": {
+    "name": "dabDDExciterALocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterAFault": {
+    "name": "dabDDExciterAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterAWarning": {
+    "name": "dabDDExciterAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterAActiveInput": {
+    "name": "dabDDExciterAActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterASFNMode": {
+    "name": "dabDDExciterASFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterARefFault": {
+    "name": "dabDDExciterARefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterAMute": {
+    "name": "dabDDExciterAMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterAWarningTimeStamp": {
+    "name": "dabDDExciterAWarningTimeStamp",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterB": {
+    "name": "dabDDExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3",
+    "class": "objectidentity"
+  },
+  "dabDDExciterBInput1OK": {
+    "name": "dabDDExciterBInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBInput2OK": {
+    "name": "dabDDExciterBInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBLocalMode": {
+    "name": "dabDDExciterBLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBFault": {
+    "name": "dabDDExciterBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBWarning": {
+    "name": "dabDDExciterBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBActiveInput": {
+    "name": "dabDDExciterBActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBSFNMode": {
+    "name": "dabDDExciterBSFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBRefFault": {
+    "name": "dabDDExciterBRefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBMute": {
+    "name": "dabDDExciterBMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDExciterBWarningTimeStamp": {
+    "name": "dabDDExciterBWarningTimeStamp",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabDDEventEnable": {
+    "name": "dabDDEventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4",
+    "class": "objectidentity"
+  },
+  "dabDDEventEnableGeneral": {
+    "name": "dabDDEventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1",
+    "class": "objectidentity"
+  },
+  "dabDDInputPreselectionEnable": {
+    "name": "dabDDInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDInputAutomaticEnable": {
+    "name": "dabDDInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDPreselectionExciterEnable": {
+    "name": "dabDDPreselectionExciterEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDTransmitterOpModeEnable": {
+    "name": "dabDDTransmitterOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDReserveControlEnable": {
+    "name": "dabDDReserveControlEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDRFPresentEnable": {
+    "name": "dabDDRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDResetFaultEnable": {
+    "name": "dabDDResetFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabDDAmplifierFaultEnable": {
+    "name": "dabDDAmplifierFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDAmplifierWarningEnable": {
+    "name": "dabDDAmplifierWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDActiveExciterEnable": {
+    "name": "dabDDActiveExciterEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDLocalModeEnable": {
+    "name": "dabDDLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDControlUnitFaultEnable": {
+    "name": "dabDDControlUnitFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverModeEnable": {
+    "name": "dabDDSwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverReadyEnable": {
+    "name": "dabDDSwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverExecutedEnable": {
+    "name": "dabDDSwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverFaultEnable": {
+    "name": "dabDDSwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDEventEnableExciterA": {
+    "name": "dabDDEventEnableExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2",
+    "class": "objectidentity"
+  },
+  "dabDDExciterAInput1OKEnable": {
+    "name": "dabDDExciterAInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAInput2OKEnable": {
+    "name": "dabDDExciterAInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterALocalModeEnable": {
+    "name": "dabDDExciterALocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAFaultEnable": {
+    "name": "dabDDExciterAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAWarningEnable": {
+    "name": "dabDDExciterAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAActiveInputEnable": {
+    "name": "dabDDExciterAActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterASFNModeEnable": {
+    "name": "dabDDExciterASFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterARefFaultEnable": {
+    "name": "dabDDExciterARefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAMuteEnable": {
+    "name": "dabDDExciterAMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAWarningTimeStampEnable": {
+    "name": "dabDDExciterAWarningTimeStampEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDEventEnableExciterB": {
+    "name": "dabDDEventEnableExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3",
+    "class": "objectidentity"
+  },
+  "dabDDExciterBInput1OKEnable": {
+    "name": "dabDDExciterBInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBInput2OKEnable": {
+    "name": "dabDDExciterBInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBLocalModeEnable": {
+    "name": "dabDDExciterBLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBFaultEnable": {
+    "name": "dabDDExciterBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBWarningEnable": {
+    "name": "dabDDExciterBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBActiveInputEnable": {
+    "name": "dabDDExciterBActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBSFNModeEnable": {
+    "name": "dabDDExciterBSFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBRefFaultEnable": {
+    "name": "dabDDExciterBRefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBMuteEnable": {
+    "name": "dabDDExciterBMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBWarningTimeStampEnable": {
+    "name": "dabDDExciterBWarningTimeStampEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.4.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDEventPriority": {
+    "name": "dabDDEventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5",
+    "class": "objectidentity"
+  },
+  "dabDDEventPriorityGeneral": {
+    "name": "dabDDEventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1",
+    "class": "objectidentity"
+  },
+  "dabDDInputPreselectionPriority": {
+    "name": "dabDDInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDInputAutomaticPriority": {
+    "name": "dabDDInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDPreselectionExciterPriority": {
+    "name": "dabDDPreselectionExciterPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDTransmitterOpModePriority": {
+    "name": "dabDDTransmitterOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDReserveControlPriority": {
+    "name": "dabDDReserveControlPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDRFPresentPriority": {
+    "name": "dabDDRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDResetFaultPriority": {
+    "name": "dabDDResetFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabDDAmplifierFaultPriority": {
+    "name": "dabDDAmplifierFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDAmplifierWarningPriority": {
+    "name": "dabDDAmplifierWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDActiveExciterPriority": {
+    "name": "dabDDActiveExciterPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDLocalModePriority": {
+    "name": "dabDDLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDControlUnitFaultPriority": {
+    "name": "dabDDControlUnitFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverModePriority": {
+    "name": "dabDDSwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverReadyPriority": {
+    "name": "dabDDSwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverExecutedPriority": {
+    "name": "dabDDSwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDSwitchOverFaultPriority": {
+    "name": "dabDDSwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDEventPriorityExciterA": {
+    "name": "dabDDEventPriorityExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2",
+    "class": "objectidentity"
+  },
+  "dabDDExciterAInput1OKPriority": {
+    "name": "dabDDExciterAInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAInput2OKPriority": {
+    "name": "dabDDExciterAInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterALocalModePriority": {
+    "name": "dabDDExciterALocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAFaultPriority": {
+    "name": "dabDDExciterAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAWarningPriority": {
+    "name": "dabDDExciterAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAActiveInputPriority": {
+    "name": "dabDDExciterAActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterASFNModePriority": {
+    "name": "dabDDExciterASFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterARefFaultPriority": {
+    "name": "dabDDExciterARefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAMutePriority": {
+    "name": "dabDDExciterAMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterAWarningTimeStampPriority": {
+    "name": "dabDDExciterAWarningTimeStampPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDEventPriorityExciterB": {
+    "name": "dabDDEventPriorityExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3",
+    "class": "objectidentity"
+  },
+  "dabDDExciterBInput1OKPriority": {
+    "name": "dabDDExciterBInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBInput2OKPriority": {
+    "name": "dabDDExciterBInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBLocalModePriority": {
+    "name": "dabDDExciterBLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBFaultPriority": {
+    "name": "dabDDExciterBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBWarningPriority": {
+    "name": "dabDDExciterBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBActiveInputPriority": {
+    "name": "dabDDExciterBActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBSFNModePriority": {
+    "name": "dabDDExciterBSFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBRefFaultPriority": {
+    "name": "dabDDExciterBRefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBMutePriority": {
+    "name": "dabDDExciterBMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabDDExciterBWarningTimeStampPriority": {
+    "name": "dabDDExciterBWarningTimeStampPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.5.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsDD": {
+    "name": "groupsDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.6",
+    "class": "objectidentity"
+  },
+  "eventGroupDD": {
+    "name": "eventGroupDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.6.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDPreselectionExciterEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDTransmitterOpModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDReserveControlEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDRFPresentEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDActiveExciterEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDLocalModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDControlUnitFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput1OKEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput2OKEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterALocalModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAActiveInputEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterASFNModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterARefFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAMuteEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningTimeStampEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput1OKEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput2OKEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBLocalModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBActiveInputEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBSFNModeEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBRefFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBMuteEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningTimeStampEvent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierWarningEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupDD": {
+    "name": "objectGroupDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.6.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDPreselectionExciter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDTransmitterOpMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDReserveControl"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDRFPresent"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDActiveExciter"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDLocalMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDControlUnitFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverReady"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverExecuted"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput1OK"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput2OK"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterALocalMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarning"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAActiveInput"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterASFNMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterARefFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAMute"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningTimeStamp"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput1OK"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput2OK"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBLocalMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarning"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBActiveInput"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBSFNMode"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBRefFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBMute"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningTimeStamp"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDPreselectionExciterEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDTransmitterOpModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDReserveControlEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDRFPresentEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDActiveExciterEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDLocalModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDControlUnitFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput1OKEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput2OKEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterALocalModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAActiveInputEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterASFNModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterARefFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAMuteEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningTimeStampEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput1OKEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput2OKEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBLocalModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBActiveInputEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBSFNModeEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBRefFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBMuteEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningTimeStampEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDPreselectionExciterPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDTransmitterOpModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDReserveControlPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDRFPresentPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDActiveExciterPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDLocalModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDControlUnitFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDSwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput1OKPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAInput2OKPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterALocalModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAActiveInputPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterASFNModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterARefFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAMutePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterAWarningTimeStampPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput1OKPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBInput2OKPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBLocalModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBActiveInputPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBSFNModePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBRefFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBMutePriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDExciterBWarningTimeStampPriority"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierWarning"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierWarningEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDAmplifierWarningPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupDDobsolete": {
+    "name": "eventGroupDDobsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.6.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDResetFaultEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "objectGroupDDobsolete": {
+    "name": "objectGroupDDobsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.6.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDResetFault"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDResetFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-DUALDRIVE-MIB",
+        "object": "dabDDResetFaultPriority"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "complianceDD": {
+    "name": "complianceDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.7",
+    "class": "objectidentity"
+  },
+  "dabDualDriveCompliance": {
+    "name": "dabDualDriveCompliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.4.7.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "eventGroupDD",
+        "module": "IRT-DAB-DUALDRIVE-MIB"
+      },
+      {
+        "object": "objectGroupDD",
+        "module": "IRT-DAB-DUALDRIVE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DAB-DUALDRIVE-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-DAB-DUALDRIVE-MIB"
+  }
+}

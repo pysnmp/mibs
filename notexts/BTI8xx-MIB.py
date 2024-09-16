@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module BTI8xx-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bti/BTI8xx-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:33:10 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:52:03 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, Integer32, Gauge32, IpAddress, MibIdentifier, iso, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, TimeTicks, Unsigned32, ModuleIdentity, ObjectIdentity, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "Gauge32", "IpAddress", "MibIdentifier", "iso", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "TimeTicks", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Counter32", "Counter64")
+Bits, Counter32, Gauge32, MibIdentifier, Counter64, NotificationType, IpAddress, enterprises, Unsigned32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, TimeTicks, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "Gauge32", "MibIdentifier", "Counter64", "NotificationType", "IpAddress", "enterprises", "Unsigned32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "TimeTicks", "Integer32", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bti8xx = ModuleIdentity((1, 3, 6, 1, 4, 1, 30005, 1, 7))
 bti8xx.setRevisions(('2013-12-26 12:00',))
@@ -17,4 +17,4 @@ if mibBuilder.loadTexts: bti8xx.setLastUpdated('201312261200Z')
 if mibBuilder.loadTexts: bti8xx.setOrganization('Actus Networks Inc.')
 btiSystems = MibIdentifier((1, 3, 6, 1, 4, 1, 30005))
 btiProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 30005, 1))
-mibBuilder.exportSymbols("BTI8xx-MIB", bti8xx=bti8xx, PYSNMP_MODULE_ID=bti8xx, btiProducts=btiProducts, btiSystems=btiSystems)
+mibBuilder.exportSymbols("BTI8xx-MIB", bti8xx=bti8xx, btiSystems=btiSystems, PYSNMP_MODULE_ID=bti8xx, btiProducts=btiProducts)

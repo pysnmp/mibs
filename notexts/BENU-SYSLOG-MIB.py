@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BENU-SYSLOG-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-SYSLOG-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:33:02 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:51:55 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 benuPlatform, = mibBuilder.importSymbols("BENU-PLATFORM-MIB", "benuPlatform")
 InetPortNumber, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, Gauge32, Unsigned32, Bits, IpAddress, ModuleIdentity, MibIdentifier, Counter32, Integer32, ObjectIdentity, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "Gauge32", "Unsigned32", "Bits", "IpAddress", "ModuleIdentity", "MibIdentifier", "Counter32", "Integer32", "ObjectIdentity", "Counter64", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, IpAddress, ObjectIdentity, Gauge32, Counter64, Unsigned32, Counter32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Bits, Integer32, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Gauge32", "Counter64", "Unsigned32", "Counter32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Bits", "Integer32", "NotificationType", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 benuSyslog = ModuleIdentity((1, 3, 6, 1, 4, 1, 39406, 1, 3))
 benuSyslog.setRevisions(('2015-01-09 00:00', '2014-11-06 00:00', '2013-11-22 00:00',))
 if mibBuilder.loadTexts: benuSyslog.setLastUpdated('201501090000Z')
@@ -40,4 +40,4 @@ bSyslogConsoleSeverity = MibScalar((1, 3, 6, 1, 4, 1, 39406, 1, 3, 6), Integer32
 if mibBuilder.loadTexts: bSyslogConsoleSeverity.setStatus('current')
 bSyslogClear = MibScalar((1, 3, 6, 1, 4, 1, 39406, 1, 3, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: bSyslogClear.setStatus('current')
-mibBuilder.exportSymbols("BENU-SYSLOG-MIB", bSyslogServerIndex=bSyslogServerIndex, bSyslogServerPort=bSyslogServerPort, bSyslogConsoleSeverity=bSyslogConsoleSeverity, bSyslogServerEntry=bSyslogServerEntry, bSyslogServerAddress=bSyslogServerAddress, bSyslogSeverity=bSyslogSeverity, bSyslogMaxSize=bSyslogMaxSize, bSyslogNotifications=bSyslogNotifications, bSyslogServerEnable=bSyslogServerEnable, bSyslogClear=bSyslogClear, bSyslogServerTable=bSyslogServerTable, bSyslogSize=bSyslogSize, PYSNMP_MODULE_ID=benuSyslog, benuSyslog=benuSyslog)
+mibBuilder.exportSymbols("BENU-SYSLOG-MIB", bSyslogServerIndex=bSyslogServerIndex, bSyslogSeverity=bSyslogSeverity, bSyslogServerPort=bSyslogServerPort, bSyslogMaxSize=bSyslogMaxSize, benuSyslog=benuSyslog, bSyslogConsoleSeverity=bSyslogConsoleSeverity, bSyslogSize=bSyslogSize, bSyslogClear=bSyslogClear, bSyslogServerEnable=bSyslogServerEnable, bSyslogServerAddress=bSyslogServerAddress, bSyslogServerEntry=bSyslogServerEntry, bSyslogNotifications=bSyslogNotifications, PYSNMP_MODULE_ID=benuSyslog, bSyslogServerTable=bSyslogServerTable)

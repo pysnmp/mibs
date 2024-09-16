@@ -1,0 +1,613 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9MibModule",
+      "rsXx9Atsc"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationPriority",
+      "NotificationState",
+      "IndexTransmitter",
+      "NotificationMask",
+      "SwitchOnOff",
+      "IndexAB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rsXx9AtscMibModule": {
+    "name": "rsXx9AtscMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-04-02 08:00",
+        "description": "update enum range of atscConfigurationSfnSyncMode"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2012-07-26 10:00",
+        "description": "Preliminary revision."
+      }
+    ]
+  },
+  "rsXx9AtscNotifications": {
+    "name": "rsXx9AtscNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.0",
+    "class": "objectidentity"
+  },
+  "atscEncoderSummary": {
+    "name": "atscEncoderSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "atscContentFail": {
+    "name": "atscContentFail",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "atscTest": {
+    "name": "atscTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9AtscObjects": {
+    "name": "rsXx9AtscObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1",
+    "class": "objectidentity"
+  },
+  "atscStatus": {
+    "name": "atscStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1",
+    "class": "objectidentity"
+  },
+  "atscStatusNotificationTable": {
+    "name": "atscStatusNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscStatusNotificationEntry": {
+    "name": "atscStatusNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atscStatusNotificationTxIdx": {
+    "name": "atscStatusNotificationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscStatusNotificationExcIdx": {
+    "name": "atscStatusNotificationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscStatusNotificationIdx": {
+    "name": "atscStatusNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscStatusNotificationName": {
+    "name": "atscStatusNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atscEncoderSummary": 1,
+          "atscContentFail": 2,
+          "atscTest": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscStatusNotificationMask": {
+    "name": "atscStatusNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscStatusNotificationPriority": {
+    "name": "atscStatusNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscStatusNotificationState": {
+    "name": "atscStatusNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atscSetup": {
+    "name": "atscSetup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2",
+    "class": "objectidentity"
+  },
+  "atscConfigurationTable": {
+    "name": "atscConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscConfigurationEntry": {
+    "name": "atscConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atscConfigurationTxIdx": {
+    "name": "atscConfigurationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscConfigurationExcIdx": {
+    "name": "atscConfigurationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscConfigurationMobileDtv": {
+    "name": "atscConfigurationMobileDtv",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscConfigurationMhePID": {
+    "name": "atscConfigurationMhePID",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscConfigurationMobileTxID": {
+    "name": "atscConfigurationMobileTxID",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscConfigurationWatermark": {
+    "name": "atscConfigurationWatermark",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "db21": 2,
+          "db24": 3,
+          "db27": 4,
+          "db30": 5,
+          "db33": 6,
+          "db36": 7,
+          "db39": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscConfigurationTxID": {
+    "name": "atscConfigurationTxID",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscConfigurationMarketID": {
+    "name": "atscConfigurationMarketID",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 495
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscConfigurationSfnSyncMode": {
+    "name": "atscConfigurationSfnSyncMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsMobileTcp": 1,
+          "rsA53Tcp": 2,
+          "a110Tcp": 3,
+          "rsA53DummyBytes": 4,
+          "a110DummyBytes": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atscTestTable": {
+    "name": "atscTestTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atscTestEntry": {
+    "name": "atscTestEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atscTestEntry",
+      "module": "RS-XX9-ATSC-MIB",
+      "object": "atscConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "atscTestMode": {
+    "name": "atscTestMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "prbs": 2,
+          "singleCarrier": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsXx9AtscConformance": {
+    "name": "rsXx9AtscConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.2",
+    "class": "objectidentity"
+  },
+  "rsXx9AtscCompliances": {
+    "name": "rsXx9AtscCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.2.1",
+    "class": "objectidentity"
+  },
+  "atscBasicCompliance": {
+    "name": "atscBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atscObjBasic",
+        "module": "RS-XX9-ATSC-MIB"
+      },
+      {
+        "object": "atscNotifyBasic",
+        "module": "RS-XX9-ATSC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9AtscGroups": {
+    "name": "rsXx9AtscGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.2.2",
+    "class": "objectidentity"
+  },
+  "atscObjBasic": {
+    "name": "atscObjBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationName"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationMask"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscStatusNotificationState"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationMobileDtv"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationMhePID"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationMobileTxID"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationWatermark"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationTxID"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationMarketID"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscConfigurationSfnSyncMode"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscTestMode"
+      }
+    ],
+    "status": "current"
+  },
+  "atscNotifyBasic": {
+    "name": "atscNotifyBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.7.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscTest"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscContentFail"
+      },
+      {
+        "module": "RS-XX9-ATSC-MIB",
+        "object": "atscEncoderSummary"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-ATSC-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-ATSC-MIB"
+  }
+}

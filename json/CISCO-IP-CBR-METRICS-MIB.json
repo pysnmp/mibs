@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "CISCO-FLOW-MONITOR-MIB": [
+      "cfmFlowId",
       "cfmFlowMonitorId",
-      "cfmFlowMetricsIntNumber",
-      "cfmFlowId"
+      "cfmFlowMetricsIntNumber"
     ],
     "CISCO-FLOW-MONITOR-TC-MIB": [
-      "FlowMetricPrecision",
-      "FlowBitRateUnits",
-      "FlowMetricValue",
       "FlowMetricScale",
-      "FlowCfgRateType"
+      "FlowCfgRateType",
+      "FlowBitRateUnits",
+      "FlowMetricPrecision",
+      "FlowMetricValue"
     ],
     "CISCO-REPORT-INTERVAL-TC-MIB": [
       "ReportIntervalCount"
@@ -20,30 +20,30 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "Counter32",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
       "MibIdentifier",
       "OBJECT-TYPE",
       "Bits",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
-      "Gauge32",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp"
     ]
   },
   "ciscoIpCbrMetricsMIB": {
@@ -596,9 +596,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-CBR-METRICS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:37:47 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:33 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-IP-CBR-METRICS-MIB"
   }

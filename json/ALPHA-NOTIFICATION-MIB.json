@@ -3,39 +3,39 @@
     "class": "imports",
     "ALARM-MIB": [
       "alarmActiveResourceId",
-      "alarmActiveModelPointer",
-      "alarmModelDescription"
+      "alarmModelDescription",
+      "alarmActiveModelPointer"
     ],
     "ALPHA-RESOURCE-MIB": [
       "controllerInfoName",
-      "componentListStaticName",
       "alpha",
-      "componentListReference"
+      "componentListReference",
+      "componentListStaticName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Counter32",
       "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
       "Counter64",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "iso",
-      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
       "Integer32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alphaAlarmNotifications": {
@@ -284,9 +284,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/ALPHA-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:32:21 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:51:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ALPHA-NOTIFICATION-MIB"
   }

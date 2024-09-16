@@ -8,31 +8,31 @@
       "dlinkIndustrialCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Counter32",
       "MibIdentifier",
-      "Unsigned32",
+      "Counter64",
+      "iso",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
       "Gauge32",
       "Integer32",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
-      "DisplayString",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "dlinkSwQosMIB": {
@@ -2702,9 +2702,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-QOS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:34:39 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:53:40 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-QOS-MIB"
   }

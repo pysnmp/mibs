@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Bits",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "mib-2",
-      "Counter32",
-      "Counter64",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "Bits",
       "MibIdentifier",
+      "mib-2",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ianaItuAlarmNumbers": {
@@ -32,10 +32,6 @@
     "oid": "1.3.6.1.2.1.119",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2014-05-22 00:00",
-        "description": "Updated contact info."
-      },
       {
         "revision": "2004-09-09 00:00",
         "description": "Initial version, published as RFC 3877."
@@ -271,9 +267,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-ITU-ALARM-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:02 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IANA-ITU-ALARM-TC-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:51:49 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IANA-ITU-ALARM-TC-MIB"

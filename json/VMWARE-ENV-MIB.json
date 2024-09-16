@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "VMWARE-PRODUCTS-MIB": [
       "vmwESX"
     ],
     "VMWARE-ROOT-MIB": [
-      "vmwNotifications",
-      "vmwProductSpecific"
+      "vmwProductSpecific",
+      "vmwNotifications"
     ],
     "VMWARE-TC-MIB": [
-      "VmwLongSnmpAdminString",
       "VmwCIMSeverity",
-      "VmwSubsystemTypes",
+      "VmwCIMAlertTypes",
       "VmwCIMAlertFormat",
       "VmwCimName",
-      "VmwCIMAlertTypes",
+      "VmwLongSnmpAdminString",
+      "VmwSubsystemTypes",
       "VmwSubsystemStatus"
     ]
   },
@@ -1629,9 +1629,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ENV-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:41:26 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:01:39 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "VMWARE-ENV-MIB"
   }

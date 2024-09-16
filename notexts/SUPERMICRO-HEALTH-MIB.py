@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SUPERMICRO-HEALTH-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/supermicro/SUPERMICRO-HEALTH-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:40:56 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 15:01:07 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, Gauge32, Counter32, IpAddress, Bits, Integer32, NotificationType, ModuleIdentity, ObjectIdentity, TimeTicks, iso, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "Counter32", "IpAddress", "Bits", "Integer32", "NotificationType", "ModuleIdentity", "ObjectIdentity", "TimeTicks", "iso", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DisplayString")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+MibIdentifier, Bits, Integer32, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, TimeTicks, Unsigned32, IpAddress, Counter64, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "Integer32", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "TimeTicks", "Unsigned32", "IpAddress", "Counter64", "Counter32", "iso")
+DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
 smHealth, = mibBuilder.importSymbols("SUPERMICRO-SMI", "smHealth")
 smHealthMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 2, 1))
 if mibBuilder.loadTexts: smHealthMIB.setLastUpdated('200110260000Z')
@@ -63,4 +63,4 @@ smHealthAllinoneStatus = MibScalar((1, 3, 6, 1, 4, 1, 10876, 2, 2), Integer32())
 if mibBuilder.loadTexts: smHealthAllinoneStatus.setStatus('current')
 smHealthAllinoneMsg = MibScalar((1, 3, 6, 1, 4, 1, 10876, 2, 3), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: smHealthAllinoneMsg.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-HEALTH-MIB", smHealthConformance=smHealthConformance, smHealthMonitorIndex=smHealthMonitorIndex, smHealthMonitorMaxReading=smHealthMonitorMaxReading, smHealthMonitorMinReading=smHealthMonitorMinReading, smHealthMonitorEntry=smHealthMonitorEntry, smHealthMonitorReading=smHealthMonitorReading, smHealthMonitorReadingUnit=smHealthMonitorReadingUnit, smHealthMonitorTable=smHealthMonitorTable, smHealthMonitorType=smHealthMonitorType, smHealthAllinoneStatus=smHealthAllinoneStatus, smHealthMonitorLowLimit=smHealthMonitorLowLimit, smHealthMonitorGroup=smHealthMonitorGroup, smHealthMIB=smHealthMIB, smHealthGroups=smHealthGroups, smHealthMonitorStatus=smHealthMonitorStatus, smHealthCompliance=smHealthCompliance, smHealthNotifications=smHealthNotifications, smHealthMonitorDivisor=smHealthMonitorDivisor, smHealthMonitorName=smHealthMonitorName, smHealthCompliances=smHealthCompliances, PYSNMP_MODULE_ID=smHealthMIB, smHealthObjects=smHealthObjects, smHealthMonitorMonitor=smHealthMonitorMonitor, smHealthAllinoneMsg=smHealthAllinoneMsg, smHealthMonitorHighLimit=smHealthMonitorHighLimit, SMHealthInfoTypes=SMHealthInfoTypes)
+mibBuilder.exportSymbols("SUPERMICRO-HEALTH-MIB", smHealthMonitorType=smHealthMonitorType, smHealthMonitorGroup=smHealthMonitorGroup, smHealthConformance=smHealthConformance, smHealthMonitorMonitor=smHealthMonitorMonitor, smHealthAllinoneMsg=smHealthAllinoneMsg, smHealthCompliance=smHealthCompliance, smHealthMonitorStatus=smHealthMonitorStatus, smHealthMonitorEntry=smHealthMonitorEntry, smHealthCompliances=smHealthCompliances, smHealthMonitorReadingUnit=smHealthMonitorReadingUnit, PYSNMP_MODULE_ID=smHealthMIB, smHealthGroups=smHealthGroups, smHealthObjects=smHealthObjects, SMHealthInfoTypes=SMHealthInfoTypes, smHealthMonitorMinReading=smHealthMonitorMinReading, smHealthAllinoneStatus=smHealthAllinoneStatus, smHealthMIB=smHealthMIB, smHealthNotifications=smHealthNotifications, smHealthMonitorTable=smHealthMonitorTable, smHealthMonitorHighLimit=smHealthMonitorHighLimit, smHealthMonitorLowLimit=smHealthMonitorLowLimit, smHealthMonitorDivisor=smHealthMonitorDivisor, smHealthMonitorReading=smHealthMonitorReading, smHealthMonitorIndex=smHealthMonitorIndex, smHealthMonitorName=smHealthMonitorName, smHealthMonitorMaxReading=smHealthMonitorMaxReading)

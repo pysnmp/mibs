@@ -1,0 +1,4676 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "objectGroup",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "SelectManualAuto",
+      "SelectOnOff",
+      "dvbT",
+      "LocalRemote",
+      "ExecutedNotExecuted",
+      "PresentNotPresent",
+      "FaultOK",
+      "ReadyNotReady",
+      "Input1Input2",
+      "OkNotOk",
+      "MuteOk",
+      "SFNMFN"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "dvbnPlus1": {
+    "name": "dvbnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change SFNMode and MODULE-COMPLIANCE change numbering: OIDs 1.3.6.1.4.1.19831.1.1.1.5.5.x and 1.3.6.1.4.1.19831.1.1.1.5.6.3.x 1.3.6.1.4.1.19831.1.1.1.5.6.5.x 1.3.6.1.4.1.19831.1.1.1.5.7.3.x 1.3.6.1.4.1.19831.1.1.1.5.7.5.x"
+      },
+      {
+        "revision": "2006-12-21 14:00",
+        "description": "TransmitterB corrections "
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "Correction"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "TransmitterBFreeOccupied": {
+    "name": "TransmitterBFreeOccupied",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free": 1,
+          "occupied": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dvbEventsnPlus1": {
+    "name": "dvbEventsnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1ResetFaultEvent": {
+    "name": "dvbnPlus1ResetFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ResetFault"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dvbnPlus1RedundancySwitchOverEvent": {
+    "name": "dvbnPlus1RedundancySwitchOverEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RedundancySwitchOver"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1LocalModeEvent": {
+    "name": "dvbnPlus1LocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1LocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1ControlUnitFaultEvent": {
+    "name": "dvbnPlus1ControlUnitFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ControlUnitFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverModeEvent": {
+    "name": "dvbnPlus1SwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverReadyEvent": {
+    "name": "dvbnPlus1SwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverExecutedEvent": {
+    "name": "dvbnPlus1SwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverFaultEvent": {
+    "name": "dvbnPlus1SwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1ChannelSelectionEvent": {
+    "name": "dvbnPlus1ChannelSelectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ChannelSelection"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterBResetEvent": {
+    "name": "dvbnPlus1TransmitterBResetEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBReset"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dvbnPlus1TransmitterBModeEvent": {
+    "name": "dvbnPlus1TransmitterBModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dvbnPlus1MTInputPreselectionEvent": {
+    "name": "dvbnPlus1MTInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1MTInputAutomaticEvent": {
+    "name": "dvbnPlus1MTInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1MTOpModeEvent": {
+    "name": "dvbnPlus1MTOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTOpMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1MTRFProgramPresentEvent": {
+    "name": "dvbnPlus1MTRFProgramPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTRFProgramPresent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1RTInputPreselectionEvent": {
+    "name": "dvbnPlus1RTInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1RTInputAutomaticEvent": {
+    "name": "dvbnPlus1RTInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1RTOpModeEvent": {
+    "name": "dvbnPlus1RTOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1RTRFProgramPresentEvent": {
+    "name": "dvbnPlus1RTRFProgramPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTRFProgramPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TARFPresentEvent": {
+    "name": "dvbnPlus1TARFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARFPresent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAInput1OKEvent": {
+    "name": "dvbnPlus1TAInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput1OK"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAInput2OKEvent": {
+    "name": "dvbnPlus1TAInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput2OK"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TALocalModeEvent": {
+    "name": "dvbnPlus1TALocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TALocalMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAInputPreselectionEvent": {
+    "name": "dvbnPlus1TAInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAInputAutomaticEvent": {
+    "name": "dvbnPlus1TAInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultEvent": {
+    "name": "dvbnPlus1TAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAWarningEvent": {
+    "name": "dvbnPlus1TAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAWarning"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAActiveInputEvent": {
+    "name": "dvbnPlus1TAActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAActiveInput"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TASFNModeEvent": {
+    "name": "dvbnPlus1TASFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TASFNMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TARefFaultEvent": {
+    "name": "dvbnPlus1TARefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARefFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAMuteEvent": {
+    "name": "dvbnPlus1TAMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAMute"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultMIPEvent": {
+    "name": "dvbnPlus1TAFaultMIPEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultMIP"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAStuffingModeEvent": {
+    "name": "dvbnPlus1TAStuffingModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAStuffingMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBRFPresentEvent": {
+    "name": "dvbnPlus1TBRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBInput1OKEvent": {
+    "name": "dvbnPlus1TBInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBInput2OKEvent": {
+    "name": "dvbnPlus1TBInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBLocalModeEvent": {
+    "name": "dvbnPlus1TBLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultEvent": {
+    "name": "dvbnPlus1TBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBWarningEvent": {
+    "name": "dvbnPlus1TBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBInputPreselectionEvent": {
+    "name": "dvbnPlus1TBInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBInputAutomaticEvent": {
+    "name": "dvbnPlus1TBInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBActiveInputEvent": {
+    "name": "dvbnPlus1TBActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBActiveInput"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBSFNModeEvent": {
+    "name": "dvbnPlus1TBSFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBSFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBRefFaultEvent": {
+    "name": "dvbnPlus1TBRefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBMuteEvent": {
+    "name": "dvbnPlus1TBMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultMIPEvent": {
+    "name": "dvbnPlus1TBFaultMIPEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultMIP"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TBStuffingModeEvent": {
+    "name": "dvbnPlus1TBStuffingModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBStuffingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1General": {
+    "name": "dvbnPlus1General",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1ResetFault": {
+    "name": "dvbnPlus1ResetFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1RedundancySwitchOver": {
+    "name": "dvbnPlus1RedundancySwitchOver",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1LocalMode": {
+    "name": "dvbnPlus1LocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1ControlUnitFault": {
+    "name": "dvbnPlus1ControlUnitFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverMode": {
+    "name": "dvbnPlus1SwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverReady": {
+    "name": "dvbnPlus1SwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverExecuted": {
+    "name": "dvbnPlus1SwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverFault": {
+    "name": "dvbnPlus1SwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1ChannelSelection": {
+    "name": "dvbnPlus1ChannelSelection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterBReset": {
+    "name": "dvbnPlus1TransmitterBReset",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1TransmitterBMode": {
+    "name": "dvbnPlus1TransmitterBMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransmitterBFreeOccupied",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dvbnPlus1EventTransmitterIndex": {
+    "name": "dvbnPlus1EventTransmitterIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1MainTransmitterTable": {
+    "name": "dvbnPlus1MainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbnPlus1MainTransmitterEntry": {
+    "name": "dvbnPlus1MainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1MTIndex": {
+    "name": "dvbnPlus1MTIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1MTInputPreselection": {
+    "name": "dvbnPlus1MTInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTInputAutomatic": {
+    "name": "dvbnPlus1MTInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTOpMode": {
+    "name": "dvbnPlus1MTOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTRFProgramPresent": {
+    "name": "dvbnPlus1MTRFProgramPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1ReserveTransmitter": {
+    "name": "dvbnPlus1ReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.3",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1RTInputPreselection": {
+    "name": "dvbnPlus1RTInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTInputAutomatic": {
+    "name": "dvbnPlus1RTInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTOpMode": {
+    "name": "dvbnPlus1RTOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTRFProgramPresent": {
+    "name": "dvbnPlus1RTRFProgramPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterATable": {
+    "name": "dvbnPlus1TransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterAEntry": {
+    "name": "dvbnPlus1TransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TAIndex": {
+    "name": "dvbnPlus1TAIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TARFPresent": {
+    "name": "dvbnPlus1TARFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAInput1OK": {
+    "name": "dvbnPlus1TAInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAInput2OK": {
+    "name": "dvbnPlus1TAInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TALocalMode": {
+    "name": "dvbnPlus1TALocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAInputPreselection": {
+    "name": "dvbnPlus1TAInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInputAutomatic": {
+    "name": "dvbnPlus1TAInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAFault": {
+    "name": "dvbnPlus1TAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAWarning": {
+    "name": "dvbnPlus1TAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAActiveInput": {
+    "name": "dvbnPlus1TAActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TASFNMode": {
+    "name": "dvbnPlus1TASFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TARefFault": {
+    "name": "dvbnPlus1TARefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAMute": {
+    "name": "dvbnPlus1TAMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultMIP": {
+    "name": "dvbnPlus1TAFaultMIP",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TAStuffingMode": {
+    "name": "dvbnPlus1TAStuffingMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterB": {
+    "name": "dvbnPlus1TransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1TBRFPresent": {
+    "name": "dvbnPlus1TBRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBInput1OK": {
+    "name": "dvbnPlus1TBInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBInput2OK": {
+    "name": "dvbnPlus1TBInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBLocalMode": {
+    "name": "dvbnPlus1TBLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBInputPreselection": {
+    "name": "dvbnPlus1TBInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInputAutomatic": {
+    "name": "dvbnPlus1TBInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBFault": {
+    "name": "dvbnPlus1TBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBWarning": {
+    "name": "dvbnPlus1TBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBActiveInput": {
+    "name": "dvbnPlus1TBActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBSFNMode": {
+    "name": "dvbnPlus1TBSFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBRefFault": {
+    "name": "dvbnPlus1TBRefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBMute": {
+    "name": "dvbnPlus1TBMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultMIP": {
+    "name": "dvbnPlus1TBFaultMIP",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1TBStuffingMode": {
+    "name": "dvbnPlus1TBStuffingMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbnPlus1EventEnable": {
+    "name": "dvbnPlus1EventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1EventEnableGeneral": {
+    "name": "dvbnPlus1EventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1ResetFaultEnable": {
+    "name": "dvbnPlus1ResetFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1RedundancySwitchOverEnable": {
+    "name": "dvbnPlus1RedundancySwitchOverEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1LocalModeEnable": {
+    "name": "dvbnPlus1LocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1ControlUnitFaultEnable": {
+    "name": "dvbnPlus1ControlUnitFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverModeEnable": {
+    "name": "dvbnPlus1SwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverReadyEnable": {
+    "name": "dvbnPlus1SwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverExecutedEnable": {
+    "name": "dvbnPlus1SwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverFaultEnable": {
+    "name": "dvbnPlus1SwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1ChannelSelectionEnable": {
+    "name": "dvbnPlus1ChannelSelectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterBResetEnable": {
+    "name": "dvbnPlus1TransmitterBResetEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1TransmitterBModeEnable": {
+    "name": "dvbnPlus1TransmitterBModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1EventEnableMainTransmitterTable": {
+    "name": "dvbnPlus1EventEnableMainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbnPlus1EventEnableMainTransmitterEntry": {
+    "name": "dvbnPlus1EventEnableMainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1MTInputPreselectionEnable": {
+    "name": "dvbnPlus1MTInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTInputAutomaticEnable": {
+    "name": "dvbnPlus1MTInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTOpModeEnable": {
+    "name": "dvbnPlus1MTOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTRFProgramPresentEnable": {
+    "name": "dvbnPlus1MTRFProgramPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventEnableReserveTransmitter": {
+    "name": "dvbnPlus1EventEnableReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.3",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1RTInputPreselectionEnable": {
+    "name": "dvbnPlus1RTInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTInputAutomaticEnable": {
+    "name": "dvbnPlus1RTInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTOpModeEnable": {
+    "name": "dvbnPlus1RTOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTRFProgramPresentEnable": {
+    "name": "dvbnPlus1RTRFProgramPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventEnableTransmitterATable": {
+    "name": "dvbnPlus1EventEnableTransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbnPlus1EventEnableTransmitterAEntry": {
+    "name": "dvbnPlus1EventEnableTransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TARFPresentEnable": {
+    "name": "dvbnPlus1TARFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInput1OKEnable": {
+    "name": "dvbnPlus1TAInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInput2OKEnable": {
+    "name": "dvbnPlus1TAInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TALocalModeEnable": {
+    "name": "dvbnPlus1TALocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInputPreselectionEnable": {
+    "name": "dvbnPlus1TAInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInputAutomaticEnable": {
+    "name": "dvbnPlus1TAInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultEnable": {
+    "name": "dvbnPlus1TAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAWarningEnable": {
+    "name": "dvbnPlus1TAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAActiveInputEnable": {
+    "name": "dvbnPlus1TAActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TASFNModeEnable": {
+    "name": "dvbnPlus1TASFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TARefFaultEnable": {
+    "name": "dvbnPlus1TARefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAMuteEnable": {
+    "name": "dvbnPlus1TAMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultMIPEnable": {
+    "name": "dvbnPlus1TAFaultMIPEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAStuffingModeEnable": {
+    "name": "dvbnPlus1TAStuffingModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventEnableTransmitterB": {
+    "name": "dvbnPlus1EventEnableTransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1TBRFPresentEnable": {
+    "name": "dvbnPlus1TBRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInput1OKEnable": {
+    "name": "dvbnPlus1TBInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInput2OKEnable": {
+    "name": "dvbnPlus1TBInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBLocalModeEnable": {
+    "name": "dvbnPlus1TBLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultEnable": {
+    "name": "dvbnPlus1TBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBWarningEnable": {
+    "name": "dvbnPlus1TBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInputPreselectionEnable": {
+    "name": "dvbnPlus1TBInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInputAutomaticEnable": {
+    "name": "dvbnPlus1TBInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBActiveInputEnable": {
+    "name": "dvbnPlus1TBActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBSFNModeEnable": {
+    "name": "dvbnPlus1TBSFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBRefFaultEnable": {
+    "name": "dvbnPlus1TBRefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBMuteEnable": {
+    "name": "dvbnPlus1TBMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultMIPEnable": {
+    "name": "dvbnPlus1TBFaultMIPEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBStuffingModeEnable": {
+    "name": "dvbnPlus1TBStuffingModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.6.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventPriority": {
+    "name": "dvbnPlus1EventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1EventPriorityGeneral": {
+    "name": "dvbnPlus1EventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1ResetFaultPriority": {
+    "name": "dvbnPlus1ResetFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1RedundancySwitchOverPriority": {
+    "name": "dvbnPlus1RedundancySwitchOverPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1LocalModePriority": {
+    "name": "dvbnPlus1LocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1ControlUnitFaultPriority": {
+    "name": "dvbnPlus1ControlUnitFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverModePriority": {
+    "name": "dvbnPlus1SwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverReadyPriority": {
+    "name": "dvbnPlus1SwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverExecutedPriority": {
+    "name": "dvbnPlus1SwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1SwitchOverFaultPriority": {
+    "name": "dvbnPlus1SwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1ChannelSelectionPriority": {
+    "name": "dvbnPlus1ChannelSelectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TransmitterBResetPriority": {
+    "name": "dvbnPlus1TransmitterBResetPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1TransmitterBModePriority": {
+    "name": "dvbnPlus1TransmitterBModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbnPlus1EventPriorityMainTransmitterTable": {
+    "name": "dvbnPlus1EventPriorityMainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbnPlus1EventPriorityMainTransmitterEntry": {
+    "name": "dvbnPlus1EventPriorityMainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1MTInputPreselectionPriority": {
+    "name": "dvbnPlus1MTInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTInputAutomaticPriority": {
+    "name": "dvbnPlus1MTInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTOpModePriority": {
+    "name": "dvbnPlus1MTOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1MTRFProgramPresentPriority": {
+    "name": "dvbnPlus1MTRFProgramPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventPriorityReserveTransmitter": {
+    "name": "dvbnPlus1EventPriorityReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.3",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1RTInputPreselectionPriority": {
+    "name": "dvbnPlus1RTInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTInputAutomaticPriority": {
+    "name": "dvbnPlus1RTInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTOpModePriority": {
+    "name": "dvbnPlus1RTOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1RTRFProgramPresentPriority": {
+    "name": "dvbnPlus1RTRFProgramPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventPriorityTransmitterATable": {
+    "name": "dvbnPlus1EventPriorityTransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbnPlus1EventPriorityTransmitterAEntry": {
+    "name": "dvbnPlus1EventPriorityTransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbnPlus1TARFPresentPriority": {
+    "name": "dvbnPlus1TARFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInput1OKPriority": {
+    "name": "dvbnPlus1TAInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInput2OKPriority": {
+    "name": "dvbnPlus1TAInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TALocalModePriority": {
+    "name": "dvbnPlus1TALocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInputPreselectionPriority": {
+    "name": "dvbnPlus1TAInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAInputAutomaticPriority": {
+    "name": "dvbnPlus1TAInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultPriority": {
+    "name": "dvbnPlus1TAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAWarningPriority": {
+    "name": "dvbnPlus1TAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAActiveInputPriority": {
+    "name": "dvbnPlus1TAActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TASFNModePriority": {
+    "name": "dvbnPlus1TASFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TARefFaultPriority": {
+    "name": "dvbnPlus1TARefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAMutePriority": {
+    "name": "dvbnPlus1TAMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAFaultMIPPriority": {
+    "name": "dvbnPlus1TAFaultMIPPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TAStuffingModePriority": {
+    "name": "dvbnPlus1TAStuffingModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1EventPriorityTransmitterB": {
+    "name": "dvbnPlus1EventPriorityTransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1TBRFPresentPriority": {
+    "name": "dvbnPlus1TBRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInput1OKPriority": {
+    "name": "dvbnPlus1TBInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInput2OKPriority": {
+    "name": "dvbnPlus1TBInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBLocalModePriority": {
+    "name": "dvbnPlus1TBLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultPriority": {
+    "name": "dvbnPlus1TBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBWarningPriority": {
+    "name": "dvbnPlus1TBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInputPreselectionPriority": {
+    "name": "dvbnPlus1TBInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBInputAutomaticPriority": {
+    "name": "dvbnPlus1TBInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBActiveInputPriority": {
+    "name": "dvbnPlus1TBActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBSFNModePriority": {
+    "name": "dvbnPlus1TBSFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBRefFaultPriority": {
+    "name": "dvbnPlus1TBRefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBMutePriority": {
+    "name": "dvbnPlus1TBMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBFaultMIPPriority": {
+    "name": "dvbnPlus1TBFaultMIPPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbnPlus1TBStuffingModePriority": {
+    "name": "dvbnPlus1TBStuffingModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.7.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsnPlus1": {
+    "name": "groupsnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.8",
+    "class": "objectidentity"
+  },
+  "objectGroupnPlus1": {
+    "name": "objectGroupnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.8.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RedundancySwitchOver"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTRFProgramPresent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTRFProgramPresent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RedundancySwitchOverEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RedundancySwitchOverPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultMIPPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBStuffingModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1EventTransmitterIndex"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1LocalMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ControlUnitFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverReady"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverExecuted"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ChannelSelection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTIndex"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTOpMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAIndex"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARFPresent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput1OK"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput2OK"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TALocalMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAWarning"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAActiveInput"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TASFNMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARefFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAMute"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultMIP"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAStuffingMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRFPresent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput1OK"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput2OK"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBLocalMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBWarning"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBActiveInput"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBSFNMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRefFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBMute"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultMIP"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBStuffingMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1LocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ControlUnitFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ChannelSelectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTOpModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARFPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput1OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput2OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TALocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAActiveInputEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TASFNModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARefFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAMuteEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultMIPEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAStuffingModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRFPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput1OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput2OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBLocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBActiveInputEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBSFNModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRefFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBMuteEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultMIPEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBStuffingModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1LocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ControlUnitFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ChannelSelectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTOpModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARFPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput1OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput2OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TALocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAActiveInputPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TASFNModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARefFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAMutePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultMIPPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAStuffingModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRFPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput1OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput2OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBLocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBActiveInputPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBSFNModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRefFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBMutePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTRFProgramPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTRFProgramPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTRFProgramPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTRFProgramPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTOpModePriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTOpModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupnPlus1": {
+    "name": "eventGroupnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.8.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RedundancySwitchOverEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1LocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ControlUnitFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1SwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ChannelSelectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTRFProgramPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTRFProgramPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARFPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput1OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInput2OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TALocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAActiveInputEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TASFNModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TARefFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAMuteEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAFaultMIPEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TAStuffingModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRFPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput1OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInput2OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBLocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBActiveInputEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBSFNModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBRefFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBMuteEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBFaultMIPEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TBStuffingModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1RTOpModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1MTOpModeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupnPlus1obsolete": {
+    "name": "objectGroupnPlus1obsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.8.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ResetFault"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ResetFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ResetFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBReset"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBMode"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBResetEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBResetPriority"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBModePriority"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "eventGroupnPlus1obsolete": {
+    "name": "eventGroupnPlus1obsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.8.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1ResetFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBResetEvent"
+      },
+      {
+        "module": "IRT-DVBT-NPLUS1-MIB",
+        "object": "dvbnPlus1TransmitterBModeEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "compliancenPlus1": {
+    "name": "compliancenPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.9",
+    "class": "objectidentity"
+  },
+  "dvbnPlus1Compliance": {
+    "name": "dvbnPlus1Compliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.5.9.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "objectGroupnPlus1",
+        "module": "IRT-DVBT-NPLUS1-MIB"
+      },
+      {
+        "object": "eventGroupnPlus1",
+        "module": "IRT-DVBT-NPLUS1-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DVBT-NPLUS1-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-DVBT-NPLUS1-MIB"
+  }
+}

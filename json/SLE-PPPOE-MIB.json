@@ -5,33 +5,33 @@
       "sleMgmt"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
       "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "Bits"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "slePppoe": {
@@ -407,9 +407,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-PPPOE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:34:38 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:53:45 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SLE-PPPOE-MIB"
   }

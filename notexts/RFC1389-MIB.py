@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module RFC1389-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RFC1389-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:39:58 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RFC1389-MIB
+# Produced by pysmi-1.1.12 at Mon Sep 16 15:00:02 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ModuleIdentity, Counter32, iso, ObjectIdentity, Unsigned32, MibIdentifier, Bits, IpAddress, Integer32, Counter64, mib_2, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ModuleIdentity", "Counter32", "iso", "ObjectIdentity", "Unsigned32", "MibIdentifier", "Bits", "IpAddress", "Integer32", "Counter64", "mib-2", "TimeTicks", "Gauge32")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Bits, Integer32, Counter64, ObjectIdentity, Unsigned32, Gauge32, IpAddress, iso, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Bits", "Integer32", "Counter64", "ObjectIdentity", "Unsigned32", "Gauge32", "IpAddress", "iso", "ModuleIdentity", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rip2 = MibIdentifier((1, 3, 6, 1, 2, 1, 23))
 class RouteTag(OctetString):
@@ -75,4 +75,4 @@ rip2PeerRcvBadPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 5), Counter3
 if mibBuilder.loadTexts: rip2PeerRcvBadPackets.setStatus('mandatory')
 rip2PeerRcvBadRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 23, 4, 1, 6), Counter32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rip2PeerRcvBadRoutes.setStatus('mandatory')
-mibBuilder.exportSymbols("RFC1389-MIB", rip2IfConfDefaultMetric=rip2IfConfDefaultMetric, rip2IfConfAuthType=rip2IfConfAuthType, rip2IfStatRcvBadRoutes=rip2IfStatRcvBadRoutes, rip2IfConfDomain=rip2IfConfDomain, rip2GlobalGroup=rip2GlobalGroup, rip2GlobalRouteChanges=rip2GlobalRouteChanges, RouteTag=RouteTag, rip2PeerLastUpdate=rip2PeerLastUpdate, rip2=rip2, rip2PeerRcvBadRoutes=rip2PeerRcvBadRoutes, Validation=Validation, rip2PeerTable=rip2PeerTable, rip2IfConfTable=rip2IfConfTable, rip2IfConfStatus=rip2IfConfStatus, rip2IfConfSend=rip2IfConfSend, rip2PeerVersion=rip2PeerVersion, rip2IfConfEntry=rip2IfConfEntry, rip2IfConfAddress=rip2IfConfAddress, rip2IfConfReceive=rip2IfConfReceive, rip2PeerDomain=rip2PeerDomain, rip2PeerRcvBadPackets=rip2PeerRcvBadPackets, rip2IfStatRcvBadPackets=rip2IfStatRcvBadPackets, rip2IfStatAddress=rip2IfStatAddress, rip2IfConfAuthKey=rip2IfConfAuthKey, rip2GlobalQueries=rip2GlobalQueries, rip2IfStatSentUpdates=rip2IfStatSentUpdates, rip2IfStatTable=rip2IfStatTable, rip2IfStatStatus=rip2IfStatStatus, rip2PeerEntry=rip2PeerEntry, rip2IfStatEntry=rip2IfStatEntry, rip2PeerAddress=rip2PeerAddress)
+mibBuilder.exportSymbols("RFC1389-MIB", rip2IfConfReceive=rip2IfConfReceive, RouteTag=RouteTag, rip2IfConfAuthKey=rip2IfConfAuthKey, rip2PeerDomain=rip2PeerDomain, rip2GlobalGroup=rip2GlobalGroup, Validation=Validation, rip2IfConfDefaultMetric=rip2IfConfDefaultMetric, rip2GlobalQueries=rip2GlobalQueries, rip2IfStatTable=rip2IfStatTable, rip2IfStatRcvBadPackets=rip2IfStatRcvBadPackets, rip2PeerLastUpdate=rip2PeerLastUpdate, rip2IfConfAddress=rip2IfConfAddress, rip2IfStatAddress=rip2IfStatAddress, rip2=rip2, rip2IfStatRcvBadRoutes=rip2IfStatRcvBadRoutes, rip2PeerVersion=rip2PeerVersion, rip2PeerRcvBadPackets=rip2PeerRcvBadPackets, rip2GlobalRouteChanges=rip2GlobalRouteChanges, rip2IfConfTable=rip2IfConfTable, rip2IfStatSentUpdates=rip2IfStatSentUpdates, rip2IfConfSend=rip2IfConfSend, rip2PeerRcvBadRoutes=rip2PeerRcvBadRoutes, rip2IfConfStatus=rip2IfConfStatus, rip2PeerEntry=rip2PeerEntry, rip2IfStatStatus=rip2IfStatStatus, rip2PeerAddress=rip2PeerAddress, rip2IfConfAuthType=rip2IfConfAuthType, rip2IfConfDomain=rip2IfConfDomain, rip2IfStatEntry=rip2IfStatEntry, rip2PeerTable=rip2PeerTable, rip2IfConfEntry=rip2IfConfEntry)

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module LIEBERT-GP-FLEXIBLE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-FLEXIBLE-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:38:05 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:57:46 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-liebertFlexibleModuleReg, lgpFlexible = mibBuilder.importSymbols("LIEBERT-GP-REGISTRATION-MIB", "liebertFlexibleModuleReg", "lgpFlexible")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Counter64, ModuleIdentity, NotificationType, IpAddress, Counter32, TimeTicks, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ObjectIdentity, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "ModuleIdentity", "NotificationType", "IpAddress", "Counter32", "TimeTicks", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ObjectIdentity", "Integer32", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+lgpFlexible, liebertFlexibleModuleReg = mibBuilder.importSymbols("LIEBERT-GP-REGISTRATION-MIB", "lgpFlexible", "liebertFlexibleModuleReg")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Gauge32, ModuleIdentity, NotificationType, Unsigned32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, IpAddress, Integer32, Counter32, MibIdentifier, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "NotificationType", "Unsigned32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "IpAddress", "Integer32", "Counter32", "MibIdentifier", "Bits", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 liebertGlobalProductsFlexibleModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 10, 1))
 liebertGlobalProductsFlexibleModule.setRevisions(('2013-05-14 00:00',))
 if mibBuilder.loadTexts: liebertGlobalProductsFlexibleModule.setLastUpdated('201305140000Z')
@@ -50,4 +50,4 @@ lgpFlexibleEntryUnitsOfMeasureEnum = MibTableColumn((1, 3, 6, 1, 4, 1, 476, 1, 4
 if mibBuilder.loadTexts: lgpFlexibleEntryUnitsOfMeasureEnum.setStatus('current')
 lgpFlexibleEntryDataDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 9, 30, 1, 70), DisplayString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: lgpFlexibleEntryDataDescription.setStatus('current')
-mibBuilder.exportSymbols("LIEBERT-GP-FLEXIBLE-MIB", lgpFlexibleEntryUnitsOfMeasure=lgpFlexibleEntryUnitsOfMeasure, lgpFlexibleBasicEntry=lgpFlexibleBasicEntry, lgpFlexibleExtendedEntry=lgpFlexibleExtendedEntry, lgpFlexibleTableCount=lgpFlexibleTableCount, lgpFlexibleEntryIndex=lgpFlexibleEntryIndex, lgpFlexibleEntryDataDescription=lgpFlexibleEntryDataDescription, lgpFlexibleEntryDataLabel=lgpFlexibleEntryDataLabel, lgpFlexibleEntryValue=lgpFlexibleEntryValue, lgpFlexibleExtendedTable=lgpFlexibleExtendedTable, lgpFlexibleEntryIntegerValue=lgpFlexibleEntryIntegerValue, lgpFlexibleEntryUnsignedIntegerValue=lgpFlexibleEntryUnsignedIntegerValue, lgpFlexibleBasicTable=lgpFlexibleBasicTable, lgpFlexibleEntryDecimalPosition=lgpFlexibleEntryDecimalPosition, lgpFlexibleEntryUnitsOfMeasureEnum=lgpFlexibleEntryUnitsOfMeasureEnum, PYSNMP_MODULE_ID=liebertGlobalProductsFlexibleModule, liebertGlobalProductsFlexibleModule=liebertGlobalProductsFlexibleModule, lgpFlexibleEntryDataType=lgpFlexibleEntryDataType, lgpFlexibleEntryAccessibility=lgpFlexibleEntryAccessibility)
+mibBuilder.exportSymbols("LIEBERT-GP-FLEXIBLE-MIB", lgpFlexibleEntryDataLabel=lgpFlexibleEntryDataLabel, lgpFlexibleExtendedEntry=lgpFlexibleExtendedEntry, lgpFlexibleEntryAccessibility=lgpFlexibleEntryAccessibility, lgpFlexibleEntryDecimalPosition=lgpFlexibleEntryDecimalPosition, lgpFlexibleTableCount=lgpFlexibleTableCount, lgpFlexibleEntryUnitsOfMeasureEnum=lgpFlexibleEntryUnitsOfMeasureEnum, lgpFlexibleBasicTable=lgpFlexibleBasicTable, lgpFlexibleEntryUnitsOfMeasure=lgpFlexibleEntryUnitsOfMeasure, lgpFlexibleEntryDataType=lgpFlexibleEntryDataType, lgpFlexibleEntryDataDescription=lgpFlexibleEntryDataDescription, PYSNMP_MODULE_ID=liebertGlobalProductsFlexibleModule, lgpFlexibleExtendedTable=lgpFlexibleExtendedTable, liebertGlobalProductsFlexibleModule=liebertGlobalProductsFlexibleModule, lgpFlexibleEntryIndex=lgpFlexibleEntryIndex, lgpFlexibleBasicEntry=lgpFlexibleBasicEntry, lgpFlexibleEntryUnsignedIntegerValue=lgpFlexibleEntryUnsignedIntegerValue, lgpFlexibleEntryValue=lgpFlexibleEntryValue, lgpFlexibleEntryIntegerValue=lgpFlexibleEntryIntegerValue)

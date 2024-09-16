@@ -11,30 +11,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Bits",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "clabTopoMib": {
@@ -43,16 +43,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2017-06-15 00:00",
-        "description": "Revised Version includes ECN CLAB-TOPO-MIB-N-17.0161-1 to add Apache License."
-      },
-      {
-        "revision": "2009-01-21 00:00",
-        "description": "Revised Version includes ECNs OSSIv3.0-N-08.0651-3 OSSIv3.0-N-08.0700-4 and published as I08"
-      },
-      {
         "revision": "2006-12-07 17:00",
-        "description": "Initial version, published as part of the CableLabs OSSIv3.0 specification CM-SP-OSSIv3.0-I01-061207 Copyright 1999-2009 Cable Television Laboratories, Inc. All rights reserved."
+        "description": "Initial version, published as part of the CableLabs OSSIv3.0 specification CM-SP-OSSIv3.0-I01-061207 Copyright 1999-2006 Cable Television Laboratories, Inc. All rights reserved."
       }
     ]
   },
@@ -66,7 +58,7 @@
         "size": [
           {
             "min": 0,
-            "max": 64
+            "max": 16
           }
         ]
       }
@@ -113,7 +105,7 @@
         "size": [
           {
             "min": 1,
-            "max": 64
+            "max": 16
           }
         ]
       }
@@ -252,9 +244,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/CLAB-TOPO-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CLAB-TOPO-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:34 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CLAB-TOPO-MIB"

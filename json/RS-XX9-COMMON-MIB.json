@@ -1,0 +1,4002 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-MIB": [
+      "entPhysicalEntry"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9Common",
+      "rsXx9MibModule"
+    ],
+    "RS-XX9-TC-MIB": [
+      "Trigger",
+      "NotificationPriority",
+      "Xx9SystemType",
+      "SwitchOnOff",
+      "Xx9ModulationMode",
+      "NotificationState",
+      "EnableOption",
+      "Xx9RedundancyMode",
+      "IndexTransmitter",
+      "Xx9AmplifierType",
+      "NotificationMask",
+      "NotificationClass"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rsXx9CommonMibModule": {
+    "name": "rsXx9CommonMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-21 15:00",
+        "description": "added commonEntPhysicalHardwareStatus, commonEntPhysicalConfigurationStatus, commonEntPhysicalType added commonEnvSummary, commonEnvTemperature, commonEnvDewPoint added commonEnvironment subtree "
+      },
+      {
+        "revision": "2016-02-16 10:00",
+        "description": "added commonDevInfoFanState and commonDevInfoOvpState notifications added commonDevInfoConfigTable "
+      },
+      {
+        "revision": "2015-11-18 15:00",
+        "description": "added commonGpsConfGnssSelection, most nodes for GPS state and configuration are also valid for GLONASS"
+      },
+      {
+        "revision": "2015-09-09 08:00",
+        "description": "added commonDevInfoAcFail added commonDeviceInformation "
+      },
+      {
+        "revision": "2015-08-06 16:00",
+        "description": "added swUpdateRebootPending "
+      },
+      {
+        "revision": "2015-07-15 17:00",
+        "description": "added snmpUserConfiguration"
+      },
+      {
+        "revision": "2015-04-02 08:00",
+        "description": "renamed enum labels of upsInfoBatteryStatus "
+      },
+      {
+        "revision": "2015-03-04 09:00",
+        "description": "updated description texts"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-11-28 15:00",
+        "description": "extend value range for commonGpsStAntennaState by notMonitored"
+      },
+      {
+        "revision": "2014-07-03 15:00",
+        "description": "added commonGpsStateMonitoring"
+      },
+      {
+        "revision": "2014-03-27 10:00",
+        "description": "add UPS (uninterruptable power system) information add GPS (global positioning system) configuration and status"
+      },
+      {
+        "revision": "2014-02-21 11:00",
+        "description": "update range of optionKeyIdx update Description of commonOptionKeyStatus "
+      },
+      {
+        "revision": "2013-12-02 10:00",
+        "description": "updated range for optionKeyStatus"
+      },
+      {
+        "revision": "2013-09-05 17:00",
+        "description": "changes regarding NTP: - obsoleting old commonTransmitterConfiguration/ntp section - obsoleting old commonNtpSync notification - creating new commonDateTime section (which includes NTP settings) - creating new commonDateTimeNtpState notification"
+      },
+      {
+        "revision": "2011-08-16 08:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "IndexTceDevice": {
+    "name": "IndexTceDevice",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "GpsPowerSource": {
+    "name": "GpsPowerSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "passive": 2,
+          "active": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx9CommonNotifications": {
+    "name": "rsXx9CommonNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0",
+    "class": "objectidentity"
+  },
+  "commonNtpSync": {
+    "name": "commonNtpSync",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "commonSwUpdateStatus": {
+    "name": "commonSwUpdateStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonFwUpdateStatus": {
+    "name": "commonFwUpdateStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonOptionKeyStatus": {
+    "name": "commonOptionKeyStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonTest": {
+    "name": "commonTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.1000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTrapCounter"
+      }
+    ],
+    "status": "current"
+  },
+  "commonRising": {
+    "name": "commonRising",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.1001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationVariable"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationValue"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationRisingThreshold"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "commonFalling": {
+    "name": "commonFalling",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.1002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationVariable"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationValue"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationFallingThreshold"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "commonChanging": {
+    "name": "commonChanging",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.1003",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationVariable"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationValue"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "commonDateTimeNtpState": {
+    "name": "commonDateTimeNtpState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.2000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonGpsState": {
+    "name": "commonGpsState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.3000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonDevInfoAcFail": {
+    "name": "commonDevInfoAcFail",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.4000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonDevInfoFanState": {
+    "name": "commonDevInfoFanState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.4100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonDevInfoOvpState": {
+    "name": "commonDevInfoOvpState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.4200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonEnvSummary": {
+    "name": "commonEnvSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.5000",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonEnvTemperature": {
+    "name": "commonEnvTemperature",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.5001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonEnvDewPoint": {
+    "name": "commonEnvDewPoint",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.0.5002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9CommonObjects": {
+    "name": "rsXx9CommonObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1",
+    "class": "objectidentity"
+  },
+  "commonProductInformation": {
+    "name": "commonProductInformation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1",
+    "class": "objectidentity"
+  },
+  "commonEntPhysicalTable": {
+    "name": "commonEntPhysicalTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEntPhysicalEntry": {
+    "name": "commonEntPhysicalEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "commonEntPhysicalEntry",
+      "module": "RS-XX9-COMMON-MIB",
+      "object": "entPhysicalEntry"
+    },
+    "status": "current"
+  },
+  "commonEntPhysicalSwFwBiosNumber": {
+    "name": "commonEntPhysicalSwFwBiosNumber",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEntPhysicalOperationHours": {
+    "name": "commonEntPhysicalOperationHours",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEntPhysicalPowerUpCycles": {
+    "name": "commonEntPhysicalPowerUpCycles",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEntPhysicalHardwareStatus": {
+    "name": "commonEntPhysicalHardwareStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEntPhysicalConfigurationStatus": {
+    "name": "commonEntPhysicalConfigurationStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEntPhysicalType": {
+    "name": "commonEntPhysicalType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonTransmitterConfiguration": {
+    "name": "commonTransmitterConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2",
+    "class": "objectidentity"
+  },
+  "commonDateAndTime": {
+    "name": "commonDateAndTime",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntp": {
+    "name": "ntp",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "ntpMode": {
+    "name": "ntpMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "slewAdjust": 3,
+          "stepAdjust": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ntpSyncTimeInterval": {
+    "name": "ntpSyncTimeInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 6,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ntpServerAddrTable": {
+    "name": "ntpServerAddrTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "ntpServerAddrEntry": {
+    "name": "ntpServerAddrEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpServerAddrIdx",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ntpServerAddrIdx": {
+    "name": "ntpServerAddrIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ntpServerAddressType": {
+    "name": "ntpServerAddressType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ntpServerAddress": {
+    "name": "ntpServerAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ntpState": {
+    "name": "ntpState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "enabled": 3,
+          "notRunning": 4,
+          "syncFailed": 5,
+          "synchronizing": 6,
+          "syncOk": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "ntpLastSync": {
+    "name": "ntpLastSync",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "softwareMaintenance": {
+    "name": "softwareMaintenance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3",
+    "class": "objectidentity"
+  },
+  "reboot": {
+    "name": "reboot",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUpdate": {
+    "name": "softwareUpdate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.2",
+    "class": "objectidentity"
+  },
+  "swUpdateStart": {
+    "name": "swUpdateStart",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateMode": {
+    "name": "swUpdateMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateDeviceName": {
+    "name": "swUpdateDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateDeviceGroup": {
+    "name": "swUpdateDeviceGroup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "swUpdateRebootPending": {
+    "name": "swUpdateRebootPending",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonTxNotificationTable": {
+    "name": "commonTxNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonTxNotificationEntry": {
+    "name": "commonTxNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonTxNotificationIdx": {
+    "name": "commonTxNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonTxNotificationName": {
+    "name": "commonTxNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonSwUpdateStatus": 2,
+          "commonFwUpdateStatus": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonTxNotificationMask": {
+    "name": "commonTxNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonTxNotificationPriority": {
+    "name": "commonTxNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonTxNotificationState": {
+    "name": "commonTxNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonTxFunctions": {
+    "name": "commonTxFunctions",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.5",
+    "class": "objectidentity"
+  },
+  "commonFuncSystemControl": {
+    "name": "commonFuncSystemControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonFuncTxControl": {
+    "name": "commonFuncTxControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonFuncSignalProcessing": {
+    "name": "commonFuncSignalProcessing",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonFuncCoolingControl": {
+    "name": "commonFuncCoolingControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonFuncRackControl": {
+    "name": "commonFuncRackControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnableOption",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonSystemControl": {
+    "name": "commonSystemControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.6",
+    "class": "objectidentity"
+  },
+  "commonSystemType": {
+    "name": "commonSystemType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Xx9SystemType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonSystemNumberOfTxA": {
+    "name": "commonSystemNumberOfTxA",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonTxControlTable": {
+    "name": "commonTxControlTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonTxControlEntry": {
+    "name": "commonTxControlEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "cmnTxCtrlTxIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmnTxCtrlTxIdx": {
+    "name": "cmnTxCtrlTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmnTxCtrlRedundancyMode": {
+    "name": "cmnTxCtrlRedundancyMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Xx9RedundancyMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnTxCtrlModulationMode": {
+    "name": "cmnTxCtrlModulationMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Xx9ModulationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmnTxCtrlAmplifierType": {
+    "name": "cmnTxCtrlAmplifierType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Xx9AmplifierType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonSnmpConfiguration": {
+    "name": "commonSnmpConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3",
+    "class": "objectidentity"
+  },
+  "sendTestNotification": {
+    "name": "sendTestNotification",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "irtNotificationsAllOn": {
+    "name": "irtNotificationsAllOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "irtNotificationsAllOff": {
+    "name": "irtNotificationsAllOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNotificationsAllOn": {
+    "name": "rsNotificationsAllOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNotificationsAllOff": {
+    "name": "rsNotificationsAllOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNotificationsAllFaultsOn": {
+    "name": "rsNotificationsAllFaultsOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNotificationsAllFaultsOff": {
+    "name": "rsNotificationsAllFaultsOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNotificationsAllWarningsOn": {
+    "name": "rsNotificationsAllWarningsOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsNotificationsAllWarningsOff": {
+    "name": "rsNotificationsAllWarningsOff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "customNotificationTable": {
+    "name": "customNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "customNotificationEntry": {
+    "name": "customNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "customNotificationIndex": {
+    "name": "customNotificationIndex",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "customNotificationInterval": {
+    "name": "customNotificationInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "customNotificationVariable": {
+    "name": "customNotificationVariable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "customNotificationSampleType": {
+    "name": "customNotificationSampleType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "changingValue": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "absoluteValue",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "customNotificationValue": {
+    "name": "customNotificationValue",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "customNotificationRisingThreshold": {
+    "name": "customNotificationRisingThreshold",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "customNotificationFallingThreshold": {
+    "name": "customNotificationFallingThreshold",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "customNotificationStatus": {
+    "name": "customNotificationStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "customNotificationPriority": {
+    "name": "customNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "snmpUserConfiguration": {
+    "name": "snmpUserConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.11",
+    "class": "objectidentity"
+  },
+  "snmpEnable": {
+    "name": "snmpEnable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpSyncTrapSinks": {
+    "name": "snmpSyncTrapSinks",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.3.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonNotificationBindings": {
+    "name": "commonNotificationBindings",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.4",
+    "class": "objectidentity"
+  },
+  "commonNotificationAlarmClass": {
+    "name": "commonNotificationAlarmClass",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationClass",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "commonTrapCounter": {
+    "name": "commonTrapCounter",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonOptionManagement": {
+    "name": "commonOptionManagement",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5",
+    "class": "objectidentity"
+  },
+  "installOpkTable": {
+    "name": "installOpkTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "installOpkEntry": {
+    "name": "installOpkEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "instOpkDeviceIdx": {
+    "name": "instOpkDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "instOpkDeviceName": {
+    "name": "instOpkDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "instOpkNewKey": {
+    "name": "instOpkNewKey",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "instOpkMessage": {
+    "name": "instOpkMessage",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optionKeyTable": {
+    "name": "optionKeyTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optionKeyEntry": {
+    "name": "optionKeyEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "optionKeyIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "optionKeyIdx": {
+    "name": "optionKeyIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "optionKeyNumber": {
+    "name": "optionKeyNumber",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optionKeyName": {
+    "name": "optionKeyName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optionKeyStatus": {
+    "name": "optionKeyStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deactivated": 1,
+          "installed": 2,
+          "warning": 3,
+          "fault": 4,
+          "empty": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "optionKeyValidity": {
+    "name": "optionKeyValidity",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deactivationTable": {
+    "name": "deactivationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deactivationEntry": {
+    "name": "deactivationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "deactivationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deactivationIdx": {
+    "name": "deactivationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deactivationKeyNumber": {
+    "name": "deactivationKeyNumber",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deactivationKeyName": {
+    "name": "deactivationKeyName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deactivationResponse": {
+    "name": "deactivationResponse",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonOpkNotificationTable": {
+    "name": "commonOpkNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonOpkNotificationEntry": {
+    "name": "commonOpkNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonOpkNotificationIdx": {
+    "name": "commonOpkNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonOpkNotificationName": {
+    "name": "commonOpkNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonOptionKeyStatus": 100
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonOpkNotificationMask": {
+    "name": "commonOpkNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonOpkNotificationPriority": {
+    "name": "commonOpkNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonOpkNotificationState": {
+    "name": "commonOpkNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDateTime": {
+    "name": "commonDateTime",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6",
+    "class": "objectidentity"
+  },
+  "commonDateTimeConfigurationTable": {
+    "name": "commonDateTimeConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDateTimeConfigurationEntry": {
+    "name": "commonDateTimeConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeConfDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonDateTimeConfDeviceIdx": {
+    "name": "commonDateTimeConfDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDateTimeConfDeviceName": {
+    "name": "commonDateTimeConfDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDateTimeConfLocalDateTime": {
+    "name": "commonDateTimeConfLocalDateTime",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDateTimeConfLocalTimeOffset": {
+    "name": "commonDateTimeConfLocalTimeOffset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -720,
+            "max": 840
+          }
+        ]
+      }
+    },
+    "units": "minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDateTimeConfNtpEnable": {
+    "name": "commonDateTimeConfNtpEnable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDateTimeConfNtpServer": {
+    "name": "commonDateTimeConfNtpServer",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDateTimeNotificationTable": {
+    "name": "commonDateTimeNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDateTimeNotificationEntry": {
+    "name": "commonDateTimeNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonDateTimeNotificationDeviceIdx": {
+    "name": "commonDateTimeNotificationDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDateTimeNotificationIdx": {
+    "name": "commonDateTimeNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2000,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDateTimeNotificationName": {
+    "name": "commonDateTimeNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonDateTimeNtpState": 2000
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDateTimeNotificationMask": {
+    "name": "commonDateTimeNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDateTimeNotificationPriority": {
+    "name": "commonDateTimeNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDateTimeNotificationState": {
+    "name": "commonDateTimeNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonUPS": {
+    "name": "commonUPS",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7",
+    "class": "objectidentity"
+  },
+  "upsInformationTable": {
+    "name": "upsInformationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsInformationEntry": {
+    "name": "upsInformationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "upsInfoDeviceIdx": {
+    "name": "upsInfoDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "upsInfoWithUPS": {
+    "name": "upsInfoWithUPS",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfigured": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoLink": {
+    "name": "upsInfoLink",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoManufacturer": {
+    "name": "upsInfoManufacturer",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoModel": {
+    "name": "upsInfoModel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoSoftwareVersion": {
+    "name": "upsInfoSoftwareVersion",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoName": {
+    "name": "upsInfoName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoAttachedDevices": {
+    "name": "upsInfoAttachedDevices",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoBatteryStatus": {
+    "name": "upsInfoBatteryStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ok": 2,
+          "low": 3,
+          "deplated": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoSecondsOnBattery": {
+    "name": "upsInfoSecondsOnBattery",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoMinutesRemaining": {
+    "name": "upsInfoMinutesRemaining",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoChargeRemaining": {
+    "name": "upsInfoChargeRemaining",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoOutputSource": {
+    "name": "upsInfoOutputSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "normal": 3,
+          "bypass": 4,
+          "battery": 5,
+          "booster": 6,
+          "reducer": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoOutputPower": {
+    "name": "upsInfoOutputPower",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "W",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "upsInfoSelftestResult": {
+    "name": "upsInfoSelftestResult",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.7.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "donePass": 1,
+          "doneWarning": 2,
+          "doneError": 3,
+          "aborted": 4,
+          "inProgress": 5,
+          "noTestInitiated": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGPS": {
+    "name": "commonGPS",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8",
+    "class": "objectidentity"
+  },
+  "commonGpsConfigurationTable": {
+    "name": "commonGpsConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonGpsConfigurationEntry": {
+    "name": "commonGpsConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsConfDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonGpsConfDeviceIdx": {
+    "name": "commonGpsConfDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonGpsConfDeviceName": {
+    "name": "commonGpsConfDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGpsConfAntennaType": {
+    "name": "commonGpsConfAntennaType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GpsPowerSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonGpsStateMonitoring": {
+    "name": "commonGpsStateMonitoring",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonGpsConfGnssSelection": {
+    "name": "commonGpsConfGnssSelection",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "unknown": 2,
+          "none": 3,
+          "gps": 4,
+          "glonass": 5,
+          "gpsAndGlonass": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonGpsStateTable": {
+    "name": "commonGpsStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonGpsStateEntry": {
+    "name": "commonGpsStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonGpsStAntennaState": {
+    "name": "commonGpsStAntennaState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "init": 2,
+          "dontKnow": 3,
+          "ok": 4,
+          "short": 5,
+          "open": 6,
+          "notMonitored": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGpsStTdop": {
+    "name": "commonGpsStTdop",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGpsStSatellitesInView": {
+    "name": "commonGpsStSatellitesInView",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGpsStUsedSatellites": {
+    "name": "commonGpsStUsedSatellites",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGpsNotificationTable": {
+    "name": "commonGpsNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonGpsNotificationEntry": {
+    "name": "commonGpsNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonGpsNotificationDeviceIdx": {
+    "name": "commonGpsNotificationDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonGpsNotificationIdx": {
+    "name": "commonGpsNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3000,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonGpsNotificationName": {
+    "name": "commonGpsNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonGpsState": 3000
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonGpsNotificationMask": {
+    "name": "commonGpsNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonGpsNotificationPriority": {
+    "name": "commonGpsNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonGpsNotificationState": {
+    "name": "commonGpsNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.8.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDeviceInformation": {
+    "name": "commonDeviceInformation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9",
+    "class": "objectidentity"
+  },
+  "commonDevInfoStateTable": {
+    "name": "commonDevInfoStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDevInfoStateEntry": {
+    "name": "commonDevInfoStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "devInfoStateDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "devInfoStateDeviceIdx": {
+    "name": "devInfoStateDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "devInfoStateDeviceName": {
+    "name": "devInfoStateDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devInfoStateCapacitorBatteryInstalled": {
+    "name": "devInfoStateCapacitorBatteryInstalled",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDevInfoNotificationTable": {
+    "name": "commonDevInfoNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDevInfoNotificationEntry": {
+    "name": "commonDevInfoNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonDevInfoNotificationDeviceIdx": {
+    "name": "commonDevInfoNotificationDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDevInfoNotificationIdx": {
+    "name": "commonDevInfoNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4000,
+            "max": 4000
+          },
+          {
+            "min": 4100,
+            "max": 4100
+          },
+          {
+            "min": 4200,
+            "max": 4200
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDevInfoNotificationName": {
+    "name": "commonDevInfoNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonDevInfoAcFail": 4000,
+          "commonDevInfoFanState": 4100,
+          "commonDevInfoOvpState": 4200
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDevInfoNotificationMask": {
+    "name": "commonDevInfoNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDevInfoNotificationPriority": {
+    "name": "commonDevInfoNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonDevInfoNotificationState": {
+    "name": "commonDevInfoNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonDevInfoConfigTable": {
+    "name": "commonDevInfoConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonDevInfoConfigEntry": {
+    "name": "commonDevInfoConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "devInfoStateDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonDevInfoConfAssignOvp": {
+    "name": "commonDevInfoConfAssignOvp",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.9.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonEnvironment": {
+    "name": "commonEnvironment",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10",
+    "class": "objectidentity"
+  },
+  "commonEnvConfigurationTable": {
+    "name": "commonEnvConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEnvConfigurationEntry": {
+    "name": "commonEnvConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonEnvConfDeviceIdx": {
+    "name": "commonEnvConfDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEnvConfDeviceName": {
+    "name": "commonEnvConfDeviceName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvConfTempWarnUpper": {
+    "name": "commonEnvConfTempWarnUpper",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 450
+          }
+        ]
+      }
+    },
+    "units": "0.1 degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonEnvConfTempFaultUpper": {
+    "name": "commonEnvConfTempFaultUpper",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 450
+          }
+        ]
+      }
+    },
+    "units": "0.1 degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvConfTempWarnLower": {
+    "name": "commonEnvConfTempWarnLower",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 450
+          }
+        ]
+      }
+    },
+    "units": "0.1 degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonEnvConfTempFaultLower": {
+    "name": "commonEnvConfTempFaultLower",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 450
+          }
+        ]
+      }
+    },
+    "units": "0.1 degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvStateTable": {
+    "name": "commonEnvStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEnvStateEntry": {
+    "name": "commonEnvStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfDeviceIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonEnvStTemperature": {
+    "name": "commonEnvStTemperature",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -40,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "0.1 degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvStHumidity": {
+    "name": "commonEnvStHumidity",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvStDewPoint": {
+    "name": "commonEnvStDewPoint",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvNotificationTable": {
+    "name": "commonEnvNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEnvNotificationEntry": {
+    "name": "commonEnvNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationDeviceIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "commonEnvNotificationDeviceIdx": {
+    "name": "commonEnvNotificationDeviceIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTceDevice",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEnvNotificationIdx": {
+    "name": "commonEnvNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 5002
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "commonEnvNotificationName": {
+    "name": "commonEnvNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "commonEnvSummary": 5000,
+          "commonEnvTemperature": 5001,
+          "commonEnvDewPoint": 5002
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "commonEnvNotificationMask": {
+    "name": "commonEnvNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonEnvNotificationPriority": {
+    "name": "commonEnvNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "commonEnvNotificationState": {
+    "name": "commonEnvNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.1.10.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsXx9CommonConformance": {
+    "name": "rsXx9CommonConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2",
+    "class": "objectidentity"
+  },
+  "rsXx9CommonCompliances": {
+    "name": "rsXx9CommonCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.1",
+    "class": "objectidentity"
+  },
+  "commonBasicCompliance": {
+    "name": "commonBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "commonObjBasic",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonObjNtp",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonObjSoftwareUpdate",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonObjCustomNotification",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonObjOptionManagement",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonNotifyBasic",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonNotifyNtp",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonNotifySoftwareUpdate",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonNotifyCustomNotification",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonNotifyOptionManagement",
+        "module": "RS-XX9-COMMON-MIB"
+      },
+      {
+        "object": "commonObjUPS",
+        "module": "RS-XX9-COMMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9CommonGroups": {
+    "name": "rsXx9CommonGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2",
+    "class": "objectidentity"
+  },
+  "commonObjBasic": {
+    "name": "commonObjBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateAndTime"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "rsNotificationsAllWarningsOff"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "rsNotificationsAllWarningsOn"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "rsNotificationsAllFaultsOff"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "rsNotificationsAllFaultsOn"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "rsNotificationsAllOff"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "rsNotificationsAllOn"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "irtNotificationsAllOff"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "irtNotificationsAllOn"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEntPhysicalPowerUpCycles"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEntPhysicalOperationHours"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEntPhysicalSwFwBiosNumber"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTrapCounter"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonSystemNumberOfTxA"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonSystemType"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFuncCoolingControl"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFuncSignalProcessing"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFuncTxControl"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFuncSystemControl"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "sendTestNotification"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "reboot"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationMask"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTxNotificationState"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "cmnTxCtrlRedundancyMode"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFuncRackControl"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "snmpEnable"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "snmpSyncTrapSinks"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEntPhysicalConfigurationStatus"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEntPhysicalHardwareStatus"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "cmnTxCtrlAmplifierType"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "cmnTxCtrlModulationMode"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEntPhysicalType"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjNtp": {
+    "name": "commonObjNtp",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeConfDeviceName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeConfLocalDateTime"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeConfLocalTimeOffset"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeConfNtpEnable"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeConfNtpServer"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationMask"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjSoftwareUpdate": {
+    "name": "commonObjSoftwareUpdate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "swUpdateStart"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "swUpdateMode"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "swUpdateDeviceName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "swUpdateDeviceGroup"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "swUpdateRebootPending"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjCustomNotification": {
+    "name": "commonObjCustomNotification",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationVariable"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationSampleType"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationValue"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationRisingThreshold"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationFallingThreshold"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationStatus"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "customNotificationInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjOptionManagement": {
+    "name": "commonObjOptionManagement",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "optionKeyName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "optionKeyStatus"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "optionKeyValidity"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkDeviceName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationState"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationMask"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOpkNotificationName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "deactivationResponse"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "deactivationKeyName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "deactivationKeyNumber"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkMessage"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "instOpkNewKey"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "optionKeyNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjUPS": {
+    "name": "commonObjUPS",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoWithUPS"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoLink"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoManufacturer"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoModel"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoSoftwareVersion"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoAttachedDevices"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoBatteryStatus"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoSecondsOnBattery"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoMinutesRemaining"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoChargeRemaining"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoOutputSource"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoOutputPower"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "upsInfoSelftestResult"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjGps": {
+    "name": "commonObjGps",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsConfAntennaType"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsStAntennaState"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsStTdop"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsStSatellitesInView"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsStateMonitoring"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsConfGnssSelection"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsStUsedSatellites"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsConfDeviceName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationMask"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjDeviceInformation": {
+    "name": "commonObjDeviceInformation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "devInfoStateDeviceName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "devInfoStateCapacitorBatteryInstalled"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationMask"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoNotificationState"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoConfAssignOvp"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjEnvironment": {
+    "name": "commonObjEnvironment",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfTempWarnUpper"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfTempFaultUpper"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfTempWarnLower"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfTempFaultLower"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvStTemperature"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvStHumidity"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvStDewPoint"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationName"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationMask"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvNotificationState"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvConfDeviceName"
+      }
+    ],
+    "status": "current"
+  },
+  "commonObjNtpObsoleted": {
+    "name": "commonObjNtpObsoleted",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.50",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpMode"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpSyncTimeInterval"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpServerAddrIdx"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpServerAddressType"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpServerAddress"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpLastSync"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "ntpState"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "commonNotifyBasic": {
+    "name": "commonNotifyBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.100",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonTest"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifyNtp": {
+    "name": "commonNotifyNtp",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.101",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDateTimeNtpState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifySoftwareUpdate": {
+    "name": "commonNotifySoftwareUpdate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.102",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonSwUpdateStatus"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFwUpdateStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifyCustomNotification": {
+    "name": "commonNotifyCustomNotification",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.103",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonRising"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonFalling"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonChanging"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifyOptionManagement": {
+    "name": "commonNotifyOptionManagement",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.104",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonOptionKeyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifyDeviceInformation": {
+    "name": "commonNotifyDeviceInformation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.105",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoAcFail"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoFanState"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonDevInfoOvpState"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifyEnvironment": {
+    "name": "commonNotifyEnvironment",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.106",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvSummary"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvTemperature"
+      },
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonEnvDewPoint"
+      }
+    ],
+    "status": "current"
+  },
+  "commonNotifyNtpObsoleted": {
+    "name": "commonNotifyNtpObsoleted",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.150",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNtpSync"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "commonNotifyGps": {
+    "name": "commonNotifyGps",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.2.2.2.151",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonGpsState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-COMMON-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-COMMON-MIB"
+  }
+}

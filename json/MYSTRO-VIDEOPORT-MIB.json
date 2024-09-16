@@ -10,28 +10,28 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "enterprises",
-      "iso",
-      "MibIdentifier",
-      "Unsigned32",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Counter32",
       "Integer32",
-      "Bits",
+      "TimeTicks",
       "Counter64",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "enterprises",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TEXTUAL-CONVENTION"
     ],
     "UDP-MIB": [
-      "udpLocalPort",
-      "udpLocalAddress"
+      "udpLocalAddress",
+      "udpLocalPort"
     ]
   },
   "videoport": {
@@ -517,9 +517,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mystro/MYSTRO-VIDEOPORT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 09:39:12 2024",
-      "On host fv-az1110-714 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:58:18 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "MYSTRO-VIDEOPORT-MIB"
   }

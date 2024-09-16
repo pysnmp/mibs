@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "enterprises",
       "iso",
+      "Bits",
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "enterprises",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dkt": {
@@ -35,9 +35,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dkt/DKT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:34:28 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:53:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DKT-MIB"
   }

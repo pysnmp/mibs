@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-IF-REMAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-IF-REMAP-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:35:16 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:54:25 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 ctIFRemap, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctIFRemap")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, Gauge32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, NotificationType, Unsigned32, ObjectIdentity, Counter32, Integer32, Counter64, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "NotificationType", "Unsigned32", "ObjectIdentity", "Counter32", "Integer32", "Counter64", "IpAddress", "ModuleIdentity")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Gauge32, Unsigned32, NotificationType, MibIdentifier, Bits, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32, Counter64, IpAddress, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "Unsigned32", "NotificationType", "MibIdentifier", "Bits", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32", "Counter64", "IpAddress", "iso", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctIfRemapConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 13, 1))
 ctIFRemapTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 13, 1, 1), )
@@ -33,4 +33,4 @@ ctIfRemapTableEnable = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 13, 5), Integer
 if mibBuilder.loadTexts: ctIfRemapTableEnable.setStatus('mandatory')
 ctIfRemapTableStart = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 13, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("start", 1), ("stop", 2), ("unsupported", 3))).clone('start')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctIfRemapTableStart.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-IF-REMAP-MIB", ctIfRemapTableStart=ctIfRemapTableStart, ctIfRemapTableMaxNumberEntries=ctIfRemapTableMaxNumberEntries, ctIFRemapEntry=ctIFRemapEntry, ctIfRemapTableEnable=ctIfRemapTableEnable, ctIfRemapDestIf=ctIfRemapDestIf, ctIfRemapStatus=ctIfRemapStatus, ctIFRemapTable=ctIFRemapTable, ctIfRemapPhysicalErrorsEnable=ctIfRemapPhysicalErrorsEnable, ctIfRemapSourceIf=ctIfRemapSourceIf, ctIfRemapTableNumberEntries=ctIfRemapTableNumberEntries, ctIfRemapConfig=ctIfRemapConfig)
+mibBuilder.exportSymbols("CTRON-IF-REMAP-MIB", ctIfRemapSourceIf=ctIfRemapSourceIf, ctIFRemapEntry=ctIFRemapEntry, ctIfRemapConfig=ctIfRemapConfig, ctIfRemapTableMaxNumberEntries=ctIfRemapTableMaxNumberEntries, ctIFRemapTable=ctIFRemapTable, ctIfRemapTableStart=ctIfRemapTableStart, ctIfRemapDestIf=ctIfRemapDestIf, ctIfRemapTableEnable=ctIfRemapTableEnable, ctIfRemapStatus=ctIfRemapStatus, ctIfRemapPhysicalErrorsEnable=ctIfRemapPhysicalErrorsEnable, ctIfRemapTableNumberEntries=ctIfRemapTableNumberEntries)

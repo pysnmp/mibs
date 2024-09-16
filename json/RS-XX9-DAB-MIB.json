@@ -1,0 +1,2326 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9MibModule",
+      "rsXx9Dab"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationPriority",
+      "NotificationState",
+      "IndexTransmitter",
+      "NotificationMask",
+      "IndexAB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rsXx9DabMibModule": {
+    "name": "rsXx9DabMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-23 09:00",
+        "description": "rename dabInputEdiSyncState enum: from etiLi(9) to etiNi(9)"
+      },
+      {
+        "revision": "2015-11-30 15:00",
+        "description": "add dabInputEdiTable, dabInputCmnEdiDejitterBuffer, dabInputCmnEdiMaxReplacement, dabInpIfEdiState "
+      },
+      {
+        "revision": "2015-02-27 15:00",
+        "description": "updated description texts"
+      },
+      {
+        "revision": "2015-02-02 18:00",
+        "description": "added dabTestRsEnsembleDataChannel, dabTestRsEnsemblePrbs"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-09-30 13:00",
+        "description": "added dabStSfnNetworkCompensationDelayState added dabStSfnMfnOverallSignalDelay extend range of dabStSfnTistState "
+      },
+      {
+        "revision": "2014-06-03 12:00",
+        "description": "removed off from dabSetupSfnTistSource's value range added dabInpIfEtiState added dabInputNotificationTable"
+      },
+      {
+        "revision": "2014-05-16 15:00",
+        "description": "added dabTest and dabEncoderSummary notifications added dabSetupSfnTxOffsetDelaySource"
+      },
+      {
+        "revision": "2014-03-06 16:00",
+        "description": "added dabTiiCarrierPhase"
+      },
+      {
+        "revision": "2013-12-20 10:00",
+        "description": "third revision with following changes: - change range of dabTiiSubId to 1..23"
+      },
+      {
+        "revision": "2013-10-10 14:00",
+        "description": "third revision with following changes: - added dabInputEtiErrorLevelState"
+      },
+      {
+        "revision": "2013-10-01 10:00",
+        "description": "second revision with following changes: - updated value and description of dabInputEtiSyncState (is named na5376 instead of na5372) - added dabStatusSfnInputTable with Tist state"
+      },
+      {
+        "revision": "2013-03-13 10:00",
+        "description": "Preliminary version."
+      }
+    ]
+  },
+  "DabTiiSource": {
+    "name": "DabTiiSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "manual": 2,
+          "etiMNSC": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DabMode": {
+    "name": "DabMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modeI": 1,
+          "modeII": 2,
+          "modeIII": 3,
+          "modeIV": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DabModeSource": {
+    "name": "DabModeSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "etiMID": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NetworkCompensationDelay": {
+    "name": "NetworkCompensationDelay",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ErrorLevelState": {
+    "name": "ErrorLevelState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "off": 2,
+          "noSignal": 3,
+          "tooHigh": 4,
+          "ok": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DatarateState": {
+    "name": "DatarateState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "off": 2,
+          "bufferUnderrun": 3,
+          "bufferOverflow": 4,
+          "ok": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx9DabNotifications": {
+    "name": "rsXx9DabNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.0",
+    "class": "objectidentity"
+  },
+  "dabTiiMainIdOutOfRange": {
+    "name": "dabTiiMainIdOutOfRange",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dabEncoderSummary": {
+    "name": "dabEncoderSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dabTest": {
+    "name": "dabTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dabInpIfEtiState": {
+    "name": "dabInpIfEtiState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dabInpIfEdiState": {
+    "name": "dabInpIfEdiState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9DabObjects": {
+    "name": "rsXx9DabObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1",
+    "class": "objectidentity"
+  },
+  "dabInput": {
+    "name": "dabInput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1",
+    "class": "objectidentity"
+  },
+  "dabInputCommonTable": {
+    "name": "dabInputCommonTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputCommonEntry": {
+    "name": "dabInputCommonEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabInputCmnTxIdx": {
+    "name": "dabInputCmnTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputCmnExcIdx": {
+    "name": "dabInputCmnExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputCmnImpedance": {
+    "name": "dabInputCmnImpedance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ohm75": 2,
+          "high": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputCmnEdiDejitterBuffer": {
+    "name": "dabInputCmnEdiDejitterBuffer",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "frames",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputCmnEdiMaxReplacements": {
+    "name": "dabInputCmnEdiMaxReplacements",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "frames",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputEtiTable": {
+    "name": "dabInputEtiTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputEtiEntry": {
+    "name": "dabInputEtiEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEtiInputIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabInputEtiInputIdx": {
+    "name": "dabInputEtiInputIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input1": 1,
+          "input2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputEtiSyncState": {
+    "name": "dabInputEtiSyncState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "noSignal": 2,
+          "ais": 3,
+          "g703": 4,
+          "g704": 5,
+          "niG703": 6,
+          "na5592": 7,
+          "na5376": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEtiDatarate": {
+    "name": "dabInputEtiDatarate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEtiDatarateState": {
+    "name": "dabInputEtiDatarateState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DatarateState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEtiErrorLevelState": {
+    "name": "dabInputEtiErrorLevelState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ErrorLevelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputNotificationTable": {
+    "name": "dabInputNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputNotificationEntry": {
+    "name": "dabInputNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationInputIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabInputNotificationTxIdx": {
+    "name": "dabInputNotificationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputNotificationExcIdx": {
+    "name": "dabInputNotificationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputNotificationInputIdx": {
+    "name": "dabInputNotificationInputIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input1": 1,
+          "input2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputNotificationIdx": {
+    "name": "dabInputNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputNotificationName": {
+    "name": "dabInputNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dabInpIfEtiState": 4,
+          "dabInpIfEdiState": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputNotificationMask": {
+    "name": "dabInputNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputNotificationPriority": {
+    "name": "dabInputNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputNotificationState": {
+    "name": "dabInputNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEdiTable": {
+    "name": "dabInputEdiTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabInputEdiEntry": {
+    "name": "dabInputEdiEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationInputIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabInputEdiSyncState": {
+    "name": "dabInputEdiSyncState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "noSignal": 1,
+          "stiDLi": 8,
+          "etiNi": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEdiDatarate": {
+    "name": "dabInputEdiDatarate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEdiDatarateState": {
+    "name": "dabInputEdiDatarateState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DatarateState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEdiConnector": {
+    "name": "dabInputEdiConnector",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tsLan1": 1,
+          "tsLan2": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputEdiStreamingMode": {
+    "name": "dabInputEdiStreamingMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uniCast": 1,
+          "multiCast": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputEdiStreamAddressType": {
+    "name": "dabInputEdiStreamAddressType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEdiStreamAddress": {
+    "name": "dabInputEdiStreamAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputEdiStreamPort": {
+    "name": "dabInputEdiStreamPort",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputEdiErrorLevelState": {
+    "name": "dabInputEdiErrorLevelState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ErrorLevelState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabInputEdiReplacementStatus": {
+    "name": "dabInputEdiReplacementStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "noInput": 2,
+          "unused": 3,
+          "replacedFrames": 4,
+          "ok": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabInputEdiFecMode": {
+    "name": "dabInputEdiFecMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "off": 2,
+          "mode1": 3,
+          "mode2": 4,
+          "mode3": 5,
+          "mode4": 6,
+          "mode5": 7,
+          "mode6OrHigher": 8,
+          "unknown": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStatus": {
+    "name": "dabStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2",
+    "class": "objectidentity"
+  },
+  "dabStatusNotificationTable": {
+    "name": "dabStatusNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStatusNotificationEntry": {
+    "name": "dabStatusNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabStatusNotificationTxIdx": {
+    "name": "dabStatusNotificationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStatusNotificationExcIdx": {
+    "name": "dabStatusNotificationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStatusNotificationIdx": {
+    "name": "dabStatusNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStatusNotificationName": {
+    "name": "dabStatusNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dabTiiMainIdOutOfRange": 1,
+          "dabEncoderSummary": 2,
+          "dabTest": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStatusNotificationMask": {
+    "name": "dabStatusNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabStatusNotificationPriority": {
+    "name": "dabStatusNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabStatusNotificationState": {
+    "name": "dabStatusNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActiveConfigurationTable": {
+    "name": "dabActiveConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabActiveConfigurationEntry": {
+    "name": "dabActiveConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabActCfgModeSource": {
+    "name": "dabActCfgModeSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabModeSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActiveLocalizationTable": {
+    "name": "dabActiveLocalizationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabActiveLocalizationEntry": {
+    "name": "dabActiveLocalizationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabActLclTxAddressPresentPlain": {
+    "name": "dabActLclTxAddressPresentPlain",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActLclTxAddressRequired": {
+    "name": "dabActLclTxAddressRequired",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActLclTxAddressState": {
+    "name": "dabActLclTxAddressState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "neverSeen": 2,
+          "holdover": 3,
+          "ok": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActLclTiiSource": {
+    "name": "dabActLclTiiSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabTiiSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActiveModulationTable": {
+    "name": "dabActiveModulationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabActiveModulationEntry": {
+    "name": "dabActiveModulationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabActMdlModeEti": {
+    "name": "dabActMdlModeEti",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActMdlMode": {
+    "name": "dabActMdlMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActiveTiiTable": {
+    "name": "dabActiveTiiTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabActiveTiiEntry": {
+    "name": "dabActiveTiiEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabActTiiMainIdMnsc": {
+    "name": "dabActTiiMainIdMnsc",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActTiiSubIdMnsc": {
+    "name": "dabActTiiSubIdMnsc",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActTiiMainId": {
+    "name": "dabActTiiMainId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabActTiiSubId": {
+    "name": "dabActTiiSubId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStatusSfnTable": {
+    "name": "dabStatusSfnTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStatusSfnEntry": {
+    "name": "dabStatusSfnEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabStSfnTxOffsetDelaySource": {
+    "name": "dabStSfnTxOffsetDelaySource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "mnsc": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStSfnTxOffsetDelayMnsc": {
+    "name": "dabStSfnTxOffsetDelayMnsc",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStSfnNetworkCompensationDelay": {
+    "name": "dabStSfnNetworkCompensationDelay",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkCompensationDelay",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStSfnTxCompensationDelay": {
+    "name": "dabStSfnTxCompensationDelay",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStSfnTxOffsetDelay": {
+    "name": "dabStSfnTxOffsetDelay",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStSfnMfnOverallSignalDelay": {
+    "name": "dabStSfnMfnOverallSignalDelay",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2000000
+          }
+        ]
+      }
+    },
+    "units": "micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStatusSfnInputTable": {
+    "name": "dabStatusSfnInputTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStatusSfnInputEntry": {
+    "name": "dabStatusSfnInputEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnInputIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabStSfnInputIdx": {
+    "name": "dabStSfnInputIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input1": 1,
+          "input2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabStSfnTistState": {
+    "name": "dabStSfnTistState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "off": 2,
+          "missingNi": 3,
+          "missingNa": 4,
+          "null": 5,
+          "ok": 6,
+          "flywheelActive": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabStSfnNetworkCompensationDelayState": {
+    "name": "dabStSfnNetworkCompensationDelayState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkCompensationDelay",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabSetup": {
+    "name": "dabSetup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3",
+    "class": "objectidentity"
+  },
+  "dabConfigurationTable": {
+    "name": "dabConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabConfigurationEntry": {
+    "name": "dabConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabConfigurationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabConfigurationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabConfigurationTxIdx": {
+    "name": "dabConfigurationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabConfigurationExcIdx": {
+    "name": "dabConfigurationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabConfigurationModeSource": {
+    "name": "dabConfigurationModeSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabModeSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabLocalizationTable": {
+    "name": "dabLocalizationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabLocalizationEntry": {
+    "name": "dabLocalizationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dabLocalizationEntry",
+      "module": "RS-XX9-DAB-MIB",
+      "object": "dabConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dabLocalizationTxAddress": {
+    "name": "dabLocalizationTxAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabLocalizationTiiSource": {
+    "name": "dabLocalizationTiiSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabTiiSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabModulationTable": {
+    "name": "dabModulationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabModulationEntry": {
+    "name": "dabModulationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dabModulationEntry",
+      "module": "RS-XX9-DAB-MIB",
+      "object": "dabConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dabModulationChannelBandwidth": {
+    "name": "dabModulationChannelBandwidth",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mhz1p5": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabModulationMode": {
+    "name": "dabModulationMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DabMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabTiiTable": {
+    "name": "dabTiiTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabTiiEntry": {
+    "name": "dabTiiEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dabTiiEntry",
+      "module": "RS-XX9-DAB-MIB",
+      "object": "dabConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dabTiiMainId": {
+    "name": "dabTiiMainId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 69
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabTiiSubId": {
+    "name": "dabTiiSubId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabTiiCarrierPhase": {
+    "name": "dabTiiCarrierPhase",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "etsi": 1,
+          "prSymbol": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnTable": {
+    "name": "dabSetupSfnTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabSetupSfnEntry": {
+    "name": "dabSetupSfnEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dabSetupSfnEntry",
+      "module": "RS-XX9-DAB-MIB",
+      "object": "dabConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dabSetupSfnSync": {
+    "name": "dabSetupSfnSync",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "dynamic": 3,
+          "static": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnTistSource": {
+    "name": "dabSetupSfnTistSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "etiLi": 3,
+          "etiNa": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnMaxTistLevel": {
+    "name": "dabSetupSfnMaxTistLevel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "level1": 3,
+          "level2": 4,
+          "level3": 5,
+          "level4": 6,
+          "level5": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnNetworkCompensationDelay1": {
+    "name": "dabSetupSfnNetworkCompensationDelay1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkCompensationDelay",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnNetworkCompensationDelay2": {
+    "name": "dabSetupSfnNetworkCompensationDelay2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NetworkCompensationDelay",
+      "class": "type"
+    },
+    "units": "micro second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnTxDelay": {
+    "name": "dabSetupSfnTxDelay",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "units": "micro second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabSetupSfnTxOffsetDelaySource": {
+    "name": "dabSetupSfnTxOffsetDelaySource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "mnsc": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabTestTable": {
+    "name": "dabTestTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabTestEntry": {
+    "name": "dabTestEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dabTestEntry",
+      "module": "RS-XX9-DAB-MIB",
+      "object": "dabConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dabTestSignal": {
+    "name": "dabTestSignal",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "rohdeSchwarzEnsemble": 2,
+          "singleCarrier": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabTestRsEnsembleDataChannel": {
+    "name": "dabTestRsEnsembleDataChannel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "prbs": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabTestRsEnsemblePrbs": {
+    "name": "dabTestRsEnsemblePrbs",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "poly1": 1,
+          "poly2": 2,
+          "poly3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsXx9DabConformance": {
+    "name": "rsXx9DabConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2",
+    "class": "objectidentity"
+  },
+  "rsXx9DabCompliances": {
+    "name": "rsXx9DabCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2.1",
+    "class": "objectidentity"
+  },
+  "dabBasicCompliance": {
+    "name": "dabBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dabObjBasic",
+        "module": "RS-XX9-DAB-MIB"
+      },
+      {
+        "object": "dabNotifyBasic",
+        "module": "RS-XX9-DAB-MIB"
+      },
+      {
+        "object": "dabObjInput",
+        "module": "RS-XX9-DAB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9DabGroups": {
+    "name": "rsXx9DabGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2.2",
+    "class": "objectidentity"
+  },
+  "dabObjBasic": {
+    "name": "dabObjBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabConfigurationModeSource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabLocalizationTxAddress"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabLocalizationTiiSource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTestSignal"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTiiSubId"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTiiMainId"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabModulationChannelBandwidth"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActCfgModeSource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActLclTxAddressPresentPlain"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActLclTxAddressRequired"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActLclTiiSource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActMdlMode"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActTiiMainIdMnsc"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActTiiSubIdMnsc"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActTiiMainId"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActTiiSubId"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActMdlModeEti"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabActLclTxAddressState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnSync"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnTistSource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnMaxTistLevel"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnNetworkCompensationDelay1"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnNetworkCompensationDelay2"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnTxDelay"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnTxOffsetDelaySource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnTxOffsetDelayMnsc"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnNetworkCompensationDelay"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnTxCompensationDelay"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnTxOffsetDelay"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnTistState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTiiCarrierPhase"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabSetupSfnTxOffsetDelaySource"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnNetworkCompensationDelayState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStSfnMfnOverallSignalDelay"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTestRsEnsemblePrbs"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTestRsEnsembleDataChannel"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabModulationMode"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationName"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationMask"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dabObjInput": {
+    "name": "dabObjInput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEtiDatarateState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEtiDatarate"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEtiErrorLevelState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationMask"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputNotificationName"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiFecMode"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiReplacementStatus"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiErrorLevelState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiDatarateState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiStreamPort"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiStreamAddress"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiStreamAddressType"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiStreamingMode"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiConnector"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiDatarate"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnEdiMaxReplacements"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnEdiDejitterBuffer"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEtiSyncState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputCmnImpedance"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInputEdiSyncState"
+      }
+    ],
+    "status": "current"
+  },
+  "dabNotifyBasic": {
+    "name": "dabNotifyBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.10.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTiiMainIdOutOfRange"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabEncoderSummary"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabTest"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInpIfEtiState"
+      },
+      {
+        "module": "RS-XX9-DAB-MIB",
+        "object": "dabInpIfEdiState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-DAB-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-DAB-MIB"
+  }
+}

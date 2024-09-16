@@ -9,32 +9,32 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
       "Counter64",
+      "mib-2",
       "Counter32",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Unsigned32",
-      "Bits",
-      "mib-2"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "StorageType",
+      "TruthValue"
     ]
   },
   "pimBsrMIB": {
@@ -225,44 +225,6 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "pimBsrCandidateRPAdvTimer": {
-    "name": "pimBsrCandidateRPAdvTimer",
-    "oid": "1.3.6.1.2.1.172.1.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "pimBsrCandidateRPPriority": {
-    "name": "pimBsrCandidateRPPriority",
-    "oid": "1.3.6.1.2.1.172.1.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 192,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "pimBsrCandidateRPAdvInterval": {
     "name": "pimBsrCandidateRPAdvInterval",
     "oid": "1.3.6.1.2.1.172.1.1.1.8",
@@ -290,33 +252,6 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "pimBsrCandidateRPHoldtime": {
-    "name": "pimBsrCandidateRPHoldtime",
-    "oid": "1.3.6.1.2.1.172.1.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 150,
-        "format": "decimal"
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-create",
-    "status": "current"
-  },
   "pimBsrCandidateRPStatus": {
     "name": "pimBsrCandidateRPStatus",
     "oid": "1.3.6.1.2.1.172.1.1.1.10",
@@ -325,24 +260,6 @@
     "syntax": {
       "type": "RowStatus",
       "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "pimBsrCandidateRPStorageType": {
-    "name": "pimBsrCandidateRPStorageType",
-    "oid": "1.3.6.1.2.1.172.1.1.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "StorageType",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "nonVolatile",
-        "format": "enum"
-      }
     },
     "maxaccess": "read-create",
     "status": "current"
@@ -534,18 +451,6 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "pimBsrElectedBSRRPSetGrpBidir": {
-    "name": "pimBsrElectedBSRRPSetGrpBidir",
-    "oid": "1.3.6.1.2.1.172.1.2.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "pimBsrCandidateBSRTable": {
     "name": "pimBsrCandidateBSRTable",
     "oid": "1.3.6.1.2.1.172.1.3",
@@ -685,24 +590,6 @@
     "syntax": {
       "type": "RowStatus",
       "class": "type"
-    },
-    "maxaccess": "read-create",
-    "status": "current"
-  },
-  "pimBsrCandidateBSRStorageType": {
-    "name": "pimBsrCandidateBSRStorageType",
-    "oid": "1.3.6.1.2.1.172.1.3.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "StorageType",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "nonVolatile",
-        "format": "enum"
-      }
     },
     "maxaccess": "read-create",
     "status": "current"
@@ -905,27 +792,7 @@
       },
       {
         "module": "PIM-BSR-MIB",
-        "object": "pimBsrCandidateRPAdvTimer"
-      },
-      {
-        "module": "PIM-BSR-MIB",
-        "object": "pimBsrCandidateRPPriority"
-      },
-      {
-        "module": "PIM-BSR-MIB",
-        "object": "pimBsrCandidateRPAdvInterval"
-      },
-      {
-        "module": "PIM-BSR-MIB",
-        "object": "pimBsrCandidateRPHoldtime"
-      },
-      {
-        "module": "PIM-BSR-MIB",
         "object": "pimBsrCandidateRPStatus"
-      },
-      {
-        "module": "PIM-BSR-MIB",
-        "object": "pimBsrCandidateRPStorageType"
       },
       {
         "module": "PIM-BSR-MIB",
@@ -938,10 +805,6 @@
       {
         "module": "PIM-BSR-MIB",
         "object": "pimBsrElectedBSRRPSetExpiryTime"
-      },
-      {
-        "module": "PIM-BSR-MIB",
-        "object": "pimBsrElectedBSRRPSetGrpBidir"
       },
       {
         "module": "PIM-BSR-MIB",
@@ -970,10 +833,6 @@
       {
         "module": "PIM-BSR-MIB",
         "object": "pimBsrCandidateBSRStatus"
-      },
-      {
-        "module": "PIM-BSR-MIB",
-        "object": "pimBsrCandidateBSRStorageType"
       },
       {
         "module": "PIM-BSR-MIB",
@@ -1016,9 +875,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PIM-BSR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:32 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/quanta/pimbsrrfc5240.my",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:50 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "PIM-BSR-MIB"

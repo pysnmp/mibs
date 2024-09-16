@@ -11,35 +11,35 @@
       "OwnerString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "mib-2",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Bits",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "mib-2"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TimeInterval",
-      "StorageType",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "StorageType",
+      "TimeStamp"
     ]
   },
   "energyObjectMib": {
@@ -1003,9 +1003,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ENERGY-OBJECT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:30 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ENERGY-OBJECT-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:30 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ENERGY-OBJECT-MIB"

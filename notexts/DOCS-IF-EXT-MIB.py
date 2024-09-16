@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module DOCS-IF-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DOCS-IF-EXT-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:32:40 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# ASN.1 source https://pysnmp.github.io:443/mibs/asn1/DOCS-IF-EXT-MIB
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:51:31 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-docsIfCmtsCmStatusEntry, docsIfMib = mibBuilder.importSymbols("DOCS-IF-MIB", "docsIfCmtsCmStatusEntry", "docsIfMib")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, iso, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, ModuleIdentity, IpAddress, ObjectIdentity, Integer32, Counter32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "iso", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Integer32", "Counter32", "TimeTicks", "Counter64")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+docsIfMib, docsIfCmtsCmStatusEntry = mibBuilder.importSymbols("DOCS-IF-MIB", "docsIfMib", "docsIfCmtsCmStatusEntry")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+IpAddress, TimeTicks, Counter64, MibIdentifier, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, Counter32, Bits, Integer32, Unsigned32, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "Counter64", "MibIdentifier", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "Counter32", "Bits", "Integer32", "Unsigned32", "ObjectIdentity", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 docsIfExtMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 127, 21))
 docsIfExtMib.setRevisions(('1900-10-08 00:00',))
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 docsIfExtGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 127, 21, 4, 2, 2)).setObjects(("DOCS-IF-EXT-MIB", "docsIfCmtsCmStatusDocsisMode"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     docsIfExtGroup = docsIfExtGroup.setStatus('current')
-mibBuilder.exportSymbols("DOCS-IF-EXT-MIB", DocsisVersion=DocsisVersion, docsIfCmtsCmStatusDocsisMode=docsIfCmtsCmStatusDocsisMode, docsIfCmtsCmStatusExtEntry=docsIfCmtsCmStatusExtEntry, docsIfExtConformance=docsIfExtConformance, docsIfDocsisVersionGroup=docsIfDocsisVersionGroup, docsIfExtCmCompliance=docsIfExtCmCompliance, docsIfExtGroup=docsIfExtGroup, docsIfDocsisOperMode=docsIfDocsisOperMode, docsIfExtGroups=docsIfExtGroups, docsIfExtCompliances=docsIfExtCompliances, docsIfCmtsCmStatusExtTable=docsIfCmtsCmStatusExtTable, PYSNMP_MODULE_ID=docsIfExtMib, docsIfDocsisCapability=docsIfDocsisCapability, docsIfExtCmtsCompliance=docsIfExtCmtsCompliance, docsIfExtMib=docsIfExtMib)
+mibBuilder.exportSymbols("DOCS-IF-EXT-MIB", docsIfExtConformance=docsIfExtConformance, docsIfCmtsCmStatusDocsisMode=docsIfCmtsCmStatusDocsisMode, docsIfCmtsCmStatusExtTable=docsIfCmtsCmStatusExtTable, docsIfExtCompliances=docsIfExtCompliances, docsIfExtGroups=docsIfExtGroups, docsIfDocsisCapability=docsIfDocsisCapability, DocsisVersion=DocsisVersion, docsIfExtMib=docsIfExtMib, docsIfExtCmtsCompliance=docsIfExtCmtsCompliance, docsIfExtGroup=docsIfExtGroup, docsIfExtCmCompliance=docsIfExtCmCompliance, docsIfDocsisOperMode=docsIfDocsisOperMode, PYSNMP_MODULE_ID=docsIfExtMib, docsIfDocsisVersionGroup=docsIfDocsisVersionGroup, docsIfCmtsCmStatusExtEntry=docsIfCmtsCmStatusExtEntry)

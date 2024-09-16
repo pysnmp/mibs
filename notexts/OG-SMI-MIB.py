@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module OG-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OG-SMI-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:39:03 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:59:06 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, Counter64, enterprises, ObjectIdentity, ModuleIdentity, TimeTicks, Gauge32, Unsigned32, MibIdentifier, Counter32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "Counter64", "enterprises", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "Gauge32", "Unsigned32", "MibIdentifier", "Counter32", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, enterprises, MibIdentifier, Unsigned32, Bits, ModuleIdentity, ObjectIdentity, Counter32, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Integer32, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "enterprises", "MibIdentifier", "Unsigned32", "Bits", "ModuleIdentity", "ObjectIdentity", "Counter32", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Integer32", "iso", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 opengear = ModuleIdentity((1, 3, 6, 1, 4, 1, 25049))
 opengear.setRevisions(('2018-06-15 00:00', '2013-11-15 00:00', '2013-08-11 00:00', '2010-03-22 11:27', '2005-02-24 01:00',))
 if mibBuilder.loadTexts: opengear.setLastUpdated('201806150000Z')
@@ -39,4 +39,4 @@ ogModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 11))
 if mibBuilder.loadTexts: ogModules.setStatus('current')
 ogSpecific = ObjectIdentity((1, 3, 6, 1, 4, 1, 25049, 18))
 if mibBuilder.loadTexts: ogSpecific.setStatus('current')
-mibBuilder.exportSymbols("OG-SMI-MIB", ogProducts=ogProducts, ogLegacyMgmt=ogLegacyMgmt, ogMgmt=ogMgmt, PYSNMP_MODULE_ID=opengear, otherEnterprises=otherEnterprises, ogInternal=ogInternal, ogReserved1=ogReserved1, ogReserved2=ogReserved2, ogConfig=ogConfig, opengear=opengear, ogAgentCapability=ogAgentCapability, ogModules=ogModules, ogSpecific=ogSpecific, ogExperimental=ogExperimental)
+mibBuilder.exportSymbols("OG-SMI-MIB", ogReserved2=ogReserved2, ogModules=ogModules, ogAgentCapability=ogAgentCapability, ogProducts=ogProducts, ogSpecific=ogSpecific, ogExperimental=ogExperimental, ogLegacyMgmt=ogLegacyMgmt, opengear=opengear, ogConfig=ogConfig, ogReserved1=ogReserved1, PYSNMP_MODULE_ID=opengear, ogInternal=ogInternal, otherEnterprises=otherEnterprises, ogMgmt=ogMgmt)

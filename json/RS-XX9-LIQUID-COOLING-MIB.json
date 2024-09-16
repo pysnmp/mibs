@@ -1,0 +1,1754 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9MibModule",
+      "rsXx9LiquidCooling"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationState",
+      "NotificationPriority",
+      "SwitchOnOff",
+      "NotificationMask"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rsXx9LqMibModule": {
+    "name": "rsXx9LqMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.100",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-11-30 17:00",
+        "description": "removed lqFStFanIdx from complianceStatement to be SMI compliant"
+      },
+      {
+        "revision": "2015-08-20 15:00",
+        "description": "extended CycleIdx from 8 to max 12 cycles added compactCfgServiceMode"
+      },
+      {
+        "revision": "2015-06-23 12:00",
+        "description": "added compactCoolingConfigTable, lqStCompactCompensateMode, lqStCompactRelayState, lqStCompactPumpDesiredSpeed added lqCfgAutoOn"
+      },
+      {
+        "revision": "2015-02-27 15:00",
+        "description": "updated description texts"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2013-10-07 12:00",
+        "description": "extend liquid cooling cycle range from 1..2 to 1..8. Up to 8 cooling cycles are now possible for each system."
+      },
+      {
+        "revision": "2013-01-31 13:00",
+        "description": "lqStInletTemperatureFaultLimit, lqStInletTemperatureWarningLimit obsoleted"
+      },
+      {
+        "revision": "2012-05-11 08:00",
+        "description": "Initial revision"
+      },
+      {
+        "revision": "2012-01-26 08:00",
+        "description": "Preliminary release."
+      }
+    ]
+  },
+  "rsXx9LiquidCoolingNotifications": {
+    "name": "rsXx9LiquidCoolingNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.0",
+    "class": "objectidentity"
+  },
+  "lqSummary": {
+    "name": "lqSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "lqFilterSummary": {
+    "name": "lqFilterSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "lqSensorsSummary": {
+    "name": "lqSensorsSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "lqSiteWarning": {
+    "name": "lqSiteWarning",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "lqSiteFault": {
+    "name": "lqSiteFault",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LiquidCoolingObjects": {
+    "name": "rsXx9LiquidCoolingObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1",
+    "class": "objectidentity"
+  },
+  "lqStatus": {
+    "name": "lqStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1",
+    "class": "objectidentity"
+  },
+  "lqNotificationTable": {
+    "name": "lqNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqNotificationEntry": {
+    "name": "lqNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationCycleIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lqNotificationCycleIdx": {
+    "name": "lqNotificationCycleIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqNotificationIdx": {
+    "name": "lqNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqNotificationName": {
+    "name": "lqNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lqSummary": 1,
+          "lqFilterSummary": 2,
+          "lqSensorsSummary": 3,
+          "lqSiteWarning": 4,
+          "lqSiteFault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqNotificationMask": {
+    "name": "lqNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqNotificationPriority": {
+    "name": "lqNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqNotificationState": {
+    "name": "lqNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStateTable": {
+    "name": "lqStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqStateEntry": {
+    "name": "lqStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationCycleIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lqStInletTemperature": {
+    "name": "lqStInletTemperature",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStInletTemperatureSensor": {
+    "name": "lqStInletTemperatureSensor",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStInletTemperatureSumState": {
+    "name": "lqStInletTemperatureSumState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStOutletTemperature": {
+    "name": "lqStOutletTemperature",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStOutletTemperatureSensor": {
+    "name": "lqStOutletTemperatureSensor",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStOutletTemperatureSumState": {
+    "name": "lqStOutletTemperatureSumState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStCoolantPressure": {
+    "name": "lqStCoolantPressure",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "deci bar",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStCoolantPressureSensor": {
+    "name": "lqStCoolantPressureSensor",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStCoolantPressureSumState": {
+    "name": "lqStCoolantPressureSumState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqStInletTemperatureFaultLimit": {
+    "name": "lqStInletTemperatureFaultLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "lqStInletTemperatureWarningLimit": {
+    "name": "lqStInletTemperatureWarningLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "lqStCompactPumpDesiredSpeed": {
+    "name": "lqStCompactPumpDesiredSpeed",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPumpStateTable": {
+    "name": "lqPumpStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqPumpStateEntry": {
+    "name": "lqPumpStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationCycleIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStPumpIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lqPStPumpIdx": {
+    "name": "lqPStPumpIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqPStCommunicationState": {
+    "name": "lqPStCommunicationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPStSumState": {
+    "name": "lqPStSumState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPStMotorBlocked": {
+    "name": "lqPStMotorBlocked",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPStOperatingHours": {
+    "name": "lqPStOperatingHours",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPStType": {
+    "name": "lqPStType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPStCurrentFlowRate": {
+    "name": "lqPStCurrentFlowRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "liter per minute",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqPStCurrentSpeed": {
+    "name": "lqPStCurrentSpeed",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqFanStateTable": {
+    "name": "lqFanStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqFanStateEntry": {
+    "name": "lqFanStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationCycleIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStFanIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lqFStFanIdx": {
+    "name": "lqFStFanIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqFStCommunicationState": {
+    "name": "lqFStCommunicationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqFStSumState": {
+    "name": "lqFStSumState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqFStMotorBlocked": {
+    "name": "lqFStMotorBlocked",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqFStOperatingHours": {
+    "name": "lqFStOperatingHours",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hour",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqFStSupplyFailure": {
+    "name": "lqFStSupplyFailure",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqFStCurrentSpeed": {
+    "name": "lqFStCurrentSpeed",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lqConfiguration": {
+    "name": "lqConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2",
+    "class": "objectidentity"
+  },
+  "lqConfigTable": {
+    "name": "lqConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqConfigEntry": {
+    "name": "lqConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCycleIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lqCfgCycleIdx": {
+    "name": "lqCfgCycleIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lqCfgType": {
+    "name": "lqCfgType",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coolingRS": 1,
+          "coolingSite": 2,
+          "coolingRSsmall": 3,
+          "cooling8000": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgHeatExchangersPerRack": {
+    "name": "lqCfgHeatExchangersPerRack",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgFansPerHeatExchanger": {
+    "name": "lqCfgFansPerHeatExchanger",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgCoolantSetPointTemperature": {
+    "name": "lqCfgCoolantSetPointTemperature",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgCoolantTemperatureFaultLimit": {
+    "name": "lqCfgCoolantTemperatureFaultLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgCoolantTemperatureWarningLimit": {
+    "name": "lqCfgCoolantTemperatureWarningLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgCoolantPressureFaultLimit": {
+    "name": "lqCfgCoolantPressureFaultLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "units": "deci bar",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgCoolantPressureWarningLimit": {
+    "name": "lqCfgCoolantPressureWarningLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "units": "deci bar",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgFanMaxSpeed": {
+    "name": "lqCfgFanMaxSpeed",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgPumpsExtraFlowRate": {
+    "name": "lqCfgPumpsExtraFlowRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "units": "10 liter per minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgAntiFreeze": {
+    "name": "lqCfgAntiFreeze",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lqCfgAutoOn": {
+    "name": "lqCfgAutoOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysOn": 1,
+          "autoOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCoolingConfigTable": {
+    "name": "compactCoolingConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "compactCoolingConfigEntry": {
+    "name": "compactCoolingConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgCycleIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "compactCfgCycleIdx": {
+    "name": "compactCfgCycleIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "compactCfgHeatExchangers": {
+    "name": "compactCfgHeatExchangers",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgFans": {
+    "name": "compactCfgFans",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgCoolantTemperatureFaultLimit": {
+    "name": "compactCfgCoolantTemperatureFaultLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgCoolantTemperatureWarningLimit": {
+    "name": "compactCfgCoolantTemperatureWarningLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 40,
+            "max": 65
+          }
+        ]
+      }
+    },
+    "units": "degree Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgCoolantPressureFaultLimit": {
+    "name": "compactCfgCoolantPressureFaultLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "units": "deci bar",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgCoolantPressureWarningLimit": {
+    "name": "compactCfgCoolantPressureWarningLimit",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "units": "deci bar",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgPumpsExtraFlowRate": {
+    "name": "compactCfgPumpsExtraFlowRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "units": "10 liter per minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgAutoOn": {
+    "name": "compactCfgAutoOn",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alwaysOn": 1,
+          "autoOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "compactCfgServiceMode": {
+    "name": "compactCfgServiceMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsXx9LiquidCoolingConformance": {
+    "name": "rsXx9LiquidCoolingConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2",
+    "class": "objectidentity"
+  },
+  "rsXx9LqCompliances": {
+    "name": "rsXx9LqCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.1",
+    "class": "objectidentity"
+  },
+  "lqRsCompliance": {
+    "name": "lqRsCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rsXx9LqObjCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqObjRS",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqNotifyCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqNotifyRS",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lqSiteCompliance": {
+    "name": "lqSiteCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rsXx9LqObjCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqNotifyCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqNotifySite",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lqRsSmallCompliance": {
+    "name": "lqRsSmallCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rsXx9LqObjCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqNotifyCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9LqObjSmall",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lqCompactCompliance": {
+    "name": "lqCompactCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "rsXx9LqNotifyCommon",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9CompactCoolingObjs",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      },
+      {
+        "object": "rsXx9CompactCoolingNotify",
+        "module": "RS-XX9-LIQUID-COOLING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqGroups": {
+    "name": "rsXx9LqGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2",
+    "class": "objectidentity"
+  },
+  "rsXx9LqObjCommon": {
+    "name": "rsXx9LqObjCommon",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationName"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationMask"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgType"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantTemperatureFaultLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgAutoOn"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantTemperatureWarningLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperature"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperatureSensor"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperatureSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStOutletTemperature"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStOutletTemperatureSensor"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStOutletTemperatureSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCoolantPressure"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCoolantPressureSensor"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCoolantPressureSumState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqObjRS": {
+    "name": "rsXx9LqObjRS",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStCommunicationState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStMotorBlocked"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStOperatingHours"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStType"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStCurrentFlowRate"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStCurrentSpeed"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStCommunicationState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStMotorBlocked"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStOperatingHours"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStSupplyFailure"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStCurrentSpeed"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgHeatExchangersPerRack"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgFansPerHeatExchanger"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantSetPointTemperature"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantPressureFaultLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantPressureWarningLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgFanMaxSpeed"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgPumpsExtraFlowRate"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgAntiFreeze"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqObjSmall": {
+    "name": "rsXx9LqObjSmall",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantPressureFaultLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqCfgCoolantPressureWarningLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqNotifyCommon": {
+    "name": "rsXx9LqNotifyCommon",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSummary"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqNotifyRS": {
+    "name": "rsXx9LqNotifyRS",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFilterSummary"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSensorsSummary"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqNotifySite": {
+    "name": "rsXx9LqNotifySite",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSiteWarning"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSiteFault"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9LqObjsObsoleted": {
+    "name": "rsXx9LqObjsObsoleted",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperatureFaultLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperatureWarningLimit"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "rsXx9CompactCoolingObjs": {
+    "name": "rsXx9CompactCoolingObjs",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.100",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStType"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqFStSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCoolantPressureSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCoolantPressureSensor"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCoolantPressure"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStOutletTemperatureSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStOutletTemperatureSensor"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStOutletTemperature"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperatureSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperatureSensor"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStInletTemperature"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqPStSumState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationName"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationMask"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqNotificationState"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgHeatExchangers"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgCoolantTemperatureFaultLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgCoolantTemperatureWarningLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgCoolantPressureFaultLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgCoolantPressureWarningLimit"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgPumpsExtraFlowRate"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqStCompactPumpDesiredSpeed"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgServiceMode"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgAutoOn"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "compactCfgFans"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9CompactCoolingNotify": {
+    "name": "rsXx9CompactCoolingNotify",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.100.2.2.200",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSensorsSummary"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSiteWarning"
+      },
+      {
+        "module": "RS-XX9-LIQUID-COOLING-MIB",
+        "object": "lqSiteFault"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-LIQUID-COOLING-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-LIQUID-COOLING-MIB"
+  }
+}

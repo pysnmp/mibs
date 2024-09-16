@@ -1,0 +1,1877 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "fm",
+      "SelectManualAuto",
+      "SelectOnOff",
+      "ExecutedNotExecuted",
+      "LocalRemote",
+      "PresentNotPresent",
+      "FaultOK",
+      "ReadyNotReady"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "fmDualDrive": {
+    "name": "fmDualDrive",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change LocalMode (description) and Module-COMPLIANCE change numbering: OIDs 1.3.6.1.4.1.19831.1.1.3.4.0.14-19"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "fmEventsDD": {
+    "name": "fmEventsDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0",
+    "class": "objectidentity"
+  },
+  "fmDDPreselectionExciterEvent": {
+    "name": "fmDDPreselectionExciterEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDPreselectionExciter"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDTransmitterOpModeEvent": {
+    "name": "fmDDTransmitterOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDTransmitterOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDReserveControlEvent": {
+    "name": "fmDDReserveControlEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDReserveControl"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDRFPresentEvent": {
+    "name": "fmDDRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDAmplifierFaultEvent": {
+    "name": "fmDDAmplifierFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDAmplifierWarningEvent": {
+    "name": "fmDDAmplifierWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDActiveExciterEvent": {
+    "name": "fmDDActiveExciterEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDActiveExciter"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDLocalModeEvent": {
+    "name": "fmDDLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDControlUnitFaultEvent": {
+    "name": "fmDDControlUnitFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDControlUnitFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDSwitchOverModeEvent": {
+    "name": "fmDDSwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDSwitchOverReadyEvent": {
+    "name": "fmDDSwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDSwitchOverExecutedEvent": {
+    "name": "fmDDSwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDSwitchOverFaultEvent": {
+    "name": "fmDDSwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDExciterALocalModeEvent": {
+    "name": "fmDDExciterALocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterALocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDExciterAFaultEvent": {
+    "name": "fmDDExciterAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDExciterAWarningEvent": {
+    "name": "fmDDExciterAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDExciterBLocalModeEvent": {
+    "name": "fmDDExciterBLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDExciterBFaultEvent": {
+    "name": "fmDDExciterBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDExciterBWarningEvent": {
+    "name": "fmDDExciterBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "fmDDGeneral": {
+    "name": "fmDDGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1",
+    "class": "objectidentity"
+  },
+  "fmDDPreselectionExciter": {
+    "name": "fmDDPreselectionExciter",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "exciterA": 1,
+          "exciterB": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDTransmitterOpMode": {
+    "name": "fmDDTransmitterOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDReserveControl": {
+    "name": "fmDDReserveControl",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDRFPresent": {
+    "name": "fmDDRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDAmplifierFault": {
+    "name": "fmDDAmplifierFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDAmplifierWarning": {
+    "name": "fmDDAmplifierWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDActiveExciter": {
+    "name": "fmDDActiveExciter",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "exciterA": 1,
+          "exciterB": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDLocalMode": {
+    "name": "fmDDLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDControlUnitFault": {
+    "name": "fmDDControlUnitFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDSwitchOverMode": {
+    "name": "fmDDSwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverReady": {
+    "name": "fmDDSwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDSwitchOverExecuted": {
+    "name": "fmDDSwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDSwitchOverFault": {
+    "name": "fmDDSwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDExciterA": {
+    "name": "fmDDExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.2",
+    "class": "objectidentity"
+  },
+  "fmDDExciterALocalMode": {
+    "name": "fmDDExciterALocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDExciterAFault": {
+    "name": "fmDDExciterAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDExciterAWarning": {
+    "name": "fmDDExciterAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDExciterB": {
+    "name": "fmDDExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.3",
+    "class": "objectidentity"
+  },
+  "fmDDExciterBLocalMode": {
+    "name": "fmDDExciterBLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDExciterBFault": {
+    "name": "fmDDExciterBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDExciterBWarning": {
+    "name": "fmDDExciterBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmDDEventEnable": {
+    "name": "fmDDEventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4",
+    "class": "objectidentity"
+  },
+  "fmDDEventEnableGeneral": {
+    "name": "fmDDEventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1",
+    "class": "objectidentity"
+  },
+  "fmDDPreselectionExciterEnable": {
+    "name": "fmDDPreselectionExciterEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDTransmitterOpModeEnable": {
+    "name": "fmDDTransmitterOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDReserveControlEnable": {
+    "name": "fmDDReserveControlEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDRFPresentEnable": {
+    "name": "fmDDRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDAmplifierFaultEnable": {
+    "name": "fmDDAmplifierFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDAmplifierWarningEnable": {
+    "name": "fmDDAmplifierWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDActiveExciterEnable": {
+    "name": "fmDDActiveExciterEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDLocalModeEnable": {
+    "name": "fmDDLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDControlUnitFaultEnable": {
+    "name": "fmDDControlUnitFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverModeEnable": {
+    "name": "fmDDSwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverReadyEnable": {
+    "name": "fmDDSwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverExecutedEnable": {
+    "name": "fmDDSwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverFaultEnable": {
+    "name": "fmDDSwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDEventEnableExciterA": {
+    "name": "fmDDEventEnableExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.2",
+    "class": "objectidentity"
+  },
+  "fmDDExciterALocalModeEnable": {
+    "name": "fmDDExciterALocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterAFaultEnable": {
+    "name": "fmDDExciterAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterAWarningEnable": {
+    "name": "fmDDExciterAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDEventEnableExciterB": {
+    "name": "fmDDEventEnableExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.3",
+    "class": "objectidentity"
+  },
+  "fmDDExciterBLocalModeEnable": {
+    "name": "fmDDExciterBLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterBFaultEnable": {
+    "name": "fmDDExciterBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterBWarningEnable": {
+    "name": "fmDDExciterBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.4.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDEventPriority": {
+    "name": "fmDDEventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5",
+    "class": "objectidentity"
+  },
+  "fmDDEventPriorityGeneral": {
+    "name": "fmDDEventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1",
+    "class": "objectidentity"
+  },
+  "fmDDPreselectionExciterPriority": {
+    "name": "fmDDPreselectionExciterPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDTransmitterOpModePriority": {
+    "name": "fmDDTransmitterOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDReserveControlPriority": {
+    "name": "fmDDReserveControlPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDRFPresentPriority": {
+    "name": "fmDDRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDAmplifierFaultPriority": {
+    "name": "fmDDAmplifierFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDAmplifierWarningPriority": {
+    "name": "fmDDAmplifierWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDActiveExciterPriority": {
+    "name": "fmDDActiveExciterPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDLocalModePriority": {
+    "name": "fmDDLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDControlUnitFaultPriority": {
+    "name": "fmDDControlUnitFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverModePriority": {
+    "name": "fmDDSwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverReadyPriority": {
+    "name": "fmDDSwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverExecutedPriority": {
+    "name": "fmDDSwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDSwitchOverFaultPriority": {
+    "name": "fmDDSwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDEventPriorityExciterA": {
+    "name": "fmDDEventPriorityExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.2",
+    "class": "objectidentity"
+  },
+  "fmDDExciterALocalModePriority": {
+    "name": "fmDDExciterALocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterAFaultPriority": {
+    "name": "fmDDExciterAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterAWarningPriority": {
+    "name": "fmDDExciterAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDEventPriorityExciterB": {
+    "name": "fmDDEventPriorityExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.3",
+    "class": "objectidentity"
+  },
+  "fmDDExciterBLocalModePriority": {
+    "name": "fmDDExciterBLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterBFaultPriority": {
+    "name": "fmDDExciterBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmDDExciterBWarningPriority": {
+    "name": "fmDDExciterBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsDD": {
+    "name": "groupsDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.6",
+    "class": "objectidentity"
+  },
+  "eventGroupDD": {
+    "name": "eventGroupDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.6.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDTransmitterOpModeEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDReserveControlEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDRFPresentEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierFaultEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierWarningEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDActiveExciterEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDLocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDControlUnitFaultEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAFaultEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAWarningEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBFaultEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBWarningEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterALocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBLocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDPreselectionExciterEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupDD": {
+    "name": "objectGroupDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.6.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDTransmitterOpMode"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDReserveControl"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDRFPresent"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierFault"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierWarning"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDActiveExciter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDLocalMode"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDControlUnitFault"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverMode"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverReady"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverExecuted"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverFault"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAFault"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAWarning"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBFault"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBWarning"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDTransmitterOpModeEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDReserveControlEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDRFPresentEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierFaultEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierWarningEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDActiveExciterEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDLocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDControlUnitFaultEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAFaultEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAWarningEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBFaultEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBWarningEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDTransmitterOpModePriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDReserveControlPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDRFPresentPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierFaultPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDAmplifierWarningPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDActiveExciterPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDLocalModePriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDControlUnitFaultPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverModePriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDSwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAFaultPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterAWarningPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBFaultPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDPreselectionExciter"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDPreselectionExciterEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDPreselectionExciterPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBWarningPriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterALocalMode"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBLocalMode"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterALocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBLocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterALocalModePriority"
+      },
+      {
+        "module": "IRT-FM-DUALDRIVE-MIB",
+        "object": "fmDDExciterBLocalModePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "complianceDD": {
+    "name": "complianceDD",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.7",
+    "class": "objectidentity"
+  },
+  "fmDualDriveCompliance": {
+    "name": "fmDualDriveCompliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.4.7.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "eventGroupDD",
+        "module": "IRT-FM-DUALDRIVE-MIB"
+      },
+      {
+        "object": "objectGroupDD",
+        "module": "IRT-FM-DUALDRIVE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-FM-DUALDRIVE-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-FM-DUALDRIVE-MIB"
+  }
+}

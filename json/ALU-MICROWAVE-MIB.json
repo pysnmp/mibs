@@ -3,41 +3,41 @@
     "class": "imports",
     "ALU-SAR-GLOBAL-MIB": [
       "aluSARObjs",
-      "aluSARMIBModules",
       "aluSARNotifyPrefix",
-      "aluSARConfs"
+      "aluSARConfs",
+      "aluSARMIBModules"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "OBJECT-TYPE",
-      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "iso",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
       "IpAddress",
+      "Gauge32",
       "Bits",
-      "Unsigned32"
+      "MibIdentifier",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TruthValue",
+      "RowStatus"
     ],
     "TIMETRA-CHASSIS-MIB": [
       "tmnxChassisIndex"
@@ -46,8 +46,8 @@
       "TmnxPortOperStatus"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxDisplayStringURL",
       "TNamedItemOrEmpty",
+      "TmnxDisplayStringURL",
       "TmnxActionType",
       "TmnxPortID"
     ]
@@ -4511,9 +4511,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-MICROWAVE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:40:09 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:01 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ALU-MICROWAVE-MIB"
   }

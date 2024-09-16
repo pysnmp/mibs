@@ -1,0 +1,599 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "fm",
+      "SelectOnOff",
+      "LocalRemote",
+      "PresentNotPresent",
+      "FaultOK"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "fmSingleTransmitter": {
+    "name": "fmSingleTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change LocalMode (description) and Module-COMPLIANCE"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "fmEventsST": {
+    "name": "fmEventsST",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.0",
+    "class": "objectidentity"
+  },
+  "fmSTTransmitterOpModeEvent": {
+    "name": "fmSTTransmitterOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTTransmitterOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSTRFPresentEvent": {
+    "name": "fmSTRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSTFaultEvent": {
+    "name": "fmSTFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSTWarningEvent": {
+    "name": "fmSTWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSTLocalModeEvent": {
+    "name": "fmSTLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmSTGeneral": {
+    "name": "fmSTGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.1",
+    "class": "objectidentity"
+  },
+  "fmSTTransmitterOpMode": {
+    "name": "fmSTTransmitterOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "units": " ",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTRFPresent": {
+    "name": "fmSTRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSTFault": {
+    "name": "fmSTFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSTWarning": {
+    "name": "fmSTWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSTLocalMode": {
+    "name": "fmSTLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmSTEventEnable": {
+    "name": "fmSTEventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2",
+    "class": "objectidentity"
+  },
+  "fmSTEventEnableGeneral": {
+    "name": "fmSTEventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2.1",
+    "class": "objectidentity"
+  },
+  "fmSTTransmitterOpModeEnable": {
+    "name": "fmSTTransmitterOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTFRFPresentEnable": {
+    "name": "fmSTFRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTFaultEnable": {
+    "name": "fmSTFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTWarningEnable": {
+    "name": "fmSTWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTLocalModeEnable": {
+    "name": "fmSTLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTEventPriority": {
+    "name": "fmSTEventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3",
+    "class": "objectidentity"
+  },
+  "fmSTEventPriorityGeneral": {
+    "name": "fmSTEventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "fmSTTransmitterOpModePriority": {
+    "name": "fmSTTransmitterOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTRFPresentPriority": {
+    "name": "fmSTRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTFaultPriority": {
+    "name": "fmSTFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTWarningPriority": {
+    "name": "fmSTWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmSTLocalModePriority": {
+    "name": "fmSTLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsST": {
+    "name": "groupsST",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.4",
+    "class": "objectidentity"
+  },
+  "objectGroupST": {
+    "name": "objectGroupST",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.4.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTTransmitterOpMode"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTRFPresent"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTFault"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTWarning"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTLocalMode"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTTransmitterOpModeEnable"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTFaultEnable"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTWarningEnable"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTLocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTTransmitterOpModePriority"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTRFPresentPriority"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTFaultPriority"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTWarningPriority"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTLocalModePriority"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTFRFPresentEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupST": {
+    "name": "eventGroupST",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.4.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTLocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTWarningEvent"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTFaultEvent"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTRFPresentEvent"
+      },
+      {
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB",
+        "object": "fmSTTransmitterOpModeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "complianceST": {
+    "name": "complianceST",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.5",
+    "class": "objectidentity"
+  },
+  "fmSingleTransmitterCompliance": {
+    "name": "fmSingleTransmitterCompliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.1.5.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "objectGroupST",
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB"
+      },
+      {
+        "object": "eventGroupST",
+        "module": "IRT-FM-SINGLETRANSMITTER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-FM-SINGLETRANSMITTER-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-FM-SINGLETRANSMITTER-MIB"
+  }
+}

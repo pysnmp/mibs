@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADTRAN-AOS-DNS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-DNS-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:31:56 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:50:46 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
 adGenAOSApplications, adGenAOSConformance = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSApplications", "adGenAOSConformance")
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
 sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-ObjectIdentity, Unsigned32, IpAddress, ModuleIdentity, iso, Counter32, Counter64, Gauge32, MibIdentifier, TimeTicks, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "IpAddress", "ModuleIdentity", "iso", "Counter32", "Counter64", "Gauge32", "MibIdentifier", "TimeTicks", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits")
+TimeTicks, Unsigned32, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, Counter32, iso, Gauge32, ModuleIdentity, Bits, NotificationType, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Unsigned32", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "Counter32", "iso", "Gauge32", "ModuleIdentity", "Bits", "NotificationType", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adGenAOSDns = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 53, 8, 1))
 adGenAOSDns.setRevisions(('2012-04-30 00:00',))
@@ -56,4 +56,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 adGenAOSDnsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 13, 1, 2)).setObjects(("ADTRAN-AOS-DNS-MIB", "adDnsIndividualResolutionFailure"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     adGenAOSDnsNotificationGroup = adGenAOSDnsNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-AOS-DNS-MIB", adDnsNameserverInetAddress=adDnsNameserverInetAddress, adDnsResourceRecordType=adDnsResourceRecordType, AdDnsRequestErrorConditionTC=AdDnsRequestErrorConditionTC, adGenAOSDnsConformance=adGenAOSDnsConformance, adDnsDomainName=adDnsDomainName, adGenAOSDnsFullCompliance=adGenAOSDnsFullCompliance, AdDnsResourceRecordTypeTC=AdDnsResourceRecordTypeTC, adGenAOSDnsGroup=adGenAOSDnsGroup, adGenAOSDnsCompliances=adGenAOSDnsCompliances, PYSNMP_MODULE_ID=adGenAOSDns, adGenAOSDnsInfoGroup=adGenAOSDnsInfoGroup, adGenAOSDnsNotificationGroup=adGenAOSDnsNotificationGroup, adDnsRequestErrorCondition=adDnsRequestErrorCondition, adDnsIndividualResolutionFailure=adDnsIndividualResolutionFailure, adDnsTraps=adDnsTraps, adDnsNameserverInetAddressType=adDnsNameserverInetAddressType, adDnsTimestamp=adDnsTimestamp, adGenAOSDns=adGenAOSDns)
+mibBuilder.exportSymbols("ADTRAN-AOS-DNS-MIB", adGenAOSDnsInfoGroup=adGenAOSDnsInfoGroup, adDnsIndividualResolutionFailure=adDnsIndividualResolutionFailure, adDnsDomainName=adDnsDomainName, adGenAOSDnsGroup=adGenAOSDnsGroup, adDnsTimestamp=adDnsTimestamp, AdDnsResourceRecordTypeTC=AdDnsResourceRecordTypeTC, adGenAOSDnsNotificationGroup=adGenAOSDnsNotificationGroup, adDnsNameserverInetAddressType=adDnsNameserverInetAddressType, adGenAOSDns=adGenAOSDns, adDnsTraps=adDnsTraps, PYSNMP_MODULE_ID=adGenAOSDns, adDnsResourceRecordType=adDnsResourceRecordType, adDnsRequestErrorCondition=adDnsRequestErrorCondition, adGenAOSDnsConformance=adGenAOSDnsConformance, adGenAOSDnsFullCompliance=adGenAOSDnsFullCompliance, adDnsNameserverInetAddress=adDnsNameserverInetAddress, adGenAOSDnsCompliances=adGenAOSDnsCompliances, AdDnsRequestErrorConditionTC=AdDnsRequestErrorConditionTC)

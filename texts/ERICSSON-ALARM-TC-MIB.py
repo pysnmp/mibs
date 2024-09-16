@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ERICSSON-ALARM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/ERICSSON-ALARM-TC-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:35:19 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:54:31 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 ericssonModules, = mibBuilder.importSymbols("ERICSSON-TOP-MIB", "ericssonModules")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, TimeTicks, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ModuleIdentity, Bits, Counter64, IpAddress, NotificationType, Counter32, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ModuleIdentity", "Bits", "Counter64", "IpAddress", "NotificationType", "Counter32", "iso", "Integer32")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, MibIdentifier, IpAddress, Counter64, NotificationType, Integer32, Gauge32, Bits, TimeTicks, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "MibIdentifier", "IpAddress", "Counter64", "NotificationType", "Integer32", "Gauge32", "Bits", "TimeTicks", "ModuleIdentity", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ericssonAlarmTCMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 183, 3))
 ericssonAlarmTCMIB.setRevisions(('2017-03-31 00:00', '2016-06-24 00:00', '2008-10-17 00:00',))
@@ -76,4 +76,4 @@ class EriAlarmRecordType(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("alarmNew", 0), ("alarmChange", 1))
 
-mibBuilder.exportSymbols("ERICSSON-ALARM-TC-MIB", EriAlarmIndex=EriAlarmIndex, EriLargeAdditionalInfo=EriLargeAdditionalInfo, EriAdditionalText=EriAdditionalText, EriAlarmType=EriAlarmType, PYSNMP_MODULE_ID=ericssonAlarmTCMIB, EriAlarmSequenceNumber=EriAlarmSequenceNumber, EriAlarmRecordType=EriAlarmRecordType, EriAlarmSpecificProblem=EriAlarmSpecificProblem, EriAdditionalInfo=EriAdditionalInfo, ericssonAlarmTCMIB=ericssonAlarmTCMIB, EriLargeAdditionalText=EriLargeAdditionalText)
+mibBuilder.exportSymbols("ERICSSON-ALARM-TC-MIB", PYSNMP_MODULE_ID=ericssonAlarmTCMIB, EriLargeAdditionalInfo=EriLargeAdditionalInfo, ericssonAlarmTCMIB=ericssonAlarmTCMIB, EriAdditionalText=EriAdditionalText, EriAlarmSpecificProblem=EriAlarmSpecificProblem, EriAlarmSequenceNumber=EriAlarmSequenceNumber, EriAlarmIndex=EriAlarmIndex, EriAlarmType=EriAlarmType, EriAlarmRecordType=EriAlarmRecordType, EriLargeAdditionalText=EriLargeAdditionalText, EriAdditionalInfo=EriAdditionalInfo)

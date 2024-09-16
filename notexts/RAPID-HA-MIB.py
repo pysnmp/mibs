@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RAPID-HA-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-HA-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:38:59 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:58:42 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, Integer32, ObjectIdentity, IpAddress, TimeTicks, NotificationType, Gauge32, ModuleIdentity, Counter32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "Integer32", "ObjectIdentity", "IpAddress", "TimeTicks", "NotificationType", "Gauge32", "ModuleIdentity", "Counter32", "enterprises")
-DisplayString, DateAndTime, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Unsigned32, iso, IpAddress, ObjectIdentity, Counter64, Integer32, Gauge32, MibIdentifier, enterprises, Bits, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "IpAddress", "ObjectIdentity", "Counter64", "Integer32", "Gauge32", "MibIdentifier", "enterprises", "Bits", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "Counter32")
+TextualConvention, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "DateAndTime")
 rsInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 6))
 rsInfoModule.setRevisions(('2002-11-01 12:00',))
 if mibBuilder.loadTexts: rsInfoModule.setLastUpdated('0211011200Z')
@@ -74,4 +74,4 @@ rsHAPeerSystemCpuUtil5 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 10), Gau
 if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil5.setStatus('current')
 rsHAPeerSystemCpuUtil15 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 11), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil15.setStatus('current')
-mibBuilder.exportSymbols("RAPID-HA-MIB", rsHAPeerSystemTotalRecvPackets=rsHAPeerSystemTotalRecvPackets, rsHAPeerSystemTotalSendPackets=rsHAPeerSystemTotalSendPackets, rsHAPeerSystemCpuUtil1=rsHAPeerSystemCpuUtil1, rsHAPeer=rsHAPeer, rsHAPeerIfIpAddr=rsHAPeerIfIpAddr, rsHAPeerIfNumber=rsHAPeerIfNumber, PYSNMP_MODULE_ID=rsInfoModule, rsHAPeerSystemCpuUtil15=rsHAPeerSystemCpuUtil15, rsInfoModule=rsInfoModule, rsHAPeerSystemCpuUtil=rsHAPeerSystemCpuUtil, rsHAPeerSystemTotalSendBytes=rsHAPeerSystemTotalSendBytes, rsHAPeerStatus=rsHAPeerStatus, rsHAPeerLastDBSyncTime=rsHAPeerLastDBSyncTime, rsHAMIB=rsHAMIB, rsHAError=rsHAError, rsHAPeerIfIndex=rsHAPeerIfIndex, rsHAPeerIfLinkStatus=rsHAPeerIfLinkStatus, rsHAPeerCounters=rsHAPeerCounters, rsHAPeerSystemCpuUtil5=rsHAPeerSystemCpuUtil5, rsHALocal=rsHALocal, rsHAPeerSystemCurrIpsecTunnels=rsHAPeerSystemCurrIpsecTunnels, rsHALastDBSyncTime=rsHALastDBSyncTime, rsHAPeerIfTable=rsHAPeerIfTable, rsHAPeerSystemStreamReqDrop=rsHAPeerSystemStreamReqDrop, rsHAStatus=rsHAStatus, rsHAPeerDevice=rsHAPeerDevice, rsHAPeerSerialNumber=rsHAPeerSerialNumber, rsHAPeerIfEntry=rsHAPeerIfEntry, rsHAPeerSystemStreamReqTotal=rsHAPeerSystemStreamReqTotal, rsHAPeerError=rsHAPeerError, rsHAPeerSystemTotalRecvBytes=rsHAPeerSystemTotalRecvBytes)
+mibBuilder.exportSymbols("RAPID-HA-MIB", rsHAPeerLastDBSyncTime=rsHAPeerLastDBSyncTime, rsHAPeerIfIpAddr=rsHAPeerIfIpAddr, rsInfoModule=rsInfoModule, rsHAPeerIfIndex=rsHAPeerIfIndex, rsHAPeerSystemTotalSendPackets=rsHAPeerSystemTotalSendPackets, rsHAPeerIfTable=rsHAPeerIfTable, rsHALocal=rsHALocal, rsHAPeerSystemTotalRecvPackets=rsHAPeerSystemTotalRecvPackets, rsHAPeerSystemTotalSendBytes=rsHAPeerSystemTotalSendBytes, rsHAPeerSystemStreamReqTotal=rsHAPeerSystemStreamReqTotal, rsHAPeerSystemCpuUtil5=rsHAPeerSystemCpuUtil5, rsHAError=rsHAError, rsHAPeerError=rsHAPeerError, rsHAPeerCounters=rsHAPeerCounters, PYSNMP_MODULE_ID=rsInfoModule, rsHAPeerDevice=rsHAPeerDevice, rsHAPeerIfLinkStatus=rsHAPeerIfLinkStatus, rsHAPeerSystemCpuUtil=rsHAPeerSystemCpuUtil, rsHAPeerSystemTotalRecvBytes=rsHAPeerSystemTotalRecvBytes, rsHALastDBSyncTime=rsHALastDBSyncTime, rsHAPeerSystemCpuUtil15=rsHAPeerSystemCpuUtil15, rsHAPeerIfEntry=rsHAPeerIfEntry, rsHAPeerSystemCpuUtil1=rsHAPeerSystemCpuUtil1, rsHAMIB=rsHAMIB, rsHAPeerStatus=rsHAPeerStatus, rsHAPeerIfNumber=rsHAPeerIfNumber, rsHAStatus=rsHAStatus, rsHAPeerSerialNumber=rsHAPeerSerialNumber, rsHAPeerSystemCurrIpsecTunnels=rsHAPeerSystemCurrIpsecTunnels, rsHAPeerSystemStreamReqDrop=rsHAPeerSystemStreamReqDrop, rsHAPeer=rsHAPeer)

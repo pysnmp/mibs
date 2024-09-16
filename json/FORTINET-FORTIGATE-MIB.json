@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "FnIndex",
+      "fnSysSerial",
       "FnBoolState",
-      "fnAdminEntry",
+      "FnIndex",
       "fortinet",
-      "fnSysSerial"
+      "fnAdminEntry"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifEntry",
       "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressPrefixLength",
       "InetPortNumber",
-      "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-TC": [
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
-      "Integer32",
+      "Bits",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "iso",
       "Unsigned32",
-      "Bits"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
+      "DisplayString",
       "DateAndTime",
       "AutonomousType",
-      "DisplayString"
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fnFortiGateMib": {
@@ -12888,9 +12888,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTIGATE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:35:51 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:55:04 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "FORTINET-FORTIGATE-MIB"
   }

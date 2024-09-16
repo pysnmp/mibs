@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "LLDP-MIB": [
-      "lldpLocPortNum",
-      "lldpRemIndex",
-      "lldpRemLocalPortNum",
       "lldpRemTimeMark",
+      "lldpRemIndex",
+      "lldpLocPortNum",
       "lldpPortConfigEntry",
-      "lldpExtensions"
+      "lldpExtensions",
+      "lldpRemLocalPortNum"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
+      "iso",
       "Counter32",
-      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "IpAddress",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "iso"
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "lldpXdot3MIB": {
@@ -42,8 +42,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2005-05-06 00:00",
-        "description": "Published as part of IEEE Std 802.1AB-2005 initial version."
+        "revision": "2004-11-22 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2004 initial version."
       }
     ]
   },
@@ -983,9 +983,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/LLDP-EXT-DOT1-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:13 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/lldp_dot3.mib",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:55:39 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-DOT3-MIB"

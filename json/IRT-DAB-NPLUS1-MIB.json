@@ -1,0 +1,4490 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "SelectManualAuto",
+      "SelectOnOff",
+      "ExecutedNotExecuted",
+      "LocalRemote",
+      "dab",
+      "PresentNotPresent",
+      "FaultOK",
+      "ReadyNotReady",
+      "Input1Input2",
+      "OkNotOk",
+      "MuteOk",
+      "SFNMFN"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString"
+    ]
+  },
+  "dabnPlus1": {
+    "name": "dabnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change SFNMode, LocalMode (description) and Module-COMPLIANCE change numbering: OIDs 1.3.6.1.4.1.19831.1.1.2.5.3.x and 1.3.6.1.4.1.19831.1.1.2.5.5.x and 1.3.6.1.4.1.19831.1.1.2.5.6.3.x and 1.3.6.1.4.1.19831.1.1.2.5.6.5.x and 1.3.6.1.4.1.19831.1.1.2.5.7.3.x and 1.3.6.1.4.1.19831.1.1.2.5.7.5.2"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "TransmitterBFreeOccupied": {
+    "name": "TransmitterBFreeOccupied",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free": 1,
+          "occupied": 2
+        }
+      }
+    },
+    "status": "obsolete"
+  },
+  "dabEventsnPlus1": {
+    "name": "dabEventsnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0",
+    "class": "objectidentity"
+  },
+  "dabnPlus1ResetFaultEvent": {
+    "name": "dabnPlus1ResetFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ResetFault"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dabnPlus1RedundancySwitchOverEvent": {
+    "name": "dabnPlus1RedundancySwitchOverEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RedundancySwitchOver"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1LocalModeEvent": {
+    "name": "dabnPlus1LocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1LocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1ControlUnitFaultEvent": {
+    "name": "dabnPlus1ControlUnitFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ControlUnitFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverModeEvent": {
+    "name": "dabnPlus1SwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverReadyEvent": {
+    "name": "dabnPlus1SwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverExecutedEvent": {
+    "name": "dabnPlus1SwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverFaultEvent": {
+    "name": "dabnPlus1SwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1ChannelSelectionEvent": {
+    "name": "dabnPlus1ChannelSelectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ChannelSelection"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TransmitterBResetEvent": {
+    "name": "dabnPlus1TransmitterBResetEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBReset"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dabnPlus1TransmitterBModeEvent": {
+    "name": "dabnPlus1TransmitterBModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dabnPlus1MTInputPreselectionEvent": {
+    "name": "dabnPlus1MTInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1MTInputAutomaticEvent": {
+    "name": "dabnPlus1MTInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1MTOpModeEvent": {
+    "name": "dabnPlus1MTOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTOpMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1MTRFProgramPresentEvent": {
+    "name": "dabnPlus1MTRFProgramPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTRFProgramPresent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1RTInputPreselectionEvent": {
+    "name": "dabnPlus1RTInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1RTInputAutomaticEvent": {
+    "name": "dabnPlus1RTInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1RTOpModeEvent": {
+    "name": "dabnPlus1RTOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1RTRFProgramPresentEvent": {
+    "name": "dabnPlus1RTRFProgramPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTRFProgramPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TARFPresentEvent": {
+    "name": "dabnPlus1TARFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARFPresent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAInput1OKEvent": {
+    "name": "dabnPlus1TAInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput1OK"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAInput2OKEvent": {
+    "name": "dabnPlus1TAInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput2OK"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TALocalModeEvent": {
+    "name": "dabnPlus1TALocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TALocalMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAInputPreselectionEvent": {
+    "name": "dabnPlus1TAInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAInputAutomaticEvent": {
+    "name": "dabnPlus1TAInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAFaultEvent": {
+    "name": "dabnPlus1TAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAWarningEvent": {
+    "name": "dabnPlus1TAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarning"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAActiveInputEvent": {
+    "name": "dabnPlus1TAActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAActiveInput"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TASFNModeEvent": {
+    "name": "dabnPlus1TASFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TASFNMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TARefFaultEvent": {
+    "name": "dabnPlus1TARefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARefFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAMuteEvent": {
+    "name": "dabnPlus1TAMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAMute"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAWarningTimeStampEvent": {
+    "name": "dabnPlus1TAWarningTimeStampEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningTimeStamp"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBRFPresentEvent": {
+    "name": "dabnPlus1TBRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBInput1OKEvent": {
+    "name": "dabnPlus1TBInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBInput2OKEvent": {
+    "name": "dabnPlus1TBInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBLocalModeEvent": {
+    "name": "dabnPlus1TBLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBFaultEvent": {
+    "name": "dabnPlus1TBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBWarningEvent": {
+    "name": "dabnPlus1TBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBInputPreselectionEvent": {
+    "name": "dabnPlus1TBInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBInputAutomaticEvent": {
+    "name": "dabnPlus1TBInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBActiveInputEvent": {
+    "name": "dabnPlus1TBActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBActiveInput"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBSFNModeEvent": {
+    "name": "dabnPlus1TBSFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBSFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBRefFaultEvent": {
+    "name": "dabnPlus1TBRefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBMuteEvent": {
+    "name": "dabnPlus1TBMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TBWarningTimeStampEvent": {
+    "name": "dabnPlus1TBWarningTimeStampEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1General": {
+    "name": "dabnPlus1General",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1",
+    "class": "objectidentity"
+  },
+  "dabnPlus1ResetFault": {
+    "name": "dabnPlus1ResetFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1RedundancySwitchOver": {
+    "name": "dabnPlus1RedundancySwitchOver",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1LocalMode": {
+    "name": "dabnPlus1LocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1ControlUnitFault": {
+    "name": "dabnPlus1ControlUnitFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverMode": {
+    "name": "dabnPlus1SwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverReady": {
+    "name": "dabnPlus1SwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverExecuted": {
+    "name": "dabnPlus1SwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverFault": {
+    "name": "dabnPlus1SwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1ChannelSelection": {
+    "name": "dabnPlus1ChannelSelection",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TransmitterBReset": {
+    "name": "dabnPlus1TransmitterBReset",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1TransmitterBMode": {
+    "name": "dabnPlus1TransmitterBMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransmitterBFreeOccupied",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dabnPlus1EventTransmitterIndex": {
+    "name": "dabnPlus1EventTransmitterIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1MainTransmitterTable": {
+    "name": "dabnPlus1MainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabnPlus1MainTransmitterEntry": {
+    "name": "dabnPlus1MainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1MTIndex": {
+    "name": "dabnPlus1MTIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1MTInputPreselection": {
+    "name": "dabnPlus1MTInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTInputAutomatic": {
+    "name": "dabnPlus1MTInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTOpMode": {
+    "name": "dabnPlus1MTOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTRFProgramPresent": {
+    "name": "dabnPlus1MTRFProgramPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1ReserveTransmitter": {
+    "name": "dabnPlus1ReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.3",
+    "class": "objectidentity"
+  },
+  "dabnPlus1RTInputPreselection": {
+    "name": "dabnPlus1RTInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTInputAutomatic": {
+    "name": "dabnPlus1RTInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTOpMode": {
+    "name": "dabnPlus1RTOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTRFProgramPresent": {
+    "name": "dabnPlus1RTRFProgramPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TransmitterATable": {
+    "name": "dabnPlus1TransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabnPlus1TransmitterAEntry": {
+    "name": "dabnPlus1TransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TAIndex": {
+    "name": "dabnPlus1TAIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TARFPresent": {
+    "name": "dabnPlus1TARFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAInput1OK": {
+    "name": "dabnPlus1TAInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAInput2OK": {
+    "name": "dabnPlus1TAInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TALocalMode": {
+    "name": "dabnPlus1TALocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAInputPreselection": {
+    "name": "dabnPlus1TAInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInputAutomatic": {
+    "name": "dabnPlus1TAInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAFault": {
+    "name": "dabnPlus1TAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAWarning": {
+    "name": "dabnPlus1TAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAActiveInput": {
+    "name": "dabnPlus1TAActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TASFNMode": {
+    "name": "dabnPlus1TASFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TARefFault": {
+    "name": "dabnPlus1TARefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAMute": {
+    "name": "dabnPlus1TAMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TAWarningTimeStamp": {
+    "name": "dabnPlus1TAWarningTimeStamp",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TransmitterB": {
+    "name": "dabnPlus1TransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5",
+    "class": "objectidentity"
+  },
+  "dabnPlus1TBRFPresent": {
+    "name": "dabnPlus1TBRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBInput1OK": {
+    "name": "dabnPlus1TBInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBInput2OK": {
+    "name": "dabnPlus1TBInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBLocalMode": {
+    "name": "dabnPlus1TBLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBInputPreselection": {
+    "name": "dabnPlus1TBInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInputAutomatic": {
+    "name": "dabnPlus1TBInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBFault": {
+    "name": "dabnPlus1TBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBWarning": {
+    "name": "dabnPlus1TBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBActiveInput": {
+    "name": "dabnPlus1TBActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBSFNMode": {
+    "name": "dabnPlus1TBSFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBRefFault": {
+    "name": "dabnPlus1TBRefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBMute": {
+    "name": "dabnPlus1TBMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1TBWarningTimeStamp": {
+    "name": "dabnPlus1TBWarningTimeStamp",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dabnPlus1EventEnable": {
+    "name": "dabnPlus1EventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6",
+    "class": "objectidentity"
+  },
+  "dabnPlus1EventEnableGeneral": {
+    "name": "dabnPlus1EventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1",
+    "class": "objectidentity"
+  },
+  "dabnPlus1ResetFaultEnable": {
+    "name": "dabnPlus1ResetFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1RedundancySwitchOverEnable": {
+    "name": "dabnPlus1RedundancySwitchOverEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1LocalModeEnable": {
+    "name": "dabnPlus1LocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1ControlUnitFaultEnable": {
+    "name": "dabnPlus1ControlUnitFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverModeEnable": {
+    "name": "dabnPlus1SwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverReadyEnable": {
+    "name": "dabnPlus1SwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverExecutedEnable": {
+    "name": "dabnPlus1SwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverFaultEnable": {
+    "name": "dabnPlus1SwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1ChannelSelectionEnable": {
+    "name": "dabnPlus1ChannelSelectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TransmitterBResetEnable": {
+    "name": "dabnPlus1TransmitterBResetEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1TransmitterBModeEnable": {
+    "name": "dabnPlus1TransmitterBModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1EventEnableMainTransmitterTable": {
+    "name": "dabnPlus1EventEnableMainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabnPlus1EventEnableMainTransmitterEntry": {
+    "name": "dabnPlus1EventEnableMainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1MTInputPreselectionEnable": {
+    "name": "dabnPlus1MTInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTInputAutomaticEnable": {
+    "name": "dabnPlus1MTInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTOpModeEnable": {
+    "name": "dabnPlus1MTOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTRFProgramPresentEnable": {
+    "name": "dabnPlus1MTRFProgramPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventEnableReserveTransmitter": {
+    "name": "dabnPlus1EventEnableReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.3",
+    "class": "objectidentity"
+  },
+  "dabnPlus1RTInputPreselectionEnable": {
+    "name": "dabnPlus1RTInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTInputAutomaticEnable": {
+    "name": "dabnPlus1RTInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTOpModeEnable": {
+    "name": "dabnPlus1RTOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTRFProgramPresentEnable": {
+    "name": "dabnPlus1RTRFProgramPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventEnableTransmitterATable": {
+    "name": "dabnPlus1EventEnableTransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabnPlus1EventEnableTransmitterAEntry": {
+    "name": "dabnPlus1EventEnableTransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TARFPresentEnable": {
+    "name": "dabnPlus1TARFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInput1OKEnable": {
+    "name": "dabnPlus1TAInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInput2OKEnable": {
+    "name": "dabnPlus1TAInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TALocalModeEnable": {
+    "name": "dabnPlus1TALocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInputPreselectionEnable": {
+    "name": "dabnPlus1TAInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInputAutomaticEnable": {
+    "name": "dabnPlus1TAInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAFaultEnable": {
+    "name": "dabnPlus1TAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAWarningEnable": {
+    "name": "dabnPlus1TAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAActiveInputEnable": {
+    "name": "dabnPlus1TAActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TASFNModeEnable": {
+    "name": "dabnPlus1TASFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TARefFaultEnable": {
+    "name": "dabnPlus1TARefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAMuteEnable": {
+    "name": "dabnPlus1TAMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAWarningTimeStampEnable": {
+    "name": "dabnPlus1TAWarningTimeStampEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventEnableTransmitterB": {
+    "name": "dabnPlus1EventEnableTransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5",
+    "class": "objectidentity"
+  },
+  "dabnPlus1TBRFPresentEnable": {
+    "name": "dabnPlus1TBRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInput1OKEnable": {
+    "name": "dabnPlus1TBInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInput2OKEnable": {
+    "name": "dabnPlus1TBInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBLocalModeEnable": {
+    "name": "dabnPlus1TBLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBFaultEnable": {
+    "name": "dabnPlus1TBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBWarningEnable": {
+    "name": "dabnPlus1TBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInputPreselectionEnable": {
+    "name": "dabnPlus1TBInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInputAutomaticEnable": {
+    "name": "dabnPlus1TBInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBActiveInputEnable": {
+    "name": "dabnPlus1TBActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBSFNModeEnable": {
+    "name": "dabnPlus1TBSFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBRefFaultEnable": {
+    "name": "dabnPlus1TBRefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBMuteEnable": {
+    "name": "dabnPlus1TBMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBWarningTimeStampEnable": {
+    "name": "dabnPlus1TBWarningTimeStampEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.6.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventPriority": {
+    "name": "dabnPlus1EventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7",
+    "class": "objectidentity"
+  },
+  "dabnPlus1EventPriorityGeneral": {
+    "name": "dabnPlus1EventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1",
+    "class": "objectidentity"
+  },
+  "dabnPlus1ResetFaultPriority": {
+    "name": "dabnPlus1ResetFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1RedundancySwitchOverPriority": {
+    "name": "dabnPlus1RedundancySwitchOverPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1LocalModePriority": {
+    "name": "dabnPlus1LocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1ControlUnitFaultPriority": {
+    "name": "dabnPlus1ControlUnitFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverModePriority": {
+    "name": "dabnPlus1SwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverReadyPriority": {
+    "name": "dabnPlus1SwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverExecutedPriority": {
+    "name": "dabnPlus1SwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1SwitchOverFaultPriority": {
+    "name": "dabnPlus1SwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1ChannelSelectionPriority": {
+    "name": "dabnPlus1ChannelSelectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TransmitterBResetPriority": {
+    "name": "dabnPlus1TransmitterBResetPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1TransmitterBModePriority": {
+    "name": "dabnPlus1TransmitterBModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dabnPlus1EventPriorityMainTransmitterTable": {
+    "name": "dabnPlus1EventPriorityMainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabnPlus1EventPriorityMainTransmitterEntry": {
+    "name": "dabnPlus1EventPriorityMainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1MTInputPreselectionPriority": {
+    "name": "dabnPlus1MTInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTInputAutomaticPriority": {
+    "name": "dabnPlus1MTInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTOpModePriority": {
+    "name": "dabnPlus1MTOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1MTRFProgramPresentPriority": {
+    "name": "dabnPlus1MTRFProgramPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventPriorityReserveTransmitter": {
+    "name": "dabnPlus1EventPriorityReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.3",
+    "class": "objectidentity"
+  },
+  "dabnPlus1RTInputPreselectionPriority": {
+    "name": "dabnPlus1RTInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTInputAutomaticPriority": {
+    "name": "dabnPlus1RTInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTOpModePriority": {
+    "name": "dabnPlus1RTOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1RTRFProgramPresentPriority": {
+    "name": "dabnPlus1RTRFProgramPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventPriorityTransmitterATable": {
+    "name": "dabnPlus1EventPriorityTransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dabnPlus1EventPriorityTransmitterAEntry": {
+    "name": "dabnPlus1EventPriorityTransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dabnPlus1TARFPresentPriority": {
+    "name": "dabnPlus1TARFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInput1OKPriority": {
+    "name": "dabnPlus1TAInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInput2OKPriority": {
+    "name": "dabnPlus1TAInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TALocalModePriority": {
+    "name": "dabnPlus1TALocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInputPreselectionPriority": {
+    "name": "dabnPlus1TAInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAInputAutomaticPriority": {
+    "name": "dabnPlus1TAInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAFaultPriority": {
+    "name": "dabnPlus1TAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAWarningPriority": {
+    "name": "dabnPlus1TAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAActiveInputPriority": {
+    "name": "dabnPlus1TAActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TASFNModePriority": {
+    "name": "dabnPlus1TASFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TARefFaultPriority": {
+    "name": "dabnPlus1TARefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAMutePriority": {
+    "name": "dabnPlus1TAMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TAWarningTimeStampPriority": {
+    "name": "dabnPlus1TAWarningTimeStampPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1EventPriorityTransmitterB": {
+    "name": "dabnPlus1EventPriorityTransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5",
+    "class": "objectidentity"
+  },
+  "dabnPlus1TBRFPresentPriority": {
+    "name": "dabnPlus1TBRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInput1OKPriority": {
+    "name": "dabnPlus1TBInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInput2OKPriority": {
+    "name": "dabnPlus1TBInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBLocalModePriority": {
+    "name": "dabnPlus1TBLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBFaultPriority": {
+    "name": "dabnPlus1TBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBWarningPriority": {
+    "name": "dabnPlus1TBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInputPreselectionPriority": {
+    "name": "dabnPlus1TBInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBInputAutomaticPriority": {
+    "name": "dabnPlus1TBInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBActiveInputPriority": {
+    "name": "dabnPlus1TBActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBSFNModePriority": {
+    "name": "dabnPlus1TBSFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBRefFaultPriority": {
+    "name": "dabnPlus1TBRefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBMutePriority": {
+    "name": "dabnPlus1TBMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dabnPlus1TBWarningTimeStampPriority": {
+    "name": "dabnPlus1TBWarningTimeStampPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.7.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsnPlus1": {
+    "name": "groupsnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.8",
+    "class": "objectidentity"
+  },
+  "objectGroupnPlus1": {
+    "name": "objectGroupnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.8.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RedundancySwitchOver"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1LocalMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ControlUnitFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverReady"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverExecuted"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ChannelSelection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1EventTransmitterIndex"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTIndex"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTRFProgramPresent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTOpMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTRFProgramPresent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAIndex"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARFPresent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput1OK"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput2OK"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TALocalMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarning"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAActiveInput"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TASFNMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARefFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAMute"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningTimeStamp"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRFPresent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput1OK"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput2OK"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBLocalMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarning"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputPreselection"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputAutomatic"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBActiveInput"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBSFNMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRefFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBMute"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningTimeStamp"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RedundancySwitchOverEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1LocalModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ControlUnitFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ChannelSelectionEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTRFProgramPresentEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTOpModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTRFProgramPresentEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARFPresentEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput1OKEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput2OKEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TALocalModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAActiveInputEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TASFNModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARefFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAMuteEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningTimeStampEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRFPresentEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput1OKEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput2OKEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBLocalModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBActiveInputEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBSFNModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRefFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBMuteEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningTimeStampEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RedundancySwitchOverPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1LocalModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ControlUnitFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ChannelSelectionPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTRFProgramPresentPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTOpModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTRFProgramPresentPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARFPresentPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput1OKPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput2OKPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TALocalModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAActiveInputPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TASFNModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARefFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAMutePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningTimeStampPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRFPresentPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput1OKPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput2OKPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBLocalModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBActiveInputPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBSFNModePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRefFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBMutePriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningTimeStampPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTOpMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTOpModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTOpModePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupnPlus1": {
+    "name": "eventGroupnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.8.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RedundancySwitchOverEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1LocalModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ControlUnitFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1SwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ChannelSelectionEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTRFProgramPresentEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTOpModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1RTRFProgramPresentEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARFPresentEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput1OKEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInput2OKEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TALocalModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAActiveInputEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TASFNModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TARefFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAMuteEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TAWarningTimeStampEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRFPresentEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput1OKEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInput2OKEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBLocalModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBActiveInputEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBSFNModeEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBRefFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBMuteEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TBWarningTimeStampEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1MTOpModeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupnPlus1obsolete": {
+    "name": "objectGroupnPlus1obsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.8.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ResetFault"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ResetFaultEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ResetFaultPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBReset"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBMode"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBResetEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBModeEnable"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBResetPriority"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBModePriority"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "eventGroupnPlus1obsolete": {
+    "name": "eventGroupnPlus1obsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.8.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1ResetFaultEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBResetEvent"
+      },
+      {
+        "module": "IRT-DAB-NPLUS1-MIB",
+        "object": "dabnPlus1TransmitterBModeEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "compliancenPlus1": {
+    "name": "compliancenPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.9",
+    "class": "objectidentity"
+  },
+  "dabnPlus1Compliance": {
+    "name": "dabnPlus1Compliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.2.5.9.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "objectGroupnPlus1",
+        "module": "IRT-DAB-NPLUS1-MIB"
+      },
+      {
+        "object": "eventGroupnPlus1",
+        "module": "IRT-DAB-NPLUS1-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DAB-NPLUS1-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-DAB-NPLUS1-MIB"
+  }
+}

@@ -1,0 +1,1144 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9Dtmb",
+      "rsXx9MibModule"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationPriority",
+      "NotificationState",
+      "IndexTransmitter",
+      "NotificationMask",
+      "SwitchOnOff",
+      "IndexAB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rsXx9DtmbMibModule": {
+    "name": "rsXx9DtmbMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.12",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-07-06 12:00",
+        "description": "fixed range of dtmbModulationTimeInterleaver change labels of DtmbCodeRate added dtmbStateTable, dtmbLocalizationTable, dtmbOutModulationTable added dtmbTest "
+      },
+      {
+        "revision": "2015-02-27 15:00",
+        "description": "updated description texts"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-01-30 11:00",
+        "description": "obsoleted dtmbModulationControlFrame update description texts"
+      },
+      {
+        "revision": "2013-09-02 11:00",
+        "description": "updated revision with the following changes: - added DTMB traps (dtmbEncoderSummary, dtmbManualConfiguration, dtmbActiveConfiguration) - added dtmbStatusNotificationTable, containing current trap values - added configuration parameters: InfoPacketReplacement, NetworkMode - added dtmbTestCarrierPower - fixed dtmbTestMode and dtmbConfigurationTpsSource"
+      },
+      {
+        "revision": "2013-05-29 15:00",
+        "description": "Preliminary release."
+      }
+    ]
+  },
+  "DtmbChannelBandwidth": {
+    "name": "DtmbChannelBandwidth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mhz6": 5,
+          "mhz7": 6,
+          "mhz8": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DtmbGuardInterval": {
+    "name": "DtmbGuardInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "pn420": 9,
+          "pn595": 10,
+          "pn945": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DtmbModulation": {
+    "name": "DtmbModulation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "qam16": 5,
+          "qam64": 6,
+          "qam32": 7,
+          "qam4": 8,
+          "qam4nr": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DtmbCodeRate": {
+    "name": "DtmbCodeRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "fourTenth": 9,
+          "sixTenth": 10,
+          "eightTenth": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx9DtmbNotifications": {
+    "name": "rsXx9DtmbNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.0",
+    "class": "objectidentity"
+  },
+  "dtmbEncoderSummary": {
+    "name": "dtmbEncoderSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbManualConfiguration": {
+    "name": "dtmbManualConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbActiveConfiguration": {
+    "name": "dtmbActiveConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbTest": {
+    "name": "dtmbTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9DtmbObjects": {
+    "name": "rsXx9DtmbObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1",
+    "class": "objectidentity"
+  },
+  "dtmbStatus": {
+    "name": "dtmbStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1",
+    "class": "objectidentity"
+  },
+  "dtmbStatusNotificationTable": {
+    "name": "dtmbStatusNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbStatusNotificationEntry": {
+    "name": "dtmbStatusNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbStatusNotificationTxIdx": {
+    "name": "dtmbStatusNotificationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbStatusNotificationExcIdx": {
+    "name": "dtmbStatusNotificationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbStatusNotificationIdx": {
+    "name": "dtmbStatusNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbStatusNotificationName": {
+    "name": "dtmbStatusNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dtmbEncoderSummary": 1,
+          "dtmbManualConfiguration": 2,
+          "dtmbActiveConfiguration": 3,
+          "dtmbTest": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbStatusNotificationMask": {
+    "name": "dtmbStatusNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbStatusNotificationPriority": {
+    "name": "dtmbStatusNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbStatusNotificationState": {
+    "name": "dtmbStatusNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbStateTable": {
+    "name": "dtmbStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbStateEntry": {
+    "name": "dtmbStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbStTxDelayOffset": {
+    "name": "dtmbStTxDelayOffset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/10 micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbSetup": {
+    "name": "dtmbSetup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2",
+    "class": "objectidentity"
+  },
+  "dtmbConfigurationTable": {
+    "name": "dtmbConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbConfigurationEntry": {
+    "name": "dtmbConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbConfigurationTxIdx": {
+    "name": "dtmbConfigurationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbConfigurationExcIdx": {
+    "name": "dtmbConfigurationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbConfigurationTpsSource": {
+    "name": "dtmbConfigurationTpsSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "mip": 2,
+          "manual": 3,
+          "sip": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbConfigurationInfoPacketReplacement": {
+    "name": "dtmbConfigurationInfoPacketReplacement",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "off": 2,
+          "on": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbConfigurationNetworkMode": {
+    "name": "dtmbConfigurationNetworkMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "mfn": 2,
+          "sfnMip": 3,
+          "sfnSip": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationTable": {
+    "name": "dtmbModulationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbModulationEntry": {
+    "name": "dtmbModulationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dtmbModulationEntry",
+      "module": "RS-XX9-DTMB-MIB",
+      "object": "dtmbConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dtmbModulationChannelBandwidth": {
+    "name": "dtmbModulationChannelBandwidth",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbChannelBandwidth",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationGuardInterval": {
+    "name": "dtmbModulationGuardInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbGuardInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationConstellation": {
+    "name": "dtmbModulationConstellation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationCodeRate": {
+    "name": "dtmbModulationCodeRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbCodeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationTimeInterleaver": {
+    "name": "dtmbModulationTimeInterleaver",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "s240": 3,
+          "s720": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationControlFrame": {
+    "name": "dtmbModulationControlFrame",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dtmbModulationCarrierMode": {
+    "name": "dtmbModulationCarrierMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 2,
+          "multi": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationDualPilotTone": {
+    "name": "dtmbModulationDualPilotTone",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbModulationGuardIntervalPN": {
+    "name": "dtmbModulationGuardIntervalPN",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "variable": 2,
+          "constant": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbTestTable": {
+    "name": "dtmbTestTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbTestEntry": {
+    "name": "dtmbTestEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dtmbTestEntry",
+      "module": "RS-XX9-DTMB-MIB",
+      "object": "dtmbConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dtmbTestMode": {
+    "name": "dtmbTestMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "prbs": 2,
+          "singleCarrier": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbTestCarrierPower": {
+    "name": "dtmbTestCarrierPower",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbLocalizationTable": {
+    "name": "dtmbLocalizationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbLocalizationEntry": {
+    "name": "dtmbLocalizationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbLocalizationTxControl": {
+    "name": "dtmbLocalizationTxControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbLocalizationTxAddress": {
+    "name": "dtmbLocalizationTxAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dtmbOutput": {
+    "name": "dtmbOutput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3",
+    "class": "objectidentity"
+  },
+  "dtmbOutModulationTable": {
+    "name": "dtmbOutModulationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dtmbOutModulationEntry": {
+    "name": "dtmbOutModulationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbOutModulationChannelBandwidth": {
+    "name": "dtmbOutModulationChannelBandwidth",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbChannelBandwidth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationGuardInterval": {
+    "name": "dtmbOutModulationGuardInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbGuardInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationConstellation": {
+    "name": "dtmbOutModulationConstellation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationCodeRate": {
+    "name": "dtmbOutModulationCodeRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DtmbCodeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationTimeInterleaver": {
+    "name": "dtmbOutModulationTimeInterleaver",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 2,
+          "s240": 3,
+          "s720": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationCarrierMode": {
+    "name": "dtmbOutModulationCarrierMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 2,
+          "multi": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationDualPilotTone": {
+    "name": "dtmbOutModulationDualPilotTone",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dtmbOutModulationGuardIntervalPN": {
+    "name": "dtmbOutModulationGuardIntervalPN",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "variable": 2,
+          "constant": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsXx9DtmbConformance": {
+    "name": "rsXx9DtmbConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2",
+    "class": "objectidentity"
+  },
+  "rsXx9DtmbCompliances": {
+    "name": "rsXx9DtmbCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2.1",
+    "class": "objectidentity"
+  },
+  "dtmbBasicCompliance": {
+    "name": "dtmbBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dtmbObjBasic",
+        "module": "RS-XX9-DTMB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9DtmbGroups": {
+    "name": "rsXx9DtmbGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2.2",
+    "class": "objectidentity"
+  },
+  "dtmbObjBasic": {
+    "name": "dtmbObjBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationTpsSource"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationChannelBandwidth"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationGuardInterval"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationConstellation"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationCodeRate"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationTimeInterleaver"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationCarrierMode"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationDualPilotTone"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationGuardIntervalPN"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStTxDelayOffset"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationChannelBandwidth"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationGuardInterval"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationConstellation"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationCodeRate"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationTimeInterleaver"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationCarrierMode"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationDualPilotTone"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbOutModulationGuardIntervalPN"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbLocalizationTxAddress"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbLocalizationTxControl"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbTestMode"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationName"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationMask"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbStatusNotificationState"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationInfoPacketReplacement"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbConfigurationNetworkMode"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbTestCarrierPower"
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbNotifyBasic": {
+    "name": "dtmbNotifyBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbEncoderSummary"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbManualConfiguration"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbActiveConfiguration"
+      },
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbTest"
+      }
+    ],
+    "status": "current"
+  },
+  "dtmbObjBasicObsolete": {
+    "name": "dtmbObjBasicObsolete",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.12.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DTMB-MIB",
+        "object": "dtmbModulationControlFrame"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-DTMB-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-DTMB-MIB"
+  }
+}

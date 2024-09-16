@@ -1,0 +1,2227 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-SMI-MIB": [
+      "rsXx9Atv",
+      "rsXx9MibModule"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationState",
+      "IndexTransmitter",
+      "IndexAB",
+      "SwitchOnOff"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rsXx9AtvMibModule": {
+    "name": "rsXx9AtvMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-09-30 16:00",
+        "description": "added atvInputIrdetoMode "
+      },
+      {
+        "revision": "2013-10-01 18:00",
+        "description": "initial release. removed atvInpCmnInputIdx from all atvInput tables. atvNicamCfgPreemphasis is showing the correct value now. added clarification to description of atvInpAudioClipping"
+      },
+      {
+        "revision": "2013-02-04 16:00",
+        "description": "Preliminary version."
+      }
+    ]
+  },
+  "SoundMode": {
+    "name": "SoundMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "carrierOff": 1,
+          "modulationOff": 2,
+          "on": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx9AtvNotifications": {
+    "name": "rsXx9AtvNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.0",
+    "class": "objectidentity"
+  },
+  "rsXx9AtvObjects": {
+    "name": "rsXx9AtvObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1",
+    "class": "objectidentity"
+  },
+  "atvInput": {
+    "name": "atvInput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1",
+    "class": "objectidentity"
+  },
+  "atvInputCommonTable": {
+    "name": "atvInputCommonTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInputCommonEntry": {
+    "name": "atvInputCommonEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atvInpCmnTxIdx": {
+    "name": "atvInpCmnTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInpCmnExcIdx": {
+    "name": "atvInpCmnExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInpCmnInputIdx": {
+    "name": "atvInpCmnInputIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "input1": 1,
+          "input2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "atvInpCmnDatalineInfo": {
+    "name": "atvInpCmnDatalineInfo",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "mono": 2,
+          "stereo": 3,
+          "dual": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpCmnInputImpedance": {
+    "name": "atvInpCmnInputImpedance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sixHundredOhm": 1,
+          "highImpedance": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvInpCmnAudioLowpass": {
+    "name": "atvInpCmnAudioLowpass",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvInpCmnNicam728Datastream": {
+    "name": "atvInpCmnNicam728Datastream",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInputIrdetoMode": {
+    "name": "atvInputIrdetoMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "irdeto": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInputVideoTable": {
+    "name": "atvInputVideoTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInputVideoEntry": {
+    "name": "atvInputVideoEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atvInputVideoEntry",
+      "module": "RS-XX9-ATV-MIB",
+      "object": "atvInputCommonEntry"
+    },
+    "status": "current"
+  },
+  "atvInpVideoWhiteAmplitude": {
+    "name": "atvInpVideoWhiteAmplitude",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1300
+          }
+        ]
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpVideoWhitePulseMonitoring": {
+    "name": "atvInpVideoWhitePulseMonitoring",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "ok": 2,
+          "lem40": 3,
+          "lem30": 4,
+          "gep30": 5,
+          "gep40": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpVideoSyncAmplitude": {
+    "name": "atvInpVideoSyncAmplitude",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpVideoSyncMonitoring": {
+    "name": "atvInpVideoSyncMonitoring",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "noV": 2,
+          "noHV": 3,
+          "lowLevel": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpVideoClipping": {
+    "name": "atvInpVideoClipping",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpVideoNominalAmplitude": {
+    "name": "atvInpVideoNominalAmplitude",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dotSeven": 1,
+          "one": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvInputAudioTable": {
+    "name": "atvInputAudioTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInputAudioEntry": {
+    "name": "atvInputAudioEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpAudioNfSignalIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atvInpAudioNfSignalIdx": {
+    "name": "atvInpAudioNfSignalIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "af1": 1,
+          "af2": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInpAudioCurrentLevel": {
+    "name": "atvInpAudioCurrentLevel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "per thousand",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpAudioClipping": {
+    "name": "atvInpAudioClipping",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpAudioNominalLevel": {
+    "name": "atvInpAudioNominalLevel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1200,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "units": "1/100 dBu",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvInputNicamTable": {
+    "name": "atvInputNicamTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvInputNicamEntry": {
+    "name": "atvInputNicamEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atvInputNicamEntry",
+      "module": "RS-XX9-ATV-MIB",
+      "object": "atvInputAudioEntry"
+    },
+    "status": "current"
+  },
+  "atvInpNicamCurrentLevel": {
+    "name": "atvInpNicamCurrentLevel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "per thousand",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpNicamClipping": {
+    "name": "atvInpNicamClipping",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvInpNicamGainAdjustment": {
+    "name": "atvInpNicamGainAdjustment",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -600,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "milli Bel",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCommon": {
+    "name": "atvCommon",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2",
+    "class": "objectidentity"
+  },
+  "atvCommonStateTable": {
+    "name": "atvCommonStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvCommonStateEntry": {
+    "name": "atvCommonStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnStTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnStExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atvCmnStTxIdx": {
+    "name": "atvCmnStTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvCmnStExcIdx": {
+    "name": "atvCmnStExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvCmnStCurrentAudioMode": {
+    "name": "atvCmnStCurrentAudioMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mono": 1,
+          "stereo": 2,
+          "dual": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvCommonConfigTable": {
+    "name": "atvCommonConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvCommonConfigEntry": {
+    "name": "atvCommonConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atvCommonConfigEntry",
+      "module": "RS-XX9-ATV-MIB",
+      "object": "atvCommonStateEntry"
+    },
+    "status": "current"
+  },
+  "atvCmnCfgTvStandard": {
+    "name": "atvCmnCfgTvStandard",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dk": 2,
+          "i": 3,
+          "i1": 4,
+          "k1": 5,
+          "b": 6,
+          "g": 7,
+          "m": 8,
+          "m1": 9,
+          "n": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCmnCfgSoundCarrierSelect": {
+    "name": "atvCmnCfgSoundCarrierSelect",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleCarrier": 1,
+          "dualCarrier": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCmnCfgCoderMode": {
+    "name": "atvCmnCfgCoderMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "mono": 2,
+          "stereo": 3,
+          "dual": 4,
+          "auto": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCmnCfgVisionSound1": {
+    "name": "atvCmnCfgVisionSound1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -150,
+            "max": -50
+          }
+        ]
+      }
+    },
+    "units": "centi Bel",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCmnCfgVisionSound2": {
+    "name": "atvCmnCfgVisionSound2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -270,
+            "max": -170
+          }
+        ]
+      }
+    },
+    "units": "centi Bel",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCmnCfgResidual": {
+    "name": "atvCmnCfgResidual",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 80,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvCommonTestTable": {
+    "name": "atvCommonTestTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvCommonTestEntry": {
+    "name": "atvCommonTestEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atvCommonTestEntry",
+      "module": "RS-XX9-ATV-MIB",
+      "object": "atvCommonStateEntry"
+    },
+    "status": "current"
+  },
+  "atvCommonTestSignal": {
+    "name": "atvCommonTestSignal",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "singleCarrier": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideo": {
+    "name": "atvVideo",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3",
+    "class": "objectidentity"
+  },
+  "atvVideoStateTable": {
+    "name": "atvVideoStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvVideoStateEntry": {
+    "name": "atvVideoStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atvVideoStTxIdx": {
+    "name": "atvVideoStTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvVideoStExcIdx": {
+    "name": "atvVideoStExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvVideoStWhiteAmplitudeOutput": {
+    "name": "atvVideoStWhiteAmplitudeOutput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvVideoStMemoryGain": {
+    "name": "atvVideoStMemoryGain",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "per thousand",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvVideoStCurrentGainSource": {
+    "name": "atvVideoStCurrentGainSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "memory": 2,
+          "automatic": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvVideoStLimiterActive": {
+    "name": "atvVideoStLimiterActive",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvVideoStSyncAmplitudeOutput": {
+    "name": "atvVideoStSyncAmplitudeOutput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvVideoConfigTable": {
+    "name": "atvVideoConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvVideoConfigEntry": {
+    "name": "atvVideoConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atvVideoConfigEntry",
+      "module": "RS-XX9-ATV-MIB",
+      "object": "atvVideoStateEntry"
+    },
+    "status": "current"
+  },
+  "atvVideoCfgAutomatic": {
+    "name": "atvVideoCfgAutomatic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgGainSource": {
+    "name": "atvVideoCfgGainSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "memory": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgManualGain": {
+    "name": "atvVideoCfgManualGain",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgTestLine": {
+    "name": "atvVideoCfgTestLine",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 22
+          },
+          {
+            "min": 329,
+            "max": 335
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgDataLine": {
+    "name": "atvVideoCfgDataLine",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 22
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgLimiter": {
+    "name": "atvVideoCfgLimiter",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgThreshold": {
+    "name": "atvVideoCfgThreshold",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgSyncImpulsRegeneration": {
+    "name": "atvVideoCfgSyncImpulsRegeneration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgSyncAmplitude": {
+    "name": "atvVideoCfgSyncAmplitude",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "mV",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgReceiverPreEqualization": {
+    "name": "atvVideoCfgReceiverPreEqualization",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgDiplexer": {
+    "name": "atvVideoCfgDiplexer",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvVideoCfgDiplexerPeaking": {
+    "name": "atvVideoCfgDiplexerPeaking",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "units": "centi Bel",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudio": {
+    "name": "atvAudio",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4",
+    "class": "objectidentity"
+  },
+  "atvAudioStateTable": {
+    "name": "atvAudioStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvAudioStateEntry": {
+    "name": "atvAudioStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atvAudioStTxIdx": {
+    "name": "atvAudioStTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvAudioStExcIdx": {
+    "name": "atvAudioStExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvAudioStCurrentDeviationCarrier1": {
+    "name": "atvAudioStCurrentDeviationCarrier1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvAudioStCurrentDeviationCarrier2": {
+    "name": "atvAudioStCurrentDeviationCarrier2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvAudioStCurrentPilotDeviation": {
+    "name": "atvAudioStCurrentPilotDeviation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvAudioStLimiterCarrier1": {
+    "name": "atvAudioStLimiterCarrier1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvAudioStLimiterCarrier2": {
+    "name": "atvAudioStLimiterCarrier2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "atvAudioConfigTable": {
+    "name": "atvAudioConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvAudioConfigEntry": {
+    "name": "atvAudioConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "atvAudioConfigEntry",
+      "module": "RS-XX9-ATV-MIB",
+      "object": "atvAudioStateEntry"
+    },
+    "status": "current"
+  },
+  "atvAudioCfgIrtNicam": {
+    "name": "atvAudioCfgIrtNicam",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "irt": 1,
+          "nicam": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgPreemphase": {
+    "name": "atvAudioCfgPreemphase",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgNominalDeviationAF1": {
+    "name": "atvAudioCfgNominalDeviationAF1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20000,
+            "max": 75000
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgNominalDeviationAF2": {
+    "name": "atvAudioCfgNominalDeviationAF2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20000,
+            "max": 75000
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgPilotGain": {
+    "name": "atvAudioCfgPilotGain",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1900,
+            "max": -1200
+          }
+        ]
+      }
+    },
+    "units": "1/100 dBu",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgPilot": {
+    "name": "atvAudioCfgPilot",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgSoundModeCarrier1": {
+    "name": "atvAudioCfgSoundModeCarrier1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoundMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgSoundModeCarrier2": {
+    "name": "atvAudioCfgSoundModeCarrier2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoundMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgLimiterThreshold": {
+    "name": "atvAudioCfgLimiterThreshold",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50000,
+            "max": 120000
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgDeviationLimiter": {
+    "name": "atvAudioCfgDeviationLimiter",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgWarningAbove": {
+    "name": "atvAudioCfgWarningAbove",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50000,
+            "max": 250000
+          }
+        ]
+      }
+    },
+    "units": "Hz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgPrecorrectionChannel1": {
+    "name": "atvAudioCfgPrecorrectionChannel1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgPrecorrectionChannel2": {
+    "name": "atvAudioCfgPrecorrectionChannel2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgInsetPoint1Channel1": {
+    "name": "atvAudioCfgInsetPoint1Channel1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgInsetPoint1Channel2": {
+    "name": "atvAudioCfgInsetPoint1Channel2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgSlope1Channel1": {
+    "name": "atvAudioCfgSlope1Channel1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgSlope1Channel2": {
+    "name": "atvAudioCfgSlope1Channel2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgInsetPoint2Channel1": {
+    "name": "atvAudioCfgInsetPoint2Channel1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgInsetPoint2Channel2": {
+    "name": "atvAudioCfgInsetPoint2Channel2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgSlope2Channel1": {
+    "name": "atvAudioCfgSlope2Channel1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvAudioCfgSlope2Channel2": {
+    "name": "atvAudioCfgSlope2Channel2",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.4.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -500,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "units": "per thousand",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvNicam": {
+    "name": "atvNicam",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5",
+    "class": "objectidentity"
+  },
+  "atvNicamConfigTable": {
+    "name": "atvNicamConfigTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvNicamConfigEntry": {
+    "name": "atvNicamConfigEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "atvNicamCfgTxIdx": {
+    "name": "atvNicamCfgTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvNicamCfgExcIdx": {
+    "name": "atvNicamCfgExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atvNicamCfgAudioMode": {
+    "name": "atvNicamCfgAudioMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "equalFM": 1,
+          "monoData": 2,
+          "stereo": 3,
+          "dual": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvNicamCfgPreemphasis": {
+    "name": "atvNicamCfgPreemphasis",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvNicamCfgReserveSound": {
+    "name": "atvNicamCfgReserveSound",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvNicamCfgNicamMode": {
+    "name": "atvNicamCfgNicamMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coder": 1,
+          "modulator": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvNicamCfgNicamRolloff": {
+    "name": "atvNicamCfgNicamRolloff",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "pct40": 2,
+          "pct100": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "atvNicamCfgSoundMode": {
+    "name": "atvNicamCfgSoundMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoundMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsXx9AtvConformance": {
+    "name": "rsXx9AtvConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2",
+    "class": "objectidentity"
+  },
+  "rsXx9AtvCompliances": {
+    "name": "rsXx9AtvCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.1",
+    "class": "objectidentity"
+  },
+  "atvBasicCompliance": {
+    "name": "atvBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "atvObjsCommon",
+        "module": "RS-XX9-ATV-MIB"
+      },
+      {
+        "object": "atvObjsVideo",
+        "module": "RS-XX9-ATV-MIB"
+      },
+      {
+        "object": "atvObjsAudio",
+        "module": "RS-XX9-ATV-MIB"
+      },
+      {
+        "object": "atvObjsNicam",
+        "module": "RS-XX9-ATV-MIB"
+      },
+      {
+        "object": "atvObjsInput",
+        "module": "RS-XX9-ATV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9AtvGroups": {
+    "name": "rsXx9AtvGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2",
+    "class": "objectidentity"
+  },
+  "atvObjsInput": {
+    "name": "atvObjsInput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnDatalineInfo"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnInputImpedance"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpVideoWhiteAmplitude"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpVideoWhitePulseMonitoring"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpVideoSyncAmplitude"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpVideoSyncMonitoring"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpVideoNominalAmplitude"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpAudioCurrentLevel"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpAudioClipping"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpAudioNominalLevel"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpNicamCurrentLevel"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpNicamClipping"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpVideoClipping"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInputIrdetoMode"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpNicamGainAdjustment"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnAudioLowpass"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnNicam728Datastream"
+      }
+    ],
+    "status": "current"
+  },
+  "atvObjsCommon": {
+    "name": "atvObjsCommon",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnStCurrentAudioMode"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnCfgTvStandard"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnCfgSoundCarrierSelect"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnCfgCoderMode"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnCfgVisionSound1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnCfgVisionSound2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCmnCfgResidual"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvCommonTestSignal"
+      }
+    ],
+    "status": "current"
+  },
+  "atvObjsVideo": {
+    "name": "atvObjsVideo",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStWhiteAmplitudeOutput"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStMemoryGain"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStCurrentGainSource"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStLimiterActive"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoStSyncAmplitudeOutput"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgAutomatic"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgGainSource"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgManualGain"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgTestLine"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgDataLine"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgLimiter"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgThreshold"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgSyncImpulsRegeneration"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgSyncAmplitude"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgReceiverPreEqualization"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgDiplexer"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvVideoCfgDiplexerPeaking"
+      }
+    ],
+    "status": "current"
+  },
+  "atvObjsAudio": {
+    "name": "atvObjsAudio",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStCurrentDeviationCarrier1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStCurrentDeviationCarrier2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStCurrentPilotDeviation"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStLimiterCarrier1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioStLimiterCarrier2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgIrtNicam"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgPreemphase"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgNominalDeviationAF1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgNominalDeviationAF2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgPilotGain"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgPilot"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgSoundModeCarrier1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgSoundModeCarrier2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgLimiterThreshold"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgDeviationLimiter"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgWarningAbove"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgPrecorrectionChannel1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgPrecorrectionChannel2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgInsetPoint1Channel1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgInsetPoint1Channel2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgSlope1Channel1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgSlope1Channel2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgInsetPoint2Channel1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgInsetPoint2Channel2"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgSlope2Channel1"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvAudioCfgSlope2Channel2"
+      }
+    ],
+    "status": "current"
+  },
+  "atvObjsNicam": {
+    "name": "atvObjsNicam",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgAudioMode"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgPreemphasis"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgReserveSound"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgNicamMode"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgNicamRolloff"
+      },
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvNicamCfgSoundMode"
+      }
+    ],
+    "status": "current"
+  },
+  "atvObjsInputObsolete": {
+    "name": "atvObjsInputObsolete",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.9.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ATV-MIB",
+        "object": "atvInpCmnInputIdx"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-ATV-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-ATV-MIB"
+  }
+}

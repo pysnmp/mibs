@@ -5,10 +5,10 @@
       "tftpStatus"
     ],
     "SL-ALARM-MIB": [
-      "slAlarmSeverity",
-      "slAlarmIfIndex",
-      "slAlarmActive",
       "slAlarmServiceAffect",
+      "slAlarmActive",
+      "slAlarmIfIndex",
+      "slAlarmSeverity",
       "slAlarmType"
     ],
     "SL-EDFA-MIB": [
@@ -17,51 +17,51 @@
       "edfaIfIndex"
     ],
     "SL-EVENT-MIB": [
-      "slGenEventVal",
       "slEventInventoryIfIndex",
-      "slEventInventoryType",
       "slGenEventIfIndex",
+      "slEventInventorySerial",
+      "slEventInventoryPartnum",
+      "slEventInventoryAction",
       "slEventUser",
       "slGenEventType",
-      "slEventInventoryAction",
-      "slEventInventorySerial",
-      "slEventType",
       "slEventIfIndex",
-      "slEventInventoryPartnum",
-      "slGenEventUser",
-      "slEventVal"
+      "slEventType",
+      "slEventVal",
+      "slEventInventoryType",
+      "slGenEventVal",
+      "slGenEventUser"
     ],
     "SL-NE-MIB": [
       "packetlight"
     ],
     "SL-OPT-APS-MIB": [
-      "optApsConfigUserWorkingIndex",
-      "optApsConfigActiveConnectionRx"
+      "optApsConfigActiveConnectionRx",
+      "optApsConfigUserWorkingIndex"
     ],
     "SL-TESTS-MIB": [
-      "slTestsIfLoopIfIndex",
       "slTestsIfLoopType",
-      "slTestsTrapsLoopbackActive"
+      "slTestsTrapsLoopbackActive",
+      "slTestsIfLoopIfIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Bits",
-      "Counter64",
-      "Integer32",
       "IpAddress",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -246,9 +246,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-TRAP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:39:25 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:59:22 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SL-TRAP-MIB"
   }

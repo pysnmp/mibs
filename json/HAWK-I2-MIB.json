@@ -10,27 +10,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "iso",
       "Integer32",
       "enterprises",
-      "Counter64",
-      "Unsigned32",
       "IpAddress",
-      "TimeTicks",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
+      "RowStatus",
+      "MacAddress",
       "DisplayString"
     ]
   },
@@ -4476,9 +4476,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/sinetica/HAWK-I2-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:40:48 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:55 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "HAWK-I2-MIB"
   }

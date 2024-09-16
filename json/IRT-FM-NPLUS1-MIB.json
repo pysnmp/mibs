@@ -1,0 +1,2400 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "fm",
+      "SelectManualAuto",
+      "SelectOnOff",
+      "ExecutedNotExecuted",
+      "LocalRemote",
+      "PresentNotPresent",
+      "FaultOK",
+      "ReadyNotReady"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "fmnPlus1": {
+    "name": "fmnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change LocalMode (description) and Module-COMPLIANCE change MAX-ACCESS: OIDs 1.3.6.1.4.1.19831.1.1.3.5.6.5.1 and 1.3.6.1.4.1.19831.1.1.3.5.6.5.3 change numbering: OIDs 1.3.6.1.4.1.19831.1.1.3.5.3.x and 1.3.6.1.4.1.19831.1.1.3.5.5.x and 1.3.6.1.4.1.19831.1.1.3.5.6.2.1.x and 1.3.6.1.4.1.19831.1.1.3.5.6.3.x and 1.3.6.1.4.1.19831.1.1.3.5.6.4.1.x and 1.3.6.1.4.1.19831.1.1.3.5.6.5.x and 1.3.6.1.4.1.19831.1.1.3.5.7.2.1.x and 1.3.6.1.4.1.19831.1.1.3.5.7.3.x and 1.3.6.1.4.1.19831.1.1.3.5.7.4.1.x and 1.3.6.1.4.1.19831.1.1.3.5.7.5.x"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "Corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "TransmitterBFreeOccupied": {
+    "name": "TransmitterBFreeOccupied",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "free": 1,
+          "occupied": 2
+        }
+      }
+    },
+    "status": "obsolete"
+  },
+  "fmEventsnPlus1": {
+    "name": "fmEventsnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RedundancySwitchOverEvent": {
+    "name": "fmnPlus1RedundancySwitchOverEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RedundancySwitchOver"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1LocalModeEvent": {
+    "name": "fmnPlus1LocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1LocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1ControlUnitFaultEvent": {
+    "name": "fmnPlus1ControlUnitFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ControlUnitFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverModeEvent": {
+    "name": "fmnPlus1SwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverReadyEvent": {
+    "name": "fmnPlus1SwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverExecutedEvent": {
+    "name": "fmnPlus1SwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverFaultEvent": {
+    "name": "fmnPlus1SwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1ChannelSelectionEvent": {
+    "name": "fmnPlus1ChannelSelectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ChannelSelection"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TransmitterBResetEvent": {
+    "name": "fmnPlus1TransmitterBResetEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBReset"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmnPlus1TransmitterBModeEvent": {
+    "name": "fmnPlus1TransmitterBModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBMode"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "fmnPlus1MTOpModeEvent": {
+    "name": "fmnPlus1MTOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTOpMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1MTRFProgramPresentEvent": {
+    "name": "fmnPlus1MTRFProgramPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTRFProgramPresent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1RTOpModeEvent": {
+    "name": "fmnPlus1RTOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1RTRFProgramPresentEvent": {
+    "name": "fmnPlus1RTRFProgramPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTRFProgramPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TARFPresentEvent": {
+    "name": "fmnPlus1TARFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TARFPresent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TALocalModeEvent": {
+    "name": "fmnPlus1TALocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TALocalMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TAFaultEvent": {
+    "name": "fmnPlus1TAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAFault"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TAWarningEvent": {
+    "name": "fmnPlus1TAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAWarning"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TBRFPresentEvent": {
+    "name": "fmnPlus1TBRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TBLocalModeEvent": {
+    "name": "fmnPlus1TBLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TBFaultEvent": {
+    "name": "fmnPlus1TBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TBWarningEvent": {
+    "name": "fmnPlus1TBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1General": {
+    "name": "fmnPlus1General",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RedundancySwitchOver": {
+    "name": "fmnPlus1RedundancySwitchOver",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1LocalMode": {
+    "name": "fmnPlus1LocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1ControlUnitFault": {
+    "name": "fmnPlus1ControlUnitFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverMode": {
+    "name": "fmnPlus1SwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverReady": {
+    "name": "fmnPlus1SwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverExecuted": {
+    "name": "fmnPlus1SwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverFault": {
+    "name": "fmnPlus1SwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1ChannelSelection": {
+    "name": "fmnPlus1ChannelSelection",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TransmitterBReset": {
+    "name": "fmnPlus1TransmitterBReset",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "fmnPlus1TransmitterBMode": {
+    "name": "fmnPlus1TransmitterBMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransmitterBFreeOccupied",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "fmnPlus1EventTransmitterIndex": {
+    "name": "fmnPlus1EventTransmitterIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1MainTransmitterTable": {
+    "name": "fmnPlus1MainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmnPlus1MainTransmitterEntry": {
+    "name": "fmnPlus1MainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1MTIndex": {
+    "name": "fmnPlus1MTIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1MTOpMode": {
+    "name": "fmnPlus1MTOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1MTRFProgramPresent": {
+    "name": "fmnPlus1MTRFProgramPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1ReserveTransmitter": {
+    "name": "fmnPlus1ReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.3",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RTOpMode": {
+    "name": "fmnPlus1RTOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1RTRFProgramPresent": {
+    "name": "fmnPlus1RTRFProgramPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TransmitterATable": {
+    "name": "fmnPlus1TransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmnPlus1TransmitterAEntry": {
+    "name": "fmnPlus1TransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TAIndex": {
+    "name": "fmnPlus1TAIndex",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TARFPresent": {
+    "name": "fmnPlus1TARFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TALocalMode": {
+    "name": "fmnPlus1TALocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TAFault": {
+    "name": "fmnPlus1TAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TAWarning": {
+    "name": "fmnPlus1TAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TransmitterB": {
+    "name": "fmnPlus1TransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.5",
+    "class": "objectidentity"
+  },
+  "fmnPlus1TBRFPresent": {
+    "name": "fmnPlus1TBRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TBLocalMode": {
+    "name": "fmnPlus1TBLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TBFault": {
+    "name": "fmnPlus1TBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1TBWarning": {
+    "name": "fmnPlus1TBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fmnPlus1EventEnable": {
+    "name": "fmnPlus1EventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6",
+    "class": "objectidentity"
+  },
+  "fmnPlus1EventEnableGeneral": {
+    "name": "fmnPlus1EventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RedundancySwitchOverEnable": {
+    "name": "fmnPlus1RedundancySwitchOverEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1LocalModeEnable": {
+    "name": "fmnPlus1LocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1ControlUnitFaultEnable": {
+    "name": "fmnPlus1ControlUnitFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverModeEnable": {
+    "name": "fmnPlus1SwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverReadyEnable": {
+    "name": "fmnPlus1SwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverExecutedEnable": {
+    "name": "fmnPlus1SwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverFaultEnable": {
+    "name": "fmnPlus1SwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1ChannelSelectionEnable": {
+    "name": "fmnPlus1ChannelSelectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TransmitterBResetEnable": {
+    "name": "fmnPlus1TransmitterBResetEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "fmnPlus1TransmitterBModeEnable": {
+    "name": "fmnPlus1TransmitterBModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "fmnPlus1EventEnableMainTransmitterTable": {
+    "name": "fmnPlus1EventEnableMainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmnPlus1EventEnableMainTransmitterEntry": {
+    "name": "fmnPlus1EventEnableMainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1MTOpModeEnable": {
+    "name": "fmnPlus1MTOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1MTRFProgramPresentEnable": {
+    "name": "fmnPlus1MTRFProgramPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventEnableReserveTransmitter": {
+    "name": "fmnPlus1EventEnableReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.3",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RTOpModeEnable": {
+    "name": "fmnPlus1RTOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1RTRFProgramPresentEnable": {
+    "name": "fmnPlus1RTRFProgramPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventEnableTransmitterATable": {
+    "name": "fmnPlus1EventEnableTransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmnPlus1EventEnableTransmitterAEntry": {
+    "name": "fmnPlus1EventEnableTransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TARFPresentEnable": {
+    "name": "fmnPlus1TARFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TALocalModeEnable": {
+    "name": "fmnPlus1TALocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TAFaultEnable": {
+    "name": "fmnPlus1TAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TAWarningEnable": {
+    "name": "fmnPlus1TAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventEnableTransmitterB": {
+    "name": "fmnPlus1EventEnableTransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.5",
+    "class": "objectidentity"
+  },
+  "fmnPlus1TBRFPresentEnable": {
+    "name": "fmnPlus1TBRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TBLocalModeEnable": {
+    "name": "fmnPlus1TBLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TBFaultEnable": {
+    "name": "fmnPlus1TBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TBWarningEnable": {
+    "name": "fmnPlus1TBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.6.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventPriority": {
+    "name": "fmnPlus1EventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7",
+    "class": "objectidentity"
+  },
+  "fmnPlus1EventPriorityGeneral": {
+    "name": "fmnPlus1EventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RedundancySwitchOverPriority": {
+    "name": "fmnPlus1RedundancySwitchOverPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1LocalModePriority": {
+    "name": "fmnPlus1LocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1ControlUnitFaultPriority": {
+    "name": "fmnPlus1ControlUnitFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverModePriority": {
+    "name": "fmnPlus1SwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverReadyPriority": {
+    "name": "fmnPlus1SwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverExecutedPriority": {
+    "name": "fmnPlus1SwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1SwitchOverFaultPriority": {
+    "name": "fmnPlus1SwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1ChannelSelectionPriority": {
+    "name": "fmnPlus1ChannelSelectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TransmitterBResetPriority": {
+    "name": "fmnPlus1TransmitterBResetPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "fmnPlus1TransmitterBModePriority": {
+    "name": "fmnPlus1TransmitterBModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "fmnPlus1EventPriorityMainTransmitterTable": {
+    "name": "fmnPlus1EventPriorityMainTransmitterTable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmnPlus1EventPriorityMainTransmitterEntry": {
+    "name": "fmnPlus1EventPriorityMainTransmitterEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1MTOpModePriority": {
+    "name": "fmnPlus1MTOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1MTRFProgramPresentPriority": {
+    "name": "fmnPlus1MTRFProgramPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventPriorityReserveTransmitter": {
+    "name": "fmnPlus1EventPriorityReserveTransmitter",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.3",
+    "class": "objectidentity"
+  },
+  "fmnPlus1RTOpModePriority": {
+    "name": "fmnPlus1RTOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1RTRFProgramPresentPriority": {
+    "name": "fmnPlus1RTRFProgramPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventPriorityTransmitterATable": {
+    "name": "fmnPlus1EventPriorityTransmitterATable",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fmnPlus1EventPriorityTransmitterAEntry": {
+    "name": "fmnPlus1EventPriorityTransmitterAEntry",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fmnPlus1TARFPresentPriority": {
+    "name": "fmnPlus1TARFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TALocalModePriority": {
+    "name": "fmnPlus1TALocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TAFaultPriority": {
+    "name": "fmnPlus1TAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TAWarningPriority": {
+    "name": "fmnPlus1TAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1EventPriorityTransmitterB": {
+    "name": "fmnPlus1EventPriorityTransmitterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.5",
+    "class": "objectidentity"
+  },
+  "fmnPlus1TBRFPresentPriority": {
+    "name": "fmnPlus1TBRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TBLocalModePriority": {
+    "name": "fmnPlus1TBLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TBFaultPriority": {
+    "name": "fmnPlus1TBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fmnPlus1TBWarningPriority": {
+    "name": "fmnPlus1TBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.7.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsnPlus1": {
+    "name": "groupsnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.8",
+    "class": "objectidentity"
+  },
+  "objectGroupnPlus1": {
+    "name": "objectGroupnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.8.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RedundancySwitchOver"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1LocalMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ControlUnitFault"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverReady"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverExecuted"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverFault"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ChannelSelection"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1EventTransmitterIndex"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTIndex"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTRFProgramPresent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTOpMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTRFProgramPresent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAIndex"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TARFPresent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAFault"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAWarning"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBRFPresent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBFault"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBWarning"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RedundancySwitchOverEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1LocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ControlUnitFaultEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ChannelSelectionEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTRFProgramPresentEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTOpModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTRFProgramPresentEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TARFPresentEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAFaultEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAWarningEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBRFPresentEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBFaultEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBWarningEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RedundancySwitchOverPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1LocalModePriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ControlUnitFaultPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverModePriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ChannelSelectionPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTRFProgramPresentPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTOpModePriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTRFProgramPresentPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TARFPresentPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAFaultPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAWarningPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBRFPresentPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBFaultPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBWarningPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TALocalMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBLocalMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TALocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBLocalModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TALocalModePriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBLocalModePriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTOpModePriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTOpModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupnPlus1": {
+    "name": "eventGroupnPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.8.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RedundancySwitchOverEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1LocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ControlUnitFaultEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1SwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1ChannelSelectionEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTRFProgramPresentEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTOpModeEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1RTRFProgramPresentEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TARFPresentEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAFaultEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TAWarningEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBRFPresentEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBFaultEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBWarningEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TALocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TBLocalModeEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1MTOpModeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupnPlus1obsolete": {
+    "name": "objectGroupnPlus1obsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.8.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBReset"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBMode"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBResetEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBModeEnable"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBResetPriority"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBModePriority"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "eventGroupnPlus1obsolete": {
+    "name": "eventGroupnPlus1obsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.8.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBResetEvent"
+      },
+      {
+        "module": "IRT-FM-NPLUS1-MIB",
+        "object": "fmnPlus1TransmitterBModeEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "compliancenPlus1": {
+    "name": "compliancenPlus1",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.9",
+    "class": "objectidentity"
+  },
+  "fmnPlus1Compliance": {
+    "name": "fmnPlus1Compliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.3.5.9.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "objectGroupnPlus1",
+        "module": "IRT-FM-NPLUS1-MIB"
+      },
+      {
+        "object": "eventGroupnPlus1",
+        "module": "IRT-FM-NPLUS1-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-FM-NPLUS1-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-FM-NPLUS1-MIB"
+  }
+}

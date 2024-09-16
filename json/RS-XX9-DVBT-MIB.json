@@ -1,0 +1,1138 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9DvbT",
+      "rsXx9MibModule"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationPriority",
+      "NotificationState",
+      "IndexTransmitter",
+      "NotificationMask",
+      "SwitchOnOff",
+      "IndexAB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rsXx9DvbtMibModule": {
+    "name": "rsXx9DvbtMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-02-05 16:00",
+        "description": "initial release. update description texts"
+      },
+      {
+        "revision": "2012-02-23 08:00",
+        "description": "Preliminary version."
+      }
+    ]
+  },
+  "DvbtChannelBandwidth": {
+    "name": "DvbtChannelBandwidth",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "mhz5": 4,
+          "mhz6": 5,
+          "mhz7": 6,
+          "mhz8": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DvbtFftSize": {
+    "name": "DvbtFftSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "k2": 3,
+          "k4": 4,
+          "k8": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DvbtGuardInterval": {
+    "name": "DvbtGuardInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "oneDiv32": 2,
+          "oneDiv16": 3,
+          "oneDiv8": 4,
+          "oneDiv4": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DvbtModulation": {
+    "name": "DvbtModulation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "qpsk": 4,
+          "qam16": 5,
+          "qam64": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DvbtCodeRate": {
+    "name": "DvbtCodeRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "oneHalf": 2,
+          "twoThird": 4,
+          "threeFourth": 5,
+          "fiveSixth": 7,
+          "sevenEighth": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DvbtInterleave": {
+    "name": "DvbtInterleave",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nat": 1,
+          "inDepth": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx9DvbtNotifications": {
+    "name": "rsXx9DvbtNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.0",
+    "class": "objectidentity"
+  },
+  "dvbtEncoderSummary": {
+    "name": "dvbtEncoderSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbtTest": {
+    "name": "dvbtTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9DvbtObjects": {
+    "name": "rsXx9DvbtObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1",
+    "class": "objectidentity"
+  },
+  "dvbtStatus": {
+    "name": "dvbtStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1",
+    "class": "objectidentity"
+  },
+  "dvbtStatusNotificationTable": {
+    "name": "dvbtStatusNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtStatusNotificationEntry": {
+    "name": "dvbtStatusNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbtStatusNotificationTxIdx": {
+    "name": "dvbtStatusNotificationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtStatusNotificationExcIdx": {
+    "name": "dvbtStatusNotificationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtStatusNotificationIdx": {
+    "name": "dvbtStatusNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtStatusNotificationName": {
+    "name": "dvbtStatusNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dvbtEncoderSummary": 1,
+          "dvbtTest": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtStatusNotificationMask": {
+    "name": "dvbtStatusNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtStatusNotificationPriority": {
+    "name": "dvbtStatusNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtStatusNotificationState": {
+    "name": "dvbtStatusNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtStateTable": {
+    "name": "dvbtStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtStateEntry": {
+    "name": "dvbtStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbtStTxFrequencyOffset": {
+    "name": "dvbtStTxFrequencyOffset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtStTxDelayOffset": {
+    "name": "dvbtStTxDelayOffset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/10 micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtStCellId": {
+    "name": "dvbtStCellId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "ok": 2,
+          "notPresent": 3,
+          "txControlDisabled": 4,
+          "txAddressFail": 5,
+          "mipFail": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtSetup": {
+    "name": "dvbtSetup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2",
+    "class": "objectidentity"
+  },
+  "dvbtConfigurationTable": {
+    "name": "dvbtConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtConfigurationEntry": {
+    "name": "dvbtConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtConfigurationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtConfigurationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dvbtConfigurationTxIdx": {
+    "name": "dvbtConfigurationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtConfigurationExcIdx": {
+    "name": "dvbtConfigurationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtConfigurationModulationSource": {
+    "name": "dvbtConfigurationModulationSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "mip": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtConfigurationDigitalMode": {
+    "name": "dvbtConfigurationDigitalMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "dvbT": 2,
+          "dvbH": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtLocalizationTable": {
+    "name": "dvbtLocalizationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtLocalizationEntry": {
+    "name": "dvbtLocalizationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dvbtLocalizationEntry",
+      "module": "RS-XX9-DVBT-MIB",
+      "object": "dvbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dvbtLocalizationTxControl": {
+    "name": "dvbtLocalizationTxControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtLocalizationTxAddress": {
+    "name": "dvbtLocalizationTxAddress",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtLocalizationCellIdSource": {
+    "name": "dvbtLocalizationCellIdSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "mip": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtLocalizationCellId": {
+    "name": "dvbtLocalizationCellId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationTable": {
+    "name": "dvbtModulationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtModulationEntry": {
+    "name": "dvbtModulationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dvbtModulationEntry",
+      "module": "RS-XX9-DVBT-MIB",
+      "object": "dvbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dvbtModulationChannelBandwidth": {
+    "name": "dvbtModulationChannelBandwidth",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtChannelBandwidth",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationFftMode": {
+    "name": "dvbtModulationFftMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtFftSize",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationGuardInterval": {
+    "name": "dvbtModulationGuardInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtGuardInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationConstellation": {
+    "name": "dvbtModulationConstellation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationCodeRate": {
+    "name": "dvbtModulationCodeRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtCodeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationMpeFEC": {
+    "name": "dvbtModulationMpeFEC",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationTimeSlicing": {
+    "name": "dvbtModulationTimeSlicing",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtModulationInterleave": {
+    "name": "dvbtModulationInterleave",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtInterleave",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtTestTable": {
+    "name": "dvbtTestTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtTestEntry": {
+    "name": "dvbtTestEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dvbtTestEntry",
+      "module": "RS-XX9-DVBT-MIB",
+      "object": "dvbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dvbtTestMode": {
+    "name": "dvbtTestMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "prbs": 2,
+          "singleCarrier": 3,
+          "mute1P1SymOfSuperFrame": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtOutput": {
+    "name": "dvbtOutput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3",
+    "class": "objectidentity"
+  },
+  "dvbtOutLocalizationTable": {
+    "name": "dvbtOutLocalizationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtOutLocalizationEntry": {
+    "name": "dvbtOutLocalizationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dvbtOutLocalizationEntry",
+      "module": "RS-XX9-DVBT-MIB",
+      "object": "dvbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dvbtOutLocalizationCellId": {
+    "name": "dvbtOutLocalizationCellId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbtOutModulationTable": {
+    "name": "dvbtOutModulationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dvbtOutModulationEntry": {
+    "name": "dvbtOutModulationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "dvbtOutModulationEntry",
+      "module": "RS-XX9-DVBT-MIB",
+      "object": "dvbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "dvbtOutModulationChannelBandwidth": {
+    "name": "dvbtOutModulationChannelBandwidth",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtChannelBandwidth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationFftMode": {
+    "name": "dvbtOutModulationFftMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtFftSize",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationGuardInterval": {
+    "name": "dvbtOutModulationGuardInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtGuardInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationConstellation": {
+    "name": "dvbtOutModulationConstellation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtModulation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationCodeRate": {
+    "name": "dvbtOutModulationCodeRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtCodeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationMpeFEC": {
+    "name": "dvbtOutModulationMpeFEC",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationTimeSlicing": {
+    "name": "dvbtOutModulationTimeSlicing",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbtOutModulationInterleave": {
+    "name": "dvbtOutModulationInterleave",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DvbtInterleave",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsXx9DvbtConformance": {
+    "name": "rsXx9DvbtConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2",
+    "class": "objectidentity"
+  },
+  "rsXx9DvbtCompliances": {
+    "name": "rsXx9DvbtCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2.1",
+    "class": "objectidentity"
+  },
+  "dvbtBasicCompliance": {
+    "name": "dvbtBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dvbtObjBasic",
+        "module": "RS-XX9-DVBT-MIB"
+      },
+      {
+        "object": "dvbtNotifyBasic",
+        "module": "RS-XX9-DVBT-MIB"
+      },
+      {
+        "object": "dvbtObjDvbH",
+        "module": "RS-XX9-DVBT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9DvbtGroups": {
+    "name": "rsXx9DvbtGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2.2",
+    "class": "objectidentity"
+  },
+  "dvbtObjBasic": {
+    "name": "dvbtObjBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationName"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationMask"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStatusNotificationState"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtConfigurationModulationSource"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationChannelBandwidth"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationFftMode"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationGuardInterval"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationConstellation"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationCodeRate"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtLocalizationCellId"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtLocalizationCellIdSource"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtLocalizationTxAddress"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtLocalizationTxControl"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationCodeRate"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationConstellation"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationGuardInterval"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationFftMode"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationChannelBandwidth"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutLocalizationCellId"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtConfigurationDigitalMode"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtTestMode"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStCellId"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStTxDelayOffset"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtStTxFrequencyOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbtNotifyBasic": {
+    "name": "dvbtNotifyBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2.2.101",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtEncoderSummary"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtTest"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbtObjDvbH": {
+    "name": "dvbtObjDvbH",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.6.2.2.102",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationMpeFEC"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationTimeSlicing"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtModulationInterleave"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationMpeFEC"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationTimeSlicing"
+      },
+      {
+        "module": "RS-XX9-DVBT-MIB",
+        "object": "dvbtOutModulationInterleave"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-DVBT-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-DVBT-MIB"
+  }
+}

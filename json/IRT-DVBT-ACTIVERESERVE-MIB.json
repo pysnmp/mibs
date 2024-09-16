@@ -1,0 +1,4429 @@
+{
+  "imports": {
+    "class": "imports",
+    "IRT-COMMONVARBINDS-MIB": [
+      "mibRelease",
+      "eventCounter",
+      "eventTimeStamp",
+      "eventPriority"
+    ],
+    "IRT-TRANSMITTER-SMI-MIB": [
+      "WarningOK",
+      "SelectManualAuto",
+      "SelectOnOff",
+      "dvbT",
+      "LocalRemote",
+      "ExecutedNotExecuted",
+      "PresentNotPresent",
+      "FaultOK",
+      "ReadyNotReady",
+      "Input1Input2",
+      "OkNotOk",
+      "MuteOk",
+      "SFNMFN"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysLocation",
+      "sysDescr",
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString"
+    ]
+  },
+  "dvbActiveReserve": {
+    "name": "dvbActiveReserve",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-05-04 14:00",
+        "description": "change SFNMode,LocalMode (description only) and Module-COMPLIANCE change numbering: OIDs 1.3.6.1.4.1.19831.1.1.1.2.7.1.13-19 and 1.3.6.1.4.1.19831.1.1.1.2.6.1.13-19!"
+      },
+      {
+        "revision": "2006-12-20 14:00",
+        "description": "corrections"
+      },
+      {
+        "revision": "2006-09-21 14:00",
+        "description": "Adding Compliance Statement"
+      },
+      {
+        "revision": "2006-09-19 14:00",
+        "description": "Correcting Imports"
+      },
+      {
+        "revision": "2006-09-07 14:00",
+        "description": "Relocation of the TC-MIB from the standard OID area at IEC into the private OID area of the IRT"
+      }
+    ]
+  },
+  "dvbEventsAR": {
+    "name": "dvbEventsAR",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0",
+    "class": "objectidentity"
+  },
+  "dvbARInputPreselectionEvent": {
+    "name": "dvbARInputPreselectionEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputPreselection"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARInputAutomaticEvent": {
+    "name": "dvbARInputAutomaticEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputAutomatic"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARPreselectionExciterEvent": {
+    "name": "dvbARPreselectionExciterEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionExciter"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARPreselectionAmplifierEvent": {
+    "name": "dvbARPreselectionAmplifierEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionAmplifier"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARTransmitterOpModeEvent": {
+    "name": "dvbARTransmitterOpModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARTransmitterOpMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARReserveControlEvent": {
+    "name": "dvbARReserveControlEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARReserveControl"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARResetFaultEvent": {
+    "name": "dvbARResetFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARResetFault"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dvbARActiveAmplifierEvent": {
+    "name": "dvbARActiveAmplifierEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveAmplifier"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARActiveExciterEvent": {
+    "name": "dvbARActiveExciterEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveExciter"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARLocalModeEvent": {
+    "name": "dvbARLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARControlUnitFaultEvent": {
+    "name": "dvbARControlUnitFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARControlUnitFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverModeEvent": {
+    "name": "dvbARExciterSwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverReadyEvent": {
+    "name": "dvbARExciterSwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverExecutedEvent": {
+    "name": "dvbARExciterSwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverFaultEvent": {
+    "name": "dvbARExciterSwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverModeEvent": {
+    "name": "dvbARAmplifierSwitchOverModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverReadyEvent": {
+    "name": "dvbARAmplifierSwitchOverReadyEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverReady"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverExecutedEvent": {
+    "name": "dvbARAmplifierSwitchOverExecutedEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverExecuted"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverFaultEvent": {
+    "name": "dvbARAmplifierSwitchOverFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierARFPresentEvent": {
+    "name": "dvbARAmplifierARFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierARFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierAFaultEvent": {
+    "name": "dvbARAmplifierAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierAWarningEvent": {
+    "name": "dvbARAmplifierAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierBRFPresentEvent": {
+    "name": "dvbARAmplifierBRFPresentEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBRFPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierBFaultEvent": {
+    "name": "dvbARAmplifierBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARAmplifierBWarningEvent": {
+    "name": "dvbARAmplifierBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAInput1OKEvent": {
+    "name": "dvbARExciterAInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAInput2OKEvent": {
+    "name": "dvbARExciterAInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterALocalModeEvent": {
+    "name": "dvbARExciterALocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterALocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAFaultEvent": {
+    "name": "dvbARExciterAFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAWarningEvent": {
+    "name": "dvbARExciterAWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAActiveInputEvent": {
+    "name": "dvbARExciterAActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAActiveInput"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterASFNModeEvent": {
+    "name": "dvbARExciterASFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterASFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterARefFaultEvent": {
+    "name": "dvbARExciterARefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterARefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAMuteEvent": {
+    "name": "dvbARExciterAMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAFaultMIPEvent": {
+    "name": "dvbARExciterAFaultMIPEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultMIP"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterAStuffingModeEvent": {
+    "name": "dvbARExciterAStuffingModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAStuffingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBInput1OKEvent": {
+    "name": "dvbARExciterBInput1OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput1OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBInput2OKEvent": {
+    "name": "dvbARExciterBInput2OKEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput2OK"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBLocalModeEvent": {
+    "name": "dvbARExciterBLocalModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBLocalMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBFaultEvent": {
+    "name": "dvbARExciterBFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBWarningEvent": {
+    "name": "dvbARExciterBWarningEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBActiveInputEvent": {
+    "name": "dvbARExciterBActiveInputEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBActiveInput"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBSFNModeEvent": {
+    "name": "dvbARExciterBSFNModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBSFNMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBRefFaultEvent": {
+    "name": "dvbARExciterBRefFaultEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBRefFault"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBMuteEvent": {
+    "name": "dvbARExciterBMuteEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBMute"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBFaultMIPEvent": {
+    "name": "dvbARExciterBFaultMIPEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultMIP"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARExciterBStuffingModeEvent": {
+    "name": "dvbARExciterBStuffingModeEvent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysDescr"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysLocation"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventTimeStamp"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventPriority"
+      },
+      {
+        "module": "IRT-COMMONVARBINDS-MIB",
+        "object": "eventCounter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBStuffingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "dvbARGeneral": {
+    "name": "dvbARGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "dvbARInputPreselection": {
+    "name": "dvbARInputPreselection",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Input1Input2",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARInputAutomatic": {
+    "name": "dvbARInputAutomatic",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARPreselectionExciter": {
+    "name": "dvbARPreselectionExciter",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "exciterA": 1,
+          "exciterB": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARPreselectionAmplifier": {
+    "name": "dvbARPreselectionAmplifier",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "amplifierA": 1,
+          "amplifierB": 2,
+          "amplifierAB": 3,
+          "amplifierABtodummyload": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARTransmitterOpMode": {
+    "name": "dvbARTransmitterOpMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARReserveControl": {
+    "name": "dvbARReserveControl",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARResetFault": {
+    "name": "dvbARResetFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbARActiveAmplifier": {
+    "name": "dvbARActiveAmplifier",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "amplifierA": 1,
+          "amplifierB": 2,
+          "amplifierAB": 3,
+          "amplifierABtoDummyload": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARActiveExciter": {
+    "name": "dvbARActiveExciter",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "exciterA": 1,
+          "exciterB": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARLocalMode": {
+    "name": "dvbARLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARControlUnitFault": {
+    "name": "dvbARControlUnitFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "units": " ",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverMode": {
+    "name": "dvbARExciterSwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverReady": {
+    "name": "dvbARExciterSwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverExecuted": {
+    "name": "dvbARExciterSwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverFault": {
+    "name": "dvbARExciterSwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverMode": {
+    "name": "dvbARAmplifierSwitchOverMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectManualAuto",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverReady": {
+    "name": "dvbARAmplifierSwitchOverReady",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReadyNotReady",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverExecuted": {
+    "name": "dvbARAmplifierSwitchOverExecuted",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ExecutedNotExecuted",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverFault": {
+    "name": "dvbARAmplifierSwitchOverFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierA": {
+    "name": "dvbARAmplifierA",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "dvbARAmplifierARFPresent": {
+    "name": "dvbARAmplifierARFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierAFault": {
+    "name": "dvbARAmplifierAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierAWarning": {
+    "name": "dvbARAmplifierAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierB": {
+    "name": "dvbARAmplifierB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "dvbARAmplifierBRFPresent": {
+    "name": "dvbARAmplifierBRFPresent",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PresentNotPresent",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierBFault": {
+    "name": "dvbARAmplifierBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARAmplifierBWarning": {
+    "name": "dvbARAmplifierBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterA": {
+    "name": "dvbARExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "dvbARExciterAInput1OK": {
+    "name": "dvbARExciterAInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAInput2OK": {
+    "name": "dvbARExciterAInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterALocalMode": {
+    "name": "dvbARExciterALocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAFault": {
+    "name": "dvbARExciterAFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAWarning": {
+    "name": "dvbARExciterAWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAActiveInput": {
+    "name": "dvbARExciterAActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ndefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterASFNMode": {
+    "name": "dvbARExciterASFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterARefFault": {
+    "name": "dvbARExciterARefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAMute": {
+    "name": "dvbARExciterAMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAFaultMIP": {
+    "name": "dvbARExciterAFaultMIP",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterAStuffingMode": {
+    "name": "dvbARExciterAStuffingMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterB": {
+    "name": "dvbARExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "dvbARExciterBInput1OK": {
+    "name": "dvbARExciterBInput1OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBInput2OK": {
+    "name": "dvbARExciterBInput2OK",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OkNotOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBLocalMode": {
+    "name": "dvbARExciterBLocalMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocalRemote",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBFault": {
+    "name": "dvbARExciterBFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBWarning": {
+    "name": "dvbARExciterBWarning",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WarningOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBActiveInput": {
+    "name": "dvbARExciterBActiveInput",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 0,
+          "input1": 1,
+          "input2": 2,
+          "seamless": 3,
+          "hmHierarchicalModulation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBSFNMode": {
+    "name": "dvbARExciterBSFNMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SFNMFN",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBMute": {
+    "name": "dvbARExciterBMute",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MuteOk",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBRefFault": {
+    "name": "dvbARExciterBRefFault",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBFaultMIP": {
+    "name": "dvbARExciterBFaultMIP",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FaultOK",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbARExciterBStuffingMode": {
+    "name": "dvbARExciterBStuffingMode",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SelectOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dvbAREventEnable": {
+    "name": "dvbAREventEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "dvbAREventEnableGeneral": {
+    "name": "dvbAREventEnableGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1",
+    "class": "objectidentity"
+  },
+  "dvbARInputPreselectionEnable": {
+    "name": "dvbARInputPreselectionEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARInputAutomaticEnable": {
+    "name": "dvbARInputAutomaticEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARPreselectionExciterEnable": {
+    "name": "dvbARPreselectionExciterEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARPreselectionAmplifierEnable": {
+    "name": "dvbARPreselectionAmplifierEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARTransmitterOpModeEnable": {
+    "name": "dvbARTransmitterOpModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARReserveControlEnable": {
+    "name": "dvbARReserveControlEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARResetFaultEnable": {
+    "name": "dvbARResetFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbARActiveAmplifierEnable": {
+    "name": "dvbARActiveAmplifierEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARActiveExciterEnable": {
+    "name": "dvbARActiveExciterEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARLocalModeEnable": {
+    "name": "dvbARLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARControlUnitFaultEnable": {
+    "name": "dvbARControlUnitFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverModeEnable": {
+    "name": "dvbARExciterSwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverReadyEnable": {
+    "name": "dvbARExciterSwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverExecutedEnable": {
+    "name": "dvbARExciterSwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverFaultEnable": {
+    "name": "dvbARExciterSwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverModeEnable": {
+    "name": "dvbARAmplifierSwitchOverModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverReadyEnable": {
+    "name": "dvbARAmplifierSwitchOverReadyEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverExecutedEnable": {
+    "name": "dvbARAmplifierSwitchOverExecutedEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverFaultEnable": {
+    "name": "dvbARAmplifierSwitchOverFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventEnableAmplifierA": {
+    "name": "dvbAREventEnableAmplifierA",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.2",
+    "class": "objectidentity"
+  },
+  "dvbARAmplifierARFPresentEnable": {
+    "name": "dvbARAmplifierARFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierAFaultEnable": {
+    "name": "dvbARAmplifierAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierAWarningEnable": {
+    "name": "dvbARAmplifierAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventEnableAmplifierB": {
+    "name": "dvbAREventEnableAmplifierB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.3",
+    "class": "objectidentity"
+  },
+  "dvbARAmplifierBRFPresentEnable": {
+    "name": "dvbARAmplifierBRFPresentEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierBFaultEnable": {
+    "name": "dvbARAmplifierBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierBWarningEnable": {
+    "name": "dvbARAmplifierBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventEnableExciterA": {
+    "name": "dvbAREventEnableExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4",
+    "class": "objectidentity"
+  },
+  "dvbARExciterAInput1OKEnable": {
+    "name": "dvbARExciterAInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAInput2OKEnable": {
+    "name": "dvbARExciterAInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterALocalModeEnable": {
+    "name": "dvbARExciterALocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAFaultEnable": {
+    "name": "dvbARExciterAFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAWarningEnable": {
+    "name": "dvbARExciterAWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAActiveInputEnable": {
+    "name": "dvbARExciterAActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterASFNModeEnable": {
+    "name": "dvbARExciterASFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterARefFaultEnable": {
+    "name": "dvbARExciterARefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAMuteEnable": {
+    "name": "dvbARExciterAMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAFaultMIPEnable": {
+    "name": "dvbARExciterAFaultMIPEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAStuffingModeEnable": {
+    "name": "dvbARExciterAStuffingModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventEnableExciterB": {
+    "name": "dvbAREventEnableExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5",
+    "class": "objectidentity"
+  },
+  "dvbARExciterBInput1OKEnable": {
+    "name": "dvbARExciterBInput1OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBInput2OKEnable": {
+    "name": "dvbARExciterBInput2OKEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBLocalModeEnable": {
+    "name": "dvbARExciterBLocalModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBFaultEnable": {
+    "name": "dvbARExciterBFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBWarningEnable": {
+    "name": "dvbARExciterBWarningEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBActiveInputEnable": {
+    "name": "dvbARExciterBActiveInputEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBSFNModeEnable": {
+    "name": "dvbARExciterBSFNModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBMuteEnable": {
+    "name": "dvbARExciterBMuteEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBRefFaultEnable": {
+    "name": "dvbARExciterBRefFaultEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBFaultMIPEnable": {
+    "name": "dvbARExciterBFaultMIPEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBStuffingModeEnable": {
+    "name": "dvbARExciterBStuffingModeEnable",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.6.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventPriority": {
+    "name": "dvbAREventPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7",
+    "class": "objectidentity"
+  },
+  "dvbAREventPriorityGeneral": {
+    "name": "dvbAREventPriorityGeneral",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "dvbARInputPreselectionPriority": {
+    "name": "dvbARInputPreselectionPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARInputAutomaticPriority": {
+    "name": "dvbARInputAutomaticPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARPreselectionExciterPriority": {
+    "name": "dvbARPreselectionExciterPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARPreselectionAmplifierPriority": {
+    "name": "dvbARPreselectionAmplifierPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARTransmitterOpModePriority": {
+    "name": "dvbARTransmitterOpModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARReserveControlPriority": {
+    "name": "dvbARReserveControlPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARResetFaultPriority": {
+    "name": "dvbARResetFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "dvbARActiveAmplifierPriority": {
+    "name": "dvbARActiveAmplifierPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARActiveExciterPriority": {
+    "name": "dvbARActiveExciterPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARLocalModePriority": {
+    "name": "dvbARLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARControlUnitFaultPriority": {
+    "name": "dvbARControlUnitFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverModePriority": {
+    "name": "dvbARExciterSwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverReadyPriority": {
+    "name": "dvbARExciterSwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverExecutedPriority": {
+    "name": "dvbARExciterSwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterSwitchOverFaultPriority": {
+    "name": "dvbARExciterSwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverModePriority": {
+    "name": "dvbARAmplifierSwitchOverModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverReadyPriority": {
+    "name": "dvbARAmplifierSwitchOverReadyPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverExecutedPriority": {
+    "name": "dvbARAmplifierSwitchOverExecutedPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierSwitchOverFaultPriority": {
+    "name": "dvbARAmplifierSwitchOverFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventPriorityAmplifierA": {
+    "name": "dvbAREventPriorityAmplifierA",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.2",
+    "class": "objectidentity"
+  },
+  "dvbARAmplifierARFPresentPriority": {
+    "name": "dvbARAmplifierARFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierAFaultPriority": {
+    "name": "dvbARAmplifierAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierAWarningPriority": {
+    "name": "dvbARAmplifierAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventPriorityAmplifierB": {
+    "name": "dvbAREventPriorityAmplifierB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.3",
+    "class": "objectidentity"
+  },
+  "dvbARAmplifierBRFPresentPriority": {
+    "name": "dvbARAmplifierBRFPresentPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierBFaultPriority": {
+    "name": "dvbARAmplifierBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARAmplifierBWarningPriority": {
+    "name": "dvbARAmplifierBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventPriorityExciterA": {
+    "name": "dvbAREventPriorityExciterA",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4",
+    "class": "objectidentity"
+  },
+  "dvbARExciterAInput1OKPriority": {
+    "name": "dvbARExciterAInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAInput2OKPriority": {
+    "name": "dvbARExciterAInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterALocalModePriority": {
+    "name": "dvbARExciterALocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAFaultPriority": {
+    "name": "dvbARExciterAFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAWarningPriority": {
+    "name": "dvbARExciterAWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAActiveInputPriority": {
+    "name": "dvbARExciterAActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterASFNModePriority": {
+    "name": "dvbARExciterASFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterARefFaultPriority": {
+    "name": "dvbARExciterARefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAMutePriority": {
+    "name": "dvbARExciterAMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAFaultMIPPriority": {
+    "name": "dvbARExciterAFaultMIPPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterAStuffingModePriority": {
+    "name": "dvbARExciterAStuffingModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbAREventPriorityExciterB": {
+    "name": "dvbAREventPriorityExciterB",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5",
+    "class": "objectidentity"
+  },
+  "dvbARExciterBInput1OKPriority": {
+    "name": "dvbARExciterBInput1OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBInput2OKPriority": {
+    "name": "dvbARExciterBInput2OKPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBLocalModePriority": {
+    "name": "dvbARExciterBLocalModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBFaultPriority": {
+    "name": "dvbARExciterBFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBWarningPriority": {
+    "name": "dvbARExciterBWarningPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBActiveInputPriority": {
+    "name": "dvbARExciterBActiveInputPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBSFNModePriority": {
+    "name": "dvbARExciterBSFNModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBMutePriority": {
+    "name": "dvbARExciterBMutePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBRefFaultPriority": {
+    "name": "dvbARExciterBRefFaultPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBFaultMIPPriority": {
+    "name": "dvbARExciterBFaultMIPPriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dvbARExciterBStuffingModePriority": {
+    "name": "dvbARExciterBStuffingModePriority",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.7.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupsAR": {
+    "name": "groupsAR",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.8",
+    "class": "objectidentity"
+  },
+  "objectGroupAR": {
+    "name": "objectGroupAR",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.8.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputPreselection"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputAutomatic"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionExciter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionAmplifier"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARTransmitterOpMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARReserveControl"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveAmplifier"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveExciter"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARLocalMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARControlUnitFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverReady"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverExecuted"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverReady"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverExecuted"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierARFPresent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAWarning"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBRFPresent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBWarning"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput1OK"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput2OK"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterALocalMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAWarning"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAActiveInput"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterASFNMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterARefFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAMute"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultMIP"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAStuffingMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput1OK"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput2OK"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBLocalMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBWarning"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBActiveInput"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBSFNMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBMute"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBRefFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultMIP"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBStuffingMode"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputPreselectionEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputAutomaticEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionExciterEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionAmplifierEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARTransmitterOpModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARReserveControlEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveAmplifierEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveExciterEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARLocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARControlUnitFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverExecutedEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverReadyEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierARFPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBRFPresentEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput1OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput2OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterALocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAActiveInputEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterASFNModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterARefFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAMuteEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultMIPEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAStuffingModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput1OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput2OKEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBLocalModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBWarningEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBActiveInputEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBSFNModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBMuteEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBRefFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultMIPEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBStuffingModeEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputPreselectionPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputAutomaticPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionExciterPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionAmplifierPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARTransmitterOpModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARReserveControlPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveAmplifierPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveExciterPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARLocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARControlUnitFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverExecutedPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverReadyPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierARFPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBRFPresentPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput1OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput2OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterALocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAActiveInputPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterASFNModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterARefFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAMutePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultMIPPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAStuffingModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput1OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput2OKPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBLocalModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBWarningPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBActiveInputPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBSFNModePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBMutePriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBRefFaultPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultMIPPriority"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBStuffingModePriority"
+      }
+    ],
+    "status": "current"
+  },
+  "eventGroupAR": {
+    "name": "eventGroupAR",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.8.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputPreselectionEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARInputAutomaticEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionExciterEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARPreselectionAmplifierEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARTransmitterOpModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARReserveControlEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveAmplifierEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARActiveExciterEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARLocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARControlUnitFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterSwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverReadyEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverExecutedEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierSwitchOverFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierARFPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierAWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBRFPresentEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARAmplifierBWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput1OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAInput2OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterALocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAActiveInputEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterASFNModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterARefFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAMuteEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAFaultMIPEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterAStuffingModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput1OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBInput2OKEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBLocalModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBWarningEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBActiveInputEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBSFNModeEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBRefFaultEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBMuteEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBFaultMIPEvent"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARExciterBStuffingModeEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "objectGroupARobsolete": {
+    "name": "objectGroupARobsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.8.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARResetFault"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARResetFaultEnable"
+      },
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARResetFaultPriority"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "eventGroupARobsolete": {
+    "name": "eventGroupARobsolete",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.8.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB",
+        "object": "dvbARResetFaultEvent"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "complianceAR": {
+    "name": "complianceAR",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.9",
+    "class": "objectidentity"
+  },
+  "dvbActiveReserveCompliance": {
+    "name": "dvbActiveReserveCompliance",
+    "oid": "1.3.6.1.4.1.19831.1.1.1.2.9.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "objectGroupAR",
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB"
+      },
+      {
+        "object": "eventGroupAR",
+        "module": "IRT-DVBT-ACTIVERESERVE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DVBT-ACTIVERESERVE-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:57:13 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "IRT-DVBT-ACTIVERESERVE-MIB"
+  }
+}

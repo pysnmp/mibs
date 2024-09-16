@@ -1,0 +1,1732 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9MTx",
+      "rsXx9MibModule"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationPriority",
+      "Trigger",
+      "NotificationState",
+      "IndexTransmitter",
+      "NotificationMask",
+      "SwitchOnOff"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rsXx9MtxMibModule": {
+    "name": "rsXx9MtxMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-03-03 11:00",
+        "description": "update description of np1AutoSwitchoverGuardTime "
+      },
+      {
+        "revision": "2016-02-03 09:00",
+        "description": "add mtxBackupTx and notifications: mtxBackupTxSummary, mtxBackupTxReady, mtxBackupTxLink, mtxBackupTxRfSwitch, mtxBackupTxSwitchedOver"
+      },
+      {
+        "revision": "2015-10-20 12:00",
+        "description": "added np1AutoWhenTxBLocal added np1AutoProgramRf, np1AutomaticReserveRf"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-10-07 14:00",
+        "description": "extend range of np1AutoProgramPreset with unknownPreset(0) "
+      },
+      {
+        "revision": "2014-03-03 16:00",
+        "description": "added np1AutoReset added mtxMultiTx subtree"
+      },
+      {
+        "revision": "2014-02-06 14:00",
+        "description": "initial release updated description texts"
+      },
+      {
+        "revision": "2012-10-04 08:00",
+        "description": "Preliminary release."
+      }
+    ]
+  },
+  "rsXx9MtxNotifications": {
+    "name": "rsXx9MtxNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0",
+    "class": "objectidentity"
+  },
+  "mtxNp1AutomaticSummary": {
+    "name": "mtxNp1AutomaticSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNp1AutomaticReady": {
+    "name": "mtxNp1AutomaticReady",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNp1AutomaticRfSwitch": {
+    "name": "mtxNp1AutomaticRfSwitch",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNp1AutomaticInputChannel": {
+    "name": "mtxNp1AutomaticInputChannel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNp1AutomaticChangeOver": {
+    "name": "mtxNp1AutomaticChangeOver",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxLocal": {
+    "name": "mtxLocal",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNp1AutomaticProgramRf": {
+    "name": "mtxNp1AutomaticProgramRf",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxMultiTxSummary": {
+    "name": "mtxMultiTxSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxMultiTxRfSwitch": {
+    "name": "mtxMultiTxRfSwitch",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxBackupTxSummary": {
+    "name": "mtxBackupTxSummary",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxBackupTxReady": {
+    "name": "mtxBackupTxReady",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxBackupTxLink": {
+    "name": "mtxBackupTxLink",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxBackupTxRfSwitch": {
+    "name": "mtxBackupTxRfSwitch",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxBackupTxSwitchedOver": {
+    "name": "mtxBackupTxSwitchedOver",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.0.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9MtxObjects": {
+    "name": "rsXx9MtxObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1",
+    "class": "objectidentity"
+  },
+  "mtxNotificationTable": {
+    "name": "mtxNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtxNotificationEntry": {
+    "name": "mtxNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNotificationIdx": {
+    "name": "mtxNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          },
+          {
+            "min": 100,
+            "max": 101
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mtxNotificationName": {
+    "name": "mtxNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mtxNp1AutomaticSummary": 1,
+          "mtxNp1AutomaticReady": 2,
+          "mtxNp1AutomaticRfSwitch": 3,
+          "mtxNp1AutomaticInputChannel": 4,
+          "mtxNp1AutomaticChangeOver": 5,
+          "mtxLocal": 6,
+          "mtxMultiTxSummary": 100,
+          "mtxMultiTxRfSwitch": 101
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtxNotificationMask": {
+    "name": "mtxNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mtxNotificationPriority": {
+    "name": "mtxNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mtxNotificationState": {
+    "name": "mtxNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtxSystemControl": {
+    "name": "mtxSystemControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.2",
+    "class": "objectidentity"
+  },
+  "mtxNplus1": {
+    "name": "mtxNplus1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3",
+    "class": "objectidentity"
+  },
+  "nplus1AutomaticStatus": {
+    "name": "nplus1AutomaticStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1",
+    "class": "objectidentity"
+  },
+  "np1AutomaticLoadedTx": {
+    "name": "np1AutomaticLoadedTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txA1": 1,
+          "txA2": 2,
+          "txA3": 3,
+          "txA4": 4,
+          "txA5": 5,
+          "txA6": 6,
+          "txA7": 7,
+          "txA8": 8,
+          "none": 9,
+          "undefined": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutomaticReserveRf": {
+    "name": "np1AutomaticReserveRf",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutoSwitchesTable": {
+    "name": "np1AutoSwitchesTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1.100",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "np1AutoSwitchesEntry": {
+    "name": "np1AutoSwitchesEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1.100.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoSwitchIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "np1AutoSwitchIdx": {
+    "name": "np1AutoSwitchIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1.100.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutoSwitchPos": {
+    "name": "np1AutoSwitchPos",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.1.100.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "pos1": 1,
+          "pos2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nplus1AutomaticConfiguration": {
+    "name": "nplus1AutomaticConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2",
+    "class": "objectidentity"
+  },
+  "np1AutomaticOperationMode": {
+    "name": "np1AutomaticOperationMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoSwitchoverGuardTime": {
+    "name": "np1AutoSwitchoverGuardTime",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoSwitchMode": {
+    "name": "np1AutoSwitchMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "severalTimes": 1,
+          "singleShot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramPreset": {
+    "name": "np1AutoProgramPreset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownPreset": 0,
+          "txA1": 1,
+          "txA2": 2,
+          "txA3": 3,
+          "txA4": 4,
+          "txA5": 5,
+          "txA6": 6,
+          "txA7": 7,
+          "txA8": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoInputPreset": {
+    "name": "np1AutoInputPreset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "channel1": 1,
+          "channel2": 2,
+          "channel3": 3,
+          "channel4": 4,
+          "channel5": 5,
+          "channel6": 6,
+          "channel7": 7,
+          "channel8": 8,
+          "channel9": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoPriorityEnable": {
+    "name": "np1AutoPriorityEnable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoToLoad": {
+    "name": "np1AutoToLoad",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoReserveOperationMode": {
+    "name": "np1AutoReserveOperationMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramTable": {
+    "name": "np1AutoProgramTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "np1AutoProgramEntry": {
+    "name": "np1AutoProgramEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "np1AutoProgramIdx": {
+    "name": "np1AutoProgramIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "np1AutoProgramOperationMode": {
+    "name": "np1AutoProgramOperationMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramPriority": {
+    "name": "np1AutoProgramPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramChangeover": {
+    "name": "np1AutoProgramChangeover",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramRf": {
+    "name": "np1AutoProgramRf",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutoReset": {
+    "name": "np1AutoReset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoWhenTxBLocal": {
+    "name": "np1AutoWhenTxBLocal",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automaticAvailable": 1,
+          "automaticNotAvailable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationTable": {
+    "name": "np1AutoProgramNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationEntry": {
+    "name": "np1AutoProgramNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationProgramIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "np1AutoProgramNotificationProgramIdx": {
+    "name": "np1AutoProgramNotificationProgramIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationIdx": {
+    "name": "np1AutoProgramNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 7,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationName": {
+    "name": "np1AutoProgramNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mtxNp1AutomaticProgramRf": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationMask": {
+    "name": "np1AutoProgramNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationPriority": {
+    "name": "np1AutoProgramNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "np1AutoProgramNotificationState": {
+    "name": "np1AutoProgramNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mtxMultiTx": {
+    "name": "mtxMultiTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4",
+    "class": "objectidentity"
+  },
+  "multiTxTransmitterTable": {
+    "name": "multiTxTransmitterTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiTxTransmitterEntry": {
+    "name": "multiTxTransmitterEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "multiTxTxIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "multiTxTxIdx": {
+    "name": "multiTxTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiTxLoadedOrAntenna": {
+    "name": "multiTxLoadedOrAntenna",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "antenna": 2,
+          "load": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiTxToLoad": {
+    "name": "multiTxToLoad",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiTxToAntenna": {
+    "name": "multiTxToAntenna",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiTxConfiguration": {
+    "name": "multiTxConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.2",
+    "class": "objectidentity"
+  },
+  "multiTxReset": {
+    "name": "multiTxReset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mtxBackupTx": {
+    "name": "mtxBackupTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5",
+    "class": "objectidentity"
+  },
+  "btxAutoNotificationTable": {
+    "name": "btxAutoNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "btxAutoNotificationEntry": {
+    "name": "btxAutoNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationAutomaticIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "btxAutoNotificationAutomaticIdx": {
+    "name": "btxAutoNotificationAutomaticIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "btxAutoNotificationIdx": {
+    "name": "btxAutoNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 200,
+            "max": 204
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "btxAutoNotificationName": {
+    "name": "btxAutoNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mtxBackupTxSummary": 200,
+          "mtxBackupTxReady": 201,
+          "mtxBackupTxLink": 202,
+          "mtxBackupTxRfSwitch": 203,
+          "mtxBackupTxSwitchedOver": 204
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "btxAutoNotificationMask": {
+    "name": "btxAutoNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "btxAutoNotificationPriority": {
+    "name": "btxAutoNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "btxAutoNotificationState": {
+    "name": "btxAutoNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "btxAutoStatusTable": {
+    "name": "btxAutoStatusTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "btxAutoStatusEntry": {
+    "name": "btxAutoStatusEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationAutomaticIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "btxAutoStActiveTx": {
+    "name": "btxAutoStActiveTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "txA": 2,
+          "txB": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "btxAutoConfigurationTable": {
+    "name": "btxAutoConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "btxAutoConfigurationEntry": {
+    "name": "btxAutoConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationAutomaticIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "btxAutoCfgReset": {
+    "name": "btxAutoCfgReset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Trigger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "btxAutoCfgOperationMode": {
+    "name": "btxAutoCfgOperationMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "btxAutoCfgMode": {
+    "name": "btxAutoCfgMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "multipleShot": 1,
+          "singleShot": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "btxAutoCfgGuardTime": {
+    "name": "btxAutoCfgGuardTime",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "btxAutoCfgPreselectTx": {
+    "name": "btxAutoCfgPreselectTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txA": 2,
+          "txB": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rsXx9MtxConformance": {
+    "name": "rsXx9MtxConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2",
+    "class": "objectidentity"
+  },
+  "rsXx9MtxCompliances": {
+    "name": "rsXx9MtxCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.1",
+    "class": "objectidentity"
+  },
+  "mtxSystemControlCompliance": {
+    "name": "mtxSystemControlCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtxNotifySystemControl",
+        "module": "RS-XX9-MTX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNplus1Compliance": {
+    "name": "mtxNplus1Compliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mtxObjsNplus1",
+        "module": "RS-XX9-MTX-MIB"
+      },
+      {
+        "object": "mtxNotifyNplus1",
+        "module": "RS-XX9-MTX-MIB"
+      },
+      {
+        "object": "mtxObjsNotificationTable",
+        "module": "RS-XX9-MTX-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9MtxGroups": {
+    "name": "rsXx9MtxGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2",
+    "class": "objectidentity"
+  },
+  "mtxObjsNotificationTable": {
+    "name": "mtxObjsNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationName"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationMask"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxObjsNplus1": {
+    "name": "mtxObjsNplus1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoPriorityEnable"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoSwitchoverGuardTime"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramPreset"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoInputPreset"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramOperationMode"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramChangeover"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoToLoad"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoReset"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoWhenTxBLocal"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutomaticReserveRf"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramRf"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoSwitchPos"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoSwitchIdx"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoSwitchMode"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutomaticLoadedTx"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutomaticOperationMode"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoReserveOperationMode"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationState"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationMask"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationName"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationIdx"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "np1AutoProgramNotificationProgramIdx"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNotifyNplus1": {
+    "name": "mtxNotifyNplus1",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNp1AutomaticProgramRf"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNp1AutomaticReady"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNp1AutomaticSummary"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNp1AutomaticRfSwitch"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNp1AutomaticInputChannel"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxNp1AutomaticChangeOver"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNotifySystemControl": {
+    "name": "mtxNotifySystemControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxLocal"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxObsMultiTx": {
+    "name": "mtxObsMultiTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.100",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "multiTxReset"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxObjsMultiTxDummyLoads": {
+    "name": "mtxObjsMultiTxDummyLoads",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.101",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "multiTxLoadedOrAntenna"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxObjsMultiTxDummyLoadSwitches": {
+    "name": "mtxObjsMultiTxDummyLoadSwitches",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.102",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "multiTxToLoad"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "multiTxToAntenna"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNotifyMultiTx": {
+    "name": "mtxNotifyMultiTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.150",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxMultiTxSummary"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNotifyMultiTxSwitches": {
+    "name": "mtxNotifyMultiTxSwitches",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.151",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxMultiTxRfSwitch"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxObjsBackupTx": {
+    "name": "mtxObjsBackupTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.152",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationName"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationMask"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoNotificationState"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoStActiveTx"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoCfgOperationMode"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoCfgMode"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoCfgGuardTime"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoCfgPreselectTx"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "btxAutoCfgReset"
+      }
+    ],
+    "status": "current"
+  },
+  "mtxNotifyBackupTx": {
+    "name": "mtxNotifyBackupTx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.4.2.2.153",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxBackupTxSummary"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxBackupTxLink"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxBackupTxSwitchedOver"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxBackupTxRfSwitch"
+      },
+      {
+        "module": "RS-XX9-MTX-MIB",
+        "object": "mtxBackupTxReady"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-MTX-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-MTX-MIB"
+  }
+}

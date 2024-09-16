@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module IB-DHCPONE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infoblox/IB-DHCPONE-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:37:44 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:56:58 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-ibDHCPOne, IbIpAddr, IbString = mibBuilder.importSymbols("IB-SMI-MIB", "ibDHCPOne", "IbIpAddr", "IbString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, ObjectIdentity, enterprises, Integer32, NotificationType, Unsigned32, TimeTicks, MibIdentifier, Bits, Gauge32, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "ObjectIdentity", "enterprises", "Integer32", "NotificationType", "Unsigned32", "TimeTicks", "MibIdentifier", "Bits", "Gauge32", "Counter32", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+IbString, ibDHCPOne, IbIpAddr = mibBuilder.importSymbols("IB-SMI-MIB", "IbString", "ibDHCPOne", "IbIpAddr")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, Gauge32, Bits, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, MibIdentifier, iso, Integer32, ObjectIdentity, NotificationType, Counter64, TimeTicks, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Gauge32", "Bits", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "MibIdentifier", "iso", "Integer32", "ObjectIdentity", "NotificationType", "Counter64", "TimeTicks", "enterprises")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ibDhcpModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 4, 1))
 ibDhcpModule.setRevisions(('2010-03-23 00:00', '2008-02-14 00:00', '2005-01-10 00:00', '2004-05-21 00:00',))
 if mibBuilder.loadTexts: ibDhcpModule.setLastUpdated('201003230000Z')
@@ -64,4 +64,4 @@ ibDHCPDDNSTimeoutCount60 = MibScalar((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 4, 1, 5, 
 if mibBuilder.loadTexts: ibDHCPDDNSTimeoutCount60.setStatus('current')
 ibDHCPDDNSTimeoutCount1440 = MibScalar((1, 3, 6, 1, 4, 1, 7779, 3, 1, 1, 4, 1, 5, 8), Unsigned32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ibDHCPDDNSTimeoutCount1440.setStatus('current')
-mibBuilder.exportSymbols("IB-DHCPONE-MIB", ibDHCPSubnetNetworkMask=ibDHCPSubnetNetworkMask, ibDHCPDDNSAvgLatency60=ibDHCPDDNSAvgLatency60, ibDHCPDDNSTimeoutCount60=ibDHCPDDNSTimeoutCount60, ibDHCPDDNSStats=ibDHCPDDNSStats, ibDhcpTotalNoOfDeclines=ibDhcpTotalNoOfDeclines, ibDhcpTotalNoOfNacks=ibDhcpTotalNoOfNacks, ibDHCPSubnetPercentUsed=ibDHCPSubnetPercentUsed, ibDHCPDDNSTimeoutCount5=ibDHCPDDNSTimeoutCount5, ibDhcpTotalNoOfRequests=ibDhcpTotalNoOfRequests, ibDHCPSubnetEntry=ibDHCPSubnetEntry, ibDHCPDDNSTimeoutCount1440=ibDHCPDDNSTimeoutCount1440, ibDHCPDDNSAvgLatency15=ibDHCPDDNSAvgLatency15, ibDHCPSubnetTable=ibDHCPSubnetTable, ibDhcpTotalNoOfOthers=ibDhcpTotalNoOfOthers, ibDHCPSubnetNetworkAddress=ibDHCPSubnetNetworkAddress, ibDhcpTotalNoOfReleases=ibDhcpTotalNoOfReleases, ibDhcpTotalNoOfOffers=ibDhcpTotalNoOfOffers, ibDHCPDDNSAvgLatency1440=ibDHCPDDNSAvgLatency1440, ibDhcpTotalNoOfInforms=ibDhcpTotalNoOfInforms, ibDHCPStatistics=ibDHCPStatistics, ibDhcpDeferredQueueSize=ibDhcpDeferredQueueSize, ibDHCPDDNSAvgLatency5=ibDHCPDDNSAvgLatency5, PYSNMP_MODULE_ID=ibDhcpModule, ibDHCPDDNSTimeoutCount15=ibDHCPDDNSTimeoutCount15, ibDhcpModule=ibDhcpModule, ibDhcpTotalNoOfDiscovers=ibDhcpTotalNoOfDiscovers, ibDhcpTotalNoOfAcks=ibDhcpTotalNoOfAcks)
+mibBuilder.exportSymbols("IB-DHCPONE-MIB", ibDHCPDDNSTimeoutCount5=ibDHCPDDNSTimeoutCount5, ibDHCPDDNSAvgLatency60=ibDHCPDDNSAvgLatency60, ibDhcpTotalNoOfDiscovers=ibDhcpTotalNoOfDiscovers, ibDHCPSubnetTable=ibDHCPSubnetTable, ibDHCPDDNSAvgLatency15=ibDHCPDDNSAvgLatency15, ibDHCPDDNSAvgLatency5=ibDHCPDDNSAvgLatency5, ibDHCPSubnetNetworkMask=ibDHCPSubnetNetworkMask, ibDHCPDDNSTimeoutCount60=ibDHCPDDNSTimeoutCount60, ibDHCPStatistics=ibDHCPStatistics, ibDhcpTotalNoOfDeclines=ibDhcpTotalNoOfDeclines, ibDhcpTotalNoOfReleases=ibDhcpTotalNoOfReleases, ibDHCPSubnetEntry=ibDHCPSubnetEntry, ibDHCPDDNSTimeoutCount15=ibDHCPDDNSTimeoutCount15, ibDHCPSubnetNetworkAddress=ibDHCPSubnetNetworkAddress, ibDHCPDDNSStats=ibDHCPDDNSStats, ibDHCPDDNSTimeoutCount1440=ibDHCPDDNSTimeoutCount1440, ibDhcpTotalNoOfAcks=ibDhcpTotalNoOfAcks, ibDhcpTotalNoOfOthers=ibDhcpTotalNoOfOthers, PYSNMP_MODULE_ID=ibDhcpModule, ibDhcpDeferredQueueSize=ibDhcpDeferredQueueSize, ibDhcpTotalNoOfOffers=ibDhcpTotalNoOfOffers, ibDhcpTotalNoOfInforms=ibDhcpTotalNoOfInforms, ibDHCPDDNSAvgLatency1440=ibDHCPDDNSAvgLatency1440, ibDhcpModule=ibDhcpModule, ibDhcpTotalNoOfRequests=ibDhcpTotalNoOfRequests, ibDhcpTotalNoOfNacks=ibDhcpTotalNoOfNacks, ibDHCPSubnetPercentUsed=ibDHCPSubnetPercentUsed)

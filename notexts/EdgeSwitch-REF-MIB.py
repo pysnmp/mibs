@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module EdgeSwitch-REF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-REF-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:34:49 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:53:55 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Counter64, TimeTicks, enterprises, ModuleIdentity, Counter32, Integer32, NotificationType, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "TimeTicks", "enterprises", "ModuleIdentity", "Counter32", "Integer32", "NotificationType", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "MibIdentifier", "Gauge32")
+Bits, iso, Gauge32, Counter32, TimeTicks, enterprises, Unsigned32, IpAddress, MibIdentifier, Integer32, Counter64, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "Gauge32", "Counter32", "TimeTicks", "enterprises", "Unsigned32", "IpAddress", "MibIdentifier", "Integer32", "Counter64", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 broadcom = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413))
 broadcom.setRevisions(('2007-05-23 00:00', '2003-11-21 00:00', '2003-02-06 12:00',))
@@ -20,4 +20,4 @@ fastPath = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1))
 class AgentPortMask(TextualConvention, OctetString):
     status = 'current'
 
-mibBuilder.exportSymbols("EdgeSwitch-REF-MIB", fastPath=fastPath, broadcomProducts=broadcomProducts, PYSNMP_MODULE_ID=broadcom, AgentPortMask=AgentPortMask, broadcom=broadcom)
+mibBuilder.exportSymbols("EdgeSwitch-REF-MIB", PYSNMP_MODULE_ID=broadcom, AgentPortMask=AgentPortMask, broadcomProducts=broadcomProducts, fastPath=fastPath, broadcom=broadcom)

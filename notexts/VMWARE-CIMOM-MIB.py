@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module VMWARE-CIMOM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-CIMOM-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:41:22 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 15:01:35 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, Unsigned32, IpAddress, MibIdentifier, NotificationType, ObjectIdentity, Integer32, TimeTicks, ModuleIdentity, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Unsigned32", "IpAddress", "MibIdentifier", "NotificationType", "ObjectIdentity", "Integer32", "TimeTicks", "ModuleIdentity", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, Bits, iso, ModuleIdentity, MibIdentifier, Counter32, Integer32, ObjectIdentity, TimeTicks, NotificationType, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "Bits", "iso", "ModuleIdentity", "MibIdentifier", "Counter32", "Integer32", "ObjectIdentity", "TimeTicks", "NotificationType", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwEnvIndicationTime, = mibBuilder.importSymbols("VMWARE-ENV-MIB", "vmwEnvIndicationTime")
 vmwProductSpecific, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwProductSpecific")
 vmwCIMOMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 4, 90, 10))
@@ -31,4 +31,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 vmwCimOmNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 4, 90, 2, 2, 2)).setObjects(("VMWARE-CIMOM-MIB", "vmwCimOmHeartbeat"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwCimOmNotificationGroup = vmwCimOmNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmMIBConformance=vmwCimOmMIBConformance, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOmNotifications=vmwCimOmNotifications, PYSNMP_MODULE_ID=vmwCIMOMMIB, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCimOm=vmwCimOm)
+mibBuilder.exportSymbols("VMWARE-CIMOM-MIB", vmwCimOmMIBGroups=vmwCimOmMIBGroups, vmwCIMOMMIB=vmwCIMOMMIB, vmwCimOmNotifications=vmwCimOmNotifications, vmwCimOmHeartbeat=vmwCimOmHeartbeat, vmwCimOmMIBBasicCompliance=vmwCimOmMIBBasicCompliance, vmwCimOm=vmwCimOm, vmwCimOmMIBCompliances=vmwCimOmMIBCompliances, vmwCimOmNotificationGroup=vmwCimOmNotificationGroup, vmwCimOmMIBConformance=vmwCimOmMIBConformance, PYSNMP_MODULE_ID=vmwCIMOMMIB)

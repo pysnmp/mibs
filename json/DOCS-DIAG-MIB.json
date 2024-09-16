@@ -9,39 +9,39 @@
       "docsDevEvLevel"
     ],
     "DOCS-IF3-MIB": [
-      "docsIf3CmtsCmRegStatusId",
-      "CmtsCmRegState"
+      "CmtsCmRegState",
+      "docsIf3CmtsCmRegStatusId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Bits",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "DateAndTime",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "docsDiagMib": {
@@ -878,9 +878,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-DIAG-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/DOCS-DIAG-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DOCS-DIAG-MIB"

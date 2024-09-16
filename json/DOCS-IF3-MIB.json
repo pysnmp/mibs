@@ -8,22 +8,22 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvText",
       "docsDevEvId",
+      "docsDevEvText",
       "docsDevEvLevel",
       "docsDevEvLastTime"
     ],
     "DOCS-IF-MIB": [
-      "DocsisUpstreamType",
-      "TenthdBmV",
       "DocsisQosVersion",
+      "TenthdBmV",
+      "DocsisUpstreamType",
       "TenthdB",
       "DocsEqualizerData"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "ifIndex",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -36,37 +36,36 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Bits",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "StorageType",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "RowStatus",
-      "MacAddress",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "docsIf3Mib": {
@@ -74,62 +73,6 @@
     "oid": "1.3.6.1.4.1.4491.2.1.20",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2017-06-15 00:00",
-        "description": "Revised Version includes ECN DOCS-IF3-MIB-N-17.1741-1 to add Apache license."
-      },
-      {
-        "revision": "2016-08-04 00:00",
-        "description": "Revised Version includes ECN DOCS-IF3-MIB-N-16.1560-1"
-      },
-      {
-        "revision": "2016-05-05 00:00",
-        "description": "Revised Version includes ECNs CCAP-OSSIv3.1-N-1509-1 and OSSIv3.0-N-15.1398-1; supersedes CCAP-OSSIv3.1-N-16.1431-1"
-      },
-      {
-        "revision": "2015-05-20 00:00",
-        "description": "Revised Version includes ECN CM-OSSIv3.1-N-15.1309-1"
-      },
-      {
-        "revision": "2015-04-08 00:00",
-        "description": "Revised Version includes ECN CM-OSSIv3.1-N-14.1222-3"
-      },
-      {
-        "revision": "2013-11-19 00:00",
-        "description": "Revised Version includes ECN OSSIv3.0-N-13.1119-3 and published as I22"
-      },
-      {
-        "revision": "2013-04-04 00:00",
-        "description": "Revised Version includes ECNs OSSIv3.0-N-12.1083 and OSSIv3.0-N-13.1093 and published as I21"
-      },
-      {
-        "revision": "2012-11-13 00:00",
-        "description": "Revised Version includes ECN OSSIv3.0-N-12.1079-4 and published as I20"
-      },
-      {
-        "revision": "2012-08-09 00:00",
-        "description": "Revised Version includes ECN OSSIv3.0-N-12.1064-3 and published as I19"
-      },
-      {
-        "revision": "2011-02-10 00:00",
-        "description": "Revised Version includes ECNs OSSIv3.0-N-10.0962-5 and OSSIv3.0-N-10.0984-1 and published as I14"
-      },
-      {
-        "revision": "2010-06-11 00:00",
-        "description": "Revised Version includes ECN OSSIv3.0-N-10.0906-2 and published as I12"
-      },
-      {
-        "revision": "2010-01-15 00:00",
-        "description": "Revised Version includes ECNs OSSIv3.0-N-09.0871-4 OSSIv3.0-N-09.0872-4 OSSIv3.0-N-09.0881-3 and published as I11"
-      },
-      {
-        "revision": "2009-05-29 00:00",
-        "description": "Revised Version includes ECN OSSIv3.0-N-09.0775-3 and published as I09"
-      },
-      {
-        "revision": "2009-01-21 00:00",
-        "description": "Revised Version includes ECNs OSSIv3.0-N-08.0651-3 OSSIv3.0-N-08.0700-4 and published as I08"
-      },
       {
         "revision": "2008-05-22 00:00",
         "description": "Revised Version includes ECN OSSIv3.0-N-08.0645-4 and published as I07"
@@ -234,10 +177,6 @@
       "constraints": {
         "size": [
           {
-            "min": 0,
-            "max": 0
-          },
-          {
             "min": 16,
             "max": 16
           }
@@ -260,30 +199,9 @@
           },
           {
             "min": 2,
-            "max": 4116
+            "max": 255
           }
         ]
-      }
-    },
-    "status": "current"
-  },
-  "SpectrumAnalysisWindowFunction": {
-    "name": "SpectrumAnalysisWindowFunction",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 0,
-          "hann": 1,
-          "blackmanHarris": 2,
-          "rectangular": 3,
-          "hamming": 4,
-          "flatTop": 5,
-          "gaussian": 6,
-          "chebyshev": 7
-        }
       }
     },
     "status": "current"
@@ -573,10 +491,6 @@
           {
             "min": 6,
             "max": 6
-          },
-          {
-            "min": 7,
-            "max": 7
           }
         ]
       }
@@ -699,7 +613,7 @@
     },
     "units": "attempts",
     "maxaccess": "read-only",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3CmStatusUCCFails": {
     "name": "docsIf3CmStatusUCCFails",
@@ -711,18 +625,6 @@
       "class": "type"
     },
     "units": "attempts",
-    "maxaccess": "read-only",
-    "status": "obsolete"
-  },
-  "docsIf3CmStatusEnergyMgt1x1OperStatus": {
-    "name": "docsIf3CmStatusEnergyMgt1x1OperStatus",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1073,38 +975,6 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "docsIf3CmtsCmRegStatusEnergyMgtEnabled": {
-    "name": "docsIf3CmtsCmRegStatusEnergyMgtEnabled",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.3.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "em1x1Mode": 0,
-        "dlsMode": 1
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmtsCmRegStatusEnergyMgtOperStatus": {
-    "name": "docsIf3CmtsCmRegStatusEnergyMgtOperStatus",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.3.1.17",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "em1x1Mode": 0,
-        "dlsMode": 1
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "docsIf3CmtsCmUsStatusTable": {
     "name": "docsIf3CmtsCmUsStatusTable",
     "oid": "1.3.6.1.4.1.4491.2.1.20.1.4",
@@ -1397,7 +1267,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccCfgEntry": {
     "name": "docsIf3RccCfgEntry",
@@ -1422,7 +1292,7 @@
         "implied": 0
       }
     ],
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccCfgRcpId": {
     "name": "docsIf3RccCfgRcpId",
@@ -1434,7 +1304,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccCfgRccCfgId": {
     "name": "docsIf3RccCfgRccCfgId",
@@ -1454,7 +1324,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccCfgVendorSpecific": {
     "name": "docsIf3RccCfgVendorSpecific",
@@ -1480,7 +1350,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccCfgDescription": {
     "name": "docsIf3RccCfgDescription",
@@ -1500,7 +1370,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccCfgRowStatus": {
     "name": "docsIf3RccCfgRowStatus",
@@ -1512,7 +1382,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RccStatusTable": {
     "name": "docsIf3RccStatusTable",
@@ -1642,7 +1512,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChCfgEntry": {
     "name": "docsIf3RxChCfgEntry",
@@ -1672,7 +1542,7 @@
         "implied": 0
       }
     ],
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChCfgRcId": {
     "name": "docsIf3RxChCfgRcId",
@@ -1692,7 +1562,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChCfgChIfIndex": {
     "name": "docsIf3RxChCfgChIfIndex",
@@ -1704,7 +1574,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChCfgPrimaryDsIndicator": {
     "name": "docsIf3RxChCfgPrimaryDsIndicator",
@@ -1722,7 +1592,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChCfgRcRmConnectivityId": {
     "name": "docsIf3RxChCfgRcRmConnectivityId",
@@ -1742,7 +1612,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChCfgRowStatus": {
     "name": "docsIf3RxChCfgRowStatus",
@@ -1754,7 +1624,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxChStatusTable": {
     "name": "docsIf3RxChStatusTable",
@@ -1864,7 +1734,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxModuleCfgEntry": {
     "name": "docsIf3RxModuleCfgEntry",
@@ -1894,7 +1764,7 @@
         "implied": 0
       }
     ],
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxModuleCfgRmId": {
     "name": "docsIf3RxModuleCfgRmId",
@@ -1914,7 +1784,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxModuleCfgRmRmConnectivityId": {
     "name": "docsIf3RxModuleCfgRmRmConnectivityId",
@@ -1934,7 +1804,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxModuleCfgFirstCenterFrequency": {
     "name": "docsIf3RxModuleCfgFirstCenterFrequency",
@@ -1947,7 +1817,7 @@
     },
     "units": "Hz",
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxModuleCfgRowStatus": {
     "name": "docsIf3RxModuleCfgRowStatus",
@@ -1959,7 +1829,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "obsolete"
+    "status": "current"
   },
   "docsIf3RxModuleStatusTable": {
     "name": "docsIf3RxModuleStatusTable",
@@ -2097,7 +1967,7 @@
         "size": [
           {
             "min": 1,
-            "max": 64
+            "max": 16
           }
         ]
       }
@@ -2659,51 +2529,6 @@
     "syntax": {
       "type": "SnmpTagList",
       "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3MdCfgBpi2EnforceCtrl": {
-    "name": "docsIf3MdCfgBpi2EnforceCtrl",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.16.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "disable": 0,
-          "qosCfgFileWithBpi2AndCapabPrivSupportEnabled": 1,
-          "qosCfgFileWithBpi2Enabled": 2,
-          "qosCfgFile": 3,
-          "total": 4
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "qosCfgFileWithBpi2Enabled",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3MdCfgEnergyMgt1x1Enabled": {
-    "name": "docsIf3MdCfgEnergyMgt1x1Enabled",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.16.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "false",
-        "format": "enum"
-      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -3362,7 +3187,7 @@
       "type": "TenthdBmV",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-write",
     "status": "current"
   },
   "docsIf3CmtsSpectrumAnalysisMeasTable": {
@@ -3753,663 +3578,6 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "docsIf3CmMdCfgTable": {
-    "name": "docsIf3CmMdCfgTable",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.31",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmMdCfgEntry": {
-    "name": "docsIf3CmMdCfgEntry",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.31.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "IF-MIB",
-        "object": "ifIndex",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "docsIf3CmMdCfgIpProvMode": {
-    "name": "docsIf3CmMdCfgIpProvMode",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.31.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "ipv4Only": 0,
-          "ipv6Only": 1,
-          "honorMdd": 4
-        }
-      }
-    },
-    "default": {
-      "default": {
-        "value": "honorMdd",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmMdCfgIpProvModeResetOnChange": {
-    "name": "docsIf3CmMdCfgIpProvModeResetOnChange",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.31.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "false",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmMdCfgIpProvModeResetOnChangeHoldOffTimer": {
-    "name": "docsIf3CmMdCfgIpProvModeResetOnChangeHoldOffTimer",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.31.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 300
-          }
-        ]
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmMdCfgIpProvModeStorageType": {
-    "name": "docsIf3CmMdCfgIpProvModeStorageType",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.31.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "StorageType",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "nonVolatile",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgtCfg": {
-    "name": "docsIf3CmEnergyMgtCfg",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.32",
-    "class": "objectidentity"
-  },
-  "docsIf3CmEnergyMgtCfgFeatureEnabled": {
-    "name": "docsIf3CmEnergyMgtCfgFeatureEnabled",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.32.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Bits",
-      "class": "type",
-      "bits": {
-        "em1x1Feature": 0,
-        "dls": 1
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgtCfgCyclePeriod": {
-    "name": "docsIf3CmEnergyMgtCfgCyclePeriod",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.32.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 900,
-        "format": "decimal"
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgTable": {
-    "name": "docsIf3CmEnergyMgt1x1CfgTable",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgEntry": {
-    "name": "docsIf3CmEnergyMgt1x1CfgEntry",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgt1x1CfgDirection",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgDirection": {
-    "name": "docsIf3CmEnergyMgt1x1CfgDirection",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "IfDirection",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgEntryBitrateThrshld": {
-    "name": "docsIf3CmEnergyMgt1x1CfgEntryBitrateThrshld",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "bps",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgEntryTimeThrshld": {
-    "name": "docsIf3CmEnergyMgt1x1CfgEntryTimeThrshld",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgExitBitrateThrshld": {
-    "name": "docsIf3CmEnergyMgt1x1CfgExitBitrateThrshld",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "bps",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmEnergyMgt1x1CfgExitTimeThrshld": {
-    "name": "docsIf3CmEnergyMgt1x1CfgExitTimeThrshld",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.33.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmd": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmd",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34",
-    "class": "objectidentity"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdEnable": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdEnable",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.1",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TruthValue",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": "false",
-        "format": "enum"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdInactivityTimeout": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdInactivityTimeout",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.2",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 86400
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 300,
-        "format": "decimal"
-      }
-    },
-    "units": "seconds",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdFirstSegmentCenterFrequency": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdFirstSegmentCenterFrequency",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.3",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 93000000,
-        "format": "decimal"
-      }
-    },
-    "units": "Hz",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdLastSegmentCenterFrequency": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdLastSegmentCenterFrequency",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.4",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 993000000,
-        "format": "decimal"
-      }
-    },
-    "units": "Hz",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdSegmentFrequencySpan": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdSegmentFrequencySpan",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.5",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1000000,
-            "max": 900000000
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 7500000,
-        "format": "decimal"
-      }
-    },
-    "units": "Hz",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdNumBinsPerSegment": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdNumBinsPerSegment",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.6",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 2,
-            "max": 2048
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 256,
-        "format": "decimal"
-      }
-    },
-    "units": "bins-per-segment",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdEquivalentNoiseBandwidth": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdEquivalentNoiseBandwidth",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.7",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 50,
-            "max": 500
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 150,
-        "format": "decimal"
-      }
-    },
-    "units": "hundredthsbin",
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdWindowFunction": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdWindowFunction",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.8",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "SpectrumAnalysisWindowFunction",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisCtrlCmdNumberOfAverages": {
-    "name": "docsIf3CmSpectrumAnalysisCtrlCmdNumberOfAverages",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.34.9",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 1000
-          }
-        ]
-      }
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisMeasTable": {
-    "name": "docsIf3CmSpectrumAnalysisMeasTable",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.35",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisMeasEntry": {
-    "name": "docsIf3CmSpectrumAnalysisMeasEntry",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.35.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisMeasFrequency",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisMeasFrequency": {
-    "name": "docsIf3CmSpectrumAnalysisMeasFrequency",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.35.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisMeasAmplitudeData": {
-    "name": "docsIf3CmSpectrumAnalysisMeasAmplitudeData",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.35.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "AmplitudeData",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmSpectrumAnalysisMeasTotalSegmentPower": {
-    "name": "docsIf3CmSpectrumAnalysisMeasTotalSegmentPower",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.35.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TenthdB",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmtsCmEmStatsTable": {
-    "name": "docsIf3CmtsCmEmStatsTable",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.36",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmtsCmEmStatsEntry": {
-    "name": "docsIf3CmtsCmEmStatsEntry",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.36.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmtsCmRegStatusId",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "docsIf3CmtsCmEmStatsEm1x1ModeTotalDuration": {
-    "name": "docsIf3CmtsCmEmStatsEm1x1ModeTotalDuration",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.36.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsTable": {
-    "name": "docsIf3CmEm1x1StatsTable",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsEntry": {
-    "name": "docsIf3CmEm1x1StatsEntry",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "IF-MIB",
-        "object": "ifIndex",
-        "implied": 0
-      }
-    ],
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsNumberTimesCrossedBelowUsEntryThrshlds": {
-    "name": "docsIf3CmEm1x1StatsNumberTimesCrossedBelowUsEntryThrshlds",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1.1",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsNumberTimesCrossedBelowDsEntryThrshlds": {
-    "name": "docsIf3CmEm1x1StatsNumberTimesCrossedBelowDsEntryThrshlds",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsTotalDuration": {
-    "name": "docsIf3CmEm1x1StatsTotalDuration",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsTotalDurationBelowUsThrshlds": {
-    "name": "docsIf3CmEm1x1StatsTotalDurationBelowUsThrshlds",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsTotalDurationBelowDsThrshlds": {
-    "name": "docsIf3CmEm1x1StatsTotalDurationBelowDsThrshlds",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "docsIf3CmEm1x1StatsTotalDurationBelowUsDsThrshlds": {
-    "name": "docsIf3CmEm1x1StatsTotalDurationBelowUsDsThrshlds",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.1.37.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "docsIf3MibConformance": {
     "name": "docsIf3MibConformance",
     "oid": "1.3.6.1.4.1.4491.2.1.20.2",
@@ -4564,14 +3732,6 @@
       },
       {
         "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmtsCmRegStatusEnergyMgtEnabled"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmtsCmRegStatusEnergyMgtOperStatus"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
         "object": "docsIf3CmtsCmUsStatusModulationType"
       },
       {
@@ -4680,14 +3840,6 @@
       },
       {
         "module": "DOCS-IF3-MIB",
-        "object": "docsIf3MdCfgBpi2EnforceCtrl"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3MdCfgEnergyMgt1x1Enabled"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
         "object": "docsIf3MdChCfgIsPriCapableDs"
       },
       {
@@ -4752,6 +3904,46 @@
       },
       {
         "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RccCfgVendorSpecific"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RccCfgDescription"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RccCfgRowStatus"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxChCfgChIfIndex"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxChCfgPrimaryDsIndicator"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxChCfgRcRmConnectivityId"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxChCfgRowStatus"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxModuleCfgRmRmConnectivityId"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxModuleCfgFirstCenterFrequency"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3RxModuleCfgRowStatus"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
         "object": "docsIf3RccStatusRccCfgId"
       },
       {
@@ -4805,10 +3997,6 @@
       {
         "module": "DOCS-IF3-MIB",
         "object": "docsIf3CmtsEventCtrlStatus"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmtsCmEmStatsEm1x1ModeTotalDuration"
       }
     ],
     "status": "current"
@@ -4868,7 +4056,11 @@
       },
       {
         "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmStatusEnergyMgt1x1OperStatus"
+        "object": "docsIf3CmStatusUCCsSuccesses"
+      },
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3CmStatusUCCFails"
       },
       {
         "module": "DOCS-IF3-MIB",
@@ -4973,118 +4165,6 @@
       {
         "module": "DOCS-IF3-MIB",
         "object": "docsIf3CmEventCtrlStatus"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmMdCfgIpProvMode"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmMdCfgIpProvModeResetOnChange"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmMdCfgIpProvModeResetOnChangeHoldOffTimer"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmMdCfgIpProvModeStorageType"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgtCfgFeatureEnabled"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgtCfgCyclePeriod"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgt1x1CfgDirection"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgt1x1CfgEntryBitrateThrshld"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgt1x1CfgEntryTimeThrshld"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgt1x1CfgExitBitrateThrshld"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEnergyMgt1x1CfgExitTimeThrshld"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdEnable"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdInactivityTimeout"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdFirstSegmentCenterFrequency"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdLastSegmentCenterFrequency"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdSegmentFrequencySpan"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdNumBinsPerSegment"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdEquivalentNoiseBandwidth"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdWindowFunction"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisCtrlCmdNumberOfAverages"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisMeasAmplitudeData"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmSpectrumAnalysisMeasTotalSegmentPower"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEm1x1StatsNumberTimesCrossedBelowUsEntryThrshlds"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEm1x1StatsNumberTimesCrossedBelowDsEntryThrshlds"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEm1x1StatsTotalDuration"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEm1x1StatsTotalDurationBelowUsThrshlds"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEm1x1StatsTotalDurationBelowDsThrshlds"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmEm1x1StatsTotalDurationBelowUsDsThrshlds"
       }
     ],
     "status": "current"
@@ -5113,67 +4193,11 @@
     ],
     "status": "current"
   },
-  "docsIf3ObsoleteGroup": {
-    "name": "docsIf3ObsoleteGroup",
-    "oid": "1.3.6.1.4.1.4491.2.1.20.2.2.5",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RccCfgVendorSpecific"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RccCfgDescription"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RccCfgRowStatus"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxChCfgChIfIndex"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxChCfgPrimaryDsIndicator"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxChCfgRcRmConnectivityId"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxChCfgRowStatus"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxModuleCfgRmRmConnectivityId"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxModuleCfgFirstCenterFrequency"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3RxModuleCfgRowStatus"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmStatusUCCsSuccesses"
-      },
-      {
-        "module": "DOCS-IF3-MIB",
-        "object": "docsIf3CmStatusUCCFails"
-      }
-    ],
-    "status": "obsolete"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/DOCS-IF3-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:35 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF3-MIB"

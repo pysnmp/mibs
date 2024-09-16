@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module HMTRACKING-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmtracking.mib
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:36:22 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:55:37 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 hmConfiguration, = mibBuilder.importSymbols("HMPRIV-MGMT-SNMP-MIB", "hmConfiguration")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, TimeTicks, Gauge32, iso, Counter64, IpAddress, Bits, Unsigned32, MibIdentifier, Counter32, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "TimeTicks", "Gauge32", "iso", "Counter64", "IpAddress", "Bits", "Unsigned32", "MibIdentifier", "Counter32", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
-TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, MibIdentifier, Unsigned32, Integer32, Gauge32, Counter64, TimeTicks, iso, ObjectIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Unsigned32", "Integer32", "Gauge32", "Counter64", "TimeTicks", "iso", "ObjectIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "NotificationType")
+RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
 hmTracking = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 15))
 hmTracking.setRevisions(('2007-09-13 12:00',))
 
@@ -113,4 +113,4 @@ if mibBuilder.loadTexts: hmTrackEvent.setDescription('The events of hmTrackEvent
 hmTrackStatusChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 0, 1)).setObjects(("HMTRACKING-SNMP-MIB", "hmTrackId"), ("HMTRACKING-SNMP-MIB", "hmTrackRowStatus"), ("HMTRACKING-SNMP-MIB", "hmTrackState"))
 if mibBuilder.loadTexts: hmTrackStatusChangeEvent.setStatus('current')
 if mibBuilder.loadTexts: hmTrackStatusChangeEvent.setDescription('Sent when the state of a tracking instance changes between up and down.')
-mibBuilder.exportSymbols("HMTRACKING-SNMP-MIB", hmTrackSendStateChangeTrap=hmTrackSendStateChangeTrap, hmTrackingApplicationTable=hmTrackingApplicationTable, hmTrackAppId=hmTrackAppId, hmTrackAppName=hmTrackAppName, hmTrackLogicalInstanceTable=hmTrackLogicalInstanceTable, hmTrackEvent=hmTrackEvent, hmTrackPingTTL=hmTrackPingTTL, hmTrackPingBestRouteIfNumber=hmTrackPingBestRouteIfNumber, hmTrackingTable=hmTrackingTable, hmTrackPingIpAddress=hmTrackPingIpAddress, hmTrackRowStatus=hmTrackRowStatus, hmTrackIfNumber=hmTrackIfNumber, hmTrackPingTimeout=hmTrackPingTimeout, hmTrackStatusChangeEvent=hmTrackStatusChangeEvent, hmTrackId=hmTrackId, hmTrackLogicalOperator=hmTrackLogicalOperator, hmTrackLogicInstRowStatus=hmTrackLogicInstRowStatus, hmTrackPingMiss=hmTrackPingMiss, hmTrackPingInterval=hmTrackPingInterval, PYSNMP_MODULE_ID=hmTracking, hmTrackState=hmTrackState, hmTrackingGroup=hmTrackingGroup, hmTracking=hmTracking, hmTrackingApplicationEntry=hmTrackingApplicationEntry, hmTrackLogicalInstanceId=hmTrackLogicalInstanceId, hmTrackNumberOfChanges=hmTrackNumberOfChanges, hmTrackType=hmTrackType, hmTrackIfLinkDownDelay=hmTrackIfLinkDownDelay, hmTrackPingSuccess=hmTrackPingSuccess, hmTrackingEntry=hmTrackingEntry, hmTrackLogicalInstanceEntry=hmTrackLogicalInstanceEntry, hmTrackTimeSinceLastChange=hmTrackTimeSinceLastChange, hmTrackIfLinkUpDelay=hmTrackIfLinkUpDelay)
+mibBuilder.exportSymbols("HMTRACKING-SNMP-MIB", hmTrackIfLinkDownDelay=hmTrackIfLinkDownDelay, hmTrackRowStatus=hmTrackRowStatus, hmTrackLogicalInstanceEntry=hmTrackLogicalInstanceEntry, hmTrackPingInterval=hmTrackPingInterval, hmTrackingApplicationEntry=hmTrackingApplicationEntry, hmTrackEvent=hmTrackEvent, hmTrackingEntry=hmTrackingEntry, hmTrackLogicInstRowStatus=hmTrackLogicInstRowStatus, hmTracking=hmTracking, hmTrackLogicalInstanceTable=hmTrackLogicalInstanceTable, PYSNMP_MODULE_ID=hmTracking, hmTrackingGroup=hmTrackingGroup, hmTrackNumberOfChanges=hmTrackNumberOfChanges, hmTrackState=hmTrackState, hmTrackIfNumber=hmTrackIfNumber, hmTrackingTable=hmTrackingTable, hmTrackType=hmTrackType, hmTrackPingBestRouteIfNumber=hmTrackPingBestRouteIfNumber, hmTrackPingIpAddress=hmTrackPingIpAddress, hmTrackPingTTL=hmTrackPingTTL, hmTrackId=hmTrackId, hmTrackStatusChangeEvent=hmTrackStatusChangeEvent, hmTrackLogicalOperator=hmTrackLogicalOperator, hmTrackAppId=hmTrackAppId, hmTrackPingSuccess=hmTrackPingSuccess, hmTrackTimeSinceLastChange=hmTrackTimeSinceLastChange, hmTrackPingTimeout=hmTrackPingTimeout, hmTrackLogicalInstanceId=hmTrackLogicalInstanceId, hmTrackingApplicationTable=hmTrackingApplicationTable, hmTrackAppName=hmTrackAppName, hmTrackSendStateChangeTrap=hmTrackSendStateChangeTrap, hmTrackIfLinkUpDelay=hmTrackIfLinkUpDelay, hmTrackPingMiss=hmTrackPingMiss)

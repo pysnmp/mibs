@@ -6,21 +6,21 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
       "enterprises",
-      "Bits",
-      "IpAddress",
       "Counter32",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -6750,9 +6750,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3Com-products-MIB",
-      "Produced by pysmi-1.1.12 at Fri Jul 19 11:31:55 2024",
-      "On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner",
-      "Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:50:44 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "A3Com-products-MIB"
   }

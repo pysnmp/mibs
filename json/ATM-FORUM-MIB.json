@@ -1,46 +1,42 @@
 {
   "imports": {
     "class": "imports",
+    "ATM-FORUM-TC-MIB": [
+      "atmfVccAbrGroup",
+      "atmfVpcAbrGroup",
+      "ClnpAddress",
+      "atmfVccGroup",
+      "TruthValue",
+      "atmfPhysicalGroup",
+      "atmfAtmStatsGroup",
+      "AtmServiceCategory",
+      "atmfAtmLayerGroup",
+      "atmfVpcGroup"
+    ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "iso",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "enterprises",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "Counter64",
+      "Unsigned32",
+      "Counter32",
+      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "Integer32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
-  },
-  "atmForum": {
-    "name": "atmForum",
-    "oid": "1.3.6.1.4.1.353",
-    "class": "objectidentity"
-  },
-  "atmForumAdmin": {
-    "name": "atmForumAdmin",
-    "oid": "1.3.6.1.4.1.353.1",
-    "class": "objectidentity"
-  },
-  "atmForumUni": {
-    "name": "atmForumUni",
-    "oid": "1.3.6.1.4.1.353.2",
-    "class": "objectidentity"
   },
   "AtmAddress": {
     "name": "AtmAddress",
@@ -57,191 +53,6 @@
         ]
       }
     }
-  },
-  "AtmAddress2": {
-    "name": "AtmAddress2",
-    "class": "type",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 8,
-            "max": 8
-          },
-          {
-            "min": 20,
-            "max": 20
-          }
-        ]
-      }
-    }
-  },
-  "NetPrefix": {
-    "name": "NetPrefix",
-    "class": "type",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 8,
-            "max": 8
-          },
-          {
-            "min": 13,
-            "max": 13
-          }
-        ]
-      }
-    }
-  },
-  "atmfTransmissionTypes": {
-    "name": "atmfTransmissionTypes",
-    "oid": "1.3.6.1.4.1.353.1.2",
-    "class": "objectidentity"
-  },
-  "atmfUnknownType": {
-    "name": "atmfUnknownType",
-    "oid": "1.3.6.1.4.1.353.1.2.1",
-    "class": "objectidentity"
-  },
-  "atmfSonetSTS3c": {
-    "name": "atmfSonetSTS3c",
-    "oid": "1.3.6.1.4.1.353.1.2.2",
-    "class": "objectidentity"
-  },
-  "atmfDs3": {
-    "name": "atmfDs3",
-    "oid": "1.3.6.1.4.1.353.1.2.3",
-    "class": "objectidentity"
-  },
-  "atmf4B5B": {
-    "name": "atmf4B5B",
-    "oid": "1.3.6.1.4.1.353.1.2.4",
-    "class": "objectidentity"
-  },
-  "atmf8B10B": {
-    "name": "atmf8B10B",
-    "oid": "1.3.6.1.4.1.353.1.2.5",
-    "class": "objectidentity"
-  },
-  "atmfMediaTypes": {
-    "name": "atmfMediaTypes",
-    "oid": "1.3.6.1.4.1.353.1.3",
-    "class": "objectidentity"
-  },
-  "atmfMediaUnknownType": {
-    "name": "atmfMediaUnknownType",
-    "oid": "1.3.6.1.4.1.353.1.3.1",
-    "class": "objectidentity"
-  },
-  "atmfMediaCoaxCable": {
-    "name": "atmfMediaCoaxCable",
-    "oid": "1.3.6.1.4.1.353.1.3.2",
-    "class": "objectidentity"
-  },
-  "atmfMediaSingleMode": {
-    "name": "atmfMediaSingleMode",
-    "oid": "1.3.6.1.4.1.353.1.3.3",
-    "class": "objectidentity"
-  },
-  "atmfMediaMultiMode": {
-    "name": "atmfMediaMultiMode",
-    "oid": "1.3.6.1.4.1.353.1.3.4",
-    "class": "objectidentity"
-  },
-  "atmfMediaStp": {
-    "name": "atmfMediaStp",
-    "oid": "1.3.6.1.4.1.353.1.3.5",
-    "class": "objectidentity"
-  },
-  "atmfMediaUtp": {
-    "name": "atmfMediaUtp",
-    "oid": "1.3.6.1.4.1.353.1.3.6",
-    "class": "objectidentity"
-  },
-  "atmfTrafficDescrTypes": {
-    "name": "atmfTrafficDescrTypes",
-    "oid": "1.3.6.1.4.1.353.1.4",
-    "class": "objectidentity"
-  },
-  "atmfNoDescriptor": {
-    "name": "atmfNoDescriptor",
-    "oid": "1.3.6.1.4.1.353.1.4.1",
-    "class": "objectidentity"
-  },
-  "atmfPeakRate": {
-    "name": "atmfPeakRate",
-    "oid": "1.3.6.1.4.1.353.1.4.2",
-    "class": "objectidentity"
-  },
-  "atmfNoClpNoScr": {
-    "name": "atmfNoClpNoScr",
-    "oid": "1.3.6.1.4.1.353.1.4.3",
-    "class": "objectidentity"
-  },
-  "atmfClpNoTaggingNoScr": {
-    "name": "atmfClpNoTaggingNoScr",
-    "oid": "1.3.6.1.4.1.353.1.4.4",
-    "class": "objectidentity"
-  },
-  "atmfClpTaggingNoScr": {
-    "name": "atmfClpTaggingNoScr",
-    "oid": "1.3.6.1.4.1.353.1.4.5",
-    "class": "objectidentity"
-  },
-  "atmfNoClpScr": {
-    "name": "atmfNoClpScr",
-    "oid": "1.3.6.1.4.1.353.1.4.6",
-    "class": "objectidentity"
-  },
-  "atmfClpNoTaggingScr": {
-    "name": "atmfClpNoTaggingScr",
-    "oid": "1.3.6.1.4.1.353.1.4.7",
-    "class": "objectidentity"
-  },
-  "atmfClpTaggingScr": {
-    "name": "atmfClpTaggingScr",
-    "oid": "1.3.6.1.4.1.353.1.4.8",
-    "class": "objectidentity"
-  },
-  "atmfPhysicalGroup": {
-    "name": "atmfPhysicalGroup",
-    "oid": "1.3.6.1.4.1.353.2.1",
-    "class": "objectidentity"
-  },
-  "atmfAtmLayerGroup": {
-    "name": "atmfAtmLayerGroup",
-    "oid": "1.3.6.1.4.1.353.2.2",
-    "class": "objectidentity"
-  },
-  "atmfAtmStatsGroup": {
-    "name": "atmfAtmStatsGroup",
-    "oid": "1.3.6.1.4.1.353.2.3",
-    "class": "objectidentity"
-  },
-  "atmfVpcGroup": {
-    "name": "atmfVpcGroup",
-    "oid": "1.3.6.1.4.1.353.2.4",
-    "class": "objectidentity"
-  },
-  "atmfVccGroup": {
-    "name": "atmfVccGroup",
-    "oid": "1.3.6.1.4.1.353.2.5",
-    "class": "objectidentity"
-  },
-  "atmfAddressGroup": {
-    "name": "atmfAddressGroup",
-    "oid": "1.3.6.1.4.1.353.2.6",
-    "class": "objectidentity"
-  },
-  "atmfNetPrefixGroup": {
-    "name": "atmfNetPrefixGroup",
-    "oid": "1.3.6.1.4.1.353.2.7",
-    "class": "objectidentity"
   },
   "atmfPortTable": {
     "name": "atmfPortTable",
@@ -296,7 +107,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "obsolete"
   },
   "atmfPortTransmissionType": {
     "name": "atmfPortTransmissionType",
@@ -308,7 +119,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfPortMediaType": {
     "name": "atmfPortMediaType",
@@ -320,7 +131,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfPortOperStatus": {
     "name": "atmfPortOperStatus",
@@ -340,7 +151,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfPortSpecific": {
     "name": "atmfPortSpecific",
@@ -352,7 +163,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfPortMyIfName": {
     "name": "atmfPortMyIfName",
@@ -366,6 +177,26 @@
     "maxaccess": "read-only",
     "status": "mandatory"
   },
+  "atmfPortMyIfIdentifier": {
+    "name": "atmfPortMyIfIdentifier",
+    "oid": "1.3.6.1.4.1.353.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
   "atmfMyIpNmAddress": {
     "name": "atmfMyIpNmAddress",
     "oid": "1.3.6.1.4.1.353.2.1.2",
@@ -374,6 +205,38 @@
     "syntax": {
       "type": "IpAddress",
       "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfMyOsiNmNsapAddress": {
+    "name": "atmfMyOsiNmNsapAddress",
+    "oid": "1.3.6.1.4.1.353.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClnpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfMySystemIdentifier": {
+    "name": "atmfMySystemIdentifier",
+    "oid": "1.3.6.1.4.1.353.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "mandatory"
@@ -433,7 +296,7 @@
         "range": [
           {
             "min": 0,
-            "max": 255
+            "max": 4096
           }
         ]
       }
@@ -453,7 +316,7 @@
         "range": [
           {
             "min": 0,
-            "max": 16777215
+            "max": 268435456
           }
         ]
       }
@@ -473,7 +336,7 @@
         "range": [
           {
             "min": 0,
-            "max": 255
+            "max": 4096
           }
         ]
       }
@@ -493,7 +356,7 @@
         "range": [
           {
             "min": 0,
-            "max": 16777215
+            "max": 268435456
           }
         ]
       }
@@ -513,7 +376,7 @@
         "range": [
           {
             "min": 0,
-            "max": 8
+            "max": 12
           }
         ]
       }
@@ -571,8 +434,125 @@
         "enumeration": {
           "version2point0": 1,
           "version3point0": 2,
-          "version3point1": 3
+          "version3point1": 3,
+          "version4point0": 4,
+          "unsupported": 5
         }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfAtmLayerDeviceType": {
+    "name": "atmfAtmLayerDeviceType",
+    "oid": "1.3.6.1.4.1.353.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "user": 1,
+          "node": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfAtmLayerIlmiVersion": {
+    "name": "atmfAtmLayerIlmiVersion",
+    "oid": "1.3.6.1.4.1.353.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 1,
+          "version4point0": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfAtmLayerNniSigVersion": {
+    "name": "atmfAtmLayerNniSigVersion",
+    "oid": "1.3.6.1.4.1.353.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 1,
+          "iisp": 2,
+          "pnniVersion1point0": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfAtmLayerMaxSvpcVpi": {
+    "name": "atmfAtmLayerMaxSvpcVpi",
+    "oid": "1.3.6.1.4.1.353.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfAtmLayerMaxSvccVpi": {
+    "name": "atmfAtmLayerMaxSvccVpi",
+    "oid": "1.3.6.1.4.1.353.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfAtmLayerMinSvccVci": {
+    "name": "atmfAtmLayerMinSvccVci",
+    "oid": "1.3.6.1.4.1.353.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65536
+          }
+        ]
       }
     },
     "maxaccess": "read-only",
@@ -584,7 +564,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfAtmStatsEntry": {
     "name": "atmfAtmStatsEntry",
@@ -599,7 +579,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfAtmStatsIndex": {
     "name": "atmfAtmStatsIndex",
@@ -619,7 +599,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfAtmStatsReceivedCells": {
     "name": "atmfAtmStatsReceivedCells",
@@ -631,7 +611,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfAtmStatsDroppedReceivedCells": {
     "name": "atmfAtmStatsDroppedReceivedCells",
@@ -643,7 +623,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfAtmStatsTransmittedCells": {
     "name": "atmfAtmStatsTransmittedCells",
@@ -655,7 +635,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfVpcTable": {
     "name": "atmfVpcTable",
@@ -717,7 +697,7 @@
         "range": [
           {
             "min": 0,
-            "max": 255
+            "max": 4095
           }
         ]
       }
@@ -988,7 +968,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "obsolete"
   },
   "atmfVpcTransmitQoSClass": {
     "name": "atmfVpcTransmitQoSClass",
@@ -1008,7 +988,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfVpcReceiveQoSClass": {
     "name": "atmfVpcReceiveQoSClass",
@@ -1023,6 +1003,294 @@
           {
             "min": 0,
             "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "atmfVpcBestEffortIndicator": {
+    "name": "atmfVpcBestEffortIndicator",
+    "oid": "1.3.6.1.4.1.353.2.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcServiceCategory": {
+    "name": "atmfVpcServiceCategory",
+    "oid": "1.3.6.1.4.1.353.2.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmServiceCategory",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTable": {
+    "name": "atmfVpcAbrTable",
+    "oid": "1.3.6.1.4.1.353.2.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrEntry": {
+    "name": "atmfVpcAbrEntry",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATM-FORUM-MIB",
+        "object": "atmfVpcAbrPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-FORUM-MIB",
+        "object": "atmfVpcAbrVpi",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "atmfVpcAbrPortIndex": {
+    "name": "atmfVpcAbrPortIndex",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrVpi": {
+    "name": "atmfVpcAbrVpi",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitIcr": {
+    "name": "atmfVpcAbrTransmitIcr",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitNrm": {
+    "name": "atmfVpcAbrTransmitNrm",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nrm2": 1,
+          "nrm4": 2,
+          "nrm8": 3,
+          "nrm16": 4,
+          "nrm32": 5,
+          "nrm64": 6,
+          "nrm128": 7,
+          "nrm256": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitTrm": {
+    "name": "atmfVpcAbrTransmitTrm",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trm0point78125": 1,
+          "trm1point5625": 2,
+          "trm3point125": 3,
+          "trm6point25": 4,
+          "trm12point5": 5,
+          "trm25": 6,
+          "trm50": 7,
+          "trm100": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitCdf": {
+    "name": "atmfVpcAbrTransmitCdf",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdf0": 1,
+          "cdfOneOver64": 2,
+          "cdfOneOver32": 3,
+          "cdfOneOver16": 4,
+          "cdfOneOver8": 5,
+          "cdfOneOver4": 6,
+          "cdfOneOver2": 7,
+          "cdfOne": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitRif": {
+    "name": "atmfVpcAbrTransmitRif",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rifOneOver32768": 1,
+          "rifOneOver16384": 2,
+          "rifOneOver8192": 3,
+          "rifOneOver4096": 4,
+          "rifOneOver2048": 5,
+          "rifOneOver1024": 6,
+          "rifOneOver512": 7,
+          "rifOneOver256": 8,
+          "rifOneOver128": 9,
+          "rifOneOver64": 10,
+          "rifOneOver32": 11,
+          "rifOneOver16": 12,
+          "rifOneOver8": 13,
+          "rifOneOver4": 14,
+          "rifOneOver2": 15,
+          "rifOne": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitRdf": {
+    "name": "atmfVpcAbrTransmitRdf",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rdfOneOver32768": 1,
+          "rdfOneOver16384": 2,
+          "rdfOneOver8192": 3,
+          "rdfOneOver4096": 4,
+          "rdfOneOver2048": 5,
+          "rdfOneOver1024": 6,
+          "rdfOneOver512": 7,
+          "rdfOneOver256": 8,
+          "rdfOneOver128": 9,
+          "rdfOneOver64": 10,
+          "rdfOneOver32": 11,
+          "rdfOneOver16": 12,
+          "rdfOneOver8": 13,
+          "rdfOneOver4": 14,
+          "rdfOneOver2": 15,
+          "rdfOne": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitAdtf": {
+    "name": "atmfVpcAbrTransmitAdtf",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVpcAbrTransmitCrm": {
+    "name": "atmfVpcAbrTransmitCrm",
+    "oid": "1.3.6.1.4.1.353.2.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388608
           }
         ]
       }
@@ -1095,7 +1363,7 @@
         "range": [
           {
             "min": 0,
-            "max": 255
+            "max": 4095
           }
         ]
       }
@@ -1386,7 +1654,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "obsolete"
   },
   "atmfVccTransmitQoSClass": {
     "name": "atmfVccTransmitQoSClass",
@@ -1406,7 +1674,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "atmfVccReceiveQoSClass": {
     "name": "atmfVccReceiveQoSClass",
@@ -1426,39 +1694,92 @@
       }
     },
     "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "atmfVccBestEffortIndicator": {
+    "name": "atmfVccBestEffortIndicator",
+    "oid": "1.3.6.1.4.1.353.2.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
     "status": "mandatory"
   },
-  "atmfNetPrefixTable": {
-    "name": "atmfNetPrefixTable",
-    "oid": "1.3.6.1.4.1.353.2.7.1",
+  "atmfVccTransmitFrameDiscard": {
+    "name": "atmfVccTransmitFrameDiscard",
+    "oid": "1.3.6.1.4.1.353.2.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccReceiveFrameDiscard": {
+    "name": "atmfVccReceiveFrameDiscard",
+    "oid": "1.3.6.1.4.1.353.2.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccServiceCategory": {
+    "name": "atmfVccServiceCategory",
+    "oid": "1.3.6.1.4.1.353.2.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmServiceCategory",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTable": {
+    "name": "atmfVccAbrTable",
+    "oid": "1.3.6.1.4.1.353.2.10.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "status": "mandatory"
   },
-  "atmfNetPrefixEntry": {
-    "name": "atmfNetPrefixEntry",
-    "oid": "1.3.6.1.4.1.353.2.7.1.1",
+  "atmfVccAbrEntry": {
+    "name": "atmfVccAbrEntry",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
     "indices": [
       {
         "module": "ATM-FORUM-MIB",
-        "object": "atmfNetPrefixPort",
+        "object": "atmfVccAbrPortIndex",
         "implied": 0
       },
       {
         "module": "ATM-FORUM-MIB",
-        "object": "atmfNetPrefixPrefix",
+        "object": "atmfVccAbrVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-FORUM-MIB",
+        "object": "atmfVccAbrVci",
         "implied": 0
       }
     ],
     "status": "mandatory"
   },
-  "atmfNetPrefixPort": {
-    "name": "atmfNetPrefixPort",
-    "oid": "1.3.6.1.4.1.353.2.7.1.1.1",
+  "atmfVccAbrPortIndex": {
+    "name": "atmfVccAbrPortIndex",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1473,70 +1794,12 @@
         ]
       }
     },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-only",
     "status": "mandatory"
   },
-  "atmfNetPrefixPrefix": {
-    "name": "atmfNetPrefixPrefix",
-    "oid": "1.3.6.1.4.1.353.2.7.1.1.2",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "NetPrefix",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "mandatory"
-  },
-  "atmfNetPrefixStatus": {
-    "name": "atmfNetPrefixStatus",
-    "oid": "1.3.6.1.4.1.353.2.7.1.1.3",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "valid": 1,
-          "invalid": 2
-        }
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "mandatory"
-  },
-  "atmfAddressTable": {
-    "name": "atmfAddressTable",
-    "oid": "1.3.6.1.4.1.353.2.6.1",
-    "nodetype": "table",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "status": "mandatory"
-  },
-  "atmfAddressEntry": {
-    "name": "atmfAddressEntry",
-    "oid": "1.3.6.1.4.1.353.2.6.1.1",
-    "nodetype": "row",
-    "class": "objecttype",
-    "maxaccess": "not-accessible",
-    "indices": [
-      {
-        "module": "ATM-FORUM-MIB",
-        "object": "atmfAddressPort",
-        "implied": 0
-      },
-      {
-        "module": "ATM-FORUM-MIB",
-        "object": "atmfAddressAtmAddress",
-        "implied": 0
-      }
-    ],
-    "status": "mandatory"
-  },
-  "atmfAddressPort": {
-    "name": "atmfAddressPort",
-    "oid": "1.3.6.1.4.1.353.2.6.1.1.1",
+  "atmfVccAbrVpi": {
+    "name": "atmfVccAbrVpi",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1546,29 +1809,57 @@
         "range": [
           {
             "min": 0,
-            "max": 2147483647
+            "max": 4095
           }
         ]
       }
     },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-only",
     "status": "mandatory"
   },
-  "atmfAddressAtmAddress": {
-    "name": "atmfAddressAtmAddress",
-    "oid": "1.3.6.1.4.1.353.2.6.1.1.2",
+  "atmfVccAbrVci": {
+    "name": "atmfVccAbrVci",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "AtmAddress2",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
     },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-only",
     "status": "mandatory"
   },
-  "atmfAddressStatus": {
-    "name": "atmfAddressStatus",
-    "oid": "1.3.6.1.4.1.353.2.6.1.1.3",
+  "atmfVccAbrTransmitIcr": {
+    "name": "atmfVccAbrTransmitIcr",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitNrm": {
+    "name": "atmfVccAbrTransmitNrm",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1576,19 +1867,177 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "valid": 1,
-          "invalid": 2
+          "nrm2": 1,
+          "nrm4": 2,
+          "nrm8": 3,
+          "nrm16": 4,
+          "nrm32": 5,
+          "nrm64": 6,
+          "nrm128": 7,
+          "nrm256": 8
         }
       }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitTrm": {
+    "name": "atmfVccAbrTransmitTrm",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trm0point78125": 1,
+          "trm1point5625": 2,
+          "trm3point125": 3,
+          "trm6point25": 4,
+          "trm12point5": 5,
+          "trm25": 6,
+          "trm50": 7,
+          "trm100": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitCdf": {
+    "name": "atmfVccAbrTransmitCdf",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cdf0": 1,
+          "cdfOneOver64": 2,
+          "cdfOneOver32": 3,
+          "cdfOneOver16": 4,
+          "cdfOneOver8": 5,
+          "cdfOneOver4": 6,
+          "cdfOneOver2": 7,
+          "cdfOne": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitRif": {
+    "name": "atmfVccAbrTransmitRif",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rifOneOver32768": 1,
+          "rifOneOver16384": 2,
+          "rifOneOver8192": 3,
+          "rifOneOver4096": 4,
+          "rifOneOver2048": 5,
+          "rifOneOver1024": 6,
+          "rifOneOver512": 7,
+          "rifOneOver256": 8,
+          "rifOneOver128": 9,
+          "rifOneOver64": 10,
+          "rifOneOver32": 11,
+          "rifOneOver16": 12,
+          "rifOneOver8": 13,
+          "rifOneOver4": 14,
+          "rifOneOver2": 15,
+          "rifOne": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitRdf": {
+    "name": "atmfVccAbrTransmitRdf",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rdfOneOver32768": 1,
+          "rdfOneOver16384": 2,
+          "rdfOneOver8192": 3,
+          "rdfOneOver4096": 4,
+          "rdfOneOver2048": 5,
+          "rdfOneOver1024": 6,
+          "rdfOneOver512": 7,
+          "rdfOneOver256": 8,
+          "rdfOneOver128": 9,
+          "rdfOneOver64": 10,
+          "rdfOneOver32": 11,
+          "rdfOneOver16": 12,
+          "rdfOneOver8": 13,
+          "rdfOneOver4": 14,
+          "rdfOneOver2": 15,
+          "rdfOne": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitAdtf": {
+    "name": "atmfVccAbrTransmitAdtf",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "atmfVccAbrTransmitCrm": {
+    "name": "atmfVccAbrTransmitCrm",
+    "oid": "1.3.6.1.4.1.353.2.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8388608
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
     "status": "mandatory"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:06 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ATM-FORUM-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:33 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-MIB"

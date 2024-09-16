@@ -5,37 +5,37 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "zeroDotZero",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Unsigned32",
+      "mib-2",
+      "zeroDotZero",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
       "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Integer32",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "dismanExpressionMIB": {
@@ -994,9 +994,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC2982-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/DISMAN-EXPRESSION-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:33 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DISMAN-EXPRESSION-MIB"

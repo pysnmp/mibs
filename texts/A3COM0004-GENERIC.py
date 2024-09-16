@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module A3COM0004-GENERIC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3COM0004-GENERIC
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:31:53 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:50:43 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
 generic, = mibBuilder.importSymbols("A3Com-products-MIB", "generic")
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, TimeTicks, Unsigned32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier, ObjectIdentity, Bits, Counter64, ModuleIdentity, Counter32, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "Unsigned32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier", "ObjectIdentity", "Bits", "Counter64", "ModuleIdentity", "Counter32", "Integer32", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter64, IpAddress, Bits, Counter32, ModuleIdentity, iso, Gauge32, MibIdentifier, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "Bits", "Counter32", "ModuleIdentity", "iso", "Gauge32", "MibIdentifier", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "NotificationType", "Integer32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 setup = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 2))
 sysLoader = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 3))
 security = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 4))
@@ -60,4 +60,4 @@ a3ComFabric = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 47))
 a3ComLinkAgg = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 48))
 a3ComPaeMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 49))
 a3ComSntpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 10, 50))
-mibBuilder.exportSymbols("A3COM0004-GENERIC", extendedIfInfo=extendedIfInfo, a3ComVlan=a3ComVlan, serialIf=serialIf, a3comLicenseGroup=a3comLicenseGroup, a3ComPaeMIB=a3ComPaeMIB, asciiAgent=asciiAgent, powerSupply=powerSupply, setup=setup, a3ComPowerEthernetExt=a3ComPowerEthernetExt, remoteControl=remoteControl, fault=fault, brasica2=brasica2, a3ComTrafficStats=a3ComTrafficStats, smaVlanSupport=smaVlanSupport, mrmResilience=mrmResilience, segmentLoadBalancing=segmentLoadBalancing, igmpMIB=igmpMIB, a3ComSntpGroup=a3ComSntpGroup, multiRepeater=multiRepeater, repeaterMgmt=repeaterMgmt, a3ComBridgeExt=a3ComBridgeExt, unusedGeneric12=unusedGeneric12, bridgeMgmt=bridgeMgmt, a3ComBackup_mib=a3ComBackup_mib, endStation=endStation, a3ComFabric=a3ComFabric, rmonExtensions=rmonExtensions, tokenRing=tokenRing, a3ComQBridgeMIB=a3ComQBridgeMIB, a3ComRadiusMIB=a3ComRadiusMIB, superStackIIconfig=superStackIIconfig, smartAutosensing=smartAutosensing, poll=poll, securePort=securePort, qosProfiles=qosProfiles, rfc1516extensions=rfc1516extensions, vlanServerClient=vlanServerClient, localSnmp=localSnmp, mibSummary=mibSummary, sysLoader=sysLoader, chassis=chassis, manager=manager, alertLed=alertLed, virtualFileSystem=virtualFileSystem, security=security, a3ComLinkAgg=a3ComLinkAgg, gauges=gauges, l4Redirect=l4Redirect)
+mibBuilder.exportSymbols("A3COM0004-GENERIC", gauges=gauges, setup=setup, vlanServerClient=vlanServerClient, a3ComBackup_mib=a3ComBackup_mib, remoteControl=remoteControl, extendedIfInfo=extendedIfInfo, a3ComQBridgeMIB=a3ComQBridgeMIB, a3ComPaeMIB=a3ComPaeMIB, poll=poll, mibSummary=mibSummary, fault=fault, repeaterMgmt=repeaterMgmt, chassis=chassis, brasica2=brasica2, serialIf=serialIf, mrmResilience=mrmResilience, a3ComTrafficStats=a3ComTrafficStats, rfc1516extensions=rfc1516extensions, bridgeMgmt=bridgeMgmt, a3ComLinkAgg=a3ComLinkAgg, l4Redirect=l4Redirect, a3ComVlan=a3ComVlan, securePort=securePort, superStackIIconfig=superStackIIconfig, a3comLicenseGroup=a3comLicenseGroup, alertLed=alertLed, powerSupply=powerSupply, sysLoader=sysLoader, a3ComRadiusMIB=a3ComRadiusMIB, localSnmp=localSnmp, a3ComPowerEthernetExt=a3ComPowerEthernetExt, rmonExtensions=rmonExtensions, multiRepeater=multiRepeater, qosProfiles=qosProfiles, segmentLoadBalancing=segmentLoadBalancing, unusedGeneric12=unusedGeneric12, virtualFileSystem=virtualFileSystem, smartAutosensing=smartAutosensing, igmpMIB=igmpMIB, a3ComFabric=a3ComFabric, endStation=endStation, a3ComBridgeExt=a3ComBridgeExt, tokenRing=tokenRing, security=security, asciiAgent=asciiAgent, manager=manager, smaVlanSupport=smaVlanSupport, a3ComSntpGroup=a3ComSntpGroup)

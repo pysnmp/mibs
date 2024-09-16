@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpSecurityModel",
-      "SnmpSecurityLevel",
       "SnmpAdminString",
-      "SnmpMessageProcessingModel"
+      "SnmpMessageProcessingModel",
+      "SnmpSecurityLevel",
+      "SnmpSecurityModel"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "snmpModules",
-      "TimeTicks",
-      "Gauge32",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Bits",
+      "TimeTicks",
       "Integer32",
-      "Counter32"
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "snmpModules",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "TDomain",
-      "TestAndIncr",
-      "StorageType",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "TimeInterval",
+      "StorageType",
+      "TestAndIncr",
+      "DisplayString",
       "TAddress",
-      "DisplayString"
+      "TDomain",
+      "RowStatus"
     ]
   },
   "snmpTargetMIB": {
@@ -555,9 +555,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-TARGET-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-TARGET-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:58:01 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SNMP-TARGET-MIB"

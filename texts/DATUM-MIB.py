@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module DATUM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/DATUM-MIB
-# Produced by pysmi-1.1.12 at Fri Jul 19 11:38:29 2024
-# On host fv-az702-886 platform Linux version 6.5.0-1023-azure by user runner
-# Using Python version 3.10.14 (main, Jun 20 2024, 15:20:03) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Mon Sep 16 14:58:05 2024
+# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, Gauge32, ModuleIdentity, NotificationType, Counter32, ObjectIdentity, Bits, iso, Unsigned32, MibIdentifier, TimeTicks, Counter64, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "Gauge32", "ModuleIdentity", "NotificationType", "Counter32", "ObjectIdentity", "Bits", "iso", "Unsigned32", "MibIdentifier", "TimeTicks", "Counter64", "enterprises")
+ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, Counter64, IpAddress, enterprises, MibIdentifier, NotificationType, Gauge32, ObjectIdentity, Integer32, TimeTicks, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "IpAddress", "enterprises", "MibIdentifier", "NotificationType", "Gauge32", "ObjectIdentity", "Integer32", "TimeTicks", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 datum = MibIdentifier((1, 3, 6, 1, 4, 1, 601))
 bancomm = MibIdentifier((1, 3, 6, 1, 4, 1, 601, 1))
@@ -21,4 +21,4 @@ experiment = MibIdentifier((1, 3, 6, 1, 4, 1, 601, 99))
 products = MibIdentifier((1, 3, 6, 1, 4, 1, 601, 3, 1))
 ssu2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 601, 3, 1, 1))
 ot21 = MibIdentifier((1, 3, 6, 1, 4, 1, 601, 3, 1, 2))
-mibBuilder.exportSymbols("DATUM-MIB", datum=datum, experiment=experiment, ssu2000=ssu2000, efratom=efratom, products=products, ot21=ot21, timing=timing, austron=austron, bancomm=bancomm, fts=fts)
+mibBuilder.exportSymbols("DATUM-MIB", bancomm=bancomm, ssu2000=ssu2000, austron=austron, fts=fts, products=products, experiment=experiment, datum=datum, timing=timing, ot21=ot21, efratom=efratom)

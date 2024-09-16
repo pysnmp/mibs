@@ -1,0 +1,1513 @@
+{
+  "imports": {
+    "class": "imports",
+    "RS-XX9-COMMON-MIB": [
+      "commonNotificationAlarmClass"
+    ],
+    "RS-XX9-SMI-MIB": [
+      "rsXx9IsdbT",
+      "rsXx9MibModule"
+    ],
+    "RS-XX9-TC-MIB": [
+      "NotificationPriority",
+      "SwitchOnOff",
+      "NotificationState",
+      "IndexTransmitter",
+      "NotificationMask",
+      "NotificationClass",
+      "IndexAB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "rsXx9IsdbtMibModule": {
+    "name": "rsXx9IsdbtMibModule",
+    "oid": "1.3.6.1.4.1.2566.149.1.216.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-06-03 15:00",
+        "description": "add isdbtOutStatusEwbsActFlag"
+      },
+      {
+        "revision": "2014-12-22 16:00",
+        "description": "updated description texts "
+      },
+      {
+        "revision": "2014-03-25 16:00",
+        "description": "Initial release. added isdbtNitRestampingTable"
+      },
+      {
+        "revision": "2012-05-14 10:00",
+        "description": "Preliminary release."
+      }
+    ]
+  },
+  "IsdbtMode": {
+    "name": "IsdbtMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 2,
+          "mode2": 3,
+          "mode3": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IsdbtGuardInterval": {
+    "name": "IsdbtGuardInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneDiv32": 1,
+          "oneDiv16": 2,
+          "oneDiv8": 3,
+          "oneDiv4": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IsdbtLayer": {
+    "name": "IsdbtLayer",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "a": 1,
+          "b": 2,
+          "c": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IsdbtConstellation": {
+    "name": "IsdbtConstellation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dqpsk": 2,
+          "qpsk": 3,
+          "qam16": 4,
+          "qam64": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IsdbtCodeRate": {
+    "name": "IsdbtCodeRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneHalf": 1,
+          "twoThird": 3,
+          "threeFourth": 4,
+          "fiveSixth": 6,
+          "sevenEighth": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IsdbtNitRestampingSource": {
+    "name": "IsdbtNitRestampingSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bts": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rsXx9IsdbtNotifications": {
+    "name": "rsXx9IsdbtNotifications",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0",
+    "class": "objectidentity"
+  },
+  "isdbtIIP": {
+    "name": "isdbtIIP",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtFrameCounter": {
+    "name": "isdbtFrameCounter",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtEquipmentId": {
+    "name": "isdbtEquipmentId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtManualConfiguration": {
+    "name": "isdbtManualConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtActiveConfiguration": {
+    "name": "isdbtActiveConfiguration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtTest": {
+    "name": "isdbtTest",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RS-XX9-COMMON-MIB",
+        "object": "commonNotificationAlarmClass"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9IsdbtObjects": {
+    "name": "rsXx9IsdbtObjects",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1",
+    "class": "objectidentity"
+  },
+  "isdbtStatus": {
+    "name": "isdbtStatus",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1",
+    "class": "objectidentity"
+  },
+  "isdbtStatusNotificationTable": {
+    "name": "isdbtStatusNotificationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtStatusNotificationEntry": {
+    "name": "isdbtStatusNotificationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtStatusNotificationTxIdx": {
+    "name": "isdbtStatusNotificationTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtStatusNotificationExcIdx": {
+    "name": "isdbtStatusNotificationExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtStatusNotificationIdx": {
+    "name": "isdbtStatusNotificationIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtStatusNotificationName": {
+    "name": "isdbtStatusNotificationName",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "isdbtIIP": 1,
+          "isdbtFrameCounter": 2,
+          "isdbtEquipmentId": 3,
+          "isdbtManualConfiguration": 4,
+          "isdbtActiveConfiguration": 5,
+          "isdbtTest": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtStatusNotificationMask": {
+    "name": "isdbtStatusNotificationMask",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationMask",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtStatusNotificationPriority": {
+    "name": "isdbtStatusNotificationPriority",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationPriority",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtStatusNotificationState": {
+    "name": "isdbtStatusNotificationState",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NotificationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtStateTable": {
+    "name": "isdbtStateTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtStateEntry": {
+    "name": "isdbtStateEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtStTxDelayOffset": {
+    "name": "isdbtStTxDelayOffset",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "1/10 micro second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtSetup": {
+    "name": "isdbtSetup",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2",
+    "class": "objectidentity"
+  },
+  "isdbtConfigurationTable": {
+    "name": "isdbtConfigurationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtConfigurationEntry": {
+    "name": "isdbtConfigurationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgExcIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtCfgTxIdx": {
+    "name": "isdbtCfgTxIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexTransmitter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtCfgExcIdx": {
+    "name": "isdbtCfgExcIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IndexAB",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtCfgNetworkMode": {
+    "name": "isdbtCfgNetworkMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mfn": 1,
+          "dynamicSfn": 2,
+          "staticSfn": 3,
+          "automatic": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtCfgCoderSettingsSource": {
+    "name": "isdbtCfgCoderSettingsSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iip": 1,
+          "manual": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtCfgIipID": {
+    "name": "isdbtCfgIipID",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtCfgBandwidth": {
+    "name": "isdbtCfgBandwidth",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mhz6": 5,
+          "mhz7": 6,
+          "mhz8": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtLocalizationTable": {
+    "name": "isdbtLocalizationTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtLocalizationEntry": {
+    "name": "isdbtLocalizationEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtLocalizationEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "isdbtLocalizationEquipmentControl": {
+    "name": "isdbtLocalizationEquipmentControl",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtLocalizationEquipmentID": {
+    "name": "isdbtLocalizationEquipmentID",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccTable": {
+    "name": "isdbtTmccTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtTmccEntry": {
+    "name": "isdbtTmccEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtTmccEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "isdbtTmccNext": {
+    "name": "isdbtTmccNext",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "active": 2,
+          "automatic": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccMode": {
+    "name": "isdbtTmccMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccGuardInterval": {
+    "name": "isdbtTmccGuardInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtGuardInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccPartialReception": {
+    "name": "isdbtTmccPartialReception",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccLayerTable": {
+    "name": "isdbtTmccLayerTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtTmccLayerEntry": {
+    "name": "isdbtTmccLayerEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgTxIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgExcIdx",
+        "implied": 0
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccLayerIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtTmccLayerIdx": {
+    "name": "isdbtTmccLayerIdx",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtLayer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtTmccLayerSegments": {
+    "name": "isdbtTmccLayerSegments",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 13
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccLayerConstellation": {
+    "name": "isdbtTmccLayerConstellation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtConstellation",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccLayerCodeRate": {
+    "name": "isdbtTmccLayerCodeRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtCodeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTmccLayerTimeInterleaver": {
+    "name": "isdbtTmccLayerTimeInterleaver",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtTestTable": {
+    "name": "isdbtTestTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtTestEntry": {
+    "name": "isdbtTestEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtTestEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "isdbtTestGeneration": {
+    "name": "isdbtTestGeneration",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SwitchOnOff",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "isdbtTestMode": {
+    "name": "isdbtTestMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "testMode0": 4,
+          "testMode1": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitRestampingTable": {
+    "name": "isdbtNitRestampingTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtNitRestampingEntry": {
+    "name": "isdbtNitRestampingEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtNitRestampingEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "isdbtNitNetworkIdSource": {
+    "name": "isdbtNitNetworkIdSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtNitRestampingSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitManualNetworkId": {
+    "name": "isdbtNitManualNetworkId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitTransportStreamIdSource": {
+    "name": "isdbtNitTransportStreamIdSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtNitRestampingSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitTransportManualStreamId": {
+    "name": "isdbtNitTransportManualStreamId",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitAreaCodeSource": {
+    "name": "isdbtNitAreaCodeSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtNitRestampingSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitManualAreaCode": {
+    "name": "isdbtNitManualAreaCode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitFrequencySource": {
+    "name": "isdbtNitFrequencySource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtNitRestampingSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitManualFrequency": {
+    "name": "isdbtNitManualFrequency",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "1/7 MHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitVirtualChannelSource": {
+    "name": "isdbtNitVirtualChannelSource",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtNitRestampingSource",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtNitManualVirtualChannel": {
+    "name": "isdbtNitManualVirtualChannel",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "isdbtOutput": {
+    "name": "isdbtOutput",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3",
+    "class": "objectidentity"
+  },
+  "isdbtOutTmccTable": {
+    "name": "isdbtOutTmccTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtOutTmccEntry": {
+    "name": "isdbtOutTmccEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtOutTmccEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "isdbtOutTmccMode": {
+    "name": "isdbtOutTmccMode",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutTmccGuardInterval": {
+    "name": "isdbtOutTmccGuardInterval",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtGuardInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutTmccPartialReception": {
+    "name": "isdbtOutTmccPartialReception",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutTmccLayerTable": {
+    "name": "isdbtOutTmccLayerTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtOutTmccLayerEntry": {
+    "name": "isdbtOutTmccLayerEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtOutTmccLayerEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtTmccLayerEntry"
+    },
+    "status": "current"
+  },
+  "isdbtOutTmccLayerSegments": {
+    "name": "isdbtOutTmccLayerSegments",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutTmccLayerConstellation": {
+    "name": "isdbtOutTmccLayerConstellation",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtConstellation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutTmccLayerCodeRate": {
+    "name": "isdbtOutTmccLayerCodeRate",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsdbtCodeRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutTmccLayerTimeInterleaver": {
+    "name": "isdbtOutTmccLayerTimeInterleaver",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isdbtOutStatusTable": {
+    "name": "isdbtOutStatusTable",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "isdbtOutStatusEntry": {
+    "name": "isdbtOutStatusEntry",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "isdbtOutStatusEntry",
+      "module": "RS-XX9-ISDBT-MIB",
+      "object": "isdbtConfigurationEntry"
+    },
+    "status": "current"
+  },
+  "isdbtOutStatusEwbsActFlag": {
+    "name": "isdbtOutStatusEwbsActFlag",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAvailable": 1,
+          "flagOff": 2,
+          "flagOn": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsXx9IsdbtConformance": {
+    "name": "rsXx9IsdbtConformance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2",
+    "class": "objectidentity"
+  },
+  "rsXx9IsdbtCompliances": {
+    "name": "rsXx9IsdbtCompliances",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2.1",
+    "class": "objectidentity"
+  },
+  "isdbtBasicCompliance": {
+    "name": "isdbtBasicCompliance",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "isdbtObjBasic",
+        "module": "RS-XX9-ISDBT-MIB"
+      },
+      {
+        "object": "isdbtNotifyBasic",
+        "module": "RS-XX9-ISDBT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rsXx9IsdbtGroups": {
+    "name": "rsXx9IsdbtGroups",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2.2",
+    "class": "objectidentity"
+  },
+  "isdbtObjBasic": {
+    "name": "isdbtObjBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationName"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationMask"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationPriority"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStatusNotificationState"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgNetworkMode"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgCoderSettingsSource"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgIipID"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtLocalizationEquipmentControl"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtLocalizationEquipmentID"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtCfgBandwidth"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtStTxDelayOffset"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitManualVirtualChannel"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitVirtualChannelSource"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitManualFrequency"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitFrequencySource"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitManualAreaCode"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitAreaCodeSource"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitTransportManualStreamId"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitTransportStreamIdSource"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitManualNetworkId"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtNitNetworkIdSource"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutStatusEwbsActFlag"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTestMode"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccNext"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccMode"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccGuardInterval"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccPartialReception"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccLayerSegments"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccLayerConstellation"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccLayerCodeRate"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTmccLayerTimeInterleaver"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccMode"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccGuardInterval"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccPartialReception"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccLayerSegments"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccLayerConstellation"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccLayerCodeRate"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtOutTmccLayerTimeInterleaver"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtNotifyBasic": {
+    "name": "isdbtNotifyBasic",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtIIP"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtFrameCounter"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtEquipmentId"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtManualConfiguration"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtActiveConfiguration"
+      },
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTest"
+      }
+    ],
+    "status": "current"
+  },
+  "isdbtObjObsoleted": {
+    "name": "isdbtObjObsoleted",
+    "oid": "1.3.6.1.4.1.2566.127.1.2.216.8.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RS-XX9-ISDBT-MIB",
+        "object": "isdbtTestGeneration"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-ISDBT-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:31 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+    ],
+    "module": "RS-XX9-ISDBT-MIB"
+  }
+}

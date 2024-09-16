@@ -6,32 +6,32 @@
       "docsIfCmtsCmStatusIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Counter64",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE",
-      "Bits",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
       "experimental",
+      "MibIdentifier",
       "Integer32",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "docsSubMgt": {
@@ -262,26 +262,6 @@
     "maxaccess": "read-only",
     "status": "current"
   },
-  "docsSubMgtCpeType": {
-    "name": "docsSubMgtCpeType",
-    "oid": "1.3.6.1.3.83.4.1.5.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "cpe": 1,
-          "ps": 2,
-          "mta": 3,
-          "stb": 4
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "docsSubMgtPktFilterTable": {
     "name": "docsSubMgtPktFilterTable",
     "oid": "1.3.6.1.3.83.4.1.6",
@@ -467,7 +447,7 @@
     },
     "default": {
       "default": {
-        "value": "00",
+        "value": "0",
         "format": "hex"
       }
     },
@@ -493,7 +473,7 @@
     },
     "default": {
       "default": {
-        "value": "00",
+        "value": "0",
         "format": "hex"
       }
     },
@@ -781,126 +761,6 @@
     "maxaccess": "read-write",
     "status": "current"
   },
-  "docsSubMgtPsFilterDownstream": {
-    "name": "docsSubMgtPsFilterDownstream",
-    "oid": "1.3.6.1.3.83.4.1.8.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtPsFilterUpstream": {
-    "name": "docsSubMgtPsFilterUpstream",
-    "oid": "1.3.6.1.3.83.4.1.8.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtMtaFilterDownstream": {
-    "name": "docsSubMgtMtaFilterDownstream",
-    "oid": "1.3.6.1.3.83.4.1.8.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtMtaFilterUpstream": {
-    "name": "docsSubMgtMtaFilterUpstream",
-    "oid": "1.3.6.1.3.83.4.1.8.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtStbFilterDownstream": {
-    "name": "docsSubMgtStbFilterDownstream",
-    "oid": "1.3.6.1.3.83.4.1.8.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtStbFilterUpstream": {
-    "name": "docsSubMgtStbFilterUpstream",
-    "oid": "1.3.6.1.3.83.4.1.8.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
   "docsSubMgtSubFilterDownDefault": {
     "name": "docsSubMgtSubFilterDownDefault",
     "oid": "1.3.6.1.3.83.4.1.9",
@@ -964,126 +824,6 @@
   "docsSubMgtCmFilterUpDefault": {
     "name": "docsSubMgtCmFilterUpDefault",
     "oid": "1.3.6.1.3.83.4.1.12",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtPsFilterDownDefault": {
-    "name": "docsSubMgtPsFilterDownDefault",
-    "oid": "1.3.6.1.3.83.4.1.13",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtPsFilterUpDefault": {
-    "name": "docsSubMgtPsFilterUpDefault",
-    "oid": "1.3.6.1.3.83.4.1.14",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtMtaFilterDownDefault": {
-    "name": "docsSubMgtMtaFilterDownDefault",
-    "oid": "1.3.6.1.3.83.4.1.15",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtMtaFilterUpDefault": {
-    "name": "docsSubMgtMtaFilterUpDefault",
-    "oid": "1.3.6.1.3.83.4.1.16",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtStbFilterDownDefault": {
-    "name": "docsSubMgtStbFilterDownDefault",
-    "oid": "1.3.6.1.3.83.4.1.17",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 1024
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "docsSubMgtStbFilterUpDefault": {
-    "name": "docsSubMgtStbFilterUpDefault",
-    "oid": "1.3.6.1.3.83.4.1.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -1176,10 +916,6 @@
       },
       {
         "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtCpeType"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
         "object": "docsSubMgtPktFilterSrcAddr"
       },
       {
@@ -1256,30 +992,6 @@
       },
       {
         "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtPsFilterDownstream"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtPsFilterUpstream"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtMtaFilterDownstream"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtMtaFilterUpstream"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtStbFilterDownstream"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtStbFilterUpstream"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
         "object": "docsSubMgtSubFilterDownDefault"
       },
       {
@@ -1293,39 +1005,15 @@
       {
         "module": "DOCS-SUBMGT-MIB",
         "object": "docsSubMgtCmFilterUpDefault"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtPsFilterDownDefault"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtPsFilterUpDefault"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtMtaFilterDownDefault"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtMtaFilterUpDefault"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtStbFilterDownDefault"
-      },
-      {
-        "module": "DOCS-SUBMGT-MIB",
-        "object": "docsSubMgtStbFilterUpDefault"
       }
     ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-SUBMGT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 10 10:26:31 2024",
-      "On host fv-az1432-991 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/DOCS-SUBMGT-MIB",
+      "Produced by pysmi-1.1.12 at Mon Sep 16 14:51:37 2024",
+      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DOCS-SUBMGT-MIB"
