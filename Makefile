@@ -20,13 +20,13 @@ render:
 	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
 	helm template --namespace default --values rendered/values.yaml --output-dir rendered/manifests/local_mibs default charts/mibserver
 
-standard: dirs $(RFC)
+standard: #dirs $(RFC)
 	@# Compile mibs
 
 	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
 	./scripts/vendor.sh standard	
 
-vendor:
+vendor: dirs $(RFC)
 	./scripts/vendor.sh vendor
 
 localmibs:
