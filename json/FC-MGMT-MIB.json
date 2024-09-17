@@ -8,31 +8,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "transmission",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "iso",
       "Integer32",
-      "transmission",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "fcMgmtMIB": {
@@ -2738,10 +2738,10 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/FC-MGMT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:01:09 2024",
-      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/FC-MGMT-MIB",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:25:37 2024",
+      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "FC-MGMT-MIB"
   }

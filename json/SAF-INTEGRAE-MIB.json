@@ -16,26 +16,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "Counter32",
-      "Integer32",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
-      "IpAddress"
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "PhysAddress",
-      "DateAndTime",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "integraE": {
@@ -3307,9 +3307,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-INTEGRAE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:07:43 2024",
-      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:27:55 2024",
+      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SAF-INTEGRAE-MIB"
   }

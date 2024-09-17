@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ALPHA-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alpha/ALPHA-NOTIFICATION-MIB
-# Produced by pysmi-1.1.12 at Tue Sep 17 11:59:14 2024
-# On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner
-# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue Sep 17 12:18:41 2024
+# On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-alarmModelDescription, alarmActiveModelPointer, alarmActiveResourceId = mibBuilder.importSymbols("ALARM-MIB", "alarmModelDescription", "alarmActiveModelPointer", "alarmActiveResourceId")
-alpha, componentListStaticName, componentListReference, controllerInfoName = mibBuilder.importSymbols("ALPHA-RESOURCE-MIB", "alpha", "componentListStaticName", "componentListReference", "controllerInfoName")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+alarmActiveModelPointer, alarmModelDescription, alarmActiveResourceId = mibBuilder.importSymbols("ALARM-MIB", "alarmActiveModelPointer", "alarmModelDescription", "alarmActiveResourceId")
+componentListReference, componentListStaticName, alpha, controllerInfoName = mibBuilder.importSymbols("ALPHA-RESOURCE-MIB", "componentListReference", "componentListStaticName", "alpha", "controllerInfoName")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-iso, Counter64, TimeTicks, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ObjectIdentity, Counter32, IpAddress, Unsigned32, Bits, NotificationType, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "TimeTicks", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ObjectIdentity", "Counter32", "IpAddress", "Unsigned32", "Bits", "NotificationType", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Bits, Counter32, TimeTicks, MibIdentifier, Counter64, IpAddress, Integer32, ModuleIdentity, iso, ObjectIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "TimeTicks", "MibIdentifier", "Counter64", "IpAddress", "Integer32", "ModuleIdentity", "iso", "ObjectIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 alphaAlarmNotifications = ModuleIdentity((1, 3, 6, 1, 4, 1, 7309, 100))
 alphaAlarmNotifications.setRevisions(('2017-07-31 00:00', '2015-07-28 00:00', '2015-07-23 00:00', '2015-06-23 00:00',))
 if mibBuilder.loadTexts: alphaAlarmNotifications.setLastUpdated('201707310000Z')
@@ -43,4 +43,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alphaNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 7309, 100, 102, 1, 2, 2)).setObjects(("ALPHA-NOTIFICATION-MIB", "alphaAlarmActiveState"), ("ALPHA-NOTIFICATION-MIB", "alphaAlarmClearState"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alphaNotificationsGroup = alphaNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("ALPHA-NOTIFICATION-MIB", alphaAlarmNotificationCompliances=alphaAlarmNotificationCompliances, alphaAlarmNotificationCompliance=alphaAlarmNotificationCompliance, alarmCustomDescription=alarmCustomDescription, alphaAlarmNotifications=alphaAlarmNotifications, alphaAlarmClearState=alphaAlarmClearState, alphaAlarmNotificationConformance=alphaAlarmNotificationConformance, alarmAdditionalInformation=alarmAdditionalInformation, alphaParameterGroup=alphaParameterGroup, alphaAlarmNotificationGroups=alphaAlarmNotificationGroups, alphaAlarmNotificationsExtension=alphaAlarmNotificationsExtension, PYSNMP_MODULE_ID=alphaAlarmNotifications, alarmSeverity=alarmSeverity, alphaNotificationsGroup=alphaNotificationsGroup, alarmPriority=alarmPriority, alphaAlarmActiveState=alphaAlarmActiveState)
+mibBuilder.exportSymbols("ALPHA-NOTIFICATION-MIB", alphaAlarmActiveState=alphaAlarmActiveState, alarmSeverity=alarmSeverity, PYSNMP_MODULE_ID=alphaAlarmNotifications, alarmCustomDescription=alarmCustomDescription, alphaNotificationsGroup=alphaNotificationsGroup, alphaAlarmNotificationsExtension=alphaAlarmNotificationsExtension, alphaAlarmNotificationConformance=alphaAlarmNotificationConformance, alarmAdditionalInformation=alarmAdditionalInformation, alphaAlarmNotificationCompliance=alphaAlarmNotificationCompliance, alphaAlarmClearState=alphaAlarmClearState, alarmPriority=alarmPriority, alphaAlarmNotifications=alphaAlarmNotifications, alphaAlarmNotificationCompliances=alphaAlarmNotificationCompliances, alphaAlarmNotificationGroups=alphaAlarmNotificationGroups, alphaParameterGroup=alphaParameterGroup)

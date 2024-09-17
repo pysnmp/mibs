@@ -5,15 +5,15 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
-      "Unsigned64",
       "CiscoAlarmSeverity",
       "CiscoInetAddressMask",
-      "TimeIntervalSec"
+      "TimeIntervalSec",
+      "Unsigned64",
+      "CiscoNetworkAddress"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectId",
       "CucsManagedObjectDn",
+      "CucsManagedObjectId",
       "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
@@ -31,30 +31,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
       "Bits",
-      "Counter64",
+      "OBJECT-TYPE",
       "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "Integer32",
-      "Counter32"
+      "MibIdentifier",
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
       "MacAddress",
-      "TruthValue",
-      "DisplayString",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "TimeStamp",
-      "DateAndTime",
-      "RowPointer"
+      "DisplayString",
+      "RowPointer",
+      "TruthValue"
     ]
   },
   "cucsFeatureObjects": {
@@ -825,9 +825,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-FEATURE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:04:41 2024",
-      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:24:13 2024",
+      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-FEATURE-MIB"
   }

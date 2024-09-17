@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module QUIDOS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/papouch/QUIDOS-MIB
-# Produced by pysmi-1.1.12 at Tue Sep 17 12:06:32 2024
-# On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner
-# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue Sep 17 12:26:45 2024
+# On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Gauge32, IpAddress, Counter32, ModuleIdentity, iso, enterprises, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType, Unsigned32, NotificationType, ObjectIdentity, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Gauge32", "IpAddress", "Counter32", "ModuleIdentity", "iso", "enterprises", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType", "Unsigned32", "NotificationType", "ObjectIdentity", "Bits", "TimeTicks")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, enterprises, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, iso, Bits, Counter32, Counter64, ObjectIdentity, MibIdentifier, ModuleIdentity, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "enterprises", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "iso", "Bits", "Counter32", "Counter64", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "IpAddress", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 papouchProjekt = MibIdentifier((1, 3, 6, 1, 4, 1, 18248))
 quidos = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16))
@@ -96,4 +96,4 @@ if mibBuilder.loadTexts: time.setDescription('zde je uvedena doba po kterou bude
 err = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: err.setStatus('current')
 if mibBuilder.loadTexts: err.setDescription('parametr urcujici v jakem stavu ma byt rele2 dojde li k chybe teplotniho cidla\n                         0 = nechat ve stavu ve kterem se rele nachazi\n                         1 = rozepnout rele2\n                         2 = sepnout rele2\n                        ')
-mibBuilder.exportSymbols("QUIDOS-MIB", table_term=table_term, temp_msg=temp_msg, termTable=termTable, err=err, termEntry=termEntry, papouchProjekt=papouchProjekt, user_name=user_name, pysmi_in=pysmi_in, OnOff=OnOff, temperatureReading=temperatureReading, device_msg=device_msg, inTable=inTable, outEntry=outEntry, mezHi=mezHi, temperature_S_Reading=temperature_S_Reading, in_name=in_name, mezLo=mezLo, table_out=table_out, outTwr=outTwr, citrwS=citrwS, quidos=quidos, quido_var=quido_var, StatCit=StatCit, outTable=outTable, citrw=citrw, out=out, out_name=out_name, PositiveInteger=PositiveInteger, modeTerm=modeTerm, inEntry=inEntry, table_in=table_in, time=time)
+mibBuilder.exportSymbols("QUIDOS-MIB", temperature_S_Reading=temperature_S_Reading, citrw=citrw, mezHi=mezHi, table_term=table_term, OnOff=OnOff, user_name=user_name, table_in=table_in, pysmi_in=pysmi_in, inTable=inTable, out=out, table_out=table_out, StatCit=StatCit, time=time, temp_msg=temp_msg, outTwr=outTwr, err=err, modeTerm=modeTerm, out_name=out_name, PositiveInteger=PositiveInteger, device_msg=device_msg, outEntry=outEntry, quido_var=quido_var, temperatureReading=temperatureReading, quidos=quidos, termTable=termTable, citrwS=citrwS, papouchProjekt=papouchProjekt, in_name=in_name, mezLo=mezLo, outTable=outTable, inEntry=inEntry, termEntry=termEntry)

@@ -3,44 +3,44 @@
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
       "ieee8021BridgeBaseEntry",
-      "ieee8021BridgeBasePortEntry",
       "ieee8021BridgeBasePort",
-      "ieee8021BridgeBaseComponentId"
+      "ieee8021BridgeBaseComponentId",
+      "ieee8021BridgeBasePortEntry"
     ],
     "IEEE8021-FQTSS-MIB": [
       "IEEE8021FqtssTrafficClassValue"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021VlanIndex",
+      "ieee802dot1mibs",
       "IEEE8021PriorityCodePoint",
-      "ieee802dot1mibs"
+      "IEEE8021VlanIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
+      "IpAddress",
       "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
-      "Counter32",
       "iso",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "Bits",
-      "IpAddress"
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ieee8021SrpMib": {
@@ -1214,9 +1214,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-SRP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:09:12 2024",
-      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:29:45 2024",
+      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SRP-MIB"
   }

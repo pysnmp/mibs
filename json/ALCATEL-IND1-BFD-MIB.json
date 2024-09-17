@@ -5,12 +5,12 @@
       "softentIND1BFD"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddress",
+      "InetAddressType",
       "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -18,30 +18,30 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "TimeTicks",
       "IpAddress",
-      "Counter32",
       "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
+      "iso",
       "Bits",
-      "iso"
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "alcatelIND1BfdMIB": {
@@ -1102,9 +1102,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:07:14 2024",
-      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:27:26 2024",
+      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-BFD-MIB"
   }
