@@ -6,27 +6,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "enterprises",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
       "Counter32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TAddress"
     ]
   },
   "audioCodes": {
@@ -356,8 +356,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-MODULARGATEWAY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:51:54 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 09:57:34 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "AC-ModularGW-MIB"

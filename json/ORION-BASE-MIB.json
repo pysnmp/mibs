@@ -2,34 +2,34 @@
   "imports": {
     "class": "imports",
     "GLOBAL-REG": [
-      "orion",
-      "modules"
+      "modules",
+      "orion"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
       "enterprises",
       "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
       "Counter64",
-      "Unsigned32",
-      "Counter32"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "orionBaseMibModule": {
@@ -4453,8 +4453,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/delta/ORION-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:53:27 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 09:59:03 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ORION-BASE-MIB"

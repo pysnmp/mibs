@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "CISCO-CDP-MIB": [
-      "cdpCacheDeviceIndex",
+      "cdpCacheIfIndex",
       "cdpCacheEntry",
-      "cdpCacheIfIndex"
+      "cdpCacheDeviceIndex"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
-      "CiscoNetworkProtocol"
+      "CiscoNetworkProtocol",
+      "CiscoNetworkAddress"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "CISCOSB-MIB": [
-      "switch001",
-      "rndNotifications"
+      "rndNotifications",
+      "switch001"
     ],
     "IF-MIB": [
       "InterfaceIndex",
@@ -27,34 +27,34 @@
       "InetAddressType"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanId"
+      "VlanId",
+      "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Unsigned32",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
       "Integer32",
-      "TimeTicks",
-      "Counter64",
+      "Bits",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "rlCdp": {
@@ -1589,8 +1589,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-CDP-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:30 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:16 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-CDP-MIB"

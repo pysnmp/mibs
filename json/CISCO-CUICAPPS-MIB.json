@@ -11,31 +11,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Bits",
-      "OBJECT-IDENTITY"
+      "MibIdentifier",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "ciscoCuicappsMIB": {
@@ -1720,8 +1720,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CUICAPPS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:33 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:20 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-CUICAPPS-MIB"

@@ -5,40 +5,40 @@
       "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021BridgePortNumber",
-      "ieee802dot1mibs"
+      "ieee802dot1mibs",
+      "IEEE8021BridgePortNumber"
     ],
     "IF-MIB": [
       "ifCounterDiscontinuityGroup"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
       "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Integer32",
-      "Counter32",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier"
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "StorageType",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021TpmrMib": {
@@ -936,8 +936,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-TPMR-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 15:02:34 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:07:04 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-TPMR-MIB"

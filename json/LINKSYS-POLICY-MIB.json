@@ -9,15 +9,15 @@
       "InterfaceIndex"
     ],
     "LINKSYS-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList4",
-      "VlanList2",
       "VlanList3",
-      "VlanList1"
+      "VlanList1",
+      "VlanList4",
+      "VlanList2"
     ],
     "LINKSYS-MIB": [
+      "Percents",
       "rnd",
-      "VlanPriority",
-      "Percents"
+      "VlanPriority"
     ],
     "Q-BRIDGE-MIB": [
       "PortList",
@@ -28,28 +28,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "zeroDotZero",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "zeroDotZero",
       "Unsigned32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "MibIdentifier",
       "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue",
       "RowStatus",
-      "RowPointer"
+      "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "InterfaceType": {
@@ -5400,8 +5400,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:58:00 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:03:18 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-POLICY-MIB"

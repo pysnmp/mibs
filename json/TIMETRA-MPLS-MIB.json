@@ -5,15 +5,15 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressIPv6",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "MPLS-LSR-MIB": [
-      "mplsOutSegmentEntry",
-      "mplsXCLspId",
       "mplsInSegmentEntry",
+      "mplsOutSegmentEntry",
       "MplsLabel",
+      "mplsXCLspId",
       "MplsLSPID"
     ],
     "MPLS-TE-MIB": [
@@ -24,63 +24,63 @@
       "mplsTunnelIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
       "iso",
-      "Integer32",
-      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "Counter32",
-      "Bits"
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "DisplayString",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TimeInterval",
+      "DisplayString",
       "RowPointer",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus",
+      "TestAndIncr",
+      "TruthValue"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRConfs",
-      "tmnxSRObjs",
       "tmnxSRNotifyPrefix",
-      "timetraSRMIBModules"
+      "timetraSRMIBModules",
+      "tmnxSRConfs",
+      "tmnxSRObjs"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxTimeInterval",
-      "TFCType",
       "TmnxMplsLabelOrZero",
       "TmnxRsvpDSTEClassType",
-      "TmnxMplsLabel",
-      "TPolicyStatementNameOrEmpty",
-      "TmnxMplsTpNodeID",
-      "TmnxVRtrMplsLspID",
-      "TLNamedItem",
-      "TmnxAdminState",
-      "TmnxMplsLspBandwidth",
-      "TmnxMplsTpGlobalID",
-      "TmnxEnabledDisabled",
-      "TNamedItemOrEmpty",
-      "TmnxActionType",
-      "TmnxNhgDownReason",
-      "TLNamedItemOrEmpty",
       "TNamedItem",
       "TmnxCBFClasses",
-      "TmnxOperState"
+      "TmnxMplsLspBandwidth",
+      "TmnxMplsTpNodeID",
+      "TmnxMplsLabel",
+      "TmnxOperState",
+      "TmnxMplsTpGlobalID",
+      "TmnxEnabledDisabled",
+      "TmnxAdminState",
+      "TLNamedItem",
+      "TmnxNhgDownReason",
+      "TLNamedItemOrEmpty",
+      "TPolicyStatementNameOrEmpty",
+      "TNamedItemOrEmpty",
+      "TmnxActionType",
+      "TmnxVRtrMplsLspID",
+      "TmnxTimeInterval",
+      "TFCType"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrIfIndex",
@@ -27749,8 +27749,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-MPLS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 15:00:01 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:05:07 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-MPLS-MIB"

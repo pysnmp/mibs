@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
+      "OBJECT-TYPE",
       "IpAddress",
-      "enterprises",
-      "Unsigned32",
-      "Counter32",
+      "TimeTicks",
+      "Integer32",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "iso",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Counter64"
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hp": {
@@ -1010,8 +1010,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-OID-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:58:25 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:43 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-OID-MIB"

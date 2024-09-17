@@ -9,27 +9,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
-      "Integer32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Bits",
+      "Integer32",
       "iso",
-      "Gauge32",
+      "IpAddress",
       "Counter64",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
-      "DisplayString"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "hh3cDot11WIPS": {
@@ -7000,8 +7000,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-DOT11-WIPS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:53:10 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 09:58:48 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "HH3C-DOT11-WIPS-MIB"

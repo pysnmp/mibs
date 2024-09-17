@@ -14,25 +14,25 @@
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
       "Unsigned32",
+      "iso",
+      "MibIdentifier",
       "Bits",
-      "IpAddress",
-      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
       "Integer32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "dlinkSwDhcp6GuardMIB": {
@@ -408,8 +408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP6-GUARD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:53:40 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 09:59:18 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP6-GUARD-MIB"

@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "Gauge32",
       "enterprises",
+      "Gauge32",
+      "TimeTicks",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "veritasGlobalRegModule": {
@@ -63,8 +63,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/veritas/VERITAS-REG.mib",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 15:01:31 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:06:16 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "VERITAS-REG"

@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "enterprises",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "enterprises",
       "TimeTicks",
-      "MibIdentifier",
-      "iso",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ],
     "WATCHGUARD-MIB": [
@@ -432,8 +432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/watchguard/WATCHGUARD-HA-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 15:01:40 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:06:25 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "WATCHGUARD-HA-MIB"

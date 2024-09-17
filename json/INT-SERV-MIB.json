@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Unsigned32",
-      "mib-2",
-      "Counter32",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Bits",
+      "OBJECT-IDENTITY",
       "Counter64",
+      "iso",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "Bits",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "intSrv": {
@@ -886,8 +886,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/INT-SERV-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:35 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:23 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "INT-SERV-MIB"

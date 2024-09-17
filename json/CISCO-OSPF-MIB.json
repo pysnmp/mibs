@@ -8,48 +8,48 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "OSPF-MIB": [
-      "ospfLsdbAreaId",
-      "RouterID",
-      "Metric",
-      "PositiveInteger",
-      "ospfAreaEntry",
-      "HelloRange",
       "ospfIfEntry",
-      "UpToMaxAge",
-      "AreaID",
-      "ospfLsdbLsid",
+      "HelloRange",
+      "ospfLsdbRouterId",
+      "Metric",
       "ospfVirtIfEntry",
-      "ospfLsdbRouterId"
+      "ospfLsdbAreaId",
+      "AreaID",
+      "UpToMaxAge",
+      "ospfAreaEntry",
+      "RouterID",
+      "PositiveInteger",
+      "ospfLsdbLsid"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
       "Gauge32",
-      "Unsigned32",
-      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "iso",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
       "Bits",
-      "Counter64",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "cospf": {
@@ -1771,8 +1771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OSPF-MIB",
-      "Produced by pysmi-1.1.12 at Mon Sep 16 14:56:32 2024",
-      "On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:19 2024",
+      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-OSPF-MIB"

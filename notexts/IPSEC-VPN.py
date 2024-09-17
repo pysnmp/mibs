@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IPSEC-VPN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/IPSEC-VPN
-# Produced by pysmi-1.1.12 at Mon Sep 16 14:59:32 2024
-# On host fv-az1272-448 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Sep 17 10:04:24 2024
+# On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
 ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, IpAddress, MibIdentifier, Unsigned32, Counter32, ObjectIdentity, TimeTicks, ModuleIdentity, Counter64, Bits, enterprises, Gauge32, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "IpAddress", "MibIdentifier", "Unsigned32", "Counter32", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "Counter64", "Bits", "enterprises", "Gauge32", "Integer32", "iso")
-TextualConvention, DisplayString, RowStatus, MacAddress, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "MacAddress", "TruthValue")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, Bits, Integer32, enterprises, ObjectIdentity, MibIdentifier, Gauge32, NotificationType, iso, IpAddress, ModuleIdentity, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "Bits", "Integer32", "enterprises", "ObjectIdentity", "MibIdentifier", "Gauge32", "NotificationType", "iso", "IpAddress", "ModuleIdentity", "Counter32")
+MacAddress, RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
 peplink = MibIdentifier((1, 3, 6, 1, 4, 1, 23695))
 productMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200))
 generalMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200, 1))
@@ -45,4 +45,4 @@ ipsecVpnRouteStatusRemoteNetwork = MibTableColumn((1, 3, 6, 1, 4, 1, 23695, 200,
 if mibBuilder.loadTexts: ipsecVpnRouteStatusRemoteNetwork.setStatus('current')
 ipsecVpnRouteStatusRemoteSubnet = MibTableColumn((1, 3, 6, 1, 4, 1, 23695, 200, 1, 13, 2, 1, 6), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ipsecVpnRouteStatusRemoteSubnet.setStatus('current')
-mibBuilder.exportSymbols("IPSEC-VPN", ipsecVpnStatusWanName=ipsecVpnStatusWanName, peplink=peplink, ipsecVpnRouteStatusLocalNetwork=ipsecVpnRouteStatusLocalNetwork, ipsecVpnRouteStatusEntry=ipsecVpnRouteStatusEntry, ipsecVpnRouteStatusRemoteNetwork=ipsecVpnRouteStatusRemoteNetwork, generalMib=generalMib, ipsecVpnMib=ipsecVpnMib, PYSNMP_MODULE_ID=ipsecVpnMib, ipsecVpnStatusId=ipsecVpnStatusId, ipsecVpnRouteState=ipsecVpnRouteState, ipsecVpnRouteStatusTable=ipsecVpnRouteStatusTable, ipsecVpnRouteStatusId=ipsecVpnRouteStatusId, ipsecVpnStatusEntry=ipsecVpnStatusEntry, ipsecVpnStatusConnectionState=ipsecVpnStatusConnectionState, ipsecVpnRouteStatusLocalSubnet=ipsecVpnRouteStatusLocalSubnet, productMib=productMib, ipsecVpnRouteStatusRemoteSubnet=ipsecVpnRouteStatusRemoteSubnet, ipsecVpnStatusProfileName=ipsecVpnStatusProfileName, ipsecVpnStatusTable=ipsecVpnStatusTable)
+mibBuilder.exportSymbols("IPSEC-VPN", ipsecVpnStatusId=ipsecVpnStatusId, ipsecVpnStatusEntry=ipsecVpnStatusEntry, ipsecVpnRouteStatusLocalSubnet=ipsecVpnRouteStatusLocalSubnet, ipsecVpnStatusTable=ipsecVpnStatusTable, peplink=peplink, productMib=productMib, PYSNMP_MODULE_ID=ipsecVpnMib, ipsecVpnRouteStatusEntry=ipsecVpnRouteStatusEntry, ipsecVpnRouteStatusRemoteNetwork=ipsecVpnRouteStatusRemoteNetwork, ipsecVpnRouteState=ipsecVpnRouteState, ipsecVpnRouteStatusLocalNetwork=ipsecVpnRouteStatusLocalNetwork, generalMib=generalMib, ipsecVpnStatusConnectionState=ipsecVpnStatusConnectionState, ipsecVpnMib=ipsecVpnMib, ipsecVpnRouteStatusId=ipsecVpnRouteStatusId, ipsecVpnRouteStatusTable=ipsecVpnRouteStatusTable, ipsecVpnRouteStatusRemoteSubnet=ipsecVpnRouteStatusRemoteSubnet, ipsecVpnStatusProfileName=ipsecVpnStatusProfileName, ipsecVpnStatusWanName=ipsecVpnStatusWanName)
