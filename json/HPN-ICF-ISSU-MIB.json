@@ -9,25 +9,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
       "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "IpAddress",
-      "Bits",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
+      "iso",
+      "Counter64",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -794,8 +794,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-ISSU-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:25:35 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:59:12 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-ISSU-MIB"

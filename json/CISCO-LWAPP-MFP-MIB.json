@@ -3,18 +3,18 @@
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
       "cLApSysMacAddress",
-      "cLApName",
+      "cLApDot11IfSlotId",
       "cLApIfSmtDot11Bssid",
-      "cLApDot11IfSlotId"
+      "cLApName"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLTimeBaseStatus",
-      "CLEventFrames",
       "CLMfpEventType",
-      "CLMfpVersion"
+      "CLMfpVersion",
+      "CLEventFrames",
+      "CLTimeBaseStatus"
     ],
     "CISCO-LWAPP-WLAN-MIB": [
       "cLWlanIndex"
@@ -23,32 +23,32 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
       "Counter32",
-      "IpAddress",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "DisplayString",
-      "TruthValue"
+      "TimeInterval"
     ]
   },
   "ciscoLwappMfpMIB": {
@@ -1029,8 +1029,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-MFP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:24:21 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:59:27 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-MFP-MIB"

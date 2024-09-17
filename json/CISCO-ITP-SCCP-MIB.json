@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "CISCO-ITP-SP-MIB": [
-      "cItpSpDisplayName",
-      "cItpSpCLLICode"
+      "cItpSpCLLICode",
+      "cItpSpDisplayName"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcNAI",
-      "CItpTcGtaDisplay",
-      "CItpTcPointCode",
-      "CItpTcGtaDisplayZB",
-      "CItpTcNumberingPlan",
-      "CItpTcGtaAddr",
-      "CItpTcSubSystemNumber",
-      "CItpTcDisplayPC",
       "CItpTcTranslationType",
       "CItpTcTableLoadStatus",
+      "CItpTcSubSystemNumber",
+      "CItpTcGtaAddr",
+      "CItpTcGtaDisplay",
+      "CItpTcGtaDisplayZB",
+      "CItpTcPointCode",
+      "CItpTcNumberingPlan",
+      "CItpTcNAI",
+      "CItpTcDisplayPC",
       "CItpTcXuaName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Unsigned32",
       "Counter32",
-      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoItpSccpMIB": {
@@ -2955,8 +2955,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-SCCP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:24:19 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:59:25 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-ITP-SCCP-MIB"

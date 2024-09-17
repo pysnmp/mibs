@@ -2,40 +2,40 @@
   "imports": {
     "class": "imports",
     "ATM-FORUM-TC-MIB": [
+      "atmfVpcAbrGroup",
+      "atmfVccGroup",
+      "TruthValue",
+      "atmfVpcGroup",
       "atmfPhysicalGroup",
       "ClnpAddress",
-      "atmfAtmStatsGroup",
-      "atmfVccGroup",
-      "atmfVpcAbrGroup",
       "AtmServiceCategory",
-      "atmfVccAbrGroup",
+      "atmfAtmStatsGroup",
       "atmfAtmLayerGroup",
-      "atmfVpcGroup",
-      "TruthValue"
+      "atmfVccAbrGroup"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Unsigned32",
       "Counter32",
-      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
       "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "AtmAddress": {
@@ -2036,8 +2036,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ATM-FORUM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:24:18 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:59:24 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-MIB"

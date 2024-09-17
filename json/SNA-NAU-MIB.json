@@ -3,32 +3,32 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
+      "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Integer32",
-      "mib-2",
+      "Unsigned32",
       "Gauge32",
-      "IpAddress",
       "Counter32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "mib-2",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "DisplayString",
       "RowStatus",
-      "InstancePointer",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "InstancePointer"
     ]
   },
   "snanauMIB": {
@@ -2611,9 +2611,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNA-NAU-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:25:37 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/SNA-NAU-MIB",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:59:19 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SNA-NAU-MIB"

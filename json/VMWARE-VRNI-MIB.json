@@ -10,25 +10,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "Bits",
-      "Counter32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "Counter64",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
+      "Bits",
+      "TimeTicks",
       "iso",
-      "Integer32"
+      "Unsigned32",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime"
     ],
     "VMWARE-ROOT-MIB": [
       "vmwNetworkInsight"
@@ -15820,8 +15820,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VRNI-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:28:53 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:03:04 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "VMWARE-VRNI-MIB"

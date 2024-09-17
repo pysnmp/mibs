@@ -2,56 +2,56 @@
   "imports": {
     "class": "imports",
     "HOST-RESOURCES-MIB": [
-      "hrStorageIndex",
-      "hrDeviceIndex"
+      "hrDeviceIndex",
+      "hrStorageIndex"
     ],
     "IANA-CHARSET-MIB": [
       "IANACharset"
     ],
     "IANA-PRINTER-MIB": [
-      "PrtMarkerSuppliesTypeTC",
-      "PrtConsoleDisableTC",
-      "PrtCoverStatusTC",
-      "PrtMarkerMarkTechTC",
-      "PrtAlertGroupTC",
-      "PrtInterpreterLangFamilyTC",
       "PrtChannelTypeTC",
-      "PrtMediaPathTypeTC",
-      "PrtConsoleColorTC",
       "PrtAlertTrainingLevelTC",
-      "PrtGeneralResetTC",
       "PrtAlertCodeTC",
+      "PrtMediaPathTypeTC",
+      "PrtAlertGroupTC",
+      "PrtGeneralResetTC",
+      "PrtConsoleDisableTC",
+      "PrtInterpreterLangFamilyTC",
+      "PrtMarkerMarkTechTC",
       "PrtOutputTypeTC",
-      "PrtInputTypeTC"
+      "PrtInputTypeTC",
+      "PrtMarkerSuppliesTypeTC",
+      "PrtConsoleColorTC",
+      "PrtCoverStatusTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
-      "MibIdentifier",
-      "mib-2",
+      "MODULE-IDENTITY",
       "Counter64",
+      "Unsigned32",
+      "TimeTicks",
       "Counter32",
-      "IpAddress",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY"
+      "mib-2",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "printmib": {
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/Printer-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:24:15 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:59:20 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "Printer-MIB"

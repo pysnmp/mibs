@@ -5,33 +5,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "experimental",
+      "iso",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "experimental",
-      "Bits"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TestAndIncr",
       "RowStatus",
-      "TestAndIncr"
+      "DisplayString"
     ]
   },
   "slapmMIB": {
@@ -3520,8 +3520,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SLAPM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:30:02 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:03:57 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SLAPM-MIB"

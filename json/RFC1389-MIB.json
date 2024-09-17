@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
-      "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Unsigned32",
+      "mib-2",
       "Integer32",
       "NOTIFICATION-TYPE",
-      "mib-2",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Gauge32",
+      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Bits",
       "Counter64",
-      "Counter32"
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -483,8 +483,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RFC1389-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:27:26 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:01:43 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "RFC1389-MIB"

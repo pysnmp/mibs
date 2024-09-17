@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "SAEUROPE-MESSAGES-MIB": [
-      "msgPhysicalEntity",
-      "msgSubject",
-      "msgText",
-      "msgDetailPresent",
-      "msgBehaviour",
-      "msgDetail",
-      "msgSeverity",
-      "msgSubClassNbr",
-      "msgId",
-      "msgClass",
-      "msgSequenceNumber",
       "msgGenerationTime",
       "msgSubClass",
+      "msgSequenceNumber",
+      "msgSeverity",
+      "msgBehaviour",
       "msgStatus",
-      "msgSourceName"
+      "msgSubClassNbr",
+      "msgDetailPresent",
+      "msgId",
+      "msgDetail",
+      "msgPhysicalEntity",
+      "msgClass",
+      "msgSubject",
+      "msgSourceName",
+      "msgText"
     ],
     "SAEUROPE-ROOT-MIB": [
-      "trapControlMIBGroups",
-      "trapControl"
+      "trapControl",
+      "trapControlMIBGroups"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "Counter64",
       "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "iso",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -255,8 +255,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-TRAPCONTROL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:27:55 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:02:06 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SAEUROPE-TRAPCONTROL-MIB"

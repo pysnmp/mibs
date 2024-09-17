@@ -2,49 +2,49 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmConnKind",
-      "AtmServiceCategory",
-      "AtmTrafficDescrParamIndex",
-      "AtmVorXLastChange",
-      "AtmVorXOperStatus",
-      "AtmVorXAdminStatus",
-      "atmNoClpNoScr",
-      "AtmVcIdentifier",
       "AtmVpIdentifier",
       "AtmAddr",
-      "AtmConnCastType"
+      "AtmVorXLastChange",
+      "AtmTrafficDescrParamIndex",
+      "atmNoClpNoScr",
+      "AtmConnKind",
+      "AtmConnCastType",
+      "AtmServiceCategory",
+      "AtmVorXOperStatus",
+      "AtmVorXAdminStatus",
+      "AtmVcIdentifier"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Bits",
       "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "iso",
       "MibIdentifier",
-      "mib-2"
+      "Unsigned32",
+      "Counter64",
+      "mib-2",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "atmMIB": {
@@ -2466,8 +2466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/ATM-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:22:10 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:57:02 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "ATM-MIB"

@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetAddress",
       "InetZoneIndex",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "Integer32",
+      "Gauge32",
       "IpAddress",
       "Bits",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "Unsigned32",
       "OBJECT-TYPE",
-      "iso",
-      "Counter32",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "Integer32",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowStatus",
-      "StorageType",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "pimBsrMIB": {
@@ -876,8 +876,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/quanta/pimbsrrfc5240.my",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:28:00 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:01:49 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "PIM-BSR-MIB"

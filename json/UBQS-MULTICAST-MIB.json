@@ -16,27 +16,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
-      "iso",
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "MibIdentifier",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Counter32",
-      "Counter64"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "MacAddress",
+      "DisplayString",
+      "TruthValue"
     ],
     "UBQS-SMI": [
       "ubiMgmtv2"
@@ -1302,8 +1302,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-MULTICAST-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:29:20 2024",
-      "On host fv-az1019-803 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:03:07 2024",
+      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "UBQS-MULTICAST-MIB"
