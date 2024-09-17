@@ -5,45 +5,45 @@
       "wlsxEnterpriseMibModules"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "Unsigned32",
-      "Integer32",
-      "Bits",
-      "snmpModules",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "Counter64"
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "MibIdentifier",
+      "snmpModules",
+      "iso",
+      "Bits",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "PhysAddress",
+      "TestAndIncr",
+      "TAddress",
       "TDomain",
       "TimeInterval",
-      "DisplayString",
-      "TAddress",
-      "TestAndIncr",
       "TruthValue",
-      "PhysAddress",
-      "RowStatus"
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "MacAddress",
+      "DisplayString"
     ],
     "WLSX-MON-MIB": [
-      "monitoredStaPhyAddress",
       "monRadioNumber",
       "monPhyAddress",
-      "monitoredApBSSID"
+      "monitoredApBSSID",
+      "monitoredStaPhyAddress"
     ]
   },
   "wlsxSNRMIB": {
@@ -437,9 +437,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-SNR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:54:18 2024",
-      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:26:00 2024",
+      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "WLSX-SNR-MIB"
   }

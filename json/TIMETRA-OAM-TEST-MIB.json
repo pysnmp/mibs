@@ -9,14 +9,14 @@
       "Dot1agCfmMepIdOrZero"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAddress",
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddress",
+      "InetPortNumber"
     ],
     "MPLS-LDP-MIB": [
       "MplsLabel"
@@ -33,78 +33,78 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "TimeTicks",
-      "Bits",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
       "Counter64",
-      "iso",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
+      "DisplayString",
       "TimeStamp",
-      "StorageType",
-      "RowStatus",
-      "DateAndTime",
       "TruthValue",
-      "DisplayString"
+      "DateAndTime",
+      "MacAddress",
+      "StorageType",
+      "RowStatus"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "timetraSRMIBModules",
       "tmnxSRObjs",
       "tmnxSRNotifyPrefix",
-      "tmnxSRConfs"
+      "tmnxSRConfs",
+      "timetraSRMIBModules"
     ],
     "TIMETRA-SERV-MIB": [
-      "SdpId",
-      "SdpBindVcType"
+      "SdpBindVcType",
+      "SdpId"
     ],
     "TIMETRA-TC-MG-MIB": [
       "TmnxMobGwId"
     ],
     "TIMETRA-TC-MIB": [
-      "TNamedItem",
-      "TItemDescription",
-      "TLNamedItemOrEmpty",
-      "SdpBindId",
-      "TmnxLow32",
-      "TmnxVRtrID",
-      "TmnxPwGlobalIdOrZero",
-      "IpAddressPrefixLength",
-      "TmnxPortID",
+      "TmnxBgpRouteTarget",
+      "TFCName",
+      "TProfile",
+      "TmnxMplsTpGlobalID",
+      "TmnxServId",
       "TmnxVcId",
       "TPolicyStatementNameOrEmpty",
-      "TmnxTunnelID",
-      "TmnxMplsTpNodeID",
-      "TmnxBfdOnLspSessFecType",
-      "TmnxVPNRouteDistinguisher",
-      "TmnxMplsTpGlobalID",
-      "TNamedItemOrEmpty",
-      "TmnxEnabledDisabled",
-      "TmnxServId",
-      "TmnxEncapVal",
-      "TmnxHigh32",
-      "TmnxStrSapId",
-      "TmnxEnabledDisabledAdminState",
-      "TFCName",
-      "TDSCPNameOrEmpty",
-      "TProfile",
-      "TmnxAdminState",
-      "TmnxSpokeSdpIdOrZero",
       "TmnxTunnelType",
-      "TmnxIgpInstance",
-      "TmnxBgpRouteTarget",
+      "TmnxPortID",
+      "TmnxTunnelID",
+      "TItemDescription",
+      "IpAddressPrefixLength",
+      "TmnxMplsTpNodeID",
+      "TmnxEnabledDisabledAdminState",
+      "SdpBindId",
+      "TDSCPNameOrEmpty",
+      "TmnxLow32",
+      "TNamedItem",
+      "TmnxVcIdOrNone",
+      "TmnxSpokeSdpIdOrZero",
+      "TmnxEnabledDisabled",
+      "TNamedItemOrEmpty",
       "TmnxVRtrIDOrZero",
-      "TmnxVcIdOrNone"
+      "TmnxVRtrID",
+      "TmnxAdminState",
+      "TLNamedItemOrEmpty",
+      "TmnxEncapVal",
+      "TmnxPwGlobalIdOrZero",
+      "TmnxIgpInstance",
+      "TmnxStrSapId",
+      "TmnxHigh32",
+      "TmnxBfdOnLspSessFecType",
+      "TmnxVPNRouteDistinguisher"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -27865,9 +27865,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-OAM-TEST-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:01:45 2024",
-      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:33:41 2024",
+      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-OAM-TEST-MIB"
   }

@@ -5,26 +5,26 @@
       "cmtsC3"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "enterprises",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
       "OBJECT-TYPE",
-      "iso"
+      "enterprises",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -676,9 +676,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-FPD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 12:54:17 2024",
-      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:26:00 2024",
+      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ARRIS-C3-FPD-MIB"
   }

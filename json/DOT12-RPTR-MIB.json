@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Bits",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Unsigned32",
+      "Bits",
+      "Counter64",
+      "mib-2",
+      "IpAddress",
       "iso",
-      "Counter32",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "vgRptrMIB": {
@@ -1469,9 +1469,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOT12-RPTR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:03:57 2024",
-      "On host fv-az1215-438 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:35:54 2024",
+      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DOT12-RPTR-MIB"
   }
