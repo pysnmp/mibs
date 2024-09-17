@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entPhysicalIndex",
-      "entPhysicalDescr"
+      "entPhysicalDescr",
+      "entPhysicalIndex"
     ],
     "HH3C-OID-MIB": [
       "hh3cCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Bits",
-      "Integer32",
       "iso",
-      "IpAddress",
-      "Counter64",
+      "Integer32",
+      "Bits",
       "OBJECT-IDENTITY",
+      "TimeTicks",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "Counter32",
-      "Unsigned32"
+      "IpAddress",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hh3cPex": {
@@ -504,9 +504,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-PEX-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 09:58:49 2024",
-      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:01:08 2024",
+      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HH3C-PEX-MIB"
   }

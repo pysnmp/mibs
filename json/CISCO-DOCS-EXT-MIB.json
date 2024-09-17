@@ -5,30 +5,30 @@
       "ciscoMgmt"
     ],
     "DOCS-IF-MIB": [
-      "docsIfCmtsServiceEntry",
-      "docsIfUpstreamChannelEntry",
-      "docsIfCmtsCmStatusMacAddress",
-      "docsIfCmtsCmStatusDownChannelIfIndex",
-      "docsIfCmtsCmStatusUpChannelIfIndex",
-      "docsIfCmtsCmStatusIndex",
-      "docsIfCmtsCmStatusEntry",
-      "docsIfCmtsMacEntry",
-      "docsIfCmtsCmStatusInetAddress",
       "TenthdBmV",
-      "docsIfCmtsCmStatusInetAddressType"
+      "docsIfUpstreamChannelEntry",
+      "docsIfCmtsServiceEntry",
+      "docsIfCmtsCmStatusInetAddress",
+      "docsIfCmtsCmStatusEntry",
+      "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmtsCmStatusIndex",
+      "docsIfCmtsCmStatusUpChannelIfIndex",
+      "docsIfCmtsCmStatusDownChannelIfIndex",
+      "docsIfCmtsCmStatusInetAddressType",
+      "docsIfCmtsMacEntry"
     ],
     "DOCS-IF3-MIB": [
       "ChSetId"
     ],
     "IF-MIB": [
+      "InterfaceIndex",
       "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
       "ifDescr"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
       "InetAddress",
+      "InetAddressIPv6",
       "InetAddressPrefixLength",
       "InetAddressType"
     ],
@@ -39,34 +39,34 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
+      "MODULE-IDENTITY",
       "Counter32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
       "Bits",
+      "Counter64",
       "IpAddress",
+      "Gauge32",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeInterval",
-      "TruthValue",
-      "TimeStamp",
       "MacAddress",
+      "TruthValue",
       "DisplayString",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TimeStamp",
+      "TimeInterval",
       "DateAndTime"
     ]
   },
@@ -6432,9 +6432,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOCS-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:20 2024",
-      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:04:43 2024",
+      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-DOCS-EXT-MIB"
   }

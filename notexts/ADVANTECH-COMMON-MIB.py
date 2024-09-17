@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADVANTECH-COMMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/advantech/ADVANTECH-COMMON-MIB
-# Produced by pysmi-1.1.12 at Tue Sep 17 09:56:34 2024
-# On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner
-# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue Sep 17 11:58:55 2024
+# On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner
+# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-NotificationType, Counter64, IpAddress, ObjectIdentity, Counter32, MibIdentifier, Gauge32, enterprises, Integer32, Bits, ModuleIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter64", "IpAddress", "ObjectIdentity", "Counter32", "MibIdentifier", "Gauge32", "enterprises", "Integer32", "Bits", "ModuleIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC-v1", "DateAndTime", "DisplayString")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleIdentity, Counter64, Gauge32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Unsigned32, MibIdentifier, Counter32, Integer32, iso, Bits, NotificationType, ObjectIdentity, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Gauge32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Unsigned32", "MibIdentifier", "Counter32", "Integer32", "iso", "Bits", "NotificationType", "ObjectIdentity", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC-v1", "DisplayString", "DateAndTime")
 advantech = MibIdentifier((1, 3, 6, 1, 4, 1, 10297))
 advantechCommonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 10297, 100))
 advantechCommonMIB.setRevisions(('2013-05-25 00:00', '2013-08-28 00:00', '2013-08-29 00:00', '2013-09-06 00:00', '2014-10-13 00:00', '2014-10-22 00:00', '2015-01-06 00:00',))
@@ -101,4 +101,4 @@ psModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 10297, 100, 3, 1, 2, 1, 18), In
 if mibBuilder.loadTexts: psModuleType.setStatus('current')
 psModulePorts = MibTableColumn((1, 3, 6, 1, 4, 1, 10297, 100, 3, 1, 2, 1, 19), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: psModulePorts.setStatus('current')
-mibBuilder.exportSymbols("ADVANTECH-COMMON-MIB", advantechCommonMIB=advantechCommonMIB, snmpTrapSrvCommunity=snmpTrapSrvCommunity, atSystem=atSystem, psIndex=psIndex, advantech=advantech, psLocation=psLocation, psLength=psLength, psState=psState, psDisplayName=psDisplayName, sysDescr=sysDescr, pciSlotEntry=pciSlotEntry, psNumber=psNumber, psSubsysVendorID=psSubsysVendorID, sysModuleID=sysModuleID, snmpTrapSrvTable=snmpTrapSrvTable, snmpTrapSrvAuthentication=snmpTrapSrvAuthentication, snmpTrapSrvNumber=snmpTrapSrvNumber, sysImageVersion=sysImageVersion, psModulePorts=psModulePorts, snmpTrapVersion=snmpTrapVersion, sysBootTime=sysBootTime, psVendorID=psVendorID, atPciConfig=atPciConfig, psIRQ=psIRQ, sysDeviceName=sysDeviceName, PYSNMP_MODULE_ID=advantechCommonMIB, sysFirstBootTime=sysFirstBootTime, psManufacturer=psManufacturer, sysReleaseDate=sysReleaseDate, psFunctionIndex=psFunctionIndex, psBusIndex=psBusIndex, snmpTrapSrvObj=snmpTrapSrvObj, snmpTrapSrvEntry=snmpTrapSrvEntry, psSubsysDeviceID=psSubsysDeviceID, psModuleType=psModuleType, psDeviceIndex=psDeviceIndex, psClassCode=psClassCode, snmpTrapSrvIndex=snmpTrapSrvIndex, psDescr=psDescr, psDeviceID=psDeviceID, snmpTrapSrvIP=snmpTrapSrvIP, pciConfigObj=pciConfigObj, atMgmt=atMgmt, psBaseAddress=psBaseAddress, pciSlotTable=pciSlotTable, snmpTrapSrvPort=snmpTrapSrvPort, sysBootCount=sysBootCount)
+mibBuilder.exportSymbols("ADVANTECH-COMMON-MIB", snmpTrapSrvIndex=snmpTrapSrvIndex, snmpTrapSrvTable=snmpTrapSrvTable, psNumber=psNumber, psVendorID=psVendorID, psManufacturer=psManufacturer, psDeviceIndex=psDeviceIndex, psBaseAddress=psBaseAddress, sysFirstBootTime=sysFirstBootTime, atMgmt=atMgmt, atSystem=atSystem, psDisplayName=psDisplayName, pciConfigObj=pciConfigObj, sysBootTime=sysBootTime, sysDescr=sysDescr, snmpTrapSrvObj=snmpTrapSrvObj, sysReleaseDate=sysReleaseDate, snmpTrapSrvAuthentication=snmpTrapSrvAuthentication, psIndex=psIndex, psLength=psLength, PYSNMP_MODULE_ID=advantechCommonMIB, advantechCommonMIB=advantechCommonMIB, psLocation=psLocation, psDescr=psDescr, psDeviceID=psDeviceID, sysImageVersion=sysImageVersion, psBusIndex=psBusIndex, psIRQ=psIRQ, psSubsysVendorID=psSubsysVendorID, psSubsysDeviceID=psSubsysDeviceID, snmpTrapSrvPort=snmpTrapSrvPort, snmpTrapVersion=snmpTrapVersion, psModulePorts=psModulePorts, atPciConfig=atPciConfig, snmpTrapSrvIP=snmpTrapSrvIP, snmpTrapSrvNumber=snmpTrapSrvNumber, snmpTrapSrvCommunity=snmpTrapSrvCommunity, sysModuleID=sysModuleID, sysBootCount=sysBootCount, sysDeviceName=sysDeviceName, advantech=advantech, pciSlotTable=pciSlotTable, psModuleType=psModuleType, psFunctionIndex=psFunctionIndex, snmpTrapSrvEntry=snmpTrapSrvEntry, pciSlotEntry=pciSlotEntry, psClassCode=psClassCode, psState=psState)

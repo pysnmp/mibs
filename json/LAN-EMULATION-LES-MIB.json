@@ -2,16 +2,16 @@
   "imports": {
     "class": "imports",
     "LAN-EMULATION-CLIENT-MIB": [
-      "atmfLanEmulation",
       "VpiInteger",
-      "VciInteger",
-      "LeArpTableEntryType"
+      "atmfLanEmulation",
+      "LeArpTableEntryType",
+      "VciInteger"
     ],
     "LAN-EMULATION-ELAN-MIB": [
-      "AtmLaneMask",
-      "TIMESTAMP",
+      "IfIndexOrZero",
       "Integer",
-      "IfIndexOrZero"
+      "TIMESTAMP",
+      "AtmLaneMask"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -21,21 +21,21 @@
       "NOTIFICATION-TYPE",
       "Integer32",
       "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter64",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "IpAddress",
       "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "lesMIB": {
@@ -1474,9 +1474,9 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/LAN-EMULATION-LES-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 10:02:20 2024",
-      "On host fv-az1427-100 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 12:04:39 2024",
+      "On host fv-az888-540 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "LAN-EMULATION-LES-MIB"
   }
