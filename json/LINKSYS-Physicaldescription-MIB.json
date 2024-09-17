@@ -6,9 +6,9 @@
       "EntitySensorValue"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
       "rndErrorSeverity",
@@ -18,38 +18,38 @@
       "RlEnvMonState"
     ],
     "LINKSYS-MIB": [
-      "rnd",
-      "rndNotifications"
+      "rndNotifications",
+      "rnd"
     ],
     "MAU-MIB": [
       "JackType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "Bits",
       "Unsigned32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MibIdentifier",
       "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Counter64"
+      "Integer32",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "PhysAddress",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "PhysAddress"
     ]
   },
   "rlPhysicalDescription": {
@@ -1520,9 +1520,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-Physicaldescription-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:31:55 2024",
-      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:34:23 2024",
+      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "LINKSYS-Physicaldescription-MIB"
   }

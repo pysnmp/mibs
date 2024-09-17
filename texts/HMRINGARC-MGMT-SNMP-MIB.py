@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HMRINGARC-MGMT-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmARC
-# Produced by pysmi-1.1.12 at Tue Sep 17 13:29:46 2024
-# On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner
-# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue Sep 17 13:32:19 2024
+# On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 hmRingRedundancy, = mibBuilder.importSymbols("HMRING-MGMT-SNMP-MIB", "hmRingRedundancy")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Integer32, Unsigned32, Bits, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, IpAddress, MibIdentifier, iso, Gauge32, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Unsigned32", "Bits", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "IpAddress", "MibIdentifier", "iso", "Gauge32", "Counter32", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Integer32, TimeTicks, IpAddress, ModuleIdentity, NotificationType, iso, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, MibIdentifier, Counter32, ObjectIdentity, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "IpAddress", "ModuleIdentity", "NotificationType", "iso", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "MibIdentifier", "Counter32", "ObjectIdentity", "Counter64")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hmARC = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 5, 7))
 hmARC.setRevisions(('2010-09-01 12:00',))
 
@@ -97,4 +97,4 @@ if mibBuilder.loadTexts: hmArcClientRedGroupID.setDescription('Unique index to i
 hmArcClientRedIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 5, 7, 4, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hmArcClientRedIfIndex.setStatus('current')
 if mibBuilder.loadTexts: hmArcClientRedIfIndex.setDescription('Interface index of the to be configured redundant link.')
-mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcClientStatus=hmArcClientStatus, hmArcCheckStatusType=hmArcCheckStatusType, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcClientRedGroupID=hmArcClientRedGroupID, hmARC=hmARC, PYSNMP_MODULE_ID=hmARC, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcClientAdminStatus=hmArcClientAdminStatus, hmArcClientPrimGroupID=hmArcClientPrimGroupID, hmArcManagerAction=hmArcManagerAction, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcCheckResultTable=hmArcCheckResultTable, hmArcManagerActionResult=hmArcManagerActionResult, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcClientConfig=hmArcClientConfig, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerVlanID=hmArcManagerVlanID, hmArcManagerStatus=hmArcManagerStatus, hmArcCheckStatusClassification=hmArcCheckStatusClassification, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcManagerConfig=hmArcManagerConfig, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcManagerRedGroupID=hmArcManagerRedGroupID)
+mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmARC=hmARC, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcManagerVlanID=hmArcManagerVlanID, PYSNMP_MODULE_ID=hmARC, hmArcManagerActionResult=hmArcManagerActionResult, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcClientStatus=hmArcClientStatus, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcCheckStatusType=hmArcCheckStatusType, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcCheckStatusClassification=hmArcCheckStatusClassification, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcManagerConfig=hmArcManagerConfig, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcManagerAction=hmArcManagerAction, hmArcClientConfig=hmArcClientConfig, hmArcCheckResultTable=hmArcCheckResultTable, hmArcClientRedGroupID=hmArcClientRedGroupID, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcManagerStatus=hmArcManagerStatus, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcManagerRedGroupID=hmArcManagerRedGroupID, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcClientPrimGroupID=hmArcClientPrimGroupID, hmArcClientAdminStatus=hmArcClientAdminStatus)

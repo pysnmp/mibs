@@ -10,20 +10,20 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
-      "TimeTicks",
-      "Counter32",
       "Counter64",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -391,9 +391,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/meinberg/MBG-SNMP-FDMXPT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:31:55 2024",
-      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:34:23 2024",
+      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "MBG-SNMP-FDMXPT-MIB"
   }

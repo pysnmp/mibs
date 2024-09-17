@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-DSCP-TC": [
-      "DscpOrAny",
-      "Dscp"
+      "Dscp",
+      "DscpOrAny"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -19,35 +19,35 @@
       "BurstSize"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "mib-2",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
+      "iso",
       "Unsigned32",
-      "TimeTicks",
-      "Counter64",
-      "zeroDotZero",
-      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "Gauge32"
+      "Integer32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "zeroDotZero"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "AutonomousType",
-      "RowPointer",
+      "TEXTUAL-CONVENTION",
       "StorageType",
+      "AutonomousType",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "DisplayString"
     ]
   },
   "diffServMib": {
@@ -2956,9 +2956,9 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/DIFFSERV-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:26:10 2024",
-      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:28:51 2024",
+      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "DIFFSERV-MIB"
   }

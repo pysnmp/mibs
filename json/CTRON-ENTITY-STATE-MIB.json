@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "CTRON-ENTITY-STATE-TC-MIB": [
-      "EntityStandbyStatus",
-      "EntityAlarmStatus",
-      "EntityAdminState",
+      "EntityUsageState",
       "EntityOperState",
-      "EntityUsageState"
+      "EntityAdminState",
+      "EntityAlarmStatus",
+      "EntityStandbyStatus"
     ],
     "CTRON-MIB-NAMES": [
       "ctEntityStateMib"
@@ -15,31 +15,31 @@
       "entPhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "IpAddress",
       "iso",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "mib-2",
-      "Integer32"
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "ctEntityStateMIB": {
@@ -272,9 +272,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ENTITY-STATE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:28:50 2024",
-      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:31:26 2024",
+      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CTRON-ENTITY-STATE-MIB"
   }

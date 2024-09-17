@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SIAE-CFGM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-CFGM-MIB
-# Produced by pysmi-1.1.12 at Tue Sep 17 13:34:13 2024
-# On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner
-# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue Sep 17 13:36:40 2024
+# On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
 alarmTrap, = mibBuilder.importSymbols("SIAE-ALARM-MIB", "alarmTrap")
 equipIpSnmpAgentAddress, = mibBuilder.importSymbols("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Counter64, Unsigned32, MibIdentifier, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Counter32, Gauge32, ObjectIdentity, Integer32, Bits, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "Unsigned32", "MibIdentifier", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Counter32", "Gauge32", "ObjectIdentity", "Integer32", "Bits", "ModuleIdentity", "iso")
+TimeTicks, Integer32, ObjectIdentity, MibIdentifier, Bits, IpAddress, ModuleIdentity, Counter64, iso, NotificationType, Gauge32, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "ObjectIdentity", "MibIdentifier", "Bits", "IpAddress", "ModuleIdentity", "Counter64", "iso", "NotificationType", "Gauge32", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 configManagement = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 30))
 configManagement.setRevisions(('2014-07-25 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
@@ -36,4 +36,4 @@ configManagementTrapNotification = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 30, 
 if mibBuilder.loadTexts: configManagementTrapNotification.setStatus('current')
 configManagementFtpStatusTrap = NotificationType((1, 3, 6, 1, 4, 1, 3373, 1103, 0, 3001)).setObjects(("SIAE-EQUIP-MIB", "equipIpSnmpAgentAddress"), ("SIAE-CFGM-MIB", "configManagementState"), ("SIAE-CFGM-MIB", "configManagementFailure"))
 if mibBuilder.loadTexts: configManagementFtpStatusTrap.setStatus('current')
-mibBuilder.exportSymbols("SIAE-CFGM-MIB", PYSNMP_MODULE_ID=configManagement, configManagementTrapNotification=configManagementTrapNotification, configManagementAction=configManagementAction, configManagementBackupFileDate=configManagementBackupFileDate, configManagement=configManagement, configManagementFtpStatusTrap=configManagementFtpStatusTrap, configManagementState=configManagementState, configManagementServerIpAddress=configManagementServerIpAddress, configManagementFailure=configManagementFailure, configManagementMibVersion=configManagementMibVersion, configManagementFileName=configManagementFileName)
+mibBuilder.exportSymbols("SIAE-CFGM-MIB", configManagementFileName=configManagementFileName, configManagementServerIpAddress=configManagementServerIpAddress, configManagementTrapNotification=configManagementTrapNotification, configManagement=configManagement, configManagementFtpStatusTrap=configManagementFtpStatusTrap, configManagementMibVersion=configManagementMibVersion, configManagementFailure=configManagementFailure, configManagementAction=configManagementAction, configManagementBackupFileDate=configManagementBackupFileDate, configManagementState=configManagementState, PYSNMP_MODULE_ID=configManagement)

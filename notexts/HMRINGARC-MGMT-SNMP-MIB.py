@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module HMRINGARC-MGMT-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmARC
-# Produced by pysmi-1.1.12 at Tue Sep 17 13:29:43 2024
-# On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner
-# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Tue Sep 17 13:32:16 2024
+# On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner
+# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 hmRingRedundancy, = mibBuilder.importSymbols("HMRING-MGMT-SNMP-MIB", "hmRingRedundancy")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-NotificationType, Bits, IpAddress, ObjectIdentity, Gauge32, Integer32, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, Unsigned32, MibIdentifier, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "IpAddress", "ObjectIdentity", "Gauge32", "Integer32", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "Unsigned32", "MibIdentifier", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, MibIdentifier, Gauge32, Counter32, Unsigned32, Bits, Integer32, iso, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "Gauge32", "Counter32", "Unsigned32", "Bits", "Integer32", "iso", "NotificationType", "TimeTicks")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 hmARC = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 5, 7))
 hmARC.setRevisions(('2010-09-01 12:00',))
 if mibBuilder.loadTexts: hmARC.setLastUpdated('201009011200Z')
@@ -68,4 +68,4 @@ hmArcClientRedGroupID = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 5, 7, 4, 5), Integ
 if mibBuilder.loadTexts: hmArcClientRedGroupID.setStatus('current')
 hmArcClientRedIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 248, 14, 5, 7, 4, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: hmArcClientRedIfIndex.setStatus('current')
-mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcCheckStatusType=hmArcCheckStatusType, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcManagerVlanID=hmArcManagerVlanID, hmARC=hmARC, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcManagerRedGroupID=hmArcManagerRedGroupID, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerAction=hmArcManagerAction, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcManagerConfig=hmArcManagerConfig, hmArcClientConfig=hmArcClientConfig, PYSNMP_MODULE_ID=hmARC, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcManagerStatus=hmArcManagerStatus, hmArcCheckResultTable=hmArcCheckResultTable, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcClientPrimGroupID=hmArcClientPrimGroupID, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcManagerActionResult=hmArcManagerActionResult, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcClientRedGroupID=hmArcClientRedGroupID, hmArcClientAdminStatus=hmArcClientAdminStatus, hmArcClientStatus=hmArcClientStatus, hmArcCheckStatusClassification=hmArcCheckStatusClassification)
+mibBuilder.exportSymbols("HMRINGARC-MGMT-SNMP-MIB", hmArcClientAdminStatus=hmArcClientAdminStatus, hmARC=hmARC, hmArcManagerPrimIfIndex=hmArcManagerPrimIfIndex, hmArcCheckStatusClassification=hmArcCheckStatusClassification, hmArcManagerAdminStatus=hmArcManagerAdminStatus, hmArcManagerVlanID=hmArcManagerVlanID, hmArcClientRedIfIndex=hmArcClientRedIfIndex, hmArcManagerRedProtocol=hmArcManagerRedProtocol, hmArcManagerPrimGroupID=hmArcManagerPrimGroupID, hmArcCheckStatusIndex=hmArcCheckStatusIndex, hmArcCheckStatusDeviceMac=hmArcCheckStatusDeviceMac, hmArcClientManagerDeviceIp=hmArcClientManagerDeviceIp, hmArcCheckStatusDeviceIp=hmArcCheckStatusDeviceIp, hmArcClientPrimGroupID=hmArcClientPrimGroupID, hmArcManagerStatus=hmArcManagerStatus, hmArcManagerRedGroupID=hmArcManagerRedGroupID, PYSNMP_MODULE_ID=hmARC, hmArcCheckResultTable=hmArcCheckResultTable, hmArcManagerAction=hmArcManagerAction, hmArcCheckResultEntry=hmArcCheckResultEntry, hmArcClientStatus=hmArcClientStatus, hmArcCheckStatusType=hmArcCheckStatusType, hmArcManagerRedIfIndex=hmArcManagerRedIfIndex, hmArcClientManagerDeviceMac=hmArcClientManagerDeviceMac, hmArcManagerActionResult=hmArcManagerActionResult, hmArcClientConfig=hmArcClientConfig, hmArcClientPrimIfIndex=hmArcClientPrimIfIndex, hmArcCheckStatusInfo=hmArcCheckStatusInfo, hmArcManagerConfig=hmArcManagerConfig, hmArcClientRedGroupID=hmArcClientRedGroupID)

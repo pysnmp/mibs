@@ -5,17 +5,17 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "ifAlias"
+      "ifAlias",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
+      "PerfIntervalCount",
       "PerfCurrentCount",
-      "PerfIntervalCount"
+      "PerfTotalCount"
     ],
     "SL-MAIN-MIB": [
       "slMain"
@@ -24,33 +24,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
       "iso",
-      "Integer32",
-      "Counter32",
       "MODULE-IDENTITY",
       "Counter64",
-      "Bits",
+      "Counter32",
+      "TimeTicks",
       "enterprises",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "IpAddress",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowPointer",
       "DisplayString",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "RowStatus"
     ]
   },
   "MacAddress": {
@@ -408,9 +408,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-FT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:32:55 2024",
-      "On host fv-az883-167 platform Linux version 6.8.0-1014-azure by user runner",
-      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Tue Sep 17 13:35:23 2024",
+      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "SL-FT-MIB"
   }
