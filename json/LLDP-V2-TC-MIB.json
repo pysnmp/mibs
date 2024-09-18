@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "org",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "org",
       "OBJECT-IDENTITY",
       "iso",
-      "Gauge32",
-      "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -224,8 +224,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/LLDP-V2-TC-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:28:41 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:42:46 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "LLDP-V2-TC-MIB"

@@ -5,47 +5,47 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
+      "ArubaEncryptionType",
+      "ArubaUserForwardMode",
+      "ArubaSubAuthenticationMethods",
       "ArubaHTMode",
       "ArubaPhyType",
-      "ArubaEncryptionType",
-      "ArubaSubAuthenticationMethods",
-      "ArubaUserForwardMode",
       "ArubaAuthenticationMethods"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "Counter64",
-      "Counter32",
-      "iso",
-      "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
       "Integer32",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
       "Gauge32",
+      "Counter64",
       "Bits",
-      "MODULE-IDENTITY"
+      "snmpModules",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TDomain",
-      "DisplayString",
-      "RowStatus",
-      "StorageType",
-      "TestAndIncr",
       "TAddress",
+      "StorageType",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "MacAddress",
-      "PhysAddress"
+      "DisplayString",
+      "TestAndIncr"
     ],
     "WLSX-SWITCH-MIB": [
       "wlsxSwitchMIB"
@@ -1068,8 +1068,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-USER6-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:28:42 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:42:48 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "WLSX-USER6-MIB"

@@ -5,56 +5,56 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "IpPriorityMapMode",
+      "CmPmBinAction",
+      "CmPmIntervalType",
       "VlanPriority",
       "PerfCounter64",
-      "CmPmIntervalType",
-      "SecondaryState",
-      "OperationalState",
-      "CmPmBinAction",
       "AdminState",
+      "OperationalState",
       "VlanId",
-      "IpVersion"
+      "SecondaryState",
+      "IpVersion",
+      "IpPriorityMapMode"
     ],
     "CM-ENTITY-MIB": [
+      "shelfIndex",
       "slotIndex",
-      "neIndex",
-      "shelfIndex"
+      "neIndex"
     ],
     "CM-FACILITY-MIB": [
       "cmEthernetNetPortIndex",
       "cmEthernetAccPortIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "TimeTicks",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
       "Counter32",
-      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Unsigned32",
       "OBJECT-IDENTITY",
       "iso",
-      "Gauge32",
-      "IpAddress",
-      "Integer32"
+      "MibIdentifier",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "DateAndTime",
+      "TruthValue",
       "VariablePointer",
       "MacAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "StorageType",
-      "TruthValue",
-      "DateAndTime"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "f3Pwe3MIB": {
@@ -2081,8 +2081,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-PWE3-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:28:40 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:42:45 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "F3-PWE3-MIB"

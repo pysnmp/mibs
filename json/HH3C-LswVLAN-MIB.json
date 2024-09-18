@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "HH3C-LswINF-MIB": [
-      "hh3cifVLANTrunkStatusEntry",
-      "PortList"
+      "PortList",
+      "hh3cifVLANTrunkStatusEntry"
     ],
     "HH3C-OID-MIB": [
       "hh3clswCommon"
@@ -15,30 +15,30 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "OBJECT-TYPE",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
       "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Counter32",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1267,8 +1267,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-VLAN-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:30:07 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:44:11 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "HH3C-LswVLAN-MIB"

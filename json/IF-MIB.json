@@ -6,37 +6,37 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Counter32",
       "TimeTicks",
+      "MibIdentifier",
       "mib-2",
       "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Integer32",
+      "Gauge32",
+      "iso",
       "Bits",
-      "Counter64",
-      "Unsigned32"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
-      "AutonomousType",
-      "DisplayString",
-      "TestAndIncr",
       "TimeStamp",
+      "DisplayString",
+      "AutonomousType",
       "RowStatus",
       "TruthValue",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1724,8 +1724,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IF-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:27:56 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:42:01 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "IF-MIB"

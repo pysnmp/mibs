@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "CISCO-IETF-PIM-MIB": [
-      "cPimNbrAddressType",
-      "cPimNbrAddress",
       "cPimInetMRouteNextHopEntry",
-      "cPimIfEntry",
-      "cPimNbrEntry",
       "cPimCRPEntry",
-      "cPimInetMRouteEntry",
+      "cPimNbrAddress",
       "cPimIfStatus",
-      "cPimNbrIfIndex"
+      "cPimNbrIfIndex",
+      "cPimNbrAddressType",
+      "cPimNbrEntry",
+      "cPimIfEntry",
+      "cPimInetMRouteEntry"
     ],
     "CISCO-PIM-MIB": [
       "cpimRPMappingChangeType"
@@ -25,9 +25,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -35,25 +35,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "Counter64",
-      "MibIdentifier",
+      "Integer32",
       "iso",
-      "Gauge32",
-      "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
       "Bits",
-      "Integer32"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ciscoIetfPimExtMIB": {
@@ -1882,8 +1882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PIM-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:33:44 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:47:49 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-PIM-EXT-MIB"

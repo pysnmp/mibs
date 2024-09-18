@@ -5,60 +5,60 @@
       "entPhysicalEntry"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "RS-XX9-SMI-MIB": [
       "rsXx9Common",
       "rsXx9MibModule"
     ],
     "RS-XX9-TC-MIB": [
-      "Xx9SystemType",
       "NotificationClass",
       "Xx9AmplifierType",
-      "NotificationPriority",
-      "Xx9RedundancyMode",
-      "Xx9ModulationMode",
       "NotificationState",
-      "IndexTransmitter",
+      "Xx9RedundancyMode",
+      "Xx9SystemType",
       "SwitchOnOff",
+      "NotificationMask",
+      "IndexTransmitter",
       "Trigger",
       "EnableOption",
-      "NotificationMask"
+      "Xx9ModulationMode",
+      "NotificationPriority"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter32",
-      "Gauge32",
       "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Bits",
       "Counter64",
-      "Integer32"
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "rsXx9CommonMibModule": {
@@ -3993,8 +3993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-COMMON-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:36:28 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:50:39 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "RS-XX9-COMMON-MIB"

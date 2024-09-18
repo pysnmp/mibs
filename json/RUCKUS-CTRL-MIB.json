@@ -11,52 +11,52 @@
       "ruckusCTRLWLANModule"
     ],
     "RUCKUS-TC-MIB": [
-      "RuckusAuthenticationType",
-      "RuckusRadioMode",
-      "RuckusWLANAuthMethodType",
-      "RuckusdB",
-      "RuckusAuthStatusType",
-      "RuckusSSID",
-      "RuckusSystemClusterStatus",
-      "RuckusChannelWidthType",
-      "RuckusAdminStatus",
       "RuckusUUID",
-      "RuckusMeshRoles",
-      "RuckusWLANEncryptionType",
+      "RuckusdB",
+      "RuckusAdminStatus",
+      "RuckusSSID",
       "RuckusSystemNodeStatus",
-      "RuckusWPACipherType",
+      "RuckusCountryCode",
+      "RuckusAuthStatusType",
+      "RuckusSystemClusterStatus",
       "RuckusUUIDType",
-      "RuckusCountryCode"
+      "RuckusChannelWidthType",
+      "RuckusMeshRoles",
+      "RuckusAuthenticationType",
+      "RuckusWPACipherType",
+      "RuckusWLANEncryptionType",
+      "RuckusRadioMode",
+      "RuckusWLANAuthMethodType"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "Counter32",
-      "Unsigned32",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "iso",
       "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "Counter32",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "RowStatus",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DateAndTime"
+      "DateAndTime",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "ruckusCTRLWLANMIB": {
@@ -3692,8 +3692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-CTRL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Sep 17 13:36:26 2024",
-      "On host fv-az975-559 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Sep 18 06:50:38 2024",
+      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-CTRL-MIB"
