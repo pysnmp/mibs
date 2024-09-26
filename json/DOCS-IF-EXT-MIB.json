@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "DOCS-IF-MIB": [
-      "docsIfCmtsCmStatusEntry",
-      "docsIfMib"
+      "docsIfMib",
+      "docsIfCmtsCmStatusEntry"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
+      "Counter64",
       "Integer32",
       "Counter32",
+      "Bits",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "Gauge32",
-      "Bits"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsIfExtMib": {
@@ -188,9 +188,9 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/DOCS-IF-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Sep 18 06:42:47 2024",
-      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Thu Sep 26 02:10:33 2024",
+      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DOCS-IF-EXT-MIB"
   }

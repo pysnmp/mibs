@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Integer32",
+      "enterprises",
       "Counter64",
-      "Gauge32",
       "Bits",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Unsigned32",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress",
-      "enterprises",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
       "TRAP-TYPE",
-      "Integer32"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "opengear": {
@@ -777,9 +777,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/opengear/OGTRAP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Sep 18 06:49:13 2024",
-      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Thu Sep 26 02:17:08 2024",
+      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "OGTRAP-MIB"
   }

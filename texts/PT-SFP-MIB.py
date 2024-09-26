@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PT-SFP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/PT-SFP-MIB
-# Produced by pysmi-1.1.12 at Wed Sep 18 06:45:22 2024
-# On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner
-# Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]
+# Produced by pysmi-1.1.12 at Thu Sep 26 02:13:11 2024
+# On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner
+# Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
 entPhysicalEntry, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalEntry")
 pt, = mibBuilder.importSymbols("PT-MIB", "pt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter32, ObjectIdentity, Unsigned32, Bits, Gauge32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, Integer32, ModuleIdentity, IpAddress, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ObjectIdentity", "Unsigned32", "Bits", "Gauge32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "Integer32", "ModuleIdentity", "IpAddress", "MibIdentifier", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Unsigned32, Counter32, ObjectIdentity, Counter64, Integer32, TimeTicks, Gauge32, MibIdentifier, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "ObjectIdentity", "Counter64", "Integer32", "TimeTicks", "Gauge32", "MibIdentifier", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ptSFP = ModuleIdentity((1, 3, 6, 1, 4, 1, 193, 223, 2, 6))
 ptSFP.setRevisions(('2016-05-22 10:30',))
 
@@ -132,4 +132,4 @@ ptSFPCompleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 193, 223, 2, 6, 2, 2, 1)).se
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ptSFPCompleteGroup = ptSFPCompleteGroup.setStatus('current')
 if mibBuilder.loadTexts: ptSFPCompleteGroup.setDescription('A collection of all current objects in this MIB module.')
-mibBuilder.exportSymbols("PT-SFP-MIB", vendorOui=vendorOui, installedWavelength=installedWavelength, temperature=temperature, connectorType=connectorType, ptSFPFullCompliance=ptSFPFullCompliance, ConnectorTypeTC=ConnectorTypeTC, length50m10m=length50m10m, WaveLengthTC=WaveLengthTC, ptSFPCompleteGroup=ptSFPCompleteGroup, vcc=vcc, installState=installState, txPower=txPower, ptSFPCompliances=ptSFPCompliances, brNominal=brNominal, PYSNMP_MODULE_ID=ptSFP, vendorSn=vendorSn, length62m10m=length62m10m, vendorName=vendorName, installedSFP=installedSFP, ptSFPGroups=ptSFPGroups, length9m1km=length9m1km, PortInterfaceTC=PortInterfaceTC, InstallStateTC=InstallStateTC, length9m100m=length9m100m, lengthCopper1m=lengthCopper1m, ptSFPConformance=ptSFPConformance, biasCurrent=biasCurrent, ptSFPEntry=ptSFPEntry, ptSFP=ptSFP, ptSFPTable=ptSFPTable, levelRx=levelRx, rxPower=rxPower, vendorPn=vendorPn, saleableEntityCode=saleableEntityCode, vendorRev=vendorRev)
+mibBuilder.exportSymbols("PT-SFP-MIB", temperature=temperature, ptSFPCompleteGroup=ptSFPCompleteGroup, vendorRev=vendorRev, length9m1km=length9m1km, length50m10m=length50m10m, vendorName=vendorName, levelRx=levelRx, ptSFPCompliances=ptSFPCompliances, ptSFPFullCompliance=ptSFPFullCompliance, PortInterfaceTC=PortInterfaceTC, installedSFP=installedSFP, vcc=vcc, vendorSn=vendorSn, ptSFPEntry=ptSFPEntry, txPower=txPower, PYSNMP_MODULE_ID=ptSFP, ptSFP=ptSFP, vendorPn=vendorPn, ConnectorTypeTC=ConnectorTypeTC, rxPower=rxPower, connectorType=connectorType, ptSFPConformance=ptSFPConformance, lengthCopper1m=lengthCopper1m, InstallStateTC=InstallStateTC, WaveLengthTC=WaveLengthTC, length62m10m=length62m10m, installState=installState, brNominal=brNominal, installedWavelength=installedWavelength, ptSFPTable=ptSFPTable, ptSFPGroups=ptSFPGroups, vendorOui=vendorOui, saleableEntityCode=saleableEntityCode, length9m100m=length9m100m, biasCurrent=biasCurrent)

@@ -3,25 +3,25 @@
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
       "eventPriority",
-      "eventCounter",
-      "mibRelease",
       "objectGroup",
-      "eventTimeStamp"
+      "eventCounter",
+      "eventTimeStamp",
+      "mibRelease"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
       "ExecutedNotExecuted",
-      "dvbT",
-      "WarningOK",
+      "SelectOnOff",
+      "OkNotOk",
       "LocalRemote",
-      "ReadyNotReady",
       "MuteOk",
-      "Input1Input2",
+      "ReadyNotReady",
       "FaultOK",
-      "SFNMFN",
+      "WarningOK",
+      "dvbT",
+      "Input1Input2",
       "SelectManualAuto",
       "PresentNotPresent",
-      "SelectOnOff",
-      "OkNotOk"
+      "SFNMFN"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -29,31 +29,31 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
+      "sysLocation",
       "sysDescr",
-      "sysLocation"
+      "sysName"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Bits",
       "Integer32",
       "Counter32",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso",
       "OBJECT-TYPE",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
       "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dvbnPlus1": {
@@ -4667,9 +4667,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DVBT-NPLUS1-MIB",
-      "Produced by pysmi-1.1.12 at Wed Sep 18 06:48:00 2024",
-      "On host fv-az1780-151 platform Linux version 6.5.0-1025-azure by user runner",
-      "Using Python version 3.10.14 (main, Jul 16 2024, 19:03:10) [GCC 11.4.0]"
+      "Produced by pysmi-1.1.12 at Thu Sep 26 02:15:48 2024",
+      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IRT-DVBT-NPLUS1-MIB"
   }
