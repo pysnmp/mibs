@@ -11,7 +11,7 @@ pysnmp-pysmi = "^1.1.12"
 pyyaml = { version = "!=6.0.0" }
 
 [tool.poetry.dev-dependencies]
-pre-commit = "^3.8.0"
+pre-commit = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
