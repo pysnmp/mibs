@@ -8,36 +8,36 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Counter64",
+      "mib-2",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-TYPE",
       "zeroDotZero",
       "Integer32",
-      "mib-2",
-      "Counter64",
-      "TimeTicks",
-      "Counter32",
-      "IpAddress",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "iso"
+      "iso",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TestAndIncr",
       "RowPointer",
+      "TestAndIncr",
       "RowStatus",
       "DisplayString"
     ]
@@ -1061,8 +1061,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/DIFF-SERV-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:25:55 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:52:14 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DIFF-SERV-MIB"

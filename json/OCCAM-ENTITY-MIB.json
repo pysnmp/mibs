@@ -13,35 +13,35 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "enterprises",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
-      "mib-2",
-      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY"
+      "enterprises",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
+      "TDomain",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION",
       "TAddress",
+      "MacAddress",
       "TruthValue",
       "AutonomousType",
-      "MacAddress",
-      "PhysAddress",
-      "DisplayString",
-      "DateAndTime",
-      "TDomain",
       "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "RowPointer",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "entityMIB": {
@@ -436,8 +436,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-ENTITY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:24:34 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:50:54 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "OCCAM-ENTITY-MIB"

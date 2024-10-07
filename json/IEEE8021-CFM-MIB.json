@@ -2,54 +2,54 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021VlanIndex",
-      "ieee802dot1mibs"
+      "ieee802dot1mibs",
+      "IEEE8021VlanIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpChassisId",
-      "LldpPortId",
+      "LldpPortIdSubtype",
       "LldpChassisIdSubtype",
-      "LldpPortIdSubtype"
+      "LldpPortId",
+      "LldpChassisId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Unsigned32",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
       "IpAddress",
-      "Counter64"
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
-      "TruthValue",
+      "TimeStamp",
       "TAddress",
-      "TimeInterval",
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TDomain",
-      "TimeStamp"
+      "TimeInterval",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "ieee8021CfmMib": {
@@ -3465,8 +3465,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IEEE8021-CFM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:33:48 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 03:00:05 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-CFM-MIB"

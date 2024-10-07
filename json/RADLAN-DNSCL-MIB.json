@@ -11,30 +11,30 @@
       "rlDnsCl"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "MODULE-IDENTITY",
       "Integer32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Bits",
-      "TimeTicks",
-      "IpAddress"
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus",
+      "TruthValue"
     ],
     "SNMPv2-TC-v1": [
       "DisplayString"
@@ -346,8 +346,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-DNSCL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:31 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:57:49 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RADLAN-DNSCL-MIB"

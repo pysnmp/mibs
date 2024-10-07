@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
       "mib-2",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
       "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Unsigned32",
+      "OBJECT-TYPE",
       "iso",
-      "MibIdentifier"
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bfdTCStdMib": {
@@ -131,8 +131,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/BFD-TC-STD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:23:57 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:50:16 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "BFD-TC-STD-MIB"

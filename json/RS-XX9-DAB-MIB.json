@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "RS-XX9-COMMON-MIB": [
       "commonNotificationAlarmClass"
@@ -13,37 +13,37 @@
       "rsXx9MibModule"
     ],
     "RS-XX9-TC-MIB": [
-      "NotificationState",
       "IndexTransmitter",
-      "IndexAB",
       "NotificationPriority",
-      "NotificationMask"
+      "IndexAB",
+      "NotificationMask",
+      "NotificationState"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
       "IpAddress",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "Counter32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsXx9DabMibModule": {
@@ -2317,8 +2317,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-DAB-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:56 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:58:13 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RS-XX9-DAB-MIB"

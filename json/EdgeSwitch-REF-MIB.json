@@ -7,24 +7,24 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Gauge32",
+      "IpAddress",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "enterprises",
+      "Counter32",
       "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "iso",
       "OBJECT-TYPE",
-      "enterprises",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "broadcom": {
@@ -68,8 +68,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgeswitch/EdgeSwitch-REF-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:26:08 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:52:29 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "EdgeSwitch-REF-MIB"

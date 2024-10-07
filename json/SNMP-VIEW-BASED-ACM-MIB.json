@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpAdminString",
       "SnmpSecurityModel",
+      "SnmpAdminString",
       "SnmpSecurityLevel"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
       "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "MibIdentifier",
-      "snmpModules",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "Counter32",
+      "iso",
+      "snmpModules",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DisplayString",
       "RowStatus",
       "TestAndIncr",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "StorageType"
     ]
   },
   "snmpVacmMIB": {
@@ -685,9 +685,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-VIEW-BASED-ACM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:30:14 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/SNMP-VACM-MIB",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:55:11 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SNMP-VIEW-BASED-ACM-MIB"

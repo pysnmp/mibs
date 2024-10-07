@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "RS-XX9-COMMON-MIB": [
       "commonNotificationAlarmClass"
@@ -13,45 +13,45 @@
       "rsXx9MibModule"
     ],
     "RS-XX9-TC-MIB": [
-      "NotificationState",
-      "IndexTransmitter",
-      "IndexAB",
-      "NotificationPriority",
-      "NotificationMask",
-      "SwitchOnOff",
       "Trigger",
+      "NotificationClass",
+      "IndexTransmitter",
+      "NotificationPriority",
+      "SwitchOnOff",
+      "IndexAB",
+      "NotificationMask",
       "Xx9ModulationMode",
-      "NotificationClass"
+      "NotificationState"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
       "Gauge32",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter64",
       "IpAddress",
-      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "iso",
       "Counter32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits"
+      "Counter64",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DateAndTime",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsXx9TxMibModule": {
@@ -12546,8 +12546,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-TX-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:56 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:58:13 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RS-XX9-TX-MIB"

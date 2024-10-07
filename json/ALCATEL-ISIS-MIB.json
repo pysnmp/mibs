@@ -8,47 +8,47 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "ISIS-MIB": [
-      "SystemID",
-      "isisISAdjState",
-      "isisManAreaAddrExistState",
       "isisSysL1State",
+      "isisISAdjState",
+      "isisSysL2State",
+      "SystemID",
       "isisSysInstance",
       "isisISAdjEntry",
-      "isisSysL2State",
+      "isisManAreaAddrExistState",
       "SNPAAddress"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
       "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter64",
+      "Integer32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso",
       "Gauge32",
-      "Integer32"
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeInterval",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus"
     ]
   },
@@ -5754,8 +5754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-ISIS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:32 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:57:51 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-ISIS-MIB"

@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "mplsMIB",
+      "MplsPathIndexOrZero",
       "MplsLSPID",
       "MplsLsrIdentifier",
-      "MplsPathIndexOrZero",
       "MplsBurstSize",
-      "MplsTunnelAffinity",
-      "MplsTunnelIndex",
       "MplsBitRate",
       "MplsTunnelInstanceIndex",
+      "mplsMIB",
+      "MplsTunnelAffinity",
+      "MplsTunnelIndex",
       "MplsPathIndex"
     ],
     "HP-SN-ROOT-MIB": [
@@ -20,38 +20,38 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressIPv6",
-      "InetAddressIPv4"
+      "InetAddressIPv4",
+      "InetAddressIPv6"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "iso",
       "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
+      "Counter64",
       "Integer32",
-      "Bits"
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "RowPointer",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowPointer",
       "RowStatus",
+      "TimeStamp",
       "StorageType",
-      "TimeStamp"
+      "TruthValue"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:28:56 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:55:16 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"

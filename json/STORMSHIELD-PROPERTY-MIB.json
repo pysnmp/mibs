@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "Counter32",
       "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "Bits",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -263,8 +263,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-PROPERTY-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:32:24 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:58:42 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "STORMSHIELD-PROPERTY-MIB"

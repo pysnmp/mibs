@@ -5,43 +5,43 @@
       "Dscp"
     ],
     "LLDP-MIB": [
-      "lldpLocPortNum",
-      "lldpPortConfigEntry",
-      "lldpRemChassisId",
-      "lldpRemTimeMark",
       "lldpRemChassisIdSubtype",
-      "lldpRemIndex",
+      "lldpRemTimeMark",
       "lldpExtensions",
-      "lldpRemLocalPortNum"
+      "lldpRemLocalPortNum",
+      "lldpRemChassisId",
+      "lldpRemIndex",
+      "lldpLocPortNum",
+      "lldpPortConfigEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
+      "Counter64",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-TYPE",
-      "TimeTicks",
       "Integer32",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
-      "iso",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "iso",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "lldpXMedMIB": {
@@ -1765,8 +1765,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/LLDP-EXT-MED-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:25:55 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:52:14 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "LLDP-EXT-MED-MIB"

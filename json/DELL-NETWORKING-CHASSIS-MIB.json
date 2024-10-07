@@ -5,46 +5,46 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
-      "DellNetIfType",
-      "DellNetPEOperStatus",
-      "DellNetSystemCardType",
       "DellNetMfgDate",
-      "DellNetDeviceType",
-      "DellNetChassisType",
-      "DellNetHundredthdB",
-      "DellNetSwDate",
       "DellNetProcessorModuleType",
-      "DellNetCardOperStatus"
+      "DellNetSwDate",
+      "DellNetSystemCardType",
+      "DellNetCardOperStatus",
+      "DellNetHundredthdB",
+      "DellNetPEOperStatus",
+      "DellNetIfType",
+      "DellNetChassisType",
+      "DellNetDeviceType"
     ],
     "IF-MIB": [
       "InterfaceIndex",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier",
       "Gauge32",
       "OBJECT-TYPE",
       "TimeTicks",
       "Integer32",
-      "IpAddress",
-      "Counter64",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
       "DateAndTime"
     ]
   },
@@ -4673,8 +4673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:25:55 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:52:13 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"

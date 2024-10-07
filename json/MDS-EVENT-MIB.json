@@ -5,25 +5,25 @@
       "mdsLogging"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "Counter32",
-      "Unsigned32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "MibIdentifier",
       "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits"
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -178,8 +178,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-EVENT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:27:19 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:53:39 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "MDS-EVENT-MIB"

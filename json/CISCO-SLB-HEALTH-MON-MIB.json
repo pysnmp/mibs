@@ -3,13 +3,13 @@
     "class": "imports",
     "CISCO-SLB-EXT-MIB": [
       "SlbFunctionNameString",
-      "SlbUrlString",
-      "cslbxServerProbes"
+      "cslbxServerProbes",
+      "SlbUrlString"
     ],
     "CISCO-SLB-MIB": [
       "slbEntity",
-      "SlbServerString",
-      "slbServerFarmName"
+      "slbServerFarmName",
+      "SlbServerString"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -18,38 +18,38 @@
       "CiscoPort"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
       "IpAddress",
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Counter32",
       "MODULE-IDENTITY",
-      "iso",
       "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue",
       "TimeInterval"
@@ -2619,8 +2619,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SLB-HEALTH-MON-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:29:00 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:55:16 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-SLB-HEALTH-MON-MIB"

@@ -2,21 +2,21 @@
   "imports": {
     "class": "imports",
     "SAEUROPE-MESSAGES-MIB": [
-      "msgText",
-      "msgStatus",
-      "msgSequenceNumber",
-      "msgDetailPresent",
-      "msgBehaviour",
-      "msgGenerationTime",
-      "msgSubClassNbr",
-      "msgId",
-      "msgPhysicalEntity",
-      "msgSeverity",
-      "msgSourceName",
-      "msgSubClass",
       "msgClass",
+      "msgGenerationTime",
       "msgSubject",
-      "msgDetail"
+      "msgBehaviour",
+      "msgDetail",
+      "msgText",
+      "msgSequenceNumber",
+      "msgId",
+      "msgSeverity",
+      "msgSubClass",
+      "msgSubClassNbr",
+      "msgDetailPresent",
+      "msgSourceName",
+      "msgStatus",
+      "msgPhysicalEntity"
     ],
     "SAEUROPE-ROOT-MIB": [
       "trapControl",
@@ -27,20 +27,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
       "MODULE-IDENTITY",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Bits",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -255,8 +255,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-TRAPCONTROL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:53 2024",
-      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:58:12 2024",
+      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SAEUROPE-TRAPCONTROL-MIB"
