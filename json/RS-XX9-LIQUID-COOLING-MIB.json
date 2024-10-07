@@ -5,42 +5,42 @@
       "commonNotificationAlarmClass"
     ],
     "RS-XX9-SMI-MIB": [
-      "rsXx9LiquidCooling",
-      "rsXx9MibModule"
+      "rsXx9MibModule",
+      "rsXx9LiquidCooling"
     ],
     "RS-XX9-TC-MIB": [
+      "NotificationState",
       "NotificationMask",
-      "NotificationPriority",
       "SwitchOnOff",
-      "NotificationState"
+      "NotificationPriority"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Counter64",
-      "iso"
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rsXx9LqMibModule": {
@@ -1745,8 +1745,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-LIQUID-COOLING-MIB",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:18:34 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:56 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RS-XX9-LIQUID-COOLING-MIB"

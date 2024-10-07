@@ -6,8 +6,8 @@
     ],
     "IEEE8021-CFM-MIB": [
       "dot1agCfmMaIndex",
-      "Dot1agCfmMpDirection",
-      "dot1agCfmMdIndex"
+      "dot1agCfmMdIndex",
+      "Dot1agCfmMpDirection"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -16,33 +16,33 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Integer32",
-      "Bits"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "MacAddress",
       "RowStatus",
       "StorageType",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "ciscoIeee8021CfmExtMIB": {
@@ -648,8 +648,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IEEE8021-CFM-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:15:26 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:28:57 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-IEEE8021-CFM-EXT-MIB"

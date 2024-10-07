@@ -6,8 +6,8 @@
     ],
     "ALCATEL-IND1-VRRP3-MIB": [
       "alaVrrp3OperVrId",
-      "alaVrrp3OperIpVersion",
-      "alaVrrp3OperEntry"
+      "alaVrrp3OperEntry",
+      "alaVrrp3OperIpVersion"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -18,35 +18,35 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "Counter32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "iso",
-      "Counter64",
       "MibIdentifier",
-      "Integer32",
-      "Bits",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "Counter64",
+      "iso",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ],
     "VRRP-MIB": [
-      "vrrpOperVrId",
-      "vrrpOperEntry"
+      "vrrpOperEntry",
+      "vrrpOperVrId"
     ]
   },
   "alcatelIND1VRRPMIB": {
@@ -1251,8 +1251,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-VRRP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:18:12 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:31:33 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-VRRP-MIB"

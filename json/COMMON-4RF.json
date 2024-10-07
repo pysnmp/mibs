@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "COMMON-TC-4RF": [
-      "FourRFFileSize",
-      "FourRFImageVersion",
-      "FourRFTftpFileName",
-      "FourRFTimeZone",
-      "FourRFSerialNumber",
-      "FourRFWebUserGroup",
-      "FourRFResetType",
-      "FourRFImageStatus",
       "FourRFProcessResultType",
+      "FourRFTftpFileName",
+      "FourRFFileSize",
+      "FourRFWebUserGroup",
+      "FourRFTimeZone",
+      "FourRFResetType",
+      "FourRFImageType",
+      "FourRFImageStatus",
+      "FourRFImageVersion",
       "FourRFWebUserEnabled",
-      "FourRFImageType"
+      "FourRFSerialNumber"
     ],
     "MIB-4RF": [
-      "fourRFModules",
-      "fourRFGeneric"
+      "fourRFGeneric",
+      "fourRFModules"
     ],
     "PRODUCTS-MIB-4RF": [
       "fourRFCommon"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
+      "iso",
       "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
       "Counter32",
-      "Unsigned32",
-      "Integer32"
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "fourRFCommonModule": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-COMMON-MIB",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:09:42 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:23:05 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "COMMON-4RF"

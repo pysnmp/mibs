@@ -6,22 +6,22 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "enterprises",
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
       "Counter64",
-      "Integer32",
+      "enterprises",
+      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "iso",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -13037,8 +13037,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPIPFTRAP-MIB",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:15:55 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:28:58 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HPIPFTRAP-MIB"

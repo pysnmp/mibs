@@ -2,55 +2,55 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
       "sysContact",
       "sysName",
+      "sysLocation",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "MibIdentifier",
+      "Bits",
       "IpAddress",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Integer32",
-      "Unsigned32",
-      "Bits",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "TimeTicks"
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ],
     "TWOWCOM-COMMONVARBINDS": [
       "commonGroup",
-      "eventCounter",
+      "FloatString",
+      "FaultOK",
       "eventTimeStamp",
       "commonVarbindsCompliance",
-      "eventPriority",
-      "FloatString",
       "Integer32d1",
-      "FaultOK",
+      "eventPriority",
+      "mibRelease",
       "Integer32d2",
-      "mibRelease"
+      "eventCounter"
     ],
     "TWOWCOM-SMI": [
-      "decoder",
-      "dvbDecoder",
+      "dvbEncoder",
       "encoder",
+      "dvbDecoder",
       "other",
-      "dvbEncoder"
+      "decoder"
     ]
   },
   "flexDSR04": {
@@ -5775,8 +5775,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/FLEXDSR04",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:09:40 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:23:04 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "FLEXDSR04"

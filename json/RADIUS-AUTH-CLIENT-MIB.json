@@ -1,34 +1,39 @@
 {
   "imports": {
     "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressType"
+    ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "IpAddress",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
       "Unsigned32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "mib-2",
-      "Counter64",
       "Integer32",
+      "Counter32",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Bits",
+      "OBJECT-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "radiusAuthClientMIB": {
@@ -37,8 +42,12 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2006-08-21 00:00",
+        "description": "Revised version as published in RFC 4668. This version obsoletes that of RFC 2618 by deprecating the MIB table containing IPv4-only address formats and defining a new table to add support for version neutral IP address formats. The remaining MIB objects from RFC 2618 are carried forward into this version."
+      },
+      {
         "revision": "1999-06-11 00:00",
-        "description": "Initial version as published in RFC 2618"
+        "description": "Initial version as published in RFC 2618."
       }
     ]
   },
@@ -72,6 +81,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -93,7 +103,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthServerEntry": {
     "name": "radiusAuthServerEntry",
@@ -108,7 +118,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthServerIndex": {
     "name": "radiusAuthServerIndex",
@@ -128,7 +138,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthServerAddress": {
     "name": "radiusAuthServerAddress",
@@ -140,7 +150,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientServerPortNumber": {
     "name": "radiusAuthClientServerPortNumber",
@@ -160,7 +170,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientRoundTripTime": {
     "name": "radiusAuthClientRoundTripTime",
@@ -172,7 +182,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientAccessRequests": {
     "name": "radiusAuthClientAccessRequests",
@@ -183,8 +193,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientAccessRetransmissions": {
     "name": "radiusAuthClientAccessRetransmissions",
@@ -195,8 +206,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientAccessAccepts": {
     "name": "radiusAuthClientAccessAccepts",
@@ -207,8 +219,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientAccessRejects": {
     "name": "radiusAuthClientAccessRejects",
@@ -219,8 +232,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientAccessChallenges": {
     "name": "radiusAuthClientAccessChallenges",
@@ -231,8 +245,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientMalformedAccessResponses": {
     "name": "radiusAuthClientMalformedAccessResponses",
@@ -243,8 +258,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientBadAuthenticators": {
     "name": "radiusAuthClientBadAuthenticators",
@@ -255,8 +271,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientPendingRequests": {
     "name": "radiusAuthClientPendingRequests",
@@ -268,7 +285,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientTimeouts": {
     "name": "radiusAuthClientTimeouts",
@@ -279,8 +296,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "timeouts",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientUnknownTypes": {
     "name": "radiusAuthClientUnknownTypes",
@@ -291,8 +309,9 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "radiusAuthClientPacketsDropped": {
     "name": "radiusAuthClientPacketsDropped",
@@ -303,6 +322,262 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "radiusAuthServerExtTable": {
+    "name": "radiusAuthServerExtTable",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radiusAuthServerExtEntry": {
+    "name": "radiusAuthServerExtEntry",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerExtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radiusAuthServerExtIndex": {
+    "name": "radiusAuthServerExtIndex",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radiusAuthServerInetAddressType": {
+    "name": "radiusAuthServerInetAddressType",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthServerInetAddress": {
+    "name": "radiusAuthServerInetAddress",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientServerInetPortNumber": {
+    "name": "radiusAuthClientServerInetPortNumber",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtRoundTripTime": {
+    "name": "radiusAuthClientExtRoundTripTime",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtAccessRequests": {
+    "name": "radiusAuthClientExtAccessRequests",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtAccessRetransmissions": {
+    "name": "radiusAuthClientExtAccessRetransmissions",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtAccessAccepts": {
+    "name": "radiusAuthClientExtAccessAccepts",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtAccessRejects": {
+    "name": "radiusAuthClientExtAccessRejects",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtAccessChallenges": {
+    "name": "radiusAuthClientExtAccessChallenges",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtMalformedAccessResponses": {
+    "name": "radiusAuthClientExtMalformedAccessResponses",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtBadAuthenticators": {
+    "name": "radiusAuthClientExtBadAuthenticators",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtPendingRequests": {
+    "name": "radiusAuthClientExtPendingRequests",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtTimeouts": {
+    "name": "radiusAuthClientExtTimeouts",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "timeouts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtUnknownTypes": {
+    "name": "radiusAuthClientExtUnknownTypes",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientExtPacketsDropped": {
+    "name": "radiusAuthClientExtPacketsDropped",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radiusAuthClientCounterDiscontinuity": {
+    "name": "radiusAuthClientCounterDiscontinuity",
+    "oid": "1.3.6.1.2.1.67.1.2.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "centiseconds",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -328,6 +603,18 @@
     "modulecompliance": [
       {
         "object": "radiusAuthClientMIBGroup",
+        "module": "RADIUS-AUTH-CLIENT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "radiusAuthClientExtMIBCompliance": {
+    "name": "radiusAuthClientExtMIBCompliance",
+    "oid": "1.3.6.1.2.1.67.1.2.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "radiusAuthClientExtMIBGroup",
         "module": "RADIUS-AUTH-CLIENT-MIB"
       }
     ],
@@ -403,13 +690,93 @@
         "object": "radiusAuthClientPacketsDropped"
       }
     ],
+    "status": "deprecated"
+  },
+  "radiusAuthClientExtMIBGroup": {
+    "name": "radiusAuthClientExtMIBGroup",
+    "oid": "1.3.6.1.2.1.67.1.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientIdentifier"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientInvalidServerAddresses"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerInetAddressType"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthServerInetAddress"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientServerInetPortNumber"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtRoundTripTime"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtAccessRequests"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtAccessRetransmissions"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtAccessAccepts"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtAccessRejects"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtAccessChallenges"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtMalformedAccessResponses"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtBadAuthenticators"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtPendingRequests"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtTimeouts"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtUnknownTypes"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientExtPacketsDropped"
+      },
+      {
+        "module": "RADIUS-AUTH-CLIENT-MIB",
+        "object": "radiusAuthClientCounterDiscontinuity"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RADIUS-AUTH-CLIENT-MIB",
-      "Produced by pysmi-1.1.12 at Thu Sep 26 02:15:56 2024",
-      "On host fv-az1144-917 platform Linux version 6.8.0-1014-azure by user runner",
+      "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADIUS-AUTH-CLIENT-MIB",
+      "Produced by pysmi-1.1.12 at Mon Oct  7 02:25:24 2024",
+      "On host fv-az1986-495 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RADIUS-AUTH-CLIENT-MIB"
