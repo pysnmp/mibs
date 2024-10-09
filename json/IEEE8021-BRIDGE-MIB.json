@@ -4,52 +4,52 @@
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortType",
       "IEEE8021PriorityValue",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PriorityCodePoint",
-      "IEEE8021PbbComponentIdentifierOrZero",
-      "IEEE8021PbbComponentIdentifier",
       "ieee802dot1mibs",
-      "IEEE8021BridgePortNumberOrZero"
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021PbbComponentIdentifier"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "ifGeneralInformationGroup",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "systemGroup"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
       "TimeTicks",
+      "Unsigned32",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeInterval",
-      "DisplayString"
+      "RowStatus",
+      "MacAddress"
     ]
   },
   "ieee8021BridgeMib": {
@@ -2065,8 +2065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE8021-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:51:43 2024",
-      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Oct  9 02:18:00 2024",
+      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-BRIDGE-MIB"

@@ -5,22 +5,22 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
+      "CiscoAlarmSeverity",
       "TimeIntervalSec",
-      "Unsigned64",
+      "CiscoInetAddressMask",
       "CiscoNetworkAddress",
-      "CiscoAlarmSeverity"
+      "Unsigned64"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectDn",
-      "CucsManagedObjectId"
+      "CucsManagedObjectId",
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsNwctrlRegistrationMode",
+      "CucsNwctrlLinkFailAction",
       "CucsPolicyPolicyOwner",
       "CucsNwctrlAdminState",
-      "CucsNwctrlLinkFailAction"
+      "CucsNwctrlRegistrationMode"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -30,34 +30,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "Integer32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
       "TimeTicks",
+      "IpAddress",
       "Gauge32",
       "Bits",
-      "Counter64",
-      "Counter32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "TimeInterval",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
       "RowPointer",
-      "MacAddress",
-      "TruthValue",
-      "TimeInterval",
-      "TimeStamp"
+      "TimeStamp",
+      "MacAddress"
     ]
   },
   "cucsNwctrlObjects": {
@@ -259,8 +259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-NWCTRL-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:55:17 2024",
-      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Oct  9 02:21:28 2024",
+      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-NWCTRL-MIB"

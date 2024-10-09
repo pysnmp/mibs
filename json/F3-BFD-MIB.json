@@ -10,19 +10,19 @@
     ],
     "CM-COMMON-MIB": [
       "VlanPriority",
-      "AdminState",
       "OperationalState",
       "SecondaryState",
-      "VlanId"
+      "VlanId",
+      "AdminState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
+      "f3L3TrafficIPInterfaceEntry",
       "f3L3TrafficOspfInterfaceEntry",
       "f3L3TrafficBgpPeerEntry",
-      "f3VrfEntry",
-      "f3L3TrafficIPInterfaceEntry"
+      "f3VrfEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -31,32 +31,32 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
       "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "iso",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
       "RowStatus",
+      "TruthValue",
+      "VariablePointer",
       "DisplayString",
       "StorageType",
-      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -808,8 +808,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:50:13 2024",
-      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Oct  9 02:16:31 2024",
+      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "F3-BFD-MIB"

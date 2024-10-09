@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "IPV6-TC": [
+      "Ipv6Address",
+      "Ipv6AddressIfIdentifier",
       "Ipv6IfIndex",
       "Ipv6IfIndexOrZero",
-      "Ipv6AddressPrefix",
-      "Ipv6Address",
-      "Ipv6AddressIfIdentifier"
+      "Ipv6AddressPrefix"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "mib-2",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "iso",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "mib-2",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "MODULE-IDENTITY",
       "Integer32",
       "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "IpAddress",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
-      "RowPointer",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "PhysAddress",
-      "VariablePointer"
+      "TimeStamp",
+      "RowPointer",
+      "VariablePointer",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ipv6MIB": {
@@ -1503,8 +1503,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IPV6-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:55:07 2024",
-      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Oct  9 02:21:19 2024",
+      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IPV6-MIB"

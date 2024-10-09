@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module RADLAN-SENSORENTMIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-SENSORENTMIB
-# Produced by pysmi-1.1.12 at Mon Oct  7 02:57:45 2024
-# On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Oct  9 02:24:07 2024
+# On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-entPhysicalIndex, entityPhysicalGroup = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entityPhysicalGroup")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+entityPhysicalGroup, entPhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entityPhysicalGroup", "entPhysicalIndex")
 EntitySensorValue, entPhySensorEntry = mibBuilder.importSymbols("ENTITY-SENSOR-MIB", "EntitySensorValue", "entPhySensorEntry")
 rlEnv, = mibBuilder.importSymbols("RADLAN-HWENVIROMENT", "rlEnv")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, Counter32, IpAddress, mib_2, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, TimeTicks, Bits, ModuleIdentity, NotificationType, ObjectIdentity, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "IpAddress", "mib-2", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "TimeTicks", "Bits", "ModuleIdentity", "NotificationType", "ObjectIdentity", "MibIdentifier", "Unsigned32")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Gauge32, MibIdentifier, mib_2, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, Counter64, ModuleIdentity, Unsigned32, TimeTicks, Bits, IpAddress, NotificationType, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "mib-2", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "Counter64", "ModuleIdentity", "Unsigned32", "TimeTicks", "Bits", "IpAddress", "NotificationType", "ObjectIdentity")
 TextualConvention, DisplayString, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TimeStamp")
 rlSensor = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 83, 4))
 rlSensor.setRevisions(('2003-09-21 00:00',))
@@ -41,4 +41,4 @@ if mibBuilder.loadTexts: rlEnvPhySensorMaxValue.setDescription('Maximum value fo
 rlEnvPhySensorTestValue = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 83, 3, 1, 3), EntitySensorValue()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: rlEnvPhySensorTestValue.setStatus('current')
 if mibBuilder.loadTexts: rlEnvPhySensorTestValue.setDescription('Test/reference value for the Sensor being instrumented.')
-mibBuilder.exportSymbols("RADLAN-SENSORENTMIB", PYSNMP_MODULE_ID=rlSensor, rlEnvPhySensorMinValue=rlEnvPhySensorMinValue, rlSensor=rlSensor, rlEnvPhySensorMaxValue=rlEnvPhySensorMaxValue, rlEntPhySensorEntry=rlEntPhySensorEntry, rlEntPhySensorTable=rlEntPhySensorTable, rlEnvPhySensorTestValue=rlEnvPhySensorTestValue)
+mibBuilder.exportSymbols("RADLAN-SENSORENTMIB", rlEnvPhySensorMinValue=rlEnvPhySensorMinValue, rlEnvPhySensorMaxValue=rlEnvPhySensorMaxValue, rlEnvPhySensorTestValue=rlEnvPhySensorTestValue, rlEntPhySensorTable=rlEntPhySensorTable, rlEntPhySensorEntry=rlEntPhySensorEntry, rlSensor=rlSensor, PYSNMP_MODULE_ID=rlSensor)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module WISI-TANGRAM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-TANGRAM-MIB
-# Produced by pysmi-1.1.12 at Mon Oct  7 02:59:13 2024
-# On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Oct  9 02:25:35 2024
+# On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Bits, Integer32, Gauge32, Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, NotificationType, MibIdentifier, ModuleIdentity, TimeTicks, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Bits", "Integer32", "Gauge32", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "NotificationType", "MibIdentifier", "ModuleIdentity", "TimeTicks", "Counter64", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Bits, ObjectIdentity, TimeTicks, Unsigned32, MibIdentifier, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, ModuleIdentity, iso, Gauge32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ObjectIdentity", "TimeTicks", "Unsigned32", "MibIdentifier", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "ModuleIdentity", "iso", "Gauge32", "Counter32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tangram, = mibBuilder.importSymbols("WISI-ROOT-MIB", "tangram")
 tangramMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 7465, 20, 2, 9, 0))
 tangramMIB.setRevisions(('2016-09-08 00:00', '2014-04-29 00:00', '2012-12-06 09:00', '2012-10-31 00:00', '2011-12-13 00:00', '2011-04-12 00:00',))
@@ -35,4 +35,4 @@ class FloatingPoint(TextualConvention, OctetString):
     displayHint = '63a'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 63)
 
-mibBuilder.exportSymbols("WISI-TANGRAM-MIB", gtGeneric=gtGeneric, gtGenericNotifications=gtGenericNotifications, gtProcessing=gtProcessing, gtGenericNotifyUsertrap=gtGenericNotifyUsertrap, gtIP=gtIP, gtUnit=gtUnit, gtStandards=gtStandards, gtDVB=gtDVB, gtRF=gtRF, gtGenericObjects=gtGenericObjects, tangramMIB=tangramMIB, gtGenericObjectUsertrap=gtGenericObjectUsertrap, FloatingPoint=FloatingPoint, PYSNMP_MODULE_ID=tangramMIB, gtTS=gtTS)
+mibBuilder.exportSymbols("WISI-TANGRAM-MIB", gtIP=gtIP, gtGenericObjects=gtGenericObjects, gtRF=gtRF, gtGeneric=gtGeneric, gtTS=gtTS, gtGenericObjectUsertrap=gtGenericObjectUsertrap, gtProcessing=gtProcessing, FloatingPoint=FloatingPoint, gtStandards=gtStandards, gtDVB=gtDVB, PYSNMP_MODULE_ID=tangramMIB, gtGenericNotifications=gtGenericNotifications, gtUnit=gtUnit, tangramMIB=tangramMIB, gtGenericNotifyUsertrap=gtGenericNotifyUsertrap)

@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module NBS-CONNECTIVITY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-CONNECTIVITY-MIB
-# Produced by pysmi-1.1.12 at Mon Oct  7 02:56:16 2024
-# On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Oct  9 02:22:36 2024
+# On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-nbsCmmcSlotIndex, nbsCmmcPortIndex, nbsCmmcChassisIndex = mibBuilder.importSymbols("NBS-CMMC-MIB", "nbsCmmcSlotIndex", "nbsCmmcPortIndex", "nbsCmmcChassisIndex")
+nbsCmmcChassisIndex, nbsCmmcSlotIndex, nbsCmmcPortIndex = mibBuilder.importSymbols("NBS-CMMC-MIB", "nbsCmmcChassisIndex", "nbsCmmcSlotIndex", "nbsCmmcPortIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, TimeTicks, Gauge32, NotificationType, Counter64, ObjectIdentity, Unsigned32, Counter32, IpAddress, MibIdentifier, ModuleIdentity, iso, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "Gauge32", "NotificationType", "Counter64", "ObjectIdentity", "Unsigned32", "Counter32", "IpAddress", "MibIdentifier", "ModuleIdentity", "iso", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Integer32, Unsigned32, IpAddress, Counter32, Counter64, Gauge32, ObjectIdentity, Bits, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "IpAddress", "Counter32", "Counter64", "Gauge32", "ObjectIdentity", "Bits", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsConnectivityMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 238))
 if mibBuilder.loadTexts: nbsConnectivityMib.setLastUpdated('201405280000Z')
 if mibBuilder.loadTexts: nbsConnectivityMib.setOrganization('NBS')
@@ -48,4 +48,4 @@ nbsConnectivityDestV6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 238, 1, 1, 1,
 if mibBuilder.loadTexts: nbsConnectivityDestV6Addr.setStatus('current')
 nbsConnectivityChanged = NotificationType((1, 3, 6, 1, 4, 1, 629, 238, 100, 0, 10)).setObjects(("NBS-CMMC-MIB", "nbsCmmcChassisIndex"), ("NBS-CMMC-MIB", "nbsCmmcSlotIndex"), ("NBS-CMMC-MIB", "nbsCmmcPortIndex"), ("NBS-CONNECTIVITY-MIB", "nbsConnectivityDestAddrType"), ("NBS-CONNECTIVITY-MIB", "nbsConnectivityDestAddr"), ("NBS-CONNECTIVITY-MIB", "nbsConnectivityStatus"))
 if mibBuilder.loadTexts: nbsConnectivityChanged.setStatus('current')
-mibBuilder.exportSymbols("NBS-CONNECTIVITY-MIB", nbsConnectivityOrdinalIndex=nbsConnectivityOrdinalIndex, nbsConnectivityDestIfIndex=nbsConnectivityDestIfIndex, nbsConnectivityTraps=nbsConnectivityTraps, PYSNMP_MODULE_ID=nbsConnectivityMib, nbsConnectivityEvent=nbsConnectivityEvent, nbsConnectivityTable=nbsConnectivityTable, nbsConnectivityChanged=nbsConnectivityChanged, nbsConnectivityMib=nbsConnectivityMib, nbsConnectivityEntry=nbsConnectivityEntry, nbsConnectivitySourceIfIndex=nbsConnectivitySourceIfIndex, nbsConnectivityDestIPAddress=nbsConnectivityDestIPAddress, nbsConnectivityDestAddrType=nbsConnectivityDestAddrType, nbsConnectivityDestV6Addr=nbsConnectivityDestV6Addr, nbsConnectivityGrp=nbsConnectivityGrp, nbsConnectivityStatus=nbsConnectivityStatus, nbsConnectivityDestV6AddrType=nbsConnectivityDestV6AddrType, nbsConnectivityDestAddr=nbsConnectivityDestAddr)
+mibBuilder.exportSymbols("NBS-CONNECTIVITY-MIB", nbsConnectivityDestAddr=nbsConnectivityDestAddr, nbsConnectivityStatus=nbsConnectivityStatus, nbsConnectivityDestIPAddress=nbsConnectivityDestIPAddress, nbsConnectivityOrdinalIndex=nbsConnectivityOrdinalIndex, nbsConnectivityDestV6AddrType=nbsConnectivityDestV6AddrType, nbsConnectivityDestAddrType=nbsConnectivityDestAddrType, nbsConnectivityEvent=nbsConnectivityEvent, nbsConnectivityGrp=nbsConnectivityGrp, nbsConnectivitySourceIfIndex=nbsConnectivitySourceIfIndex, nbsConnectivityDestV6Addr=nbsConnectivityDestV6Addr, nbsConnectivityChanged=nbsConnectivityChanged, nbsConnectivityEntry=nbsConnectivityEntry, nbsConnectivityMib=nbsConnectivityMib, nbsConnectivityTraps=nbsConnectivityTraps, PYSNMP_MODULE_ID=nbsConnectivityMib, nbsConnectivityTable=nbsConnectivityTable, nbsConnectivityDestIfIndex=nbsConnectivityDestIfIndex)

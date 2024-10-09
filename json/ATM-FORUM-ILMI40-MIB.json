@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TRAP-TYPE",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Bits",
+      "enterprises",
       "MODULE-IDENTITY",
+      "Counter64",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Integer32",
+      "TRAP-TYPE",
       "IpAddress",
-      "enterprises",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "Counter32",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Counter64",
-      "Bits",
-      "Counter32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "AtmAddress": {
@@ -2623,8 +2623,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/atmforum/ATM-FORUM-ILMI40-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:59:41 2024",
-      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Oct  9 02:26:06 2024",
+      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ATM-FORUM-ILMI40-MIB"

@@ -2,32 +2,32 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "iso",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
       "Counter64",
       "MibIdentifier",
+      "enterprises",
+      "snmpModules",
       "Bits",
-      "MODULE-IDENTITY"
+      "iso",
+      "Gauge32",
+      "Unsigned32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString"
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "cnPilotMIB": {
@@ -1373,8 +1373,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cambium/CAMBIUM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct  7 02:50:52 2024",
-      "On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Oct  9 02:17:07 2024",
+      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CAMBIUM-MIB"

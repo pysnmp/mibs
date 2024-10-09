@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module MCAFEE-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mcafee/MCAFEE-SMI
-# Produced by pysmi-1.1.12 at Mon Oct  7 02:55:59 2024
-# On host fv-az775-99 platform Linux version 6.8.0-1014-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Oct  9 02:22:23 2024
+# On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, enterprises, iso, NotificationType, Counter32, Gauge32, MibIdentifier, ModuleIdentity, Counter64, Unsigned32, IpAddress, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "enterprises", "iso", "NotificationType", "Counter32", "Gauge32", "MibIdentifier", "ModuleIdentity", "Counter64", "Unsigned32", "IpAddress", "Bits", "TimeTicks")
+Integer32, NotificationType, Gauge32, Counter64, Counter32, Unsigned32, ModuleIdentity, IpAddress, enterprises, ObjectIdentity, Bits, MibIdentifier, iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "NotificationType", "Gauge32", "Counter64", "Counter32", "Unsigned32", "ModuleIdentity", "IpAddress", "enterprises", "ObjectIdentity", "Bits", "MibIdentifier", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mcafee = ModuleIdentity((1, 3, 6, 1, 4, 1, 1230))
 mcafee.setRevisions(('2006-09-19 00:00',))
@@ -23,4 +23,4 @@ if mibBuilder.loadTexts: mcafee.setDescription(' The Structure of Management Inf
 mcafeeGATEWAY = ObjectIdentity((1, 3, 6, 1, 4, 1, 1230, 2))
 if mibBuilder.loadTexts: mcafeeGATEWAY.setStatus('current')
 if mibBuilder.loadTexts: mcafeeGATEWAY.setDescription('McAfee Gateway Products')
-mibBuilder.exportSymbols("MCAFEE-SMI", mcafeeGATEWAY=mcafeeGATEWAY, PYSNMP_MODULE_ID=mcafee, mcafee=mcafee)
+mibBuilder.exportSymbols("MCAFEE-SMI", PYSNMP_MODULE_ID=mcafee, mcafee=mcafee, mcafeeGATEWAY=mcafeeGATEWAY)
