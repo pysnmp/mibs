@@ -5,33 +5,33 @@
       "rnd"
     ],
     "RMON-MIB": [
-      "OwnerString",
-      "EntryStatus"
+      "EntryStatus",
+      "OwnerString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "IpAddress",
-      "iso",
-      "Bits",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Integer32"
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString"
     ],
     "SNMPv2-TC-v1": [
@@ -437,8 +437,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-RMON",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:24:11 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:14:11 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RADLAN-RMON"

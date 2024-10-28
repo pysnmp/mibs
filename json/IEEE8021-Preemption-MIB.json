@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePort",
-      "ieee8021BridgeBaseComponentId"
+      "ieee8021BridgeBaseComponentId",
+      "ieee8021BridgeBasePort"
     ],
     "IEEE8021-TC-MIB": [
       "ieee802dot1mibs",
@@ -11,28 +11,28 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "iso",
+      "Counter64",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "Counter32",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
       "Bits",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Integer32",
       "MibIdentifier",
-      "Counter64",
-      "TimeTicks"
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ieee8021PreemptionMib": {
@@ -274,8 +274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-Preemption-MIB",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:26:13 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:16:17 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-Preemption-MIB"

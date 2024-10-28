@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "E5-111-MIB": [
-      "e5x111",
-      "iesSeriesCommon"
+      "iesSeriesCommon",
+      "e5x111"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -16,28 +16,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "TRAP-TYPE",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Counter64",
-      "Integer32"
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "DisplayString"
+      "RowStatus",
+      "DisplayString",
+      "PhysAddress"
     ]
   },
   "iesChassis": {
@@ -3205,8 +3205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-IESCOMMON-MIB",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:17:10 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:07:22 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "E5-111-IESCOMMON-MIB"

@@ -14,29 +14,29 @@
       "VlanIdOrNone"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
       "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Integer32",
+      "Bits",
       "Counter32",
-      "Counter64",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
       "MibIdentifier",
       "Unsigned32",
-      "Gauge32",
+      "Counter64",
       "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "hpnicfSpb": {
@@ -342,8 +342,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-SPB-MIB",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:21:57 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:12:10 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-SPB-MIB"

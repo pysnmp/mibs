@@ -11,35 +11,35 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddress",
-      "InetAddressType"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
       "IpAddress",
-      "iso",
+      "Integer32",
       "Bits",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "DisplayString",
       "RowStatus",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "hzCpModIdentity": {
@@ -11611,8 +11611,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dragonwave/DRAGONWAVE-HCP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:18:38 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:08:49 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DRAGONWAVE-HCP-MIB"

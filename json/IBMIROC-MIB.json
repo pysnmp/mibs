@@ -3,38 +3,38 @@
     "class": "imports",
     "PROTEON-MIB": [
       "proResMemHeapNeverAlloc",
-      "proResMemHeapTotal",
-      "proElsSubSysEventMsg"
+      "proElsSubSysEventMsg",
+      "proResMemHeapTotal"
     ],
     "RFC1315-MIB": [
-      "frCircuitDlci",
-      "frCircuitIfIndex"
+      "frCircuitIfIndex",
+      "frCircuitDlci"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
+      "enterprises",
+      "TRAP-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "iso",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
       "Gauge32",
       "Counter32",
-      "TRAP-TYPE",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "IpAddress"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ibm": {
@@ -4812,8 +4812,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMIROC-MIB",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:21:31 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:11:38 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IBMIROC-MIB"

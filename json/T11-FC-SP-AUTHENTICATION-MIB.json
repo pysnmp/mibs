@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "fcmInstanceIndex",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "fcmInstanceIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "iso",
-      "mib-2",
-      "Integer32",
-      "Gauge32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter32",
       "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Gauge32",
+      "mib-2",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "DisplayString",
       "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "AutonomousType",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
-      "T11FcSpLifetimeLeftUnits",
-      "T11FcSpAuthRejectReasonCode",
-      "T11FcSpDhGroups",
-      "T11FcSpAuthRejReasonCodeExp",
       "T11FcSpLifetimeLeft",
+      "T11FcSpLifetimeLeftUnits",
+      "T11FcSpHashFunctions",
       "T11FcSpSignFunctions",
-      "T11FcSpHashFunctions"
+      "T11FcSpAuthRejReasonCodeExp",
+      "T11FcSpDhGroups",
+      "T11FcSpAuthRejectReasonCode"
     ],
     "T11-TC-MIB": [
       "T11FabricIndex"
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:26:30 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:16:34 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

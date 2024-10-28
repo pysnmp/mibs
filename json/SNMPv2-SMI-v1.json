@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
+      "IpAddress",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY",
       "TimeTicks",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Unsigned32",
       "Bits",
-      "Counter64"
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -124,8 +124,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SNMPv2-SMI-v1",
-      "Produced by pysmi-1.1.12 at Wed Oct  9 02:18:57 2024",
-      "On host fv-az1144-128 platform Linux version 6.8.0-1014-azure by user runner",
+      "Produced by pysmi-1.1.12 at Mon Oct 28 02:09:08 2024",
+      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SNMPv2-SMI-v1"
