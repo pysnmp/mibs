@@ -2,39 +2,39 @@
   "imports": {
     "class": "imports",
     "NET-SNMP-MIB": [
-      "netSnmpNotifications",
       "netSnmpGroups",
-      "netSnmpModuleIDs",
-      "netSnmpObjects"
+      "netSnmpObjects",
+      "netSnmpNotifications",
+      "netSnmpModuleIDs"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
       "IpAddress",
-      "Integer32",
       "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter32",
-      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
       "DisplayString"
     ]
   },
@@ -767,8 +767,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-AGENT-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:13:00 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:33:44 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "NET-SNMP-AGENT-MIB"

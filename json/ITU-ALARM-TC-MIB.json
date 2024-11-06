@@ -7,20 +7,20 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
+      "mib-2",
       "Counter32",
-      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
       "IpAddress",
       "Counter64",
-      "OBJECT-TYPE",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "iso",
       "Bits",
-      "Integer32"
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -76,8 +76,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/ITU-ALARM-TC-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:06:53 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:27:44 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ITU-ALARM-TC-MIB"

@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "HpnicfDot11WorkMode",
-      "HpnicfDot11RadioScopeType",
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11RadioType2",
-      "HpnicfDot11RadioType",
+      "HpnicfDot11ChannelScopeType",
+      "hpnicfDot11",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11ServicePolicyIDType",
+      "HpnicfDot11RadioElementIndex",
       "HpnicfDot11PreambleType",
+      "HpnicfDot11RadioScopeType",
       "HpnicfDot11SSIDStringType",
       "HpnicfDot11TxPwrLevelScopeType",
-      "hpnicfDot11",
-      "HpnicfDot11ServicePolicyIDType",
       "HpnicfDot11TunnelSecSchemType",
-      "hpnicfDot11APElementIndex",
+      "HpnicfDot11RadioType2",
       "HpnicfDot11AuthenType",
-      "HpnicfDot11SecIEStatusType",
+      "HpnicfDot11ObjectIDType",
       "HpnicfDot11TruthValueCM",
+      "HpnicfDot11WorkMode",
       "HpnicfDot11CirMode",
-      "HpnicfDot11ChannelScopeType",
-      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11RadioType",
+      "HpnicfDot11SecIEStatusType",
       "HpnicfDot11SSIDEncryptModeType"
     ],
     "IF-MIB": [
@@ -33,28 +33,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
       "Counter64",
+      "MibIdentifier",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "iso",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "RowStatus",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "MacAddress",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "hpnicfDot11CFG": {
@@ -5372,8 +5372,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-CFG-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:12:09 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:32:28 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-CFG-MIB"

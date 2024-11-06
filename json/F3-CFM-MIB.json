@@ -5,30 +5,30 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
+      "VlanPriority",
       "CmPmBinAction",
       "PerfCounter64",
-      "AdminState",
-      "VlanPriority",
       "SecondaryState",
+      "AdminState",
       "OperationalState"
     ],
     "CM-ENTITY-MIB": [
-      "slotIndex",
       "shelfIndex",
+      "slotIndex",
       "neIndex"
     ],
     "CM-FACILITY-MIB": [
+      "cmEthernetNetPortIndex",
       "cmEthernetAccPortIndex",
-      "cmEthernetTrafficPortIndex",
-      "cmEthernetNetPortIndex"
+      "cmEthernetTrafficPortIndex"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepEntry",
-      "dot1agCfmMaNetEntry",
-      "Dot1agCfmMepId",
-      "dot1agCfmMaCompEntry",
-      "dot1agCfmMaIndex",
       "dot1agCfmMdIndex",
+      "dot1agCfmMaCompEntry",
+      "dot1agCfmMaNetEntry",
+      "dot1agCfmMaIndex",
+      "Dot1agCfmMepId",
+      "dot1agCfmMepEntry",
       "Dot1agCfmMDLevel",
       "dot1agCfmMepIdentifier"
     ],
@@ -41,29 +41,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
       "Counter64",
-      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
       "Bits",
-      "Gauge32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "VariablePointer",
-      "MacAddress",
-      "TruthValue",
-      "StorageType",
       "DisplayString",
-      "RowStatus"
+      "MacAddress",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "StorageType"
     ]
   },
   "f3CfmMIB": {
@@ -2033,8 +2033,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CFM-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:06:43 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:27:34 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "F3-CFM-MIB"

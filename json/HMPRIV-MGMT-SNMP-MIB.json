@@ -12,8 +12,8 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "RMON2-MIB": [
       "TimeFilter"
@@ -26,27 +26,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "TimeTicks",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
       "OBJECT-IDENTITY",
       "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "Counter64",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "enterprises"
+      "enterprises",
+      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue",
       "MacAddress"
     ]
   },
@@ -15950,8 +15950,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/hmpriv.mib",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:10:27 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:31:16 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HMPRIV-MGMT-SNMP-MIB"

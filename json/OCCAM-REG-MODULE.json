@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Unsigned32",
-      "Bits",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "snmpModules",
-      "OBJECT-TYPE",
-      "mib-2",
       "IpAddress",
-      "NOTIFICATION-TYPE",
       "TimeTicks",
       "MODULE-IDENTITY",
+      "iso",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "iso"
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Integer32",
+      "snmpModules",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -470,8 +470,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/OCCAM-REG-MODULE",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:07:22 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:28:11 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "OCCAM-REG-MODULE"

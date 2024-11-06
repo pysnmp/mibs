@@ -2,12 +2,12 @@
   "imports": {
     "class": "imports",
     "FC-MGMT-MIB": [
-      "fcmSwitchIndex",
       "fcmInstanceIndex",
-      "FcNameIdOrZero",
       "FcPortType",
+      "fcmSwitchIndex",
       "FcDomainIdOrZero",
-      "FcAddressIdOrZero"
+      "FcAddressIdOrZero",
+      "FcNameIdOrZero"
     ],
     "NETWORK-SERVICES-MIB": [
       "URLString"
@@ -16,32 +16,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "IpAddress",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
       "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "mib-2",
-      "Unsigned32"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
@@ -2072,8 +2072,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-FABRIC-CONFIG-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Mon Oct 28 02:16:34 2024",
-      "On host fv-az1014-591 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Nov  6 08:37:12 2024",
+      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "T11-FC-FABRIC-CONFIG-SERVER-MIB"
