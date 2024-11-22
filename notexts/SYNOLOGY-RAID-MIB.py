@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module SYNOLOGY-RAID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/synology/SYNOLOGY-RAID-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:35:51 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 12:00:40 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, Counter32, enterprises, Gauge32, TimeTicks, Bits, ModuleIdentity, IpAddress, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "enterprises", "Gauge32", "TimeTicks", "Bits", "ModuleIdentity", "IpAddress", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "Integer32", "ObjectIdentity")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, enterprises, IpAddress, MibIdentifier, Counter32, ModuleIdentity, ObjectIdentity, TimeTicks, Bits, NotificationType, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "enterprises", "IpAddress", "MibIdentifier", "Counter32", "ModuleIdentity", "ObjectIdentity", "TimeTicks", "Bits", "NotificationType", "iso", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 synoRaid = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 3))
 synoRaid.setRevisions(('2013-09-11 00:00',))
@@ -40,4 +40,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 raidGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 3, 2, 2, 1)).setObjects(("SYNOLOGY-RAID-MIB", "raidName"), ("SYNOLOGY-RAID-MIB", "raidStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     raidGroup = raidGroup.setStatus('current')
-mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidIndex=raidIndex, raidName=raidName, raidCompliance=raidCompliance, raidGroup=raidGroup, raidCompliances=raidCompliances, raidGroups=raidGroups, PYSNMP_MODULE_ID=synoRaid, raidTable=raidTable, raidEntry=raidEntry, raidConformance=raidConformance, raidStatus=raidStatus, synoRaid=synoRaid, raidTotalSize=raidTotalSize, raidFreeSize=raidFreeSize, synology=synology)
+mibBuilder.exportSymbols("SYNOLOGY-RAID-MIB", raidTable=raidTable, raidCompliance=raidCompliance, PYSNMP_MODULE_ID=synoRaid, raidName=raidName, raidFreeSize=raidFreeSize, synology=synology, raidEntry=raidEntry, raidConformance=raidConformance, raidGroup=raidGroup, raidTotalSize=raidTotalSize, raidCompliances=raidCompliances, raidStatus=raidStatus, raidGroups=raidGroups, raidIndex=raidIndex, synoRaid=synoRaid)

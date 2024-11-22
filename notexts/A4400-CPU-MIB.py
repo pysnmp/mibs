@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module A4400-CPU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/A4400-CPU-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:26:55 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:51:49 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter32, Bits, Unsigned32, Counter64, TimeTicks, NotificationType, iso, Integer32, ObjectIdentity, ModuleIdentity, enterprises, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "Unsigned32", "Counter64", "TimeTicks", "NotificationType", "iso", "Integer32", "ObjectIdentity", "ModuleIdentity", "enterprises", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+NotificationType, Integer32, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, Gauge32, Unsigned32, TimeTicks, IpAddress, Bits, MibIdentifier, enterprises, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "Gauge32", "Unsigned32", "TimeTicks", "IpAddress", "Bits", "MibIdentifier", "enterprises", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 alcatel = MibIdentifier((1, 3, 6, 1, 4, 1, 637))
 abs = MibIdentifier((1, 3, 6, 1, 4, 1, 637, 64))
 a4400 = MibIdentifier((1, 3, 6, 1, 4, 1, 637, 64, 4400))
@@ -22,4 +22,4 @@ pbxMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 637, 64, 4400, 1, 0), Integer32()).
 if mibBuilder.loadTexts: pbxMibVersion.setStatus('mandatory')
 pbxState = MibScalar((1, 3, 6, 1, 4, 1, 637, 64, 4400, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("indeterminate", 0), ("critical", 1), ("major", 2), ("minor", 3), ("warning", 4), ("normal", 5)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: pbxState.setStatus('mandatory')
-mibBuilder.exportSymbols("A4400-CPU-MIB", pbxMibVersion=pbxMibVersion, a4400=a4400, abs=abs, linux=linux, pbxState=pbxState, alcatel=alcatel, pbxAgent=pbxAgent, a4400CPU=a4400CPU, unknown=unknown)
+mibBuilder.exportSymbols("A4400-CPU-MIB", a4400=a4400, pbxMibVersion=pbxMibVersion, alcatel=alcatel, a4400CPU=a4400CPU, abs=abs, pbxState=pbxState, pbxAgent=pbxAgent, linux=linux, unknown=unknown)

@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
-      "enterprises",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "iso",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpeNetworking": {
@@ -33,8 +33,76 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2022-01-31 00:00",
+        "description": "Added new Distributed Services Module MIB"
+      },
+      {
+        "revision": "2021-11-23 00:00",
+        "description": "Added new INTERFACE-MIB module"
+      },
+      {
+        "revision": "2021-11-17 00:00",
+        "description": "Updated with 9300 SKU information"
+      },
+      {
+        "revision": "2021-11-12 00:00",
+        "description": "Added new ProviderBridge-MIB info"
+      },
+      {
+        "revision": "2021-10-22 00:00",
+        "description": "Updated with new 8325 PSU information"
+      },
+      {
+        "revision": "2021-08-27 00:00",
+        "description": "Updated with 10000 SKU information"
+      },
+      {
+        "revision": "2021-08-26 00:00",
+        "description": "Added 6400 Rev C chassis OID information."
+      },
+      {
+        "revision": "2021-06-16 00:00",
+        "description": "Updated with new SKU OIDs for Indy program"
+      },
+      {
+        "revision": "2021-05-26 00:00",
+        "description": "Added MAC-NOTIFY MIB module."
+      },
+      {
+        "revision": "2021-04-28 00:00",
+        "description": "Updated with 6000 switch information."
+      },
+      {
+        "revision": "2021-02-24 00:00",
+        "description": "Updated with 6300M DC PSU OID information."
+      },
+      {
+        "revision": "2020-11-20 00:00",
+        "description": "Added PORTVLAN MIB module."
+      },
+      {
+        "revision": "2020-11-03 00:00",
+        "description": "Updated with 4100i PSU OID information."
+      },
+      {
+        "revision": "2020-09-21 00:00",
+        "description": "Updated with 6100 PSU OID information."
+      },
+      {
+        "revision": "2020-08-14 00:00",
+        "description": "Updated with fixed 8360 OID information."
+      },
+      {
+        "revision": "2020-06-12 00:00",
+        "description": "Updated with fixed PSU OID information."
+      },
+      {
         "revision": "2020-04-13 00:00",
         "description": "Updated with JL762A new Product OID information."
+      },
+      {
+        "revision": "2020-03-17 00:00",
+        "description": "Added 8360 Product SKUs OID information."
       },
       {
         "revision": "2020-01-30 00:00",
@@ -47,6 +115,10 @@
       {
         "revision": "2020-01-06 00:00",
         "description": "Updated with 6400 switch information."
+      },
+      {
+        "revision": "2019-11-21 00:00",
+        "description": "Updated with 6100 switch information."
       },
       {
         "revision": "2019-09-26 00:00",
@@ -253,6 +325,30 @@
     "class": "objectidentity",
     "status": "current"
   },
+  "arubaWiredSwitchR8S89A": {
+    "name": "arubaWiredSwitchR8S89A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8S90A": {
+    "name": "arubaWiredSwitchR8S90A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.117",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8S91A": {
+    "name": "arubaWiredSwitchR8S91A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.118",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8S92A": {
+    "name": "arubaWiredSwitchR8S92A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.119",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "arubaWiredSwitchR0X24A": {
     "name": "arubaWiredSwitchR0X24A",
     "oid": "1.3.6.1.4.1.47196.4.1.1.1.150",
@@ -262,6 +358,78 @@
   "arubaWiredSwitchR0X25A": {
     "name": "arubaWiredSwitchR0X25A",
     "oid": "1.3.6.1.4.1.47196.4.1.1.1.151",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR0X24C": {
+    "name": "arubaWiredSwitchR0X24C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.160",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR0X25C": {
+    "name": "arubaWiredSwitchR0X25C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.161",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL675A": {
+    "name": "arubaWiredSwitchJL675A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.250",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL676A": {
+    "name": "arubaWiredSwitchJL676A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.251",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL677A": {
+    "name": "arubaWiredSwitchJL677A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.252",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL678A": {
+    "name": "arubaWiredSwitchJL678A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.253",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL679A": {
+    "name": "arubaWiredSwitchJL679A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.254",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8N85A": {
+    "name": "arubaWiredSwitchR8N85A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.270",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8N86A": {
+    "name": "arubaWiredSwitchR8N86A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.271",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8N87A": {
+    "name": "arubaWiredSwitchR8N87A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.272",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8N88A": {
+    "name": "arubaWiredSwitchR8N88A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.273",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8N89A": {
+    "name": "arubaWiredSwitchR8N89A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.274",
     "class": "objectidentity",
     "status": "current"
   },
@@ -292,6 +460,102 @@
   "arubaWiredSwitchJL728A": {
     "name": "arubaWiredSwitchJL728A",
     "oid": "1.3.6.1.4.1.47196.4.1.1.1.304",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL717A": {
+    "name": "arubaWiredSwitchJL717A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.400",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL718A": {
+    "name": "arubaWiredSwitchJL718A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.401",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL719A": {
+    "name": "arubaWiredSwitchJL719A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.402",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL720A": {
+    "name": "arubaWiredSwitchJL720A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.403",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL721A": {
+    "name": "arubaWiredSwitchJL721A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.404",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL722A": {
+    "name": "arubaWiredSwitchJL722A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.405",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL717C": {
+    "name": "arubaWiredSwitchJL717C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.420",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL718C": {
+    "name": "arubaWiredSwitchJL718C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.421",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL719C": {
+    "name": "arubaWiredSwitchJL719C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.422",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL720C": {
+    "name": "arubaWiredSwitchJL720C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.423",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL721C": {
+    "name": "arubaWiredSwitchJL721C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.424",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL722C": {
+    "name": "arubaWiredSwitchJL722C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.425",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL817A": {
+    "name": "arubaWiredSwitchJL817A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.450",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchJL818A": {
+    "name": "arubaWiredSwitchJL818A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.451",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8S96A": {
+    "name": "arubaWiredSwitchR8S96A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.600",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchR8Z96A": {
+    "name": "arubaWiredSwitchR8Z96A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.1.700",
     "class": "objectidentity",
     "status": "current"
   },
@@ -416,6 +680,42 @@
   "arubaWiredSwitch6400PowerSupplySlot": {
     "name": "arubaWiredSwitch6400PowerSupplySlot",
     "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch8360FanTraySlot": {
+    "name": "arubaWiredSwitch8360FanTraySlot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch8360PowerSupplySlot": {
+    "name": "arubaWiredSwitch8360PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch10000FanTraySlot": {
+    "name": "arubaWiredSwitch10000FanTraySlot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch10000PowerSupplySlot": {
+    "name": "arubaWiredSwitch10000PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch9300FanTraySlot": {
+    "name": "arubaWiredSwitch9300FanTraySlot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch9300PowerSupplySlot": {
+    "name": "arubaWiredSwitch9300PowerSupplySlot",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.2.22",
     "class": "objectidentity",
     "status": "current"
   },
@@ -832,6 +1132,30 @@
     "class": "objectidentity",
     "status": "current"
   },
+  "arubaWiredSwitchModuleR8S89A": {
+    "name": "arubaWiredSwitchModuleR8S89A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.73",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8S90A": {
+    "name": "arubaWiredSwitchModuleR8S90A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8S91A": {
+    "name": "arubaWiredSwitchModuleR8S91A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8S92A": {
+    "name": "arubaWiredSwitchModuleR8S92A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "arubaWiredSwitchModuleJL724A": {
     "name": "arubaWiredSwitchModuleJL724A",
     "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.90",
@@ -862,6 +1186,36 @@
     "class": "objectidentity",
     "status": "current"
   },
+  "arubaWiredSwitchModuleR8N85A": {
+    "name": "arubaWiredSwitchModuleR8N85A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.98",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8N86A": {
+    "name": "arubaWiredSwitchModuleR8N86A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.99",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8N87A": {
+    "name": "arubaWiredSwitchModuleR8N87A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8N88A": {
+    "name": "arubaWiredSwitchModuleR8N88A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.101",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8N89A": {
+    "name": "arubaWiredSwitchModuleR8N89A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.102",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "arubaWiredSwitchR0X38B": {
     "name": "arubaWiredSwitchR0X38B",
     "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.103",
@@ -877,6 +1231,294 @@
   "arubaWiredSwitchR0X40B": {
     "name": "arubaWiredSwitchR0X40B",
     "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.105",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL675A": {
+    "name": "arubaWiredSwitchModuleJL675A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.106",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL676A": {
+    "name": "arubaWiredSwitchModuleJL676A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.107",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL677A": {
+    "name": "arubaWiredSwitchModuleJL677A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL678A": {
+    "name": "arubaWiredSwitchModuleJL678A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.109",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL679A": {
+    "name": "arubaWiredSwitchModuleJL679A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.110",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchNonPoEPowerSupplyUnit": {
+    "name": "arubaWiredSwitchNonPoEPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.111",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPoEPowerSupplyUnit": {
+    "name": "arubaWiredSwitchPoEPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.112",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL717A": {
+    "name": "arubaWiredSwitchModuleJL717A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.113",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL718A": {
+    "name": "arubaWiredSwitchModuleJL718A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.114",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL719A": {
+    "name": "arubaWiredSwitchModuleJL719A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.115",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL720A": {
+    "name": "arubaWiredSwitchModuleJL720A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL721A": {
+    "name": "arubaWiredSwitchModuleJL721A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.117",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL722A": {
+    "name": "arubaWiredSwitchModuleJL722A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.118",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL600A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL600A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL601A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL601A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.120",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL712A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL712A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.121",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL713A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL713A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.122",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchFanTrayJL714A": {
+    "name": "arubaWiredSwitchFanTrayJL714A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.123",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchFanTrayJL715A": {
+    "name": "arubaWiredSwitchFanTrayJL715A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.124",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch36WPowerSupplyUnit": {
+    "name": "arubaWiredSwitch36WPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.125",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch65WPowerSupplyUnit": {
+    "name": "arubaWiredSwitch65WPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.126",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch165WPowerSupplyUnit": {
+    "name": "arubaWiredSwitch165WPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.127",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch500WPowerSupplyUnit": {
+    "name": "arubaWiredSwitch500WPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.128",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL817A": {
+    "name": "arubaWiredSwitchModuleJL817A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.129",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL818A": {
+    "name": "arubaWiredSwitchModuleJL818A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.130",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch300WPowerSupplyUnit": {
+    "name": "arubaWiredSwitch300WPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.131",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchExternalPowerSupplyUnit": {
+    "name": "arubaWiredSwitchExternalPowerSupplyUnit",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.132",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL757A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL757A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.133",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL758A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL758A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.134",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitR8R51A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitR8R51A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.135",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitR8R52A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitR8R52A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.136",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchFanTrayR8R53A": {
+    "name": "arubaWiredSwitchFanTrayR8R53A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.137",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchFanTrayR8R54A": {
+    "name": "arubaWiredSwitchFanTrayR8R54A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.138",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8S96A": {
+    "name": "arubaWiredSwitchModuleR8S96A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.139",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL861A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL861A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.140",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitJL862A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitJL862A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.141",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL717C": {
+    "name": "arubaWiredSwitchModuleJL717C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.142",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL718C": {
+    "name": "arubaWiredSwitchModuleJL718C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.143",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL719C": {
+    "name": "arubaWiredSwitchModuleJL719C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.144",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL720C": {
+    "name": "arubaWiredSwitchModuleJL720C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.145",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL721C": {
+    "name": "arubaWiredSwitchModuleJL721C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.146",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleJL722C": {
+    "name": "arubaWiredSwitchModuleJL722C",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.147",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchModuleR8Z96A": {
+    "name": "arubaWiredSwitchModuleR8Z96A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.148",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitR8Z97A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitR8Z97A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.149",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchPowerSupplyUnitR8Z98A": {
+    "name": "arubaWiredSwitchPowerSupplyUnitR8Z98A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.150",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchFanTrayR8Z99A": {
+    "name": "arubaWiredSwitchFanTrayR8Z99A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.151",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitchFanTrayR9A00A": {
+    "name": "arubaWiredSwitchFanTrayR9A00A",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.152",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "arubaWiredSwitch400GbMaxPort": {
+    "name": "arubaWiredSwitch400GbMaxPort",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.2.3.155",
     "class": "objectidentity",
     "status": "current"
   },
@@ -945,11 +1587,71 @@
     "oid": "1.3.6.1.4.1.47196.4.1.1.3.13",
     "class": "objectidentity"
   },
+  "arubaWiredMdnsMIB": {
+    "name": "arubaWiredMdnsMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.14",
+    "class": "objectidentity"
+  },
+  "arubaWiredVsfv2MIB": {
+    "name": "arubaWiredVsfv2MIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.15",
+    "class": "objectidentity"
+  },
+  "arubaWiredAAAMIB": {
+    "name": "arubaWiredAAAMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.16",
+    "class": "objectidentity"
+  },
+  "arubaWiredPortAccessMIB": {
+    "name": "arubaWiredPortAccessMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.17",
+    "class": "objectidentity"
+  },
+  "arubaWiredPortVlanMIB": {
+    "name": "arubaWiredPortVlanMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.18",
+    "class": "objectidentity"
+  },
+  "arubaWiredMacNotifyMIB": {
+    "name": "arubaWiredMacNotifyMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.19",
+    "class": "objectidentity"
+  },
+  "arubaWiredConfigMIB": {
+    "name": "arubaWiredConfigMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.20",
+    "class": "objectidentity"
+  },
+  "arubaWiredPortSecurityMIB": {
+    "name": "arubaWiredPortSecurityMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.21",
+    "class": "objectidentity"
+  },
+  "arubaWiredSystemInfoMIB": {
+    "name": "arubaWiredSystemInfoMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.22",
+    "class": "objectidentity"
+  },
+  "arubawiredProviderBridgeMIB": {
+    "name": "arubawiredProviderBridgeMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.23",
+    "class": "objectidentity"
+  },
+  "arubaWiredInterfaceMIB": {
+    "name": "arubaWiredInterfaceMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.24",
+    "class": "objectidentity"
+  },
+  "arubaWiredDistServicesMIB": {
+    "name": "arubaWiredDistServicesMIB",
+    "oid": "1.3.6.1.4.1.47196.4.1.1.3.25",
+    "class": "objectidentity"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/ARUBAWIRED-NETWORKING-OID",
-      "Produced by pysmi-1.1.12 at Wed Nov  6 08:32:29 2024",
-      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 11:57:15 2024",
+      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ARUBAWIRED-NETWORKING-OID"

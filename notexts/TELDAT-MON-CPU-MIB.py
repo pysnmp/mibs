@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TELDAT-MON-CPU-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-CPU-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:35:55 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 12:00:44 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Bits, iso, NotificationType, Counter32, Integer32, ObjectIdentity, IpAddress, ModuleIdentity, Unsigned32, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Bits", "iso", "NotificationType", "Counter32", "Integer32", "ObjectIdentity", "IpAddress", "ModuleIdentity", "Unsigned32", "Counter64", "TimeTicks")
+Bits, IpAddress, Integer32, TimeTicks, ObjectIdentity, iso, Counter64, Counter32, ModuleIdentity, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "Integer32", "TimeTicks", "ObjectIdentity", "iso", "Counter64", "Counter32", "ModuleIdentity", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "NotificationType")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 telProdNpMonitSistema, = mibBuilder.importSymbols("TELDAT-SW-STRUCTURE-MIB", "telProdNpMonitSistema")
 teldatCPUMonMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2))
@@ -26,4 +26,4 @@ teldatCPUBusy1min = MibScalar((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2, 1, 1, 2), 
 if mibBuilder.loadTexts: teldatCPUBusy1min.setStatus('mandatory')
 teldatCPUBusy5min = MibScalar((1, 3, 6, 1, 4, 1, 2007, 4, 1, 2, 1, 2, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: teldatCPUBusy5min.setStatus('mandatory')
-mibBuilder.exportSymbols("TELDAT-MON-CPU-MIB", teldatCPUMonMIB=teldatCPUMonMIB, teldatCPUMonMIBObjects=teldatCPUMonMIBObjects, teldatCPUCompliances=teldatCPUCompliances, teldatCPUBusy5min=teldatCPUBusy5min, teldatCPUMonMIBNotifPrefix=teldatCPUMonMIBNotifPrefix, teldatCPUMonMIBNotifs=teldatCPUMonMIBNotifs, teldatCPUBusyGroup=teldatCPUBusyGroup, teldatCPUBusy5sec=teldatCPUBusy5sec, teldatCPUMonMIBConformance=teldatCPUMonMIBConformance, teldatCPUGroups=teldatCPUGroups, teldatCPUBusy1min=teldatCPUBusy1min)
+mibBuilder.exportSymbols("TELDAT-MON-CPU-MIB", teldatCPUBusyGroup=teldatCPUBusyGroup, teldatCPUBusy5sec=teldatCPUBusy5sec, teldatCPUMonMIBObjects=teldatCPUMonMIBObjects, teldatCPUGroups=teldatCPUGroups, teldatCPUBusy1min=teldatCPUBusy1min, teldatCPUMonMIB=teldatCPUMonMIB, teldatCPUMonMIBConformance=teldatCPUMonMIBConformance, teldatCPUBusy5min=teldatCPUBusy5min, teldatCPUMonMIBNotifPrefix=teldatCPUMonMIBNotifPrefix, teldatCPUCompliances=teldatCPUCompliances, teldatCPUMonMIBNotifs=teldatCPUMonMIBNotifs)

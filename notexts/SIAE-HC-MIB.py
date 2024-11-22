@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SIAE-HC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-HC-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:35:34 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 12:00:23 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibIdentifier, Unsigned32, Counter32, ModuleIdentity, NotificationType, Integer32, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "Unsigned32", "Counter32", "ModuleIdentity", "NotificationType", "Integer32", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "Bits", "iso")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, IpAddress, Gauge32, Integer32, Bits, TimeTicks, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Counter64, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "Gauge32", "Integer32", "Bits", "TimeTicks", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Counter64", "Unsigned32", "ModuleIdentity")
+DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
 headerCompression = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 79))
 headerCompression.setRevisions(('2014-10-07 00:00', '2014-03-31 00:00',))
 if mibBuilder.loadTexts: headerCompression.setLastUpdated('201410070000Z')
@@ -34,4 +34,4 @@ headerCompressionTagEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2
 if mibBuilder.loadTexts: headerCompressionTagEnable.setStatus('current')
 headerCompressionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
 if mibBuilder.loadTexts: headerCompressionRowStatus.setStatus('current')
-mibBuilder.exportSymbols("SIAE-HC-MIB", headerCompressionTable=headerCompressionTable, PYSNMP_MODULE_ID=headerCompression, headerCompressionRowStatus=headerCompressionRowStatus, headerCompressionAdminStatus=headerCompressionAdminStatus, headerCompressionEntry=headerCompressionEntry, headerCompressionParsingMode=headerCompressionParsingMode, headerCompressionTagEnable=headerCompressionTagEnable, headerCompressionIndex=headerCompressionIndex, headerCompressionContextDepth=headerCompressionContextDepth, headerCompression=headerCompression, headerCompressionMibVersion=headerCompressionMibVersion)
+mibBuilder.exportSymbols("SIAE-HC-MIB", headerCompressionEntry=headerCompressionEntry, headerCompression=headerCompression, headerCompressionTable=headerCompressionTable, headerCompressionIndex=headerCompressionIndex, PYSNMP_MODULE_ID=headerCompression, headerCompressionTagEnable=headerCompressionTagEnable, headerCompressionContextDepth=headerCompressionContextDepth, headerCompressionRowStatus=headerCompressionRowStatus, headerCompressionAdminStatus=headerCompressionAdminStatus, headerCompressionMibVersion=headerCompressionMibVersion, headerCompressionParsingMode=headerCompressionParsingMode)

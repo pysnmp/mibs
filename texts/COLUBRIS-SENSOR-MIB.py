@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module COLUBRIS-SENSOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SENSOR-MIB.my
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:31:14 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:56:06 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Bits, iso, Integer32, Counter64, ObjectIdentity, Gauge32, ModuleIdentity, Unsigned32, NotificationType, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "iso", "Integer32", "Counter64", "ObjectIdentity", "Gauge32", "ModuleIdentity", "Unsigned32", "NotificationType", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Counter32, iso, ObjectIdentity, MibIdentifier, IpAddress, ModuleIdentity, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, NotificationType, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "ObjectIdentity", "MibIdentifier", "IpAddress", "ModuleIdentity", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "NotificationType", "Integer32", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubrisSensorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 31))
 if mibBuilder.loadTexts: colubrisSensorMIB.setLastUpdated('200606010000Z')
 if mibBuilder.loadTexts: colubrisSensorMIB.setOrganization('Colubris Networks, Inc.')
@@ -40,4 +40,4 @@ colubrisSensorStatusMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 31, 2, 2,
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     colubrisSensorStatusMIBGroup = colubrisSensorStatusMIBGroup.setStatus('current')
 if mibBuilder.loadTexts: colubrisSensorStatusMIBGroup.setDescription('A collection of objects for Sensor status.')
-mibBuilder.exportSymbols("COLUBRIS-SENSOR-MIB", coSensorOperMode=coSensorOperMode, coSensorOperState=coSensorOperState, colubrisSensorMIBCompliances=colubrisSensorMIBCompliances, colubrisSensorMIBCompliance=colubrisSensorMIBCompliance, PYSNMP_MODULE_ID=colubrisSensorMIB, colubrisSensorStatusMIBGroup=colubrisSensorStatusMIBGroup, coSensorStatusGroup=coSensorStatusGroup, colubrisSensorMIBGroups=colubrisSensorMIBGroups, colubrisSensorMIB=colubrisSensorMIB, colubrisSensorMIBObjects=colubrisSensorMIBObjects, coSensorConfigMode=coSensorConfigMode, colubrisSensorMIBConformance=colubrisSensorMIBConformance)
+mibBuilder.exportSymbols("COLUBRIS-SENSOR-MIB", colubrisSensorStatusMIBGroup=colubrisSensorStatusMIBGroup, coSensorOperState=coSensorOperState, PYSNMP_MODULE_ID=colubrisSensorMIB, colubrisSensorMIBConformance=colubrisSensorMIBConformance, colubrisSensorMIBCompliance=colubrisSensorMIBCompliance, coSensorConfigMode=coSensorConfigMode, colubrisSensorMIBCompliances=colubrisSensorMIBCompliances, coSensorOperMode=coSensorOperMode, coSensorStatusGroup=coSensorStatusGroup, colubrisSensorMIBObjects=colubrisSensorMIBObjects, colubrisSensorMIBGroups=colubrisSensorMIBGroups, colubrisSensorMIB=colubrisSensorMIB)

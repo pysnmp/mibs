@@ -4,32 +4,32 @@
     "HPN-ICF-DOT11-REF-MIB": [
       "HpnicfDot11ObjectIDType",
       "HpnicfDot11QosAcType",
-      "hpnicfDot11",
-      "HpnicfDot11RadioScopeType"
+      "HpnicfDot11RadioScopeType",
+      "hpnicfDot11"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
+      "MibIdentifier",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-IDENTITY"
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "iso",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfDot11WLANEXT": {
@@ -306,8 +306,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-WLANEXT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Nov  6 08:32:29 2024",
-      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 11:57:15 2024",
+      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-DOT11-WLANEXT-MIB"

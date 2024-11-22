@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremeLAC",
+      "WirelessRemoteConnectBindingType",
       "ClientAuthType",
+      "extremeLAC",
+      "WPACipherSet",
       "WPAKeyMgmtSet",
       "extremeAgent",
-      "WirelessRemoteConnectBindingType",
       "ExtremeDeviceId",
-      "extremeAP",
-      "WPACipherSet",
-      "extremeV2Traps"
+      "extremeV2Traps",
+      "extremeAP"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
       "Counter32",
+      "iso",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "TimeTicks",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
       "Integer32",
       "Counter64",
-      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Unsigned32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeWireless": {
@@ -11261,8 +11261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Wed Nov  6 08:30:34 2024",
-      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 11:55:26 2024",
+      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "EXTREME-WIRELESS-MIB"

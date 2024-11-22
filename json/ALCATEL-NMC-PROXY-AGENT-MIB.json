@@ -5,26 +5,26 @@
       "openViewSeverity"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
       "Unsigned32",
-      "enterprises",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "TRAP-TYPE",
       "Gauge32",
+      "enterprises",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Integer32",
+      "Bits",
+      "Counter32",
       "iso",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TRAP-TYPE",
-      "TimeTicks",
-      "Bits"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -644,8 +644,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/ALCATEL-NMC-PROXY-AGENT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Nov  6 08:26:57 2024",
-      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 11:51:51 2024",
+      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-NMC-PROXY-AGENT-MIB"

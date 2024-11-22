@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SYSLOG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/SYSLOG
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:30:21 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:55:12 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 radioConfig, = mibBuilder.importSymbols("ExaltComProducts", "radioConfig")
-SyslogEnableT, SyslogFilterSelectT = mibBuilder.importSymbols("ExaltComm", "SyslogEnableT", "SyslogFilterSelectT")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, Counter64, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, NotificationType, Unsigned32, iso, Integer32, TimeTicks, ModuleIdentity, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter64", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "NotificationType", "Unsigned32", "iso", "Integer32", "TimeTicks", "ModuleIdentity", "Counter32", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+SyslogFilterSelectT, SyslogEnableT = mibBuilder.importSymbols("ExaltComm", "SyslogFilterSelectT", "SyslogEnableT")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Bits, iso, Counter64, Integer32, TimeTicks, NotificationType, Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, IpAddress, ObjectIdentity, ModuleIdentity, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "Counter64", "Integer32", "TimeTicks", "NotificationType", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "IpAddress", "ObjectIdentity", "ModuleIdentity", "Unsigned32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 advSystemConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5))
 if mibBuilder.loadTexts: advSystemConfig.setStatus('current')
 if mibBuilder.loadTexts: advSystemConfig.setDescription('This is the device specific advanced configuration section.')
@@ -31,4 +31,4 @@ if mibBuilder.loadTexts: syslogFilterSelect.setDescription('logging filter selec
 commitSyslogSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 6, 1000), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitSyslogSettings.setStatus('current')
 if mibBuilder.loadTexts: commitSyslogSettings.setDescription('This command allows saving or clear the Syslog configuration.\n                            Option strings to be written are: save, clear, correspondingly saving changes to\n                            configuration to the persistent storage or clearing unsaved changes.')
-mibBuilder.exportSymbols("SYSLOG", syslogFilterSelect=syslogFilterSelect, syslogCfg=syslogCfg, advSystemConfig=advSystemConfig, commitSyslogSettings=commitSyslogSettings, syslogEnable=syslogEnable, syslogRemoteIpAddr=syslogRemoteIpAddr)
+mibBuilder.exportSymbols("SYSLOG", syslogCfg=syslogCfg, syslogRemoteIpAddr=syslogRemoteIpAddr, advSystemConfig=advSystemConfig, syslogEnable=syslogEnable, commitSyslogSettings=commitSyslogSettings, syslogFilterSelect=syslogFilterSelect)

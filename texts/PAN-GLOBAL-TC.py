@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module PAN-GLOBAL-TC (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-GLOBAL-TC-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:34:14 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:59:04 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 panModules, = mibBuilder.importSymbols("PAN-GLOBAL-REG", "panModules")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter64, Unsigned32, NotificationType, Bits, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, IpAddress, Gauge32, TimeTicks, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "NotificationType", "Bits", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "IpAddress", "Gauge32", "TimeTicks", "MibIdentifier", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ModuleIdentity, NotificationType, Gauge32, TimeTicks, Integer32, iso, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Unsigned32, IpAddress, ObjectIdentity, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "Gauge32", "TimeTicks", "Integer32", "iso", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Unsigned32", "IpAddress", "ObjectIdentity", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 panGlobalTcModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 25461, 1, 1, 2))
 panGlobalTcModule.setRevisions(('2011-02-09 16:10',))
 
@@ -32,4 +32,4 @@ class TcChassisType(TextualConvention, OctetString):
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 64)
 
-mibBuilder.exportSymbols("PAN-GLOBAL-TC", TcChassisType=TcChassisType, TcAppaname=TcAppaname, panGlobalTcModule=panGlobalTcModule, PYSNMP_MODULE_ID=panGlobalTcModule)
+mibBuilder.exportSymbols("PAN-GLOBAL-TC", panGlobalTcModule=panGlobalTcModule, TcAppaname=TcAppaname, PYSNMP_MODULE_ID=panGlobalTcModule, TcChassisType=TcChassisType)

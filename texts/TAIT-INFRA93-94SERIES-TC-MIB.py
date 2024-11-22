@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TAIT-INFRA93-94SERIES-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-INFRA93-94SERIES-TC-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:35:54 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 12:00:44 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, ObjectIdentity, ModuleIdentity, NotificationType, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, IpAddress, Unsigned32, iso, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "ModuleIdentity", "NotificationType", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "IpAddress", "Unsigned32", "iso", "MibIdentifier", "Integer32")
+Bits, NotificationType, ObjectIdentity, MibIdentifier, Unsigned32, TimeTicks, Integer32, Counter32, iso, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "ObjectIdentity", "MibIdentifier", "Unsigned32", "TimeTicks", "Integer32", "Counter32", "iso", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 infra93_94MibModule, = mibBuilder.importSymbols("TAIT-INFRA93-94SERIES-COMMON-MIB", "infra93-94MibModule")
 infra93_94TC = ModuleIdentity((1, 3, 6, 1, 4, 1, 3570, 1, 1, 10, 1)).setLabel("infra93-94TC")
@@ -98,4 +98,4 @@ class OptionState(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
     namedValues = NamedValues(("disabled", 0), ("enabled", 1))
 
-mibBuilder.exportSymbols("TAIT-INFRA93-94SERIES-TC-MIB", TimingControlType=TimingControlType, GateState=GateState, AlarmState=AlarmState, CurrentmA=CurrentmA, infra93_94TC=infra93_94TC, FrequencyHz=FrequencyHz, BaseStationMode=BaseStationMode, Milliseconds=Milliseconds, PowerW=PowerW, VoltageV=VoltageV, ChannelGroupStatus=ChannelGroupStatus, PYSNMP_MODULE_ID=infra93_94TC, OptionState=OptionState, TransmitterStatus=TransmitterStatus, Condition=Condition)
+mibBuilder.exportSymbols("TAIT-INFRA93-94SERIES-TC-MIB", PowerW=PowerW, infra93_94TC=infra93_94TC, AlarmState=AlarmState, VoltageV=VoltageV, FrequencyHz=FrequencyHz, Milliseconds=Milliseconds, TransmitterStatus=TransmitterStatus, GateState=GateState, CurrentmA=CurrentmA, OptionState=OptionState, TimingControlType=TimingControlType, BaseStationMode=BaseStationMode, PYSNMP_MODULE_ID=infra93_94TC, ChannelGroupStatus=ChannelGroupStatus, Condition=Condition)

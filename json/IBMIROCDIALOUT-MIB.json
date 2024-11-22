@@ -9,41 +9,41 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "Counter64",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "enterprises",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "iso",
-      "TRAP-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY"
+      "Counter32",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
+      "enterprises",
+      "TRAP-TYPE"
     ],
     "SNMPv2-SMI-v1": [
-      "Integer32",
-      "Counter32",
-      "IpAddress",
       "Gauge32",
-      "TimeTicks"
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "SNMPv2-TC-v1": [
-      "RowStatus",
       "AutonomousType",
       "DisplayString",
+      "RowStatus",
+      "TestAndIncr",
       "TruthValue",
-      "PhysAddress",
-      "TestAndIncr"
+      "PhysAddress"
     ]
   },
   "ibmIROCroutingDialOut": {
@@ -313,8 +313,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBMIROCDIALOUT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Nov  6 08:32:25 2024",
-      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 11:57:16 2024",
+      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IBMIROCDIALOUT-MIB"

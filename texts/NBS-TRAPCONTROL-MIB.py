@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-TRAPCONTROL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-TRAPCONTROL-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:33:30 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:58:20 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Counter32, IpAddress, ObjectIdentity, NotificationType, Integer32, iso, ModuleIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, Unsigned32, MibIdentifier, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "ObjectIdentity", "NotificationType", "Integer32", "iso", "ModuleIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "Unsigned32", "MibIdentifier", "Counter64")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, Bits, ObjectIdentity, IpAddress, ModuleIdentity, TimeTicks, Gauge32, Counter64, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "Bits", "ObjectIdentity", "IpAddress", "ModuleIdentity", "TimeTicks", "Gauge32", "Counter64", "NotificationType", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsTrapControlMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 209))
 if mibBuilder.loadTexts: nbsTrapControlMib.setLastUpdated('201209260000Z')
 if mibBuilder.loadTexts: nbsTrapControlMib.setOrganization('NBS')
@@ -66,4 +66,4 @@ if mibBuilder.loadTexts: nbsTrapIfTrapsCaps.setDescription('Bitmask indicating w
 nbsTrapIfTrapsSelect = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 3), OctetString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsTrapIfTrapsSelect.setStatus('current')
 if mibBuilder.loadTexts: nbsTrapIfTrapsSelect.setDescription('Bitmask administrating which SNMP Notifications should be\n           sent for this interface.\n\n           Bit 0 is reserved.\n\n           Subsequent bits refer to the nbsTrapListTable.  Bit 1\n           corresponds to the first table entry, Bit 2 to the second\n           entry, and so on.\n\n           A bit is set (1) if that SNMP Notification should be\n           emitted for this interface, and cleared (0) if it should be\n           suppressed.\n\n           OCTET STRING bitmasks count the leftmost bit (MSB) as 0.')
-mibBuilder.exportSymbols("NBS-TRAPCONTROL-MIB", nbsTrapListGrp=nbsTrapListGrp, nbsTrapIfTable=nbsTrapIfTable, nbsTrapListTable=nbsTrapListTable, nbsTrapListTrapName=nbsTrapListTrapName, nbsTrapListTrapMib=nbsTrapListTrapMib, nbsTrapListTrapOID=nbsTrapListTrapOID, nbsTrapIfTableSize=nbsTrapIfTableSize, nbsTrapIfEntry=nbsTrapIfEntry, nbsTrapListEntry=nbsTrapListEntry, nbsTrapIfTrapsCaps=nbsTrapIfTrapsCaps, nbsTrapIfIndex=nbsTrapIfIndex, PYSNMP_MODULE_ID=nbsTrapControlMib, nbsTrapListIndex=nbsTrapListIndex, nbsTrapIfTrapsSelect=nbsTrapIfTrapsSelect, nbsTrapControlMib=nbsTrapControlMib, nbsTrapListTrapDescription=nbsTrapListTrapDescription, nbsTrapIfGrp=nbsTrapIfGrp, nbsTrapListTableSize=nbsTrapListTableSize)
+mibBuilder.exportSymbols("NBS-TRAPCONTROL-MIB", nbsTrapListTable=nbsTrapListTable, nbsTrapIfTrapsSelect=nbsTrapIfTrapsSelect, nbsTrapListGrp=nbsTrapListGrp, nbsTrapListIndex=nbsTrapListIndex, PYSNMP_MODULE_ID=nbsTrapControlMib, nbsTrapListTrapDescription=nbsTrapListTrapDescription, nbsTrapIfIndex=nbsTrapIfIndex, nbsTrapIfTrapsCaps=nbsTrapIfTrapsCaps, nbsTrapListTrapMib=nbsTrapListTrapMib, nbsTrapIfGrp=nbsTrapIfGrp, nbsTrapControlMib=nbsTrapControlMib, nbsTrapListEntry=nbsTrapListEntry, nbsTrapListTableSize=nbsTrapListTableSize, nbsTrapListTrapName=nbsTrapListTrapName, nbsTrapIfTable=nbsTrapIfTable, nbsTrapListTrapOID=nbsTrapListTrapOID, nbsTrapIfTableSize=nbsTrapIfTableSize, nbsTrapIfEntry=nbsTrapIfEntry)

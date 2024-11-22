@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SIAE-UNIT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-UNIT-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:35:34 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 12:00:23 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
 siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
 unitTypeUnequipped, = mibBuilder.importSymbols("SIAE-UNITYPE-MIB", "unitTypeUnequipped")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibIdentifier, Unsigned32, Counter32, ModuleIdentity, NotificationType, Integer32, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "Unsigned32", "Counter32", "ModuleIdentity", "NotificationType", "Integer32", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "Bits", "iso")
-RowStatus, TextualConvention, DisplayString, AutonomousType = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString", "AutonomousType")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, IpAddress, Gauge32, Integer32, Bits, TimeTicks, NotificationType, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, Counter64, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "IpAddress", "Gauge32", "Integer32", "Bits", "TimeTicks", "NotificationType", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "Counter64", "Unsigned32", "ModuleIdentity")
+AutonomousType, DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "DisplayString", "TextualConvention", "RowStatus")
 unit = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6))
 unit.setRevisions(('2014-02-03 00:00', '2013-04-16 00:00',))
 if mibBuilder.loadTexts: unit.setLastUpdated('201402030000Z')
@@ -62,4 +62,4 @@ unitHwMismatchAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 7)
 if mibBuilder.loadTexts: unitHwMismatchAlarmSeverityCode.setStatus('current')
 unitSwMismatchAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 8), AlarmSeverityCode().clone('majorTrapEnable')).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: unitSwMismatchAlarmSeverityCode.setStatus('current')
-mibBuilder.exportSymbols("SIAE-UNIT-MIB", unitRecord=unitRecord, unitFailAlarmSeverityCode=unitFailAlarmSeverityCode, unitPartNumber=unitPartNumber, unitParentPartNumber=unitParentPartNumber, unitParentSerialNumber=unitParentSerialNumber, unitSwMismatchAlarmSeverityCode=unitSwMismatchAlarmSeverityCode, unitNotRespondingAlarm=unitNotRespondingAlarm, unitLabel=unitLabel, unitHwMismatchAlarmSeverityCode=unitHwMismatchAlarmSeverityCode, unitSwMismatchAlarm=unitSwMismatchAlarm, unitMissingAlarmSeverityCode=unitMissingAlarmSeverityCode, PYSNMP_MODULE_ID=unit, unitMissingAlarm=unitMissingAlarm, unitActualType=unitActualType, unitNotRespondingAlarmSeverityCode=unitNotRespondingAlarmSeverityCode, unitExpectedType=unitExpectedType, unitHwEdition=unitHwEdition, unitTable=unitTable, unitRowStatus=unitRowStatus, unitHwMismatchAlarm=unitHwMismatchAlarm, unitFailAlarm=unitFailAlarm, unitMibVersion=unitMibVersion, unit=unit, unitId=unitId)
+mibBuilder.exportSymbols("SIAE-UNIT-MIB", unitRowStatus=unitRowStatus, unitMissingAlarmSeverityCode=unitMissingAlarmSeverityCode, unitFailAlarm=unitFailAlarm, unitActualType=unitActualType, unitExpectedType=unitExpectedType, unitRecord=unitRecord, unitNotRespondingAlarm=unitNotRespondingAlarm, PYSNMP_MODULE_ID=unit, unitPartNumber=unitPartNumber, unitMibVersion=unitMibVersion, unitFailAlarmSeverityCode=unitFailAlarmSeverityCode, unitNotRespondingAlarmSeverityCode=unitNotRespondingAlarmSeverityCode, unitHwMismatchAlarm=unitHwMismatchAlarm, unitMissingAlarm=unitMissingAlarm, unit=unit, unitHwEdition=unitHwEdition, unitId=unitId, unitSwMismatchAlarmSeverityCode=unitSwMismatchAlarmSeverityCode, unitParentPartNumber=unitParentPartNumber, unitSwMismatchAlarm=unitSwMismatchAlarm, unitParentSerialNumber=unitParentSerialNumber, unitTable=unitTable, unitLabel=unitLabel, unitHwMismatchAlarmSeverityCode=unitHwMismatchAlarmSeverityCode)

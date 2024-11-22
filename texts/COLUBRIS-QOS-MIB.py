@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module COLUBRIS-QOS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-QOS-MIB.my
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:31:14 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:56:06 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 colubrisMgmtV2, = mibBuilder.importSymbols("COLUBRIS-SMI", "colubrisMgmtV2")
 ColubrisPriorityQueue, = mibBuilder.importSymbols("COLUBRIS-TC", "ColubrisPriorityQueue")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-TimeTicks, iso, Bits, Integer32, Counter64, ObjectIdentity, Gauge32, ModuleIdentity, Unsigned32, NotificationType, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Bits", "Integer32", "Counter64", "ObjectIdentity", "Gauge32", "ModuleIdentity", "Unsigned32", "NotificationType", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Counter32, iso, ObjectIdentity, MibIdentifier, IpAddress, ModuleIdentity, Bits, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, NotificationType, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "ObjectIdentity", "MibIdentifier", "IpAddress", "ModuleIdentity", "Bits", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "NotificationType", "Integer32", "Gauge32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 colubrisQOS = ModuleIdentity((1, 3, 6, 1, 4, 1, 8744, 5, 13))
 if mibBuilder.loadTexts: colubrisQOS.setLastUpdated('200407200000Z')
 if mibBuilder.loadTexts: colubrisQOS.setOrganization('Colubris Networks, Inc.')
@@ -66,4 +66,4 @@ coQOSCountersGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8744, 5, 13, 1, 2, 1, 1)).se
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     coQOSCountersGroup = coQOSCountersGroup.setStatus('current')
 if mibBuilder.loadTexts: coQOSCountersGroup.setDescription('Provides the necessary support for QOS counters.')
-mibBuilder.exportSymbols("COLUBRIS-QOS-MIB", colubrisQOSMIBObjects=colubrisQOSMIBObjects, coQOSConformance=coQOSConformance, coQOSTransmittedFrameCount=coQOSTransmittedFrameCount, PYSNMP_MODULE_ID=colubrisQOS, coQOSMulticastReceivedFrameCount=coQOSMulticastReceivedFrameCount, coQOSRetryCount=coQOSRetryCount, coQOSFrameDuplicateCount=coQOSFrameDuplicateCount, coQOSReceivedFrameCount=coQOSReceivedFrameCount, coQOSGroups=coQOSGroups, coQOSCountersGroup=coQOSCountersGroup, coQOSCompliance=coQOSCompliance, coQOSCompliances=coQOSCompliances, coQOSQueueId=coQOSQueueId, coQOSStatistics=coQOSStatistics, colubrisQOS=colubrisQOS, coQOSCountersEntry=coQOSCountersEntry, coQOSMultipleRetryCount=coQOSMultipleRetryCount, coQOSCountersTable=coQOSCountersTable, coQOSFailedCount=coQOSFailedCount, coQOSMulticastTransmittedFrameCount=coQOSMulticastTransmittedFrameCount)
+mibBuilder.exportSymbols("COLUBRIS-QOS-MIB", coQOSCountersGroup=coQOSCountersGroup, coQOSGroups=coQOSGroups, coQOSConformance=coQOSConformance, coQOSCountersEntry=coQOSCountersEntry, colubrisQOS=colubrisQOS, coQOSStatistics=coQOSStatistics, coQOSFrameDuplicateCount=coQOSFrameDuplicateCount, coQOSMulticastReceivedFrameCount=coQOSMulticastReceivedFrameCount, coQOSTransmittedFrameCount=coQOSTransmittedFrameCount, coQOSRetryCount=coQOSRetryCount, coQOSQueueId=coQOSQueueId, PYSNMP_MODULE_ID=colubrisQOS, colubrisQOSMIBObjects=colubrisQOSMIBObjects, coQOSCompliances=coQOSCompliances, coQOSReceivedFrameCount=coQOSReceivedFrameCount, coQOSCompliance=coQOSCompliance, coQOSCountersTable=coQOSCountersTable, coQOSFailedCount=coQOSFailedCount, coQOSMultipleRetryCount=coQOSMultipleRetryCount, coQOSMulticastTransmittedFrameCount=coQOSMulticastTransmittedFrameCount)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SYSLOG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/exalt/SYSLOG
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:30:19 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:55:11 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 radioConfig, = mibBuilder.importSymbols("ExaltComProducts", "radioConfig")
 SyslogFilterSelectT, SyslogEnableT = mibBuilder.importSymbols("ExaltComm", "SyslogFilterSelectT", "SyslogEnableT")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, NotificationType, Bits, Integer32, TimeTicks, Unsigned32, iso, MibIdentifier, ModuleIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "NotificationType", "Bits", "Integer32", "TimeTicks", "Unsigned32", "iso", "MibIdentifier", "ModuleIdentity", "IpAddress")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+TimeTicks, Counter32, Gauge32, Bits, iso, Integer32, MibIdentifier, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, ObjectIdentity, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter32", "Gauge32", "Bits", "iso", "Integer32", "MibIdentifier", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "ObjectIdentity", "IpAddress", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 advSystemConfig = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5))
 if mibBuilder.loadTexts: advSystemConfig.setStatus('current')
 syslogCfg = ObjectIdentity((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 6))
@@ -25,4 +25,4 @@ syslogFilterSelect = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 6, 3), Sysl
 if mibBuilder.loadTexts: syslogFilterSelect.setStatus('current')
 commitSyslogSettings = MibScalar((1, 3, 6, 1, 4, 1, 25651, 1, 2, 3, 5, 6, 1000), DisplayString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: commitSyslogSettings.setStatus('current')
-mibBuilder.exportSymbols("SYSLOG", syslogEnable=syslogEnable, advSystemConfig=advSystemConfig, syslogFilterSelect=syslogFilterSelect, commitSyslogSettings=commitSyslogSettings, syslogCfg=syslogCfg, syslogRemoteIpAddr=syslogRemoteIpAddr)
+mibBuilder.exportSymbols("SYSLOG", syslogEnable=syslogEnable, syslogFilterSelect=syslogFilterSelect, syslogCfg=syslogCfg, syslogRemoteIpAddr=syslogRemoteIpAddr, advSystemConfig=advSystemConfig, commitSyslogSettings=commitSyslogSettings)

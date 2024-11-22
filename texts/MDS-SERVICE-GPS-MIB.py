@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MDS-SERVICE-GPS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SERVICE-GPS-MIB
-# Produced by pysmi-1.1.12 at Wed Nov  6 08:30:51 2024
-# On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 11:55:42 2024
+# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 mdsServices, = mibBuilder.importSymbols("MDS-ORBIT-SMI-MIB", "mdsServices")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-iso, Counter32, Unsigned32, MibIdentifier, Gauge32, ObjectIdentity, Integer32, IpAddress, ModuleIdentity, TimeTicks, Counter64, NotificationType, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "Unsigned32", "MibIdentifier", "Gauge32", "ObjectIdentity", "Integer32", "IpAddress", "ModuleIdentity", "TimeTicks", "Counter64", "NotificationType", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+MibIdentifier, Integer32, Gauge32, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, TimeTicks, ModuleIdentity, Counter32, Unsigned32, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Integer32", "Gauge32", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "TimeTicks", "ModuleIdentity", "Counter32", "Unsigned32", "NotificationType", "iso")
+TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 mdsGpsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 10, 3, 12))
 mdsGpsMIB.setRevisions(('2018-05-16 00:00', '2016-06-06 00:00', '2015-01-29 00:00',))
 
@@ -100,4 +100,4 @@ mGpsSourcesGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4130, 10, 3, 12, 3, 2, 2)).set
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mGpsSourcesGroup = mGpsSourcesGroup.setStatus('current')
 if mibBuilder.loadTexts: mGpsSourcesGroup.setDescription('A collection of objects providing information about\n        orbit GPS data sources.')
-mibBuilder.exportSymbols("MDS-SERVICE-GPS-MIB", mdsGpsMIB=mdsGpsMIB, mGpsStatusSpeed=mGpsStatusSpeed, mGpsSatellitesElevation=mGpsSatellitesElevation, mGpsSourcesTable=mGpsSourcesTable, mGpsSatellitesAzimuth=mGpsSatellitesAzimuth, mGpsStatus=mGpsStatus, mGpsCompliance=mGpsCompliance, mGpsStatusGroup=mGpsStatusGroup, mGpsStatusLongitude=mGpsStatusLongitude, mdsGpsMIBCompliances=mdsGpsMIBCompliances, mGpsStatusHeading=mGpsStatusHeading, mGpsSatellitesPrn=mGpsSatellitesPrn, mGpsStatusSatellitesUsed=mGpsStatusSatellitesUsed, mGpsSourceDevice=mGpsSourceDevice, mGpsStatusSatellitesVisible=mGpsStatusSatellitesVisible, mGpsSourceName=mGpsSourceName, mGpsSatellitesUsed=mGpsSatellitesUsed, mdsGpsMIBGroups=mdsGpsMIBGroups, mGpsStatusLatitude=mGpsStatusLatitude, mGpsSatellitesSnr=mGpsSatellitesSnr, mGpsConfig=mGpsConfig, mGpsSatellitesEntry=mGpsSatellitesEntry, mGpsStatusFixMode=mGpsStatusFixMode, mGpsStatusTime=mGpsStatusTime, mdsGpsMIBConformance=mdsGpsMIBConformance, mGpsSatellitesTable=mGpsSatellitesTable, mGpsSourcesGroup=mGpsSourcesGroup, mGpsSourcesEntry=mGpsSourcesEntry, mGpsMIBObjects=mGpsMIBObjects, mGpsStatusAltitude=mGpsStatusAltitude, PYSNMP_MODULE_ID=mdsGpsMIB)
+mibBuilder.exportSymbols("MDS-SERVICE-GPS-MIB", mGpsStatusHeading=mGpsStatusHeading, mGpsSourcesEntry=mGpsSourcesEntry, mGpsStatusFixMode=mGpsStatusFixMode, mGpsStatusSatellitesUsed=mGpsStatusSatellitesUsed, mdsGpsMIBCompliances=mdsGpsMIBCompliances, mGpsSourceName=mGpsSourceName, mGpsSatellitesTable=mGpsSatellitesTable, mGpsSatellitesElevation=mGpsSatellitesElevation, mGpsConfig=mGpsConfig, mdsGpsMIBConformance=mdsGpsMIBConformance, mGpsStatusGroup=mGpsStatusGroup, mGpsStatusLongitude=mGpsStatusLongitude, mGpsSatellitesSnr=mGpsSatellitesSnr, mGpsSatellitesUsed=mGpsSatellitesUsed, mGpsStatus=mGpsStatus, mGpsSourcesGroup=mGpsSourcesGroup, mGpsStatusTime=mGpsStatusTime, mGpsMIBObjects=mGpsMIBObjects, mGpsStatusSpeed=mGpsStatusSpeed, PYSNMP_MODULE_ID=mdsGpsMIB, mGpsSatellitesAzimuth=mGpsSatellitesAzimuth, mGpsSourceDevice=mGpsSourceDevice, mGpsCompliance=mGpsCompliance, mGpsSatellitesPrn=mGpsSatellitesPrn, mGpsSatellitesEntry=mGpsSatellitesEntry, mGpsStatusAltitude=mGpsStatusAltitude, mGpsStatusLatitude=mGpsStatusLatitude, mGpsStatusSatellitesVisible=mGpsStatusSatellitesVisible, mGpsSourcesTable=mGpsSourcesTable, mdsGpsMIBGroups=mdsGpsMIBGroups, mdsGpsMIB=mdsGpsMIB)

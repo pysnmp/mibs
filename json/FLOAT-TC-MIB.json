@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
-      "mib-2",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "Bits",
+      "mib-2",
       "MODULE-IDENTITY",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -92,8 +92,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/FLOAT-TC-MIB",
-      "Produced by pysmi-1.1.12 at Wed Nov  6 08:34:17 2024",
-      "On host fv-az984-999 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 11:59:06 2024",
+      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "FLOAT-TC-MIB"
