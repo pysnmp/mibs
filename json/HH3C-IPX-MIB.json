@@ -5,29 +5,29 @@
       "hh3cCommon"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Counter32",
-      "iso",
-      "Unsigned32",
       "MODULE-IDENTITY",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "IpAddress",
       "TimeTicks",
+      "Integer32",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MibIdentifier"
+      "Bits",
+      "MibIdentifier",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "hh3cIpx": {
@@ -2101,8 +2101,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-IPX-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:37:47 2024",
-      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:56:27 2024",
+      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HH3C-IPX-MIB"

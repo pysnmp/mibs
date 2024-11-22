@@ -6,25 +6,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "Gauge32",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "transmission",
-      "Bits",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Counter32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
       "TimeTicks",
-      "Unsigned32"
+      "transmission",
+      "Counter64",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adsltcmib": {
@@ -85,8 +85,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/ADSL-TC-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:38:15 2024",
-      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:56:54 2024",
+      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ADSL-TC-MIB"

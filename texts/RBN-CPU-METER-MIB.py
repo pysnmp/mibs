@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module RBN-CPU-METER-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ericsson/RBN-CPU-METER-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 15:38:57 2024
-# On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:57:36 2024
+# On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
 RbnPercentage, = mibBuilder.importSymbols("RBN-TC", "RbnPercentage")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-iso, Integer32, Counter64, Unsigned32, MibIdentifier, ModuleIdentity, ObjectIdentity, NotificationType, Bits, Counter32, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "Counter64", "Unsigned32", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "NotificationType", "Bits", "Counter32", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+ObjectIdentity, Integer32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Gauge32, ModuleIdentity, Counter64, TimeTicks, MibIdentifier, Bits, Counter32, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Gauge32", "ModuleIdentity", "Counter64", "TimeTicks", "MibIdentifier", "Bits", "Counter32", "iso", "IpAddress")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rbnCpuMeterMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 6))
 rbnCpuMeterMIB.setRevisions(('2011-12-13 18:00', '2011-01-19 18:00', '2002-12-16 00:00', '2002-06-26 00:00', '2002-05-29 00:00', '1999-06-16 23:00',))
 
@@ -108,4 +108,4 @@ rbnCpuMeterStatsGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 6, 2, 1, 2)).se
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     rbnCpuMeterStatsGroup2 = rbnCpuMeterStatsGroup2.setStatus('current')
 if mibBuilder.loadTexts: rbnCpuMeterStatsGroup2.setDescription('A collection of objects providing CPU utilization\n                information.')
-mibBuilder.exportSymbols("RBN-CPU-METER-MIB", rbnCpuProcLongest=rbnCpuProcLongest, rbnCpuProcTime=rbnCpuProcTime, rbnCpuMeterMIBConformance=rbnCpuMeterMIBConformance, rbnCpuProc5Sec=rbnCpuProc5Sec, rbnCpuMeterStatsGroup2=rbnCpuMeterStatsGroup2, rbnCpuProcTable=rbnCpuProcTable, rbnCpuMeterMIBCompliance=rbnCpuMeterMIBCompliance, rbnCpuMeterMIBCompliances=rbnCpuMeterMIBCompliances, rbnCpuMeterMIB=rbnCpuMeterMIB, rbnCpuMeterMIBCompliance2=rbnCpuMeterMIBCompliance2, rbnCpuMeterMIBCompliance1=rbnCpuMeterMIBCompliance1, rbnCpuMeterFiveMinuteAvg=rbnCpuMeterFiveMinuteAvg, rbnCpuProcGroup=rbnCpuProcGroup, rbnCpuMeterOneMinuteAvg=rbnCpuMeterOneMinuteAvg, rbnCpuProcGroups=rbnCpuProcGroups, rbnCpuMeterOneMinutePeak=rbnCpuMeterOneMinutePeak, rbnCpuProcPriority=rbnCpuProcPriority, rbnCpuMeterMIBGroups=rbnCpuMeterMIBGroups, rbnCpuProc5Min=rbnCpuProc5Min, rbnCpuProcMIBObjects=rbnCpuProcMIBObjects, rbnCpuProc1Min=rbnCpuProc1Min, rbnCpuProcCalls=rbnCpuProcCalls, rbnCpuMeterFiveSecondAvg=rbnCpuMeterFiveSecondAvg, Percentage=Percentage, rbnCpuProcName=rbnCpuProcName, rbnCpuMeterFiveSecondPeak=rbnCpuMeterFiveSecondPeak, rbnCpuMeterMIBObjects=rbnCpuMeterMIBObjects, rbnCpuMeterFiveMinutePeak=rbnCpuMeterFiveMinutePeak, rbnCpuProcEntry=rbnCpuProcEntry, PYSNMP_MODULE_ID=rbnCpuMeterMIB, rbnCpuMeterStatsGroup=rbnCpuMeterStatsGroup)
+mibBuilder.exportSymbols("RBN-CPU-METER-MIB", rbnCpuMeterFiveMinutePeak=rbnCpuMeterFiveMinutePeak, Percentage=Percentage, rbnCpuProc5Sec=rbnCpuProc5Sec, rbnCpuMeterMIBCompliance2=rbnCpuMeterMIBCompliance2, rbnCpuProcGroups=rbnCpuProcGroups, PYSNMP_MODULE_ID=rbnCpuMeterMIB, rbnCpuMeterMIB=rbnCpuMeterMIB, rbnCpuProcTime=rbnCpuProcTime, rbnCpuProcGroup=rbnCpuProcGroup, rbnCpuMeterFiveSecondAvg=rbnCpuMeterFiveSecondAvg, rbnCpuMeterFiveSecondPeak=rbnCpuMeterFiveSecondPeak, rbnCpuMeterMIBConformance=rbnCpuMeterMIBConformance, rbnCpuMeterFiveMinuteAvg=rbnCpuMeterFiveMinuteAvg, rbnCpuProcCalls=rbnCpuProcCalls, rbnCpuMeterMIBGroups=rbnCpuMeterMIBGroups, rbnCpuProcMIBObjects=rbnCpuProcMIBObjects, rbnCpuMeterMIBObjects=rbnCpuMeterMIBObjects, rbnCpuMeterOneMinutePeak=rbnCpuMeterOneMinutePeak, rbnCpuProcPriority=rbnCpuProcPriority, rbnCpuProcName=rbnCpuProcName, rbnCpuMeterMIBCompliance=rbnCpuMeterMIBCompliance, rbnCpuMeterStatsGroup=rbnCpuMeterStatsGroup, rbnCpuProcEntry=rbnCpuProcEntry, rbnCpuMeterMIBCompliances=rbnCpuMeterMIBCompliances, rbnCpuMeterStatsGroup2=rbnCpuMeterStatsGroup2, rbnCpuProcTable=rbnCpuProcTable, rbnCpuProcLongest=rbnCpuProcLongest, rbnCpuMeterOneMinuteAvg=rbnCpuMeterOneMinuteAvg, rbnCpuMeterMIBCompliance1=rbnCpuMeterMIBCompliance1, rbnCpuProc5Min=rbnCpuProc5Min, rbnCpuProc1Min=rbnCpuProc1Min)

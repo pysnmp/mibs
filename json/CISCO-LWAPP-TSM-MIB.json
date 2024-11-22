@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApDot11IfSlotId",
-      "cLApSysMacAddress"
+      "cLApSysMacAddress",
+      "cLApDot11IfSlotId"
     ],
     "CISCO-LWAPP-TC-MIB": [
       "CLTsmDot11CurrentPackets"
@@ -12,32 +12,32 @@
       "ciscoMgmt"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Bits",
+      "TimeTicks",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "Unsigned32",
       "Integer32",
-      "Counter32",
       "Counter64",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TimeStamp",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -900,8 +900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-TSM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:41:21 2024",
-      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:00:04 2024",
+      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-TSM-MIB"

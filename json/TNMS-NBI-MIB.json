@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "IpAddress",
-      "Bits",
       "Unsigned32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
+      "TimeTicks",
+      "enterprises",
+      "OBJECT-IDENTITY",
       "Integer32",
       "Counter64",
-      "Gauge32",
+      "iso",
+      "Counter32",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "VariablePointer",
+      "TimeStamp",
       "DateAndTime",
+      "DisplayString",
       "RowStatus",
-      "TruthValue"
+      "AutonomousType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "coriant": {
@@ -16540,8 +16540,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TNMS-NBI-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:46:01 2024",
-      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:04:44 2024",
+      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "TNMS-NBI-MIB"
