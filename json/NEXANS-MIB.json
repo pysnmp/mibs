@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
       "Bits",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Integer32",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nexansANS": {
@@ -320,8 +320,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nexans/NEXANS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:13:54 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:42:31 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "NEXANS-MIB"

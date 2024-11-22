@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "ATM-FORUM-SNMP-M4-MIB": [
-      "atmfM4VcTestResult",
+      "atmfM4VcTestCode",
       "atmfM4VcTestObject",
+      "atmfM4VcTestType",
       "atmfM4VpTestType",
       "atmfM4VpTestObject",
-      "atmfM4VpTestResult",
-      "atmfM4VcTestType",
+      "atmfM4VcTestId",
+      "atmfM4VcTestResult",
       "atmfM4VpTestId",
-      "atmfM4VcTestCode",
-      "atmfM4VpTestCode",
-      "atmfM4VcTestId"
+      "atmfM4VpTestResult",
+      "atmfM4VpTestCode"
     ],
     "ATM-MIB": [
-      "atmVclVci",
+      "atmVplVpi",
       "atmVclVpi",
-      "atmVplVpi"
+      "atmVclVci"
     ],
     "ATM-TC-MIB": [
-      "AtmVorXAdminStatus",
       "AtmVcIdentifier",
+      "AtmVorXAdminStatus",
       "AtmVpIdentifier",
       "AtmAddr"
     ],
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndexOrZero",
+      "ifIndex",
       "InterfaceIndex"
     ],
     "Juniper-MIBs": [
@@ -34,9 +34,9 @@
     ],
     "Juniper-TC": [
       "JuniInterfaceLocationType",
-      "JuniInterfaceLocationValue",
+      "JuniEnable",
       "JuniNextIfIndex",
-      "JuniEnable"
+      "JuniInterfaceLocationValue"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -47,26 +47,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Counter64",
-      "Counter32",
-      "Gauge32"
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "IpAddress",
+      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
+      "TruthValue",
+      "RowStatus",
       "TimeStamp"
     ]
   },
@@ -10205,8 +10205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-UNI-ATM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:13:48 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:42:25 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "Juniper-UNI-ATM-MIB"

@@ -8,32 +8,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "Gauge32",
       "MibIdentifier",
       "TimeTicks",
-      "Bits",
-      "Integer32",
+      "IpAddress",
       "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
       "MODULE-IDENTITY",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "TestAndIncr",
-      "RowStatus",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "accountingControlMIB": {
@@ -823,9 +823,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ACCOUNTING-CONTROL-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:12:29 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ACCOUNTING-CONTROL-MIB",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:42:26 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ACCOUNTING-CONTROL-MIB"

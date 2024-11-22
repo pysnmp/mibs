@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
+      "snmpPrivProtocols",
       "SnmpAdminString",
       "snmpAuthProtocols",
-      "SnmpEngineID",
-      "snmpPrivProtocols"
+      "SnmpEngineID"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "Gauge32",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "iso",
       "snmpModules",
+      "Bits",
+      "Gauge32",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "RowPointer",
       "StorageType",
+      "RowStatus",
       "TestAndIncr",
+      "RowPointer",
+      "AutonomousType",
       "TEXTUAL-CONVENTION",
-      "AutonomousType"
+      "DisplayString"
     ]
   },
   "snmpUsmMIB": {
@@ -550,8 +550,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SNMP-USER-BASED-SM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:07:29 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:36:24 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SNMP-USER-BASED-SM-MIB"

@@ -10,34 +10,34 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Counter64",
+      "Counter32",
+      "OBJECT-TYPE",
       "MibIdentifier",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "snmpModules",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Counter32",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "iso",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TimeInterval",
-      "TDomain",
-      "StorageType",
+      "DisplayString",
       "TestAndIncr",
+      "TDomain",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TAddress",
-      "RowStatus",
-      "DisplayString",
+      "StorageType",
+      "MacAddress",
+      "PhysAddress",
       "TruthValue",
-      "MacAddress"
+      "TimeInterval"
     ]
   },
   "wlsxTunneledNodeMIB": {
@@ -136,8 +136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-TUNNELEDNODE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:07:29 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:36:23 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "WLSX-TUNNELEDNODE-MIB"

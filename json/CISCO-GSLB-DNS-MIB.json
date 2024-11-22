@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "CISCO-GSLB-TC-MIB": [
-      "CiscoGslbAnswerAdminState",
-      "CiscoGslbAnswerStatus",
+      "CiscoGslbAnswerType",
       "CiscoGslbBalanceMethod",
-      "CiscoGslbAnswerType"
+      "CiscoGslbAnswerAdminState",
+      "CiscoGslbAnswerStatus"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressPrefixLength",
       "InetAddressDNS",
+      "InetAddressType",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -28,27 +28,27 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "Integer32",
-      "Counter32",
+      "iso",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "Counter64",
+      "MibIdentifier",
+      "Counter32",
       "MODULE-IDENTITY",
-      "iso"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "StorageType"
     ]
   },
   "ciscoGslbDnsMIB": {
@@ -2229,8 +2229,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-GSLB-DNS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:12:26 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:41:15 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-GSLB-DNS-MIB"

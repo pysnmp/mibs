@@ -2,37 +2,37 @@
   "imports": {
     "class": "imports",
     "ENTITY-MIB": [
-      "entityPhysicalGroup",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entityPhysicalGroup"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Bits",
-      "Counter64",
-      "iso",
-      "mib-2",
       "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
       "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Bits",
+      "mib-2",
+      "TimeTicks",
       "MibIdentifier",
-      "Integer32",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeStamp",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -351,8 +351,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/ENTITY-SENSOR-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:07:20 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:36:13 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ENTITY-SENSOR-MIB"

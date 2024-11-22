@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Bits",
+      "Counter64",
+      "TimeTicks",
       "Integer32",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "iso"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "standbypower": {
@@ -994,8 +994,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetflux/PACKETFLUX-STANDBYPOWER",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:14:21 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:42:57 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "PACKETFLUX-STANDBYPOWER"

@@ -8,33 +8,33 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
-      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
       "mib-2",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
       "MibIdentifier",
+      "iso",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "Integer32",
       "Counter32",
-      "MODULE-IDENTITY"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "TimeStamp",
       "TruthValue",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "dot3OamMIB": {
@@ -1624,8 +1624,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:10:35 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:39:22 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DOT3-OAM-MIB"

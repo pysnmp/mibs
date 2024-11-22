@@ -5,30 +5,30 @@
       "blueCoatMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
+      "Counter64",
       "TimeTicks",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
-      "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "deviceDiskMIB": {
@@ -261,8 +261,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecoat/BLUECOAT-SG-DISK-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:07:55 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:36:48 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "BLUECOAT-SG-DISK-MIB"

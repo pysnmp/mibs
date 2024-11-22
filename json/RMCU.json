@@ -6,26 +6,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "Counter32",
-      "iso",
       "Counter64",
+      "NOTIFICATION-TYPE",
       "Gauge32",
+      "Integer32",
       "TimeTicks",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MibIdentifier",
       "Unsigned32",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "enterprises",
+      "iso",
+      "OBJECT-IDENTITY",
       "Bits",
-      "MODULE-IDENTITY"
+      "MODULE-IDENTITY",
+      "TRAP-TYPE",
+      "IpAddress",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rr4005i": {
@@ -823,8 +823,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/westmountainradio/RMCU",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:16:41 2024",
-      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:45:11 2024",
+      "On host fv-az973-242 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RMCU"
