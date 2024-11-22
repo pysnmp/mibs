@@ -9,46 +9,46 @@
     ],
     "MERU-TC": [
       "MwlVpnClientProtocol",
+      "MwlAvailabilityStatus",
+      "MwlControllerHwType",
+      "MwlAlarmState",
+      "MwlRegionSettings",
+      "MwlBonding",
       "MwlVpnConnectivityStatus",
       "MwlOperationalState",
-      "MwlBonding",
       "MwlOnOffSwitch",
-      "MwlAlarmState",
-      "MwlAvailabilityStatus",
-      "MwlEnableDisableOption",
-      "MwlRegionSettings",
-      "MwlControllerHwType"
+      "MwlEnableDisableOption"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "TimeTicks",
       "enterprises",
-      "Bits",
-      "Counter32",
-      "MibIdentifier",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
       "Counter64",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Gauge32",
-      "iso"
+      "Unsigned32",
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DateAndTime",
-      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp",
       "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "TimeInterval",
+      "MacAddress",
+      "RowStatus"
     ]
   },
   "mwConfigController": {
@@ -1629,8 +1629,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-CONTROLLER-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:55:32 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:10:43 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-CONTROLLER-MIB"

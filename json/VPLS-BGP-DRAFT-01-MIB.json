@@ -13,27 +13,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "TimeTicks",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "transmission",
-      "Integer32",
       "OBJECT-TYPE",
-      "Gauge32",
+      "iso",
+      "transmission",
+      "TimeTicks",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "IpAddress"
+      "Bits",
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "StorageType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "VPLS-GENERIC-DRAFT-01-MIB": [
       "jnxVplsConfigIndex",
@@ -285,8 +285,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/VPLS-BGP-DRAFT-01-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:58:27 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:13:49 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "VPLS-BGP-DRAFT-01-MIB"

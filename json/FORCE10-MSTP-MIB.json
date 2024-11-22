@@ -3,8 +3,8 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "BridgeId",
-      "Timeout",
-      "dot1dBridge"
+      "dot1dBridge",
+      "Timeout"
     ],
     "FORCE10-SMI": [
       "f10Experiment"
@@ -13,31 +13,31 @@
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "TimeTicks",
       "Counter64",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "IpAddress",
+      "Integer32",
+      "mib-2",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "iso",
       "Bits",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "mib-2",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32"
+      "Counter32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f10Mstp": {
@@ -1344,8 +1344,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/FORCE10-MSTP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:54:23 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:09:29 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "FORCE10-MSTP-MIB"

@@ -5,24 +5,24 @@
       "mdsRoot"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter64",
-      "Counter32",
+      "TimeTicks",
       "OBJECT-TYPE",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "iso",
       "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
+      "Counter32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Bits"
+      "IpAddress",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -67,8 +67,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-ORBIT-SMI-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:55:44 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:10:51 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "MDS-ORBIT-SMI-MIB"

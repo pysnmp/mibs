@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AH-SMI-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-SMI-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 11:51:45 2024
-# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:06:43 2024
+# On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Counter64, NotificationType, iso, MibIdentifier, IpAddress, TimeTicks, ModuleIdentity, Gauge32, Integer32, Counter32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Counter64", "NotificationType", "iso", "MibIdentifier", "IpAddress", "TimeTicks", "ModuleIdentity", "Gauge32", "Integer32", "Counter32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits")
-MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
+ModuleIdentity, Bits, Counter32, ObjectIdentity, Unsigned32, IpAddress, MibIdentifier, TimeTicks, NotificationType, Integer32, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Bits", "Counter32", "ObjectIdentity", "Unsigned32", "IpAddress", "MibIdentifier", "TimeTicks", "NotificationType", "Integer32", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "enterprises")
+DisplayString, MacAddress, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "MacAddress", "TextualConvention")
 aerohive = ModuleIdentity((1, 3, 6, 1, 4, 1, 26928))
 if mibBuilder.loadTexts: aerohive.setLastUpdated('201608310000Z')
 if mibBuilder.loadTexts: aerohive.setOrganization('Aerohive Networks, Inc')
@@ -54,4 +54,4 @@ class AhMACProtocol(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
     namedValues = NamedValues(("ah11a", 0), ("ah11b", 1), ("ah11g", 2), ("ah11na", 3), ("ah11ng", 4))
 
-mibBuilder.exportSymbols("AH-SMI-MIB", ahAP=ahAP, AhMACProtocol=AhMACProtocol, ahAPTrap=ahAPTrap, ahAPHiveAP340_n=ahAPHiveAP340_n, aerohive=aerohive, ahAPMRP=ahAPMRP, ahAPCommon=ahAPCommon, ahAPHiveAP320_n=ahAPHiveAP320_n, PYSNMP_MODULE_ID=aerohive, AhNodeID=AhNodeID, AhInterfaceType=AhInterfaceType, AhInterfaceMode=AhInterfaceMode, ahAPInterface=ahAPInterface, ahAPHiveAP020_ag=ahAPHiveAP020_ag, ahAPIDP=ahAPIDP, ahAPHiveAP028_ag=ahAPHiveAP028_ag, ahProduct=ahProduct, AhString=AhString)
+mibBuilder.exportSymbols("AH-SMI-MIB", ahAPHiveAP340_n=ahAPHiveAP340_n, ahAPInterface=ahAPInterface, AhString=AhString, AhMACProtocol=AhMACProtocol, AhInterfaceType=AhInterfaceType, AhInterfaceMode=AhInterfaceMode, ahAPIDP=ahAPIDP, ahAPCommon=ahAPCommon, AhNodeID=AhNodeID, ahAPHiveAP020_ag=ahAPHiveAP020_ag, ahAPHiveAP028_ag=ahAPHiveAP028_ag, ahAP=ahAP, ahAPTrap=ahAPTrap, ahAPHiveAP320_n=ahAPHiveAP320_n, ahProduct=ahProduct, aerohive=aerohive, ahAPMRP=ahAPMRP, PYSNMP_MODULE_ID=aerohive)

@@ -3,8 +3,8 @@
     "class": "imports",
     "ENTITY-MIB": [
       "entPhysicalIndex",
-      "entPhysicalName",
-      "entPhysicalDescr"
+      "entPhysicalDescr",
+      "entPhysicalName"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -17,30 +17,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Unsigned32",
       "MibIdentifier",
+      "iso",
       "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "IpAddress",
-      "Counter32",
-      "iso",
-      "Unsigned32"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "hpnicfEntityExtend": {
@@ -2316,8 +2316,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-ENTITY-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:57:15 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:12:52 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HPN-ICF-ENTITY-EXT-MIB"

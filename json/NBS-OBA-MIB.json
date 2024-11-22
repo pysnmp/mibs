@@ -5,33 +5,33 @@
       "InterfaceIndex"
     ],
     "NBS-MIB": [
-      "nbs",
-      "NbsTcMHz"
+      "NbsTcMHz",
+      "nbs"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter64",
       "iso",
-      "MibIdentifier"
+      "IpAddress",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "nbsObaMib": {
@@ -469,8 +469,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OBA-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:58:23 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:13:42 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "NBS-OBA-MIB"

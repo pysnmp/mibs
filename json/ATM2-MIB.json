@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "ATM-MIB": [
-      "atmInterfaceConfEntry",
-      "atmVcCrossConnectEntry",
-      "atmVplVpi",
+      "atmVclVpi",
       "atmVclEntry",
       "atmMIBObjects",
       "atmVplEntry",
+      "atmVcCrossConnectEntry",
+      "atmVplVpi",
+      "atmVclVci",
       "atmVpCrossConnectEntry",
-      "atmVclVpi",
-      "atmVclVci"
+      "atmInterfaceConfEntry"
     ],
     "ATM-TC-MIB": [
       "AtmInterfaceType",
       "AtmIlmiNetworkPrefix",
+      "AtmSigDescrParamIndex",
       "AtmVpIdentifier",
       "AtmAddr",
-      "AtmSigDescrParamIndex",
       "AtmTrafficDescrParamIndex",
       "AtmVcIdentifier"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
+      "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
       "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "Integer32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "TruthValue",
+      "RowStatus",
+      "TimeStamp",
       "DisplayString"
     ]
   },
@@ -3395,8 +3395,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ATM2-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:57:34 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:12:30 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ATM2-MIB"

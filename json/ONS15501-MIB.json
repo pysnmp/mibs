@@ -5,31 +5,31 @@
       "PhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Gauge32",
-      "enterprises",
-      "Counter64",
       "IpAddress",
+      "MibIdentifier",
       "TimeTicks",
+      "Bits",
       "Integer32",
+      "enterprises",
       "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
       "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "DateAndTime"
     ]
   },
@@ -1784,8 +1784,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ONS15501-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:57:32 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:12:28 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ONS15501-MIB"

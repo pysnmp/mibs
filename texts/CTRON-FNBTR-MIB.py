@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module CTRON-FNBTR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-FNBTR-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 11:55:03 2024
-# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:10:11 2024
+# On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
 ctTokenRingFnb, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctTokenRingFnb")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Gauge32, Unsigned32, Counter64, Integer32, ModuleIdentity, NotificationType, IpAddress, ObjectIdentity, Counter32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "Unsigned32", "Counter64", "Integer32", "ModuleIdentity", "NotificationType", "IpAddress", "ObjectIdentity", "Counter32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits")
+IpAddress, ModuleIdentity, iso, Bits, ObjectIdentity, Counter32, NotificationType, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Integer32, Gauge32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ModuleIdentity", "iso", "Bits", "ObjectIdentity", "Counter32", "NotificationType", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Integer32", "Gauge32", "Counter64")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctronFnbTR = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 6, 1, 1))
 ctronMultiFnbTR = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 6, 1, 2))
@@ -59,4 +59,4 @@ if mibBuilder.loadTexts: ctronMultiFnbBypass.setDescription('Denotes the connect
 ctronMultiFnbRPBypass = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 6, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enable", 2), ("disabled", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctronMultiFnbRPBypass.setStatus('mandatory')
 if mibBuilder.loadTexts: ctronMultiFnbRPBypass.setDescription("Denotes the connection status of the ring port bypass \n                circuitry for a particular backplane ring path attachment on\n                his Token Ring board.  If this capability is not available on\n                this board, the value 'other' is returned when read, and\n                BADSETINFO when written.")
-mibBuilder.exportSymbols("CTRON-FNBTR-MIB", ctronMultiFnbConnectRight=ctronMultiFnbConnectRight, ctronMultiFnbRingIndex=ctronMultiFnbRingIndex, ctronFnbTR=ctronFnbTR, ctronFnbConnectLeft=ctronFnbConnectLeft, ctronFnbTRIndex=ctronFnbTRIndex, ctronMultiFnbTREntry=ctronMultiFnbTREntry, ctronMultiFnbConnectLeft=ctronMultiFnbConnectLeft, ctronMultiFnbBypass=ctronMultiFnbBypass, ctronMultiFnbTRIndex=ctronMultiFnbTRIndex, ctronFnbBypass=ctronFnbBypass, ctronMultiFnbTRTable=ctronMultiFnbTRTable, ctronFnbTREntry=ctronFnbTREntry, ctronMultiFnbRPBypass=ctronMultiFnbRPBypass, ctronFnbTRTable=ctronFnbTRTable, ctronFnbConnectRight=ctronFnbConnectRight, ctronMultiFnbTR=ctronMultiFnbTR, ctronFnbRPBypass=ctronFnbRPBypass)
+mibBuilder.exportSymbols("CTRON-FNBTR-MIB", ctronMultiFnbTRTable=ctronMultiFnbTRTable, ctronFnbTR=ctronFnbTR, ctronFnbTRTable=ctronFnbTRTable, ctronMultiFnbTR=ctronMultiFnbTR, ctronMultiFnbTRIndex=ctronMultiFnbTRIndex, ctronMultiFnbConnectRight=ctronMultiFnbConnectRight, ctronFnbBypass=ctronFnbBypass, ctronFnbConnectLeft=ctronFnbConnectLeft, ctronFnbTRIndex=ctronFnbTRIndex, ctronMultiFnbRPBypass=ctronMultiFnbRPBypass, ctronMultiFnbRingIndex=ctronMultiFnbRingIndex, ctronMultiFnbBypass=ctronMultiFnbBypass, ctronFnbConnectRight=ctronFnbConnectRight, ctronMultiFnbTREntry=ctronMultiFnbTREntry, ctronMultiFnbConnectLeft=ctronMultiFnbConnectLeft, ctronFnbRPBypass=ctronFnbRPBypass, ctronFnbTREntry=ctronFnbTREntry)

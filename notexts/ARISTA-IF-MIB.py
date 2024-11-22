@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module ARISTA-IF-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-IF-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 11:52:18 2024
-# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:07:17 2024
+# On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
 CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, MibIdentifier, IpAddress, Gauge32, Counter32, ModuleIdentity, Bits, Integer32, NotificationType, Counter64, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "MibIdentifier", "IpAddress", "Gauge32", "Counter32", "ModuleIdentity", "Bits", "Integer32", "NotificationType", "Counter64", "ObjectIdentity", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Bits, iso, Unsigned32, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, NotificationType, IpAddress, ObjectIdentity, Integer32, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "Unsigned32", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "NotificationType", "IpAddress", "ObjectIdentity", "Integer32", "Gauge32", "MibIdentifier")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 aristaIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 15))
 aristaIfMIB.setRevisions(('2014-10-09 00:00',))
 if mibBuilder.loadTexts: aristaIfMIB.setLastUpdated('201410090000Z')
@@ -51,4 +51,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 aristaIfAdditionalInformationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 15, 2, 1, 1)).setObjects(("ARISTA-IF-MIB", "aristaIfCounterLastUpdated"), ("ARISTA-IF-MIB", "aristaIfRateInterval"), ("ARISTA-IF-MIB", "aristaIfInPktRate"), ("ARISTA-IF-MIB", "aristaIfOutPktRate"), ("ARISTA-IF-MIB", "aristaIfInOctetRate"), ("ARISTA-IF-MIB", "aristaIfOutOctetRate"), ("ARISTA-IF-MIB", "aristaIfRatesLastUpdated"), ("ARISTA-IF-MIB", "aristaIfOperStatusChanges"), ("ARISTA-IF-MIB", "aristaIfInAclDrops"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     aristaIfAdditionalInformationGroup = aristaIfAdditionalInformationGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-IF-MIB", aristaIfRateInterval=aristaIfRateInterval, aristaIfGroups=aristaIfGroups, aristaIfConformance=aristaIfConformance, aristaIfOutOctetRate=aristaIfOutOctetRate, aristaIfInAclDrops=aristaIfInAclDrops, aristaIfMIB=aristaIfMIB, aristaIfEntry=aristaIfEntry, aristaIfCompliance=aristaIfCompliance, aristaIfTable=aristaIfTable, PYSNMP_MODULE_ID=aristaIfMIB, aristaIfCounterLastUpdated=aristaIfCounterLastUpdated, aristaIfOperStatusChanges=aristaIfOperStatusChanges, aristaIfAdditionalInformationGroup=aristaIfAdditionalInformationGroup, aristaIfCompliances=aristaIfCompliances, aristaIf=aristaIf, aristaIfInOctetRate=aristaIfInOctetRate, aristaIfInPktRate=aristaIfInPktRate, aristaIfOutPktRate=aristaIfOutPktRate, aristaIfRatesLastUpdated=aristaIfRatesLastUpdated)
+mibBuilder.exportSymbols("ARISTA-IF-MIB", aristaIfOutOctetRate=aristaIfOutOctetRate, aristaIfCounterLastUpdated=aristaIfCounterLastUpdated, aristaIfOperStatusChanges=aristaIfOperStatusChanges, aristaIf=aristaIf, aristaIfCompliances=aristaIfCompliances, PYSNMP_MODULE_ID=aristaIfMIB, aristaIfMIB=aristaIfMIB, aristaIfCompliance=aristaIfCompliance, aristaIfInAclDrops=aristaIfInAclDrops, aristaIfEntry=aristaIfEntry, aristaIfTable=aristaIfTable, aristaIfInPktRate=aristaIfInPktRate, aristaIfConformance=aristaIfConformance, aristaIfGroups=aristaIfGroups, aristaIfInOctetRate=aristaIfInOctetRate, aristaIfOutPktRate=aristaIfOutPktRate, aristaIfAdditionalInformationGroup=aristaIfAdditionalInformationGroup, aristaIfRatesLastUpdated=aristaIfRatesLastUpdated, aristaIfRateInterval=aristaIfRateInterval)

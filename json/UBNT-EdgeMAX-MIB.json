@@ -3,30 +3,30 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
-      "Bits",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "TimeTicks",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "MacAddress"
     ],
     "UBNT-MIB": [
       "ubntMIB",
@@ -604,8 +604,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubnt/UBNT-EdgeMAX-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 12:00:55 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:16:24 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "UBNT-EdgeMAX-MIB"

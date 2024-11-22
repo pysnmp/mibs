@@ -6,24 +6,24 @@
       "netscreenVpn"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
       "MibIdentifier",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
       "iso",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -331,8 +331,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-CERTIFICATE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 12:00:21 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:15:48 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "NETSCREEN-CERTIFICATE-MIB"

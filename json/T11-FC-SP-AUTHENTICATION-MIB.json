@@ -10,44 +10,44 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "iso",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
       "TimeTicks",
       "MibIdentifier",
-      "Integer32",
       "Counter64",
-      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
       "MODULE-IDENTITY",
       "mib-2",
-      "Counter32",
-      "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "TimeStamp",
-      "AutonomousType",
       "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ],
     "T11-FC-FABRIC-ADDR-MGR-MIB": [
       "t11FamLocalSwitchWwn"
     ],
     "T11-FC-SP-TC-MIB": [
+      "T11FcSpLifetimeLeft",
       "T11FcSpAuthRejReasonCodeExp",
       "T11FcSpDhGroups",
-      "T11FcSpLifetimeLeft",
+      "T11FcSpSignFunctions",
       "T11FcSpHashFunctions",
       "T11FcSpLifetimeLeftUnits",
-      "T11FcSpSignFunctions",
       "T11FcSpAuthRejectReasonCode"
     ],
     "T11-TC-MIB": [
@@ -911,8 +911,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/T11-FC-SP-AUTHENTICATION-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 12:02:00 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:17:35 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "T11-FC-SP-AUTHENTICATION-MIB"

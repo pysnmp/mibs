@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "ELTEX-SMI-ACTUAL": [
-      "eltrapGroup",
-      "mcTrapExState",
-      "mcTrapLParam3",
-      "mcTrapID",
-      "mcTrapLParam2",
       "mcTrapDescr",
+      "mcTrapExState",
+      "mcTrapID",
       "mcTrapLParam1",
-      "elHardware"
+      "elHardware",
+      "mcTrapLParam2",
+      "mcTrapLParam3",
+      "eltrapGroup"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -18,34 +18,34 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Counter64",
       "MODULE-IDENTITY",
       "Gauge32",
-      "iso",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-TYPE"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Bits",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeInterval",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
       "TimeStamp",
-      "MacAddress"
+      "MacAddress",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus",
+      "TimeInterval"
     ]
   },
   "pp4": {
@@ -6478,8 +6478,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-PP4",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 11:54:49 2024",
-      "On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:09:54 2024",
+      "On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ELTEX-PP4"

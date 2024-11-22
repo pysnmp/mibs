@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-PART-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-PART-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 11:58:20 2024
-# On host fv-az665-602 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:13:39 2024
+# On host fv-az692-788 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-nbs, NbsTcPartIndex = mibBuilder.importSymbols("NBS-MIB", "nbs", "NbsTcPartIndex")
+NbsTcPartIndex, nbs = mibBuilder.importSymbols("NBS-MIB", "NbsTcPartIndex", "nbs")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, Bits, ObjectIdentity, IpAddress, ModuleIdentity, TimeTicks, Gauge32, Counter64, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "Bits", "ObjectIdentity", "IpAddress", "ModuleIdentity", "TimeTicks", "Gauge32", "Counter64", "NotificationType", "iso")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, Counter32, ObjectIdentity, Integer32, TimeTicks, Gauge32, Bits, MibIdentifier, iso, Unsigned32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType", "Counter32", "ObjectIdentity", "Integer32", "TimeTicks", "Gauge32", "Bits", "MibIdentifier", "iso", "Unsigned32", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsPartMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 231))
 if mibBuilder.loadTexts: nbsPartMib.setLastUpdated('201503090000Z')
 if mibBuilder.loadTexts: nbsPartMib.setOrganization('NBS')
@@ -117,4 +117,4 @@ if mibBuilder.loadTexts: nbsPartProgNVAreaStart.setDescription("The nbsCmmcSysNV
 nbsPartProgNVAreaBanks = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 231, 3, 1, 1, 31), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: nbsPartProgNVAreaBanks.setStatus('current')
 if mibBuilder.loadTexts: nbsPartProgNVAreaBanks.setDescription('The number of NVAreaBanks on this component.')
-mibBuilder.exportSymbols("NBS-PART-MIB", nbsPartFirmFpgaRev=nbsPartFirmFpgaRev, nbsPartMib=nbsPartMib, nbsPartProgLoader=nbsPartProgLoader, nbsPartProgTable=nbsPartProgTable, PYSNMP_MODULE_ID=nbsPartMib, nbsPartFirmGrp=nbsPartFirmGrp, nbsPartFirmSwMajor=nbsPartFirmSwMajor, nbsPartProgNVAreaBanks=nbsPartProgNVAreaBanks, nbsPartProgNVAreaAdmin=nbsPartProgNVAreaAdmin, nbsPartHardProductionId=nbsPartHardProductionId, nbsPartHardSerialNumber=nbsPartHardSerialNumber, nbsPartFirmPartIndex=nbsPartFirmPartIndex, nbsPartFirmIfIndex=nbsPartFirmIfIndex, nbsPartFirmSwBuild=nbsPartFirmSwBuild, nbsPartProgFirmwareLoad=nbsPartProgFirmwareLoad, nbsPartHardPartIndex=nbsPartHardPartIndex, nbsPartProgEntry=nbsPartProgEntry, nbsPartHardWareRev=nbsPartHardWareRev, nbsPartHardVendor=nbsPartHardVendor, nbsPartProgPartIndex=nbsPartProgPartIndex, nbsPartHardDescription=nbsPartHardDescription, nbsPartHardGrp=nbsPartHardGrp, nbsPartHardEntry=nbsPartHardEntry, nbsPartFirmSwMinor=nbsPartFirmSwMinor, nbsPartHardModel=nbsPartHardModel, nbsPartProgNVAreaOper=nbsPartProgNVAreaOper, nbsPartHardTable=nbsPartHardTable, nbsPartHardIfIndex=nbsPartHardIfIndex, nbsPartProgNVAreaStart=nbsPartProgNVAreaStart, nbsPartFirmTable=nbsPartFirmTable, nbsPartProgFirmwareCaps=nbsPartProgFirmwareCaps, nbsPartFirmEntry=nbsPartFirmEntry, nbsPartProgGrp=nbsPartProgGrp, nbsPartProgIfIndex=nbsPartProgIfIndex, nbsPartFirmWareIndex=nbsPartFirmWareIndex)
+mibBuilder.exportSymbols("NBS-PART-MIB", nbsPartHardEntry=nbsPartHardEntry, nbsPartFirmWareIndex=nbsPartFirmWareIndex, nbsPartFirmPartIndex=nbsPartFirmPartIndex, nbsPartFirmIfIndex=nbsPartFirmIfIndex, nbsPartFirmGrp=nbsPartFirmGrp, nbsPartProgNVAreaOper=nbsPartProgNVAreaOper, nbsPartProgPartIndex=nbsPartProgPartIndex, nbsPartHardTable=nbsPartHardTable, nbsPartProgLoader=nbsPartProgLoader, nbsPartHardPartIndex=nbsPartHardPartIndex, nbsPartProgGrp=nbsPartProgGrp, nbsPartHardVendor=nbsPartHardVendor, nbsPartFirmFpgaRev=nbsPartFirmFpgaRev, nbsPartMib=nbsPartMib, nbsPartProgNVAreaStart=nbsPartProgNVAreaStart, PYSNMP_MODULE_ID=nbsPartMib, nbsPartProgTable=nbsPartProgTable, nbsPartFirmSwBuild=nbsPartFirmSwBuild, nbsPartFirmSwMajor=nbsPartFirmSwMajor, nbsPartHardIfIndex=nbsPartHardIfIndex, nbsPartProgFirmwareLoad=nbsPartProgFirmwareLoad, nbsPartHardSerialNumber=nbsPartHardSerialNumber, nbsPartProgNVAreaBanks=nbsPartProgNVAreaBanks, nbsPartHardModel=nbsPartHardModel, nbsPartFirmSwMinor=nbsPartFirmSwMinor, nbsPartFirmEntry=nbsPartFirmEntry, nbsPartHardGrp=nbsPartHardGrp, nbsPartHardWareRev=nbsPartHardWareRev, nbsPartProgEntry=nbsPartProgEntry, nbsPartFirmTable=nbsPartFirmTable, nbsPartProgIfIndex=nbsPartProgIfIndex, nbsPartProgNVAreaAdmin=nbsPartProgNVAreaAdmin, nbsPartProgFirmwareCaps=nbsPartProgFirmwareCaps, nbsPartHardDescription=nbsPartHardDescription, nbsPartHardProductionId=nbsPartHardProductionId)
