@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-LICENSE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-LICENSE-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 15:55:23 2024
-# On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:57:16 2024
+# On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, Counter64, Bits, TimeTicks, Integer32, IpAddress, Unsigned32, ModuleIdentity, Counter32, Gauge32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "Counter64", "Bits", "TimeTicks", "Integer32", "IpAddress", "Unsigned32", "ModuleIdentity", "Counter32", "Gauge32", "iso")
-DateAndTime, TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString", "TruthValue")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Unsigned32, Counter64, MibIdentifier, Integer32, ObjectIdentity, Counter32, TimeTicks, ModuleIdentity, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, iso, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "MibIdentifier", "Integer32", "ObjectIdentity", "Counter32", "TimeTicks", "ModuleIdentity", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "iso", "Bits")
+TextualConvention, TruthValue, DateAndTime, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "DateAndTime", "DisplayString")
 bcnLicenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6, 1))
 bcnLicenseMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnLicenseMIB.setLastUpdated('201011301200Z')
@@ -66,4 +66,4 @@ bcnLicenseStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 6,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnLicenseStatusCompliance = bcnLicenseStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseConformance=bcnLicenseConformance, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseItemsGranted=bcnLicenseItemsGranted, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseTable=bcnLicenseTable, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseType=bcnLicenseType, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseInformation=bcnLicenseInformation, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseValid=bcnLicenseValid, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseEntry=bcnLicenseEntry, bcnLicense=bcnLicense, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup)
+mibBuilder.exportSymbols("BCN-LICENSE-MIB", bcnLicenseInformation=bcnLicenseInformation, bcnLicenseNotificationData=bcnLicenseNotificationData, bcnLicenseItemsUsed=bcnLicenseItemsUsed, bcnLicenseExpiryNotif=bcnLicenseExpiryNotif, bcnLicenseMIB=bcnLicenseMIB, bcnLicenseNotificationEvents=bcnLicenseNotificationEvents, bcnLicenseServiceGroups=bcnLicenseServiceGroups, bcnLicenseAlarmSeverity=bcnLicenseAlarmSeverity, bcnLicenseTableIndex=bcnLicenseTableIndex, bcnLicense=bcnLicense, bcnLicenseServiceCompliances=bcnLicenseServiceCompliances, bcnLicenseEntry=bcnLicenseEntry, bcnLicenseItemsGranted=bcnLicenseItemsGranted, bcnLicenseNotification=bcnLicenseNotification, bcnLicenseType=bcnLicenseType, PYSNMP_MODULE_ID=bcnLicenseMIB, bcnLicenseExpiry=bcnLicenseExpiry, bcnLicenseObjects=bcnLicenseObjects, bcnLicenseGracePeriod=bcnLicenseGracePeriod, bcnLicenseServiceStatusGroup=bcnLicenseServiceStatusGroup, bcnLicenseInstalled=bcnLicenseInstalled, bcnLicenseNotificationEventGroup=bcnLicenseNotificationEventGroup, bcnLicenseStatusCompliance=bcnLicenseStatusCompliance, bcnLicenseTable=bcnLicenseTable, bcnLicenseValid=bcnLicenseValid, bcnLicenseDescription=bcnLicenseDescription, bcnLicenseNotificationDataGroup=bcnLicenseNotificationDataGroup, bcnLicenseConformance=bcnLicenseConformance)

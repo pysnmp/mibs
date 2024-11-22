@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumberOrZero",
       "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbComponentIdentifierOrZero",
       "ieee802dot1mibs",
-      "IEEE8021BridgePortNumberOrZero"
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbComponentIdentifierOrZero"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIndex"
@@ -20,27 +20,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "iso",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "Gauge32",
+      "IpAddress",
       "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Counter32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "TruthValue",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
       "MacAddress"
     ]
   },
@@ -1839,8 +1839,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE8021-EVBB-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:02:35 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:05:03 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-EVBB-MIB"

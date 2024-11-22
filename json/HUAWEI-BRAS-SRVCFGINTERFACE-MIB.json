@@ -15,27 +15,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
+      "Counter32",
+      "Counter64",
       "IpAddress",
-      "iso"
+      "iso",
+      "MibIdentifier",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TruthValue"
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "hwBRASSrvcfgInterface": {
@@ -2726,8 +2726,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BRAS-SRVCFGINTERFACE-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:59:43 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:01:53 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-BRAS-SRVCFGINTERFACE-MIB"

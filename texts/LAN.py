@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module LAN (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/peplink/LAN
-# Produced by pysmi-1.1.12 at Fri Nov 22 16:01:57 2024
-# On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 16:04:28 2024
+# On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-NotificationType, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, Bits, iso, TimeTicks, Counter64, Counter32, ObjectIdentity, IpAddress, ModuleIdentity, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "Bits", "iso", "TimeTicks", "Counter64", "Counter32", "ObjectIdentity", "IpAddress", "ModuleIdentity", "Integer32", "MibIdentifier")
-DisplayString, RowStatus, MacAddress, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "MacAddress", "TruthValue", "TextualConvention")
+ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+enterprises, Bits, Counter64, Unsigned32, Integer32, ObjectIdentity, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, ModuleIdentity, NotificationType, Counter32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "enterprises", "Bits", "Counter64", "Unsigned32", "Integer32", "ObjectIdentity", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "ModuleIdentity", "NotificationType", "Counter32", "IpAddress")
+TextualConvention, RowStatus, DisplayString, MacAddress, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "MacAddress", "TruthValue")
 peplink = MibIdentifier((1, 3, 6, 1, 4, 1, 23695))
 productMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200))
 generalMib = MibIdentifier((1, 3, 6, 1, 4, 1, 23695, 200, 1))
@@ -36,4 +36,4 @@ if mibBuilder.loadTexts: lanSubnetMask.setDescription('LAN subnet mask.')
 lanSpeed = MibScalar((1, 3, 6, 1, 4, 1, 23695, 200, 1, 3, 1, 1, 3), PortSpeedType()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: lanSpeed.setStatus('current')
 if mibBuilder.loadTexts: lanSpeed.setDescription('LAN speed status (Auto/10baseT-FD/\n\t\t\t\t\t\t10baseT-HD/100baseTx-FD/100baseTx-HD/1000baseTx-FD/\n\t\t\t\t\t\t1000baseTx-HD.')
-mibBuilder.exportSymbols("LAN", PortSpeedType=PortSpeedType, lanSubnetMask=lanSubnetMask, PYSNMP_MODULE_ID=lanInfo, lanStatus=lanStatus, lanSpeed=lanSpeed, peplink=peplink, generalMib=generalMib, productMib=productMib, lanIp=lanIp, lanMib=lanMib, lanInfo=lanInfo)
+mibBuilder.exportSymbols("LAN", lanInfo=lanInfo, lanStatus=lanStatus, lanMib=lanMib, lanSubnetMask=lanSubnetMask, peplink=peplink, productMib=productMib, PYSNMP_MODULE_ID=lanInfo, lanSpeed=lanSpeed, PortSpeedType=PortSpeedType, generalMib=generalMib, lanIp=lanIp)

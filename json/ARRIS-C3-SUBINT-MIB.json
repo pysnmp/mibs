@@ -5,31 +5,31 @@
       "cmtsC3"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "enterprises",
+      "Counter32",
       "Counter64",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "enterprises",
+      "IpAddress",
       "iso",
-      "TimeTicks",
-      "Integer32",
       "Gauge32",
-      "Counter32",
-      "IpAddress"
+      "MibIdentifier",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -751,8 +751,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-SUBINT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:55:02 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:56:53 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ARRIS-C3-SUBINT-MIB"

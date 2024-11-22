@@ -5,29 +5,29 @@
       "IANAifType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetAddress",
       "InetAddressType",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter32",
-      "Integer32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "iso",
       "Gauge32",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
@@ -754,8 +754,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ubiquoss/UBQS-SNMP-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:03:54 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:06:55 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "UBQS-SNMP-MIB"

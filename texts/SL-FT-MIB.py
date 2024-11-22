@@ -1,22 +1,22 @@
 #
 # PySNMP MIB module SL-FT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-FT-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 16:01:45 2024
-# On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 16:04:16 2024
+# On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 IANAifType, = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-ifIndex, ifAlias = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifAlias")
+ifAlias, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifAlias", "ifIndex")
 InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-PerfTotalCount, PerfCurrentCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfTotalCount", "PerfCurrentCount", "PerfIntervalCount")
+PerfCurrentCount, PerfIntervalCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfIntervalCount", "PerfTotalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Unsigned32, Gauge32, Counter64, ModuleIdentity, IpAddress, ObjectIdentity, Bits, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, TimeTicks, Counter32, Integer32, NotificationType, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Gauge32", "Counter64", "ModuleIdentity", "IpAddress", "ObjectIdentity", "Bits", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "TimeTicks", "Counter32", "Integer32", "NotificationType", "enterprises")
-TruthValue, DisplayString, RowPointer, RowStatus, TextualConvention, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "RowPointer", "RowStatus", "TextualConvention", "TimeStamp")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, IpAddress, Counter32, enterprises, ObjectIdentity, Gauge32, Bits, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, iso, ModuleIdentity, Unsigned32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "Counter32", "enterprises", "ObjectIdentity", "Gauge32", "Bits", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "iso", "ModuleIdentity", "Unsigned32", "Integer32")
+TimeStamp, DisplayString, RowPointer, TruthValue, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "RowPointer", "TruthValue", "TextualConvention", "RowStatus")
 class MacAddress(OctetString):
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
     fixedLength = 6
@@ -91,4 +91,4 @@ if mibBuilder.loadTexts: slFtSystemsEvents.setDescription('The system events for
 slFtTftpStatusChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 30, 1, 1, 0, 1)).setObjects(("SL-FT-MIB", "slFtTftpStatus"))
 if mibBuilder.loadTexts: slFtTftpStatusChangeTrap.setStatus('current')
 if mibBuilder.loadTexts: slFtTftpStatusChangeTrap.setDescription('This trap is sent whenever the status of tftp changed.')
-mibBuilder.exportSymbols("SL-FT-MIB", slFtFileTransCmd=slFtFileTransCmd, slFtFileTransferToSubSystems=slFtFileTransferToSubSystems, slFtTftpRetryTimeOut=slFtTftpRetryTimeOut, PYSNMP_MODULE_ID=slFt, SftpUserLogin=SftpUserLogin, slFtTftpTotalTimeOut=slFtTftpTotalTimeOut, slFtFileNameWithinProduct=slFtFileNameWithinProduct, slFtFileTransferProtocol=slFtFileTransferProtocol, MacAddress=MacAddress, slFtSystems=slFtSystems, slFtSystemReset=slFtSystemReset, slFtSystemsEvents=slFtSystemsEvents, slFtAgnt=slFtAgnt, slFtFileName=slFtFileName, slFt=slFt, slFtFileTransfer=slFtFileTransfer, slFtAgnSwVersionSwapCmd=slFtAgnSwVersionSwapCmd, slFtTftpStatusChangeTrap=slFtTftpStatusChangeTrap, slFtSftpUserLogin=slFtSftpUserLogin, slFtGen=slFtGen, SftpUserPassword=SftpUserPassword, slFtFileServerIP=slFtFileServerIP, slFtTftpStatus=slFtTftpStatus, slFtTftpError=slFtTftpError, slFtFileTransferServerPort=slFtFileTransferServerPort, slFtSftpPasswordLogin=slFtSftpPasswordLogin)
+mibBuilder.exportSymbols("SL-FT-MIB", slFtAgnSwVersionSwapCmd=slFtAgnSwVersionSwapCmd, slFtTftpStatusChangeTrap=slFtTftpStatusChangeTrap, slFt=slFt, slFtFileNameWithinProduct=slFtFileNameWithinProduct, slFtSftpUserLogin=slFtSftpUserLogin, slFtFileTransferToSubSystems=slFtFileTransferToSubSystems, slFtSystemReset=slFtSystemReset, slFtFileTransferServerPort=slFtFileTransferServerPort, slFtGen=slFtGen, MacAddress=MacAddress, slFtAgnt=slFtAgnt, slFtTftpRetryTimeOut=slFtTftpRetryTimeOut, SftpUserLogin=SftpUserLogin, slFtTftpError=slFtTftpError, slFtFileTransferProtocol=slFtFileTransferProtocol, slFtSystemsEvents=slFtSystemsEvents, PYSNMP_MODULE_ID=slFt, SftpUserPassword=SftpUserPassword, slFtSystems=slFtSystems, slFtSftpPasswordLogin=slFtSftpPasswordLogin, slFtFileName=slFtFileName, slFtFileTransCmd=slFtFileTransCmd, slFtFileTransfer=slFtFileTransfer, slFtFileServerIP=slFtFileServerIP, slFtTftpTotalTimeOut=slFtTftpTotalTimeOut, slFtTftpStatus=slFtTftpStatus)

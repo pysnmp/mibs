@@ -5,14 +5,14 @@
       "dlinkIndustrialCommon"
     ],
     "DLINKSW-NETWORK-ACCESS-MIB": [
-      "dnaSessionAuthUserName",
       "dnaSessionClientMacAddress",
+      "dnaSessionAuthUserName",
       "dnaSessionAuthVlan"
     ],
     "IF-MIB": [
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
@@ -26,26 +26,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
+      "Counter64",
       "MibIdentifier",
-      "Integer32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "iso",
       "IpAddress",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwDot1xExtMIB": {
@@ -1248,8 +1248,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DOT1X-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:56:55 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:58:51 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DOT1X-EXT-MIB"

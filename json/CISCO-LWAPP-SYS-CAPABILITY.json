@@ -5,29 +5,29 @@
       "ciscoAgentCapability"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "AGENT-CAPABILITIES",
-      "NOTIFICATION-GROUP"
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
-      "Integer32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
       "iso",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLwappSysCapability": {
@@ -58,8 +58,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-SYS-CAPABILITY",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:00:02 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:01:46 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-SYS-CAPABILITY"

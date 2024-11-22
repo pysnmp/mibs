@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
       "MODULE-IDENTITY",
+      "Counter32",
       "iso",
-      "MibIdentifier",
       "OBJECT-TYPE",
+      "Bits",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
       "Gauge32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
       "IpAddress",
       "OBJECT-IDENTITY",
       "mib-2",
-      "TimeTicks"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
-      "TestAndIncr",
-      "TimeStamp",
       "AutonomousType",
       "DisplayString",
+      "TimeStamp",
+      "TestAndIncr",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2148,8 +2148,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/UPS-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:55:06 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:57:00 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "UPS-MIB"

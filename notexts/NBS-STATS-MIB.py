@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-STATS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-STATS-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 16:00:58 2024
-# On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 16:03:18 2024
+# On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, Counter32, TimeTicks, ObjectIdentity, IpAddress, Counter64, Integer32, NotificationType, Bits, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "TimeTicks", "ObjectIdentity", "IpAddress", "Counter64", "Integer32", "NotificationType", "Bits", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter64, Bits, ModuleIdentity, NotificationType, iso, Counter32, Unsigned32, Gauge32, Integer32, MibIdentifier, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Bits", "ModuleIdentity", "NotificationType", "iso", "Counter32", "Unsigned32", "Gauge32", "Integer32", "MibIdentifier", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 nbsStatsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 233))
 if mibBuilder.loadTexts: nbsStatsMib.setLastUpdated('201303130000Z')
 if mibBuilder.loadTexts: nbsStatsMib.setOrganization('NBS')
@@ -28,4 +28,4 @@ nbsStatInfoCounters = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 233, 1, 10, 1, 2), 
 if mibBuilder.loadTexts: nbsStatInfoCounters.setStatus('current')
 nbsStatInfoPmData = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 233, 1, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("counting", 2), ("clearing", 3)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: nbsStatInfoPmData.setStatus('current')
-mibBuilder.exportSymbols("NBS-STATS-MIB", nbsStatInfoGrp=nbsStatInfoGrp, nbsStatInfoTable=nbsStatInfoTable, nbsStatInfoPmData=nbsStatInfoPmData, nbsStatInfoCounters=nbsStatInfoCounters, nbsStatInfoEntry=nbsStatInfoEntry, PYSNMP_MODULE_ID=nbsStatsMib, nbsStatsMib=nbsStatsMib, nbsStatInfoIndex=nbsStatInfoIndex)
+mibBuilder.exportSymbols("NBS-STATS-MIB", nbsStatInfoTable=nbsStatInfoTable, nbsStatInfoEntry=nbsStatInfoEntry, nbsStatInfoIndex=nbsStatInfoIndex, nbsStatsMib=nbsStatsMib, nbsStatInfoGrp=nbsStatInfoGrp, nbsStatInfoCounters=nbsStatInfoCounters, PYSNMP_MODULE_ID=nbsStatsMib, nbsStatInfoPmData=nbsStatInfoPmData)

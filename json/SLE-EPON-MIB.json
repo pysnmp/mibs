@@ -12,38 +12,38 @@
       "VlanIndex"
     ],
     "SLE-TC-MIB": [
-      "SleControlRequestResultType",
-      "SleControlStatusType"
+      "SleControlStatusType",
+      "SleControlRequestResultType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter32",
-      "BITS",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "BITS",
+      "OBJECT-TYPE",
       "iso",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Bits",
-      "Gauge32"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress"
     ]
   },
   "sleEpon": {
@@ -42161,8 +42161,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-EPON-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:56:54 2024",
-      "On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 15:59:01 2024",
+      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SLE-EPON-MIB"

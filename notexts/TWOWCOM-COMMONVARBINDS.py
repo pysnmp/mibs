@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module TWOWCOM-COMMONVARBINDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/2wcom/TWOWCOM-COMMONVARBINDS
-# Produced by pysmi-1.1.12 at Fri Nov 22 15:54:08 2024
-# On host fv-az1205-935 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Fri Nov 22 15:55:59 2024
+# On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Bits, IpAddress, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, Unsigned32, ObjectIdentity, iso, Integer32, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "IpAddress", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType", "Unsigned32", "ObjectIdentity", "iso", "Integer32", "Gauge32", "MibIdentifier")
+ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+NotificationType, Unsigned32, Counter32, Counter64, Gauge32, ObjectIdentity, MibIdentifier, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "Counter32", "Counter64", "Gauge32", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity", "Bits", "IpAddress")
 TextualConvention, DisplayString, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "DateAndTime")
 twowcom, = mibBuilder.importSymbols("TWOWCOM-SMI", "twowcom")
 commonVarbinds = ModuleIdentity((1, 3, 6, 1, 4, 1, 21529, 11, 1))
@@ -83,4 +83,4 @@ eventCounter = MibScalar((1, 3, 6, 1, 4, 1, 21529, 11, 1, 4), Counter32()).setMa
 if mibBuilder.loadTexts: eventCounter.setStatus('current')
 mibRelease = MibScalar((1, 3, 6, 1, 4, 1, 21529, 11, 1, 5), DateAndTime()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: mibRelease.setStatus('current')
-mibBuilder.exportSymbols("TWOWCOM-COMMONVARBINDS", Integer32d1=Integer32d1, commonVarbinds=commonVarbinds, Integer32h=Integer32h, ValidFlag=ValidFlag, SelectOnOff=SelectOnOff, Integer32d3=Integer32d3, common=common, FaultOK=FaultOK, Integer32d2=Integer32d2, eventPriority=eventPriority, eventTimeStamp=eventTimeStamp, mibRelease=mibRelease, PYSNMP_MODULE_ID=commonVarbinds, Unsigned16x=Unsigned16x, ActiveNotActive=ActiveNotActive, FloatString=FloatString, SelectYesNo=SelectYesNo, commonGroup=commonGroup, eventCounter=eventCounter, Integer32d=Integer32d)
+mibBuilder.exportSymbols("TWOWCOM-COMMONVARBINDS", commonVarbinds=commonVarbinds, SelectOnOff=SelectOnOff, PYSNMP_MODULE_ID=commonVarbinds, Integer32d2=Integer32d2, ActiveNotActive=ActiveNotActive, eventCounter=eventCounter, common=common, Integer32h=Integer32h, ValidFlag=ValidFlag, eventTimeStamp=eventTimeStamp, SelectYesNo=SelectYesNo, FaultOK=FaultOK, Integer32d1=Integer32d1, mibRelease=mibRelease, FloatString=FloatString, Unsigned16x=Unsigned16x, Integer32d=Integer32d, commonGroup=commonGroup, eventPriority=eventPriority, Integer32d3=Integer32d3)
