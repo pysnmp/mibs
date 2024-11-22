@@ -4,20 +4,20 @@
     "BRIDGE-MIB": [
       "dot1dStpForwardDelay",
       "dot1dStpRootPort",
-      "dot1dStpPortDesignatedRoot",
       "dot1dStpPortDesignatedBridge",
-      "dot1dStpPortDesignatedCost",
-      "dot1dStpHelloTime",
-      "dot1dStpMaxAge",
+      "dot1dStpPortState",
       "dot1dStpDesignatedRoot",
+      "dot1dStpHelloTime",
+      "dot1dStpPortDesignatedCost",
+      "dot1dStpPortDesignatedRoot",
       "dot1dStpRootCost",
-      "dot1dStpPortDesignatedPort",
-      "dot1dStpPortState"
+      "dot1dStpMaxAge",
+      "dot1dStpPortDesignatedPort"
     ],
     "IF-MIB": [
+      "ifInErrors",
       "ifOutErrors",
-      "ifOutDiscards",
-      "ifInErrors"
+      "ifOutDiscards"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -27,27 +27,27 @@
       "sysObjectID"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "enterprises",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "Counter64",
+      "TRAP-TYPE",
+      "Unsigned32",
+      "iso",
+      "enterprises",
+      "MibIdentifier",
+      "Gauge32",
       "Counter32",
-      "Unsigned32"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "PhysAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "sigma": {
@@ -4334,8 +4334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CT-ELS10-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:59:48 2024",
-      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:42:44 2024",
+      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CT-ELS10-MIB"

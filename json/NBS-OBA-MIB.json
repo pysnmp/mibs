@@ -13,25 +13,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Gauge32",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
       "MibIdentifier",
       "Integer32",
+      "Unsigned32",
+      "iso",
       "OBJECT-TYPE",
       "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Bits"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nbsObaMib": {
@@ -469,8 +469,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-OBA-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:03:21 2024",
-      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:46:14 2024",
+      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "NBS-OBA-MIB"

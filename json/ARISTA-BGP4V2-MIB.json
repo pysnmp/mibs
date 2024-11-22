@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ARISTA-BGP4V2-TC-MIB": [
-      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC",
+      "AristaBgp4V2AddressFamilyIdentifierTC",
       "AristaBgp4V2IdentifierTC",
-      "AristaBgp4V2AddressFamilyIdentifierTC"
+      "AristaBgp4V2SubsequentAddressFamilyIdentifierTC"
     ],
     "ARISTA-SMI-MIB": [
       "aristaExperiment"
@@ -12,40 +12,40 @@
     "INET-ADDRESS-MIB": [
       "InetAddress",
       "InetPortNumber",
+      "InetAutonomousSystemNumber",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAutonomousSystemNumber"
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
       "Bits",
-      "Counter32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
       "Integer32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
       "TimeTicks",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "aristaBgp4V2": {
@@ -1865,8 +1865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arista/ARISTA-BGP4V2-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 15:56:45 2024",
-      "On host fv-az1245-338 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Fri Nov 22 16:39:40 2024",
+      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ARISTA-BGP4V2-MIB"
