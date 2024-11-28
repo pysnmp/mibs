@@ -8,31 +8,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "iso",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "Gauge32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "lagMIB": {
@@ -1340,8 +1340,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE8023-LAG-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:39:53 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 02:54:58 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8023-LAG-MIB"

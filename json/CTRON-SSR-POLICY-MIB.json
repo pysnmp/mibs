@@ -8,32 +8,32 @@
       "dot1qVlanStaticEntry"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MODULE-IDENTITY",
       "Bits",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "iso",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "MacAddress",
       "DisplayString",
       "RowStatus",
-      "MacAddress"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "policyMIB": {
@@ -2653,8 +2653,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-POLICY-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:42:44 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 02:57:45 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CTRON-SSR-POLICY-MIB"

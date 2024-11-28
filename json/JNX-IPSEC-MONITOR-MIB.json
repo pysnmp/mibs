@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxEncapMode",
       "JnxIkeNegoMode",
-      "JnxRemotePeerType",
+      "JnxEncryptAlgo",
+      "JnxSAType",
+      "JnxIkeAuthMethod",
+      "JnxAuthAlgo",
       "JnxIkeHashAlgo",
       "JnxIkePeerType",
-      "JnxSAType",
+      "JnxIkePeerRole",
       "JnxDiffHellmanGrp",
-      "JnxAuthAlgo",
-      "JnxIkeAuthMethod",
-      "JnxEncryptAlgo",
+      "JnxEncapMode",
       "JnxKeyType",
-      "JnxIkePeerRole"
+      "JnxRemotePeerType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -26,24 +26,24 @@
       "jnxSpSvcSetName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter32",
-      "iso",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "Bits",
-      "Counter64",
       "TimeTicks",
-      "OBJECT-TYPE"
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:46:30 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 03:01:09 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

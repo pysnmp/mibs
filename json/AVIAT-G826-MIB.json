@@ -6,30 +6,30 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Unsigned32",
       "Bits",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32",
       "MibIdentifier",
       "Counter32",
-      "Gauge32",
-      "IpAddress"
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ],
     "STXN-GLOBALREGISTER-MIB": [
       "aviatModules"
@@ -840,8 +840,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-G826-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:40:01 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 02:55:11 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "AVIAT-G826-MIB"

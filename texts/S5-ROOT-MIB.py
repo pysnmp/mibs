@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module S5-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/S5-ROOT-MIB
-# Produced by pysmi-1.1.12 at Fri Nov 22 16:46:40 2024
-# On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Thu Nov 28 03:01:28 2024
+# On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, ObjectIdentity, iso, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Gauge32, Integer32, Counter32, Counter64, TimeTicks, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "ObjectIdentity", "iso", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Gauge32", "Integer32", "Counter32", "Counter64", "TimeTicks", "Bits", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+iso, MibIdentifier, Counter64, NotificationType, TimeTicks, Counter32, IpAddress, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibIdentifier", "Counter64", "NotificationType", "TimeTicks", "Counter32", "IpAddress", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "Integer32", "ObjectIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 series5000, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "series5000")
 s5RootMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 1, 6, 0))
 s5RootMib.setRevisions(('2004-07-20 00:00',))
@@ -46,4 +46,4 @@ s5AtmTop = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 14))
 s5IfExt = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 15))
 bnLogMsg = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 16))
 s5Tcs = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 1, 6, 17))
-mibBuilder.exportSymbols("S5-ROOT-MIB", PYSNMP_MODULE_ID=s5RootMib, s5Fddi=s5Fddi, s5Tcs=s5Tcs, stpChangeTrap=stpChangeTrap, s5EnTop=s5EnTop, atmTraps=atmTraps, s5EnMsTop=s5EnMsTop, s5Agent=s5Agent, s5Tok=s5Tok, s5ChaTrap=s5ChaTrap, remoteLoginTrap=remoteLoginTrap, s5Chassis=s5Chassis, s5IfExt=s5IfExt, s5Eth=s5Eth, s5AtmTop=s5AtmTop, s5Traps=s5Traps, s5reg=s5reg, s5EcellTrap=s5EcellTrap, s5Com=s5Com, s5TokTrap=s5TokTrap, s5TrTop=s5TrTop, s5ComTrap=s5ComTrap, bnLogMsg=bnLogMsg, s5FddTrap=s5FddTrap, s5RootMib=s5RootMib, s5FdTop=s5FdTop, s5EthTrap=s5EthTrap)
+mibBuilder.exportSymbols("S5-ROOT-MIB", s5EcellTrap=s5EcellTrap, s5RootMib=s5RootMib, s5TokTrap=s5TokTrap, s5TrTop=s5TrTop, s5EnTop=s5EnTop, s5IfExt=s5IfExt, s5EnMsTop=s5EnMsTop, s5Chassis=s5Chassis, s5reg=s5reg, remoteLoginTrap=remoteLoginTrap, s5EthTrap=s5EthTrap, s5Fddi=s5Fddi, s5Tcs=s5Tcs, PYSNMP_MODULE_ID=s5RootMib, s5Com=s5Com, s5Eth=s5Eth, s5ChaTrap=s5ChaTrap, s5Traps=s5Traps, stpChangeTrap=stpChangeTrap, s5Agent=s5Agent, atmTraps=atmTraps, s5AtmTop=s5AtmTop, s5FddTrap=s5FddTrap, s5Tok=s5Tok, bnLogMsg=bnLogMsg, s5FdTop=s5FdTop, s5ComTrap=s5ComTrap)

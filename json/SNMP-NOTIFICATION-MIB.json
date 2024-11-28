@@ -9,32 +9,32 @@
       "snmpTargetParamsName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Integer32",
       "snmpModules",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "iso",
-      "MibIdentifier"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "StorageType"
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "snmpNotificationMIB": {
@@ -497,8 +497,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/SNMP-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:42:37 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 02:57:39 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SNMP-NOTIFICATION-MIB"

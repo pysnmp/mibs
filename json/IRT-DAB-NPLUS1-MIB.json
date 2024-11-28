@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
+      "eventTimeStamp",
       "eventPriority",
       "mibRelease",
-      "eventCounter",
-      "eventTimeStamp"
+      "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "dab",
-      "LocalRemote",
-      "SFNMFN",
-      "FaultOK",
       "ExecutedNotExecuted",
-      "Input1Input2",
+      "MuteOk",
+      "SFNMFN",
+      "SelectManualAuto",
+      "FaultOK",
       "SelectOnOff",
       "ReadyNotReady",
       "WarningOK",
       "PresentNotPresent",
-      "MuteOk",
-      "OkNotOk",
-      "SelectManualAuto"
+      "dab",
+      "LocalRemote",
+      "Input1Input2",
+      "OkNotOk"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysName",
       "sysLocation",
+      "sysName",
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter64",
-      "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
       "TimeTicks",
-      "Gauge32",
-      "OBJECT-TYPE",
+      "Counter32",
+      "Unsigned32",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Bits",
       "MODULE-IDENTITY",
-      "MibIdentifier"
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4481,8 +4481,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DAB-NPLUS1-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:45:23 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 03:00:12 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IRT-DAB-NPLUS1-MIB"

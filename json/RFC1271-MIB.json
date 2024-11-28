@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Gauge32",
-      "TimeTicks",
+      "Integer32",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
       "MibIdentifier",
       "Unsigned32",
-      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "mib-2",
       "Bits",
-      "iso"
+      "mib-2"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -2987,8 +2987,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RFC1271-MIB",
-      "Produced by pysmi-1.1.12 at Fri Nov 22 16:39:25 2024",
-      "On host fv-az1437-189 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Thu Nov 28 02:54:35 2024",
+      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RFC1271-MIB"
