@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
-      "Bits",
-      "iso",
-      "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "TELDAT-SW-STRUCTURE-MIB": [
       "telProdNpMonitSistema"
@@ -108,8 +108,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teldat/TELDAT-MON-CPU-MIB",
-      "Produced by pysmi-1.1.12 at Thu Nov 28 03:03:28 2024",
-      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 09:48:05 2024",
+      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "TELDAT-MON-CPU-MIB"

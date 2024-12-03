@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApRogueDetectedChannel",
       "cLApDot11RadioMACAddress",
-      "cLApName",
-      "cLApDot11IfType",
-      "cLApRogueMode",
-      "cLApDot11RadioChannelNumber",
       "cLApRogueApMacAddress",
-      "cLApIfSmtDot11Bssid"
+      "cLApRogueDetectedChannel",
+      "cLApDot11IfType",
+      "cLApIfSmtDot11Bssid",
+      "cLApRogueMode",
+      "cLApName",
+      "cLApDot11RadioChannelNumber"
     ],
     "CISCO-LWAPP-DOT11-CLIENT-MIB": [
       "cldcClientMacAddress"
@@ -21,32 +21,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "Counter32",
       "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "Bits",
       "MODULE-IDENTITY",
-      "Bits"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "StorageType",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -2521,8 +2521,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-ROGUE-MIB",
-      "Produced by pysmi-1.1.12 at Thu Nov 28 02:59:57 2024",
-      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 09:44:27 2024",
+      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-ROGUE-MIB"

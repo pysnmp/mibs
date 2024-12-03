@@ -11,24 +11,24 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
-      "TimeTicks",
       "Gauge32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Counter64",
+      "iso",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "IpAddress"
+      "Counter32",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "saEuropeMessages": {
@@ -500,8 +500,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-MESSAGES-MIB",
-      "Produced by pysmi-1.1.12 at Thu Nov 28 03:02:50 2024",
-      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 09:47:28 2024",
+      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SAEUROPE-MESSAGES-MIB"

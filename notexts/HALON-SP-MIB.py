@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HALON-SP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/halon/HALON-SP-MIB
-# Produced by pysmi-1.1.12 at Thu Nov 28 02:58:27 2024
-# On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 09:43:00 2024
+# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Counter64, NotificationType, iso, Unsigned32, MibIdentifier, enterprises, Gauge32, Bits, ObjectIdentity, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter64", "NotificationType", "iso", "Unsigned32", "MibIdentifier", "enterprises", "Gauge32", "Bits", "ObjectIdentity", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "TimeTicks")
+iso, Counter32, MibIdentifier, Unsigned32, Integer32, TimeTicks, ObjectIdentity, IpAddress, NotificationType, enterprises, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "MibIdentifier", "Unsigned32", "Integer32", "TimeTicks", "ObjectIdentity", "IpAddress", "NotificationType", "enterprises", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 halonSecuritySP = ModuleIdentity((1, 3, 6, 1, 4, 1, 33234, 1, 1))
 halonSecuritySP.setRevisions(('2013-02-07 11:32',))
@@ -42,4 +42,4 @@ statCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 5), Intege
 if mibBuilder.loadTexts: statCreated.setStatus('current')
 statUpdated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: statUpdated.setStatus('current')
-mibBuilder.exportSymbols("HALON-SP-MIB", statUpdated=statUpdated, statKey3Index=statKey3Index, halonSecurityProducts=halonSecurityProducts, configurationRevision=configurationRevision, mailQueueLength=mailQueueLength, statKey1Index=statKey1Index, statCount=statCount, halonSecuritySPObjects=halonSecuritySPObjects, statTable=statTable, quarantinedMessages=quarantinedMessages, statKey2Index=statKey2Index, statCreated=statCreated, PYSNMP_MODULE_ID=halonSecuritySP, statEntry=statEntry, halonSecuritySP=halonSecuritySP, serialNumber=serialNumber, halonSecurity=halonSecurity)
+mibBuilder.exportSymbols("HALON-SP-MIB", halonSecurity=halonSecurity, statKey1Index=statKey1Index, statKey2Index=statKey2Index, halonSecuritySP=halonSecuritySP, statKey3Index=statKey3Index, statCount=statCount, halonSecurityProducts=halonSecurityProducts, statEntry=statEntry, quarantinedMessages=quarantinedMessages, halonSecuritySPObjects=halonSecuritySPObjects, statCreated=statCreated, PYSNMP_MODULE_ID=halonSecuritySP, statUpdated=statUpdated, mailQueueLength=mailQueueLength, statTable=statTable, serialNumber=serialNumber, configurationRevision=configurationRevision)

@@ -8,29 +8,29 @@
       "bdMgmt"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
       "IpAddress",
       "Gauge32",
-      "iso"
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
+      "iso",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -345,8 +345,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bdcom/BDCOM-MEMORY-POOL-MIB",
-      "Produced by pysmi-1.1.12 at Thu Nov 28 02:55:18 2024",
-      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 09:39:53 2024",
+      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "BDCOM-MEMORY-POOL-MIB"

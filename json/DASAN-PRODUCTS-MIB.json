@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "DASAN-SMI": [
-      "dasanProducts",
-      "dasanModules"
+      "dasanModules",
+      "dasanProducts"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
       "Bits",
-      "OBJECT-TYPE",
       "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MibIdentifier",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "TimeTicks",
       "Counter32",
-      "iso",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1889,8 +1889,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.12 at Thu Nov 28 02:56:51 2024",
-      "On host fv-az885-149 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 09:41:26 2024",
+      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DASAN-PRODUCTS-MIB"
