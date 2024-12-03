@@ -8,45 +8,45 @@
       "Dlink2kVlanList"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrNone",
-      "VlanId"
+      "VlanId",
+      "VlanIdOrNone"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "TimeTicks",
       "Counter32",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "iso",
       "Integer32",
-      "IpAddress",
-      "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "iso"
+      "Counter64",
+      "IpAddress",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "DisplayString",
       "MacAddress",
-      "TruthValue"
+      "DateAndTime",
+      "RowStatus",
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlinkSwDhcpSnpMIB": {
@@ -1080,8 +1080,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-DHCP-SNOOPING-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:54:52 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:39:09 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-DHCP-SNOOPING-MIB"

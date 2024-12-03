@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "HUAWEI-ETHOAM-MIB": [
-      "HWDot1agCfmRelayActionFieldValue",
+      "HWDot1agCfmIngressActionFieldValue",
       "HWDot1agCfmEgressActionFieldValue",
-      "HWDot1agCfmIngressActionFieldValue"
+      "HWDot1agCfmRelayActionFieldValue"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IEEE802171-CFM-MIB": [
+      "Dot1agCfmMepIdOrZero",
       "Dot1agCfmMaintAssocName",
-      "Dot1agCfmMaintDomainName",
-      "Dot1agCfmMepIdOrZero"
+      "Dot1agCfmMaintDomainName"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetPortNumber",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -32,38 +32,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "NOTIFICATION-GROUP",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "Counter32",
       "MibIdentifier",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "NOTIFICATION-GROUP",
+      "iso",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TimeInterval",
-      "TruthValue",
+      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TimeInterval",
+      "TimeStamp",
       "DateAndTime",
       "RowStatus",
-      "MacAddress",
-      "StorageType"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:57:37 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:41:57 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "NQA-MIB"

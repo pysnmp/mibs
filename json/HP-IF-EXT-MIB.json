@@ -5,34 +5,34 @@
       "hpProcurveCommon"
     ],
     "IF-MIB": [
-      "ifEntry",
-      "ifIndex"
+      "ifIndex",
+      "ifEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Bits",
       "MibIdentifier",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "hpIfExtMIB": {
@@ -258,8 +258,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-IF-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:57:46 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:42:11 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HP-IF-EXT-MIB"

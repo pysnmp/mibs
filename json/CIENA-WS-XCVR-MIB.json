@@ -5,49 +5,49 @@
       "cienaWsConfig"
     ],
     "CIENA-WS-TYPEDEFS-MIB": [
-      "StringMaxl16",
-      "PtpId",
-      "StringMaxl254",
-      "XcvrMode",
-      "XcvrType",
-      "NameString",
-      "XcvrSerdesRxEmphasis",
-      "XcvrSerdesRxAmplitude",
-      "XcvrProfileId",
-      "XcvrSerdesTxEq",
-      "XcvrId",
-      "ChannelsNumber",
-      "StringMaxl32",
-      "StringMaxl128",
-      "EnabledDisabledEnum",
       "ConnectorTypeDescEnum",
+      "StringMaxl16",
+      "EnabledDisabledEnum",
+      "XcvrMode",
+      "XcvrSerdesRxEmphasis",
+      "PtpId",
+      "XcvrSerdesRxAmplitude",
+      "StringMaxl128",
+      "XcvrSerdesTxEq",
+      "XcvrProfileId",
+      "XcvrType",
+      "StringMaxl254",
+      "NameString",
+      "StringMaxl32",
+      "ChannelsNumber",
+      "XcvrId",
       "Decimal1Dig"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
+      "MibIdentifier",
       "Bits",
-      "Integer32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "Counter32",
-      "IpAddress",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Unsigned32",
       "Gauge32",
-      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
       "TimeTicks",
-      "Counter64"
+      "IpAddress",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "cienaWsXcvrMIB": {
@@ -2210,8 +2210,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-XCVR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:53:55 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:38:11 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CIENA-WS-XCVR-MIB"

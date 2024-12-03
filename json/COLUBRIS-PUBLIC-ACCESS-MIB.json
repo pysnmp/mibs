@@ -5,44 +5,44 @@
       "colubrisMgmtV2"
     ],
     "COLUBRIS-TC": [
-      "ColubrisUsersAuthenticationMode",
-      "ColubrisSSIDOrNone",
       "ColubrisPriorityQueue",
-      "ColubrisNotificationEnable",
-      "ColubrisUsersAuthenticationType",
+      "ColubrisSSIDOrNone",
+      "ColubrisUsersAuthenticationMode",
       "ColubrisSecurity",
-      "ColubrisProfileIndexOrZero"
+      "ColubrisNotificationEnable",
+      "ColubrisProfileIndexOrZero",
+      "ColubrisUsersAuthenticationType"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "Unsigned32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "iso",
       "IpAddress",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "Bits",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DisplayString",
       "DateAndTime",
-      "DisplayString"
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "colubrisPublicAccessMIB": {
@@ -1573,8 +1573,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-PUBLIC-ACCESS-MIB.my",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:56:38 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:41:00 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-PUBLIC-ACCESS-MIB"

@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "IRT-COMMONVARBINDS-MIB": [
-      "eventPriority",
       "eventTimeStamp",
       "mibRelease",
+      "eventPriority",
       "eventCounter"
     ],
     "IRT-TRANSMITTER-SMI-MIB": [
-      "dab",
-      "MuteOk",
-      "Input1Input2",
-      "FaultOK",
-      "LocalRemote",
       "SelectOnOff",
-      "OkNotOk",
-      "PresentNotPresent",
       "WarningOK",
+      "MuteOk",
+      "FaultOK",
       "SelectManualAuto",
-      "SFNMFN"
+      "LocalRemote",
+      "SFNMFN",
+      "OkNotOk",
+      "Input1Input2",
+      "PresentNotPresent",
+      "dab"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName",
@@ -31,20 +31,20 @@
       "sysDescr"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
       "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
       "IpAddress",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "iso"
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1502,8 +1502,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/irt/IRT-DAB-SINGLETRANSMITTER-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:58:05 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:42:27 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IRT-DAB-SINGLETRANSMITTER-MIB"

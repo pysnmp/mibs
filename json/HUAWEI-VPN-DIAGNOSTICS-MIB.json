@@ -8,39 +8,39 @@
       "HWL2VpnVcEncapsType"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter64",
-      "IpAddress",
-      "mib-2",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Unsigned32",
+      "Counter32",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
       "Gauge32",
-      "Counter32"
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "vpndiagnostics": {
@@ -1170,8 +1170,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-VPN-DIAGNOSTICS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:57:39 2024",
-      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:41:59 2024",
+      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-VPN-DIAGNOSTICS-MIB"

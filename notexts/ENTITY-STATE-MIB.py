@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ENTITY-STATE-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/ENTITY-STATE-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 10:52:49 2024
-# On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 11:37:05 2024
+# On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-EntityUsageState, EntityStandbyStatus, EntityAdminState, EntityOperState, EntityAlarmStatus = mibBuilder.importSymbols("ENTITY-STATE-TC-MIB", "EntityUsageState", "EntityStandbyStatus", "EntityAdminState", "EntityOperState", "EntityAlarmStatus")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-NotificationType, Counter64, TimeTicks, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ObjectIdentity, mib_2, Unsigned32, Bits, Integer32, IpAddress, ModuleIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Counter64", "TimeTicks", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ObjectIdentity", "mib-2", "Unsigned32", "Bits", "Integer32", "IpAddress", "ModuleIdentity", "iso")
-DisplayString, TextualConvention, DateAndTime = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
+EntityStandbyStatus, EntityAlarmStatus, EntityUsageState, EntityAdminState, EntityOperState = mibBuilder.importSymbols("ENTITY-STATE-TC-MIB", "EntityStandbyStatus", "EntityAlarmStatus", "EntityUsageState", "EntityAdminState", "EntityOperState")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, NotificationType, Counter64, IpAddress, ObjectIdentity, Bits, Integer32, TimeTicks, iso, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "NotificationType", "Counter64", "IpAddress", "ObjectIdentity", "Bits", "Integer32", "TimeTicks", "iso", "mib-2")
+DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
 entityStateMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 131))
 entityStateMIB.setRevisions(('2005-11-22 00:00',))
 if mibBuilder.loadTexts: entityStateMIB.setLastUpdated('200511220000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 entStateNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 131, 2, 2, 2)).setObjects(("ENTITY-STATE-MIB", "entStateOperEnabled"), ("ENTITY-STATE-MIB", "entStateOperDisabled"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     entStateNotificationsGroup = entStateNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("ENTITY-STATE-MIB", entStateGroups=entStateGroups, entStateAdmin=entStateAdmin, entStateNotificationsGroup=entStateNotificationsGroup, entStateGroup=entStateGroup, entStateConformance=entStateConformance, entStateTable=entStateTable, entStateEntry=entStateEntry, entityStateMIB=entityStateMIB, entStateOper=entStateOper, entStateStandby=entStateStandby, entStateCompliances=entStateCompliances, entStateObjects=entStateObjects, PYSNMP_MODULE_ID=entityStateMIB, entStateLastChanged=entStateLastChanged, entStateAlarm=entStateAlarm, entStateUsage=entStateUsage, entStateNotifications=entStateNotifications, entStateCompliance=entStateCompliance, entStateOperDisabled=entStateOperDisabled, entStateOperEnabled=entStateOperEnabled)
+mibBuilder.exportSymbols("ENTITY-STATE-MIB", entStateEntry=entStateEntry, entStateConformance=entStateConformance, entStateStandby=entStateStandby, entStateUsage=entStateUsage, entStateAlarm=entStateAlarm, entStateGroups=entStateGroups, entStateGroup=entStateGroup, entStateLastChanged=entStateLastChanged, PYSNMP_MODULE_ID=entityStateMIB, entityStateMIB=entityStateMIB, entStateTable=entStateTable, entStateNotificationsGroup=entStateNotificationsGroup, entStateCompliances=entStateCompliances, entStateOperEnabled=entStateOperEnabled, entStateObjects=entStateObjects, entStateOper=entStateOper, entStateCompliance=entStateCompliance, entStateAdmin=entStateAdmin, entStateNotifications=entStateNotifications, entStateOperDisabled=entStateOperDisabled)
