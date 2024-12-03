@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SAF-ENTERPRISE (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-ENTERPRISE
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:47:32 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:11:24 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, MibIdentifier, Counter64, Counter32, NotificationType, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, enterprises, IpAddress, iso, TimeTicks, ObjectIdentity, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibIdentifier", "Counter64", "Counter32", "NotificationType", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "enterprises", "IpAddress", "iso", "TimeTicks", "ObjectIdentity", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, MibIdentifier, enterprises, iso, Counter64, ObjectIdentity, Integer32, Counter32, Gauge32, Unsigned32, Bits, ModuleIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "MibIdentifier", "enterprises", "iso", "Counter64", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "Unsigned32", "Bits", "ModuleIdentity", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 saf = ModuleIdentity((1, 3, 6, 1, 4, 1, 7571))
 saf.setRevisions(('2007-04-03 00:00',))
 
@@ -26,4 +26,4 @@ if mibBuilder.loadTexts: tehnika.setDescription('Subtree to register SAF tehnika
 microwaveRadio = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 1))
 microwave = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 2))
 pointToPoint = MibIdentifier((1, 3, 6, 1, 4, 1, 7571, 100, 1, 1))
-mibBuilder.exportSymbols("SAF-ENTERPRISE", microwave=microwave, tehnika=tehnika, microwaveRadio=microwaveRadio, pointToPoint=pointToPoint, saf=saf, PYSNMP_MODULE_ID=saf)
+mibBuilder.exportSymbols("SAF-ENTERPRISE", microwave=microwave, microwaveRadio=microwaveRadio, PYSNMP_MODULE_ID=saf, pointToPoint=pointToPoint, tehnika=tehnika, saf=saf)

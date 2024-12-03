@@ -3,59 +3,59 @@
     "class": "imports",
     "BFD-TC-STD-MIB": [
       "BfdIntervalTC",
-      "BfdCtrlDestPortNumberTC",
-      "BfdSessIndexTC",
       "BfdMultiplierTC",
-      "BfdCtrlSourcePortNumberTC"
+      "BfdSessIndexTC",
+      "BfdCtrlSourcePortNumberTC",
+      "BfdCtrlDestPortNumberTC"
     ],
     "DIFFSERV-DSCP-TC": [
       "IndexIntegerNextFree"
     ],
     "IANA-BFD-TC-STD-MIB": [
+      "IANAbfdSessOperModeTC",
       "IANAbfdSessTypeTC",
-      "IANAbfdSessAuthenticationTypeTC",
       "IANAbfdDiagTC",
-      "IANAbfdSessAuthenticationKeyTC",
       "IANAbfdSessStateTC",
-      "IANAbfdSessOperModeTC"
+      "IANAbfdSessAuthenticationKeyTC",
+      "IANAbfdSessAuthenticationTypeTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
+      "InetPortNumber",
       "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "Bits",
-      "Integer32",
       "TimeTicks",
+      "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "iso",
-      "Counter32"
+      "IpAddress",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
+      "TruthValue",
       "TimeStamp",
-      "RowStatus"
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bfdMIB": {
@@ -1498,8 +1498,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/BFD-STD-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:39:36 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:03:30 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "BFD-STD-MIB"

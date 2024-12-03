@@ -2,56 +2,56 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "RS-XX9-COMMON-MIB": [
       "commonNotificationAlarmClass"
     ],
     "RS-XX9-SMI-MIB": [
-      "rsXx9Tx",
-      "rsXx9MibModule"
+      "rsXx9MibModule",
+      "rsXx9Tx"
     ],
     "RS-XX9-TC-MIB": [
-      "NotificationMask",
-      "IndexTransmitter",
-      "NotificationClass",
-      "Xx9ModulationMode",
-      "IndexAB",
-      "Trigger",
       "NotificationPriority",
-      "NotificationState",
-      "SwitchOnOff"
+      "Trigger",
+      "IndexTransmitter",
+      "IndexAB",
+      "NotificationMask",
+      "Xx9ModulationMode",
+      "SwitchOnOff",
+      "NotificationClass",
+      "NotificationState"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
       "OBJECT-TYPE",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Unsigned32",
       "iso",
-      "Gauge32",
-      "Integer32",
+      "Bits",
+      "Counter32",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Bits",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "DateAndTime",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "rsXx9TxMibModule": {
@@ -12546,8 +12546,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX9-TX-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:47:30 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:11:22 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RS-XX9-TX-MIB"

@@ -6,34 +6,34 @@
       "extremeAgent"
     ],
     "POWER-ETHERNET-MIB": [
+      "pethPsePortIndex",
       "pethMainPseGroupIndex",
-      "pethPsePortGroupIndex",
-      "pethPsePortIndex"
+      "pethPsePortGroupIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "Bits",
       "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "extremePoE": {
@@ -579,8 +579,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:42:34 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:06:31 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "EXTREME-POE-MIB"

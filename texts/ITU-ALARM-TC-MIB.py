@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module ITU-ALARM-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/ITU-ALARM-TC-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:39:42 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:03:39 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Gauge32, Counter32, ObjectIdentity, Integer32, iso, ModuleIdentity, mib_2, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, IpAddress, Unsigned32, NotificationType, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "ObjectIdentity", "Integer32", "iso", "ModuleIdentity", "mib-2", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "IpAddress", "Unsigned32", "NotificationType", "TimeTicks")
+Unsigned32, Bits, mib_2, NotificationType, Gauge32, Counter32, Counter64, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, ModuleIdentity, TimeTicks, IpAddress, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "mib-2", "NotificationType", "Gauge32", "Counter32", "Counter64", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "ModuleIdentity", "TimeTicks", "IpAddress", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ituAlarmTc = ModuleIdentity((1, 3, 6, 1, 2, 1, 120))
 ituAlarmTc.setRevisions(('2004-09-09 00:00',))
@@ -34,4 +34,4 @@ class ItuTrendIndication(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
     namedValues = NamedValues(("moreSevere", 1), ("noChange", 2), ("lessSevere", 3))
 
-mibBuilder.exportSymbols("ITU-ALARM-TC-MIB", ItuTrendIndication=ItuTrendIndication, ituAlarmTc=ituAlarmTc, PYSNMP_MODULE_ID=ituAlarmTc, ItuPerceivedSeverity=ItuPerceivedSeverity)
+mibBuilder.exportSymbols("ITU-ALARM-TC-MIB", ituAlarmTc=ituAlarmTc, PYSNMP_MODULE_ID=ituAlarmTc, ItuPerceivedSeverity=ItuPerceivedSeverity, ItuTrendIndication=ItuTrendIndication)

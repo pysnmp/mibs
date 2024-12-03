@@ -8,24 +8,24 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddressType"
     ],
     "MIP-MIB": [
+      "mnHAEntry",
+      "haMobilityBindingEntry",
       "faCOAEntry",
       "mnRegCOA",
-      "haMobilityBindingEntry",
-      "mnRegAgentAddress",
+      "mnState",
       "mnRegistrationEntry",
-      "mnHAEntry",
       "RegistrationFlags",
-      "mnState"
+      "mnRegAgentAddress"
     ],
     "RMON2-MIB": [
       "ZeroBasedCounter32"
@@ -39,30 +39,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
+      "Counter64",
       "Counter32",
-      "Bits",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Unsigned32",
+      "iso",
       "NOTIFICATION-TYPE",
-      "Counter64",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
       "Gauge32"
     ],
     "SNMPv2-TC": [
       "TimeInterval",
+      "TimeStamp",
+      "RowStatus",
       "TruthValue",
+      "DateAndTime",
       "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TimeStamp",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoMobileIpMIB": {
@@ -8525,8 +8525,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MOBILE-IP-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:44:27 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:08:30 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-MOBILE-IP-MIB"

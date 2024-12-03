@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module HPOV-NNM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/HPOV-NNM-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:38:54 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:02:50 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter64, NotificationType, iso, Counter32, ModuleIdentity, Gauge32, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, enterprises, Unsigned32, Integer32, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "NotificationType", "iso", "Counter32", "ModuleIdentity", "Gauge32", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "enterprises", "Unsigned32", "Integer32", "Bits", "TimeTicks")
+IpAddress, Counter32, Bits, iso, Integer32, Counter64, enterprises, NotificationType, ModuleIdentity, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Counter32", "Bits", "iso", "Integer32", "Counter64", "enterprises", "NotificationType", "ModuleIdentity", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 hp = MibIdentifier((1, 3, 6, 1, 4, 1, 11))
 nm = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2))
@@ -63,4 +63,4 @@ if mibBuilder.loadTexts: openViewEcsNodeImportance.setStatus('current')
 hpOVNNMTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 17, 1, 0))
 hpOVMessageTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 17, 1, 0, 58916872)).setObjects(("HPOV-NNM-MIB", "openViewSourceId"), ("HPOV-NNM-MIB", "openViewSourceName"), ("HPOV-NNM-MIB", "openViewData"), ("HPOV-NNM-MIB", "openViewSeverity"))
 if mibBuilder.loadTexts: hpOVMessageTrap.setStatus('current')
-mibBuilder.exportSymbols("HPOV-NNM-MIB", hp=hp, openViewPid=openViewPid, PYSNMP_MODULE_ID=hpOpenView, openViewObjectId=openViewObjectId, openViewCategory=openViewCategory, openViewEntity=openViewEntity, openViewCmipEventInfo=openViewCmipEventInfo, nm=nm, openViewEcsCorrelateEvUUID=openViewEcsCorrelateEvUUID, openViewCmipEventType=openViewCmipEventType, openViewTrapVars=openViewTrapVars, openView=openView, openViewCmipManagedObjectInstanceId=openViewCmipManagedObjectInstanceId, openViewSeverity=openViewSeverity, openViewCmipEventTime=openViewCmipEventTime, hpOVNNMTraps=hpOVNNMTraps, hpOpenView=hpOpenView, openViewFilter=openViewFilter, openViewEcsNodeImportance=openViewEcsNodeImportance, openViewAddress=openViewAddress, openViewSourceId=openViewSourceId, openViewEventUUID=openViewEventUUID, hpOVMessageTrap=hpOVMessageTrap, openViewCmipManagedObjectClass=openViewCmipManagedObjectClass, OVTextString=OVTextString, openViewData=openViewData, openViewSourceName=openViewSourceName)
+mibBuilder.exportSymbols("HPOV-NNM-MIB", nm=nm, openViewEcsCorrelateEvUUID=openViewEcsCorrelateEvUUID, hpOVNNMTraps=hpOVNNMTraps, OVTextString=OVTextString, openViewEventUUID=openViewEventUUID, openViewCmipManagedObjectClass=openViewCmipManagedObjectClass, PYSNMP_MODULE_ID=hpOpenView, hpOVMessageTrap=hpOVMessageTrap, openViewObjectId=openViewObjectId, openViewPid=openViewPid, openViewSourceName=openViewSourceName, openViewEntity=openViewEntity, openViewAddress=openViewAddress, hpOpenView=hpOpenView, openViewSourceId=openViewSourceId, openViewData=openViewData, openViewCmipManagedObjectInstanceId=openViewCmipManagedObjectInstanceId, openViewTrapVars=openViewTrapVars, openViewCmipEventType=openViewCmipEventType, openViewCmipEventInfo=openViewCmipEventInfo, openView=openView, openViewCmipEventTime=openViewCmipEventTime, hp=hp, openViewFilter=openViewFilter, openViewSeverity=openViewSeverity, openViewCategory=openViewCategory, openViewEcsNodeImportance=openViewEcsNodeImportance)

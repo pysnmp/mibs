@@ -5,8 +5,8 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -17,25 +17,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "transmission",
       "MibIdentifier",
       "Gauge32",
-      "Integer32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "transmission",
-      "Bits",
+      "TimeTicks",
       "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "TimeTicks"
+      "iso",
+      "Bits",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -2987,8 +2987,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/HDSL2-SHDSL-LINE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:45:55 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:09:51 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HDSL2-SHDSL-LINE-MIB"

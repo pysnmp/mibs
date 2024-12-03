@@ -6,25 +6,25 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "MODULE-IDENTITY",
-      "enterprises",
-      "iso",
       "IpAddress",
-      "Counter32",
-      "TimeTicks",
-      "Unsigned32",
-      "Gauge32",
       "Bits",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Counter64"
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "enterprises",
+      "Counter64",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -860,8 +860,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ascom/ASCOM-IPDECT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:39:33 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:03:31 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ASCOM-IPDECT-MIB"

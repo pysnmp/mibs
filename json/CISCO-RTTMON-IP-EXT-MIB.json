@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "CISCO-RTTMON-MIB": [
-      "rttMonEchoPathAdminEntry",
-      "rttMonCtrlAdminEntry",
-      "rttMonHistoryCollectionEntry",
       "rttMonCtrlAdminIndex",
-      "rttMonCtrlOperEntry",
+      "rttMonEchoAdminEntry",
+      "rttMonEchoPathAdminEntry",
+      "rttMonHistoryCollectionEntry",
       "rttMonStatsCollectEntry",
+      "rttMonCtrlAdminEntry",
       "rttMonLpdGrpStatsEntry",
-      "rttMonEchoAdminEntry"
+      "rttMonCtrlOperEntry"
     ],
     "CISCO-RTTMON-TC-MIB": [
       "CipslaPercentileVar"
@@ -21,8 +21,8 @@
       "DscpOrAny"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "IPV6-FLOW-LABEL-MIB": [
       "IPv6FlowLabelOrAny"
@@ -33,19 +33,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
       "Integer32"
     ],
     "SNMPv2-TC": [
@@ -1003,8 +1003,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RTTMON-IP-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:44:24 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:08:26 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-RTTMON-IP-EXT-MIB"

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-ALS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-ALS-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:46:17 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:10:12 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
 PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
 sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Bits, Counter32, MibIdentifier, iso, TimeTicks, ObjectIdentity, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType, Unsigned32, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter32", "MibIdentifier", "iso", "TimeTicks", "ObjectIdentity", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType", "Unsigned32", "Integer32", "Gauge32")
-RowStatus, DisplayString, TruthValue, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TruthValue", "TextualConvention")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Gauge32, IpAddress, Integer32, ObjectIdentity, iso, Counter64, MibIdentifier, Unsigned32, Bits, Counter32, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Gauge32", "IpAddress", "Integer32", "ObjectIdentity", "iso", "Counter64", "MibIdentifier", "Unsigned32", "Bits", "Counter32", "TimeTicks", "ModuleIdentity")
+TextualConvention, DisplayString, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "TruthValue")
 slAlsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 12))
 if mibBuilder.loadTexts: slAlsMib.setLastUpdated('200008280000Z')
 if mibBuilder.loadTexts: slAlsMib.setOrganization('PacketLight Networks Ltd.')
@@ -61,4 +61,4 @@ if mibBuilder.loadTexts: slAlsResetParams.setDescription('Setting this variable 
 slAlsStatusChangeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 12, 2, 1)).setObjects(("IF-MIB", "ifIndex"), ("SL-ALS-MIB", "slAlsOperStatus"))
 if mibBuilder.loadTexts: slAlsStatusChangeTrap.setStatus('current')
 if mibBuilder.loadTexts: slAlsStatusChangeTrap.setDescription('A slAlsStatusChangeTrap is sent when the TX laser status is changed.')
-mibBuilder.exportSymbols("SL-ALS-MIB", slAlsManualPulseTime=slAlsManualPulseTime, slAlsLaserManualActivate=slAlsLaserManualActivate, slAlsAutomaticPulseTime=slAlsAutomaticPulseTime, slAlsConfigTable=slAlsConfigTable, slAlsOperStatus=slAlsOperStatus, slAlsMode=slAlsMode, slAlsTraps=slAlsTraps, slAlsTestPulseTime=slAlsTestPulseTime, PYSNMP_MODULE_ID=slAlsMib, slAlsAutomaticDelayTime=slAlsAutomaticDelayTime, slAlsStatusChangeTrap=slAlsStatusChangeTrap, slAlsMib=slAlsMib, slAlsLaserTestActivate=slAlsLaserTestActivate, slAlsLosDeclareTime=slAlsLosDeclareTime, slAlsResetParams=slAlsResetParams, slAlsConfig=slAlsConfig, slAlsConfigEntry=slAlsConfigEntry)
+mibBuilder.exportSymbols("SL-ALS-MIB", slAlsMode=slAlsMode, slAlsAutomaticPulseTime=slAlsAutomaticPulseTime, slAlsLaserTestActivate=slAlsLaserTestActivate, slAlsStatusChangeTrap=slAlsStatusChangeTrap, slAlsConfigTable=slAlsConfigTable, PYSNMP_MODULE_ID=slAlsMib, slAlsManualPulseTime=slAlsManualPulseTime, slAlsLosDeclareTime=slAlsLosDeclareTime, slAlsOperStatus=slAlsOperStatus, slAlsResetParams=slAlsResetParams, slAlsTraps=slAlsTraps, slAlsConfig=slAlsConfig, slAlsAutomaticDelayTime=slAlsAutomaticDelayTime, slAlsMib=slAlsMib, slAlsLaserManualActivate=slAlsLaserManualActivate, slAlsConfigEntry=slAlsConfigEntry, slAlsTestPulseTime=slAlsTestPulseTime)

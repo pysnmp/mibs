@@ -5,54 +5,54 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdIndex",
+      "dot1agCfmMaIndex",
       "dot1agCfmMepEntry",
-      "dot1agCfmMaIndex"
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbTeEsp",
       "IEEE8021PbbIngressEgress",
-      "ieee802dot1mibs",
       "IEEE8021BridgePortNumber",
-      "IEEE8021PbbServiceIdentifier"
+      "ieee802dot1mibs",
+      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbTeEsp"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanIdOrAny",
+      "VlanIdOrNone",
       "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrAny"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
-      "Unsigned32",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "MibIdentifier",
       "Integer32",
-      "NOTIFICATION-TYPE",
       "Bits",
+      "Gauge32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
       "OBJECT-TYPE",
-      "IpAddress"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -3153,8 +3153,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE8021-SPB-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:41:00 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:04:56 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-SPB-MIB"

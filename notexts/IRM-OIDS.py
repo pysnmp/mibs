@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:42:04 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:06:01 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
 ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, iso, Gauge32, NotificationType, Unsigned32, Integer32, Counter32, IpAddress, MibIdentifier, ObjectIdentity, ModuleIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "Gauge32", "NotificationType", "Unsigned32", "Integer32", "Counter32", "IpAddress", "MibIdentifier", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, ModuleIdentity, Counter64, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, MibIdentifier, IpAddress, Integer32, Unsigned32, TimeTicks, iso, Bits, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "Counter64", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "MibIdentifier", "IpAddress", "Integer32", "Unsigned32", "TimeTicks", "iso", "Bits", "NotificationType")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
 common = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", sysIntDev=sysIntDev, sysOtherType=sysOtherType, router=router, commonRev1=commonRev1, ups=ups, sysRouters=sysRouters, sysRepeaters=sysRepeaters, common=common, nb30Rev1=nb30Rev1, layerMgmt=layerMgmt, sysChassis=sysChassis, repeater=repeater, bridge=bridge, sysOIDs=sysOIDs, backplaneProtocol=backplaneProtocol, subSysMMAC=subSysMMAC, commsDevice=commsDevice, product=product, repeaterRev1=repeaterRev1, repeaterRev2=repeaterRev2, subSysDevice=subSysDevice, dl=dl, sysBridges=sysBridges, subsystem=subsystem)
+mibBuilder.exportSymbols("IRM-OIDS", repeater=repeater, nb30Rev1=nb30Rev1, subSysDevice=subSysDevice, commsDevice=commsDevice, sysBridges=sysBridges, sysOIDs=sysOIDs, subsystem=subsystem, router=router, ups=ups, sysRouters=sysRouters, sysOtherType=sysOtherType, sysIntDev=sysIntDev, backplaneProtocol=backplaneProtocol, dl=dl, subSysMMAC=subSysMMAC, sysChassis=sysChassis, commonRev1=commonRev1, layerMgmt=layerMgmt, common=common, sysRepeaters=sysRepeaters, repeaterRev2=repeaterRev2, repeaterRev1=repeaterRev1, product=product, bridge=bridge)

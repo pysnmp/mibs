@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IANA-ITU-ALARM-TC-MIB": [
-      "IANAItuEventType",
-      "IANAItuProbableCause"
+      "IANAItuProbableCause",
+      "IANAItuEventType"
     ],
     "JDSU-SMI-MIB": [
       "jdsuOnmsi"
@@ -14,26 +14,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-IDENTITY",
       "TimeTicks",
-      "Bits",
-      "Counter32"
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "Integer32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jdsuOnmsiMib": {
@@ -6417,8 +6417,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/jds/JDSU-ONMSI-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:44:51 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:08:47 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "JDSU-ONMSI-MIB"

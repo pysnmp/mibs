@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MibIdentifier",
-      "Counter32",
-      "Counter64",
+      "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "iso",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "TimeTicks",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE"
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
       "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString"
     ]
   },
@@ -710,8 +710,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-IPSEC-TUNNEL-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:46:15 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:10:09 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RAPID-IPSEC-TUNNEL-MIB"

@@ -8,44 +8,44 @@
       "mwConfiguration"
     ],
     "MERU-TC": [
-      "MwlIfAdministrativeState",
-      "MwlEnableDisableOption",
-      "MwlProfileOwner",
-      "MwlBridgedVlanType",
-      "MwlOperationalState",
       "MwlDataplaneMode",
-      "MwlOnOffSwitch"
+      "MwlEnableDisableOption",
+      "MwlIfAdministrativeState",
+      "MwlOperationalState",
+      "MwlProfileOwner",
+      "MwlOnOffSwitch",
+      "MwlBridgedVlanType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "IpAddress",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "Integer32",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "enterprises",
+      "TimeTicks",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "enterprises",
       "Counter32",
-      "OBJECT-TYPE"
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TimeInterval",
-      "DisplayString",
-      "TimeStamp"
+      "DateAndTime",
+      "TruthValue",
+      "RowStatus",
+      "TimeStamp",
+      "MacAddress",
+      "DisplayString"
     ]
   },
   "mwConfigPortProfile": {
@@ -466,8 +466,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-PORTPROFILE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:42:41 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:06:38 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "MERU-CONFIG-PORTPROFILE-MIB"

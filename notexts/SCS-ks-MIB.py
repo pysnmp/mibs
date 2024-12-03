@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SCS-ks-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/SCS-ks-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:40:01 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:03:58 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ifEntry, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifEntry", "ifIndex")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-sysLocation, sysContact, sysName = mibBuilder.importSymbols("SNMPv2-MIB", "sysLocation", "sysContact", "sysName")
-Unsigned32, iso, NotificationType, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits, Counter64, Counter32, IpAddress, TimeTicks, ObjectIdentity, Gauge32, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "iso", "NotificationType", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits", "Counter64", "Counter32", "IpAddress", "TimeTicks", "ObjectIdentity", "Gauge32", "Integer32", "MibIdentifier")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
+ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+sysLocation, sysName, sysContact = mibBuilder.importSymbols("SNMPv2-MIB", "sysLocation", "sysName", "sysContact")
+Gauge32, Bits, iso, MibIdentifier, ObjectIdentity, IpAddress, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, NotificationType, TimeTicks, Unsigned32, ModuleIdentity, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "iso", "MibIdentifier", "ObjectIdentity", "IpAddress", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "NotificationType", "TimeTicks", "Unsigned32", "ModuleIdentity", "enterprises")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 scs_ks = ModuleIdentity((1, 3, 6, 1, 4, 1, 9839, 1, 1)).setLabel("scs-ks")
 scs_ks.setRevisions(('2020-11-05 18:05',))
@@ -62,4 +62,4 @@ status_operational_status = MibScalar((1, 3, 6, 1, 4, 1, 9839, 1, 2, 20), Intege
 if mibBuilder.loadTexts: status_operational_status.setStatus('current')
 status_collective_fault = MibScalar((1, 3, 6, 1, 4, 1, 9839, 1, 2, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("status-collective-fault").setUnits('N/A').setMaxAccess("readonly")
 if mibBuilder.loadTexts: status_collective_fault.setStatus('current')
-mibBuilder.exportSymbols("SCS-ks-MIB", status_evaporator_fan=status_evaporator_fan, status_condenser_fan=status_condenser_fan, scs_ks=scs_ks, carel=carel, status_room_humidity_sensor=status_room_humidity_sensor, outside_air_temperature=outside_air_temperature, room_temperature=room_temperature, status_operational_status=status_operational_status, scs=scs, status_compressor=status_compressor, status_filter_monitoring=status_filter_monitoring, exhaust_air_temperature=exhaust_air_temperature, status_collective_fault=status_collective_fault, status_heater_thermal_protection=status_heater_thermal_protection, status_max_exhaust_air_temperature=status_max_exhaust_air_temperature, status_supply_air_sensor=status_supply_air_sensor, supply_air_temperature=supply_air_temperature, status_exhaust_air_sensor=status_exhaust_air_sensor, status_min_exhaust_air_temperature=status_min_exhaust_air_temperature, status_room_temperature_sensor=status_room_temperature_sensor, systm=systm, status_min_supply_air_temperature=status_min_supply_air_temperature, room_humidity=room_humidity, PYSNMP_MODULE_ID=scs_ks, status_outside_sensor=status_outside_sensor, status_water_sensor=status_water_sensor)
+mibBuilder.exportSymbols("SCS-ks-MIB", status_heater_thermal_protection=status_heater_thermal_protection, room_humidity=room_humidity, systm=systm, scs=scs, carel=carel, status_room_humidity_sensor=status_room_humidity_sensor, status_room_temperature_sensor=status_room_temperature_sensor, status_supply_air_sensor=status_supply_air_sensor, status_min_supply_air_temperature=status_min_supply_air_temperature, status_evaporator_fan=status_evaporator_fan, status_min_exhaust_air_temperature=status_min_exhaust_air_temperature, status_outside_sensor=status_outside_sensor, status_operational_status=status_operational_status, status_water_sensor=status_water_sensor, exhaust_air_temperature=exhaust_air_temperature, status_filter_monitoring=status_filter_monitoring, status_max_exhaust_air_temperature=status_max_exhaust_air_temperature, outside_air_temperature=outside_air_temperature, supply_air_temperature=supply_air_temperature, status_collective_fault=status_collective_fault, PYSNMP_MODULE_ID=scs_ks, status_compressor=status_compressor, status_condenser_fan=status_condenser_fan, room_temperature=room_temperature, scs_ks=scs_ks, status_exhaust_air_sensor=status_exhaust_air_sensor)

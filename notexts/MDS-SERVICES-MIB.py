@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module MDS-SERVICES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/gemds/MDS-SERVICES-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:42:49 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:06:46 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
 mdsServices, = mibBuilder.importSymbols("MDS-ORBIT-SMI-MIB", "mdsServices")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-IpAddress, MibIdentifier, Integer32, TimeTicks, Counter32, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, Counter64, NotificationType, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "MibIdentifier", "Integer32", "TimeTicks", "Counter32", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity", "Counter64", "NotificationType", "Bits", "iso")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Bits, MibIdentifier, Integer32, iso, Counter32, ObjectIdentity, Unsigned32, Counter64, IpAddress, Gauge32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Bits", "MibIdentifier", "Integer32", "iso", "Counter32", "ObjectIdentity", "Unsigned32", "Counter64", "IpAddress", "Gauge32", "NotificationType")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 mdsServicesMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4130, 10, 3, 1))
 mdsServicesMIB.setRevisions(('2018-05-16 00:00', '2014-10-20 00:00', '2014-05-12 00:00',))
@@ -37,4 +37,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mServStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4130, 10, 3, 1, 3, 2, 1)).setObjects(("MDS-SERVICES-MIB", "mServServiceName"), ("MDS-SERVICES-MIB", "mServServiceStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mServStatusGroup = mServStatusGroup.setStatus('current')
-mibBuilder.exportSymbols("MDS-SERVICES-MIB", PYSNMP_MODULE_ID=mdsServicesMIB, mServStatusEntry=mServStatusEntry, mdsServMIBConformance=mdsServMIBConformance, mdsServMIBGroups=mdsServMIBGroups, mServServiceStatus=mServServiceStatus, mdsServMIBCompliances=mdsServMIBCompliances, mServStatusGroup=mServStatusGroup, mServConfig=mServConfig, mServStatus=mServStatus, mServMIBObjects=mServMIBObjects, mServServiceName=mServServiceName, mServStatusTable=mServStatusTable, mServCompliance=mServCompliance, mdsServicesMIB=mdsServicesMIB)
+mibBuilder.exportSymbols("MDS-SERVICES-MIB", mServStatusGroup=mServStatusGroup, mServStatus=mServStatus, mServMIBObjects=mServMIBObjects, mServServiceStatus=mServServiceStatus, mServStatusTable=mServStatusTable, mServConfig=mServConfig, mServCompliance=mServCompliance, mServServiceName=mServServiceName, mdsServMIBConformance=mdsServMIBConformance, mdsServMIBGroups=mdsServMIBGroups, mdsServicesMIB=mdsServicesMIB, mServStatusEntry=mServStatusEntry, PYSNMP_MODULE_ID=mdsServicesMIB, mdsServMIBCompliances=mdsServMIBCompliances)

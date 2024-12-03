@@ -6,16 +6,16 @@
       "InetAddress"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxKeyType",
+      "JnxSAType",
+      "JnxIkePeerType",
+      "JnxDiffHellmanGrp",
+      "JnxIkePeerRole",
+      "JnxAuthAlgo",
       "JnxRemotePeerType",
       "JnxEncapMode",
-      "JnxIkeHashAlgo",
-      "JnxIkePeerType",
-      "JnxAuthAlgo",
-      "JnxDiffHellmanGrp",
       "JnxEncryptAlgo",
-      "JnxIkePeerRole",
-      "JnxSAType",
+      "JnxKeyType",
+      "JnxIkeHashAlgo",
       "JnxIkeNegoMode",
       "JnxIkeAuthMethod"
     ],
@@ -30,25 +30,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "TimeTicks",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "iso",
+      "Integer32",
+      "MibIdentifier",
+      "Counter32",
       "Unsigned32",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "TimeTicks",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxIpSecMonitorMIB": {
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 09:45:42 2024",
-      "On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:09:36 2024",
+      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

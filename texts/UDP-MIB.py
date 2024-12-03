@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module UDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/UDP-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 09:45:32 2024
-# On host fv-az566-8 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 10:09:26 2024
+# On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-InetAddressType, InetPortNumber, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetPortNumber", "InetAddress")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+InetPortNumber, InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddress", "InetAddressType")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Counter32, iso, MibIdentifier, Unsigned32, Counter64, ModuleIdentity, mib_2, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, Gauge32, ObjectIdentity, Bits, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "iso", "MibIdentifier", "Unsigned32", "Counter64", "ModuleIdentity", "mib-2", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "Gauge32", "ObjectIdentity", "Bits", "TimeTicks", "NotificationType")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+Integer32, Unsigned32, ModuleIdentity, IpAddress, Gauge32, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Bits, MibIdentifier, iso, NotificationType, ObjectIdentity, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Unsigned32", "ModuleIdentity", "IpAddress", "Gauge32", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Bits", "MibIdentifier", "iso", "NotificationType", "ObjectIdentity", "mib-2")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 udpMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 50))
 udpMIB.setRevisions(('2005-05-20 00:00', '1994-11-01 00:00', '1991-03-31 00:00',))
 
@@ -111,4 +111,4 @@ udpEndpointGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 50, 2, 2, 4)).setObjects(("UDP
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     udpEndpointGroup = udpEndpointGroup.setStatus('current')
 if mibBuilder.loadTexts: udpEndpointGroup.setDescription("The group of objects providing for the IP version\n            independent management of UDP 'endpoints'.")
-mibBuilder.exportSymbols("UDP-MIB", udpEndpointProcess=udpEndpointProcess, udpLocalAddress=udpLocalAddress, udpEndpointRemoteAddressType=udpEndpointRemoteAddressType, udpInDatagrams=udpInDatagrams, udpEndpointRemotePort=udpEndpointRemotePort, udpLocalPort=udpLocalPort, udpBaseGroup=udpBaseGroup, udpInErrors=udpInErrors, udpHCInDatagrams=udpHCInDatagrams, udp=udp, udpNoPorts=udpNoPorts, udpEndpointLocalAddress=udpEndpointLocalAddress, udpMIBCompliance=udpMIBCompliance, udpEndpointLocalAddressType=udpEndpointLocalAddressType, udpHCOutDatagrams=udpHCOutDatagrams, udpEndpointTable=udpEndpointTable, udpTable=udpTable, udpEndpointGroup=udpEndpointGroup, udpMIBConformance=udpMIBConformance, udpMIBCompliances=udpMIBCompliances, udpEndpointInstance=udpEndpointInstance, udpEndpointLocalPort=udpEndpointLocalPort, udpMIBGroups=udpMIBGroups, udpOutDatagrams=udpOutDatagrams, udpEndpointEntry=udpEndpointEntry, PYSNMP_MODULE_ID=udpMIB, udpGroup=udpGroup, udpEntry=udpEntry, udpMIBCompliance2=udpMIBCompliance2, udpEndpointRemoteAddress=udpEndpointRemoteAddress, udpMIB=udpMIB, udpHCGroup=udpHCGroup)
+mibBuilder.exportSymbols("UDP-MIB", udpEndpointGroup=udpEndpointGroup, udpNoPorts=udpNoPorts, udpLocalAddress=udpLocalAddress, udpBaseGroup=udpBaseGroup, udpMIBConformance=udpMIBConformance, udpEndpointTable=udpEndpointTable, udpEndpointLocalAddress=udpEndpointLocalAddress, udpEndpointEntry=udpEndpointEntry, udpMIBGroups=udpMIBGroups, udpLocalPort=udpLocalPort, udpEndpointRemoteAddress=udpEndpointRemoteAddress, udpEntry=udpEntry, udpGroup=udpGroup, udpInDatagrams=udpInDatagrams, PYSNMP_MODULE_ID=udpMIB, udp=udp, udpHCOutDatagrams=udpHCOutDatagrams, udpTable=udpTable, udpMIBCompliance=udpMIBCompliance, udpEndpointRemotePort=udpEndpointRemotePort, udpMIB=udpMIB, udpEndpointLocalAddressType=udpEndpointLocalAddressType, udpInErrors=udpInErrors, udpHCInDatagrams=udpHCInDatagrams, udpEndpointLocalPort=udpEndpointLocalPort, udpHCGroup=udpHCGroup, udpEndpointRemoteAddressType=udpEndpointRemoteAddressType, udpEndpointInstance=udpEndpointInstance, udpMIBCompliances=udpMIBCompliances, udpOutDatagrams=udpOutDatagrams, udpEndpointProcess=udpEndpointProcess, udpMIBCompliance2=udpMIBCompliance2)
