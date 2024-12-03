@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Counter64",
-      "Integer32",
-      "mib-2",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "TimeTicks",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "enterprises",
-      "TimeTicks"
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "mib-2",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "MacAddress",
+      "TestAndIncr",
       "AutonomousType",
       "DisplayString",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "PhysAddress",
-      "DateAndTime",
       "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "DateAndTime",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 11:40:40 2024",
-      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:16:12 2024",
+      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

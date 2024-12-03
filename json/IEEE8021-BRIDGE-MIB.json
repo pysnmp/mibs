@@ -2,18 +2,18 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021BridgePortType",
-      "IEEE8021PbbComponentIdentifier",
-      "IEEE8021BridgePortNumber",
-      "ieee802dot1mibs",
-      "IEEE8021BridgePortNumberOrZero",
-      "IEEE8021PriorityCodePoint",
       "IEEE8021PriorityValue",
-      "IEEE8021PbbComponentIdentifierOrZero"
+      "IEEE8021PbbComponentIdentifier",
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021BridgePortType",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
-      "ifGeneralInformationGroup",
       "ifIndex",
+      "ifGeneralInformationGroup",
       "InterfaceIndexOrZero"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -28,28 +28,28 @@
       "systemGroup"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
       "OBJECT-TYPE",
-      "Gauge32",
+      "Bits",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter64",
+      "IpAddress",
+      "iso",
+      "Counter32",
+      "Unsigned32",
       "MibIdentifier",
-      "iso"
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "RowStatus",
       "TruthValue",
-      "RowStatus"
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "ieee8021BridgeMib": {
@@ -2065,8 +2065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE8021-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 11:38:41 2024",
-      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:14:11 2024",
+      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-BRIDGE-MIB"

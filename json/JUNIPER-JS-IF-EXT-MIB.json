@@ -8,24 +8,24 @@
       "jnxJsIf"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
       "IpAddress",
-      "Unsigned32",
-      "Gauge32",
+      "iso",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
-      "Counter32",
-      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -458,8 +458,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-JS-IF-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 11:43:19 2024",
-      "On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:18:52 2024",
+      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "JUNIPER-JS-IF-EXT-MIB"

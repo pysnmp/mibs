@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module SAEUROPE-MESSAGES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-MESSAGES-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 11:45:01 2024
-# On host fv-az842-370 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Tue Dec  3 12:20:35 2024
+# On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-messagesMIBGroups, messages = mibBuilder.importSymbols("SAEUROPE-ROOT-MIB", "messagesMIBGroups", "messages")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-ObjectIdentity, ModuleIdentity, NotificationType, Counter32, Unsigned32, iso, Counter64, MibIdentifier, TimeTicks, IpAddress, Gauge32, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "ModuleIdentity", "NotificationType", "Counter32", "Unsigned32", "iso", "Counter64", "MibIdentifier", "TimeTicks", "IpAddress", "Gauge32", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+messages, messagesMIBGroups = mibBuilder.importSymbols("SAEUROPE-ROOT-MIB", "messages", "messagesMIBGroups")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+TimeTicks, NotificationType, Gauge32, Unsigned32, MibIdentifier, ModuleIdentity, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, iso, Integer32, Counter64, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "Gauge32", "Unsigned32", "MibIdentifier", "ModuleIdentity", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "iso", "Integer32", "Counter64", "Bits")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 saEuropeMessages = ModuleIdentity((1, 3, 6, 1, 4, 1, 1482, 20, 1, 2, 1))
 saEuropeMessages.setRevisions(('2015-11-10 13:00', '2005-09-07 09:00', '2002-11-30 14:00', '2002-07-01 17:30', '2002-06-21 13:30', '2001-08-31 13:30',))
@@ -66,4 +66,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 msgPhysicalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1482, 1, 1, 2, 3)).setObjects(("SAEUROPE-MESSAGES-MIB", "msgPhysicalEntity"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     msgPhysicalGroup = msgPhysicalGroup.setStatus('current')
-mibBuilder.exportSymbols("SAEUROPE-MESSAGES-MIB", msgNewestNumber=msgNewestNumber, msgPhysicalEntity=msgPhysicalEntity, msgSourceName=msgSourceName, messageTable=messageTable, msgMaxSequenceNumber=msgMaxSequenceNumber, msgBehaviour=msgBehaviour, msgGenerationTime=msgGenerationTime, msgSubClass=msgSubClass, msgSubClassNbr=msgSubClassNbr, messagesObjectGroup=messagesObjectGroup, msgPhysicalGroup=msgPhysicalGroup, msgSubject=msgSubject, msgId=msgId, msgStatus=msgStatus, messagesModuleCompliance=messagesModuleCompliance, msgDetail=msgDetail, PYSNMP_MODULE_ID=saEuropeMessages, msgOldestNumber=msgOldestNumber, msgClass=msgClass, msgSequenceNumber=msgSequenceNumber, messageEntry=messageEntry, msgSeverity=msgSeverity, saEuropeMessages=saEuropeMessages, msgText=msgText, msgDetailPresent=msgDetailPresent)
+mibBuilder.exportSymbols("SAEUROPE-MESSAGES-MIB", msgSubClassNbr=msgSubClassNbr, msgBehaviour=msgBehaviour, messageEntry=messageEntry, msgText=msgText, msgClass=msgClass, messagesObjectGroup=messagesObjectGroup, messagesModuleCompliance=messagesModuleCompliance, msgPhysicalGroup=msgPhysicalGroup, messageTable=messageTable, msgId=msgId, msgMaxSequenceNumber=msgMaxSequenceNumber, msgSubject=msgSubject, msgPhysicalEntity=msgPhysicalEntity, msgStatus=msgStatus, saEuropeMessages=saEuropeMessages, msgSequenceNumber=msgSequenceNumber, msgSeverity=msgSeverity, msgNewestNumber=msgNewestNumber, msgSubClass=msgSubClass, msgDetail=msgDetail, msgGenerationTime=msgGenerationTime, PYSNMP_MODULE_ID=saEuropeMessages, msgSourceName=msgSourceName, msgOldestNumber=msgOldestNumber, msgDetailPresent=msgDetailPresent)
