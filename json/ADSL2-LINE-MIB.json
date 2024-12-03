@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "ADSL2-LINE-TC-MIB": [
-      "Adsl2OperationModes",
-      "Adsl2RfiDs",
-      "Adsl2ScMaskDs",
-      "Adsl2ChPtmStatus",
-      "Adsl2LineLdsf",
-      "Adsl2InitResult",
-      "Adsl2LineStatus",
-      "Adsl2PsdMaskUs",
-      "Adsl2ConfPmsForce",
       "Adsl2Tssi",
-      "Adsl2ScMaskUs",
-      "Adsl2Unit",
-      "Adsl2LastTransmittedState",
-      "Adsl2Direction",
-      "Adsl2TransmissionModeType",
-      "Adsl2PsdMaskDs",
-      "Adsl2LdsfResult",
-      "Adsl2PowerMngState",
-      "Adsl2SymbolProtection",
-      "Adsl2ChAtmStatus",
+      "Adsl2OperationModes",
       "Adsl2MaxBer",
+      "Adsl2PsdMaskUs",
+      "Adsl2RfiDs",
+      "Adsl2SymbolProtection",
+      "Adsl2LConfProfPmMode",
+      "Adsl2PsdMaskDs",
+      "Adsl2PowerMngState",
+      "Adsl2InitResult",
+      "Adsl2LdsfResult",
+      "Adsl2ChPtmStatus",
+      "Adsl2LastTransmittedState",
+      "Adsl2LineStatus",
+      "Adsl2Direction",
+      "Adsl2Unit",
+      "Adsl2ScMaskUs",
+      "Adsl2ConfPmsForce",
       "Adsl2RaMode",
-      "Adsl2LConfProfPmMode"
+      "Adsl2ChAtmStatus",
+      "Adsl2ScMaskDs",
+      "Adsl2TransmissionModeType",
+      "Adsl2LineLdsf"
     ],
     "HC-PerfHist-TC-MIB": [
       "HCPerfTimeElapsed",
@@ -42,27 +42,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "transmission",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
+      "TimeTicks",
       "Counter64",
-      "Bits"
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "transmission"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "adsl2MIB": {
@@ -6519,8 +6519,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ADSL2-LINE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:17:40 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:36:49 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ADSL2-LINE-MIB"

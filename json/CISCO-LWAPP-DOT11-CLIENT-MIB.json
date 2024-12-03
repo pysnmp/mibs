@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "CISCO-LWAPP-AP-MIB": [
-      "cLApIfLoadChannelUtilization",
-      "cLApSubMode",
-      "cLApDot11IfSlotId",
-      "cLApName",
-      "cLAPGroupVlanName",
       "cLApLocation",
+      "cLApIfLoadChannelUtilization",
+      "cLApName",
+      "cLApDot11IfSlotId",
+      "cLAPGroupVlanName",
+      "cLApSubMode",
       "cLApDot11RadioChannelNumber"
     ],
     "CISCO-LWAPP-MOBILITY-EXT-MIB": [
-      "cLMobilityExtMCClientAssociatedMAAddress",
       "cLMobilityExtMCClientAssociatedMCAddressType",
-      "cLMobilityExtMCClientAssociatedMAAddressType",
-      "cLMobilityExtMCClientAnchorMCPrivateAddressType",
-      "cLMobilityExtMCClientAnchorMCGroupId",
       "cLMobilityExtMCClientAnchorMCPrivateAddress",
+      "cLMobilityExtMCClientAssociatedMAAddress",
+      "cLMobilityExtMCClientAssociatedMAAddressType",
+      "cLMobilityExtMCClientAssociatedMCGroupId",
       "cLMobilityExtMCClientAssociatedMCAddress",
-      "cLMobilityExtMCClientAssociatedMCGroupId"
+      "cLMobilityExtMCClientAnchorMCGroupId",
+      "cLMobilityExtMCClientAnchorMCPrivateAddressType"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLApIfType",
-      "CLClientPowerSaveMode",
       "CcxServiceVersion",
-      "CLDot11ClientStatus"
+      "CLDot11ClientStatus",
+      "CLClientPowerSaveMode",
+      "CLApIfType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -48,29 +48,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
       "Counter64",
-      "Bits"
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeStamp",
-      "MacAddress",
       "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TimeInterval"
+      "TimeInterval",
+      "TimeStamp",
+      "MacAddress"
     ]
   },
   "ciscoLwappDot11ClientMIB": {
@@ -4667,8 +4667,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-DOT11-CLIENT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:17:40 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:36:49 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-LWAPP-DOT11-CLIENT-MIB"

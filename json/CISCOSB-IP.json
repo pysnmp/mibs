@@ -9,18 +9,18 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
+      "InetVersion",
+      "InetAddress",
       "InetAddressType",
       "InetZoneIndex",
-      "InetVersion",
-      "InetAddress"
+      "InetAddressPrefixLength"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteEntry",
-      "ipCidrRouteMask",
-      "ipCidrRouteTos",
       "ipCidrRouteNextHop",
-      "ipCidrRouteDest"
+      "ipCidrRouteDest",
+      "ipCidrRouteMask",
+      "ipCidrRouteEntry",
+      "ipCidrRouteTos"
     ],
     "IP-MIB": [
       "IpAddressOriginTC",
@@ -36,32 +36,32 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "IpAddress",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "iso",
       "zeroDotZero",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
       "Counter64",
-      "Bits"
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
-      "TimeStamp",
-      "PhysAddress",
-      "RowStatus",
-      "TestAndIncr",
-      "StorageType",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "PhysAddress",
+      "DisplayString",
+      "TestAndIncr",
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType"
     ]
   },
   "ipSpec": {
@@ -1900,8 +1900,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IP",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:17:42 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:36:50 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IP"

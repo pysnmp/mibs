@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "iso",
+      "Gauge32",
       "MibIdentifier",
-      "Counter32",
       "Bits",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -249,8 +249,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tplink/TPLINK-DDMSTATUS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:21:24 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:41:24 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "TPLINK-DDMSTATUS-MIB"

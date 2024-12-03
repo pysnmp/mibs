@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCO-CEF-TC": [
-      "CefIpVersion",
-      "CefForwardingElementSpecialType",
-      "CefPathType",
-      "CefMplsLabelList",
-      "CefAdjLinkType",
-      "CefAdjacencySource",
       "CefFailureReason",
-      "CefCCType",
-      "CefCCStatus",
+      "CefAdjacencySource",
       "CefCCAction",
       "CefOperStatus",
-      "CefPrefixSearchState",
-      "CefAdminStatus"
+      "CefAdjLinkType",
+      "CefCCType",
+      "CefCCStatus",
+      "CefForwardingElementSpecialType",
+      "CefAdminStatus",
+      "CefMplsLabelList",
+      "CefIpVersion",
+      "CefPathType",
+      "CefPrefixSearchState"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -23,8 +23,8 @@
       "EntPhysicalIndexOrZero"
     ],
     "ENTITY-MIB": [
-      "PhysicalIndex",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "PhysicalIndex"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
@@ -50,28 +50,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Integer32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
       "Counter64",
-      "Bits"
+      "Gauge32",
+      "TimeTicks",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TimeStamp",
       "TestAndIncr",
+      "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ciscoCefMIB": {
@@ -2962,8 +2962,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CEF-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:17:47 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:36:54 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-CEF-MIB"

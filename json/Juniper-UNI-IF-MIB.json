@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifStackLowerLayer",
       "ifStackHigherLayer",
+      "ifStackLowerLayer",
       "ifEntry"
     ],
     "Juniper-MIBs": [
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
       "MibIdentifier",
-      "IpAddress",
-      "iso",
       "Counter64",
+      "IpAddress",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
-      "Integer32",
+      "iso",
       "OBJECT-TYPE",
-      "Bits"
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "juniIfMIB": {
@@ -387,8 +387,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-UNI-IF-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:18:52 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:38:47 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "Juniper-UNI-IF-MIB"

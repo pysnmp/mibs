@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCOSB-BRIDGEMIBOBJECTS-MIB": [
-      "VlanList2",
-      "VlanList1",
+      "VlanList4",
       "VlanList3",
-      "VlanList4"
+      "VlanList2",
+      "VlanList1"
     ],
     "CISCOSB-DEVICEPARAMS-MIB": [
-      "rndErrorDesc",
-      "rndErrorSeverity"
+      "rndErrorSeverity",
+      "rndErrorDesc"
     ],
     "CISCOSB-MIB": [
       "rlMacMulticast",
-      "rndNotifications",
-      "switch001"
+      "switch001",
+      "rndNotifications"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -27,35 +27,35 @@
     ],
     "Q-BRIDGE-MIB": [
       "VlanId",
-      "PortList",
-      "VlanIndex"
+      "VlanIndex",
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "IpAddress",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
+      "OBJECT-TYPE",
       "Integer32",
-      "OBJECT-IDENTITY",
       "Counter32",
-      "iso",
+      "TimeTicks",
       "Counter64",
-      "Bits"
+      "Gauge32",
+      "iso",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
       "TruthValue",
-      "MacAddress",
       "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "rlIpv6Fhs": {
@@ -8432,8 +8432,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPV6FHS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:17:41 2024",
-      "On host fv-az573-178 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 12:36:50 2024",
+      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCOSB-IPV6FHS-MIB"
