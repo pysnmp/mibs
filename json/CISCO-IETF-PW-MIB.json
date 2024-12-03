@@ -5,8 +5,8 @@
       "CpwVcIDType",
       "CpwOperStatus",
       "CpwVcType",
-      "CpwVcIndexType",
-      "CpwGroupID"
+      "CpwGroupID",
+      "CpwVcIndexType"
     ],
     "CISCO-SMI": [
       "ciscoExperiment"
@@ -19,34 +19,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "experimental",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Bits",
-      "TimeTicks",
+      "IpAddress",
+      "iso",
       "MibIdentifier",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "experimental",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "RowStatus",
-      "StorageType",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "TimeStamp"
     ]
   },
   "cpwVcMIB": {
@@ -1454,8 +1454,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PW-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:08:29 2024",
-      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:58:03 2024",
+      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-IETF-PW-MIB"

@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021PriorityValue",
-      "IEEE8021BridgePortNumberOrZero",
-      "IEEE8021BridgePortType",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbComponentIdentifierOrZero",
+      "IEEE8021PriorityCodePoint",
       "IEEE8021PbbComponentIdentifier",
       "ieee802dot1mibs",
-      "IEEE8021PriorityCodePoint"
+      "IEEE8021PbbComponentIdentifierOrZero",
+      "IEEE8021BridgePortNumberOrZero",
+      "IEEE8021BridgePortType",
+      "IEEE8021PriorityValue",
+      "IEEE8021BridgePortNumber"
     ],
     "IF-MIB": [
       "ifIndex",
@@ -28,28 +28,28 @@
       "systemGroup"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
       "Counter64",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "TimeTicks"
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32",
+      "iso",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "TruthValue",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "ieee8021BridgeMib": {
@@ -2065,8 +2065,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE8021-BRIDGE-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:04:56 2024",
-      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:54:25 2024",
+      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-BRIDGE-MIB"

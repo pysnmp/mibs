@@ -8,47 +8,47 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddress"
     ],
     "ISIS-MIB": [
-      "SNPAAddress",
-      "isisISAdjState",
-      "isisManAreaAddrExistState",
-      "isisSysInstance",
-      "SystemID",
-      "isisSysL1State",
       "isisSysL2State",
-      "isisISAdjEntry"
+      "isisSysL1State",
+      "SystemID",
+      "isisManAreaAddrExistState",
+      "SNPAAddress",
+      "isisSysInstance",
+      "isisISAdjEntry",
+      "isisISAdjState"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "Integer32",
+      "Bits",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
       "iso",
       "Counter64",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "IpAddress",
       "MibIdentifier",
-      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Counter32",
-      "OBJECT-TYPE"
+      "Integer32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TimeStamp",
       "TimeInterval",
       "RowStatus",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -5977,8 +5977,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-ISIS-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:10:59 2024",
-      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 11:00:21 2024",
+      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ALCATEL-IND1-ISIS-MIB"

@@ -8,25 +8,25 @@
       "ColubrisNotificationEnable"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
       "MibIdentifier",
+      "Bits",
+      "Unsigned32",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "Counter32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -358,8 +358,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-SYSLOG-MIB.my",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:07:15 2024",
-      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:56:38 2024",
+      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "COLUBRIS-SYSLOG-MIB"

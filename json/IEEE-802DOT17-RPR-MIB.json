@@ -3,16 +3,16 @@
     "class": "imports",
     "HC-PerfHist-TC-MIB": [
       "HCPerfTotalCount",
-      "HCPerfCurrentCount",
-      "HCPerfIntervalCount"
+      "HCPerfIntervalCount",
+      "HCPerfCurrentCount"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -23,28 +23,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "iso",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Bits",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "Gauge32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Counter64",
+      "iso",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "MacAddress",
       "DisplayString",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "DateAndTime"
+      "TruthValue"
     ]
   },
   "ieee802dot17rprMIB": {
@@ -8790,8 +8790,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/IEEE-802DOT17-RPR-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 10:04:56 2024",
-      "On host fv-az575-513 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Tue Dec  3 10:54:25 2024",
+      "On host fv-az1117-982 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE-802DOT17-RPR-MIB"
