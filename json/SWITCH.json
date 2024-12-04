@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex",
-      "ifIndex"
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "RMON-MIB": [
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "mib-2",
       "Unsigned32",
       "NOTIFICATION-TYPE",
-      "enterprises",
-      "TimeTicks",
       "MibIdentifier",
-      "Counter64",
-      "IpAddress",
       "iso",
-      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Gauge32",
       "Integer32",
-      "Counter32",
-      "mib-2",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "enterprises",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeStamp",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "AutonomousType",
+      "PhysAddress",
       "DisplayString",
+      "TruthValue",
       "DateAndTime",
       "MacAddress",
-      "TestAndIncr",
-      "PhysAddress",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "TestAndIncr"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:36:05 2024",
-      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 17:54:59 2024",
+      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SWITCH"

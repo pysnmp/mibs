@@ -10,39 +10,39 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetVersion",
       "InetAddress",
+      "InetVersion",
       "InetAddressPrefixLength"
     ],
     "Q-BRIDGE-MIB": [
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "Counter32",
-      "IpAddress",
-      "Integer32",
+      "TimeTicks",
       "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "iso",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Counter64",
-      "iso"
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "dlinkSwIpMcastExtMIB": {
@@ -1981,8 +1981,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-IPMCAST-EXT-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:34:01 2024",
-      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 17:53:26 2024",
+      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "DLINKSW-IPMCAST-EXT-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-SSR-L3-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SSR-L3-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 12:34:48 2024
-# On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 17:54:11 2024
+# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 ssrMibs, = mibBuilder.importSymbols("CTRON-SSR-SMI-MIB", "ssrMibs")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, ModuleIdentity, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, NotificationType, Integer32, iso, Counter64, ObjectIdentity, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "NotificationType", "Integer32", "iso", "Counter64", "ObjectIdentity", "TimeTicks", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Unsigned32, Counter64, ObjectIdentity, Counter32, Integer32, TimeTicks, Gauge32, NotificationType, IpAddress, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "ObjectIdentity", "Counter32", "Integer32", "TimeTicks", "Gauge32", "NotificationType", "IpAddress", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 l3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 2501, 1, 600))
 l3MIB.setRevisions(('1999-09-22 00:00',))
 
@@ -115,4 +115,4 @@ l3ConfGroupV10 = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 2501, 1, 600, 2, 2, 1)).setO
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     l3ConfGroupV10 = l3ConfGroupV10.setStatus('obsolete')
 if mibBuilder.loadTexts: l3ConfGroupV10.setDescription('A set of managed objects that make up version 1.0 of the SSR Layer 3 MIB')
-mibBuilder.exportSymbols("CTRON-SSR-L3-MIB", SSRProtocols=SSRProtocols, l3FlowPortOfEntry=l3FlowPortOfEntry, l3FlowSrcPort=l3FlowSrcPort, l3Conformance=l3Conformance, l3FlowTable=l3FlowTable, l3FlowPriorityDstIpAddress=l3FlowPriorityDstIpAddress, l3Compliances=l3Compliances, l3Groups=l3Groups, l3FlowPriorityInterface=l3FlowPriorityInterface, l3MIB=l3MIB, l3FlowPriorityIndex=l3FlowPriorityIndex, l3FlowDstPort=l3FlowDstPort, l3Group=l3Group, l3FlowPriorityName=l3FlowPriorityName, l3FlowPrioritySrcPort=l3FlowPrioritySrcPort, l3FlowPriorityTable=l3FlowPriorityTable, l3FlowPriorityProtocol=l3FlowPriorityProtocol, l3FlowProtocol=l3FlowProtocol, PYSNMP_MODULE_ID=l3MIB, l3ConfGroupV10=l3ConfGroupV10, l3FlowPrioritySrcIpAddress=l3FlowPrioritySrcIpAddress, l3FlowIndex=l3FlowIndex, l3FlowOctets=l3FlowOctets, l3FlowPriorityDstPort=l3FlowPriorityDstPort, l3FlowPriority=l3FlowPriority, l3FlowTOS=l3FlowTOS, l3FlowSrcIpAddress=l3FlowSrcIpAddress, l3FlowPriorityTOS=l3FlowPriorityTOS, l3FlowPkts=l3FlowPkts, l3FlowEntry=l3FlowEntry, l3FlowDstIpAddress=l3FlowDstIpAddress, l3ComplianceV10=l3ComplianceV10, l3FlowFilterId=l3FlowFilterId, l3FlowPriorityEntry=l3FlowPriorityEntry)
+mibBuilder.exportSymbols("CTRON-SSR-L3-MIB", l3FlowPriorityInterface=l3FlowPriorityInterface, l3FlowIndex=l3FlowIndex, l3Group=l3Group, l3Compliances=l3Compliances, l3FlowEntry=l3FlowEntry, l3FlowPriorityName=l3FlowPriorityName, l3FlowPriorityTOS=l3FlowPriorityTOS, l3FlowPriority=l3FlowPriority, l3FlowPkts=l3FlowPkts, l3FlowPortOfEntry=l3FlowPortOfEntry, l3FlowPrioritySrcIpAddress=l3FlowPrioritySrcIpAddress, l3FlowPriorityIndex=l3FlowPriorityIndex, PYSNMP_MODULE_ID=l3MIB, l3ComplianceV10=l3ComplianceV10, l3FlowPriorityDstPort=l3FlowPriorityDstPort, l3FlowDstPort=l3FlowDstPort, l3FlowSrcPort=l3FlowSrcPort, l3MIB=l3MIB, l3Conformance=l3Conformance, l3Groups=l3Groups, l3FlowSrcIpAddress=l3FlowSrcIpAddress, l3ConfGroupV10=l3ConfGroupV10, l3FlowTOS=l3FlowTOS, l3FlowPriorityTable=l3FlowPriorityTable, l3FlowPrioritySrcPort=l3FlowPrioritySrcPort, l3FlowPriorityDstIpAddress=l3FlowPriorityDstIpAddress, l3FlowPriorityProtocol=l3FlowPriorityProtocol, l3FlowFilterId=l3FlowFilterId, l3FlowProtocol=l3FlowProtocol, l3FlowTable=l3FlowTable, l3FlowOctets=l3FlowOctets, l3FlowPriorityEntry=l3FlowPriorityEntry, SSRProtocols=SSRProtocols, l3FlowDstIpAddress=l3FlowDstIpAddress)

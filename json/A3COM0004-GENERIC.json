@@ -5,24 +5,24 @@
       "generic"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "Counter32",
-      "Integer32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "MibIdentifier",
-      "Bits"
+      "Unsigned32",
+      "Counter64",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -272,8 +272,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/3com/A3COM0004-GENERIC",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:31:07 2024",
-      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 17:50:40 2024",
+      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "A3COM0004-GENERIC"

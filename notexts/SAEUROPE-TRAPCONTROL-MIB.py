@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module SAEUROPE-TRAPCONTROL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saeurope/SAEUROPE-TRAPCONTROL-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 12:40:35 2024
-# On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 17:59:21 2024
+# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-msgSequenceNumber, msgBehaviour, msgSubClassNbr, msgSeverity, msgClass, msgPhysicalEntity, msgDetail, msgSourceName, msgId, msgText, msgSubClass, msgGenerationTime, msgStatus, msgSubject, msgDetailPresent = mibBuilder.importSymbols("SAEUROPE-MESSAGES-MIB", "msgSequenceNumber", "msgBehaviour", "msgSubClassNbr", "msgSeverity", "msgClass", "msgPhysicalEntity", "msgDetail", "msgSourceName", "msgId", "msgText", "msgSubClass", "msgGenerationTime", "msgStatus", "msgSubject", "msgDetailPresent")
+ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+msgSequenceNumber, msgSubject, msgDetailPresent, msgDetail, msgSubClass, msgId, msgSourceName, msgGenerationTime, msgBehaviour, msgSeverity, msgPhysicalEntity, msgSubClassNbr, msgText, msgClass, msgStatus = mibBuilder.importSymbols("SAEUROPE-MESSAGES-MIB", "msgSequenceNumber", "msgSubject", "msgDetailPresent", "msgDetail", "msgSubClass", "msgId", "msgSourceName", "msgGenerationTime", "msgBehaviour", "msgSeverity", "msgPhysicalEntity", "msgSubClassNbr", "msgText", "msgClass", "msgStatus")
 trapControl, trapControlMIBGroups = mibBuilder.importSymbols("SAEUROPE-ROOT-MIB", "trapControl", "trapControlMIBGroups")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, Counter64, ObjectIdentity, NotificationType, MibIdentifier, Gauge32, TimeTicks, Unsigned32, ModuleIdentity, Counter32, IpAddress, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32", "Counter64", "ObjectIdentity", "NotificationType", "MibIdentifier", "Gauge32", "TimeTicks", "Unsigned32", "ModuleIdentity", "Counter32", "IpAddress", "Bits")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Bits, ObjectIdentity, NotificationType, Gauge32, TimeTicks, iso, ModuleIdentity, MibIdentifier, IpAddress, Integer32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "ObjectIdentity", "NotificationType", "Gauge32", "TimeTicks", "iso", "ModuleIdentity", "MibIdentifier", "IpAddress", "Integer32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 saEuropeTrapControl = ModuleIdentity((1, 3, 6, 1, 4, 1, 1482, 20, 1, 1, 1))
 saEuropeTrapControl.setRevisions(('2015-11-10 13:00', '2005-09-09 08:00', '2002-11-30 14:00', '2002-07-02 17:30', '2002-06-21 13:30', '2001-08-31 13:30',))
@@ -33,4 +33,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 trapControlNotificationGroup2 = NotificationGroup((1, 3, 6, 1, 4, 1, 1482, 1, 1, 1, 3)).setObjects(("SAEUROPE-TRAPCONTROL-MIB", "trapControlMsgTrap2"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     trapControlNotificationGroup2 = trapControlNotificationGroup2.setStatus('current')
-mibBuilder.exportSymbols("SAEUROPE-TRAPCONTROL-MIB", trapControlNotificationGroup=trapControlNotificationGroup, trapControlModuleCompliance=trapControlModuleCompliance, trapControlTrapRoot=trapControlTrapRoot, PYSNMP_MODULE_ID=saEuropeTrapControl, trapControlNotificationGroup2=trapControlNotificationGroup2, trapControlTrap=trapControlTrap, saEuropeTrapControl=saEuropeTrapControl, trapControlMsgTrap=trapControlMsgTrap, trapControlMsgTrap2=trapControlMsgTrap2)
+mibBuilder.exportSymbols("SAEUROPE-TRAPCONTROL-MIB", trapControlTrapRoot=trapControlTrapRoot, trapControlNotificationGroup=trapControlNotificationGroup, PYSNMP_MODULE_ID=saEuropeTrapControl, trapControlModuleCompliance=trapControlModuleCompliance, trapControlMsgTrap=trapControlMsgTrap, trapControlNotificationGroup2=trapControlNotificationGroup2, trapControlMsgTrap2=trapControlMsgTrap2, saEuropeTrapControl=saEuropeTrapControl, trapControlTrap=trapControlTrap)

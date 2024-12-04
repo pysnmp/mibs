@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "IANA-MAU-MIB": [
-      "IANAifMauMediaAvailable",
       "IANAifMauAutoNegCapBits",
       "IANAifJackType",
-      "IANAifMauTypeListBits"
+      "IANAifMauTypeListBits",
+      "IANAifMauMediaAvailable"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -16,27 +16,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "mib-2",
       "iso",
-      "Bits",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
-      "MibIdentifier",
-      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Counter64",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
       "Integer32",
-      "NOTIFICATION-TYPE"
+      "mib-2",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
       "TruthValue",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "mauMod": {
@@ -1508,8 +1508,8 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/MAU-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:34:07 2024",
-      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 17:53:29 2024",
+      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "MAU-MIB"

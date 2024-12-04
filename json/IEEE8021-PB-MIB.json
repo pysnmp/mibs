@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "IEEE8021-BRIDGE-MIB": [
-      "ieee8021BridgeBasePortComponentId",
-      "ieee8021BridgeBasePort"
+      "ieee8021BridgeBasePort",
+      "ieee8021BridgeBasePortComponentId"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortType",
+      "IEEE8021PriorityValue",
+      "IEEE8021PbbComponentIdentifierOrZero",
       "IEEE8021PortAcceptableFrameTypes",
       "ieee802dot1mibs",
-      "IEEE8021PriorityValue",
-      "IEEE8021BridgePortNumberOrZero",
-      "IEEE8021PbbComponentIdentifierOrZero"
+      "IEEE8021BridgePortNumberOrZero"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "iso",
       "OBJECT-IDENTITY",
       "Integer32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
+      "IpAddress",
       "Gauge32",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "Counter32",
       "Counter64",
-      "IpAddress",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowStatus",
+      "TruthValue",
       "DisplayString"
     ]
   },
@@ -1062,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PB-MIB",
-      "Produced by pysmi-1.1.12 at Tue Dec  3 12:42:30 2024",
-      "On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 18:01:00 2024",
+      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PB-MIB"

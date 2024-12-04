@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-SFPS-BINDERY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-BINDERY-MIB
-# Produced by pysmi-1.1.12 at Tue Dec  3 12:34:48 2024
-# On host fv-az658-333 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 17:54:11 2024
+# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 sfpsAgentConfig, = mibBuilder.importSymbols("CTRON-SFPS-INCLUDE-MIB", "sfpsAgentConfig")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, ModuleIdentity, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter32, NotificationType, Integer32, iso, Counter64, ObjectIdentity, TimeTicks, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "ModuleIdentity", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter32", "NotificationType", "Integer32", "iso", "Counter64", "ObjectIdentity", "TimeTicks", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Unsigned32, Counter64, ObjectIdentity, Counter32, Integer32, TimeTicks, Gauge32, NotificationType, IpAddress, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "ObjectIdentity", "Counter32", "Integer32", "TimeTicks", "Gauge32", "NotificationType", "IpAddress", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class HexInteger(Integer32):
     pass
 
@@ -70,4 +70,4 @@ if mibBuilder.loadTexts: sfpsAgentBinderyAPINvTotal.setDescription('Total number
 sfpsAgentBinderyAPIDefaultStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 2, 4, 2, 2, 7, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("disable", 2), ("enable", 3), ("unset", 4), ("invalid", 5)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: sfpsAgentBinderyAPIDefaultStatus.setStatus('mandatory')
 if mibBuilder.loadTexts: sfpsAgentBinderyAPIDefaultStatus.setDescription('')
-mibBuilder.exportSymbols("CTRON-SFPS-BINDERY-MIB", sfpsAgentBinderyConfigAdminStatus=sfpsAgentBinderyConfigAdminStatus, sfpsAgentBinderyConfigHashLeaf=sfpsAgentBinderyConfigHashLeaf, sfpsAgentBinderyAPINvTotal=sfpsAgentBinderyAPINvTotal, sfpsAgentBinderyAPIDefaultStatus=sfpsAgentBinderyAPIDefaultStatus, sfpsAgentBinderyAPIAdminStatus=sfpsAgentBinderyAPIAdminStatus, sfpsAgentBinderyAPIElementName=sfpsAgentBinderyAPIElementName, sfpsAgentBinderyAPI=sfpsAgentBinderyAPI, sfpsAgentBinderyConfigOperStatus=sfpsAgentBinderyConfigOperStatus, sfpsAgentBinderyAPINvSet=sfpsAgentBinderyAPINvSet, sfpsAgentBinderyConfigHashIndex=sfpsAgentBinderyConfigHashIndex, sfpsAgentBinderyConfigTable=sfpsAgentBinderyConfigTable, sfpsAgentBinderyConfigNVStatus=sfpsAgentBinderyConfigNVStatus, sfpsAgentBinderyConfigName=sfpsAgentBinderyConfigName, sfpsAgentBinderyAPINVStatus=sfpsAgentBinderyAPINVStatus, sfpsAgentBinderyAPIOperStatus=sfpsAgentBinderyAPIOperStatus, sfpsAgentBinderyAPIVerb=sfpsAgentBinderyAPIVerb, sfpsAgentBinderyConfigEntry=sfpsAgentBinderyConfigEntry, sfpsAgentBinderyConfigStatusTime=sfpsAgentBinderyConfigStatusTime, HexInteger=HexInteger, sfpsAgentBinderyConfigType=sfpsAgentBinderyConfigType)
+mibBuilder.exportSymbols("CTRON-SFPS-BINDERY-MIB", sfpsAgentBinderyAPIDefaultStatus=sfpsAgentBinderyAPIDefaultStatus, sfpsAgentBinderyConfigAdminStatus=sfpsAgentBinderyConfigAdminStatus, sfpsAgentBinderyConfigStatusTime=sfpsAgentBinderyConfigStatusTime, sfpsAgentBinderyAPINvTotal=sfpsAgentBinderyAPINvTotal, sfpsAgentBinderyConfigOperStatus=sfpsAgentBinderyConfigOperStatus, HexInteger=HexInteger, sfpsAgentBinderyAPIAdminStatus=sfpsAgentBinderyAPIAdminStatus, sfpsAgentBinderyConfigEntry=sfpsAgentBinderyConfigEntry, sfpsAgentBinderyAPI=sfpsAgentBinderyAPI, sfpsAgentBinderyAPIOperStatus=sfpsAgentBinderyAPIOperStatus, sfpsAgentBinderyAPINVStatus=sfpsAgentBinderyAPINVStatus, sfpsAgentBinderyConfigName=sfpsAgentBinderyConfigName, sfpsAgentBinderyConfigTable=sfpsAgentBinderyConfigTable, sfpsAgentBinderyConfigHashLeaf=sfpsAgentBinderyConfigHashLeaf, sfpsAgentBinderyAPIElementName=sfpsAgentBinderyAPIElementName, sfpsAgentBinderyConfigNVStatus=sfpsAgentBinderyConfigNVStatus, sfpsAgentBinderyConfigType=sfpsAgentBinderyConfigType, sfpsAgentBinderyConfigHashIndex=sfpsAgentBinderyConfigHashIndex, sfpsAgentBinderyAPINvSet=sfpsAgentBinderyAPINvSet, sfpsAgentBinderyAPIVerb=sfpsAgentBinderyAPIVerb)
