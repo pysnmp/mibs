@@ -5,39 +5,39 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
       "PerfCurrentCount",
-      "PerfTotalCount",
-      "PerfIntervalCount"
+      "PerfTotalCount"
     ],
     "SL-MAIN-MIB": [
       "slMain"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Bits",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "slEventMib": {
@@ -659,8 +659,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-EVENT-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:58:19 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:19:15 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "SL-EVENT-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifGeneralInformationGroup",
-      "ifEntry"
+      "ifEntry",
+      "ifGeneralInformationGroup"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -14,20 +14,20 @@
       "systemGroup"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
+      "Gauge32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Counter32",
-      "OBJECT-TYPE",
-      "iso",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "IpAddress",
       "Bits",
-      "Gauge32"
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -167,8 +167,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/quanta/ieee8021_pfc.my",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:59:08 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:20:39 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IEEE8021-PFC-MIB"

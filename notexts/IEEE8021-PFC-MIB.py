@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module IEEE8021-PFC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PFC-MIB
-# Produced by pysmi-1.1.12 at Wed Dec  4 18:00:50 2024
-# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 21:22:12 2024
+# On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 ieee802dot1mibs, = mibBuilder.importSymbols("IEEE8021-TC-MIB", "ieee802dot1mibs")
 ifEntry, ifGeneralInformationGroup = mibBuilder.importSymbols("IF-MIB", "ifEntry", "ifGeneralInformationGroup")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
 systemGroup, = mibBuilder.importSymbols("SNMPv2-MIB", "systemGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, ModuleIdentity, Bits, Counter32, Unsigned32, IpAddress, TimeTicks, ObjectIdentity, iso, NotificationType, Gauge32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "ModuleIdentity", "Bits", "Counter32", "Unsigned32", "IpAddress", "TimeTicks", "ObjectIdentity", "iso", "NotificationType", "Gauge32", "Integer32")
+TimeTicks, iso, Integer32, MibIdentifier, ModuleIdentity, IpAddress, Unsigned32, ObjectIdentity, Bits, Counter32, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Integer32", "MibIdentifier", "ModuleIdentity", "IpAddress", "Unsigned32", "ObjectIdentity", "Bits", "Counter32", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ieee8021PFCMib = ModuleIdentity((1, 3, 111, 2, 802, 1, 1, 21))
 ieee8021PFCMib.setRevisions(('2018-06-28 00:00', '2014-12-15 00:00', '2010-02-08 00:00',))
@@ -41,4 +41,4 @@ ieee8021PfcCompliance = ModuleCompliance((1, 3, 111, 2, 802, 1, 1, 21, 2, 1, 1))
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ieee8021PfcCompliance = ieee8021PfcCompliance.setStatus('current')
-mibBuilder.exportSymbols("IEEE8021-PFC-MIB", ieee8021PfcIfEntry=ieee8021PfcIfEntry, PYSNMP_MODULE_ID=ieee8021PFCMib, ieee8021PfcGroups=ieee8021PfcGroups, ieee8021PfcLinkDelayAllowance=ieee8021PfcLinkDelayAllowance, ieee8021PfcCompliances=ieee8021PfcCompliances, ieee8021PfcGlobalReqdGroup=ieee8021PfcGlobalReqdGroup, ieee8021PfcMIBObjects=ieee8021PfcMIBObjects, ieee8021PfcCompliance=ieee8021PfcCompliance, ieee8021PfcIfTable=ieee8021PfcIfTable, ieee8021PfcConformance=ieee8021PfcConformance, ieee8021PfcIndications=ieee8021PfcIndications, ieee8021PFCMib=ieee8021PFCMib, ieee8021PfcRequests=ieee8021PfcRequests)
+mibBuilder.exportSymbols("IEEE8021-PFC-MIB", ieee8021PfcRequests=ieee8021PfcRequests, ieee8021PFCMib=ieee8021PFCMib, ieee8021PfcGroups=ieee8021PfcGroups, ieee8021PfcMIBObjects=ieee8021PfcMIBObjects, ieee8021PfcLinkDelayAllowance=ieee8021PfcLinkDelayAllowance, ieee8021PfcCompliances=ieee8021PfcCompliances, PYSNMP_MODULE_ID=ieee8021PFCMib, ieee8021PfcIfEntry=ieee8021PfcIfEntry, ieee8021PfcIfTable=ieee8021PfcIfTable, ieee8021PfcCompliance=ieee8021PfcCompliance, ieee8021PfcIndications=ieee8021PfcIndications, ieee8021PfcGlobalReqdGroup=ieee8021PfcGlobalReqdGroup, ieee8021PfcConformance=ieee8021PfcConformance)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module MYSTRO-VIDEOPORT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mystro/MYSTRO-VIDEOPORT-MIB
-# Produced by pysmi-1.1.12 at Wed Dec  4 17:57:29 2024
-# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 21:18:12 2024
+# On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
 generic, = mibBuilder.importSymbols("MYSTRO-ROOT-MIB", "generic")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ObjectIdentity, Integer32, MibIdentifier, Counter64, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, iso, TimeTicks, ModuleIdentity, enterprises, Counter32, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "MibIdentifier", "Counter64", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "iso", "TimeTicks", "ModuleIdentity", "enterprises", "Counter32", "IpAddress", "Unsigned32")
+ObjectIdentity, Unsigned32, TimeTicks, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, iso, Bits, enterprises, Integer32, NotificationType, Counter32, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Unsigned32", "TimeTicks", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "iso", "Bits", "enterprises", "Integer32", "NotificationType", "Counter32", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-udpLocalPort, udpLocalAddress = mibBuilder.importSymbols("UDP-MIB", "udpLocalPort", "udpLocalAddress")
+udpLocalAddress, udpLocalPort = mibBuilder.importSymbols("UDP-MIB", "udpLocalAddress", "udpLocalPort")
 videoport = ModuleIdentity((1, 3, 6, 1, 4, 1, 14373, 2, 1))
 videoport.setRevisions(('2002-11-05 01:00',))
 if mibBuilder.loadTexts: videoport.setLastUpdated('200211052324Z')
@@ -75,4 +75,4 @@ removeService = NotificationType((1, 3, 6, 1, 4, 1, 14373, 2, 1, 500, 2)).setObj
 if mibBuilder.loadTexts: removeService.setStatus('current')
 updateService = NotificationType((1, 3, 6, 1, 4, 1, 14373, 2, 1, 500, 3)).setObjects(("MYSTRO-VIDEOPORT-MIB", "serviceID"), ("MYSTRO-VIDEOPORT-MIB", "definition"), ("MYSTRO-VIDEOPORT-MIB", "transportType"))
 if mibBuilder.loadTexts: updateService.setStatus('current')
-mibBuilder.exportSymbols("MYSTRO-VIDEOPORT-MIB", videoport=videoport, trickModeUdpPort=trickModeUdpPort, serviceID=serviceID, addService=addService, pidAudio0=pidAudio0, pidAudio1=pidAudio1, bitRate=bitRate, asiServicesEntry=asiServicesEntry, pidAudio5=pidAudio5, connector=connector, updateService=updateService, dod=dod, removeService=removeService, transportType=transportType, notifications=notifications, udpServicesTable=udpServicesTable, PYSNMP_MODULE_ID=videoport, pidAudio3=pidAudio3, private=private, definition=definition, progNumber=progNumber, videoServicesTable=videoServicesTable, org=org, pidAudio4=pidAudio4, enterprises=enterprises, dataUdpPort=dataUdpPort, asiServicesTable=asiServicesTable, pidVideo=pidVideo, udpServicesEntry=udpServicesEntry, pidPMT=pidPMT, pidAudio2=pidAudio2, videoServicesEntry=videoServicesEntry, internet=internet, destIPAddr=destIPAddr)
+mibBuilder.exportSymbols("MYSTRO-VIDEOPORT-MIB", pidVideo=pidVideo, asiServicesTable=asiServicesTable, progNumber=progNumber, videoServicesTable=videoServicesTable, enterprises=enterprises, transportType=transportType, pidAudio1=pidAudio1, pidAudio4=pidAudio4, trickModeUdpPort=trickModeUdpPort, pidAudio2=pidAudio2, bitRate=bitRate, videoServicesEntry=videoServicesEntry, pidAudio5=pidAudio5, updateService=updateService, internet=internet, org=org, connector=connector, addService=addService, udpServicesEntry=udpServicesEntry, udpServicesTable=udpServicesTable, notifications=notifications, pidAudio0=pidAudio0, removeService=removeService, definition=definition, private=private, serviceID=serviceID, pidPMT=pidPMT, destIPAddr=destIPAddr, asiServicesEntry=asiServicesEntry, dod=dod, pidAudio3=pidAudio3, PYSNMP_MODULE_ID=videoport, dataUdpPort=dataUdpPort, videoport=videoport)

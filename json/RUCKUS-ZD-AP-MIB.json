@@ -9,32 +9,32 @@
       "ruckusZDWLANModule"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Counter32",
-      "MibIdentifier",
-      "IpAddress",
-      "Counter64",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
+      "Counter32",
+      "TimeTicks",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Bits",
-      "OBJECT-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
+      "MacAddress",
       "TruthValue",
       "DisplayString",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ruckusZDAPMIB": {
@@ -885,8 +885,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-AP-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:59:25 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:20:23 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "RUCKUS-ZD-AP-MIB"

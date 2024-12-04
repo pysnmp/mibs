@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MibIdentifier",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter32",
       "mib-2",
-      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Bits",
       "Unsigned32",
       "MODULE-IDENTITY",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ianaRtProtoMIB": {
@@ -115,8 +115,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/IANA-RTPROTO-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 18:01:17 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:22:40 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "IANA-RTPROTO-MIB"

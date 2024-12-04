@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTRON-FRONTPANEL-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-FRONTPANEL-MIB
-# Produced by pysmi-1.1.12 at Wed Dec  4 17:54:11 2024
-# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 21:14:32 2024
+# On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 ctFpRedundancy, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctFpRedundancy")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, Counter64, ObjectIdentity, Counter32, Integer32, TimeTicks, Gauge32, NotificationType, IpAddress, MibIdentifier, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter64", "ObjectIdentity", "Counter32", "Integer32", "TimeTicks", "Gauge32", "NotificationType", "IpAddress", "MibIdentifier", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, Integer32, ModuleIdentity, MibIdentifier, Unsigned32, IpAddress, iso, NotificationType, Counter32, Bits, TimeTicks, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "Integer32", "ModuleIdentity", "MibIdentifier", "Unsigned32", "IpAddress", "iso", "NotificationType", "Counter32", "Bits", "TimeTicks", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ctFpRedund = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1))
 ctFpRedundReset = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noReset", 1), ("reset", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctFpRedundReset.setStatus('mandatory')
@@ -49,4 +49,4 @@ if mibBuilder.loadTexts: ctFpRedundAddrId.setDescription('A unique value identif
 ctFpRedundAddrIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 5, 5, 1, 9, 1, 2), IpAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctFpRedundAddrIPAddr.setStatus('mandatory')
 if mibBuilder.loadTexts: ctFpRedundAddrIPAddr.setDescription('Returns an IP Address associated with the front panel\n                     redundancy.')
-mibBuilder.exportSymbols("CTRON-FRONTPANEL-MIB", ctFpRedundAddrIPAddr=ctFpRedundAddrIPAddr, ctFpRedundRetrys=ctFpRedundRetrys, ctFpRedund=ctFpRedund, ctFpRedundReset=ctFpRedundReset, ctFpRedundNumAddr=ctFpRedundNumAddr, ctFpRedundActivePort=ctFpRedundActivePort, ctFpRedundEnable=ctFpRedundEnable, ctFpRedundAddrTable=ctFpRedundAddrTable, ctFpRedundAddrEntry=ctFpRedundAddrEntry, ctFpRedundAddrId=ctFpRedundAddrId, ctFpRedundAddAddr=ctFpRedundAddAddr, ctFpRedundPollInterval=ctFpRedundPollInterval, ctFpRedundDelAddr=ctFpRedundDelAddr)
+mibBuilder.exportSymbols("CTRON-FRONTPANEL-MIB", ctFpRedundNumAddr=ctFpRedundNumAddr, ctFpRedundAddrId=ctFpRedundAddrId, ctFpRedundReset=ctFpRedundReset, ctFpRedundEnable=ctFpRedundEnable, ctFpRedundPollInterval=ctFpRedundPollInterval, ctFpRedundRetrys=ctFpRedundRetrys, ctFpRedundActivePort=ctFpRedundActivePort, ctFpRedundDelAddr=ctFpRedundDelAddr, ctFpRedundAddrTable=ctFpRedundAddrTable, ctFpRedundAddrEntry=ctFpRedundAddrEntry, ctFpRedundAddrIPAddr=ctFpRedundAddrIPAddr, ctFpRedundAddAddr=ctFpRedundAddAddr, ctFpRedund=ctFpRedund)

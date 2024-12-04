@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-ROOT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ROOT-MIB
-# Produced by pysmi-1.1.12 at Wed Dec  4 18:00:19 2024
-# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 21:21:25 2024
+# On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, ModuleIdentity, Counter64, Unsigned32, Integer32, IpAddress, NotificationType, ObjectIdentity, MibIdentifier, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, Bits, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "Counter64", "Unsigned32", "Integer32", "IpAddress", "NotificationType", "ObjectIdentity", "MibIdentifier", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "Bits", "TimeTicks")
+ModuleIdentity, iso, ObjectIdentity, Counter64, Unsigned32, enterprises, IpAddress, Integer32, MibIdentifier, Bits, TimeTicks, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "ObjectIdentity", "Counter64", "Unsigned32", "enterprises", "IpAddress", "Integer32", "MibIdentifier", "Bits", "TimeTicks", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 vmware = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876))
 vmware.setRevisions(('2018-08-30 00:00', '2017-10-30 00:00', '2017-06-07 00:00', '2016-11-03 00:00', '2016-01-02 20:00', '2010-04-02 00:00', '2007-07-30 00:00',))
@@ -55,4 +55,4 @@ vmwDocumentation = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 750))
 if mibBuilder.loadTexts: vmwDocumentation.setStatus('current')
 vmwObsolete = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 800))
 if mibBuilder.loadTexts: vmwObsolete.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-ROOT-MIB", vmwNetworkInsight=vmwNetworkInsight, vmwExperimental=vmwExperimental, vmwNSXsys=vmwNSXsys, vmwSystem=vmwSystem, PYSNMP_MODULE_ID=vmware, vmwVCHA=vmwVCHA, vmwLdap=vmwLdap, vmwVirtMachines=vmwVirtMachines, vmwOID=vmwOID, vmwVmon=vmwVmon, vmwareAgentCapabilities=vmwareAgentCapabilities, vmware=vmware, vmwDocumentation=vmwDocumentation, vmwObsolete=vmwObsolete, vmwHCX=vmwHCX, vmwNsxManager=vmwNsxManager, vmwResources=vmwResources, vmwTraps=vmwTraps, vmwSRM=vmwSRM, vmwPerAppTunnel=vmwPerAppTunnel, vmwNotifications=vmwNotifications, vmwProductSpecific=vmwProductSpecific)
+mibBuilder.exportSymbols("VMWARE-ROOT-MIB", vmwResources=vmwResources, vmwSRM=vmwSRM, vmwExperimental=vmwExperimental, vmwProductSpecific=vmwProductSpecific, vmwSystem=vmwSystem, vmwOID=vmwOID, vmwVirtMachines=vmwVirtMachines, vmware=vmware, vmwObsolete=vmwObsolete, vmwHCX=vmwHCX, vmwNSXsys=vmwNSXsys, vmwLdap=vmwLdap, vmwNotifications=vmwNotifications, vmwTraps=vmwTraps, vmwareAgentCapabilities=vmwareAgentCapabilities, vmwNetworkInsight=vmwNetworkInsight, vmwVmon=vmwVmon, PYSNMP_MODULE_ID=vmware, vmwNsxManager=vmwNsxManager, vmwPerAppTunnel=vmwPerAppTunnel, vmwVCHA=vmwVCHA, vmwDocumentation=vmwDocumentation)

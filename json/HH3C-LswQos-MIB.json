@@ -5,30 +5,30 @@
       "hh3clswCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
       "OBJECT-IDENTITY",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "iso",
-      "IpAddress",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "Integer32",
-      "Gauge32",
-      "Counter64",
       "Counter32",
-      "TimeTicks"
+      "iso",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TruthValue",
+      "RowStatus",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "MacAddress"
     ]
   },
@@ -6464,8 +6464,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SPLAT-QOS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:52:57 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:13:12 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HH3C-LswQos-MIB"

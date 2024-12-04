@@ -15,8 +15,8 @@
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -31,28 +31,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "Opaque",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
+      "Integer32",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "MODULE-IDENTITY",
+      "Counter64",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "iso",
       "dod",
-      "Integer32"
+      "OBJECT-TYPE",
+      "Opaque",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp",
-      "TruthValue"
+      "TimeStamp"
     ]
   },
   "ciscoCBQosMIB": {
@@ -11993,8 +11993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CLASS-BASED-QOS-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:56:36 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:16:35 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "CISCO-CLASS-BASED-QOS-MIB"

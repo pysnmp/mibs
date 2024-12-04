@@ -1,20 +1,20 @@
 #
 # PySNMP MIB module SL-PM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-PM-MIB
-# Produced by pysmi-1.1.12 at Wed Dec  4 17:58:15 2024
-# On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner
+# Produced by pysmi-1.1.12 at Wed Dec  4 21:19:10 2024
+# On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner
 # Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
+SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
 ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+PerfCurrentCount, PerfIntervalCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfIntervalCount", "PerfTotalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
 XpdrServiceType, = mibBuilder.importSymbols("SL-XPDR-MIB", "XpdrServiceType")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, MibIdentifier, transmission, iso, ModuleIdentity, TimeTicks, Counter32, Gauge32, Bits, ObjectIdentity, IpAddress, NotificationType, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "MibIdentifier", "transmission", "iso", "ModuleIdentity", "TimeTicks", "Counter32", "Gauge32", "Bits", "ObjectIdentity", "IpAddress", "NotificationType", "Unsigned32")
-DateAndTime, TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TruthValue", "TextualConvention", "DisplayString")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+transmission, Integer32, Counter32, Counter64, Unsigned32, iso, ObjectIdentity, IpAddress, ModuleIdentity, MibIdentifier, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "Integer32", "Counter32", "Counter64", "Unsigned32", "iso", "ObjectIdentity", "IpAddress", "ModuleIdentity", "MibIdentifier", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType")
+DateAndTime, DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention", "TruthValue")
 slPmMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25))
 if mibBuilder.loadTexts: slPmMib.setLastUpdated('201105170000Z')
 if mibBuilder.loadTexts: slPmMib.setOrganization('PacketLight Networks Ltd.')
@@ -92,4 +92,4 @@ slPmL2StartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 7),
 if mibBuilder.loadTexts: slPmL2StartTime.setStatus('current')
 slPmL2ServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 25, 2, 1, 1, 8), XpdrServiceType()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: slPmL2ServiceType.setStatus('current')
-mibBuilder.exportSymbols("SL-PM-MIB", SlPmType=SlPmType, slPmIntervalUASs=slPmIntervalUASs, slPmL2Entry=slPmL2Entry, slPmIntervalReset=slPmIntervalReset, slPmL2CounterType=slPmL2CounterType, slPmIntervalValidData=slPmIntervalValidData, slPmType=slPmType, PYSNMP_MODULE_ID=slPmMib, slPmIntervalType=slPmIntervalType, slPmIntervalStartTime=slPmIntervalStartTime, slPmIntervalTcaFlag=slPmIntervalTcaFlag, slPmMib=slPmMib, slPmDirectionType=slPmDirectionType, slPmIntervalNumber=slPmIntervalNumber, slPmL2Table=slPmL2Table, slPmIntervalCVs=slPmIntervalCVs, slPmIntervals=slPmIntervals, SlPmDirectionType=SlPmDirectionType, slPmServiceType=slPmServiceType, slPmL2IntervalType=slPmL2IntervalType, slPmIntervalEntry=slPmIntervalEntry, slPmL2StartTime=slPmL2StartTime, slPmIntervalSESs=slPmIntervalSESs, SlPmL2Type=SlPmL2Type, slPmL2ValidData=slPmL2ValidData, slPmIntervalSEFSs=slPmIntervalSEFSs, slPmIntervalTable=slPmIntervalTable, slPmL2IntervalNumber=slPmL2IntervalNumber, slPmL2Reset=slPmL2Reset, SlPmIntervalType=SlPmIntervalType, slPmL2ServiceType=slPmL2ServiceType, slPmIntervalESs=slPmIntervalESs, slPmL2Intervals=slPmL2Intervals, slPmL2Count=slPmL2Count)
+mibBuilder.exportSymbols("SL-PM-MIB", slPmIntervalTcaFlag=slPmIntervalTcaFlag, slPmServiceType=slPmServiceType, slPmL2ValidData=slPmL2ValidData, slPmL2Reset=slPmL2Reset, SlPmL2Type=SlPmL2Type, slPmIntervals=slPmIntervals, slPmIntervalUASs=slPmIntervalUASs, slPmIntervalSESs=slPmIntervalSESs, slPmL2ServiceType=slPmL2ServiceType, slPmIntervalReset=slPmIntervalReset, SlPmIntervalType=SlPmIntervalType, slPmL2IntervalNumber=slPmL2IntervalNumber, slPmIntervalValidData=slPmIntervalValidData, slPmIntervalEntry=slPmIntervalEntry, slPmL2CounterType=slPmL2CounterType, slPmIntervalESs=slPmIntervalESs, slPmL2Table=slPmL2Table, SlPmDirectionType=SlPmDirectionType, SlPmType=SlPmType, slPmIntervalSEFSs=slPmIntervalSEFSs, slPmL2IntervalType=slPmL2IntervalType, slPmMib=slPmMib, PYSNMP_MODULE_ID=slPmMib, slPmL2Intervals=slPmL2Intervals, slPmDirectionType=slPmDirectionType, slPmIntervalCVs=slPmIntervalCVs, slPmL2Entry=slPmL2Entry, slPmL2Count=slPmL2Count, slPmIntervalTable=slPmIntervalTable, slPmL2StartTime=slPmL2StartTime, slPmIntervalNumber=slPmIntervalNumber, slPmType=slPmType, slPmIntervalStartTime=slPmIntervalStartTime, slPmIntervalType=slPmIntervalType)

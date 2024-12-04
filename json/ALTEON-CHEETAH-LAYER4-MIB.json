@@ -5,28 +5,28 @@
       "aws-switch"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Gauge32",
       "TimeTicks",
-      "iso",
-      "MibIdentifier",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Bits",
       "IpAddress",
       "Unsigned32",
+      "iso",
       "MODULE-IDENTITY",
-      "Bits"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
       "TEXTUAL-CONVENTION",
+      "PhysAddress",
       "DisplayString"
     ]
   },
@@ -20322,8 +20322,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alteonos/ALTEON-CHEETAH-LAYER4-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:51:14 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:11:23 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ALTEON-CHEETAH-LAYER4-MIB"

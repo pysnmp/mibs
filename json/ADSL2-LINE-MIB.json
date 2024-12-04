@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "ADSL2-LINE-TC-MIB": [
-      "Adsl2PowerMngState",
-      "Adsl2Tssi",
-      "Adsl2Unit",
-      "Adsl2PsdMaskDs",
-      "Adsl2RfiDs",
-      "Adsl2LineLdsf",
-      "Adsl2SymbolProtection",
-      "Adsl2InitResult",
+      "Adsl2OperationModes",
       "Adsl2LdsfResult",
-      "Adsl2LastTransmittedState",
-      "Adsl2MaxBer",
+      "Adsl2InitResult",
+      "Adsl2ChPtmStatus",
       "Adsl2ConfPmsForce",
       "Adsl2ScMaskDs",
-      "Adsl2Direction",
-      "Adsl2PsdMaskUs",
-      "Adsl2RaMode",
-      "Adsl2TransmissionModeType",
-      "Adsl2OperationModes",
-      "Adsl2ChAtmStatus",
+      "Adsl2RfiDs",
       "Adsl2LConfProfPmMode",
       "Adsl2ScMaskUs",
+      "Adsl2TransmissionModeType",
+      "Adsl2Direction",
+      "Adsl2PsdMaskUs",
+      "Adsl2Tssi",
+      "Adsl2SymbolProtection",
+      "Adsl2RaMode",
+      "Adsl2LastTransmittedState",
+      "Adsl2PowerMngState",
+      "Adsl2MaxBer",
+      "Adsl2PsdMaskDs",
       "Adsl2LineStatus",
-      "Adsl2ChPtmStatus"
+      "Adsl2ChAtmStatus",
+      "Adsl2LineLdsf",
+      "Adsl2Unit"
     ],
     "HC-PerfHist-TC-MIB": [
       "HCPerfTimeElapsed",
@@ -42,26 +42,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
       "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
       "OBJECT-TYPE",
       "Counter32",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
       "transmission",
-      "Integer32"
+      "Unsigned32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -6519,8 +6519,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ADSL2-LINE-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:56:29 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:16:30 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "ADSL2-LINE-MIB"

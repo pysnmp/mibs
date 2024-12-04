@@ -8,31 +8,31 @@
       "juniMibs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
       "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Counter64",
       "Unsigned32",
       "Bits",
-      "Counter64",
-      "iso",
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TimeInterval",
       "TruthValue",
-      "TimeInterval"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "juniDhcpv6MIB": {
@@ -568,8 +568,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DHCPv6-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:57:42 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:18:32 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "Juniper-DHCPv6-MIB"

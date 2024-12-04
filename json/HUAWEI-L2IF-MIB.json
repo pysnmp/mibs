@@ -5,9 +5,9 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifDescr",
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndex"
+      "ifDescr"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -18,30 +18,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Integer32",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "iso",
       "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
       "MibIdentifier",
+      "IpAddress",
+      "Counter64",
       "Unsigned32",
-      "iso"
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hwL2Mgmt": {
@@ -2357,8 +2357,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L2IF-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:56:12 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:16:38 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "HUAWEI-L2IF-MIB"

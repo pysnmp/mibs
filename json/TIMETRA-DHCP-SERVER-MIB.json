@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
       "Counter64",
-      "Gauge32",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "Counter32",
       "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
       "MODULE-IDENTITY",
+      "IpAddress",
       "Integer32",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits"
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
+      "DisplayString",
+      "RowStatus",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "MacAddress",
-      "DateAndTime",
-      "DisplayString"
+      "MacAddress"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "tmnxSRObjs",
       "tmnxSRNotifyPrefix",
-      "timetraSRMIBModules",
-      "tmnxSRConfs"
+      "tmnxSRConfs",
+      "timetraSRMIBModules"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxAdminState",
-      "TItemDescription",
-      "TmnxDhcpOptionType",
       "TNamedItem",
-      "TmnxDhcpOptionDisplay",
-      "TNamedItemOrEmpty",
-      "TmnxVRtrIDOrZero",
-      "TmnxCreateOrigin",
       "TmnxDhcpServerDUIDTypeCode",
       "TmnxVRtrID",
       "TmnxPppoeUserNameOrEmpty",
-      "TmnxActionType"
+      "TmnxDhcpOptionType",
+      "TmnxAdminState",
+      "TmnxDhcpOptionDisplay",
+      "TmnxVRtrIDOrZero",
+      "TNamedItemOrEmpty",
+      "TItemDescription",
+      "TmnxActionType",
+      "TmnxCreateOrigin"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -15325,8 +15325,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-DHCP-SERVER-MIB",
-      "Produced by pysmi-1.1.12 at Wed Dec  4 17:59:01 2024",
-      "On host fv-az2036-124 platform Linux version 6.5.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.12 at Wed Dec  4 21:19:51 2024",
+      "On host fv-az585-169 platform Linux version 6.5.0-1025-azure by user runner",
       "Using Python version 3.10.15 (main, Sep  9 2024, 03:02:45) [GCC 11.4.0]"
     ],
     "module": "TIMETRA-DHCP-SERVER-MIB"
