@@ -23,7 +23,7 @@ IMPORTS
                 FROM ACMEPACKET-TC;
 
 apEnvMonModule MODULE-IDENTITY
-        LAST-UPDATED	"201811190000Z"
+        LAST-UPDATED	"202010020000Z"
         ORGANIZATION 	"Oracle Communications"
         CONTACT-INFO
 			"           	Customer Service
@@ -46,6 +46,9 @@ apEnvMonModule MODULE-IDENTITY
 	REVISION "201811190000Z" 			
         DESCRIPTION
 	        "Updated SD6 apEnvMonTemperatureStatusType info."
+	REVISION "202010020000Z" 			
+        DESCRIPTION
+	        "Updated ApEnvMonState with new unDetectable state: unDetectable(10)"
         ::= {acmepacketMgmt 3}
 
 ApEnvMonState ::= TEXTUAL-CONVENTION
@@ -81,8 +84,10 @@ ApEnvMonState ::= TEXTUAL-CONVENTION
                                    1. I2C fail
                                    2. a temperature sensor generates a abnormal
                                       data like 1000 C.
-		unknown(9) :    can not get the information due to
-				internal error.
+                unknown(9) :    can not get the information due to
+                                internal error.
+                undetectable(10) :  the environmental monitor is not detectable,
+                                 such as not part of specific platform.
                 "
         SYNTAX INTEGER {
 			initial(1),
@@ -93,7 +98,8 @@ ApEnvMonState ::= TEXTUAL-CONVENTION
                         shutdown(6),
                         notPresent(7),
                         notFunctioning(8),
-			unknown(9)
+                        unknown(9),
+                        unDetectable(10)
                         }
 
 apEnvMonObjects OBJECT IDENTIFIER ::= {apEnvMonModule 1}

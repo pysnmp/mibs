@@ -29,7 +29,7 @@ IMPORTS
 	InterfaceIndex, ifIndex         FROM IF-MIB;
      
 apSystemManagementModule	MODULE-IDENTITY
-	       LAST-UPDATED	"201808170000Z"
+	       LAST-UPDATED	"202203240000Z"
 	       ORGANIZATION 	"Oracle Communications"
 	       CONTACT-INFO
 			"           	Customer Service
@@ -75,6 +75,15 @@ apSystemManagementModule	MODULE-IDENTITY
 	       REVISION 	"201808170000Z" 			
 	       DESCRIPTION
 		   	"Obsoleted apSysMgmtNTPClockSkewTrap."
+               REVISION    "202107200000Z"
+               DESCRIPTION
+                        "Added new object group apSysMgmtReservedNSEPStatsGroup 
+                         for Reserved NSEP session stats."
+               REVISION  "202203240000Z"
+               DESCRIPTION
+                        "Added new Object group apSysMgmtNSEPOutboundStatsGroup
+                          for Outbound NSEP session stats." 
+	
 	       	::= { acmepacketMgmt 2 }
 
 
@@ -2144,6 +2153,58 @@ apNSEPStatsRPHTotalSessionsNotAdmittedOutbound  OBJECT-TYPE
 	DESCRIPTION
 	    "Total number of outbound NS/EP sessions rejected"
 	::= {apNSEPStatsRPHEntry 9}
+
+apNSEPStatsReserveCurrentSessions OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Number of currently active inbound NSEP sessions
+            from reserved NSEP session pool"
+        ::= {apSysMgmtMIBNSEPStatsObjects 6}
+
+apNSEPStatsReservePeriodHigh OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Maximum number of incoming NSEP calls from reserved NSEP session
+            pool that occurred during a single time period "
+        ::= {apSysMgmtMIBNSEPStatsObjects 7}
+
+apNSEPStatsReserveTotal OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "Total number of incoming NSEP calls from reserved NSEP session
+            pool that occurred during lifetime period"
+        ::= {apSysMgmtMIBNSEPStatsObjects 8}
+
+apNSEPStatsCurrentActiveSessionsOutbound OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Number of current active Outbound NSEP sessions"
+        ::= {apSysMgmtMIBNSEPStatsObjects 9}
+
+apNSEPStatsTotalSessionsOutbound OBJECT-TYPE
+        SYNTAX          Counter32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Total Number of Outbound NSEP sessions during the period"
+        ::= {apSysMgmtMIBNSEPStatsObjects 10}
+
+apNSEPStatsPeriodHighOutbound   OBJECT-TYPE
+        SYNTAX          Unsigned32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+                "Highest number of concurrent Outbound NSEP sessions during
+                the period"
+        ::= {apSysMgmtMIBNSEPStatsObjects 11}
 
 -- LDAP Server Table
 
@@ -4834,6 +4895,28 @@ apSysMgmtXCodeEVSUtilGroup OBJECT-GROUP
          DESCRIPTION
                 "Object to monitor licensed EVS transcoding utilization"
          ::= { apSystemManagementGroups 35 }
+
+apSysMgmtReservedNSEPStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                apNSEPStatsReserveCurrentSessions,
+                apNSEPStatsReservePeriodHigh,
+                apNSEPStatsReserveTotal
+                 }
+         STATUS          current
+         DESCRIPTION
+                "Object to monitor Reserved NSEP session"
+         ::= { apSystemManagementGroups 36 }
+
+apSysMgmtNSEPOutboundStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                apNSEPStatsCurrentActiveSessionsOutbound,
+                apNSEPStatsTotalSessionsOutbound,
+                apNSEPStatsPeriodHighOutbound
+                }
+        STATUS                  current
+        DESCRIPTION
+                "Object to monitor NSEP Outbound session"
+        ::= {apSystemManagementGroups 37 }
 
 ----------------------------------------------------
 --

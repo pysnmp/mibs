@@ -34,7 +34,7 @@ IMPORTS
                     FROM APSYSMGMT-MIB;
      
 apDiameterModule   MODULE-IDENTITY
-        LAST-UPDATED	"201711240000Z"
+        LAST-UPDATED	"202202090000Z"
         ORGANIZATION 	"Oracle Communications"
         CONTACT-INFO
 			"           	Customer Service
@@ -47,13 +47,17 @@ apDiameterModule   MODULE-IDENTITY
 		 	E-mail:		support@oracle.com"
         DESCRIPTION
             "The Accounting MIB for Oracle Communications Acme Packet SBCs"
-	REVISION "201406260000Z" 			
+        REVISION "201406260000Z" 			
         DESCRIPTION
 			"Updated Organization and Contact info."
         REVISION "201711240000Z"
         DESCRIPTION
                  "Added new MIB Definitions for Diameter Rx External Policy Server."
-        ::= { acmepacketMgmt 13 }
+        REVISION "202202090000Z"
+        DESCRIPTION
+            "Added new Notifications group apDiamACCTBufferUsageNotificationsGroup
+                 for Diameter RF buffer usages."
+		::= { acmepacketMgmt 13 }
 
 apDiamMIBModule OBJECT IDENTIFIER ::= { apDiameterModule 1 }
 apDiamMIBObjects OBJECT IDENTIFIER ::= { apDiamMIBModule 1 }
@@ -802,6 +806,21 @@ apDiameterResultCode OBJECT-TYPE
                RFC 3588, 7.1. Result-Code AVP"
        ::= { apDiamNotifObjects 10 }
        
+apAcctMsgQueueLowerThreshold OBJECT-TYPE
+       SYNTAX                SysMgmtPercentage
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "Confiured percentage of lower threshold"
+       ::= { apDiamNotifObjects 11 }
+
+apAcctMsgQueueUpperThreshold OBJECT-TYPE
+       SYNTAX                SysMgmtPercentage
+       MAX-ACCESS            accessible-for-notify
+       STATUS                current
+       DESCRIPTION
+              "Confiured percentage of upper threshold"
+       ::= { apDiamNotifObjects 12 }
 
 apDiameterAcctSrvrUpTrap       NOTIFICATION-TYPE
         OBJECTS         { apDiamAcctSrvrHostName,
@@ -882,6 +901,34 @@ apDiameterSrvrSuccessResultTrap       NOTIFICATION-TYPE
               after an error result"
         ::= { apDiamNotifications 6 }
 
+apAcctMsgQueueUpperThresholdTrap       NOTIFICATION-TYPE
+        OBJECTS         { apAcctMsgQueueAvailCurrent,
+                          apAcctMsgQueueLowerThreshold,
+                          apAcctMsgQueueUpperThreshold
+                        }
+        STATUS          current
+        DESCRIPTION
+            "The upper threshold trap shall be sent when ACRq usage
+             reaches to the configured acr-buffer-upper-threshold value. 
+             For ex. acr-buffer-upper-threshold=90 and acr-buffer-lower-threshold=60.
+             so once ACRq usages reaches to the 90, upper threshold trap shall be sent."
+        ::= { apDiamNotifications 7 }
+
+apAcctMsgQueueUpperThresholdClearTrap       NOTIFICATION-TYPE
+        OBJECTS         { apAcctMsgQueueAvailCurrent,
+                          apAcctMsgQueueLowerThreshold,
+                          apAcctMsgQueueUpperThreshold
+                        }
+        STATUS          current
+        DESCRIPTION
+            "The upper threshold clear trap shall be sent when ACRq usages 
+             reaches to the configured acr-buffer-lower-threshold value and 
+             upper threshold trap was sent earlier. For ex. acr-buffer-upper-threshold=90
+             and acr-buffer-lower-threshold=60. so once ACRq usages hit 90% and upper
+             threshold trap triggered then after taking corrective actions it recovers 
+             and reached to the 60, upper threshold clear trap shall be sent."
+        ::= { apDiamNotifications 8 }
+
 -- compliance statements
 
 -- units of conformance
@@ -936,6 +983,16 @@ apDiamACCTResultNotificationsGroup NOTIFICATION-GROUP
       DESCRIPTION
       "A collection of traps defined for ACCT Result Code."
       ::= { apDiamNotificationGroups 4 }
+
+apDiamACCTBufferUsageNotificationsGroup NOTIFICATION-GROUP
+     NOTIFICATIONS {
+           apAcctMsgQueueUpperThresholdTrap,
+           apAcctMsgQueueUpperThresholdClearTrap
+           }
+     STATUS     current
+     DESCRIPTION
+         "A collection of traps defined for ACCT Buffer Usages."
+      ::= { apDiamNotificationGroups 5 }
 
 ----------------------------------------------------
 --

@@ -17,7 +17,7 @@ IMPORTS
 	acmepacketAgentCapability 	FROM ACMEPACKET-SMI;
 
 apAgentCap2Module MODULE-IDENTITY
-		LAST-UPDATED	"201509200000Z"
+		LAST-UPDATED	"202203240000Z"
 		ORGANIZATION 	"Oracle Communications"
 		CONTACT-INFO
 			"           	Customer Service
@@ -30,6 +30,19 @@ apAgentCap2Module MODULE-IDENTITY
 		 	E-mail:		support@oracle.com"
 		DESCRIPTION	
 			" Agent capability2 MIB for Oracle Communications Acme Packet SBCs."
+                REVISION "202010260000Z" 			
+                DESCRIPTION
+			"Added apStirCap"
+                REVISION "202107060000Z" 			
+                DESCRIPTION
+			"Added apStirCap2"
+                REVISION "202202160000Z" 			
+                DESCRIPTION
+			"Added new capability objects apSipMSRPKPIStatsCap for MSRP statistics."
+                REVISION "202203240000Z"
+                DESCRIPTION
+                        "Added apNSEPRealmKPIStatsCap and apSmgmtNSEPOutboundSession."
+
 		::= { acmepacketAgentCapability 2}
 
 
@@ -52,5 +65,65 @@ apIpForwardCap AGENT-CAPABILITIES
 		INCLUDES	{ inetForwardCidrRouteGroup, ipForwardCidrRouteGroup }
 
             ::= { apIPForwardMibCapabilities 1 }
+
+apAppsStirMibCapabilities     OBJECT IDENTIFIER ::= { apAgentCap2Module 2 }
+
+apStirCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS          	current
+            DESCRIPTION     	"Acme Packet Agent Capability Stir MIB support."
+		SUPPORTS	APAPPS-MIB
+		INCLUDES	{ apAppsStirServerStatsGroup, apAppsStirNotificationsGroup }
+
+            ::= { apAppsStirMibCapabilities 1 }
+
+apStirCap2 AGENT-CAPABILITIES
+	    PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS              current
+            DESCRIPTION         "Acme Packet Agent Capability Stir Agent MIB support."
+                SUPPORTS        APAPPS-MIB
+                INCLUDES        { apAppsStirAgentStatsGroup, apAppsStirSipInterfaceStatsGroup,
+					 apAppsStirRealmStatsGroup, apAppsStirSystemStatsGroup }
+
+            ::= { apAppsStirMibCapabilities 2 }
+
+apMSRPKPIMibCapabilities     OBJECT IDENTIFIER ::= { apAgentCap2Module 3 }
+
+apMSRPKPIStatsCap AGENT-CAPABILITIES
+	    PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+
+            STATUS              current
+            DESCRIPTION         "Acme Packet Agent Capability for MSRP KPI statistics  MIB."
+                SUPPORTS        APAPPS-MIB
+                INCLUDES        { apAppsMSRPKPISystemStatsGroup, apAppsMSRPKPIRealmStatsGroup } 
+
+            ::= { apMSRPKPIMibCapabilities 1 }
+
+apNSEPRealmKPIMibCapabilities   OBJECT IDENTIFIER ::= { apAgentCap2Module 4 }
+
+apNSEPRealmKPIStatsCap    AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION         "Acme Packet Agent Capability for NSEP Realm
+                                KPI statistics MIB."
+            SUPPORTS        APAPPS-MIB
+            INCLUDES        { apNSEPRealmStatsGroup }
+            ::= {apNSEPRealmKPIMibCapabilities 1}
+
+apNSEPOutboundSessionMibCapabilities  OBJECT IDENTIFIER ::= {apAgentCap2Module 5 }
+
+apSmgmtNSEPOutboundSession      AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS              current
+            DESCRIPTION         "Acme Packet Agent Capability for NSEP
+                                Outbound KPI statistics MIB."
+            SUPPORTS        APSYSMGMT-MIB
+            INCLUDES        {
+                            apSysMgmtNSEPOutboundStatsGroup
+                            }
+            ::= { apNSEPOutboundSessionMibCapabilities 1}
+
 
 END
