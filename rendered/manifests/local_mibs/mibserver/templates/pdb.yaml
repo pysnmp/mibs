@@ -5,10 +5,10 @@ kind: PodDisruptionBudget
 metadata:
   name: default-mibserver
   labels:
-    helm.sh/chart: mibserver-1.15.11
+    helm.sh/chart: mibserver-1.15.16-beta.2
     app.kubernetes.io/name: mibserver
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "1.15.11"
+    app.kubernetes.io/version: "1.15.16-beta.2"
     app.kubernetes.io/managed-by: Helm
 spec:
   minAvailable: 80%
