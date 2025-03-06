@@ -19,7 +19,7 @@ IMPORTS
 	acmepacketAgentCapability 	FROM ACMEPACKET-SMI;
 
 apAgentCapModule MODULE-IDENTITY
-		LAST-UPDATED	"201904240000Z"
+		LAST-UPDATED	"202207210000Z"
 		ORGANIZATION 	"Oracle Communications"
 		CONTACT-INFO
 			"           	Customer Service
@@ -90,6 +90,35 @@ apAgentCapModule MODULE-IDENTITY
                 REVISION    "201904240000Z"
                 DESCRIPTION
                         "Added new capability objects apSipMSRPStatsCap for MSRP statistics."
+                REVISION    "202007200000Z"
+                DESCRIPTION
+                        "Added new capability objects apDosThresholdTrapCap and
+                         apDosThresholdCountersCap for DOS Threshold counters."
+                REVISION    "202012100000Z"
+                DESCRIPTION
+                        "Obsolete TSCF capability objects apSecurityTscfCap and apSecurityTscfTimeoutCap."
+ 
+                REVISION    "202107210000Z"
+                DESCRIPTION
+                        "Added new capability objects for apSmgmtReservedNSEPCap Reserved NSEP session stats." 
+                REVISION    "202108130000Z"
+                DESCRIPTION
+                        "Added apResrvdNsepUtlTrapCap for threshold cross of reserved nsep sessions."
+                REVISION    "202108260000Z"
+                DESCRIPTION
+                        "Obsolete apSecurityIkeIfcBlAuthIDErrorCap and related objects." 
+                REVISION    "202202090000Z"
+                DESCRIPTION
+                        "Added new capability object for apDiamAcctBufferUsageNotifyCap buffer usages."
+                REVISION    "202205060000Z"
+                DESCRIPTION
+                        "Added apSip503RespThresholdNotificationsGroupCap." 
+                REVISION    "202205060000Z"
+                DESCRIPTION
+                        "Added apSipSteeringPoolUtilNotificationsGroupCap." 
+                REVISION    "202207210000Z"
+                DESCRIPTION
+                        "Added apSmgmtLDAPServerCap." 
 
 		::= { acmepacketAgentCapability 1}
 
@@ -128,6 +157,8 @@ apUsbcSysSmMibCapabilities OBJECT IDENTIFIER ::= { apAgentCapModule 29 }
 apUsbcSysThreadMibCapabilities3 OBJECT IDENTIFIER ::= { apAgentCapModule 30 }
 apAclDropMibCapabilities       OBJECT IDENTIFIER ::= { apAgentCapModule 31 }
 apCsvConfigMibCapabilities         OBJECT IDENTIFIER ::= { apAgentCapModule  32 }
+apResrvdNsepUtlMibCapabilities       OBJECT IDENTIFIER ::= { apAgentCapModule 33 }
+
 --------------------------------------------------------------
 -- 
 -- Following are the Standard Groups that we supports
@@ -1487,6 +1518,34 @@ apSmgmtXCodeEVSUtilCap
                                 }
             ::= { apSmgmtMibCapabilities 59 }
 
+apSmgmtReservedNSEPCap 
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE "Oracle Communications Acme Packet SBC"
+            STATUS           current
+            DESCRIPTION     "Acme Packet Agent Capability for enterprise 
+                             system mamgerment MIB."
+
+            SUPPORTS        APSYSMGMT-MIB
+            INCLUDES        { 
+                                apSysMgmtReservedNSEPStatsGroup
+                            }
+            ::= { apSmgmtMibCapabilities 60 }
+
+apSmgmtLDAPServerCap
+	    AGENT-CAPABILITIES
+            PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		 current
+	    DESCRIPTION		"Acme Packet Agent Capability for enterprise 
+                                 system mamgerment MIB."
+
+	    SUPPORTS		APSYSMGMT-MIB
+		INCLUDES	{ 
+				  apSysMgmtLDAPServerStatusGroup
+				}
+  	    ::= { apSmgmtMibCapabilities 61 }
+
+
+
 --------------------------------------------------------------
 -- 
 -- environmental monitoring MIB
@@ -1947,9 +2006,9 @@ apSecurityIkeDDoSInetCap	AGENT-CAPABILITIES
 
 apSecurityIkeIfcBlAuthIDErrorCap	AGENT-CAPABILITIES
 	PRODUCT-RELEASE		"Oracle Communications Acme Packet SBC"
-	STATUS			current
-	DESCRIPTION		"Acme Packet Agent Capability for enterprise 
-				Security MIB."
+	STATUS			obsolete
+	DESCRIPTION		"(no longer supported from SCZ9.1) Acme Packet Agent 
+				Capability for enterprise Security MIB."
 	SUPPORTS		APSECURITY-MIB
 	INCLUDES	{
 				apSecurityIkeIfcBlAuthIDErrorObjectsGroup
@@ -2014,8 +2073,8 @@ apSecurityIkeInterfaceEapOnlyAuthStatsCap       AGENT-CAPABILITIES
 
 apSecurityTscfCap               AGENT-CAPABILITIES
         PRODUCT-RELEASE         "Oracle Communications Acme Packet MSG"
-        STATUS                  current
-        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+        STATUS                  obsolete 
+        DESCRIPTION             " (no longer supported from SCZ9.0) Acme Packet Agent Capability for enterprise
                                 Security MIB."
         SUPPORTS                  APSECURITY-MIB
         INCLUDES        {
@@ -2060,8 +2119,8 @@ apSecurityIkeInterfaceMobikeStatsCap               AGENT-CAPABILITIES
 
 apSecurityTscfTimeoutCap            AGENT-CAPABILITIES
         PRODUCT-RELEASE         "Oracle Communications Acme Packet SBC"
-        STATUS                  current
-        DESCRIPTION             "Acme Packet Agent Capability for enterprise
+        STATUS                  obsolete
+        DESCRIPTION             "(no longer supported from SCZ9.0) Acme Packet Agent Capability for enterprise
                                 Security MIB."
         SUPPORTS                  APSECURITY-MIB
         INCLUDES        {
@@ -2258,6 +2317,18 @@ apDiamAuthNotifyCap
                                   apDiamAuthNotificationGroup 
                                 }
             ::= { apDiamMibCapabilities 6 }
+
+apDiamAcctBufferUsageNotifyCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Capability for AP-DIAMETER-MIB."
+
+            SUPPORTS            AP-DIAMETER-MIB
+                INCLUDES        {
+                                  apDiamACCTBufferUsageNotificationsGroup
+                                }
+            ::= { apDiamMibCapabilities 7 }
 
 --------------------------------------------------------------
 -- 
@@ -2489,6 +2560,32 @@ apCommMonitorNotificationGroupCap
                                    apCommMonitorNotificationsGroup  
                                 }
             ::= { apAppsMibCapabilities 6 }
+
+
+apDosThresholdCountersCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for DOS Theshold Counters"
+
+            SUPPORTS            APAPPS-MIB
+            INCLUDES            {
+                                  apDosThresholdCountersGroup
+                                }
+            ::= { apAppsMibCapabilities 7 }
+
+apDosThresholdTrapCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Agent Capability for DOS Theshold Counters"
+
+            SUPPORTS            APAPPS-MIB
+            INCLUDES            {
+                                  apDosThresholdNotificationsGroup
+                                }
+            ::= { apAppsMibCapabilities 8 }
+
   
 --------------------------------------------------------------
 --
@@ -2707,6 +2804,32 @@ apSipMSRPStatsCap
                                 }
             ::= { apSipMibCapabilities 15 }
 
+apSip503RespThresholdNotificationsGroupCap
+	    AGENT-CAPABILITIES
+	    PRODUCT-RELEASE	"Oracle Communications Acme Packet SBC"
+	    STATUS		current
+	    DESCRIPTION		"Traps to monitor SIP 503 Service Unavailable response beyond 
+                                 configured threshold."
+	    SUPPORTS		APSIP-MIB
+		INCLUDES	{
+				  apSip503RespThresholdNotificationsGroup
+				}
+	    ::= { apSipMibCapabilities 16 }
+
+apSipSteeringPoolUtilNotificationsGroupCap
+            AGENT-CAPABILITIES
+            PRODUCT-RELEASE "Oracle Communications Acme Packet SBC"
+            STATUS           current
+            DESCRIPTION     "Traps to monitor Steering Pool utilization
+                             beyond configured threshold."
+
+            SUPPORTS        APSIP-MIB
+            INCLUDES        {
+                                apSipSteeringPoolUtilNotificationsGroup
+                            }
+            ::= { apSipMibCapabilities 17 }
+
+
 --------------------------------------------------------------
 -- 
 
@@ -2881,6 +3004,24 @@ apAclDropCap AGENT-CAPABILITIES
             SUPPORTS            APAPPS-MIB
                 INCLUDES        { apAclDropNotificationsGroup } 
             ::= { apAclDropMibCapabilities 1 }
+
+
+--------------------------------------------------------------
+-- 
+-- Threshold cross of resrved NSEP sessions utilisation MIB
+-- 
+--------------------------------------------------------------
+
+
+apResrvdNsepUtlTrapCap AGENT-CAPABILITIES
+            PRODUCT-RELEASE     "Oracle Communications Acme Packet SBC"
+            STATUS               current
+            DESCRIPTION         "Acme Packet Threshold cross of resrved NSEP sessions utilisation MIB."
+
+            SUPPORTS            APAPPS-MIB
+                INCLUDES        { apAppsResrvdNsepUtlNotificationsGroup } 
+            ::= { apResrvdNsepUtlMibCapabilities 1 }
+
 
 
 END

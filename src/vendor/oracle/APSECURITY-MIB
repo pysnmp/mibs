@@ -25,7 +25,7 @@ APSECURITY-MIB DEFINITIONS ::= BEGIN
         FROM INET-ADDRESS-MIB;
 
     apSecurityModule MODULE-IDENTITY
-        LAST-UPDATED	"201711240000Z"
+        LAST-UPDATED	"202108260000Z"
         ORGANIZATION 	"Oracle Communications"
         CONTACT-INFO
 			"           	Customer Service
@@ -49,6 +49,11 @@ APSECURITY-MIB DEFINITIONS ::= BEGIN
         REVISION        "201711240000Z"
         DESCRIPTION
                         "Added new MIB Definitions for Security Association (SA) Statistics."                       
+        REVISION        "202012100000Z"
+        DESCRIPTION
+                        "Deprecated Objects associated to TSCF"      
+        REVISION        "202108260000Z"
+        DESCRIPTION     "Deprecated apSecurityIkeInterfaceBlacklistAuthIDError object."                
         ::= { acmepacketMgmt 9 }
 
     apSecurityMIBObjects OBJECT IDENTIFIER ::= { apSecurityModule 1 }
@@ -1351,9 +1356,9 @@ APSECURITY-MIB DEFINITIONS ::= BEGIN
     apSecurityIkeInterfaceBlacklistAuthIDError OBJECT-TYPE
         SYNTAX		Unsigned32
         MAX-ACCESS	read-only
-        STATUS		current
+        STATUS		deprecated
         DESCRIPTION
-                "Number of Authentication ID Errors on the IKE-interface (blacklist)."
+                "(no longer supported from SCZ9.1) Number of Authentication ID Errors on the IKE-interface (blacklist)."
         ::= { apSecurityIkeInterfaceInfoEntry 34 }
 
     apSecurityIkeInterfaceRekeyOnSNoverflow OBJECT-TYPE 
@@ -4930,9 +4935,9 @@ apSecurityIkeIfcBlAuthIDErrorObjectsGroup OBJECT-GROUP
 	OBJECTS {
                 apSecurityIkeInterfaceBlacklistAuthIDError
 		}
-	STATUS	current
+	STATUS	deprecated
 	DESCRIPTION
-		"Objects for monitoring IKE interface Blacklist AuthID error information"
+		"(no longer supported from SCZ9.1) Objects for monitoring IKE interface Blacklist AuthID error information"
 	::= { apSecurityGroups 6 }
 
 apSecurityDhcpInterfaceObjectsGroup OBJECT-GROUP
@@ -5355,9 +5360,9 @@ apSecurityTscfStatsGroup  OBJECT-GROUP
                  apTscfCsrReceived,
                  apTscfTypeInnerIPDestDrop
                 }
-        STATUS  current
+        STATUS  deprecated 
         DESCRIPTION
-                "Objects for TSCF statistics."
+                 "(no longer supported from SCZ9.0) Objects for TSCF statistics."
         ::= { apSecurityGroups 13 }
 
 
@@ -5479,9 +5484,9 @@ apSecurityTscfStatsTimeoutGroup  OBJECT-GROUP
         OBJECTS {
                  apTscfTunnelsTimedOut
                 }
-        STATUS  current
+        STATUS  deprecated 
         DESCRIPTION
-                "Objects for TSCF statistics."
+                "(no longer supported from SCZ9.0) Objects for TSCF statistics."
         ::= { apSecurityGroups 18 }
 
 apSecurityIkeInterface3GPPAuthErrorsGroup OBJECT-GROUP
@@ -5682,714 +5687,714 @@ apSecurityTscfStatsObjects
 apTscfActiveTunnels        OBJECT-TYPE
         SYNTAX             Gauge32
         MAX-ACCESS         read-only
-        STATUS             current
+        STATUS             deprecated 
         DESCRIPTION
-                "Number of active TSCF tunnels"
+                "Number of active TSCF tunnels (no longer supported from SCZ9.0)"
         ::= { apSecurityTscfStatsObjects 1 }
 
 apTscfEstablishedTunnels		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of established tunnels" 
+				"Number of established tunnels (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 2}
 
 apTscfFinishedTunnels		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of finished tunnels" 
+				"Number of finished tunnels (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 3 }
 
 apTscfReleasedTunnels		  OBJECT-TYPE 
 		SYNTAX            Counter32
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of released tunnels" 
+				"Number of released tunnels (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 4   }
 
 apTscfMaxActiveTunnels		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of maximum active tunnels" 
+				"Number of maximum active tunnels (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 5  }
 
 apTscfConfReqReceived		   OBJECT-TYPE 
 		SYNTAX             Counter32 
 		MAX-ACCESS         read-only 
-		STATUS             current 
+		STATUS             deprecated 
 		DESCRIPTION 
-				"Number of config requests received" 
+				"Number of config requests received (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 6   }
 
 apTscfConfReqNagleReceived		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated 
 		DESCRIPTION 
-				"Number of config requestis with  nagle received" 
+				"Number of config requestis with  nagle received (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 7  }
 
 apTscfConfRespSent		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of config response sent" 
+				"Number of config response sent (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 8  }
 
 apTscfConfRelReqReceived		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated 
 		DESCRIPTION 
-				"Number of config release requesast received" 
+				"Number of config release requesast received (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  9}
 
 apTscfConfRelRespSent		  		 OBJECT-TYPE 
 		SYNTAX                           Counter32 
 		MAX-ACCESS                       read-only 
-		STATUS                           current 
+		STATUS                           deprecated 
 		DESCRIPTION 
-				"Number of config release responses sent" 
+				"Number of config release responses sent (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 10 }
 
 apTscfCSResponseSent		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of client service responses sent" 
+				"Number of client service responses sent (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 11 }
 
 apTscfCSREnableDDT		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of ddt enable client service messages" 
+				"Number of ddt enable client service messages (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects 12 }
 
 apTscfCSRDisableDDT		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of ddt disable client service responses" 
+				"Number of ddt disable client service responses (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 13  }
 
 apTscfCSREnableRedundancy	OBJECT-TYPE 
 		SYNTAX          Counter32 
 		MAX-ACCESS      read-only 
-		STATUS          current 
+		STATUS          deprecated 
 		DESCRIPTION 
-				"Number of redundancy enable client service responses" 
+				"Number of redundancy enable client service responses (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects 14 }
 
 apTscfCSRDisableRedundancy		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated 
 		DESCRIPTION 
-				"Number of redundancy disabled client service responses" 
+				"Number of redundancy disabled client service responses (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 15 }
 
 apTscfKAReceived		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of keep alive requests received" 
+				"Number of keep alive requests received (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  16}
 
 apTscfKARespSent		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of keep alive responses sent" 
+				"Number of keep alive responses sent (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  17}
 
 apTscfKASent		             OBJECT-TYPE 
 		SYNTAX               Counter32 
 		MAX-ACCESS           read-only 
-		STATUS               current 
+		STATUS               deprecated 
 		DESCRIPTION 
-				"Number of keep alive messages sent" 
+				"Number of keep alive messages sent (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  18}
 
 apTscfKARespRcvd		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated 
 		DESCRIPTION 
-				"Number of keep alive responses received" 
+				"Number of keep alive responses received (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  19}
 
 apTscfCMReTx		             OBJECT-TYPE 
 		SYNTAX               Counter32 
 		MAX-ACCESS           read-only 
-		STATUS               current 
+		STATUS               deprecated
 		DESCRIPTION 
-				"Number of control message retransmissions" 
+				"Number of control message retransmissions (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  20 }
 
 apTscfFailureMalformed		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to malformed request" 
+				"Number of failed tunnels due to malformed request (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  21 }
 
 apTscfFailureUnkownMsg		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of unknown control messages" 
+				"Number of unknown control messages (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects 22 }
 
 apTscfFailureClientAssignedIP		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to client assigned IP" 
+				"Number of failed tunnels due to client assigned IP (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  23 }
 
 apTscfFailureCannotProvisionIP		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to internal IP that cannot be provisioned" 
+				"Number of failed tunnels due to internal IP that cannot be provisioned (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 24 }
 
 apTscfFailureAlreadyProvisionedIP		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to internal IP that are already provisioned" 
+				"Number of failed tunnels due to internal IP that are already provisioned (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   25 }
 
 apTscfFailureGeneralProvisionIP		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to general IP provision failure" 
+				"Number of failed tunnels due to general IP provision failure (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  26 }
 
 apTscfFailureClientAssignedIPMask		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
 				"
-                                Number of failed tunnels due to Internal IP mask assigned by client" 
+                                Number of failed tunnels due to Internal IP mask assigned by client (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   27 }
 
 apTscfFailureCannotProvisionIPMask		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to internal IP mask that cannot be  provisioned" 
+				"Number of failed tunnels due to internal IP mask that cannot be  provisioned (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 28 }
 
 apTscfFailureAlreadyProvisionedIPMask		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to Internal IP mask was  already provisioned" 
+				"Number of failed tunnels due to Internal IP mask was  already provisioned (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  29 }
 
 apTscfFailureGeneralProvisionIPMask		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to general IP mask provision" 
+				"Number of failed tunnels due to general IP mask provision (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 30 }
 
 apTscfFailureClientAssignedSIPServer		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to client assigned SIP server address" 
+				"Number of failed tunnels due to client assigned SIP server address (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects 31 }
 
 apTscfFailureCannotProvisionSIPServer		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to unprovisioned SIP server address" 
+				"Number of failed tunnels due to unprovisioned SIP server address (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects 32}
 
 apTscfFailureAlreadyProvisionedSIPServer		  OBJECT-TYPE 
 		SYNTAX                                    Counter32 
 		MAX-ACCESS                                read-only 
-		STATUS                                    current 
+		STATUS                                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to SIP server address was already provisioned" 
+				"Number of failed tunnels due to SIP server address was already provisioned (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  33 }
 
 apTscfFailureGeneralProvisionSIPServer		                  OBJECT-TYPE 
 		SYNTAX                                            Counter32 
 		MAX-ACCESS                                        read-only 
-		STATUS                                            current 
+		STATUS                                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to SIP server general provision error" 
+				"Number of failed tunnels due to SIP server general provision error (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  34}
 
 apTscfFailureClientAsignedKA		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to client assigned keep alive value" 
+				"Number of failed tunnels due to client assigned keep alive value (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects  35}
 
 apTscfFailureCannotProvisionKA		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to failure to  provision keep alive value" 
+				"Number of failed tunnels due to failure to  provision keep alive value (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects   36}
 
 apTscfFailureAlreadyProvisionedKA		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to Keep Alive value was already provisioned" 
+				"Number of failed tunnels due to Keep Alive value was already provisioned (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects  37}
 
 apTscfFailureGeneralProvisionKA		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to Keep alive value error" 
+				"Number of failed tunnels due to Keep alive value error (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects 38}
 
 apTscfFailureNonExistentTunnelId		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to Non existing tunnel ID" 
+				"Number of failed tunnels due to Non existing tunnel ID (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects  39}
 
 apTscfFailureOutOfResources		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to out of resources" 
+				"Number of failed tunnels due to out of resources (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   40}
 
 apTscfFailureInternalIPExhausted		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to tunnel ID depletion" 
+				"Number of failed tunnels due to tunnel ID depletion (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   41}
 
 apTscfFailureNonNullIPAddr		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to non null ip address " 
+				"Number of failed tunnels due to non null ip address (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects  42}
 
 apTscfFailureNonNullIpMask		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of  failed tunnels due to non null ip mask" 
+				"Number of  failed tunnels due to non null ip mask (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  43 }
 
 apTscfFailureNonNullSipServer		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to non null sip server" 
+				"Number of failed tunnels due to non null sip server (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  44 }
 
 apTscfFailureNonNullKeepAlive		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to non zero Keep Alive value" 
+				"Number of failed tunnels due to non zero Keep Alive value (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  45 }
 
 apTscfFailureNoListeningFd		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to missing  listening file descriptor" 
+				"Number of failed tunnels due to missing  listening file descriptor (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  46}
 
 apTscfFailureServerFailure		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to server failure" 
+				"Number of failed tunnels due to server failure (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   47}
 
 apTscfFailureRedundancyNotEnabled		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to  disabled redundancy feature" 
+				"Number of failed tunnels due to  disabled redundancy feature (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  48 }
 
 apTscfFailureRedundancyExceedsLimit		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to redundancy factor exceediing the limit" 
+				"Number of failed tunnels due to redundancy factor exceediing the limit (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  49}
 
 apTscfFailureTunnelIdExhausted		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to tunnel id exhaustion" 
+				"Number of failed tunnels due to tunnel id exhaustion (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  50}
 
 apTscfFailureTimerFailure		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to Timer failure" 
+				"Number of failed tunnels due to Timer failure (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   51}
 
 apTscfFailureDDTNotEnabled		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Failure due to DDT disabled" 
+				"Failure due to DDT disabled (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  52}
 
 apTscfFailureDDTWrongTransport		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Failure due to DDT wrong transport" 
+				"Failure due to DDT wrong transport (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  53}
 
 apTscfFailureDDTDatagramOnly		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to DDT request on datagram transport" 
+				"Number of failed tunnels due to DDT request on datagram transport (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  54}
 
 apTscfFailureDDTInconsistantTransport		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due inconsistent DDT transport" 
+				"Number of failed tunnels due inconsistent DDT transport (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   55}
 
 apTscfFailureUnkownServiceRequest		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to unknown service request" 
+				"Number of failed tunnels due to unknown service request (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  56 }
 
 apTscfFailureTunnelEstablished		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of tunnel establishment failure" 
+				"Number of tunnel establishment failure (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  57 }
 
 apTscfFailureAddrPoolUnavilable		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to unavailable address pool" 
+				"Number of failed tunnels due to unavailable address pool (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  58}
 
 apTscfFailureListenFdUnavailable		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to missing listening file descriptor" 
+				"Number of failed tunnels due to missing listening file descriptor (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  59}
 
 apTscfFailureVersionNotSupported		  OBJECT-TYPE 
 		SYNTAX                            Counter32 
 		MAX-ACCESS                        read-only 
-		STATUS                            current 
+		STATUS                            deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to unsupported version" 
+				"Number of failed tunnels due to unsupported version (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects 60}
 
 apTscfFailureLicenseExceeded		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of failed tunnels due to exceeding the licensed/entitled  limit" 
+				"Number of failed tunnels due to exceeding the licensed/entitled  limit (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  61}
 
 apTscfFailureNoTunnelForPkt		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of packets dropped due to missing tunnel" 
+				"Number of packets dropped due to missing tunnel (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  62}
 
 apTscfWrongSeqNum	    	  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of control messages with wrong sequence number" 
+				"Number of control messages with wrong sequence number (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  63}
 
 apTscfConDrop		             OBJECT-TYPE 
 		SYNTAX               Counter32 
 		MAX-ACCESS           read-only 
-		STATUS               current 
+		STATUS               deprecated
 		DESCRIPTION 
-				"Number of config requests dropped due to license limit" 
+				"Number of config requests dropped due to license limit (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  64}
 
 apTscfIntfConDrop		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of config requests dropped due to per interface limit" 
+				"Number of config requests dropped due to per interface limit (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   65}
 
 apTscfStatsAllocs		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of Stats memory allocations" 
+				"Number of Stats memory allocations (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  66}
 
 apTscfStatsFrees		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of Stats memory frees" 
+				"Number of Stats memory frees (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   67}
 
 apTscfStatsMemFails		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Stats memory allocation failures" 
+				"Stats memory allocation failures (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  68}
 
 apTscfSwitchToActive		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of times system switched to active system" 
+				"Number of times system switched to active system (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   69}
 
 apTscfSwitchToStandBy		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of times system switched to stand by system" 
+				"Number of times system switched to stand by system (no longer supported from SCZ9.0)" 
 		::= {  apSecurityTscfStatsObjects  70}
 
 apTscfGetDTLSCtxSent		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of get DTLS context requests sent" 
+				"Number of get DTLS context requests sent (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  71 }
 
 apTscfGetDTLSCtxSuccess		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of successful get DTLS context requests" 
+				"Number of successful get DTLS context requests (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   72}
 
 apTscfGetDTLSCtxFailed		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of failed get DTLS context requests" 
+				"Number of failed get DTLS context requests (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   73}
 
 apTscfSetDTLSCtxSent		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of set DTLS context requests sent" 
+				"Number of set DTLS context requests sent (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  74}
 
 apTscfSetDTLSCtxSuccess		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of successful DTLS context requests" 
+				"Number of successful DTLS context requests (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   75}
 
 apTscfSetDTLSCtxFailed		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of failed set DTLS context request" 
+				"Number of failed set DTLS context request (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  76 }
 
 apTscfFdTableSize		  OBJECT-TYPE 
 		SYNTAX            Gauge32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of entries in the File Descriptor table" 
+				"Number of entries in the File Descriptor table (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   77}
 
 apTscfAddressTableSize		  OBJECT-TYPE 
 		SYNTAX            Gauge32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of entries in the Address table" 
+				"Number of entries in the Address table (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  78}
 
 apTscfTunnelTableSize		  OBJECT-TYPE 
 		SYNTAX            Gauge32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of entries in the Tunnel table" 
+				"Number of entries in the Tunnel table (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  79 }
 
 apTscfActiveTunnelTableSize		  OBJECT-TYPE 
 		SYNTAX                    Gauge32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of entries in the Active Tunnel table" 
+				"Number of entries in the Active Tunnel table (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   80}
 
 apTscfFlowIdTableSize		  OBJECT-TYPE 
 		SYNTAX            Gauge32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Number of entries in the Flow table" 
+				"Number of entries in the Flow table (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects   81}
 
 apTscfLicenseTunnelCount		  OBJECT-TYPE 
 		SYNTAX                    Gauge32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of Licensed/entitled tunnels " 
+				"Number of Licensed/entitled tunnels (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  82}
 
 apTscfSpecificAddressCount		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Number of requests for specific IP adddress" 
+				"Number of requests for specific IP adddress  (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  83}
 
 apTscfTunnelTimeoutCount		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Total number of timed outi tunnels" 
+				"Total number of timed outi tunnels (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  84}
 
 apTscfTunneledPacketDrop             OBJECT-TYPE 
 		SYNTAX               Counter32 
 		MAX-ACCESS           read-only 
-		STATUS               current 
+		STATUS               deprecated
 		DESCRIPTION 
-				"Total number of tunneled packet drops" 
+				"Total number of tunneled packet drops (no longer supported from SCZ9.0)" 
 		::= { apSecurityTscfStatsObjects  85}
 
 apTscfUnTunneledPacketDrop		  OBJECT-TYPE 
 		SYNTAX                    Counter32 
 		MAX-ACCESS                read-only 
-		STATUS                    current 
+		STATUS                    deprecated
 		DESCRIPTION 
-				"Total number of untunneled packet drops" 
+				"Total number of untunneled packet drops (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  86}
 
 apTscfCsrReceived		  OBJECT-TYPE 
 		SYNTAX            Counter32 
 		MAX-ACCESS        read-only 
-		STATUS            current 
+		STATUS            deprecated
 		DESCRIPTION 
-				"Total number of Client service requests received" 
+				"Total number of Client service requests received (no longer supported from SCZ9.0)" 
 		::= {apSecurityTscfStatsObjects  87}
 
 apTscfTypeInnerIPDestDrop                 OBJECT-TYPE 
                 SYNTAX                    Counter32 
                 MAX-ACCESS                read-only 
-                STATUS                    current 
+                STATUS                    deprecated
                 DESCRIPTION 
-                               "Number of packets dropped due to inner IP destination match with address pool" 
+                               "Number of packets dropped due to inner IP destination match with address pool (no longer supported from SCZ9.0)" 
                 ::= {apSecurityTscfStatsObjects  88}
 
 apTscfTunnelsTimedOut                      OBJECT-TYPE 
                 SYNTAX                    Counter32 
                 MAX-ACCESS                read-only 
-                STATUS                    current 
+                STATUS                    deprecated
                 DESCRIPTION 
-                               "Number of tunnels dropped due to timing out" 
+                               "Number of tunnels dropped due to timing out (no longer supported from SCZ9.0)" 
                 ::= {apSecurityTscfStatsObjects  89}
 
 
@@ -6398,18 +6403,18 @@ apTscfTunnelsTimedOut                      OBJECT-TYPE
 apSecurityTscfAddressPoolStatsTable OBJECT-TYPE
         SYNTAX          SEQUENCE OF ApSecurityTscfAddressPoolStatsEntry
         MAX-ACCESS      not-accessible
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-                "The table of TSCF address pool statistics."
+                "The table of TSCF address pool statistics. (no longer supported from SCZ9.0)"
         ::= { apSecurityMIBObjects 15 }
 
 
 apSecurityTscfAddressPoolStatsEntry OBJECT-TYPE
         SYNTAX          ApSecurityTscfAddressPoolStatsEntry
         MAX-ACCESS      not-accessible
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-                "TSCF Address pool statistics."
+                "TSCF Address pool statistics. (no longer supported from SCZ9.0)"
         INDEX   { apSecurityTscfAddressPoolName }
         ::= { apSecurityTscfAddressPoolStatsTable 1 }
 
@@ -6425,41 +6430,41 @@ ApSecurityTscfAddressPoolStatsEntry ::=
 apSecurityTscfAddressPoolName                    OBJECT-TYPE
         SYNTAX                  DisplayString (SIZE (0..255))
         MAX-ACCESS              accessible-for-notify
-        STATUS                  current
+        STATUS                  deprecated
         DESCRIPTION
-                "The name of the TSCF Address Pool"
+                "The name of the TSCF Address Pool  (no longer supported from SCZ9.0)"
         ::= { apSecurityTscfAddressPoolStatsEntry 1}
 
 apSecurityTscfTotalAddressCount     OBJECT-TYPE
         SYNTAX               Gauge32
         MAX-ACCESS           accessible-for-notify
-        STATUS               current
+        STATUS               deprecated
         DESCRIPTION
-                "The total numbers of addresses in the TSCF address pool"
+                "The total numbers of addresses in the TSCF address pool (no longer supported from SCZ9.0)"
         ::= { apSecurityTscfAddressPoolStatsEntry 2 }
 
 apSecurityTscfInUseAddressCount                  OBJECT-TYPE
         SYNTAX               Gauge32
         MAX-ACCESS           accessible-for-notify
-        STATUS               current
+        STATUS               deprecated
         DESCRIPTION
-                "The number of addresses in use from the TSCF address pool"
+                "The number of addresses in use from the TSCF address pool (no longer supported from SCZ9.0)"
         ::= { apSecurityTscfAddressPoolStatsEntry 3 }
 
 apSecurityTscfFreeAddressCount                     OBJECT-TYPE
         SYNTAX               Gauge32
         MAX-ACCESS           accessible-for-notify
-        STATUS               current
+        STATUS               deprecated
         DESCRIPTION
-                "The number of addresses available for allocation in the TSCF address pool"
+                "The number of addresses available for allocation in the TSCF address pool (no longer supported from SCZ9.0)"
         ::= { apSecurityTscfAddressPoolStatsEntry 4 }
 
 apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
         SYNTAX               Gauge32
         MAX-ACCESS           accessible-for-notify
-        STATUS               current
+        STATUS               deprecated
         DESCRIPTION
-                "The number of invalid  addresses in the TSCF address pool"
+                "The number of invalid  addresses in the TSCF address pool (no longer supported from SCZ9.0)"
         ::= { apSecurityTscfAddressPoolStatsEntry 5 }
 
 
@@ -6468,17 +6473,17 @@ apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
     apSecurityTscfAddrPoolThresholdLevel     OBJECT-TYPE
         SYNTAX          Gauge32
         MAX-ACCESS      accessible-for-notify
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-            "TSCF address pool threshold"
+            "TSCF address pool threshold (no longer supported from SCZ9.0)"
         ::= { apSecurityNotificationObjects 29 }
 
     apSecurityTscfMaxTunnelsThresholdLevel   OBJECT-TYPE
         SYNTAX          Gauge32
         MAX-ACCESS      accessible-for-notify
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-            "TSCF max tunnels threshold"
+            "TSCF max tunnels threshold (no longer supported from SCZ9.0)"
         ::= { apSecurityNotificationObjects 30 }
 
     apSecurityTscfNotificationsPrefix
@@ -6496,9 +6501,9 @@ apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
                         apSecurityTscfTotalAddressCount,
                         apSecurityTscfAddrPoolThresholdLevel
         }
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-                        "This notification is sent when the available IP addresses
+                        " (no longer supported from SCZ9.0) This notification is sent when the available IP addresses
                         in TSCF address pool depletes below the 
                         threshold level."
                 
@@ -6513,9 +6518,9 @@ apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
                         apSecurityTscfTotalAddressCount,
                         apSecurityTscfAddrPoolThresholdLevel
         }
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-                        "This notification is sent when the available 
+                        "(no longer supported from SCZ9.0) This notification is sent when the available 
                         IP addresses in TSCF address pool 
                         are more than the threshold level."
                 
@@ -6528,9 +6533,9 @@ apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
                         apTscfLicenseTunnelCount,
                         apSecurityTscfMaxTunnelsThresholdLevel
         }
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-                        "This notification is sent when the available
+                        "(no longer supported from SCZ9.0) This notification is sent when the available
                         IP addresses in TSCF address pool 
                         depletes below the threshold level."
                 
@@ -6543,9 +6548,9 @@ apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
                         apTscfLicenseTunnelCount,
                         apSecurityTscfMaxTunnelsThresholdLevel
         }
-        STATUS          current
+        STATUS          deprecated
         DESCRIPTION
-                        "This notification is sent when the available
+                        "(no longer supported from SCZ9.0) This notification is sent when the available
                         IP addresses in TSCF address pool 
                         depletes below the threshold level."
                 
@@ -6559,9 +6564,9 @@ apSecurityTscfInvalidAddressCount                 OBJECT-TYPE
                 apSecurityTscfMaxTunnelTrap,
                 apSecurityTscfClearMaxTunnelTrap
                 }
-        STATUS                           current
+        STATUS         deprecated
         DESCRIPTION
-                 "A collection of notifications for TSCF resource alerts"
+                 "(no longer supported from SCZ9.0) A collection of notifications for TSCF resource alerts"
         ::= {  apSecurityNotificationsGroups 11 }
 
 END

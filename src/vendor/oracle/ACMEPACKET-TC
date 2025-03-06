@@ -21,7 +21,7 @@ IMPORTS
                 FROM SNMPv2-CONF;
 
 apTextualConventions MODULE-IDENTITY
-        LAST-UPDATED	"201406260000Z"
+	LAST-UPDATED	"202203240000Z"
         ORGANIZATION 	"Oracle Communications"
         CONTACT-INFO
 			"           	Customer Service
@@ -41,6 +41,42 @@ apTextualConventions MODULE-IDENTITY
 	REVISION 	"201406260000Z" 			
         DESCRIPTION
 	        "Updated Organization and Contact info."
+        REVISION     "202007200000Z"
+        DESCRIPTION  "Added ApDosThresholdTrafficType and
+                          ApDosThresholdCrossState"
+	REVISION "202010260000Z" 			
+    	DESCRIPTION
+			"Added ApCounterStatsType"
+        REVISION "202012140000Z" 			
+    	DESCRIPTION
+			"Added serverUnreachable to ApStirStatsType"
+        REVISION "202106070000Z" 			
+    	DESCRIPTION
+			"Added vsSuccessVerification to ApStirStatsType"
+        REVISION "202202160000Z" 			
+    	DESCRIPTION
+			"Added apMSRPKPICounterStatsType"
+        REVISION "202202160000Z" 			
+    	DESCRIPTION
+			"Added apMSRPKPIStatsType"
+        REVISION "202203170000Z" 			
+    	DESCRIPTION
+			"Updated KPI names in ApMsrpKpiStatsType"
+        REVISION "202203220000Z" 			
+    	DESCRIPTION
+			"Updated REPORTRate KPIs in ApMsrpKpiStatsType"
+        REVISION "202203010000Z" 			
+    	DESCRIPTION
+			"Enhanced ApStirStatsType"
+        REVISION "202203240000Z"
+        DESCRIPTION
+                        "Added ApNSEPRealmRvalueDNIndex and
+                            ApNSEPRealmStatsType"
+        REVISION "202205170000Z" 			
+    	DESCRIPTION
+			"Added asServiceUnreachable and
+                vsServiceUnreachable to ApStirStatsType"
+
         ::= { acmepacket 0 }
 
 
@@ -219,4 +255,288 @@ ApAclType ::= TEXTUAL-CONVENTION
                     trusted(1)
                }
 
+ApDosThresholdTrafficType ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Type of traffic "
+        SYNTAX  INTEGER {
+                        trusted(1),
+                        untrusted(2),
+                        arp(3)
+                        }
+
+ApDosThresholdCrossState ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "if threshold has crossed or not"
+        SYNTAX  INTEGER {
+                        not-crossed(0),
+                        crossed(1)
+                        }
+
+ApCounterStatsType ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Type of counter stats "
+        SYNTAX  INTEGER {
+                        recent(1),
+                        total(2),
+                        permax(3)
+                        }
+
+ApStirStatsType ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Type of STIR stats "
+        SYNTAX  INTEGER {
+                asQueries(1),
+                asSuccessResponses(2),
+                asFailResponses(3),
+                asFailServiceException(4),
+                asFailPolicyException(5),
+                vsQueries(6),
+                vsSuccessResponses(7),
+                vsFailResponses(8),
+                vsSuccessVerification(9),
+                vsFailVerification(10),
+                vsFailServiceException(11),
+                vsFailPolicyException(12),
+                serverUnreachable(13),
+                asSentInviteswithShakenPASSportA(14),
+                asSentInviteswithShakenPASSportB(15),
+                asSentInviteswithShakenPASSportC(16),
+                asSentInviteswithdivPASSport(17),
+                vsReceivedInviteswithNoPASSport(18),
+                vsReceivedInviteswithShakenPASSport(19),
+                vsReceivedInviteswithDivPASSport(20),
+                vsSentInviteswithTNValidationPassed(21),
+                vsSentInviteswithTNValidationFailed(22),
+                vsSentInviteswithNoTNValidation(23),
+                asServiceUnreachable(24),
+                vsServiceUnreachable(25),
+                apStirStatsTypeMax(26)
+                        }
+ApMsrpKpiStatsCounterType ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Type of counter stats "
+        SYNTAX  INTEGER {
+			recent(1),
+                        high(2),
+                        total(3),
+			ltotal(4),
+			lpermax(5),
+			lhigh(6)
+                        }
+
+ApMsrpKpiStatsType ::= TEXTUAL-CONVENTION
+        STATUS  current
+        DESCRIPTION
+                "Type of MSRP KPI stats "
+        SYNTAX  INTEGER {
+                        msrp-AvgSENDTransTx(1),
+                        msrp-AvgChatSENDTransTx(2),
+                        msrp-AvgIsTypingSENDTransTx(3),
+                        msrp-AvgReceiptSENDTransTx(4),
+                        msrp-AvgSENDMsgBytesTx(5),
+                        msrp-AvgChatSENDMsgBytesTx(6),
+                        msrp-AvgIsTypingSENDMsgBytesTx(7),
+                        msrp-AvgReceiptSENDMsgBytesTx(8),
+                        msrp-SENDMsgBytesTx(9),
+                        msrp-ChatSENDMsgBytesTx(10),
+                        msrp-IsTypingSENDMsgBytesTx(11),
+                        msrp-ReceiptSENDMsgBytesTx(12),
+                        msrp-SuccessREPORTTransTx(13),
+                        msrp-FailureREPORTTransTx(14),
+                        msrp-AvgSuccessREPORTMsgBytesTx(15),
+                        msrp-AvgFailureREPORTMsgBytesTx(16),
+                        msrp-AvgFailureREPORTRateTx(17),
+                        msrp-AvgSuccessREPORTRateTx(18),
+                        msrp-REPORTTrans400Tx(19),
+                        msrp-REPORTTrans401Tx(20),
+                        msrp-REPORTTrans403Tx(21),
+                        msrp-REPORTTrans404Tx(22),
+                        msrp-REPORTTrans408Tx(23),
+                        msrp-REPORTTrans413Tx(24),
+                        msrp-REPORTTrans415Tx(25),
+                        msrp-REPORTTrans423Tx(26),
+                        msrp-REPORTTrans424Tx(27),
+                        msrp-REPORTTrans425Tx(28),
+                        msrp-REPORTTrans428Tx(29),
+                        msrp-REPORTTrans481Tx(30),
+                        msrp-REPORTTrans501Tx(31),
+                        msrp-REPORTTrans506Tx(32),
+                        msrp-AvgFailureREPORTMsgBytes400Tx(33),
+                        msrp-AvgFailureREPORTMsgBytes401Tx(34),
+                        msrp-AvgFailureREPORTMsgBytes403Tx(35),
+                        msrp-AvgFailureREPORTMsgBytes404Tx(36),
+                        msrp-AvgFailureREPORTMsgBytes408Tx(37),
+                        msrp-AvgFailureREPORTMsgBytes413Tx(38),
+                        msrp-AvgFailureREPORTMsgBytes415Tx(39),
+                        msrp-AvgFailureREPORTMsgBytes423Tx(40),
+                        msrp-AvgFailureREPORTMsgBytes424Tx(41),
+                        msrp-AvgFailureREPORTMsgBytes425Tx(42),
+                        msrp-AvgFailureREPORTMsgBytes428Tx(43),
+                        msrp-AvgFailureREPORTMsgBytes481Tx(44),
+                        msrp-AvgFailureREPORTMsgBytes501Tx(45),
+                        msrp-AvgFailureREPORTMsgBytes506Tx(46),
+                        msrp-TransResponsesTx(47),
+                        msrp-SuccessTransResponsesTx(48),
+                        msrp-TransResp400Tx(49),
+                        msrp-TransResp401Tx(50),
+                        msrp-TransResp403Tx(51),
+                        msrp-TransResp404Tx(52),
+                        msrp-TransResp408Tx(53),
+                        msrp-TransResp413Tx(54),
+                        msrp-TransResp415Tx(55),
+                        msrp-TransResp423Tx(56),
+                        msrp-TransResp424Tx(57),
+                        msrp-TransResp425Tx(58),
+                        msrp-TransResp428Tx(59),
+                        msrp-TransResp481Tx(60),
+                        msrp-TransResp501Tx(61),
+                        msrp-TransResp506Tx(62),
+                        msrp-AvgSENDTransRx(63),
+                        msrp-AvgChatSENDTransRx(64),
+                        msrp-AvgIsTypingSENDTransRx(65),
+                        msrp-AvgReceiptSENDTransRx(66),
+                        msrp-AvgSENDMsgBytesRx(67),
+                        msrp-AvgChatSENDMsgBytesRx(68),
+                        msrp-AvgIsTypingSENDMsgBytesRx(69),
+                        msrp-AvgReceiptSENDMsgBytesRx(70),
+                        msrp-SENDMsgBytesRx(71),
+                        msrp-ChatSENDMsgBytesRx(72),
+                        msrp-IsTypingSENDMsgBytesRx(73),
+                        msrp-ReceiptSENDMsgBytesRx(74),
+                        msrp-SuccessREPORTTransRx(75),
+                        msrp-FailureREPORTTransRx(76),
+                        msrp-AvgSuccessREPORTMsgBytesRx(77),
+                        msrp-AvgFailureREPORTMsgBytesRx(78),
+                        msrp-AvgFailureREPORTRateRx(79),
+                        msrp-AvgSuccessREPORTRateRx(80),
+                        msrp-REPORTTrans400Rx(81),
+                        msrp-REPORTTrans401Rx(82),
+                        msrp-REPORTTrans403Rx(83),
+                        msrp-REPORTTrans404Rx(84),
+                        msrp-REPORTTrans408Rx(85),
+                        msrp-REPORTTrans413Rx(86),
+                        msrp-REPORTTrans415Rx(87),
+                        msrp-REPORTTrans423Rx(88),
+                        msrp-REPORTTrans424Rx(89),
+                        msrp-REPORTTrans425Rx(90),
+                        msrp-REPORTTrans428Rx(91),
+                        msrp-REPORTTrans481Rx(92),
+                        msrp-REPORTTrans501Rx(93),
+                        msrp-REPORTTrans506Rx(94),
+                        msrp-AvgFailureREPORTMsgBytes400Rx(95),
+                        msrp-AvgFailureREPORTMsgBytes401Rx(96),
+                        msrp-AvgFailureREPORTMsgBytes403Rx(97),
+                        msrp-AvgFailureREPORTMsgBytes404Rx(98),
+                        msrp-AvgFailureREPORTMsgBytes408Rx(99),
+                        msrp-AvgFailureREPORTMsgBytes413Rx(100),
+                        msrp-AvgFailureREPORTMsgBytes415Rx(101),
+                        msrp-AvgFailureREPORTMsgBytes423Rx(102),
+                        msrp-AvgFailureREPORTMsgBytes424Rx(103),
+                        msrp-AvgFailureREPORTMsgBytes425Rx(104),
+                        msrp-AvgFailureREPORTMsgBytes428Rx(105),
+                        msrp-AvgFailureREPORTMsgBytes481Rx(106),
+                        msrp-AvgFailureREPORTMsgBytes501Rx(107),
+                        msrp-AvgFailureREPORTMsgBytes506Rx(108),
+                        msrp-TransResponsesRx(109),
+                        msrp-SuccessTransResponsesRx(110),
+                        msrp-TransResp400Rx(111),
+                        msrp-TransResp401Rx(112),
+                        msrp-TransResp403Rx(113),
+                        msrp-TransResp404Rx(114),
+                        msrp-TransResp408Rx(115),
+                        msrp-TransResp413Rx(116),
+                        msrp-TransResp415Rx(117),
+                        msrp-TransResp423Rx(118),
+                        msrp-TransResp424Rx(119),
+                        msrp-TransResp425Rx(120),
+                        msrp-TransResp428Rx(121),
+                        msrp-TransResp481Rx(122),
+                        msrp-TransResp501Rx(123),
+                        msrp-TransResp506Rx(124),
+                        msrp-ApMsrpKpiStatsTypeMax(125)
+                    }
+
+ApNSEPRealmRvalueDNIndex ::= TEXTUAL-CONVENTION
+    STATUS  current
+    DESCRIPTION
+            "Index of Rvalue and DialedNumber"
+    SYNTAX  INTEGER {
+                ets0(10),
+                ets1(11),
+                ets2(12),
+                ets3(13),
+                ets4(14),
+                wps0(20),
+                wps1(21),
+                wps2(22),
+                wps3(23),
+                wps4(24),
+                q7350(30),
+                q7351(31),
+                q7352(32),
+                q7353(33),
+                q7354(34),
+                esnet0(40),
+                esnet1(41),
+                esnet2(42),
+                esnet3(43),
+                esnet4(44),
+                wps0ets0(50),
+                wps0ets1(51),
+                wps0ets2(52),
+                wps0ets3(53),
+                wps0ets4(54),
+                wps1ets0(55),
+                wps1ets1(56),
+                wps1ets2(57),
+                wps1ets3(58),
+                wps1ets4(59),
+                wps2ets0(60),
+                wps2ets1(61),
+                wps2ets2(62),
+                wps2ets3(63),
+                wps2ets4(64),
+                wps3ets0(65),
+                wps3ets1(66),
+                wps3ets2(67),
+                wps3ets3(68),
+                wps3ets4(69),
+                wps4ets0(70),
+                wps4ets1(71),
+                wps4ets2(72),
+                wps4ets3(73),
+                wps4ets4(74),
+                dsnroutine(81),
+                dsnpriority(82),
+                dsnimmediate(83),
+                dsnflash(84),
+                dsnflashoverride(85),
+                drsnroutine(91),
+                drsnpriority(92),
+                drsnimmediate(93),
+                drsnflash(94),
+                drsnflashoverride(95),
+                drsnflashoverrideoverride(96),
+                dialedNumbers(100)
+                }
+                
+ApNSEPRealmStatsType ::= TEXTUAL-CONVENTION
+    STATUS  current
+    DESCRIPTION
+            "Type of NSEP stats"
+    SYNTAX  INTEGER {
+                inboundactivesessions(1),
+                inboundtotalsessions(2),
+                inboundhighsessions(3),
+                inboundtotalrejectedsessions(4),
+                outboundactivesessions(5),
+                outboundtotalsessions(6),
+                outboundhighsessions(7),
+                outboundtotalrejectedsessions(8)
+                }
 END

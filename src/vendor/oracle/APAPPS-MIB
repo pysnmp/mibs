@@ -11,7 +11,7 @@ APAPPS-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
         MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
-        Gauge32, Integer32, Counter32
+        Gauge32, Integer32, Counter32, Counter64
                 FROM SNMPv2-SMI
         TEXTUAL-CONVENTION, DisplayString, TruthValue
                 FROM SNMPv2-TC
@@ -22,11 +22,15 @@ IMPORTS
 	acmepacketMgmt
                 FROM ACMEPACKET-SMI
         ApHardwareModuleFamily, ApRedundancyState, ApPhyPortType,
-	ApPresence, ApServerStatus, ApCommMonitorState, ApAclType
+	ApPresence, ApServerStatus, ApCommMonitorState, ApAclType, 
+	ApCounterStatsType, ApStirStatsType,
+	ApMsrpKpiStatsCounterType, ApMsrpKpiStatsType,
+        ApDosThresholdTrafficType, ApDosThresholdCrossState, ApPercentage,
+        ApNSEPRealmRvalueDNIndex, ApNSEPRealmStatsType
 	    FROM ACMEPACKET-TC;
 
 apAppsModule   MODULE-IDENTITY
-		LAST-UPDATED	"201406260000Z"
+		LAST-UPDATED	"202203240000Z"
 		ORGANIZATION 	"Oracle Communications"
 		CONTACT-INFO
 			"           	Customer Service
@@ -45,6 +49,32 @@ apAppsModule   MODULE-IDENTITY
                 REVISION "201406260000Z" 			
                 DESCRIPTION
 			"Updated Organization and Contact info."
+                REVISION "202007200000Z" 			
+	        DESCRIPTION
+		   	"Added MIB definitions & traps for 
+                          DOS Threshold counters"
+                REVISION "202010260000Z" 			
+                DESCRIPTION
+			"Added apAppStirMIBObjects."
+                REVISION "202106280000Z" 			
+                DESCRIPTION
+			"Added apAppsStirAgentTable, apAppsStirSipInterfaceTable, 
+			  apAppsStirRealmTable, apAppsStirSystemStatsTable"
+                REVISION "202108130000Z" 			
+                DESCRIPTION
+	  		"Added apAppResrvdNsepUtlMIBObjects."
+                REVISION "202202160000Z" 			
+                DESCRIPTION
+			"Added apAppsMSRPKPISystemStatsTable, apAppsMSRPKPIRealmTable"
+                REVISION "202203170000Z" 			
+                DESCRIPTION
+			"Updated the LAST-UPDATED stamp
+			  which was missed in 61743 CR"
+                REVISION "202203240000Z"
+                DESCRIPTION
+                        "Added apAppsNSEPRealmTable, apAppsNSEPRealmRvalueDNTable,
+                          apNSEPRealmRvalueDNStatsTable"
+                
                 ::= { acmepacketMgmt 16 }
 
 
@@ -71,6 +101,8 @@ apAppsObjectGroups OBJECT IDENTIFIER ::= { apAppsConformance 1 }
 apAppsNotificationGroups OBJECT IDENTIFIER ::= { apAppsConformance 2 }
 
 apAppsAclObjects OBJECT IDENTIFIER ::= { apAppsModule 4 }
+
+apAppsResrvdNsepUtlObjects OBJECT IDENTIFIER ::= { apAppsModule 6 }
 
 
 apAppsENUMServerStatusTable OBJECT-TYPE
@@ -531,5 +563,1168 @@ apAclDropNotificationsGroup   NOTIFICATION-GROUP
                 "Traps to monitor acl drops."
         ::= {  apAclNotificationGroups 1 }
 
+--------------------------------------------------------------
+--
+-- DOS THRESHOLD COUNTERS
+--
+--------------------------------------------------------------
 
+
+apDosThresholdCountersObjects OBJECT-GROUP
+        OBJECTS {
+          apDosTrustedMinorCounter,
+          apDosTrustedMajorCounter,
+          apDosTrustedCriticalCounter,
+          apDosUntrustedMinorCounter,
+          apDosUntrustedMajorCounter,
+          apDosUntrustedCriticalCounter,
+          apDosArpMinorCounter,
+          apDosArpMajorCounter,
+          apDosArpCriticalCounter
+        }
+        STATUS current
+        DESCRIPTION "A collection of objects which provide dos threshold counters"
+           ::= {apAppsModule 5}
+
+apDosTrustedMinorCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Minor threshold
+                 percentage of trusted traffic is crossed."
+         ::= {apDosThresholdCountersObjects 1}
+
+apDosTrustedMajorCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Major threshold
+                 percentage of trusted traffic is crossed."
+         ::= {apDosThresholdCountersObjects 2}
+
+apDosTrustedCriticalCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Critical threshold
+                 percentage of trusted traffic is crossed."
+         ::= {apDosThresholdCountersObjects 3}
+
+apDosUntrustedMinorCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Minor threshold
+                 percentage of untrusted traffic is crossed."
+         ::= {apDosThresholdCountersObjects 4}
+
+apDosUntrustedMajorCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Major threshold
+                 percentage of untrusted traffic is crossed."
+         ::= {apDosThresholdCountersObjects 5}
+
+apDosUntrustedCriticalCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Critical threshold
+                 percentage of untrusted traffic is crossed."
+         ::= {apDosThresholdCountersObjects 6}
+
+apDosArpMinorCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Minor threshold
+                 percentage of ARP traffic is crossed."
+         ::= {apDosThresholdCountersObjects 7}
+
+apDosArpMajorCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Major threshold
+                 percentage of ARP traffic is crossed."
+         ::= {apDosThresholdCountersObjects 8}
+
+apDosArpCriticalCounter OBJECT-TYPE
+        SYNTAX                    Counter64
+        MAX-ACCESS                read-only
+        STATUS                    current
+        DESCRIPTION
+                "The number of times, Critical threshold
+                 percentage of ARP traffic is crossed."
+         ::= {apDosThresholdCountersObjects 9}
+
+-- DOS threshold Notification Objects
+
+apDosThresholdNotificationObjects OBJECT IDENTIFIER ::= { apAppsModule 6 }
+
+apDosThresholdTraffic OBJECT-TYPE
+        SYNTAX                  ApDosThresholdTrafficType
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "1 = trusted, 2 = untrusted , 3 = ARP"
+        ::= { apDosThresholdNotificationObjects 1 }
+
+
+apDosThresholdMinorCrossed OBJECT-TYPE
+        SYNTAX                  ApDosThresholdCrossState
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "0 = threshold not crossed, 1 = threshold crossed"
+        ::= { apDosThresholdNotificationObjects 2 }
+
+apDosThresholdMajorCrossed OBJECT-TYPE
+        SYNTAX                  ApDosThresholdCrossState
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "0 = threshold not crossed, 1 = threshold crossed"
+        ::= { apDosThresholdNotificationObjects 3 }
+
+apDosThresholdCriticalCrossed OBJECT-TYPE
+        SYNTAX                  ApDosThresholdCrossState
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "0 = threshold not crossed, 1 = threshold crossed"
+        ::= { apDosThresholdNotificationObjects 4 }
+
+apDosThresholdMinorCounter OBJECT-TYPE
+        SYNTAX                  Counter64
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "Counters populated, when the specified traffic 
+         crossed the configured minor threshold percentage"
+        ::= { apDosThresholdNotificationObjects 5 }
+
+apDosThresholdMajorCounter OBJECT-TYPE
+        SYNTAX                  Counter64
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "Counters populated, when the specified traffic
+         crossed the configured major threshold percentage"
+        ::= { apDosThresholdNotificationObjects 6 }
+
+apDosThresholdCriticalCounter OBJECT-TYPE
+        SYNTAX                  Counter64
+        MAX-ACCESS              accessible-for-notify
+        STATUS                  current
+        DESCRIPTION
+        "Counters populated, when the specified traffic
+         crossed the configured critical threshold percentage"
+        ::= { apDosThresholdNotificationObjects 7 }
+
+
+-- DOS threshold Notifications
+
+apDosThresholdNotificationsPrefix   OBJECT IDENTIFIER
+    ::= { apAppsModule 7 }
+
+apDosThresholdNotifications OBJECT IDENTIFIER
+     ::= { apDosThresholdNotificationsPrefix 0 }
+
+apDosThresholdCrossTrap       NOTIFICATION-TYPE
+          OBJECTS {
+         apDosThresholdTraffic,
+         apDosThresholdMinorCrossed,
+         apDosThresholdMajorCrossed,
+         apDosThresholdCriticalCrossed,
+         apDosThresholdMinorCounter,
+         apDosThresholdMajorCounter,
+         apDosThresholdCriticalCounter
+                }
+        STATUS  current
+        DESCRIPTION
+            "The trap will be generated when the specified
+             traffic crosses the configured DOS thresholds."
+        ::= { apDosThresholdNotifications 1 }
+
+apDosThresholdClearTrap       NOTIFICATION-TYPE
+        OBJECTS {
+         apDosThresholdTraffic,
+         apDosThresholdMinorCounter,
+         apDosThresholdMajorCounter,
+         apDosThresholdCriticalCounter
+                }
+        STATUS  current
+        DESCRIPTION
+            "The clear trap will be generated when the specified
+             traffic had fallen back from the all configured DOS thresholds"
+        ::= { apDosThresholdNotifications 2 }
+
+apDosThresholdCountersGroup OBJECT-GROUP
+         OBJECTS {
+		 apDosTrustedMinorCounter,
+		 apDosTrustedMajorCounter,
+		 apDosTrustedCriticalCounter,
+		 apDosUntrustedMinorCounter,
+		 apDosUntrustedMajorCounter,
+		 apDosUntrustedCriticalCounter,
+		 apDosArpMinorCounter,
+		 apDosArpMajorCounter,
+		 apDosArpCriticalCounter
+                 }
+         STATUS          current
+         DESCRIPTION
+                "Object to monitor Dos threshold counters"
+         ::= { apAppsObjectGroups 4 }
+
+apDosThresholdNotificationsGroup NOTIFICATION-GROUP
+        NOTIFICATIONS{
+            apDosThresholdCrossTrap,
+            apDosThresholdClearTrap
+        }
+        STATUS          obsolete
+        DESCRIPTION
+            "Traps to monitor DOS threshold"
+        ::= { apAppsNotificationGroups 5 }
+
+apAppsStirMIBObjects OBJECT IDENTIFIER ::= {apAppsMIBTabularObjects 4}
+
+apAppsStirServerTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsStirServerEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the STIR server names."
+        ::= { apAppsStirMIBObjects 1 }
+
+apAppsStirServerEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirServerEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "STIR server entry."
+        INDEX	{ apStirServerIndex }
+        ::= { apAppsStirServerTable 1 }
+
+
+ApAppsStirServerEntry ::=
+        SEQUENCE {
+	        apStirServerIndex		Integer32,
+                apStirServerName		DisplayString
+	}
+	
+apStirServerIndex		OBJECT-TYPE
+        SYNTAX			Integer32 (0..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the STIR server entry."
+	::= { apAppsStirServerEntry 1 }
+
+apStirServerName 		OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The STIR server name."
+	::= { apAppsStirServerEntry 2 }
+
+
+apAppsStirStatsTable OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApAppsStirStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The table of STIR server stats."
+        ::= { apAppsStirMIBObjects 2 }
+
+apAppsStirStatsEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "statistics per STIR server."
+        INDEX	{ 
+		apStirServerIndex, 
+		apCounterStatsType,
+		apStirStatsType }
+        ::= { apAppsStirStatsTable 1 }
+
+
+ApAppsStirStatsEntry ::=
+        SEQUENCE {
+		apStirStatsServerIndex		Integer32, 
+		apCounterStatsType		ApCounterStatsType, 
+ 		apStirStatsType			ApStirStatsType, 
+ 		apStirServerStats		Gauge32
+	}
+ 
+
+apStirStatsServerIndex 	OBJECT-TYPE
+    	SYNTAX		Integer32
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR server Index."
+	::= { apAppsStirStatsEntry 1 }
+
+apCounterStatsType 	OBJECT-TYPE
+    	SYNTAX		ApCounterStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR server counter stats type."
+	::= { apAppsStirStatsEntry 2 }
+
+apStirStatsType 	OBJECT-TYPE
+    	SYNTAX		ApStirStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR server STIR stats type."
+	::= { apAppsStirStatsEntry 3 }
+
+apStirServerStats 	OBJECT-TYPE
+    	SYNTAX		Gauge32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The STIR server stats."
+	::= { apAppsStirStatsEntry 4 }
+
+apAppsStirServerStatsGroup  OBJECT-GROUP
+        OBJECTS {
+		apStirServerName,
+ 		apStirServerStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the name and stats of STIR servers."
+        ::= { apAppsObjectGroups 5  }
+
+
+-- STIR Agent Group
+apAppsStirAgentTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsStirAgentEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the STIR session agent names."
+        ::= { apAppsStirMIBObjects 3 }
+
+apAppsStirAgentEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirAgentEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "STIR Agent entry."
+        INDEX	{ apStirAgentIndex }
+        ::= { apAppsStirAgentTable 1 }
+
+
+ApAppsStirAgentEntry ::=
+        SEQUENCE {
+	        apStirAgentIndex		Integer32,
+                apStirAgentName		DisplayString
+	}
+	
+apStirAgentIndex		OBJECT-TYPE
+        SYNTAX			Integer32 (0..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the STIR Agent entry."
+	::= { apAppsStirAgentEntry 1 }
+
+apStirAgentName 		OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The STIR Agent name."
+	::= { apAppsStirAgentEntry 2 }
+
+
+apAppsStirAgentStatsTable OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApAppsStirAgentStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The table of STIR Agent stats."
+        ::= { apAppsStirMIBObjects 4 }
+
+apAppsStirAgentStatsEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirAgentStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "statistics per STIR Agent."
+        INDEX	{ 
+		apStirAgentIndex, 
+		apCounterStatsType,
+		apStirStatsType }
+        ::= { apAppsStirAgentStatsTable 1 }
+
+
+ApAppsStirAgentStatsEntry ::=
+        SEQUENCE {
+		apStirStatsAgentIndex		Integer32, 
+		apCounterStatsAgentType		ApCounterStatsType, 
+ 		apStirAgentStatsType		ApStirStatsType, 
+ 		apStirAgentStats		Gauge32
+	}
+ 
+
+apStirStatsAgentIndex 	OBJECT-TYPE
+    	SYNTAX		Integer32
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Agent Index."
+	::= { apAppsStirAgentStatsEntry 1 }
+
+apCounterStatsAgentType 	OBJECT-TYPE
+    	SYNTAX		ApCounterStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Agent counter stats type."
+	::= { apAppsStirAgentStatsEntry 2 }
+
+apStirAgentStatsType 	OBJECT-TYPE
+    	SYNTAX		ApStirStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Agent STIR stats type."
+	::= { apAppsStirAgentStatsEntry 3 }
+
+apStirAgentStats 	OBJECT-TYPE
+    	SYNTAX		Gauge32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Agent stats."
+	::= { apAppsStirAgentStatsEntry 4 }
+
+apAppsStirAgentStatsGroup  OBJECT-GROUP
+        OBJECTS {
+		apStirAgentName,
+ 		apStirAgentStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the name and stats of STIR Session Agents."
+        ::= { apAppsObjectGroups 6  }
+
+-- STIR Interface Group
+apAppsStirSipInterfaceTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsStirSipInterfaceEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the STIR session SipInterface names."
+        ::= { apAppsStirMIBObjects 5 }
+
+apAppsStirSipInterfaceEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirSipInterfaceEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "STIR SipInterface entry."
+        INDEX	{ apStirSipInterfaceIndex }
+        ::= { apAppsStirSipInterfaceTable 1 }
+
+
+ApAppsStirSipInterfaceEntry ::=
+        SEQUENCE {
+	        apStirSipInterfaceIndex		Integer32,
+                apStirSipInterfaceName		DisplayString
+	}
+	
+apStirSipInterfaceIndex		OBJECT-TYPE
+        SYNTAX			Integer32 (0..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the STIR SipInterface entry."
+	::= { apAppsStirSipInterfaceEntry 1 }
+
+apStirSipInterfaceName 		OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The STIR SipInterface name."
+	::= { apAppsStirSipInterfaceEntry 2 }
+
+
+apAppsStirSipInterfaceStatsTable OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApAppsStirSipInterfaceStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The table of STIR SipInterface stats."
+        ::= { apAppsStirMIBObjects 6 }
+
+apAppsStirSipInterfaceStatsEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirSipInterfaceStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "statistics per STIR SipInterface."
+        INDEX	{ 
+		apStirSipInterfaceIndex, 
+		apCounterStatsType,
+		apStirStatsType }
+        ::= { apAppsStirSipInterfaceStatsTable 1 }
+
+
+ApAppsStirSipInterfaceStatsEntry ::=
+        SEQUENCE {
+		apStirStatsSipInterfaceIndex		Integer32, 
+		apCounterStatsSipInterfaceType		ApCounterStatsType, 
+ 		apStirSipInterfaceStatsType		ApStirStatsType, 
+ 		apStirSipInterfaceStats		        Gauge32
+	}
+ 
+
+apStirStatsSipInterfaceIndex 	OBJECT-TYPE
+    	SYNTAX		Integer32
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR SipInterface Index."
+	::= { apAppsStirSipInterfaceStatsEntry 1 }
+
+apCounterStatsSipInterfaceType 	OBJECT-TYPE
+    	SYNTAX		ApCounterStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR SipInterface counter stats type."
+	::= { apAppsStirSipInterfaceStatsEntry 2 }
+
+apStirSipInterfaceStatsType 	OBJECT-TYPE
+    	SYNTAX		ApStirStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR SipInterface STIR stats type."
+	::= { apAppsStirSipInterfaceStatsEntry 3 }
+
+apStirSipInterfaceStats 	OBJECT-TYPE
+    	SYNTAX		Gauge32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The STIR SipInterface stats."
+	::= { apAppsStirSipInterfaceStatsEntry 4 }
+
+apAppsStirSipInterfaceStatsGroup  OBJECT-GROUP
+        OBJECTS {
+		apStirSipInterfaceName,
+ 		apStirSipInterfaceStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the name and stats of STIR Session SipInterfaces."
+        ::= { apAppsObjectGroups 7  }
+
+-- STIR Realm Group
+
+apAppsStirRealmTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsStirRealmEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the STIR realm names."
+        ::= { apAppsStirMIBObjects 7 }
+
+apAppsStirRealmEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirRealmEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "STIR Realm entry."
+        INDEX	{ apStirRealmIndex }
+        ::= { apAppsStirRealmTable 1 }
+
+
+ApAppsStirRealmEntry ::=
+        SEQUENCE {
+	        apStirRealmIndex		Integer32,
+                apStirRealmName		DisplayString
+	}
+	
+apStirRealmIndex		OBJECT-TYPE
+        SYNTAX			Integer32 (0..2147483647)
+        MAX-ACCESS		not-accessible
+        STATUS			current
+        DESCRIPTION
+	    "An integer for the sole purpose of indexing the STIR Realm entry."
+	::= { apAppsStirRealmEntry 1 }
+
+apStirRealmName 		OBJECT-TYPE
+	SYNTAX 			DisplayString (SIZE (0..255))
+	MAX-ACCESS		read-only
+	STATUS			current
+	DESCRIPTION
+	    "The STIR Realm name."
+	::= { apAppsStirRealmEntry 2 }
+
+
+apAppsStirRealmStatsTable OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApAppsStirRealmStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "The table of STIR Realm stats."
+        ::= { apAppsStirMIBObjects 8 }
+
+apAppsStirRealmStatsEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirRealmStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "statistics per STIR Realm."
+        INDEX	{ 
+		apStirRealmIndex, 
+		apCounterStatsType,
+		apStirStatsType }
+        ::= { apAppsStirRealmStatsTable 1 }
+
+
+ApAppsStirRealmStatsEntry ::=
+        SEQUENCE {
+		apStirStatsRealmIndex		Integer32, 
+		apCounterStatsRealmType		ApCounterStatsType, 
+ 		apStirRealmStatsType		ApStirStatsType, 
+ 		apStirRealmStats		        Gauge32
+	}
+ 
+
+apStirStatsRealmIndex 	OBJECT-TYPE
+    	SYNTAX		Integer32
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Realm Index."
+	::= { apAppsStirRealmStatsEntry 1 }
+
+apCounterStatsRealmType 	OBJECT-TYPE
+    	SYNTAX		ApCounterStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Realm counter stats type."
+	::= { apAppsStirRealmStatsEntry 2 }
+
+apStirRealmStatsType 	OBJECT-TYPE
+    	SYNTAX		ApStirStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Realm STIR stats type."
+	::= { apAppsStirRealmStatsEntry 3 }
+
+apStirRealmStats 	OBJECT-TYPE
+    	SYNTAX		Gauge32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The STIR Realm stats."
+	::= { apAppsStirRealmStatsEntry 4 }
+
+apAppsStirRealmStatsGroup  OBJECT-GROUP
+        OBJECTS {
+		apStirRealmName,
+ 		apStirRealmStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the name and stats of STIR Session Realms."
+        ::= { apAppsObjectGroups 8  }
+        
+        
+-- STIR SystemWide Group
+apAppsStirSystemStatsTable OBJECT-TYPE
+        SYNTAX  	SEQUENCE OF ApAppsStirSystemStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "A read-only table to hold the of STIR System stats."
+        ::= { apAppsStirMIBObjects 9 }
+
+apAppsStirSystemStatsEntry OBJECT-TYPE
+        SYNTAX  	ApAppsStirSystemStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS  	current
+        DESCRIPTION
+                "statistics of STIR System Wide."
+        INDEX	{ 
+		apCounterStatsType,
+                apStirStatsType } 
+        ::= { apAppsStirSystemStatsTable 1 }
+
+
+ApAppsStirSystemStatsEntry ::=
+        SEQUENCE {
+		apCounterStatsSystemType	ApCounterStatsType, 
+ 		apStirSystemStatsType		ApStirStatsType, 
+ 		apStirSystemStats		Gauge32
+	}
+
+apCounterStatsSystemType 	OBJECT-TYPE
+    	SYNTAX		ApCounterStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR System counter stats type."
+	::= { apAppsStirSystemStatsEntry 1 }
+
+apStirSystemStatsType 	OBJECT-TYPE
+    	SYNTAX		ApStirStatsType
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION
+	    "The STIR System STIR stats type."
+	::= { apAppsStirSystemStatsEntry 2 }
+
+apStirSystemStats 	OBJECT-TYPE
+    	SYNTAX		Gauge32
+	MAX-ACCESS	read-only
+	STATUS		current
+	DESCRIPTION
+	    "The STIR System stats."
+	::= { apAppsStirSystemStatsEntry 3 }
+
+apAppsStirSystemStatsGroup  OBJECT-GROUP
+        OBJECTS {
+ 		apStirSystemStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the SystemWide stats of STIR ."
+        ::= { apAppsObjectGroups 9  }
+
+apAppsMSRPKPIMIBObjects OBJECT IDENTIFIER ::= {apAppsMIBTabularObjects 5}
+
+-- MSRPKPI Realm Group
+
+apAppsMSRPKPIRealmTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsMSRPKPIRealmEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "A read-only table to hold the MSRPKPI realm names."
+        ::= { apAppsMSRPKPIMIBObjects 1 }
+
+apAppsMSRPKPIRealmEntry OBJECT-TYPE
+        SYNTAX          ApAppsMSRPKPIRealmEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "MSRPKPI Realm entry."
+        INDEX   { apMSRPKPIRealmIndex }
+        ::= { apAppsMSRPKPIRealmTable 1 }
+
+
+ApAppsMSRPKPIRealmEntry ::=
+        SEQUENCE {
+                apMSRPKPIRealmIndex                Integer32,
+                apMSRPKPIRealmName         DisplayString
+        }
+
+apMSRPKPIRealmIndex                OBJECT-TYPE
+        SYNTAX                  Integer32 (0..2147483647)
+        MAX-ACCESS              not-accessible
+        STATUS                  current
+        DESCRIPTION
+            "An integer for the sole purpose of indexing the MSRPKPI Realm entry."
+        ::= { apAppsMSRPKPIRealmEntry 1 }
+
+apMSRPKPIRealmName                 OBJECT-TYPE
+        SYNTAX                  DisplayString (SIZE (0..255))
+        MAX-ACCESS              read-only
+        STATUS                  current
+        DESCRIPTION
+            "The MSRPKPI Realm name."
+        ::= { apAppsMSRPKPIRealmEntry 2 }
+
+
+apAppsMSRPKPIRealmStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsMSRPKPIRealmStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "The table of MSRPKPI Realm stats."
+        ::= { apAppsMSRPKPIMIBObjects 2 }
+
+apAppsMSRPKPIRealmStatsEntry OBJECT-TYPE
+        SYNTAX          ApAppsMSRPKPIRealmStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "statistics per MSRPKPI Realm."
+        INDEX   {
+                apMSRPKPIRealmIndex,
+                apMSRPKPIRealmStatsCounterType,
+                apMSRPKPIRealmStatsType }
+        ::= { apAppsMSRPKPIRealmStatsTable 1 }
+
+ApAppsMSRPKPIRealmStatsEntry ::=
+        SEQUENCE {
+                apMSRPKPIStatsRealmIndex           Integer32,
+                apMSRPKPIRealmStatsCounterType     ApMsrpKpiStatsCounterType,
+                apMSRPKPIRealmStatsType            ApMsrpKpiStatsType,
+                apMSRPKPIRealmStats                Gauge32
+        }
+
+apMSRPKPIStatsRealmIndex   OBJECT-TYPE
+        SYNTAX          Integer32
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI Realm Index."
+        ::= { apAppsMSRPKPIRealmStatsEntry 1 }
+
+apMSRPKPIRealmStatsCounterType         OBJECT-TYPE
+        SYNTAX          ApMsrpKpiStatsCounterType
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI Realm counter stats type."
+        ::= { apAppsMSRPKPIRealmStatsEntry 2 }
+
+apMSRPKPIRealmStatsType    OBJECT-TYPE
+        SYNTAX          ApMsrpKpiStatsType
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI Realm MSRPKPI stats type."
+        ::= { apAppsMSRPKPIRealmStatsEntry 3 }
+
+apMSRPKPIRealmStats        OBJECT-TYPE
+        SYNTAX          Gauge32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI Realm stats."
+        ::= { apAppsMSRPKPIRealmStatsEntry 4 }
+
+apAppsMSRPKPIRealmStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                apMSRPKPIRealmName,
+                apMSRPKPIRealmStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the name and stats of MSRPKPI Session Realms."
+        ::= { apAppsObjectGroups 10  }
+
+-- MSRPKPI SystemWide Group
+apAppsMSRPKPISystemStatsTable OBJECT-TYPE
+        SYNTAX          SEQUENCE OF ApAppsMSRPKPISystemStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "A read-only table to hold the of MSRPKPI System stats."
+        ::= { apAppsMSRPKPIMIBObjects 3 }
+
+apAppsMSRPKPISystemStatsEntry OBJECT-TYPE
+        SYNTAX          ApAppsMSRPKPISystemStatsEntry
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+                "statistics of MSRPKPI System Wide."
+        INDEX   {
+                apMSRPKPISystemStatsCounterType,
+                apMSRPKPISystemStatsType }
+        ::= { apAppsMSRPKPISystemStatsTable 1 }
+
+
+ApAppsMSRPKPISystemStatsEntry ::=
+        SEQUENCE {
+                apMSRPKPISystemStatsCounterType       ApMsrpKpiStatsCounterType,
+                apMSRPKPISystemStatsType           ApMsrpKpiStatsType,
+                apMSRPKPISystemStats               Gauge32
+        }
+
+apMSRPKPISystemStatsCounterType        OBJECT-TYPE
+        SYNTAX          ApMsrpKpiStatsCounterType
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI System counter stats type."
+        ::= { apAppsMSRPKPISystemStatsEntry 1 }
+
+apMSRPKPISystemStatsType   OBJECT-TYPE
+        SYNTAX          ApMsrpKpiStatsType
+        MAX-ACCESS      not-accessible
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI System MSRPKPI stats type."
+        ::= { apAppsMSRPKPISystemStatsEntry 2 }
+
+apMSRPKPISystemStats       OBJECT-TYPE
+        SYNTAX          Gauge32
+        MAX-ACCESS      read-only
+        STATUS          current
+        DESCRIPTION
+            "The MSRPKPI System stats."
+        ::= { apAppsMSRPKPISystemStatsEntry 3 }
+
+apAppsMSRPKPISystemStatsGroup  OBJECT-GROUP
+        OBJECTS {
+                apMSRPKPISystemStats
+                }
+        STATUS          current
+        DESCRIPTION
+                "Report the SystemWide stats of MSRPKPI ."
+        ::= { apAppsObjectGroups 11  }
+	
+
+-- STIR Unreachable Traps
+
+apAppsStirNotif  OBJECT IDENTIFIER ::= { apAppsNotifPrefix 5 }
+apAppsStirNotifications  OBJECT IDENTIFIER ::= { apAppsStirNotif 0 }
+
+apStirServerUnreachableTrap   NOTIFICATION-TYPE
+        OBJECTS                 { 
+					apStirServerName
+                                }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when STIR server timeout."
+        ::= { apAppsStirNotifications 1 }
+
+
+apStirServerUnreachableClearTrap   NOTIFICATION-TYPE
+        OBJECTS                 { 
+					apStirServerName
+                                }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated when any response received from a STIR server previously timeout."
+        ::= { apAppsStirNotifications 2 }
+
+apAppsStirNotificationGroups OBJECT IDENTIFIER ::= { apAppsNotificationGroups 5 }
+
+apAppsStirNotificationsGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                        apStirServerUnreachableTrap,
+			apStirServerUnreachableClearTrap       
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor STIR servers."
+        ::= {  apAppsStirNotificationGroups 1 }
+
+
+-- ResrvdNsepUtl app objects
+ 
+apAppsResrvdNsepSessUtlObjects OBJECT IDENTIFIER ::= { apAppsResrvdNsepUtlObjects 1 } 
+
+apAppsResrvdNsepSessionCapacity OBJECT-TYPE
+        SYNTAX          ApPercentage
+        MAX-ACCESS      accessible-for-notify
+        STATUS          current
+        DESCRIPTION
+                "The percentage of Reserved NSEP session capacity utilization."
+        ::= { apAppsResrvdNsepSessUtlObjects 1 }
+
+-- Reserved NSEP sessions threshold capacity utilisation traps
+
+apAppsResrvdNsepUtlNotif  OBJECT IDENTIFIER ::= { apAppsNotifPrefix 6 }
+apAppsResrvdNsepUtlNotifications  OBJECT IDENTIFIER ::= { apAppsResrvdNsepUtlNotif 0 }
+
+apAppsResrvdNsepSessionCapacityUtilTrap   NOTIFICATION-TYPE
+        OBJECTS                 { 
+				    apAppsResrvdNsepSessionCapacity 
+                                }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated if configured alarm thresholds hit for reserved NSEP sessions capacity utilisation"
+        ::= { apAppsResrvdNsepUtlNotifications  1 }
+
+apAppsResrvdNsepSessionCapacityUtilClearTrap   NOTIFICATION-TYPE
+        OBJECTS                 { 
+				    apAppsResrvdNsepSessionCapacity 
+                                }
+        STATUS                  current
+        DESCRIPTION
+                "The trap will be generated if reserved NSEP sessions capacity utilisation becomes less than threshold"
+        ::= { apAppsResrvdNsepUtlNotifications  2 }
+
+apAppsResrvdNsepUtlNotificationGroups OBJECT IDENTIFIER ::= { apAppsNotificationGroups 6 }
+
+apAppsResrvdNsepUtlNotificationsGroup   NOTIFICATION-GROUP
+        NOTIFICATIONS {
+                        apAppsResrvdNsepSessionCapacityUtilTrap, 
+                        apAppsResrvdNsepSessionCapacityUtilClearTrap
+                      }
+        STATUS          current
+        DESCRIPTION
+                "Traps to monitor thethreshold cross of Reserved NSEP session capacity utilization."
+        ::= { apAppsResrvdNsepUtlNotificationGroups 1 }
+
+apAppsNSEPRealmMIBObjects OBJECT IDENTIFIER ::= {apAppsMIBTabularObjects 6}
+
+apAppsNSEPRealmTable    OBJECT-TYPE
+    SYNTAX              SEQUENCE OF ApAppsNSEPRealmEntry
+    MAX-ACCESS          not-accessible
+    STATUS              current
+    DESCRIPTION
+            "A read-only table to hold the NSEP Realm names."
+    ::= { apAppsNSEPRealmMIBObjects 1 }
+
+apAppsNSEPRealmEntry    OBJECT-TYPE
+    SYNTAX              ApAppsNSEPRealmEntry
+    MAX-ACCESS          not-accessible
+    STATUS              current
+    DESCRIPTION
+            "NSEP Realm Entry"
+    INDEX {apNSEPRealmIndex }
+    ::= { apAppsNSEPRealmTable 1 }
+
+ApAppsNSEPRealmEntry ::=
+    SEQUENCE {
+            apNSEPRealmIndex        Integer32,
+            apNSEPRealmName         DisplayString
+    }
+
+apNSEPRealmIndex                OBJECT-TYPE
+    SYNTAX                      Integer32 (0..2147483647)
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "An integer for the sole purpose of indexing the NSEP Realm entry."
+    ::= { apAppsNSEPRealmEntry 1 }
+
+apNSEPRealmName                 OBJECT-TYPE
+    SYNTAX                      DisplayString (SIZE (0..255))
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION
+            "The NSEP Realm name"
+    ::= { apAppsNSEPRealmEntry 2 }
+
+apAppsNSEPRealmRvalueDNTable    OBJECT-TYPE
+    SYNTAX                      SEQUENCE OF ApAppsNSEPRealmRvalueDNEntry
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "A read-only table to hold the R-value/Dialed Number names."
+    ::= { apAppsNSEPRealmMIBObjects 2 }
+
+apAppsNSEPRealmRvalueDNEntry    OBJECT-TYPE
+    SYNTAX                      ApAppsNSEPRealmRvalueDNEntry
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+        "NSEP R-value/Dialed Number Entry"
+    INDEX { apNSEPRealmRvalueDNIndex }
+    ::= { apAppsNSEPRealmRvalueDNTable 1 }
+
+ApAppsNSEPRealmRvalueDNEntry ::=
+    SEQUENCE {
+            apNSEPRealmRvalueDNIndex    ApNSEPRealmRvalueDNIndex,
+            apNSEPRvalueDNName          DisplayString
+    }
+
+apNSEPRealmRvalueDNIndex        OBJECT-TYPE
+    SYNTAX                      ApNSEPRealmRvalueDNIndex
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "An integer for the sole purpose of indexing the NSEP R-value/Dialed Number entry."
+    ::= { apAppsNSEPRealmRvalueDNEntry 1 }
+
+apNSEPRvalueDNName              OBJECT-TYPE
+    SYNTAX                      DisplayString (SIZE (0..255))
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION
+            "The NSEP R-value/Dialed Number name"
+    ::= { apAppsNSEPRealmRvalueDNEntry 2 }
+
+apNSEPRealmRvalueDNStatsTable   OBJECT-TYPE
+    SYNTAX                      SEQUENCE OF ApAppsNSEPRealmRvalueDNStatsEntry
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "A read-only table to hold the NSEP Realm Stats of R-value/Dialed Number."
+    ::= { apAppsNSEPRealmMIBObjects 3 }
+
+apAppsNSEPRealmRvalueDNStatsEntry       OBJECT-TYPE
+    SYNTAX                              ApAppsNSEPRealmRvalueDNStatsEntry
+    MAX-ACCESS                          not-accessible
+    STATUS                              current
+    DESCRIPTION
+            "NSEP Realm Stats Entry"
+    INDEX   {   apNSEPRealmIndex,
+                apNSEPRealmRvalueDNIndex,
+                apNSEPRealmStatsType
+            }
+    ::= { apNSEPRealmRvalueDNStatsTable 1 }
+
+ApAppsNSEPRealmRvalueDNStatsEntry ::=
+    SEQUENCE {
+            apNSEPStatsRealmIndex       Integer32,
+            apNSEPStatsRvalueDNIndex    ApNSEPRealmRvalueDNIndex,
+            apNSEPRealmStatsType        ApNSEPRealmStatsType,
+            apNSEPRealmStats            Gauge32
+}
+
+apNSEPStatsRealmIndex           OBJECT-TYPE
+    SYNTAX                      Integer32
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "The NSEP Realm Index"
+    ::= { apAppsNSEPRealmRvalueDNStatsEntry 1 }
+
+apNSEPStatsRvalueDNIndex        OBJECT-TYPE
+    SYNTAX                      ApNSEPRealmRvalueDNIndex
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "The NSEP Realm R-value/Dialed Number Index"
+    ::= { apAppsNSEPRealmRvalueDNStatsEntry 2 }
+
+apNSEPRealmStatsType            OBJECT-TYPE
+    SYNTAX                      ApNSEPRealmStatsType
+    MAX-ACCESS                  not-accessible
+    STATUS                      current
+    DESCRIPTION
+            "The NSEP Stats Index"
+    ::= { apAppsNSEPRealmRvalueDNStatsEntry 3 }
+
+apNSEPRealmStats                OBJECT-TYPE
+    SYNTAX                      Gauge32
+    MAX-ACCESS                  read-only
+    STATUS                      current
+    DESCRIPTION
+            "The NSEPRealm Stats"
+    ::= { apAppsNSEPRealmRvalueDNStatsEntry 4 }
+
+apNSEPRealmStatsGroup           OBJECT-GROUP
+    OBJECTS{apNSEPRealmName,
+            apNSEPRvalueDNName,
+            apNSEPRealmStats
+    }
+    STATUS                      current
+    DESCRIPTION
+            "Report the name and stats of NSEP ."
+    ::= { apAppsObjectGroups 12 }
 END

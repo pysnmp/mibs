@@ -17,7 +17,7 @@ IMPORTS
 		FROM SNMPv2-SMI;
 
 acmepacketProducts MODULE-IDENTITY
-        LAST-UPDATED	"201905040000Z"
+        LAST-UPDATED	"202003130000Z"
         ORGANIZATION 	"Oracle Communications"
         CONTACT-INFO
 			"           	Customer Service
@@ -29,7 +29,7 @@ acmepacketProducts MODULE-IDENTITY
 			Url:		www.oracle.com
 		 	E-mail:		support@oracle.com"
 	DESCRIPTION
-		"Products supported at Acme Packet."
+		"Products supported at Oracle."
         REVISION    "201207160000Z"
         DESCRIPTION "Updated contact info"
 	REVISION      "200704031500Z"
@@ -44,6 +44,9 @@ acmepacketProducts MODULE-IDENTITY
 	REVISION "201905040000Z"
 	    DESCRIPTION
 			"Added OBJECT-IDENTITY for AP4900"
+	REVISION "202003130000Z"
+	    DESCRIPTION
+			"Added OBJECT-IDENTITY for AP3950"
 	::= { acmepacket 1 }	-- assigned by IANA
 
 
@@ -115,6 +118,12 @@ apNetNet3900 OBJECT-IDENTITY
 	DESCRIPTION
 		"The Net-Net 3900 product." 
 	::= { apNetNet3000Series 3 }
+
+apNetNet3950 OBJECT-IDENTITY
+    STATUS  current
+    DESCRIPTION
+        "The Net-Net 3950 product."
+    ::= { apNetNet3000Series 4 }
 
 apNetNetOSSeries OBJECT-IDENTITY
 	STATUS	current
