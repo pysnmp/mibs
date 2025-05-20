@@ -1,0 +1,644 @@
+ACOS-SYSTEM-CONTROL-CPU-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		systemControlCpuModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "systemControlCpuModule OID for ACOS"
+				::=  {  acosSchema 47 }
+
+controlCpu		 OBJECT IDENTIFIER ::= { systemControlCpuModule 1}
+
+controlCpuStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ControlCpuStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "System control cpu information from object 'system.control-cpu'"
+	::= {controlCpu 1}
+
+controlCpuStatsEntry OBJECT-TYPE
+	SYNTAX ControlCpuStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The controlCpuStats stats entry"
+	INDEX {
+		controlCpuStatsSlotId
+	}
+	::= { controlCpuStatsTable 1 }
+
+ControlCpuStatsEntry ::=
+	SEQUENCE {
+		controlCpuStatsSlotId Integer32,
+		controlCpuStatsCtrlCpuNumber	 CounterBasedGauge64,
+		controlCpuStatsCpu1	 CounterBasedGauge64,
+		controlCpuStatsCpu2	 CounterBasedGauge64,
+		controlCpuStatsCpu3	 CounterBasedGauge64,
+		controlCpuStatsCpu4	 CounterBasedGauge64,
+		controlCpuStatsCpu5	 CounterBasedGauge64,
+		controlCpuStatsCpu6	 CounterBasedGauge64,
+		controlCpuStatsCpu7	 CounterBasedGauge64,
+		controlCpuStatsCpu8	 CounterBasedGauge64,
+		controlCpuStatsCpu9	 CounterBasedGauge64,
+		controlCpuStatsCpu10	 CounterBasedGauge64,
+		controlCpuStatsCpu11	 CounterBasedGauge64,
+		controlCpuStatsCpu12	 CounterBasedGauge64,
+		controlCpuStatsCpu13	 CounterBasedGauge64,
+		controlCpuStatsCpu14	 CounterBasedGauge64,
+		controlCpuStatsCpu15	 CounterBasedGauge64,
+		controlCpuStatsCpu16	 CounterBasedGauge64,
+		controlCpuStatsCpu17	 CounterBasedGauge64,
+		controlCpuStatsCpu18	 CounterBasedGauge64,
+		controlCpuStatsCpu19	 CounterBasedGauge64,
+		controlCpuStatsCpu20	 CounterBasedGauge64,
+		controlCpuStatsCpu21	 CounterBasedGauge64,
+		controlCpuStatsCpu22	 CounterBasedGauge64,
+		controlCpuStatsCpu23	 CounterBasedGauge64,
+		controlCpuStatsCpu24	 CounterBasedGauge64,
+		controlCpuStatsCpu25	 CounterBasedGauge64,
+		controlCpuStatsCpu26	 CounterBasedGauge64,
+		controlCpuStatsCpu27	 CounterBasedGauge64,
+		controlCpuStatsCpu28	 CounterBasedGauge64,
+		controlCpuStatsCpu29	 CounterBasedGauge64,
+		controlCpuStatsCpu30	 CounterBasedGauge64,
+		controlCpuStatsCpu31	 CounterBasedGauge64,
+		controlCpuStatsCpu32	 CounterBasedGauge64,
+		controlCpuStatsCpu33	 CounterBasedGauge64,
+		controlCpuStatsCpu34	 CounterBasedGauge64,
+		controlCpuStatsCpu35	 CounterBasedGauge64,
+		controlCpuStatsCpu36	 CounterBasedGauge64,
+		controlCpuStatsCpu37	 CounterBasedGauge64,
+		controlCpuStatsCpu38	 CounterBasedGauge64,
+		controlCpuStatsCpu39	 CounterBasedGauge64,
+		controlCpuStatsCpu40	 CounterBasedGauge64,
+		controlCpuStatsCpu41	 CounterBasedGauge64,
+		controlCpuStatsCpu42	 CounterBasedGauge64,
+		controlCpuStatsCpu43	 CounterBasedGauge64,
+		controlCpuStatsCpu44	 CounterBasedGauge64,
+		controlCpuStatsCpu45	 CounterBasedGauge64,
+		controlCpuStatsCpu46	 CounterBasedGauge64,
+		controlCpuStatsCpu47	 CounterBasedGauge64,
+		controlCpuStatsCpu48	 CounterBasedGauge64,
+		controlCpuStatsCpu49	 CounterBasedGauge64,
+		controlCpuStatsCpu50	 CounterBasedGauge64,
+		controlCpuStatsCpu51	 CounterBasedGauge64,
+		controlCpuStatsCpu52	 CounterBasedGauge64,
+		controlCpuStatsCpu53	 CounterBasedGauge64,
+		controlCpuStatsCpu54	 CounterBasedGauge64,
+		controlCpuStatsCpu55	 CounterBasedGauge64,
+		controlCpuStatsCpu56	 CounterBasedGauge64,
+		controlCpuStatsCpu57	 CounterBasedGauge64,
+		controlCpuStatsCpu58	 CounterBasedGauge64,
+		controlCpuStatsCpu59	 CounterBasedGauge64,
+		controlCpuStatsCpu60	 CounterBasedGauge64,
+		controlCpuStatsCpu61	 CounterBasedGauge64,
+		controlCpuStatsCpu62	 CounterBasedGauge64,
+		controlCpuStatsCpu63	 CounterBasedGauge64,
+		controlCpuStatsCpu64	 CounterBasedGauge64
+	}
+
+controlCpuStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { controlCpuStatsEntry 1 }
+
+controlCpuStatsCtrlCpuNumber OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ctrl-cpu-number"
+	::= { controlCpuStatsEntry 2 }
+
+controlCpuStatsCpu1 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-1"
+	::= { controlCpuStatsEntry 3 }
+
+controlCpuStatsCpu2 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-2"
+	::= { controlCpuStatsEntry 4 }
+
+controlCpuStatsCpu3 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-3"
+	::= { controlCpuStatsEntry 5 }
+
+controlCpuStatsCpu4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-4"
+	::= { controlCpuStatsEntry 6 }
+
+controlCpuStatsCpu5 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-5"
+	::= { controlCpuStatsEntry 7 }
+
+controlCpuStatsCpu6 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-6"
+	::= { controlCpuStatsEntry 8 }
+
+controlCpuStatsCpu7 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-7"
+	::= { controlCpuStatsEntry 9 }
+
+controlCpuStatsCpu8 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-8"
+	::= { controlCpuStatsEntry 10 }
+
+controlCpuStatsCpu9 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-9"
+	::= { controlCpuStatsEntry 11 }
+
+controlCpuStatsCpu10 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-10"
+	::= { controlCpuStatsEntry 12 }
+
+controlCpuStatsCpu11 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-11"
+	::= { controlCpuStatsEntry 13 }
+
+controlCpuStatsCpu12 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-12"
+	::= { controlCpuStatsEntry 14 }
+
+controlCpuStatsCpu13 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-13"
+	::= { controlCpuStatsEntry 15 }
+
+controlCpuStatsCpu14 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-14"
+	::= { controlCpuStatsEntry 16 }
+
+controlCpuStatsCpu15 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-15"
+	::= { controlCpuStatsEntry 17 }
+
+controlCpuStatsCpu16 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-16"
+	::= { controlCpuStatsEntry 18 }
+
+controlCpuStatsCpu17 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-17"
+	::= { controlCpuStatsEntry 19 }
+
+controlCpuStatsCpu18 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-18"
+	::= { controlCpuStatsEntry 20 }
+
+controlCpuStatsCpu19 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-19"
+	::= { controlCpuStatsEntry 21 }
+
+controlCpuStatsCpu20 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-20"
+	::= { controlCpuStatsEntry 22 }
+
+controlCpuStatsCpu21 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-21"
+	::= { controlCpuStatsEntry 23 }
+
+controlCpuStatsCpu22 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-22"
+	::= { controlCpuStatsEntry 24 }
+
+controlCpuStatsCpu23 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-23"
+	::= { controlCpuStatsEntry 25 }
+
+controlCpuStatsCpu24 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-24"
+	::= { controlCpuStatsEntry 26 }
+
+controlCpuStatsCpu25 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-25"
+	::= { controlCpuStatsEntry 27 }
+
+controlCpuStatsCpu26 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-26"
+	::= { controlCpuStatsEntry 28 }
+
+controlCpuStatsCpu27 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-27"
+	::= { controlCpuStatsEntry 29 }
+
+controlCpuStatsCpu28 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-28"
+	::= { controlCpuStatsEntry 30 }
+
+controlCpuStatsCpu29 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-29"
+	::= { controlCpuStatsEntry 31 }
+
+controlCpuStatsCpu30 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-30"
+	::= { controlCpuStatsEntry 32 }
+
+controlCpuStatsCpu31 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-31"
+	::= { controlCpuStatsEntry 33 }
+
+controlCpuStatsCpu32 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-32"
+	::= { controlCpuStatsEntry 34 }
+
+controlCpuStatsCpu33 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-33"
+	::= { controlCpuStatsEntry 35 }
+
+controlCpuStatsCpu34 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-34"
+	::= { controlCpuStatsEntry 36 }
+
+controlCpuStatsCpu35 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-35"
+	::= { controlCpuStatsEntry 37 }
+
+controlCpuStatsCpu36 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-36"
+	::= { controlCpuStatsEntry 38 }
+
+controlCpuStatsCpu37 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-37"
+	::= { controlCpuStatsEntry 39 }
+
+controlCpuStatsCpu38 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-38"
+	::= { controlCpuStatsEntry 40 }
+
+controlCpuStatsCpu39 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-39"
+	::= { controlCpuStatsEntry 41 }
+
+controlCpuStatsCpu40 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-40"
+	::= { controlCpuStatsEntry 42 }
+
+controlCpuStatsCpu41 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-41"
+	::= { controlCpuStatsEntry 43 }
+
+controlCpuStatsCpu42 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-42"
+	::= { controlCpuStatsEntry 44 }
+
+controlCpuStatsCpu43 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-43"
+	::= { controlCpuStatsEntry 45 }
+
+controlCpuStatsCpu44 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-44"
+	::= { controlCpuStatsEntry 46 }
+
+controlCpuStatsCpu45 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-45"
+	::= { controlCpuStatsEntry 47 }
+
+controlCpuStatsCpu46 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-46"
+	::= { controlCpuStatsEntry 48 }
+
+controlCpuStatsCpu47 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-47"
+	::= { controlCpuStatsEntry 49 }
+
+controlCpuStatsCpu48 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-48"
+	::= { controlCpuStatsEntry 50 }
+
+controlCpuStatsCpu49 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-49"
+	::= { controlCpuStatsEntry 51 }
+
+controlCpuStatsCpu50 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-50"
+	::= { controlCpuStatsEntry 52 }
+
+controlCpuStatsCpu51 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-51"
+	::= { controlCpuStatsEntry 53 }
+
+controlCpuStatsCpu52 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-52"
+	::= { controlCpuStatsEntry 54 }
+
+controlCpuStatsCpu53 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-53"
+	::= { controlCpuStatsEntry 55 }
+
+controlCpuStatsCpu54 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-54"
+	::= { controlCpuStatsEntry 56 }
+
+controlCpuStatsCpu55 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-55"
+	::= { controlCpuStatsEntry 57 }
+
+controlCpuStatsCpu56 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-56"
+	::= { controlCpuStatsEntry 58 }
+
+controlCpuStatsCpu57 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-57"
+	::= { controlCpuStatsEntry 59 }
+
+controlCpuStatsCpu58 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-58"
+	::= { controlCpuStatsEntry 60 }
+
+controlCpuStatsCpu59 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-59"
+	::= { controlCpuStatsEntry 61 }
+
+controlCpuStatsCpu60 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-60"
+	::= { controlCpuStatsEntry 62 }
+
+controlCpuStatsCpu61 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-61"
+	::= { controlCpuStatsEntry 63 }
+
+controlCpuStatsCpu62 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-62"
+	::= { controlCpuStatsEntry 64 }
+
+controlCpuStatsCpu63 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-63"
+	::= { controlCpuStatsEntry 65 }
+
+controlCpuStatsCpu64 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cpu-64"
+	::= { controlCpuStatsEntry 66 }
+
+END
+

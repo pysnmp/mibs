@@ -1,0 +1,626 @@
+ACOS-CGNV6-L4-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		cgnv6L4Module MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "cgnv6L4Module OID for ACOS"
+				::=  {  acosSchema 417 }
+
+l4		 OBJECT IDENTIFIER ::= { cgnv6L4Module 1}
+
+l4StatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF L4StatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "CGNV6 L4 Statistics from object 'cgnv6.l4'"
+	::= {l4 1}
+
+l4StatsEntry OBJECT-TYPE
+	SYNTAX L4StatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The l4Stats stats entry"
+	INDEX {
+		l4StatsSlotId
+	}
+	::= { l4StatsTable 1 }
+
+L4StatsEntry ::=
+	SEQUENCE {
+		l4StatsSlotId Integer32,
+		l4StatsNoFwdRoute	 CounterBasedGauge64,
+		l4StatsNoRevRoute	 CounterBasedGauge64,
+		l4StatsOutOfSessionMemory	 CounterBasedGauge64,
+		l4StatsTcpRstSent	 CounterBasedGauge64,
+		l4StatsIpipIcmpReplySent	 CounterBasedGauge64,
+		l4StatsIcmpFilteredSent	 CounterBasedGauge64,
+		l4StatsIcmpHostUnreachableSent	 CounterBasedGauge64,
+		l4StatsIcmpReplyNoSessionDrop	 CounterBasedGauge64,
+		l4StatsIpipTruncated	 CounterBasedGauge64,
+		l4StatsIpSrcInvalidUnicast	 CounterBasedGauge64,
+		l4StatsIpDstInvalidUnicast	 CounterBasedGauge64,
+		l4StatsIpv6SrcInvalidUnicast	 CounterBasedGauge64,
+		l4StatsIpv6DstInvalidUnicast	 CounterBasedGauge64,
+		l4StatsRateDropResetUnkn	 CounterBasedGauge64,
+		l4StatsBadL3Protocol	 CounterBasedGauge64,
+		l4StatsSpecialIpv4NoRoute	 CounterBasedGauge64,
+		l4StatsSpecialIpv6NoRoute	 CounterBasedGauge64,
+		l4StatsIcmpReplySent	 CounterBasedGauge64,
+		l4StatsIcmpv6ReplySent	 CounterBasedGauge64,
+		l4StatsOutOfStateDropped	 CounterBasedGauge64,
+		l4StatsTtlExceededSent	 CounterBasedGauge64,
+		l4StatsCrossCpuAlgGreNoMatch	 CounterBasedGauge64,
+		l4StatsCrossCpuAlgGrePreprocessErr	 CounterBasedGauge64,
+		l4StatsLsnFastSetup	 CounterBasedGauge64,
+		l4StatsLsnFastSetupErr	 CounterBasedGauge64,
+		l4StatsNat64FastSetup	 CounterBasedGauge64,
+		l4StatsNat64FastSetupErr	 CounterBasedGauge64,
+		l4StatsDsliteFastSetup	 CounterBasedGauge64,
+		l4StatsDsliteFastSetupErr	 CounterBasedGauge64,
+		l4StatsFastSetupDelayedErr	 CounterBasedGauge64,
+		l4StatsFastSetupMtuTooSmall	 CounterBasedGauge64,
+		l4StatsFixedNat44FastSetup	 CounterBasedGauge64,
+		l4StatsFixedNat44FastSetupErr	 CounterBasedGauge64,
+		l4StatsFixedNat64FastSetup	 CounterBasedGauge64,
+		l4StatsFixedNat64FastSetupErr	 CounterBasedGauge64,
+		l4StatsFixedNatDsliteFastSetup	 CounterBasedGauge64,
+		l4StatsFixedNatDsliteFastSetupErr	 CounterBasedGauge64,
+		l4StatsFixedNatFastSetupDelayedErr	 CounterBasedGauge64,
+		l4StatsFixedNatFastSetupMtuTooSmall	 CounterBasedGauge64,
+		l4StatsStaticNatFastSetup	 CounterBasedGauge64,
+		l4StatsStaticNatFastSetupErr	 CounterBasedGauge64,
+		l4StatsDstNatNeededDrop	 CounterBasedGauge64,
+		l4StatsInvalidNat64TranslatedAddr	 CounterBasedGauge64,
+		l4StatsTcpRstLoopDrop	 CounterBasedGauge64,
+		l4StatsStaticNatAlloc	 CounterBasedGauge64,
+		l4StatsStaticNatFree	 CounterBasedGauge64,
+		l4StatsProcessL4	 CounterBasedGauge64,
+		l4StatsPreprocessError	 CounterBasedGauge64,
+		l4StatsProcessSpecial	 CounterBasedGauge64,
+		l4StatsProcessContinue	 CounterBasedGauge64,
+		l4StatsProcessError	 CounterBasedGauge64,
+		l4StatsFwMatchNoRuleDrop	 CounterBasedGauge64,
+		l4StatsIpUnknownProcess	 CounterBasedGauge64,
+		l4StatsSrcNatPoolNotFound	 CounterBasedGauge64,
+		l4StatsDstNatPoolNotFound	 CounterBasedGauge64,
+		l4StatsL3IpSrcInvalidUnicast	 CounterBasedGauge64,
+		l4StatsL3IpDstInvalidUnicast	 CounterBasedGauge64,
+		l4StatsL3Ipv6SrcInvalidUnicast	 CounterBasedGauge64,
+		l4StatsL3Ipv6DstInvalidUnicast	 CounterBasedGauge64,
+		l4StatsFwZoneMismatchReroutingDrop	 CounterBasedGauge64,
+		l4StatsNatRangeListAclDeny	 CounterBasedGauge64,
+		l4StatsNatRangeListAclPermit	 CounterBasedGauge64,
+		l4StatsFwNextActionIncorrectDrop	 CounterBasedGauge64
+	}
+
+l4StatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { l4StatsEntry 1 }
+
+l4StatsNoFwdRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "no-fwd-route"
+	::= { l4StatsEntry 2 }
+
+l4StatsNoRevRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "no-rev-route"
+	::= { l4StatsEntry 3 }
+
+l4StatsOutOfSessionMemory OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "out-of-session-memory"
+	::= { l4StatsEntry 4 }
+
+l4StatsTcpRstSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-rst-sent"
+	::= { l4StatsEntry 5 }
+
+l4StatsIpipIcmpReplySent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipip-icmp-reply-sent"
+	::= { l4StatsEntry 6 }
+
+l4StatsIcmpFilteredSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-filtered-sent"
+	::= { l4StatsEntry 7 }
+
+l4StatsIcmpHostUnreachableSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-host-unreachable-sent"
+	::= { l4StatsEntry 8 }
+
+l4StatsIcmpReplyNoSessionDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-reply-no-session-drop"
+	::= { l4StatsEntry 9 }
+
+l4StatsIpipTruncated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipip-truncated"
+	::= { l4StatsEntry 10 }
+
+l4StatsIpSrcInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-src-invalid-unicast"
+	::= { l4StatsEntry 11 }
+
+l4StatsIpDstInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-dst-invalid-unicast"
+	::= { l4StatsEntry 12 }
+
+l4StatsIpv6SrcInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-src-invalid-unicast"
+	::= { l4StatsEntry 13 }
+
+l4StatsIpv6DstInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-dst-invalid-unicast"
+	::= { l4StatsEntry 14 }
+
+l4StatsRateDropResetUnkn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rate_drop_reset_unkn"
+	::= { l4StatsEntry 15 }
+
+l4StatsBadL3Protocol OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bad-l3-protocol"
+	::= { l4StatsEntry 16 }
+
+l4StatsSpecialIpv4NoRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "special-ipv4-no-route"
+	::= { l4StatsEntry 17 }
+
+l4StatsSpecialIpv6NoRoute OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "special-ipv6-no-route"
+	::= { l4StatsEntry 18 }
+
+l4StatsIcmpReplySent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-reply-sent"
+	::= { l4StatsEntry 19 }
+
+l4StatsIcmpv6ReplySent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-reply-sent"
+	::= { l4StatsEntry 20 }
+
+l4StatsOutOfStateDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "out-of-state-dropped"
+	::= { l4StatsEntry 21 }
+
+l4StatsTtlExceededSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ttl-exceeded-sent"
+	::= { l4StatsEntry 22 }
+
+l4StatsCrossCpuAlgGreNoMatch OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cross-cpu-alg-gre-no-match"
+	::= { l4StatsEntry 23 }
+
+l4StatsCrossCpuAlgGrePreprocessErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cross-cpu-alg-gre-preprocess-err"
+	::= { l4StatsEntry 24 }
+
+l4StatsLsnFastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "lsn-fast-setup"
+	::= { l4StatsEntry 25 }
+
+l4StatsLsnFastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "lsn-fast-setup-err"
+	::= { l4StatsEntry 26 }
+
+l4StatsNat64FastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat64-fast-setup"
+	::= { l4StatsEntry 27 }
+
+l4StatsNat64FastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat64-fast-setup-err"
+	::= { l4StatsEntry 28 }
+
+l4StatsDsliteFastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dslite-fast-setup"
+	::= { l4StatsEntry 29 }
+
+l4StatsDsliteFastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dslite-fast-setup-err"
+	::= { l4StatsEntry 30 }
+
+l4StatsFastSetupDelayedErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fast-setup-delayed-err"
+	::= { l4StatsEntry 31 }
+
+l4StatsFastSetupMtuTooSmall OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fast-setup-mtu-too-small"
+	::= { l4StatsEntry 32 }
+
+l4StatsFixedNat44FastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat44-fast-setup"
+	::= { l4StatsEntry 33 }
+
+l4StatsFixedNat44FastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat44-fast-setup-err"
+	::= { l4StatsEntry 34 }
+
+l4StatsFixedNat64FastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat64-fast-setup"
+	::= { l4StatsEntry 35 }
+
+l4StatsFixedNat64FastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat64-fast-setup-err"
+	::= { l4StatsEntry 36 }
+
+l4StatsFixedNatDsliteFastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-dslite-fast-setup"
+	::= { l4StatsEntry 37 }
+
+l4StatsFixedNatDsliteFastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-dslite-fast-setup-err"
+	::= { l4StatsEntry 38 }
+
+l4StatsFixedNatFastSetupDelayedErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-fast-setup-delayed-err"
+	::= { l4StatsEntry 39 }
+
+l4StatsFixedNatFastSetupMtuTooSmall OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-fast-setup-mtu-too-small"
+	::= { l4StatsEntry 40 }
+
+l4StatsStaticNatFastSetup OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-nat-fast-setup"
+	::= { l4StatsEntry 41 }
+
+l4StatsStaticNatFastSetupErr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-nat-fast-setup-err"
+	::= { l4StatsEntry 42 }
+
+l4StatsDstNatNeededDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dst-nat-needed-drop"
+	::= { l4StatsEntry 43 }
+
+l4StatsInvalidNat64TranslatedAddr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid-nat64-translated-addr"
+	::= { l4StatsEntry 44 }
+
+l4StatsTcpRstLoopDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-rst-loop-drop"
+	::= { l4StatsEntry 45 }
+
+l4StatsStaticNatAlloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-nat-alloc"
+	::= { l4StatsEntry 46 }
+
+l4StatsStaticNatFree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "static-nat-free"
+	::= { l4StatsEntry 47 }
+
+l4StatsProcessL4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "process-l4"
+	::= { l4StatsEntry 48 }
+
+l4StatsPreprocessError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "preprocess-error"
+	::= { l4StatsEntry 49 }
+
+l4StatsProcessSpecial OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "process-special"
+	::= { l4StatsEntry 50 }
+
+l4StatsProcessContinue OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "process-continue"
+	::= { l4StatsEntry 51 }
+
+l4StatsProcessError OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "process-error"
+	::= { l4StatsEntry 52 }
+
+l4StatsFwMatchNoRuleDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fw-match-no-rule-drop"
+	::= { l4StatsEntry 53 }
+
+l4StatsIpUnknownProcess OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip-unknown-process"
+	::= { l4StatsEntry 54 }
+
+l4StatsSrcNatPoolNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "src-nat-pool-not-found"
+	::= { l4StatsEntry 55 }
+
+l4StatsDstNatPoolNotFound OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dst-nat-pool-not-found"
+	::= { l4StatsEntry 56 }
+
+l4StatsL3IpSrcInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3-ip-src-invalid-unicast"
+	::= { l4StatsEntry 57 }
+
+l4StatsL3IpDstInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3-ip-dst-invalid-unicast"
+	::= { l4StatsEntry 58 }
+
+l4StatsL3Ipv6SrcInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3-ipv6-src-invalid-unicast"
+	::= { l4StatsEntry 59 }
+
+l4StatsL3Ipv6DstInvalidUnicast OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "l3-ipv6-dst-invalid-unicast"
+	::= { l4StatsEntry 60 }
+
+l4StatsFwZoneMismatchReroutingDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fw-zone-mismatch-rerouting-drop"
+	::= { l4StatsEntry 61 }
+
+l4StatsNatRangeListAclDeny OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat-range-list-acl-deny"
+	::= { l4StatsEntry 62 }
+
+l4StatsNatRangeListAclPermit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "nat-range-list-acl-permit"
+	::= { l4StatsEntry 63 }
+
+l4StatsFwNextActionIncorrectDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fw-next-action-incorrect-drop"
+	::= { l4StatsEntry 64 }
+
+END
+

@@ -1,0 +1,128 @@
+ACOS-VRRPA-HOSTID-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpAHostidModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpAHostidModule OID for ACOS"
+				::=  {  acosSchema 10 }
+
+hostid		 OBJECT IDENTIFIER ::= { vrrpAHostidModule 1}
+
+hostidOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF HostidOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "vrrp-a device serial number or softax UUID from object 'vrrp-a.hostid'"
+	::= {hostid 2}
+
+hostidOperEntry OBJECT-TYPE
+	SYNTAX HostidOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The hostidOper entry"
+	INDEX {
+		hostidOperSlotId
+	}
+	::= { hostidOperTable 1 }
+
+HostidOperEntry ::=
+	SEQUENCE {
+		hostidOperSlotId Integer32,
+		hostidOperSetID	 Integer32
+	}
+
+hostidOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { hostidOperEntry 1 }
+
+hostidOperSetID OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "set_ID"
+	::= { hostidOperEntry 2 }
+
+hostidOperHostidListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF HostidOperHostidListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "vrrp-a device serial number or softax UUID from object 'vrrp-a.hostid'"
+	::= {hostid 3}
+
+hostidOperHostidListEntry OBJECT-TYPE
+	SYNTAX HostidOperHostidListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The hostidOperHostidList entry:hostid-list"
+	INDEX {
+		hostidOperHostidListSlotId,
+		hostidOperHostidListHostidListListId
+	}
+	::= { hostidOperHostidListTable 1}
+
+HostidOperHostidListEntry ::=
+	SEQUENCE {
+		hostidOperHostidListSlotId Integer32,
+		hostidOperHostidListHostidListListId Integer32,
+		hostidOperHostidListDeviceID	Integer32,
+		hostidOperHostidListSN	DisplayString
+	}
+
+hostidOperHostidListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { hostidOperHostidListEntry 1}
+
+hostidOperHostidListHostidListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { hostidOperHostidListEntry 2}
+
+hostidOperHostidListDeviceID OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"device_ID"
+	::= { hostidOperHostidListEntry 3}
+
+hostidOperHostidListSN OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"SN"
+	::= { hostidOperHostidListEntry 4}
+
+END
+

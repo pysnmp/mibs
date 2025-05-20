@@ -1,0 +1,1042 @@
+ACOS-CGNV6-LOGGING-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		cgnv6LoggingModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "cgnv6LoggingModule OID for ACOS"
+				::=  {  acosSchema 416 }
+
+logging		 OBJECT IDENTIFIER ::= { cgnv6LoggingModule 1}
+
+loggingStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF LoggingStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "CGNV6 Logging Statistics from object 'cgnv6.logging'"
+	::= {logging 1}
+
+loggingStatsEntry OBJECT-TYPE
+	SYNTAX LoggingStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The loggingStats stats entry"
+	INDEX {
+		loggingStatsSlotId
+	}
+	::= { loggingStatsTable 1 }
+
+LoggingStatsEntry ::=
+	SEQUENCE {
+		loggingStatsSlotId Integer32,
+		loggingStatsTcpSessionCreated	 CounterBasedGauge64,
+		loggingStatsTcpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsTcpPortAllocated	 CounterBasedGauge64,
+		loggingStatsTcpPortFreed	 CounterBasedGauge64,
+		loggingStatsTcpPortBatchAllocated	 CounterBasedGauge64,
+		loggingStatsTcpPortBatchFreed	 CounterBasedGauge64,
+		loggingStatsUdpSessionCreated	 CounterBasedGauge64,
+		loggingStatsUdpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsUdpPortAllocated	 CounterBasedGauge64,
+		loggingStatsUdpPortFreed	 CounterBasedGauge64,
+		loggingStatsUdpPortBatchAllocated	 CounterBasedGauge64,
+		loggingStatsUdpPortBatchFreed	 CounterBasedGauge64,
+		loggingStatsIcmpSessionCreated	 CounterBasedGauge64,
+		loggingStatsIcmpSessionDeleted	 CounterBasedGauge64,
+		loggingStatsIcmpResourceAllocated	 CounterBasedGauge64,
+		loggingStatsIcmpResourceFreed	 CounterBasedGauge64,
+		loggingStatsIcmpv6SessionCreated	 CounterBasedGauge64,
+		loggingStatsIcmpv6SessionDeleted	 CounterBasedGauge64,
+		loggingStatsIcmpv6ResourceAllocated	 CounterBasedGauge64,
+		loggingStatsIcmpv6ResourceFreed	 CounterBasedGauge64,
+		loggingStatsGreSessionCreated	 CounterBasedGauge64,
+		loggingStatsGreSessionDeleted	 CounterBasedGauge64,
+		loggingStatsGreResourceAllocated	 CounterBasedGauge64,
+		loggingStatsGreResourceFreed	 CounterBasedGauge64,
+		loggingStatsEspSessionCreated	 CounterBasedGauge64,
+		loggingStatsEspSessionDeleted	 CounterBasedGauge64,
+		loggingStatsEspResourceAllocated	 CounterBasedGauge64,
+		loggingStatsEspResourceFreed	 CounterBasedGauge64,
+		loggingStatsFixedNatUserPorts	 CounterBasedGauge64,
+		loggingStatsFixedNatDisableConfigLogged	 CounterBasedGauge64,
+		loggingStatsFixedNatDisableConfigLogsSent	 CounterBasedGauge64,
+		loggingStatsFixedNatPeriodicConfigLogsSent	 CounterBasedGauge64,
+		loggingStatsFixedNatPeriodicConfigLogged	 CounterBasedGauge64,
+		loggingStatsFixedNatInterimUpdated	 CounterBasedGauge64,
+		loggingStatsEnhancedUserLog	 CounterBasedGauge64,
+		loggingStatsLogSent	 CounterBasedGauge64,
+		loggingStatsLogDropped	 CounterBasedGauge64,
+		loggingStatsConnTcpEstablished	 CounterBasedGauge64,
+		loggingStatsConnTcpDropped	 CounterBasedGauge64,
+		loggingStatsTcpPortOverloadingAllocated	 CounterBasedGauge64,
+		loggingStatsTcpPortOverloadingFreed	 CounterBasedGauge64,
+		loggingStatsUdpPortOverloadingAllocated	 CounterBasedGauge64,
+		loggingStatsUdpPortOverloadingFreed	 CounterBasedGauge64,
+		loggingStatsHttpRequestLogged	 CounterBasedGauge64,
+		loggingStatsReducedLogsByDestination	 CounterBasedGauge64,
+		loggingStatsOutOfBuffers	 CounterBasedGauge64,
+		loggingStatsAddMsgFailed	 CounterBasedGauge64,
+		loggingStatsRtspPortAllocated	 CounterBasedGauge64,
+		loggingStatsRtspPortFreed	 CounterBasedGauge64,
+		loggingStatsConnTcpCreateFailed	 CounterBasedGauge64,
+		loggingStatsIpv4FragApplied	 CounterBasedGauge64,
+		loggingStatsIpv4FragFailed	 CounterBasedGauge64,
+		loggingStatsIpv6FragApplied	 CounterBasedGauge64,
+		loggingStatsIpv6FragFailed	 CounterBasedGauge64,
+		loggingStatsInterimUpdateScheduled	 CounterBasedGauge64,
+		loggingStatsInterimUpdateScheduleFailed	 CounterBasedGauge64,
+		loggingStatsInterimUpdateTerminated	 CounterBasedGauge64,
+		loggingStatsInterimUpdateMemoryFreed	 CounterBasedGauge64,
+		loggingStatsInterimUpdateNoBuffRetried	 CounterBasedGauge64,
+		loggingStatsTcpPortBatchInterimUpdated	 CounterBasedGauge64,
+		loggingStatsUdpPortBatchInterimUpdated	 CounterBasedGauge64,
+		loggingStatsPortBlockAccountingFreed	 CounterBasedGauge64,
+		loggingStatsPortBlockAccountingAllocated	 CounterBasedGauge64,
+		loggingStatsLogMessageTooLong	 CounterBasedGauge64,
+		loggingStatsHttpOutOfOrderDropped	 CounterBasedGauge64,
+		loggingStatsHttpAllocFailed	 CounterBasedGauge64,
+		loggingStatsHttpFragMergeFailedDropped	 CounterBasedGauge64,
+		loggingStatsHttpMalloc	 CounterBasedGauge64,
+		loggingStatsHttpMfree	 CounterBasedGauge64,
+		loggingStatsHttpSpmAllocType0	 CounterBasedGauge64,
+		loggingStatsHttpSpmAllocType1	 CounterBasedGauge64,
+		loggingStatsHttpSpmAllocType2	 CounterBasedGauge64,
+		loggingStatsHttpSpmAllocType3	 CounterBasedGauge64,
+		loggingStatsHttpSpmAllocType4	 CounterBasedGauge64,
+		loggingStatsHttpSpmFreeType0	 CounterBasedGauge64,
+		loggingStatsHttpSpmFreeType1	 CounterBasedGauge64,
+		loggingStatsHttpSpmFreeType2	 CounterBasedGauge64,
+		loggingStatsHttpSpmFreeType3	 CounterBasedGauge64,
+		loggingStatsHttpSpmFreeType4	 CounterBasedGauge64,
+		loggingStatsIddosL3EntryCreate	 CounterBasedGauge64,
+		loggingStatsIddosL3EntryDelete	 CounterBasedGauge64,
+		loggingStatsIddosL4EntryCreate	 CounterBasedGauge64,
+		loggingStatsIddosL4EntryDelete	 CounterBasedGauge64
+	}
+
+loggingStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { loggingStatsEntry 1 }
+
+loggingStatsTcpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-session-created"
+	::= { loggingStatsEntry 2 }
+
+loggingStatsTcpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-session-deleted"
+	::= { loggingStatsEntry 3 }
+
+loggingStatsTcpPortAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-allocated"
+	::= { loggingStatsEntry 4 }
+
+loggingStatsTcpPortFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-freed"
+	::= { loggingStatsEntry 5 }
+
+loggingStatsTcpPortBatchAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-batch-allocated"
+	::= { loggingStatsEntry 6 }
+
+loggingStatsTcpPortBatchFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-batch-freed"
+	::= { loggingStatsEntry 7 }
+
+loggingStatsUdpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-session-created"
+	::= { loggingStatsEntry 8 }
+
+loggingStatsUdpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-session-deleted"
+	::= { loggingStatsEntry 9 }
+
+loggingStatsUdpPortAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-allocated"
+	::= { loggingStatsEntry 10 }
+
+loggingStatsUdpPortFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-freed"
+	::= { loggingStatsEntry 11 }
+
+loggingStatsUdpPortBatchAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-batch-allocated"
+	::= { loggingStatsEntry 12 }
+
+loggingStatsUdpPortBatchFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-batch-freed"
+	::= { loggingStatsEntry 13 }
+
+loggingStatsIcmpSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-session-created"
+	::= { loggingStatsEntry 14 }
+
+loggingStatsIcmpSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-session-deleted"
+	::= { loggingStatsEntry 15 }
+
+loggingStatsIcmpResourceAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-resource-allocated"
+	::= { loggingStatsEntry 16 }
+
+loggingStatsIcmpResourceFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmp-resource-freed"
+	::= { loggingStatsEntry 17 }
+
+loggingStatsIcmpv6SessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-session-created"
+	::= { loggingStatsEntry 18 }
+
+loggingStatsIcmpv6SessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-session-deleted"
+	::= { loggingStatsEntry 19 }
+
+loggingStatsIcmpv6ResourceAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-resource-allocated"
+	::= { loggingStatsEntry 20 }
+
+loggingStatsIcmpv6ResourceFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "icmpv6-resource-freed"
+	::= { loggingStatsEntry 21 }
+
+loggingStatsGreSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gre-session-created"
+	::= { loggingStatsEntry 22 }
+
+loggingStatsGreSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gre-session-deleted"
+	::= { loggingStatsEntry 23 }
+
+loggingStatsGreResourceAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gre-resource-allocated"
+	::= { loggingStatsEntry 24 }
+
+loggingStatsGreResourceFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "gre-resource-freed"
+	::= { loggingStatsEntry 25 }
+
+loggingStatsEspSessionCreated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "esp-session-created"
+	::= { loggingStatsEntry 26 }
+
+loggingStatsEspSessionDeleted OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "esp-session-deleted"
+	::= { loggingStatsEntry 27 }
+
+loggingStatsEspResourceAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "esp-resource-allocated"
+	::= { loggingStatsEntry 28 }
+
+loggingStatsEspResourceFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "esp-resource-freed"
+	::= { loggingStatsEntry 29 }
+
+loggingStatsFixedNatUserPorts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-user-ports"
+	::= { loggingStatsEntry 30 }
+
+loggingStatsFixedNatDisableConfigLogged OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-disable-config-logged"
+	::= { loggingStatsEntry 31 }
+
+loggingStatsFixedNatDisableConfigLogsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-disable-config-logs-sent"
+	::= { loggingStatsEntry 32 }
+
+loggingStatsFixedNatPeriodicConfigLogsSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-periodic-config-logs-sent"
+	::= { loggingStatsEntry 33 }
+
+loggingStatsFixedNatPeriodicConfigLogged OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-periodic-config-logged"
+	::= { loggingStatsEntry 34 }
+
+loggingStatsFixedNatInterimUpdated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fixed-nat-interim-updated"
+	::= { loggingStatsEntry 35 }
+
+loggingStatsEnhancedUserLog OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "enhanced-user-log"
+	::= { loggingStatsEntry 36 }
+
+loggingStatsLogSent OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log-sent"
+	::= { loggingStatsEntry 37 }
+
+loggingStatsLogDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log-dropped"
+	::= { loggingStatsEntry 38 }
+
+loggingStatsConnTcpEstablished OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn-tcp-established"
+	::= { loggingStatsEntry 39 }
+
+loggingStatsConnTcpDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn-tcp-dropped"
+	::= { loggingStatsEntry 40 }
+
+loggingStatsTcpPortOverloadingAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-overloading-allocated"
+	::= { loggingStatsEntry 41 }
+
+loggingStatsTcpPortOverloadingFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-overloading-freed"
+	::= { loggingStatsEntry 42 }
+
+loggingStatsUdpPortOverloadingAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-overloading-allocated"
+	::= { loggingStatsEntry 43 }
+
+loggingStatsUdpPortOverloadingFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-overloading-freed"
+	::= { loggingStatsEntry 44 }
+
+loggingStatsHttpRequestLogged OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-request-logged"
+	::= { loggingStatsEntry 45 }
+
+loggingStatsReducedLogsByDestination OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reduced-logs-by-destination"
+	::= { loggingStatsEntry 46 }
+
+loggingStatsOutOfBuffers OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "out-of-buffers"
+	::= { loggingStatsEntry 47 }
+
+loggingStatsAddMsgFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "add-msg-failed"
+	::= { loggingStatsEntry 48 }
+
+loggingStatsRtspPortAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rtsp-port-allocated"
+	::= { loggingStatsEntry 49 }
+
+loggingStatsRtspPortFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rtsp-port-freed"
+	::= { loggingStatsEntry 50 }
+
+loggingStatsConnTcpCreateFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn-tcp-create-failed"
+	::= { loggingStatsEntry 51 }
+
+loggingStatsIpv4FragApplied OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-frag-applied"
+	::= { loggingStatsEntry 52 }
+
+loggingStatsIpv4FragFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv4-frag-failed"
+	::= { loggingStatsEntry 53 }
+
+loggingStatsIpv6FragApplied OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-frag-applied"
+	::= { loggingStatsEntry 54 }
+
+loggingStatsIpv6FragFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ipv6-frag-failed"
+	::= { loggingStatsEntry 55 }
+
+loggingStatsInterimUpdateScheduled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "interim-update-scheduled"
+	::= { loggingStatsEntry 56 }
+
+loggingStatsInterimUpdateScheduleFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "interim-update-schedule-failed"
+	::= { loggingStatsEntry 57 }
+
+loggingStatsInterimUpdateTerminated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "interim-update-terminated"
+	::= { loggingStatsEntry 58 }
+
+loggingStatsInterimUpdateMemoryFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "interim-update-memory-freed"
+	::= { loggingStatsEntry 59 }
+
+loggingStatsInterimUpdateNoBuffRetried OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "interim-update-no-buff-retried"
+	::= { loggingStatsEntry 60 }
+
+loggingStatsTcpPortBatchInterimUpdated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tcp-port-batch-interim-updated"
+	::= { loggingStatsEntry 61 }
+
+loggingStatsUdpPortBatchInterimUpdated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "udp-port-batch-interim-updated"
+	::= { loggingStatsEntry 62 }
+
+loggingStatsPortBlockAccountingFreed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-block-accounting-freed"
+	::= { loggingStatsEntry 63 }
+
+loggingStatsPortBlockAccountingAllocated OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-block-accounting-allocated"
+	::= { loggingStatsEntry 64 }
+
+loggingStatsLogMessageTooLong OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "log-message-too-long"
+	::= { loggingStatsEntry 65 }
+
+loggingStatsHttpOutOfOrderDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-out-of-order-dropped"
+	::= { loggingStatsEntry 66 }
+
+loggingStatsHttpAllocFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-alloc-failed"
+	::= { loggingStatsEntry 67 }
+
+loggingStatsHttpFragMergeFailedDropped OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-frag-merge-failed-dropped"
+	::= { loggingStatsEntry 68 }
+
+loggingStatsHttpMalloc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-malloc"
+	::= { loggingStatsEntry 69 }
+
+loggingStatsHttpMfree OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-mfree"
+	::= { loggingStatsEntry 70 }
+
+loggingStatsHttpSpmAllocType0 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-alloc-type0"
+	::= { loggingStatsEntry 71 }
+
+loggingStatsHttpSpmAllocType1 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-alloc-type1"
+	::= { loggingStatsEntry 72 }
+
+loggingStatsHttpSpmAllocType2 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-alloc-type2"
+	::= { loggingStatsEntry 73 }
+
+loggingStatsHttpSpmAllocType3 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-alloc-type3"
+	::= { loggingStatsEntry 74 }
+
+loggingStatsHttpSpmAllocType4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-alloc-type4"
+	::= { loggingStatsEntry 75 }
+
+loggingStatsHttpSpmFreeType0 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-free-type0"
+	::= { loggingStatsEntry 76 }
+
+loggingStatsHttpSpmFreeType1 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-free-type1"
+	::= { loggingStatsEntry 77 }
+
+loggingStatsHttpSpmFreeType2 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-free-type2"
+	::= { loggingStatsEntry 78 }
+
+loggingStatsHttpSpmFreeType3 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-free-type3"
+	::= { loggingStatsEntry 79 }
+
+loggingStatsHttpSpmFreeType4 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "http-spm-free-type4"
+	::= { loggingStatsEntry 80 }
+
+loggingStatsIddosL3EntryCreate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "iddos-l3-entry-create"
+	::= { loggingStatsEntry 81 }
+
+loggingStatsIddosL3EntryDelete OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "iddos-l3-entry-delete"
+	::= { loggingStatsEntry 82 }
+
+loggingStatsIddosL4EntryCreate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "iddos-l4-entry-create"
+	::= { loggingStatsEntry 83 }
+
+loggingStatsIddosL4EntryDelete OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "iddos-l4-entry-delete"
+	::= { loggingStatsEntry 84 }
+
+sourceAddress		 OBJECT IDENTIFIER ::= { logging 2}
+
+sourceAddressOperSourceAddressListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SourceAddressOperSourceAddressListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.logging.source-address'"
+	::= {sourceAddress 2}
+
+sourceAddressOperSourceAddressListEntry OBJECT-TYPE
+	SYNTAX SourceAddressOperSourceAddressListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The sourceAddressOperSourceAddressList entry:source-address-list"
+	INDEX {
+		sourceAddressOperSourceAddressListSlotId,
+		sourceAddressOperSourceAddressListSourceAddressListListId
+	}
+	::= { sourceAddressOperSourceAddressListTable 1}
+
+SourceAddressOperSourceAddressListEntry ::=
+	SEQUENCE {
+		sourceAddressOperSourceAddressListSlotId Integer32,
+		sourceAddressOperSourceAddressListSourceAddressListListId Integer32,
+		sourceAddressOperSourceAddressListSourceAddress	DisplayString,
+		sourceAddressOperSourceAddressListRefCount	Integer32,
+		sourceAddressOperSourceAddressListTcpTotal	Integer32,
+		sourceAddressOperSourceAddressListTcpAllocated	Integer32,
+		sourceAddressOperSourceAddressListTcpFreed	Integer32,
+		sourceAddressOperSourceAddressListTcpFailed	Integer32,
+		sourceAddressOperSourceAddressListUdpTotal	Integer32,
+		sourceAddressOperSourceAddressListUdpAllocated	Integer32,
+		sourceAddressOperSourceAddressListUdpFreed	Integer32,
+		sourceAddressOperSourceAddressListUdpFailed	Integer32
+	}
+
+sourceAddressOperSourceAddressListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { sourceAddressOperSourceAddressListEntry 1}
+
+sourceAddressOperSourceAddressListSourceAddressListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { sourceAddressOperSourceAddressListEntry 2}
+
+sourceAddressOperSourceAddressListSourceAddress OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"source-address"
+	::= { sourceAddressOperSourceAddressListEntry 3}
+
+sourceAddressOperSourceAddressListRefCount OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ref-count"
+	::= { sourceAddressOperSourceAddressListEntry 4}
+
+sourceAddressOperSourceAddressListTcpTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp-total"
+	::= { sourceAddressOperSourceAddressListEntry 5}
+
+sourceAddressOperSourceAddressListTcpAllocated OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp-allocated"
+	::= { sourceAddressOperSourceAddressListEntry 6}
+
+sourceAddressOperSourceAddressListTcpFreed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp-freed"
+	::= { sourceAddressOperSourceAddressListEntry 7}
+
+sourceAddressOperSourceAddressListTcpFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"tcp-failed"
+	::= { sourceAddressOperSourceAddressListEntry 8}
+
+sourceAddressOperSourceAddressListUdpTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"udp-total"
+	::= { sourceAddressOperSourceAddressListEntry 9}
+
+sourceAddressOperSourceAddressListUdpAllocated OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"udp-allocated"
+	::= { sourceAddressOperSourceAddressListEntry 10}
+
+sourceAddressOperSourceAddressListUdpFreed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"udp-freed"
+	::= { sourceAddressOperSourceAddressListEntry 11}
+
+sourceAddressOperSourceAddressListUdpFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"udp-failed"
+	::= { sourceAddressOperSourceAddressListEntry 12}
+
+tcpSvrStatus		 OBJECT IDENTIFIER ::= { logging 3}
+
+tcpSvrStatusOperTcpSvrListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF TcpSvrStatusOperTcpSvrListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'cgnv6.logging.tcp-svr-status'"
+	::= {tcpSvrStatus 2}
+
+tcpSvrStatusOperTcpSvrListEntry OBJECT-TYPE
+	SYNTAX TcpSvrStatusOperTcpSvrListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The tcpSvrStatusOperTcpSvrList entry:tcp-svr-list"
+	INDEX {
+		tcpSvrStatusOperTcpSvrListSlotId,
+		tcpSvrStatusOperTcpSvrListTcpSvrListListId
+	}
+	::= { tcpSvrStatusOperTcpSvrListTable 1}
+
+TcpSvrStatusOperTcpSvrListEntry ::=
+	SEQUENCE {
+		tcpSvrStatusOperTcpSvrListSlotId Integer32,
+		tcpSvrStatusOperTcpSvrListTcpSvrListListId Integer32,
+		tcpSvrStatusOperTcpSvrListTemplate	DisplayString,
+		tcpSvrStatusOperTcpSvrListServerName	DisplayString,
+		tcpSvrStatusOperTcpSvrListServerPort	Integer32,
+		tcpSvrStatusOperTcpSvrListOverallStatus	Integer32,
+		tcpSvrStatusOperTcpSvrListNumCpus	Integer32,
+		tcpSvrStatusOperTcpSvrListStatus	DisplayString
+	}
+
+tcpSvrStatusOperTcpSvrListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { tcpSvrStatusOperTcpSvrListEntry 1}
+
+tcpSvrStatusOperTcpSvrListTcpSvrListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { tcpSvrStatusOperTcpSvrListEntry 2}
+
+tcpSvrStatusOperTcpSvrListTemplate OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"template"
+	::= { tcpSvrStatusOperTcpSvrListEntry 3}
+
+tcpSvrStatusOperTcpSvrListServerName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server-name"
+	::= { tcpSvrStatusOperTcpSvrListEntry 4}
+
+tcpSvrStatusOperTcpSvrListServerPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"server-port"
+	::= { tcpSvrStatusOperTcpSvrListEntry 5}
+
+tcpSvrStatusOperTcpSvrListOverallStatus OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"overall-status"
+	::= { tcpSvrStatusOperTcpSvrListEntry 6}
+
+tcpSvrStatusOperTcpSvrListNumCpus OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"num-cpus"
+	::= { tcpSvrStatusOperTcpSvrListEntry 7}
+
+tcpSvrStatusOperTcpSvrListStatus OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"status"
+	::= { tcpSvrStatusOperTcpSvrListEntry 8}
+
+natResourceExhausted		 OBJECT IDENTIFIER ::= { logging 4}
+
+natQuotaExceeded		 OBJECT IDENTIFIER ::= { logging 5}
+
+END
+

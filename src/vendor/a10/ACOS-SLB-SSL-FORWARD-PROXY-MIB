@@ -1,0 +1,383 @@
+ACOS-SLB-SSL-FORWARD-PROXY-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbSslForwardProxyModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbSslForwardProxyModule OID for ACOS"
+				::=  {  acosSchema 312 }
+
+sslForwardProxy		 OBJECT IDENTIFIER ::= { slbSslForwardProxyModule 1}
+
+sslForwardProxyStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF SslForwardProxyStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "SSL forward proxy stats info from object 'slb.ssl-forward-proxy'"
+	::= {sslForwardProxy 1}
+
+sslForwardProxyStatsEntry OBJECT-TYPE
+	SYNTAX SslForwardProxyStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The sslForwardProxyStats stats entry"
+	INDEX {
+		sslForwardProxyStatsSlotId
+	}
+	::= { sslForwardProxyStatsTable 1 }
+
+SslForwardProxyStatsEntry ::=
+	SEQUENCE {
+		sslForwardProxyStatsSlotId Integer32,
+		sslForwardProxyStatsCertCreate	 CounterBasedGauge64,
+		sslForwardProxyStatsCertExpr	 CounterBasedGauge64,
+		sslForwardProxyStatsCertHit	 CounterBasedGauge64,
+		sslForwardProxyStatsCertMiss	 CounterBasedGauge64,
+		sslForwardProxyStatsConnBypass	 CounterBasedGauge64,
+		sslForwardProxyStatsConnInspect	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassFailsafeSslSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassSniSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassClientAuthSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsFailedInSslHandshakes	 CounterBasedGauge64,
+		sslForwardProxyStatsFailedInCryptoOperations	 CounterBasedGauge64,
+		sslForwardProxyStatsFailedInTcp	 CounterBasedGauge64,
+		sslForwardProxyStatsFailedInCertificateVerification	 CounterBasedGauge64,
+		sslForwardProxyStatsFailedInCertificateSigning	 CounterBasedGauge64,
+		sslForwardProxyStatsInvalidOcspStaplingResponse	 CounterBasedGauge64,
+		sslForwardProxyStatsRevokedOcspResponse	 CounterBasedGauge64,
+		sslForwardProxyStatsUnsupportedSslVersion	 CounterBasedGauge64,
+		sslForwardProxyStatsCertificatesInCache	 CounterBasedGauge64,
+		sslForwardProxyStatsConnectionsFailed	 CounterBasedGauge64,
+		sslForwardProxyStatsAflexBypass	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassCertSubjectSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassCertIssuerSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassCertSanSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassNoSniSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsResetNoSniSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassEsniSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsDropEsniSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassUsernameSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassAdGroupSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsTotConnInBuff	 CounterBasedGauge64,
+		sslForwardProxyStatsCurrConnInBuff	 CounterBasedGauge64,
+		sslForwardProxyStatsAsyncConnTimeout	 CounterBasedGauge64,
+		sslForwardProxyStatsAsyncConnLimitDrop	 CounterBasedGauge64,
+		sslForwardProxyStatsCertInCache	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassClientIpSessions	 CounterBasedGauge64,
+		sslForwardProxyStatsBypassServerIpSessions	 CounterBasedGauge64
+	}
+
+sslForwardProxyStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { sslForwardProxyStatsEntry 1 }
+
+sslForwardProxyStatsCertCreate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cert_create"
+	::= { sslForwardProxyStatsEntry 2 }
+
+sslForwardProxyStatsCertExpr OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cert_expr"
+	::= { sslForwardProxyStatsEntry 3 }
+
+sslForwardProxyStatsCertHit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cert_hit"
+	::= { sslForwardProxyStatsEntry 4 }
+
+sslForwardProxyStatsCertMiss OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cert_miss"
+	::= { sslForwardProxyStatsEntry 5 }
+
+sslForwardProxyStatsConnBypass OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_bypass"
+	::= { sslForwardProxyStatsEntry 6 }
+
+sslForwardProxyStatsConnInspect OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_inspect"
+	::= { sslForwardProxyStatsEntry 7 }
+
+sslForwardProxyStatsBypassFailsafeSslSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-failsafe-ssl-sessions"
+	::= { sslForwardProxyStatsEntry 8 }
+
+sslForwardProxyStatsBypassSniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-sni-sessions"
+	::= { sslForwardProxyStatsEntry 9 }
+
+sslForwardProxyStatsBypassClientAuthSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-client-auth-sessions"
+	::= { sslForwardProxyStatsEntry 10 }
+
+sslForwardProxyStatsFailedInSslHandshakes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-in-ssl-handshakes"
+	::= { sslForwardProxyStatsEntry 11 }
+
+sslForwardProxyStatsFailedInCryptoOperations OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-in-crypto-operations"
+	::= { sslForwardProxyStatsEntry 12 }
+
+sslForwardProxyStatsFailedInTcp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-in-tcp"
+	::= { sslForwardProxyStatsEntry 13 }
+
+sslForwardProxyStatsFailedInCertificateVerification OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-in-certificate-verification"
+	::= { sslForwardProxyStatsEntry 14 }
+
+sslForwardProxyStatsFailedInCertificateSigning OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "failed-in-certificate-signing"
+	::= { sslForwardProxyStatsEntry 15 }
+
+sslForwardProxyStatsInvalidOcspStaplingResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "invalid-ocsp-stapling-response"
+	::= { sslForwardProxyStatsEntry 16 }
+
+sslForwardProxyStatsRevokedOcspResponse OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "revoked-ocsp-response"
+	::= { sslForwardProxyStatsEntry 17 }
+
+sslForwardProxyStatsUnsupportedSslVersion OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "unsupported-ssl-version"
+	::= { sslForwardProxyStatsEntry 18 }
+
+sslForwardProxyStatsCertificatesInCache OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "certificates-in-cache"
+	::= { sslForwardProxyStatsEntry 19 }
+
+sslForwardProxyStatsConnectionsFailed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "connections-failed"
+	::= { sslForwardProxyStatsEntry 20 }
+
+sslForwardProxyStatsAflexBypass OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflex-bypass"
+	::= { sslForwardProxyStatsEntry 21 }
+
+sslForwardProxyStatsBypassCertSubjectSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-cert-subject-sessions"
+	::= { sslForwardProxyStatsEntry 22 }
+
+sslForwardProxyStatsBypassCertIssuerSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-cert-issuer-sessions"
+	::= { sslForwardProxyStatsEntry 23 }
+
+sslForwardProxyStatsBypassCertSanSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-cert-san-sessions"
+	::= { sslForwardProxyStatsEntry 24 }
+
+sslForwardProxyStatsBypassNoSniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-no-sni-sessions"
+	::= { sslForwardProxyStatsEntry 25 }
+
+sslForwardProxyStatsResetNoSniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "reset-no-sni-sessions"
+	::= { sslForwardProxyStatsEntry 26 }
+
+sslForwardProxyStatsBypassEsniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-esni-sessions"
+	::= { sslForwardProxyStatsEntry 27 }
+
+sslForwardProxyStatsDropEsniSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "drop-esni-sessions"
+	::= { sslForwardProxyStatsEntry 28 }
+
+sslForwardProxyStatsBypassUsernameSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-username-sessions"
+	::= { sslForwardProxyStatsEntry 29 }
+
+sslForwardProxyStatsBypassAdGroupSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-ad-group-sessions"
+	::= { sslForwardProxyStatsEntry 30 }
+
+sslForwardProxyStatsTotConnInBuff OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "tot_conn_in_buff"
+	::= { sslForwardProxyStatsEntry 31 }
+
+sslForwardProxyStatsCurrConnInBuff OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn_in_buff"
+	::= { sslForwardProxyStatsEntry 32 }
+
+sslForwardProxyStatsAsyncConnTimeout OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "async_conn_timeout"
+	::= { sslForwardProxyStatsEntry 33 }
+
+sslForwardProxyStatsAsyncConnLimitDrop OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "async_conn_limit_drop"
+	::= { sslForwardProxyStatsEntry 34 }
+
+sslForwardProxyStatsCertInCache OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cert_in_cache"
+	::= { sslForwardProxyStatsEntry 35 }
+
+sslForwardProxyStatsBypassClientIpSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-client-ip-sessions"
+	::= { sslForwardProxyStatsEntry 36 }
+
+sslForwardProxyStatsBypassServerIpSessions OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "bypass-server-ip-sessions"
+	::= { sslForwardProxyStatsEntry 37 }
+
+END
+

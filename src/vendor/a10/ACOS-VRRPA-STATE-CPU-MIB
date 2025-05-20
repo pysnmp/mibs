@@ -1,0 +1,114 @@
+ACOS-VRRPA-STATE-CPU-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		vrrpAStateCpuModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "vrrpAStateCpuModule OID for ACOS"
+				::=  {  acosSchema 5 }
+
+stateCpu		 OBJECT IDENTIFIER ::= { vrrpAStateCpuModule 1}
+
+stateCpuOperCpuUsageTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF StateCpuOperCpuUsageEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "HA VRRP-A Global Commands from object 'vrrp-a.state-cpu'"
+	::= {stateCpu 2}
+
+stateCpuOperCpuUsageEntry OBJECT-TYPE
+	SYNTAX StateCpuOperCpuUsageEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The stateCpuOperCpuUsage entry:cpu-usage"
+	INDEX {
+		stateCpuOperCpuUsageSlotId,
+		stateCpuOperCpuUsageCpuUsageListId
+	}
+	::= { stateCpuOperCpuUsageTable 1}
+
+StateCpuOperCpuUsageEntry ::=
+	SEQUENCE {
+		stateCpuOperCpuUsageSlotId Integer32,
+		stateCpuOperCpuUsageCpuUsageListId Integer32,
+		stateCpuOperCpuUsageCpuId	Integer32,
+		stateCpuOperCpuUsageMaxSyncMsgPerPacket	Integer32,
+		stateCpuOperCpuUsageMinSyncMsgPerPacket	Integer32,
+		stateCpuOperCpuUsageMaxQueryMsgPerPacket	Integer32,
+		stateCpuOperCpuUsageMinQueryMsgPerPacket	Integer32
+	}
+
+stateCpuOperCpuUsageSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { stateCpuOperCpuUsageEntry 1}
+
+stateCpuOperCpuUsageCpuUsageListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { stateCpuOperCpuUsageEntry 2}
+
+stateCpuOperCpuUsageCpuId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"cpu-id"
+	::= { stateCpuOperCpuUsageEntry 3}
+
+stateCpuOperCpuUsageMaxSyncMsgPerPacket OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Max-Sync-Msg-Per-Packet"
+	::= { stateCpuOperCpuUsageEntry 4}
+
+stateCpuOperCpuUsageMinSyncMsgPerPacket OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Min-Sync-Msg-Per-Packet"
+	::= { stateCpuOperCpuUsageEntry 5}
+
+stateCpuOperCpuUsageMaxQueryMsgPerPacket OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Max-Query-Msg-Per-Packet"
+	::= { stateCpuOperCpuUsageEntry 6}
+
+stateCpuOperCpuUsageMinQueryMsgPerPacket OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Min-Query-Msg-Per-Packet"
+	::= { stateCpuOperCpuUsageEntry 7}
+
+END
+

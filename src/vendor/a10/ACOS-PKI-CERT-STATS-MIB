@@ -1,0 +1,95 @@
+ACOS-PKI-CERT-STATS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		pkiCertStatsModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "pkiCertStatsModule OID for ACOS"
+				::=  {  acosSchema 273 }
+
+certStats		 OBJECT IDENTIFIER ::= { pkiCertStatsModule 1}
+
+certStatsOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF CertStatsOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 " from object 'pki.cert-stats'"
+	::= {certStats 2}
+
+certStatsOperEntry OBJECT-TYPE
+	SYNTAX CertStatsOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The certStatsOper entry"
+	INDEX {
+		certStatsOperSlotId
+	}
+	::= { certStatsOperTable 1 }
+
+CertStatsOperEntry ::=
+	SEQUENCE {
+		certStatsOperSlotId Integer32,
+		certStatsOperCertCount	 Integer32,
+		certStatsOperKeyCount	 Integer32,
+		certStatsOperCaCertCount	 Integer32,
+		certStatsOperPartition	 DisplayString
+	}
+
+certStatsOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { certStatsOperEntry 1 }
+
+certStatsOperCertCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "cert-count"
+	::= { certStatsOperEntry 2 }
+
+certStatsOperKeyCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "key-count"
+	::= { certStatsOperEntry 3 }
+
+certStatsOperCaCertCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ca-cert-count"
+	::= { certStatsOperEntry 4 }
+
+certStatsOperPartition OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "partition"
+	::= { certStatsOperEntry 5 }
+
+END
+
