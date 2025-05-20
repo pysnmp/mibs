@@ -1,0 +1,1992 @@
+ACOS-SLB-SERVER-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosSchema
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		slbServerModule MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  2300 Orchard Parkway
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "slbServerModule OID for ACOS"
+				::=  {  acosSchema 318 }
+
+server		 OBJECT IDENTIFIER ::= { slbServerModule 1}
+
+serverStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServerStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Server from object 'slb.server'"
+	::= {server 1}
+
+serverStatsEntry OBJECT-TYPE
+	SYNTAX ServerStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serverStats stats entry"
+	INDEX {
+		serverStatsSlotId,
+		serverStatsName
+	}
+	::= { serverStatsTable 1 }
+
+ServerStatsEntry ::=
+	SEQUENCE {
+		serverStatsSlotId Integer32,
+		serverStatsName DisplayString,
+		serverStatsCurrConn	 CounterBasedGauge64,
+		serverStatsTotalConn	 CounterBasedGauge64,
+		serverStatsFwdPkt	 CounterBasedGauge64,
+		serverStatsRevPkt	 CounterBasedGauge64,
+		serverStatsPeakConn	 CounterBasedGauge64,
+		serverStatsTotalReq	 CounterBasedGauge64,
+		serverStatsTotalReqSucc	 CounterBasedGauge64,
+		serverStatsCurrSslConn	 CounterBasedGauge64,
+		serverStatsTotalSslConn	 CounterBasedGauge64,
+		serverStatsTotalFwdBytes	 CounterBasedGauge64,
+		serverStatsTotalRevBytes	 CounterBasedGauge64,
+		serverStatsTotalFwdPkts	 CounterBasedGauge64,
+		serverStatsTotalRevPkts	 CounterBasedGauge64,
+		serverStatsIpOnlyLbFwdBytes	 CounterBasedGauge64,
+		serverStatsIpOnlyLbRevBytes	 CounterBasedGauge64,
+		serverStatsIpOnlyLbFwdPkts	 CounterBasedGauge64,
+		serverStatsIpOnlyLbRevPkts	 CounterBasedGauge64
+	}
+
+serverStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serverStatsEntry 1 }
+
+serverStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serverStatsEntry 2 }
+
+serverStatsCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr-conn"
+	::= { serverStatsEntry 3 }
+
+serverStatsTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total-conn"
+	::= { serverStatsEntry 4 }
+
+serverStatsFwdPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fwd-pkt"
+	::= { serverStatsEntry 5 }
+
+serverStatsRevPkt OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "rev-pkt"
+	::= { serverStatsEntry 6 }
+
+serverStatsPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak-conn"
+	::= { serverStatsEntry 7 }
+
+serverStatsTotalReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req"
+	::= { serverStatsEntry 8 }
+
+serverStatsTotalReqSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req_succ"
+	::= { serverStatsEntry 9 }
+
+serverStatsCurrSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_ssl_conn"
+	::= { serverStatsEntry 10 }
+
+serverStatsTotalSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_ssl_conn"
+	::= { serverStatsEntry 11 }
+
+serverStatsTotalFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_bytes"
+	::= { serverStatsEntry 12 }
+
+serverStatsTotalRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_bytes"
+	::= { serverStatsEntry 13 }
+
+serverStatsTotalFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_pkts"
+	::= { serverStatsEntry 14 }
+
+serverStatsTotalRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts"
+	::= { serverStatsEntry 15 }
+
+serverStatsIpOnlyLbFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_fwd_bytes"
+	::= { serverStatsEntry 16 }
+
+serverStatsIpOnlyLbRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_rev_bytes"
+	::= { serverStatsEntry 17 }
+
+serverStatsIpOnlyLbFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_fwd_pkts"
+	::= { serverStatsEntry 18 }
+
+serverStatsIpOnlyLbRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "ip_only_lb_rev_pkts"
+	::= { serverStatsEntry 19 }
+
+serverOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServerOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Server from object 'slb.server'"
+	::= {server 2}
+
+serverOperEntry OBJECT-TYPE
+	SYNTAX ServerOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serverOper entry"
+	INDEX {
+		serverOperSlotId,
+		serverOperName
+	}
+	::= { serverOperTable 1 }
+
+ServerOperEntry ::=
+	SEQUENCE {
+		serverOperSlotId Integer32,
+		serverOperName DisplayString,
+		serverOperState	 DisplayString,
+		serverOperCreationType	 DisplayString,
+		serverOperDnsUpdateTime	 DisplayString,
+		serverOperServerTtl	 Integer32,
+		serverOperSrvGatewayArp	 DisplayString,
+		serverOperIsAutocreate	 Integer32,
+		serverOperSlowStartConnLimit	 Integer32,
+		serverOperCurrConnRate	 Integer32,
+		serverOperConnRateUnit	 DisplayString,
+		serverOperCurrObserveRate	 Integer32,
+		serverOperDisable	 Integer32,
+		serverOperWeight	 Integer32
+	}
+
+serverOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { serverOperEntry 1 }
+
+serverOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { serverOperEntry 2 }
+
+serverOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { serverOperEntry 3 }
+
+serverOperCreationType OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "creation_type"
+	::= { serverOperEntry 4 }
+
+serverOperDnsUpdateTime OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "dns_update_time"
+	::= { serverOperEntry 5 }
+
+serverOperServerTtl OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "server_ttl"
+	::= { serverOperEntry 6 }
+
+serverOperSrvGatewayArp OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "srv_gateway_arp"
+	::= { serverOperEntry 7 }
+
+serverOperIsAutocreate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "is_autocreate"
+	::= { serverOperEntry 8 }
+
+serverOperSlowStartConnLimit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slow_start_conn_limit"
+	::= { serverOperEntry 9 }
+
+serverOperCurrConnRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn_rate"
+	::= { serverOperEntry 10 }
+
+serverOperConnRateUnit OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_rate_unit"
+	::= { serverOperEntry 11 }
+
+serverOperCurrObserveRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_observe_rate"
+	::= { serverOperEntry 12 }
+
+serverOperDisable OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disable"
+	::= { serverOperEntry 13 }
+
+serverOperWeight OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "weight"
+	::= { serverOperEntry 14 }
+
+serverOperDrsListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF ServerOperDrsListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Server from object 'slb.server'"
+	::= {server 3}
+
+serverOperDrsListEntry OBJECT-TYPE
+	SYNTAX ServerOperDrsListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The serverOperDrsList entry:drs-list"
+	INDEX {
+		serverOperDrsListSlotId,
+		serverOperDrsListName,
+		serverOperDrsListDrsListListId
+	}
+	::= { serverOperDrsListTable 1}
+
+ServerOperDrsListEntry ::=
+	SEQUENCE {
+		serverOperDrsListSlotId Integer32,
+		serverOperDrsListName DisplayString,
+		serverOperDrsListDrsListListId Integer32,
+		serverOperDrsListDrsName	DisplayString,
+		serverOperDrsListDrsHost	DisplayString,
+		serverOperDrsListDrsServerIpv6Addr	DisplayString,
+		serverOperDrsListDrsState	DisplayString,
+		serverOperDrsListDrsCreationType	DisplayString,
+		serverOperDrsListDrsDnsUpdateTime	DisplayString,
+		serverOperDrsListDrsServerTtl	Integer32,
+		serverOperDrsListDrsSrvGatewayArp	DisplayString,
+		serverOperDrsListDrsIsAutocreate	Integer32,
+		serverOperDrsListDrsSlowStartConnLimit	Integer32,
+		serverOperDrsListDrsCurrConnRate	Integer32,
+		serverOperDrsListDrsConnRateUnit	DisplayString,
+		serverOperDrsListDrsCurrObserveRate	Integer32,
+		serverOperDrsListDrsDisable	Integer32,
+		serverOperDrsListDrsCurrConn	Integer32,
+		serverOperDrsListDrsCurrReq	Integer32,
+		serverOperDrsListDrsTotConn	Integer32,
+		serverOperDrsListDrsTotReq	Integer32,
+		serverOperDrsListDrsTotReqSuc	Integer32,
+		serverOperDrsListDrsTotFwdBytes	Integer32,
+		serverOperDrsListDrsTotFwdPkts	Integer32,
+		serverOperDrsListDrsTotRevBytes	Integer32,
+		serverOperDrsListDrsTotRevPkts	Integer32,
+		serverOperDrsListDrsPeakConn	Integer32,
+		serverOperDrsListDrsWeight	Integer32
+	}
+
+serverOperDrsListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serverOperDrsListEntry 1}
+
+serverOperDrsListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { serverOperDrsListEntry 2}
+
+serverOperDrsListDrsListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { serverOperDrsListEntry 3}
+
+serverOperDrsListDrsName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-name"
+	::= { serverOperDrsListEntry 4}
+
+serverOperDrsListDrsHost OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-host"
+	::= { serverOperDrsListEntry 5}
+
+serverOperDrsListDrsServerIpv6Addr OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-server-ipv6-addr"
+	::= { serverOperDrsListEntry 6}
+
+serverOperDrsListDrsState OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-state"
+	::= { serverOperDrsListEntry 7}
+
+serverOperDrsListDrsCreationType OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-creation_type"
+	::= { serverOperDrsListEntry 8}
+
+serverOperDrsListDrsDnsUpdateTime OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-dns_update_time"
+	::= { serverOperDrsListEntry 9}
+
+serverOperDrsListDrsServerTtl OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-server_ttl"
+	::= { serverOperDrsListEntry 10}
+
+serverOperDrsListDrsSrvGatewayArp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-srv_gateway_arp"
+	::= { serverOperDrsListEntry 11}
+
+serverOperDrsListDrsIsAutocreate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-is_autocreate"
+	::= { serverOperDrsListEntry 12}
+
+serverOperDrsListDrsSlowStartConnLimit OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-slow_start_conn_limit"
+	::= { serverOperDrsListEntry 13}
+
+serverOperDrsListDrsCurrConnRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-curr_conn_rate"
+	::= { serverOperDrsListEntry 14}
+
+serverOperDrsListDrsConnRateUnit OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-conn_rate_unit"
+	::= { serverOperDrsListEntry 15}
+
+serverOperDrsListDrsCurrObserveRate OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-curr_observe_rate"
+	::= { serverOperDrsListEntry 16}
+
+serverOperDrsListDrsDisable OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-disable"
+	::= { serverOperDrsListEntry 17}
+
+serverOperDrsListDrsCurrConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-curr-conn"
+	::= { serverOperDrsListEntry 18}
+
+serverOperDrsListDrsCurrReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-curr-req"
+	::= { serverOperDrsListEntry 19}
+
+serverOperDrsListDrsTotConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-conn"
+	::= { serverOperDrsListEntry 20}
+
+serverOperDrsListDrsTotReq OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-req"
+	::= { serverOperDrsListEntry 21}
+
+serverOperDrsListDrsTotReqSuc OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-req-suc"
+	::= { serverOperDrsListEntry 22}
+
+serverOperDrsListDrsTotFwdBytes OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-fwd-bytes"
+	::= { serverOperDrsListEntry 23}
+
+serverOperDrsListDrsTotFwdPkts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-fwd-pkts"
+	::= { serverOperDrsListEntry 24}
+
+serverOperDrsListDrsTotRevBytes OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-rev-bytes"
+	::= { serverOperDrsListEntry 25}
+
+serverOperDrsListDrsTotRevPkts OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-tot-rev-pkts"
+	::= { serverOperDrsListEntry 26}
+
+serverOperDrsListDrsPeakConn OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-peak-conn"
+	::= { serverOperDrsListEntry 27}
+
+serverOperDrsListDrsWeight OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs-weight"
+	::= { serverOperDrsListEntry 28}
+
+port		 OBJECT IDENTIFIER ::= { server 4}
+
+portStatsTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortStatsEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+	 "Real Server Port from object 'slb.server.port'"
+	::= {port 1}
+
+portStatsEntry OBJECT-TYPE
+	SYNTAX PortStatsEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portStats stats entry"
+	INDEX {
+		portStatsSlotId,
+		portStatsName,
+		portStatsPort,
+		portStatsProtocol
+	}
+	::= { portStatsTable 1 }
+
+PortStatsEntry ::=
+	SEQUENCE {
+		portStatsSlotId Integer32,
+		portStatsName DisplayString,
+		portStatsPort Integer32,
+		portStatsProtocol DisplayString,
+		portStatsCurrConn	 CounterBasedGauge64,
+		portStatsCurrReq	 CounterBasedGauge64,
+		portStatsTotalReq	 CounterBasedGauge64,
+		portStatsTotalReqSucc	 CounterBasedGauge64,
+		portStatsTotalFwdBytes	 CounterBasedGauge64,
+		portStatsTotalFwdPkts	 CounterBasedGauge64,
+		portStatsTotalRevBytes	 CounterBasedGauge64,
+		portStatsTotalRevPkts	 CounterBasedGauge64,
+		portStatsTotalConn	 CounterBasedGauge64,
+		portStatsLastTotalConn	 CounterBasedGauge64,
+		portStatsPeakConn	 CounterBasedGauge64,
+		portStatsEsResp200	 CounterBasedGauge64,
+		portStatsEsResp300	 CounterBasedGauge64,
+		portStatsEsResp400	 CounterBasedGauge64,
+		portStatsEsResp500	 CounterBasedGauge64,
+		portStatsEsRespOther	 CounterBasedGauge64,
+		portStatsEsReqCount	 CounterBasedGauge64,
+		portStatsEsRespCount	 CounterBasedGauge64,
+		portStatsEsRespInvalidHttp	 CounterBasedGauge64,
+		portStatsTotalRevPktsInspected	 CounterBasedGauge64,
+		portStatsTotalRevPktsInspectedGoodStatusCode	 CounterBasedGauge64,
+		portStatsResponseTime	 CounterBasedGauge64,
+		portStatsFastestRspTime	 CounterBasedGauge64,
+		portStatsSlowestRspTime	 CounterBasedGauge64,
+		portStatsCurrSslConn	 CounterBasedGauge64,
+		portStatsTotalSslConn	 CounterBasedGauge64,
+		portStatsRespCount	 CounterBasedGauge64,
+		portStatsResp1xx	 CounterBasedGauge64,
+		portStatsResp2xx	 CounterBasedGauge64,
+		portStatsResp3xx	 CounterBasedGauge64,
+		portStatsResp4xx	 CounterBasedGauge64,
+		portStatsResp5xx	 CounterBasedGauge64,
+		portStatsRespOther	 CounterBasedGauge64,
+		portStatsRespLatency	 CounterBasedGauge64,
+		portStatsCurrPconn	 CounterBasedGauge64
+	}
+
+portStatsSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { portStatsEntry 1 }
+
+portStatsName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { portStatsEntry 2 }
+
+portStatsPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-number"
+	::= { portStatsEntry 3 }
+
+portStatsProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { portStatsEntry 4 }
+
+portStatsCurrConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn"
+	::= { portStatsEntry 5 }
+
+portStatsCurrReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_req"
+	::= { portStatsEntry 6 }
+
+portStatsTotalReq OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req"
+	::= { portStatsEntry 7 }
+
+portStatsTotalReqSucc OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_req_succ"
+	::= { portStatsEntry 8 }
+
+portStatsTotalFwdBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_bytes"
+	::= { portStatsEntry 9 }
+
+portStatsTotalFwdPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_fwd_pkts"
+	::= { portStatsEntry 10 }
+
+portStatsTotalRevBytes OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_bytes"
+	::= { portStatsEntry 11 }
+
+portStatsTotalRevPkts OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts"
+	::= { portStatsEntry 12 }
+
+portStatsTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_conn"
+	::= { portStatsEntry 13 }
+
+portStatsLastTotalConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "last_total_conn"
+	::= { portStatsEntry 14 }
+
+portStatsPeakConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "peak_conn"
+	::= { portStatsEntry 15 }
+
+portStatsEsResp200 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_200"
+	::= { portStatsEntry 16 }
+
+portStatsEsResp300 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_300"
+	::= { portStatsEntry 17 }
+
+portStatsEsResp400 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_400"
+	::= { portStatsEntry 18 }
+
+portStatsEsResp500 OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_500"
+	::= { portStatsEntry 19 }
+
+portStatsEsRespOther OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_other"
+	::= { portStatsEntry 20 }
+
+portStatsEsReqCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_req_count"
+	::= { portStatsEntry 21 }
+
+portStatsEsRespCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_count"
+	::= { portStatsEntry 22 }
+
+portStatsEsRespInvalidHttp OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_invalid_http"
+	::= { portStatsEntry 23 }
+
+portStatsTotalRevPktsInspected OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected"
+	::= { portStatsEntry 24 }
+
+portStatsTotalRevPktsInspectedGoodStatusCode OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_rev_pkts_inspected_good_status_code"
+	::= { portStatsEntry 25 }
+
+portStatsResponseTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "response_time"
+	::= { portStatsEntry 26 }
+
+portStatsFastestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "fastest_rsp_time"
+	::= { portStatsEntry 27 }
+
+portStatsSlowestRspTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slowest_rsp_time"
+	::= { portStatsEntry 28 }
+
+portStatsCurrSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_ssl_conn"
+	::= { portStatsEntry 29 }
+
+portStatsTotalSslConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "total_ssl_conn"
+	::= { portStatsEntry 30 }
+
+portStatsRespCount OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-count"
+	::= { portStatsEntry 31 }
+
+portStatsResp1xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-1xx"
+	::= { portStatsEntry 32 }
+
+portStatsResp2xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-2xx"
+	::= { portStatsEntry 33 }
+
+portStatsResp3xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-3xx"
+	::= { portStatsEntry 34 }
+
+portStatsResp4xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-4xx"
+	::= { portStatsEntry 35 }
+
+portStatsResp5xx OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-5xx"
+	::= { portStatsEntry 36 }
+
+portStatsRespOther OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-other"
+	::= { portStatsEntry 37 }
+
+portStatsRespLatency OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resp-latency"
+	::= { portStatsEntry 38 }
+
+portStatsCurrPconn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_pconn"
+	::= { portStatsEntry 39 }
+
+portOperTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 2}
+
+portOperEntry OBJECT-TYPE
+	SYNTAX PortOperEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOper entry"
+	INDEX {
+		portOperSlotId,
+		portOperName,
+		portOperPort,
+		portOperProtocol
+	}
+	::= { portOperTable 1 }
+
+PortOperEntry ::=
+	SEQUENCE {
+		portOperSlotId Integer32,
+		portOperName DisplayString,
+		portOperPort Integer32,
+		portOperProtocol DisplayString,
+		portOperState	 DisplayString,
+		portOperCurrConnRate	 Integer32,
+		portOperConnRateUnit	 DisplayString,
+		portOperSlowStartConnLimit	 Integer32,
+		portOperCurrObserveRate	 Integer32,
+		portOperDownGracePeriodAllowed	 Integer32,
+		portOperCurrentTime	 Integer32,
+		portOperDownTimeGracePeriod	 Integer32,
+		portOperDiameterEnabled	 Integer32,
+		portOperEsRespTime	 Integer32,
+		portOperInbandHmReassignNum	 Integer32,
+		portOperDisable	 Integer32,
+		portOperHmKey	 Integer32,
+		portOperHmIndex	 Integer32,
+		portOperSoftDownTime	 Integer32,
+		portOperAflowConnLimit	 Integer32,
+		portOperAflowQueueSize	 Integer32,
+		portOperResvConn	 Integer32,
+		portOperPoolName	 DisplayString
+	}
+
+portOperSlotId OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 ""
+	::= { portOperEntry 1 }
+
+portOperName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "name"
+	::= { portOperEntry 2 }
+
+portOperPort OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "port-number"
+	::= { portOperEntry 3 }
+
+portOperProtocol OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "protocol"
+	::= { portOperEntry 4 }
+
+portOperState OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "state"
+	::= { portOperEntry 5 }
+
+portOperCurrConnRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_conn_rate"
+	::= { portOperEntry 6 }
+
+portOperConnRateUnit OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "conn_rate_unit"
+	::= { portOperEntry 7 }
+
+portOperSlowStartConnLimit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "slow_start_conn_limit"
+	::= { portOperEntry 8 }
+
+portOperCurrObserveRate OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "curr_observe_rate"
+	::= { portOperEntry 9 }
+
+portOperDownGracePeriodAllowed OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "down_grace_period_allowed"
+	::= { portOperEntry 10 }
+
+portOperCurrentTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "current_time"
+	::= { portOperEntry 11 }
+
+portOperDownTimeGracePeriod OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "down_time_grace_period"
+	::= { portOperEntry 12 }
+
+portOperDiameterEnabled OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "diameter_enabled"
+	::= { portOperEntry 13 }
+
+portOperEsRespTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "es_resp_time"
+	::= { portOperEntry 14 }
+
+portOperInbandHmReassignNum OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "inband_hm_reassign_num"
+	::= { portOperEntry 15 }
+
+portOperDisable OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "disable"
+	::= { portOperEntry 16 }
+
+portOperHmKey OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hm-key"
+	::= { portOperEntry 17 }
+
+portOperHmIndex OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "hm-index"
+	::= { portOperEntry 18 }
+
+portOperSoftDownTime OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "soft_down_time"
+	::= { portOperEntry 19 }
+
+portOperAflowConnLimit OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflow_conn_limit"
+	::= { portOperEntry 20 }
+
+portOperAflowQueueSize OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "aflow_queue_size"
+	::= { portOperEntry 21 }
+
+portOperResvConn OBJECT-TYPE
+	 SYNTAX Integer32
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "resv_conn"
+	::= { portOperEntry 22 }
+
+portOperPoolName OBJECT-TYPE
+	 SYNTAX DisplayString
+	 MAX-ACCESS read-only
+	 STATUS current
+	 DESCRIPTION
+		 "pool_name"
+	::= { portOperEntry 23 }
+
+portOperAutoNatAddrListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperAutoNatAddrListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 3}
+
+portOperAutoNatAddrListEntry OBJECT-TYPE
+	SYNTAX PortOperAutoNatAddrListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperAutoNatAddrList entry:auto-nat-addr-list"
+	INDEX {
+		portOperAutoNatAddrListSlotId,
+		portOperAutoNatAddrListName,
+		portOperAutoNatAddrListPort,
+		portOperAutoNatAddrListProtocol,
+		portOperAutoNatAddrListAutoNatAddrListListId
+	}
+	::= { portOperAutoNatAddrListTable 1}
+
+PortOperAutoNatAddrListEntry ::=
+	SEQUENCE {
+		portOperAutoNatAddrListSlotId Integer32,
+		portOperAutoNatAddrListName DisplayString,
+		portOperAutoNatAddrListPort Integer32,
+		portOperAutoNatAddrListProtocol DisplayString,
+		portOperAutoNatAddrListAutoNatAddrListListId Integer32,
+		portOperAutoNatAddrListAutoNatIp	DisplayString,
+		portOperAutoNatAddrListVrid	Integer32,
+		portOperAutoNatAddrListHaGroupId	Integer32,
+		portOperAutoNatAddrListIpRr	Integer32,
+		portOperAutoNatAddrListPortsConsumed	Integer32,
+		portOperAutoNatAddrListPortsConsumedTotal	Integer32,
+		portOperAutoNatAddrListPortsFreedTotal	Integer32,
+		portOperAutoNatAddrListAllocFailed	Integer32
+	}
+
+portOperAutoNatAddrListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperAutoNatAddrListEntry 1}
+
+portOperAutoNatAddrListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperAutoNatAddrListEntry 2}
+
+portOperAutoNatAddrListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperAutoNatAddrListEntry 3}
+
+portOperAutoNatAddrListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperAutoNatAddrListEntry 4}
+
+portOperAutoNatAddrListAutoNatAddrListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperAutoNatAddrListEntry 5}
+
+portOperAutoNatAddrListAutoNatIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"auto_nat_ip"
+	::= { portOperAutoNatAddrListEntry 6}
+
+portOperAutoNatAddrListVrid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrid"
+	::= { portOperAutoNatAddrListEntry 7}
+
+portOperAutoNatAddrListHaGroupId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ha_group_id"
+	::= { portOperAutoNatAddrListEntry 8}
+
+portOperAutoNatAddrListIpRr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip_rr"
+	::= { portOperAutoNatAddrListEntry 9}
+
+portOperAutoNatAddrListPortsConsumed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed"
+	::= { portOperAutoNatAddrListEntry 10}
+
+portOperAutoNatAddrListPortsConsumedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed_total"
+	::= { portOperAutoNatAddrListEntry 11}
+
+portOperAutoNatAddrListPortsFreedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_freed_total"
+	::= { portOperAutoNatAddrListEntry 12}
+
+portOperAutoNatAddrListAllocFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alloc_failed"
+	::= { portOperAutoNatAddrListEntry 13}
+
+portOperDrsAutoNatListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperDrsAutoNatListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 4}
+
+portOperDrsAutoNatListEntry OBJECT-TYPE
+	SYNTAX PortOperDrsAutoNatListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperDrsAutoNatList entry:drs-auto-nat-list"
+	INDEX {
+		portOperDrsAutoNatListSlotId,
+		portOperDrsAutoNatListName,
+		portOperDrsAutoNatListPort,
+		portOperDrsAutoNatListProtocol,
+		portOperDrsAutoNatListDrsAutoNatListListId
+	}
+	::= { portOperDrsAutoNatListTable 1}
+
+PortOperDrsAutoNatListEntry ::=
+	SEQUENCE {
+		portOperDrsAutoNatListSlotId Integer32,
+		portOperDrsAutoNatListName DisplayString,
+		portOperDrsAutoNatListPort Integer32,
+		portOperDrsAutoNatListProtocol DisplayString,
+		portOperDrsAutoNatListDrsAutoNatListListId Integer32,
+		portOperDrsAutoNatListDrsName	DisplayString,
+		portOperDrsAutoNatListDrsPort	Integer32
+	}
+
+portOperDrsAutoNatListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsAutoNatListEntry 1}
+
+portOperDrsAutoNatListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperDrsAutoNatListEntry 2}
+
+portOperDrsAutoNatListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperDrsAutoNatListEntry 3}
+
+portOperDrsAutoNatListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperDrsAutoNatListEntry 4}
+
+portOperDrsAutoNatListDrsAutoNatListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsAutoNatListEntry 5}
+
+portOperDrsAutoNatListDrsName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs_name"
+	::= { portOperDrsAutoNatListEntry 6}
+
+portOperDrsAutoNatListDrsPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs_port"
+	::= { portOperDrsAutoNatListEntry 7}
+
+portOperDrsAutoNatListDrsAutoNatAddressListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperDrsAutoNatListDrsAutoNatAddressListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 5}
+
+portOperDrsAutoNatListDrsAutoNatAddressListEntry OBJECT-TYPE
+	SYNTAX PortOperDrsAutoNatListDrsAutoNatAddressListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperDrsAutoNatListDrsAutoNatAddressList entry:drs-auto-nat-address-list"
+	INDEX {
+		portOperDrsAutoNatListDrsAutoNatAddressListSlotId,
+		portOperDrsAutoNatListDrsAutoNatAddressListName,
+		portOperDrsAutoNatListDrsAutoNatAddressListPort,
+		portOperDrsAutoNatListDrsAutoNatAddressListProtocol,
+		portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatListListId,
+		portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatAddressListListId
+	}
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListTable 1}
+
+PortOperDrsAutoNatListDrsAutoNatAddressListEntry ::=
+	SEQUENCE {
+		portOperDrsAutoNatListDrsAutoNatAddressListSlotId Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListName DisplayString,
+		portOperDrsAutoNatListDrsAutoNatAddressListPort Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListProtocol DisplayString,
+		portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatListListId Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatAddressListListId Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListAutoNatIp	DisplayString,
+		portOperDrsAutoNatListDrsAutoNatAddressListVrid	Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListHaGroupId	Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListIpRr	Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumed	Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumedTotal	Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListPortsFreedTotal	Integer32,
+		portOperDrsAutoNatListDrsAutoNatAddressListAllocFailed	Integer32
+	}
+
+portOperDrsAutoNatListDrsAutoNatAddressListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 1}
+
+portOperDrsAutoNatListDrsAutoNatAddressListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 2}
+
+portOperDrsAutoNatListDrsAutoNatAddressListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 3}
+
+portOperDrsAutoNatListDrsAutoNatAddressListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 4}
+
+portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 5}
+
+portOperDrsAutoNatListDrsAutoNatAddressListDrsAutoNatAddressListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 6}
+
+portOperDrsAutoNatListDrsAutoNatAddressListAutoNatIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"auto_nat_ip"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 7}
+
+portOperDrsAutoNatListDrsAutoNatAddressListVrid OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"vrid"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 8}
+
+portOperDrsAutoNatListDrsAutoNatAddressListHaGroupId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ha_group_id"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 9}
+
+portOperDrsAutoNatListDrsAutoNatAddressListIpRr OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ip_rr"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 10}
+
+portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 11}
+
+portOperDrsAutoNatListDrsAutoNatAddressListPortsConsumedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed_total"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 12}
+
+portOperDrsAutoNatListDrsAutoNatAddressListPortsFreedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_freed_total"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 13}
+
+portOperDrsAutoNatListDrsAutoNatAddressListAllocFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alloc_failed"
+	::= { portOperDrsAutoNatListDrsAutoNatAddressListEntry 14}
+
+portOperNatPoolAddrListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperNatPoolAddrListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 6}
+
+portOperNatPoolAddrListEntry OBJECT-TYPE
+	SYNTAX PortOperNatPoolAddrListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperNatPoolAddrList entry:nat-pool-addr-list"
+	INDEX {
+		portOperNatPoolAddrListSlotId,
+		portOperNatPoolAddrListName,
+		portOperNatPoolAddrListPort,
+		portOperNatPoolAddrListProtocol,
+		portOperNatPoolAddrListNatPoolAddrListListId
+	}
+	::= { portOperNatPoolAddrListTable 1}
+
+PortOperNatPoolAddrListEntry ::=
+	SEQUENCE {
+		portOperNatPoolAddrListSlotId Integer32,
+		portOperNatPoolAddrListName DisplayString,
+		portOperNatPoolAddrListPort Integer32,
+		portOperNatPoolAddrListProtocol DisplayString,
+		portOperNatPoolAddrListNatPoolAddrListListId Integer32,
+		portOperNatPoolAddrListNatIp	DisplayString,
+		portOperNatPoolAddrListPortsConsumed	Integer32,
+		portOperNatPoolAddrListPortsConsumedTotal	Integer32,
+		portOperNatPoolAddrListPortsFreedTotal	Integer32,
+		portOperNatPoolAddrListAllocFailed	Integer32
+	}
+
+portOperNatPoolAddrListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperNatPoolAddrListEntry 1}
+
+portOperNatPoolAddrListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperNatPoolAddrListEntry 2}
+
+portOperNatPoolAddrListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperNatPoolAddrListEntry 3}
+
+portOperNatPoolAddrListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperNatPoolAddrListEntry 4}
+
+portOperNatPoolAddrListNatPoolAddrListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperNatPoolAddrListEntry 5}
+
+portOperNatPoolAddrListNatIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nat_ip"
+	::= { portOperNatPoolAddrListEntry 6}
+
+portOperNatPoolAddrListPortsConsumed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed"
+	::= { portOperNatPoolAddrListEntry 7}
+
+portOperNatPoolAddrListPortsConsumedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed_total"
+	::= { portOperNatPoolAddrListEntry 8}
+
+portOperNatPoolAddrListPortsFreedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_freed_total"
+	::= { portOperNatPoolAddrListEntry 9}
+
+portOperNatPoolAddrListAllocFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alloc_failed"
+	::= { portOperNatPoolAddrListEntry 10}
+
+portOperDrsIpNatListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperDrsIpNatListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 7}
+
+portOperDrsIpNatListEntry OBJECT-TYPE
+	SYNTAX PortOperDrsIpNatListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperDrsIpNatList entry:drs-ip-nat-list"
+	INDEX {
+		portOperDrsIpNatListSlotId,
+		portOperDrsIpNatListName,
+		portOperDrsIpNatListPort,
+		portOperDrsIpNatListProtocol,
+		portOperDrsIpNatListDrsIpNatListListId
+	}
+	::= { portOperDrsIpNatListTable 1}
+
+PortOperDrsIpNatListEntry ::=
+	SEQUENCE {
+		portOperDrsIpNatListSlotId Integer32,
+		portOperDrsIpNatListName DisplayString,
+		portOperDrsIpNatListPort Integer32,
+		portOperDrsIpNatListProtocol DisplayString,
+		portOperDrsIpNatListDrsIpNatListListId Integer32,
+		portOperDrsIpNatListDrsName	DisplayString,
+		portOperDrsIpNatListDrsPort	Integer32,
+		portOperDrsIpNatListPoolName	DisplayString
+	}
+
+portOperDrsIpNatListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsIpNatListEntry 1}
+
+portOperDrsIpNatListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperDrsIpNatListEntry 2}
+
+portOperDrsIpNatListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperDrsIpNatListEntry 3}
+
+portOperDrsIpNatListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperDrsIpNatListEntry 4}
+
+portOperDrsIpNatListDrsIpNatListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsIpNatListEntry 5}
+
+portOperDrsIpNatListDrsName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs_name"
+	::= { portOperDrsIpNatListEntry 6}
+
+portOperDrsIpNatListDrsPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"drs_port"
+	::= { portOperDrsIpNatListEntry 7}
+
+portOperDrsIpNatListPoolName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"pool_name"
+	::= { portOperDrsIpNatListEntry 8}
+
+portOperDrsIpNatListNatPoolAddrListTable OBJECT-TYPE
+	 SYNTAX SEQUENCE OF PortOperDrsIpNatListNatPoolAddrListEntry
+	 MAX-ACCESS not-accessible
+	 STATUS current
+	 DESCRIPTION
+		 "Real Server Port from object 'slb.server.port'"
+	::= {port 8}
+
+portOperDrsIpNatListNatPoolAddrListEntry OBJECT-TYPE
+	SYNTAX PortOperDrsIpNatListNatPoolAddrListEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"The portOperDrsIpNatListNatPoolAddrList entry:nat-pool-addr-list"
+	INDEX {
+		portOperDrsIpNatListNatPoolAddrListSlotId,
+		portOperDrsIpNatListNatPoolAddrListName,
+		portOperDrsIpNatListNatPoolAddrListPort,
+		portOperDrsIpNatListNatPoolAddrListProtocol,
+		portOperDrsIpNatListNatPoolAddrListDrsIpNatListListId,
+		portOperDrsIpNatListNatPoolAddrListNatPoolAddrListListId
+	}
+	::= { portOperDrsIpNatListNatPoolAddrListTable 1}
+
+PortOperDrsIpNatListNatPoolAddrListEntry ::=
+	SEQUENCE {
+		portOperDrsIpNatListNatPoolAddrListSlotId Integer32,
+		portOperDrsIpNatListNatPoolAddrListName DisplayString,
+		portOperDrsIpNatListNatPoolAddrListPort Integer32,
+		portOperDrsIpNatListNatPoolAddrListProtocol DisplayString,
+		portOperDrsIpNatListNatPoolAddrListDrsIpNatListListId Integer32,
+		portOperDrsIpNatListNatPoolAddrListNatPoolAddrListListId Integer32,
+		portOperDrsIpNatListNatPoolAddrListNatIp	DisplayString,
+		portOperDrsIpNatListNatPoolAddrListPortsConsumed	Integer32,
+		portOperDrsIpNatListNatPoolAddrListPortsConsumedTotal	Integer32,
+		portOperDrsIpNatListNatPoolAddrListPortsFreedTotal	Integer32,
+		portOperDrsIpNatListNatPoolAddrListAllocFailed	Integer32
+	}
+
+portOperDrsIpNatListNatPoolAddrListSlotId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 1}
+
+portOperDrsIpNatListNatPoolAddrListName OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"name"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 2}
+
+portOperDrsIpNatListNatPoolAddrListPort OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"port-number"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 3}
+
+portOperDrsIpNatListNatPoolAddrListProtocol OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"protocol"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 4}
+
+portOperDrsIpNatListNatPoolAddrListDrsIpNatListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 5}
+
+portOperDrsIpNatListNatPoolAddrListNatPoolAddrListListId OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		""
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 6}
+
+portOperDrsIpNatListNatPoolAddrListNatIp OBJECT-TYPE
+	SYNTAX DisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"nat_ip"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 7}
+
+portOperDrsIpNatListNatPoolAddrListPortsConsumed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 8}
+
+portOperDrsIpNatListNatPoolAddrListPortsConsumedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_consumed_total"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 9}
+
+portOperDrsIpNatListNatPoolAddrListPortsFreedTotal OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ports_freed_total"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 10}
+
+portOperDrsIpNatListNatPoolAddrListAllocFailed OBJECT-TYPE
+	SYNTAX Integer32
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"alloc_failed"
+	::= { portOperDrsIpNatListNatPoolAddrListEntry 11}
+
+END
+
