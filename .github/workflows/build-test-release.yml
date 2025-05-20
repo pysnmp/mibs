@@ -123,7 +123,7 @@ jobs:
         with:
           node-version: "20"
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4.1.1
+        uses: cycjimmy/semantic-release-action@v4.2.0
         with:
           semantic_version: 24
           extra_plugins: |
