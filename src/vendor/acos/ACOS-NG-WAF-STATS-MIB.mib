@@ -1,0 +1,978 @@
+ACOS-NG-WAF-STATS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosRootStats
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		acosNgWaf MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  3 West Pumeria Dr.
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "NgWaf OID for ACOS"
+				::=  {  acosRootStats 202  }
+
+acosNgWaf                           OBJECT IDENTIFIER ::= { acosRootStats 202 }
+acosNgWafStats                      OBJECT IDENTIFIER ::= { acosNgWaf 2 }
+acosNgWafStatsS                     OBJECT IDENTIFIER ::= { acosNgWafStats 1 }
+
+ngWafStatsSTable OBJECT-TYPE
+		SYNTAX SEQUENCE OF NgWafStatsSEntry
+		MAX-ACCESS not-accessible
+		STATUS current
+		::={ acosNgWafStatsS 1 } 
+
+
+	ngWafStatsSEntry OBJECT-TYPE
+		SYNTAX NgWafStatsSEntry
+		MAX-ACCESS not-accessible
+		STATUS current
+		INDEX {
+			name
+		}
+		::={ ngWafStatsSTable 1 } 
+
+
+	NgWafStatsSEntry ::=
+		SEQUENCE {
+			name DisplayString, 
+			reqReceived CounterBasedGauge64,
+			reqForward CounterBasedGauge64,
+			reqBlocked CounterBasedGauge64,
+			reqRedirected CounterBasedGauge64,
+			reqMarked CounterBasedGauge64,
+			reqBypass CounterBasedGauge64,
+			error CounterBasedGauge64,
+			useragent CounterBasedGauge64,
+			awsSsrf CounterBasedGauge64,
+			backdoor CounterBasedGauge64,
+			cmdexe CounterBasedGauge64,
+			xss CounterBasedGauge64,
+			traversal CounterBasedGauge64,
+			graphqlDepth CounterBasedGauge64,
+			log4jJndi CounterBasedGauge64,
+			sqli CounterBasedGauge64,
+			abnormalpath CounterBasedGauge64,
+			bhh CounterBasedGauge64,
+			block CounterBasedGauge64,
+			codei CounterBasedGauge64,
+			datacenter CounterBasedGauge64,
+			doubleenc CounterBasedGauge64,
+			duplicateHeaders CounterBasedGauge64,
+			fbrowing CounterBasedGauge64,
+			graphqlIde CounterBasedGauge64,
+			graphqlIntrospection CounterBasedGauge64,
+			graphqlUnusedVariables CounterBasedGauge64,
+			http403 CounterBasedGauge64,
+			http404 CounterBasedGauge64,
+			http429 CounterBasedGauge64,
+			http4xx CounterBasedGauge64,
+			http500 CounterBasedGauge64,
+			http503 CounterBasedGauge64,
+			http5xx CounterBasedGauge64,
+			respsplit CounterBasedGauge64,
+			notutf8 CounterBasedGauge64,
+			jsonError CounterBasedGauge64,
+			malformed CounterBasedGauge64,
+			sans CounterBasedGauge64,
+			sigsciIp CounterBasedGauge64,
+			noCtype CounterBasedGauge64,
+			noua CounterBasedGauge64,
+			nullbyte CounterBasedGauge64,
+			privatefile CounterBasedGauge64,
+			scanner CounterBasedGauge64,
+			impostor CounterBasedGauge64,
+			siteFlaggedIp CounterBasedGauge64,
+			tornode CounterBasedGauge64,
+			weaktls CounterBasedGauge64,
+			xmlError CounterBasedGauge64,
+			other CounterBasedGauge64,
+			custom1 CounterBasedGauge64,
+			custom2 CounterBasedGauge64,
+			custom3 CounterBasedGauge64,
+			custom4 CounterBasedGauge64,
+			custom5 CounterBasedGauge64,
+			custom6 CounterBasedGauge64,
+			custom7 CounterBasedGauge64,
+			custom8 CounterBasedGauge64,
+			custom9 CounterBasedGauge64,
+			custom10 CounterBasedGauge64,
+			custom11 CounterBasedGauge64,
+			custom12 CounterBasedGauge64,
+			custom13 CounterBasedGauge64,
+			custom14 CounterBasedGauge64,
+			custom15 CounterBasedGauge64,
+			custom16 CounterBasedGauge64,
+			custom17 CounterBasedGauge64,
+			custom18 CounterBasedGauge64,
+			custom19 CounterBasedGauge64,
+			custom20 CounterBasedGauge64,
+			custom21 CounterBasedGauge64,
+			custom22 CounterBasedGauge64,
+			custom23 CounterBasedGauge64,
+			custom24 CounterBasedGauge64,
+			custom25 CounterBasedGauge64,
+			custom26 CounterBasedGauge64,
+			custom27 CounterBasedGauge64,
+			custom28 CounterBasedGauge64,
+			custom29 CounterBasedGauge64,
+			custom30 CounterBasedGauge64,
+			custom31 CounterBasedGauge64,
+			custom32 CounterBasedGauge64,
+			custom33 CounterBasedGauge64,
+			custom34 CounterBasedGauge64,
+			custom35 CounterBasedGauge64,
+			custom36 CounterBasedGauge64,
+			custom37 CounterBasedGauge64,
+			custom38 CounterBasedGauge64,
+			custom39 CounterBasedGauge64,
+			custom40 CounterBasedGauge64,
+			custom41 CounterBasedGauge64,
+			custom42 CounterBasedGauge64,
+			custom43 CounterBasedGauge64,
+			custom44 CounterBasedGauge64,
+			custom45 CounterBasedGauge64,
+			custom46 CounterBasedGauge64,
+			custom47 CounterBasedGauge64,
+			custom48 CounterBasedGauge64,
+			custom49 CounterBasedGauge64,
+			custom50 CounterBasedGauge64,
+			custom51 CounterBasedGauge64,
+			custom52 CounterBasedGauge64,
+			custom53 CounterBasedGauge64,
+			custom54 CounterBasedGauge64,
+			custom55 CounterBasedGauge64,
+			custom56 CounterBasedGauge64,
+			custom57 CounterBasedGauge64,
+			custom58 CounterBasedGauge64,
+			custom59 CounterBasedGauge64,
+			custom60 CounterBasedGauge64,
+			custom61 CounterBasedGauge64,
+			custom62 CounterBasedGauge64,
+			custom63 CounterBasedGauge64,
+			custom64 CounterBasedGauge64
+		}
+
+			name OBJECT-TYPE
+			SYNTAX  DisplayString 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "ng-waf name" 
+			::={ ngWafStatsSEntry 1 } 
+
+			reqReceived OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Requests Received" 
+			::={ ngWafStatsSEntry 2 } 
+
+			reqForward OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Requests Forwarded" 
+			::={ ngWafStatsSEntry 3 } 
+
+			reqBlocked OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Requests Blocked" 
+			::={ ngWafStatsSEntry 4 } 
+
+			reqRedirected OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Requests Redirected" 
+			::={ ngWafStatsSEntry 116 } 
+
+			reqMarked OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Requests Marked" 
+			::={ ngWafStatsSEntry 41 } 
+
+			reqBypass OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Requests Bypassed" 
+			::={ ngWafStatsSEntry 5 } 
+
+			error OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Error Happened" 
+			::={ ngWafStatsSEntry 6 } 
+
+			useragent OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Attack Tooling" 
+			::={ ngWafStatsSEntry 7 } 
+
+			awsSsrf OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "AWS SSRF" 
+			::={ ngWafStatsSEntry 8 } 
+
+			backdoor OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Backdoor" 
+			::={ ngWafStatsSEntry 9 } 
+
+			cmdexe OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Command Execution" 
+			::={ ngWafStatsSEntry 10 } 
+
+			xss OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Cross Site Scripting" 
+			::={ ngWafStatsSEntry 11 } 
+
+			traversal OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Directory Traversal" 
+			::={ ngWafStatsSEntry 12 } 
+
+			graphqlDepth OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "GraphQL Max Depth" 
+			::={ ngWafStatsSEntry 42 } 
+
+			log4jJndi OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Log4J JNDI" 
+			::={ ngWafStatsSEntry 43 } 
+
+			sqli OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "SQL Injection" 
+			::={ ngWafStatsSEntry 13 } 
+
+			abnormalpath OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Abnormal Path" 
+			::={ ngWafStatsSEntry 44 } 
+
+			bhh OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Bad Hop Headers" 
+			::={ ngWafStatsSEntry 14 } 
+
+			block OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Blocked Requests" 
+			::={ ngWafStatsSEntry 15 } 
+
+			codei OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Code Injection PHP" 
+			::={ ngWafStatsSEntry 16 } 
+
+			datacenter OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Datacenter Traffic" 
+			::={ ngWafStatsSEntry 17 } 
+
+			doubleenc OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Double Encoding" 
+			::={ ngWafStatsSEntry 18 } 
+
+			duplicateHeaders OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Duplicate Header Names" 
+			::={ ngWafStatsSEntry 45 } 
+
+			fbrowing OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Forceful Browsing" 
+			::={ ngWafStatsSEntry 19 } 
+
+			graphqlIde OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "GraphQL IDE" 
+			::={ ngWafStatsSEntry 46 } 
+
+			graphqlIntrospection OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "GraphQL Introspection" 
+			::={ ngWafStatsSEntry 47 } 
+
+			graphqlUnusedVariables OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "GRAPHQL-UNUSED-VARIABLES" 
+			::={ ngWafStatsSEntry 48 } 
+
+			http403 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 403 Errors" 
+			::={ ngWafStatsSEntry 20 } 
+
+			http404 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 404 Errors" 
+			::={ ngWafStatsSEntry 21 } 
+
+			http429 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 429 Errors" 
+			::={ ngWafStatsSEntry 22 } 
+
+			http4xx OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 4xx Errors" 
+			::={ ngWafStatsSEntry 23 } 
+
+			http500 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 500 Errors" 
+			::={ ngWafStatsSEntry 24 } 
+
+			http503 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 503 Errors" 
+			::={ ngWafStatsSEntry 25 } 
+
+			http5xx OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP 5xx Errors" 
+			::={ ngWafStatsSEntry 26 } 
+
+			respsplit OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "HTTP Response Splitting" 
+			::={ ngWafStatsSEntry 27 } 
+
+			notutf8 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Invalid Encoding" 
+			::={ ngWafStatsSEntry 28 } 
+
+			jsonError OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "JSON Encoding Error" 
+			::={ ngWafStatsSEntry 49 } 
+
+			malformed OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Malformed Data in the Request Body" 
+			::={ ngWafStatsSEntry 29 } 
+
+			sans OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Malicious IP Traffic" 
+			::={ ngWafStatsSEntry 30 } 
+
+			sigsciIp OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Network Effect" 
+			::={ ngWafStatsSEntry 31 } 
+
+			noCtype OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Missing Content-Type Request Header" 
+			::={ ngWafStatsSEntry 32 } 
+
+			noua OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "No User Agent" 
+			::={ ngWafStatsSEntry 33 } 
+
+			nullbyte OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Null Byte" 
+			::={ ngWafStatsSEntry 34 } 
+
+			privatefile OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Private File" 
+			::={ ngWafStatsSEntry 35 } 
+
+			scanner OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Scanner" 
+			::={ ngWafStatsSEntry 36 } 
+
+			impostor OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "SearchBot Impostor" 
+			::={ ngWafStatsSEntry 37 } 
+
+			siteFlaggedIp OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Site Flagged IP" 
+			::={ ngWafStatsSEntry 50 } 
+
+			tornode OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Tor Traffic" 
+			::={ ngWafStatsSEntry 38 } 
+
+			weaktls OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Weak TLS" 
+			::={ ngWafStatsSEntry 39 } 
+
+			xmlError OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "XML Encoding Error" 
+			::={ ngWafStatsSEntry 51 } 
+
+			other OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Unknown Attack" 
+			::={ ngWafStatsSEntry 40 } 
+
+			custom1 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 1" 
+			::={ ngWafStatsSEntry 52 } 
+
+			custom2 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 2" 
+			::={ ngWafStatsSEntry 53 } 
+
+			custom3 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 3" 
+			::={ ngWafStatsSEntry 54 } 
+
+			custom4 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 4" 
+			::={ ngWafStatsSEntry 55 } 
+
+			custom5 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 5" 
+			::={ ngWafStatsSEntry 56 } 
+
+			custom6 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 6" 
+			::={ ngWafStatsSEntry 57 } 
+
+			custom7 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 7" 
+			::={ ngWafStatsSEntry 58 } 
+
+			custom8 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 8" 
+			::={ ngWafStatsSEntry 59 } 
+
+			custom9 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 9" 
+			::={ ngWafStatsSEntry 60 } 
+
+			custom10 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 10" 
+			::={ ngWafStatsSEntry 61 } 
+
+			custom11 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 11" 
+			::={ ngWafStatsSEntry 62 } 
+
+			custom12 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 12" 
+			::={ ngWafStatsSEntry 63 } 
+
+			custom13 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 13" 
+			::={ ngWafStatsSEntry 64 } 
+
+			custom14 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 14" 
+			::={ ngWafStatsSEntry 65 } 
+
+			custom15 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 15" 
+			::={ ngWafStatsSEntry 66 } 
+
+			custom16 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 16" 
+			::={ ngWafStatsSEntry 67 } 
+
+			custom17 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 17" 
+			::={ ngWafStatsSEntry 68 } 
+
+			custom18 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 18" 
+			::={ ngWafStatsSEntry 69 } 
+
+			custom19 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 19" 
+			::={ ngWafStatsSEntry 70 } 
+
+			custom20 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 20" 
+			::={ ngWafStatsSEntry 71 } 
+
+			custom21 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 21" 
+			::={ ngWafStatsSEntry 72 } 
+
+			custom22 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 22" 
+			::={ ngWafStatsSEntry 73 } 
+
+			custom23 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 23" 
+			::={ ngWafStatsSEntry 74 } 
+
+			custom24 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 24" 
+			::={ ngWafStatsSEntry 75 } 
+
+			custom25 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 25" 
+			::={ ngWafStatsSEntry 76 } 
+
+			custom26 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 26" 
+			::={ ngWafStatsSEntry 77 } 
+
+			custom27 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 27" 
+			::={ ngWafStatsSEntry 78 } 
+
+			custom28 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 28" 
+			::={ ngWafStatsSEntry 79 } 
+
+			custom29 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 29" 
+			::={ ngWafStatsSEntry 80 } 
+
+			custom30 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 30" 
+			::={ ngWafStatsSEntry 81 } 
+
+			custom31 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 31" 
+			::={ ngWafStatsSEntry 82 } 
+
+			custom32 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 32" 
+			::={ ngWafStatsSEntry 83 } 
+
+			custom33 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 33" 
+			::={ ngWafStatsSEntry 84 } 
+
+			custom34 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 34" 
+			::={ ngWafStatsSEntry 85 } 
+
+			custom35 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 35" 
+			::={ ngWafStatsSEntry 86 } 
+
+			custom36 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 36" 
+			::={ ngWafStatsSEntry 87 } 
+
+			custom37 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 37" 
+			::={ ngWafStatsSEntry 88 } 
+
+			custom38 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 38" 
+			::={ ngWafStatsSEntry 89 } 
+
+			custom39 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 39" 
+			::={ ngWafStatsSEntry 90 } 
+
+			custom40 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 40" 
+			::={ ngWafStatsSEntry 91 } 
+
+			custom41 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 41" 
+			::={ ngWafStatsSEntry 92 } 
+
+			custom42 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 42" 
+			::={ ngWafStatsSEntry 93 } 
+
+			custom43 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 43" 
+			::={ ngWafStatsSEntry 94 } 
+
+			custom44 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 44" 
+			::={ ngWafStatsSEntry 95 } 
+
+			custom45 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 45" 
+			::={ ngWafStatsSEntry 96 } 
+
+			custom46 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 46" 
+			::={ ngWafStatsSEntry 97 } 
+
+			custom47 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 47" 
+			::={ ngWafStatsSEntry 98 } 
+
+			custom48 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 48" 
+			::={ ngWafStatsSEntry 99 } 
+
+			custom49 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 49" 
+			::={ ngWafStatsSEntry 100 } 
+
+			custom50 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 50" 
+			::={ ngWafStatsSEntry 101 } 
+
+			custom51 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 51" 
+			::={ ngWafStatsSEntry 102 } 
+
+			custom52 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 52" 
+			::={ ngWafStatsSEntry 103 } 
+
+			custom53 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 53" 
+			::={ ngWafStatsSEntry 104 } 
+
+			custom54 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 54" 
+			::={ ngWafStatsSEntry 105 } 
+
+			custom55 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 55" 
+			::={ ngWafStatsSEntry 106 } 
+
+			custom56 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 56" 
+			::={ ngWafStatsSEntry 107 } 
+
+			custom57 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 57" 
+			::={ ngWafStatsSEntry 108 } 
+
+			custom58 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 58" 
+			::={ ngWafStatsSEntry 109 } 
+
+			custom59 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 59" 
+			::={ ngWafStatsSEntry 110 } 
+
+			custom60 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 60" 
+			::={ ngWafStatsSEntry 111 } 
+
+			custom61 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 61" 
+			::={ ngWafStatsSEntry 112 } 
+
+			custom62 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 62" 
+			::={ ngWafStatsSEntry 113 } 
+
+			custom63 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 63" 
+			::={ ngWafStatsSEntry 114 } 
+
+			custom64 OBJECT-TYPE
+			SYNTAX  CounterBasedGauge64 
+			MAX-ACCESS read-only 
+			STATUS current
+			DESCRIPTION  "Custom signal 64" 
+			::={ ngWafStatsSEntry 115 } 
+
+END
+

@@ -1,0 +1,5992 @@
+ACOS-DDOS-STATS-MIB DEFINITIONS ::= BEGIN
+	IMPORTS
+		DisplayString, PhysAddress
+		FROM SNMPv2-TC
+	InetAddressType
+		FROM INET-ADDRESS-MIB
+	acosRootStats
+		FROM A10-AX-MIB
+	MODULE-IDENTITY, OBJECT-TYPE, Counter32, Integer32, Counter64, OBJECT-IDENTITY, NOTIFICATION-TYPE
+		FROM SNMPv2-SMI;
+		acosDdos MODULE-IDENTITY
+				LAST-UPDATED	"200705071327Z"
+				ORGANIZATION	"A10 Networks, Inc."
+				CONTACT-INFO	"Address: A10 Networks, Inc.
+							  3 West Pumeria Dr.
+							  San Jose, CA 95131
+						 Phone:   +1-888-822-7210 (USA/Canada)
+						          +1-408-325-8676 (International)
+						 E-mail:  support@A10Networks.com"
+
+				DESCRIPTION	 "Ddos OID for ACOS"
+				::=  {  acosRootStats 102  }
+
+acosDdosPatternRecognition          OBJECT IDENTIFIER ::= { acosDdos 81 }
+acosDdosPatternRecognitionS         OBJECT IDENTIFIER ::= { acosDdosPatternRecognition 1 }
+
+		proceeded OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Pattern Recognition: Engine Started" 
+		::={ acosDdosPatternRecognitionS 1 } 
+
+		notFound OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Pattern Recognition: Pattern Not Found" 
+		::={ acosDdosPatternRecognitionS 2 } 
+
+		genericError OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Pattern Recognition: Exceptions" 
+		::={ acosDdosPatternRecognitionS 3 } 
+
+		filterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Extracted Filter Match" 
+		::={ acosDdosPatternRecognitionS 4 } 
+
+		filterDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Extracted Filter Drop" 
+		::={ acosDdosPatternRecognitionS 5 } 
+
+acosDdosL4Tcp                       OBJECT IDENTIFIER ::= { acosDdos 38 }
+acosDdosL4TcpS                      OBJECT IDENTIFIER ::= { acosDdosL4Tcp 1 }
+
+		tcpSessCreate OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Sessions Created" 
+		::={ acosDdosL4TcpS 1 } 
+
+		intcp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Total Packets Received" 
+		::={ acosDdosL4TcpS 2 } 
+
+		tcpSynRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Received" 
+		::={ acosDdosL4TcpS 3 } 
+
+		tcpInvalidSynRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Invalid SYN Received" 
+		::={ acosDdosL4TcpS 4 } 
+
+		tcpSynAckRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN ACK Received" 
+		::={ acosDdosL4TcpS 5 } 
+
+		tcpAckRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Received" 
+		::={ acosDdosL4TcpS 6 } 
+
+		tcpFinRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP FIN Received" 
+		::={ acosDdosL4TcpS 7 } 
+
+		tcpRstRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP RST Received" 
+		::={ acosDdosL4TcpS 8 } 
+
+		tcpOutrst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Outbound RST" 
+		::={ acosDdosL4TcpS 9 } 
+
+		tcpResetClient OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Reset Client" 
+		::={ acosDdosL4TcpS 10 } 
+
+		tcpResetServer OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Reset Server" 
+		::={ acosDdosL4TcpS 11 } 
+
+		tcpSynRate OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Rate Per Sec" 
+		::={ acosDdosL4TcpS 12 } 
+
+		tcpTotalDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Total Packets Dropped" 
+		::={ acosDdosL4TcpS 13 } 
+
+		tcpDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Packets Dropped" 
+		::={ acosDdosL4TcpS 14 } 
+
+		tcpExceedDropAnyDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Exceed Drop (deprecated)" 
+		::={ acosDdosL4TcpS 15 } 
+
+		tcpExceedDropPrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4TcpS 16 } 
+
+		tcpExceedDropCrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Connection Rate Drop (deprecated)" 
+		::={ acosDdosL4TcpS 17 } 
+
+		tcpExceedDropClimitDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Connection Limit Drop (deprecated)" 
+		::={ acosDdosL4TcpS 18 } 
+
+		tcpDropBlackDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4TcpS 19 } 
+
+		tcpSrcDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Packets Dropped" 
+		::={ acosDdosL4TcpS 20 } 
+
+		tcpExceedDropAnySrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Exceed Drop (deprecated)" 
+		::={ acosDdosL4TcpS 21 } 
+
+		tcpExceedDropPrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4TcpS 22 } 
+
+		tcpExceedDropCrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Connection Rate Drop (deprecated)" 
+		::={ acosDdosL4TcpS 23 } 
+
+		tcpExceedDropClimitSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Connection Limit Drop (deprecated)" 
+		::={ acosDdosL4TcpS 24 } 
+
+		tcpDropBlackSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Blacklist Drop (deprecated)" 
+		::={ acosDdosL4TcpS 25 } 
+
+		tcpDropBlackUserCfgSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Blacklist User Packets Dropped" 
+		::={ acosDdosL4TcpS 26 } 
+
+		tcpSrcDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Packets Dropped" 
+		::={ acosDdosL4TcpS 27 } 
+
+		tcpExceedDropAnySrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Exceed Drop (deprecated)" 
+		::={ acosDdosL4TcpS 28 } 
+
+		tcpExceedDropPrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4TcpS 29 } 
+
+		tcpExceedDropCrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Connection Rate Drop (deprecated)" 
+		::={ acosDdosL4TcpS 30 } 
+
+		tcpExceedDropClimitSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Connection Limit Drop (deprecated)" 
+		::={ acosDdosL4TcpS 31 } 
+
+		tcpDropBlackSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4TcpS 32 } 
+
+		tcpDropBlackUserCfgSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Blacklist User Packets Dropped" 
+		::={ acosDdosL4TcpS 33 } 
+
+		tcpPortZeroDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Port 0 Packets Dropped" 
+		::={ acosDdosL4TcpS 34 } 
+
+		tcpSyncookieSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Cookie Sent" 
+		::={ acosDdosL4TcpS 35 } 
+
+		tcpSyncookieSentFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Cookie Send Failed" 
+		::={ acosDdosL4TcpS 36 } 
+
+		tcpSyncookieCheckFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Cookie Check Failed" 
+		::={ acosDdosL4TcpS 37 } 
+
+		tcpSyncookieHwMissing OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Cookie HW Missed" 
+		::={ acosDdosL4TcpS 38 } 
+
+		tcpSyncookieFailBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Cookie Blacklist Failed" 
+		::={ acosDdosL4TcpS 39 } 
+
+		tcpSyncookiePass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Cookie Passed" 
+		::={ acosDdosL4TcpS 40 } 
+
+		synAuthPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Auth Passed" 
+		::={ acosDdosL4TcpS 41 } 
+
+		synAuthSkip OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Auth Skipped" 
+		::={ acosDdosL4TcpS 42 } 
+
+		tcpOverLimitSynAuthDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4TcpS 43 } 
+
+		tcpOverLimitSynCookieDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Over Limit Cookie (deprecated)" 
+		::={ acosDdosL4TcpS 44 } 
+
+		tcpOverLimitSynAuthDstPort OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Port Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4TcpS 45 } 
+
+		tcpOverLimitSynCookieDstPort OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst Port Over Limit Cookie (deprecated)" 
+		::={ acosDdosL4TcpS 46 } 
+
+		tcpActionOnAckStart OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Init" 
+		::={ acosDdosL4TcpS 47 } 
+
+		tcpActionOnAckMatched OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Matched" 
+		::={ acosDdosL4TcpS 48 } 
+
+		tcpActionOnAckPassed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Passed" 
+		::={ acosDdosL4TcpS 49 } 
+
+		tcpActionOnAckFailed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Dropped" 
+		::={ acosDdosL4TcpS 50 } 
+
+		tcpActionOnAckTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Timeout" 
+		::={ acosDdosL4TcpS 51 } 
+
+		tcpActionOnAckReset OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Timeout Reset" 
+		::={ acosDdosL4TcpS 52 } 
+
+		tcpAckNoSyn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK No SYN" 
+		::={ acosDdosL4TcpS 53 } 
+
+		tcpOutOfSeq OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Out-Of-Seq Total" 
+		::={ acosDdosL4TcpS 54 } 
+
+		tcpZeroWindow OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Zero-Window Total" 
+		::={ acosDdosL4TcpS 55 } 
+
+		tcpRetransmit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit Total" 
+		::={ acosDdosL4TcpS 56 } 
+
+		tcpRexmitSynLimitDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit SYN Exceed Dropped" 
+		::={ acosDdosL4TcpS 57 } 
+
+		tcpZeroWindowBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Zero-Window Blacklisted" 
+		::={ acosDdosL4TcpS 58 } 
+
+		tcpOutOfSeqBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Out-Of-Seq Blacklisted" 
+		::={ acosDdosL4TcpS 59 } 
+
+		tcpRetransmitBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit Blacklisted" 
+		::={ acosDdosL4TcpS 60 } 
+
+		tcpRexmitSynLimitBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit SYN Exceed Blacklisted" 
+		::={ acosDdosL4TcpS 61 } 
+
+		tcpPerConnPrateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Pkt Rate Dropped" 
+		::={ acosDdosL4TcpS 62 } 
+
+		tcpActionOnAckGapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Retry-Gap Dropped" 
+		::={ acosDdosL4TcpS 63 } 
+
+		tcpActionOnAckGapPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Retry-Gap Passed" 
+		::={ acosDdosL4TcpS 64 } 
+
+		tcpNewConnAckRetryGapStart OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP New-Connection-Ack-Retry-Gap Initialize (deprecated)" 
+		::={ acosDdosL4TcpS 65 } 
+
+		tcpNewConnAckRetryGapPassed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP New-Connection-Ack-Retry-Gap Pass (deprecated)" 
+		::={ acosDdosL4TcpS 66 } 
+
+		tcpNewConnAckRetryGapFailed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP New-Connection-Ack-Retry-Gap Fail (deprecated)" 
+		::={ acosDdosL4TcpS 67 } 
+
+		tcpNewConnAckRetryGapTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP New-Connection-Ack-Retry-Gap Timeout (deprecated)" 
+		::={ acosDdosL4TcpS 68 } 
+
+		tcpNewConnAckRetryGapReset OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP New-Connection-Ack-Retry-Gap Reset (deprecated)" 
+		::={ acosDdosL4TcpS 69 } 
+
+		tcpNewConnAckRetryGapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP New-Connection-Ack-Retry-Gap Drop (deprecated)" 
+		::={ acosDdosL4TcpS 70 } 
+
+		tcpActionOnSynStart OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Init" 
+		::={ acosDdosL4TcpS 71 } 
+
+		tcpActionOnSynPassed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Passed" 
+		::={ acosDdosL4TcpS 72 } 
+
+		tcpActionOnSynFailed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Dropped" 
+		::={ acosDdosL4TcpS 73 } 
+
+		tcpActionOnSynTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Timeout" 
+		::={ acosDdosL4TcpS 74 } 
+
+		tcpActionOnSynReset OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Timeout Reset" 
+		::={ acosDdosL4TcpS 75 } 
+
+		tcpActionOnSynGapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Retry-Gap Dropped" 
+		::={ acosDdosL4TcpS 76 } 
+
+		tcpActionOnSynGapPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Retry-Gap Passed" 
+		::={ acosDdosL4TcpS 77 } 
+
+		tcpUnauthRstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Unauth RST Dropped" 
+		::={ acosDdosL4TcpS 78 } 
+
+		dstTcpFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Match" 
+		::={ acosDdosL4TcpS 79 } 
+
+		dstTcpFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter No Match" 
+		::={ acosDdosL4TcpS 80 } 
+
+		dstTcpFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Blacklist" 
+		::={ acosDdosL4TcpS 81 } 
+
+		dstTcpFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Drop" 
+		::={ acosDdosL4TcpS 82 } 
+
+		dstTcpFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Default Pass" 
+		::={ acosDdosL4TcpS 83 } 
+
+		tcpOverLimitSynAuthSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4TcpS 84 } 
+
+		tcpOverLimitSynAuthSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4TcpS 85 } 
+
+		tcpOverLimitSynCookieSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Over Limit Cookie (deprecated)" 
+		::={ acosDdosL4TcpS 86 } 
+
+		tcpOverLimitSynCookieSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Over Limit Cookie (deprecated)" 
+		::={ acosDdosL4TcpS 87 } 
+
+		tcpExceedDropBrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Dst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4TcpS 88 } 
+
+		tcpExceedDropBrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4TcpS 89 } 
+
+		tcpExceedDropBrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4TcpS 90 } 
+
+		tcpConcurrent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Concurrent Port Access" 
+		::={ acosDdosL4TcpS 91 } 
+
+		dstTcpFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action WL" 
+		::={ acosDdosL4TcpS 92 } 
+
+		srcTcpFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Match" 
+		::={ acosDdosL4TcpS 93 } 
+
+		srcTcpFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter No Match" 
+		::={ acosDdosL4TcpS 94 } 
+
+		srcTcpFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Blacklist" 
+		::={ acosDdosL4TcpS 95 } 
+
+		srcTcpFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Drop" 
+		::={ acosDdosL4TcpS 96 } 
+
+		srcTcpFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Default Pass" 
+		::={ acosDdosL4TcpS 97 } 
+
+		srcTcpFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action WL" 
+		::={ acosDdosL4TcpS 98 } 
+
+		srcDstTcpFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Match" 
+		::={ acosDdosL4TcpS 99 } 
+
+		srcDstTcpFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter No Match" 
+		::={ acosDdosL4TcpS 100 } 
+
+		srcDstTcpFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Blacklist" 
+		::={ acosDdosL4TcpS 101 } 
+
+		srcDstTcpFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Drop" 
+		::={ acosDdosL4TcpS 102 } 
+
+		srcDstTcpFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Default Pass" 
+		::={ acosDdosL4TcpS 103 } 
+
+		srcDstTcpFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action WL" 
+		::={ acosDdosL4TcpS 104 } 
+
+		synAuthPassWl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Auth Pass WL" 
+		::={ acosDdosL4TcpS 105 } 
+
+		tcpOutOfSeqDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Out-Of-Seq Dropped" 
+		::={ acosDdosL4TcpS 106 } 
+
+		tcpZeroWindowDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Zero-Window Dropped" 
+		::={ acosDdosL4TcpS 107 } 
+
+		tcpRetransmitDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit Dropped" 
+		::={ acosDdosL4TcpS 108 } 
+
+		tcpPerConnPrateExceedBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Pkt Rate Blacklisted" 
+		::={ acosDdosL4TcpS 109 } 
+
+		tcpAnyExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Exceeded" 
+		::={ acosDdosL4TcpS 110 } 
+
+		tcpDropBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Blacklist Packets Dropped" 
+		::={ acosDdosL4TcpS 111 } 
+
+		tcpFragRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Frag Received" 
+		::={ acosDdosL4TcpS 112 } 
+
+		tcpFragDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Frag Dropped" 
+		::={ acosDdosL4TcpS 113 } 
+
+		tcpAuthDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Auth Dropped" 
+		::={ acosDdosL4TcpS 114 } 
+
+		tcpAuthResp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Auth Responded" 
+		::={ acosDdosL4TcpS 115 } 
+
+		tcpTotalBytesRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Total Bytes Received" 
+		::={ acosDdosL4TcpS 116 } 
+
+		tcpTotalBytesDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Total Bytes Dropped" 
+		::={ acosDdosL4TcpS 117 } 
+
+		tcpActionOnAckBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP ACK Retry Timeout Blacklisted" 
+		::={ acosDdosL4TcpS 118 } 
+
+		tcpActionOnSynBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Retry Timeout Blacklisted" 
+		::={ acosDdosL4TcpS 119 } 
+
+		tcpPerConnOfoRateExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Out-Of-Seq Rate Dropped" 
+		::={ acosDdosL4TcpS 120 } 
+
+		tcpPerConnOfoRateExceedBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Out-Of-Seq Rate Blacklisted" 
+		::={ acosDdosL4TcpS 121 } 
+
+		tcpPerConnRexmitRateExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Retransmit Rate Dropped" 
+		::={ acosDdosL4TcpS 122 } 
+
+		tcpPerConnRexmitRateExceedBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Retransmit Rate Blacklisted" 
+		::={ acosDdosL4TcpS 123 } 
+
+		tcpPerConnZwindowRateExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Zero-Window Rate Dropped" 
+		::={ acosDdosL4TcpS 124 } 
+
+		tcpPerConnZwindowRateExceedBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Zero-Window Rate Blacklisted" 
+		::={ acosDdosL4TcpS 125 } 
+
+		tcpSynTfoRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN TFO Received" 
+		::={ acosDdosL4TcpS 126 } 
+
+		tcpProgressionViolationExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Progression: Violation Exceeded" 
+		::={ acosDdosL4TcpS 127 } 
+
+		tcpProgressionViolationExceedBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Progression: Violation Exceeded Blacklisted" 
+		::={ acosDdosL4TcpS 128 } 
+
+		tcpProgressionViolationExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Progression: Violation Exceeded Dropped" 
+		::={ acosDdosL4TcpS 129 } 
+
+		tcpProgressionViolationExceedReset OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Progression: Violation Exceeded Reset" 
+		::={ acosDdosL4TcpS 130 } 
+
+		tcpAuthRst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Auth Reset" 
+		::={ acosDdosL4TcpS 131 } 
+
+		hybridSynAuthUnknownPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Unknown Auth Pass" 
+		::={ acosDdosL4TcpS 132 } 
+
+		hybridSynAuthUnknownFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Unknown Auth Fail" 
+		::={ acosDdosL4TcpS 133 } 
+
+		hybridSynAuthValidSaSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Valid SYNACK Sent" 
+		::={ acosDdosL4TcpS 134 } 
+
+		hybridSynAuthInvalidSaSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Invalid SYNACK Sent" 
+		::={ acosDdosL4TcpS 135 } 
+
+		hybridSynAuthFilterFull OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Filter Full" 
+		::={ acosDdosL4TcpS 136 } 
+
+		hybridSynAuthLookupFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Lookup Fail" 
+		::={ acosDdosL4TcpS 137 } 
+
+		hybridSynAuthInvalidPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Invalid SYNACK Auth Pass" 
+		::={ acosDdosL4TcpS 138 } 
+
+		hybridSynAuthValidPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Valid SYNACK Auth Pass" 
+		::={ acosDdosL4TcpS 139 } 
+
+		hybridSynAuthInvalidFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Invalid SYNACK Auth Fail" 
+		::={ acosDdosL4TcpS 140 } 
+
+		hybridSynAuthValidFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Valid SYNACK Auth Fail" 
+		::={ acosDdosL4TcpS 141 } 
+
+		tcpInvalidSynackRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Invalid SYNACK Received" 
+		::={ acosDdosL4TcpS 142 } 
+
+		hybridSynAuthMethodChange OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Method Change" 
+		::={ acosDdosL4TcpS 143 } 
+
+		tcpSmallWindow OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Small-Window Total" 
+		::={ acosDdosL4TcpS 144 } 
+
+		tcpSmallWindowBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Small-Window Blacklisted" 
+		::={ acosDdosL4TcpS 145 } 
+
+		tcpSmallWindowDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Small-Window Dropped" 
+		::={ acosDdosL4TcpS 146 } 
+
+		hybridSynAuthEntryAgedOut OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Entry Aged Out" 
+		::={ acosDdosL4TcpS 147 } 
+
+		hybridSynAuthAuthNoMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SYN Auth Hybrid Auth no match" 
+		::={ acosDdosL4TcpS 148 } 
+
+acosDdosL4Udp                       OBJECT IDENTIFIER ::= { acosDdos 39 }
+acosDdosL4UdpS                      OBJECT IDENTIFIER ::= { acosDdosL4Udp 1 }
+
+		udpSessCreate OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Sessions Created" 
+		::={ acosDdosL4UdpS 1 } 
+
+		inudp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Total Packets Received" 
+		::={ acosDdosL4UdpS 2 } 
+
+		instateless OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Stateless Packets" 
+		::={ acosDdosL4UdpS 3 } 
+
+		udpTotalDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Total Packets Dropped" 
+		::={ acosDdosL4UdpS 4 } 
+
+		udpDropDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Packets Dropped" 
+		::={ acosDdosL4UdpS 5 } 
+
+		exceedAnyDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Exceed Drop (deprecated)" 
+		::={ acosDdosL4UdpS 6 } 
+
+		exceedDropPrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4UdpS 7 } 
+
+		exceedDropCrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Connection Rate Drop (deprecated)" 
+		::={ acosDdosL4UdpS 8 } 
+
+		exceedDropClimitDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Connection Limit Drop (deprecated)" 
+		::={ acosDdosL4UdpS 9 } 
+
+		dropBlackDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4UdpS 10 } 
+
+		udpDropSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Packets Dropped" 
+		::={ acosDdosL4UdpS 11 } 
+
+		exceedAnySrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Exceed Drop (deprecated)" 
+		::={ acosDdosL4UdpS 12 } 
+
+		exceedDropPrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4UdpS 13 } 
+
+		exceedDropCrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Connection Rate Drop (deprecated)" 
+		::={ acosDdosL4UdpS 14 } 
+
+		exceedDropClimitSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Connection Limit Drop (deprecated)" 
+		::={ acosDdosL4UdpS 15 } 
+
+		dropBlackSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Blacklist Drop (deprecated)" 
+		::={ acosDdosL4UdpS 16 } 
+
+		udpDropBlackUserCfgSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Blacklist User Packets Dropped" 
+		::={ acosDdosL4UdpS 17 } 
+
+		udpSrcDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Packets Dropped" 
+		::={ acosDdosL4UdpS 18 } 
+
+		exceedAnySrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Exceed Drop (deprecated)" 
+		::={ acosDdosL4UdpS 19 } 
+
+		exceedDropPrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4UdpS 20 } 
+
+		exceedDropCrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Connection Rate Drop (deprecated)" 
+		::={ acosDdosL4UdpS 21 } 
+
+		exceedDropClimitSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Connection Limit Drop (deprecated)" 
+		::={ acosDdosL4UdpS 22 } 
+
+		dropBlackSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4UdpS 23 } 
+
+		udpDropBlackUserCfgSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Blacklist User Packets Dropped" 
+		::={ acosDdosL4UdpS 24 } 
+
+		udpPortZeroDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Port 0 Packets Dropped" 
+		::={ acosDdosL4UdpS 25 } 
+
+		udpWellknownSrcPortDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcPort Wellknown Dropped" 
+		::={ acosDdosL4UdpS 26 } 
+
+		udpRetryStart OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry Init" 
+		::={ acosDdosL4UdpS 27 } 
+
+		udpRetryPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry Passed" 
+		::={ acosDdosL4UdpS 28 } 
+
+		udpRetryFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry Failed" 
+		::={ acosDdosL4UdpS 29 } 
+
+		udpRetryTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry Timeout" 
+		::={ acosDdosL4UdpS 30 } 
+
+		udpPayloadTooBigDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Payload Too Large Dropped" 
+		::={ acosDdosL4UdpS 31 } 
+
+		udpPayloadTooSmallDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Payload Too Small Dropped" 
+		::={ acosDdosL4UdpS 32 } 
+
+		ntpMonlistReqDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NTP Monlist Request Dropped" 
+		::={ acosDdosL4UdpS 33 } 
+
+		ntpMonlistRespDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NTP Monlist Response Dropped" 
+		::={ acosDdosL4UdpS 34 } 
+
+		udpConnPrateDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Conn Pkt Rate Dropped" 
+		::={ acosDdosL4UdpS 35 } 
+
+		dstUdpFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Match" 
+		::={ acosDdosL4UdpS 36 } 
+
+		dstUdpFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter No Match" 
+		::={ acosDdosL4UdpS 37 } 
+
+		dstUdpFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Blacklist" 
+		::={ acosDdosL4UdpS 38 } 
+
+		dstUdpFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Drop" 
+		::={ acosDdosL4UdpS 39 } 
+
+		dstUdpFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Default Pass" 
+		::={ acosDdosL4UdpS 40 } 
+
+		dstUdpFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action WL" 
+		::={ acosDdosL4UdpS 41 } 
+
+		udpAuthPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Auth Passed" 
+		::={ acosDdosL4UdpS 42 } 
+
+		udpOverLimitAuthDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4UdpS 43 } 
+
+		udpOverLimitAuthDstPort OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst Port Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4UdpS 44 } 
+
+		udpOverLimitAuthSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4UdpS 45 } 
+
+		udpOverLimitAuthSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Over Limit Authentication (deprecated)" 
+		::={ acosDdosL4UdpS 46 } 
+
+		exceedDropBrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Dst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4UdpS 47 } 
+
+		exceedDropBrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4UdpS 48 } 
+
+		exceedDropBrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4UdpS 49 } 
+
+		srcUdpFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Match" 
+		::={ acosDdosL4UdpS 50 } 
+
+		srcUdpFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter No Match" 
+		::={ acosDdosL4UdpS 51 } 
+
+		srcUdpFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Blacklist" 
+		::={ acosDdosL4UdpS 52 } 
+
+		srcUdpFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Drop" 
+		::={ acosDdosL4UdpS 53 } 
+
+		srcUdpFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Default Pass" 
+		::={ acosDdosL4UdpS 54 } 
+
+		srcUdpFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action WL" 
+		::={ acosDdosL4UdpS 55 } 
+
+		srcDstUdpFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Match" 
+		::={ acosDdosL4UdpS 56 } 
+
+		srcDstUdpFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter No Match" 
+		::={ acosDdosL4UdpS 57 } 
+
+		srcDstUdpFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Blacklist" 
+		::={ acosDdosL4UdpS 58 } 
+
+		srcDstUdpFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Drop" 
+		::={ acosDdosL4UdpS 59 } 
+
+		srcDstUdpFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Default Pass" 
+		::={ acosDdosL4UdpS 60 } 
+
+		srcDstUdpFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action WL" 
+		::={ acosDdosL4UdpS 61 } 
+
+		udpWellknownSrcPort OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcPort Wellknown" 
+		::={ acosDdosL4UdpS 62 } 
+
+		udpWellknownSrcPortBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcPort Wellknown Blacklisted" 
+		::={ acosDdosL4UdpS 63 } 
+
+		udpRetryPassWl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry Pass WL" 
+		::={ acosDdosL4UdpS 64 } 
+
+		udpRetryFailBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry Fail Blacklisted" 
+		::={ acosDdosL4UdpS 65 } 
+
+		udpPayloadTooBig OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Payload Too Large" 
+		::={ acosDdosL4UdpS 66 } 
+
+		udpPayloadTooBigBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Payload Too Large Blacklisted" 
+		::={ acosDdosL4UdpS 67 } 
+
+		udpPayloadTooSmall OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Payload Too Small" 
+		::={ acosDdosL4UdpS 68 } 
+
+		udpPayloadTooSmallBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Payload Too Small Blacklisted" 
+		::={ acosDdosL4UdpS 69 } 
+
+		ntpMonlistReq OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NTP Monlist Request" 
+		::={ acosDdosL4UdpS 70 } 
+
+		ntpMonlistReqBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NTP Monlist Request Blacklisted" 
+		::={ acosDdosL4UdpS 71 } 
+
+		ntpMonlistResp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NTP Monlist Response" 
+		::={ acosDdosL4UdpS 72 } 
+
+		ntpMonlistRespBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NTP Monlist Response Blacklsited" 
+		::={ acosDdosL4UdpS 73 } 
+
+		udpConnPrateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Conn Pkt Rate Exceeded" 
+		::={ acosDdosL4UdpS 74 } 
+
+		udpConnPrateBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Conn Pkt Rate Blacklisted" 
+		::={ acosDdosL4UdpS 75 } 
+
+		udpAnyExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Exceeded" 
+		::={ acosDdosL4UdpS 76 } 
+
+		udpDropBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Blacklist Packets Dropped" 
+		::={ acosDdosL4UdpS 77 } 
+
+		udpFragRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Frag Received" 
+		::={ acosDdosL4UdpS 78 } 
+
+		udpFragDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Frag Dropped" 
+		::={ acosDdosL4UdpS 79 } 
+
+		udpAuthDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Auth Dropped" 
+		::={ acosDdosL4UdpS 80 } 
+
+		udpTotalBytesRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Total Bytes Received" 
+		::={ acosDdosL4UdpS 81 } 
+
+		udpTotalBytesDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Total Bytes Dropped" 
+		::={ acosDdosL4UdpS 82 } 
+
+		udpRetryGapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Retry-Gap Drop" 
+		::={ acosDdosL4UdpS 83 } 
+
+acosDdosL4Icmp                      OBJECT IDENTIFIER ::= { acosDdos 40 }
+acosDdosL4IcmpS                     OBJECT IDENTIFIER ::= { acosDdosL4Icmp 1 }
+
+		icmpSrcDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Packets Dropped" 
+		::={ acosDdosL4IcmpS 1 } 
+
+		icmpDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Dst Packets Dropped" 
+		::={ acosDdosL4IcmpS 2 } 
+
+		icmpExceedDropPrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Dst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 3 } 
+
+		icmpWildcardBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Wildcard Blacklisted" 
+		::={ acosDdosL4IcmpS 4 } 
+
+		srcIcmpBlUserConfig OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Blacklisted User Packets Dropped" 
+		::={ acosDdosL4IcmpS 5 } 
+
+		icmpRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Total Packets Received" 
+		::={ acosDdosL4IcmpS 6 } 
+
+		icmpEchoRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Echo Received" 
+		::={ acosDdosL4IcmpS 7 } 
+
+		icmpOtherRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP other Received" 
+		::={ acosDdosL4IcmpS 8 } 
+
+		icmpExceedDropAnyDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Dst Exceed Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 9 } 
+
+		icmpDstBlDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Dst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 10 } 
+
+		icmpSrcAnyExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Exceed Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 11 } 
+
+		icmpSrcPktRateExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 12 } 
+
+		icmpDropBlackSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Blacklist Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 13 } 
+
+		icmpSrcDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Packets Dropped" 
+		::={ acosDdosL4IcmpS 14 } 
+
+		icmpSrcDstAnyExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Exceed Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 15 } 
+
+		icmpSrcDstPktRateExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 16 } 
+
+		icmpSrcDstBlDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4IcmpS 17 } 
+
+		icmpSrcDstBlDropUserCfg OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Blacklisted User Packets Dropped" 
+		::={ acosDdosL4IcmpS 18 } 
+
+		icmpTypeDenyDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Dropped" 
+		::={ acosDdosL4IcmpS 19 } 
+
+		icmpV4RfcUndefDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMPv4 RFC Undef Type Dropped" 
+		::={ acosDdosL4IcmpS 20 } 
+
+		icmpV6RfcUndefDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMPv6 RFC Undef Type Dropped" 
+		::={ acosDdosL4IcmpS 21 } 
+
+		icmpWildcardDenyDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Wildcard Dropped" 
+		::={ acosDdosL4IcmpS 22 } 
+
+		icmpRateExceed0 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 1 Exceeded" 
+		::={ acosDdosL4IcmpS 23 } 
+
+		icmpRateExceed1 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 2 Exceeded" 
+		::={ acosDdosL4IcmpS 24 } 
+
+		icmpRateExceed2 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 3 Exceeded" 
+		::={ acosDdosL4IcmpS 25 } 
+
+		icmpExceedDropBrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Dst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4IcmpS 26 } 
+
+		icmpExceedDropBrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4IcmpS 27 } 
+
+		icmpExceedDropBrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst KiBit Rate Drop (KiBit)(deprecated)" 
+		::={ acosDdosL4IcmpS 28 } 
+
+		icmpType OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type" 
+		::={ acosDdosL4IcmpS 29 } 
+
+		icmpTypeBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Blacklisted" 
+		::={ acosDdosL4IcmpS 30 } 
+
+		icmpRateExceed0Drop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 1 Dropped" 
+		::={ acosDdosL4IcmpS 31 } 
+
+		icmpRateExceed0Bl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 1 Blacklisted" 
+		::={ acosDdosL4IcmpS 32 } 
+
+		icmpRateExceed1Drop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 2 Dropped" 
+		::={ acosDdosL4IcmpS 33 } 
+
+		icmpRateExceed1Bl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 2 Blacklisted" 
+		::={ acosDdosL4IcmpS 34 } 
+
+		icmpRateExceed2Drop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 3 Dropped" 
+		::={ acosDdosL4IcmpS 35 } 
+
+		icmpRateExceed2Bl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Rate 3 Blacklisted" 
+		::={ acosDdosL4IcmpS 36 } 
+
+		icmpWildcard OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Type Wildcard" 
+		::={ acosDdosL4IcmpS 37 } 
+
+		icmpAnyExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Exceeded" 
+		::={ acosDdosL4IcmpS 38 } 
+
+		icmpDropBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Blacklisted Packets Dropped" 
+		::={ acosDdosL4IcmpS 39 } 
+
+		icmpFragRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Frag Received" 
+		::={ acosDdosL4IcmpS 40 } 
+
+		icmpFragDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Frag Dropped" 
+		::={ acosDdosL4IcmpS 41 } 
+
+		icmpTotalBytesRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Total Bytes Received" 
+		::={ acosDdosL4IcmpS 42 } 
+
+		icmpTotalDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Total Packets Dropped" 
+		::={ acosDdosL4IcmpS 43 } 
+
+		icmpTotalBytesDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Total Bytes Dropped" 
+		::={ acosDdosL4IcmpS 44 } 
+
+acosDdosL4Other                     OBJECT IDENTIFIER ::= { acosDdos 41 }
+acosDdosL4OtherS                    OBJECT IDENTIFIER ::= { acosDdosL4Other 1 }
+
+		otherReceive OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Total Packets Received" 
+		::={ acosDdosL4OtherS 1 } 
+
+		otherFragRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Frag Received" 
+		::={ acosDdosL4OtherS 2 } 
+
+		otherTotalDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Total Packets Dropped" 
+		::={ acosDdosL4OtherS 3 } 
+
+		otherDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst Packets Dropped" 
+		::={ acosDdosL4OtherS 4 } 
+
+		otherFragDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Frag Dropped" 
+		::={ acosDdosL4OtherS 5 } 
+
+		otherExceedDropAnyDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst Exceed Drop (deprecated)" 
+		::={ acosDdosL4OtherS 6 } 
+
+		otherExceedDropPrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4OtherS 7 } 
+
+		otherExceedDropFprateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst Fragment Rate Drop (deprecated)" 
+		::={ acosDdosL4OtherS 8 } 
+
+		otherFragExceedDropDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst Fragment Exceed Drop (deprecated)" 
+		::={ acosDdosL4OtherS 9 } 
+
+		otherDropBlackDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4OtherS 10 } 
+
+		otherSrcDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Packets Dropped" 
+		::={ acosDdosL4OtherS 11 } 
+
+		otherExceedDropAnySrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Exceed Drop (deprecated)" 
+		::={ acosDdosL4OtherS 12 } 
+
+		otherExceedDropPrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4OtherS 13 } 
+
+		otherExceedDropFprateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Fragment Rate Drop (deprecated)" 
+		::={ acosDdosL4OtherS 14 } 
+
+		otherFragExceedDropSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Fragment Exceed Drop (deprecated)" 
+		::={ acosDdosL4OtherS 15 } 
+
+		otherDropBlackSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Blacklist Drop (deprecated)" 
+		::={ acosDdosL4OtherS 16 } 
+
+		otherDropBlackUserCfgSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Blacklist User Packets Dropped" 
+		::={ acosDdosL4OtherS 17 } 
+
+		otherSrcDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Packets Dropped" 
+		::={ acosDdosL4OtherS 18 } 
+
+		otherExceedDropAnySrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Exceed Drop (deprecated)" 
+		::={ acosDdosL4OtherS 19 } 
+
+		otherExceedDropPrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Packet Rate Drop (deprecated)" 
+		::={ acosDdosL4OtherS 20 } 
+
+		otherExceedDropFprateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Fragment Rate Drop (deprecated)" 
+		::={ acosDdosL4OtherS 21 } 
+
+		otherFragExceedDropSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Fragment Exceed Drop (deprecated)" 
+		::={ acosDdosL4OtherS 22 } 
+
+		otherDropBlackSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Blacklist Drop (deprecated)" 
+		::={ acosDdosL4OtherS 23 } 
+
+		otherDropBlackUserCfgSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Blacklist User Packets Dropped" 
+		::={ acosDdosL4OtherS 24 } 
+
+		otherExceedDropBrateDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Dst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4OtherS 25 } 
+
+		otherExceedDropBrateSrc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4OtherS 26 } 
+
+		otherExceedDropBrateSrcDst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst KiBit Rate Drop (KiBit) (deprecated)" 
+		::={ acosDdosL4OtherS 27 } 
+
+		dstOtherFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Match" 
+		::={ acosDdosL4OtherS 28 } 
+
+		dstOtherFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter No Match" 
+		::={ acosDdosL4OtherS 29 } 
+
+		dstOtherFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Blacklist" 
+		::={ acosDdosL4OtherS 30 } 
+
+		dstOtherFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Drop" 
+		::={ acosDdosL4OtherS 31 } 
+
+		dstOtherFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Default Pass" 
+		::={ acosDdosL4OtherS 32 } 
+
+		dstOtherFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action WL" 
+		::={ acosDdosL4OtherS 33 } 
+
+		srcOtherFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Match" 
+		::={ acosDdosL4OtherS 34 } 
+
+		srcOtherFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter No Match" 
+		::={ acosDdosL4OtherS 35 } 
+
+		srcOtherFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Blacklist" 
+		::={ acosDdosL4OtherS 36 } 
+
+		srcOtherFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Drop" 
+		::={ acosDdosL4OtherS 37 } 
+
+		srcOtherFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Default Pass" 
+		::={ acosDdosL4OtherS 38 } 
+
+		srcOtherFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action WL" 
+		::={ acosDdosL4OtherS 39 } 
+
+		srcDstOtherFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Match" 
+		::={ acosDdosL4OtherS 40 } 
+
+		srcDstOtherFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter No Match" 
+		::={ acosDdosL4OtherS 41 } 
+
+		srcDstOtherFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Blacklist" 
+		::={ acosDdosL4OtherS 42 } 
+
+		srcDstOtherFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Drop" 
+		::={ acosDdosL4OtherS 43 } 
+
+		srcDstOtherFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Default Pass" 
+		::={ acosDdosL4OtherS 44 } 
+
+		srcDstOtherFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action WL" 
+		::={ acosDdosL4OtherS 45 } 
+
+		otherAnyExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Exceeded" 
+		::={ acosDdosL4OtherS 46 } 
+
+		otherDropBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Blacklisted Packets Dropped" 
+		::={ acosDdosL4OtherS 47 } 
+
+		otherTotalBytesRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Total Bytes Received" 
+		::={ acosDdosL4OtherS 48 } 
+
+		otherTotalBytesDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Total Bytes Dropped" 
+		::={ acosDdosL4OtherS 49 } 
+
+acosDdosL7Dns                       OBJECT IDENTIFIER ::= { acosDdos 42 }
+acosDdosL7DnsS                      OBJECT IDENTIFIER ::= { acosDdosL7Dns 1 }
+
+		forceTcpAuth OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth Force-TCP" 
+		::={ acosDdosL7DnsS 1 } 
+
+		dnsAuthUdp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth UDP" 
+		::={ acosDdosL7DnsS 2 } 
+
+		dnsMalformDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Malform Query Dropped" 
+		::={ acosDdosL7DnsS 3 } 
+
+		dnsQryAnyDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query ANY Dropped" 
+		::={ acosDdosL7DnsS 4 } 
+
+		dstRateLimit0 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate 1 Exceeded" 
+		::={ acosDdosL7DnsS 5 } 
+
+		dstRateLimit1 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate 2 Exceeded" 
+		::={ acosDdosL7DnsS 6 } 
+
+		dstRateLimit2 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate 3 Exceeded" 
+		::={ acosDdosL7DnsS 7 } 
+
+		dstRateLimit3 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate 4 Exceeded" 
+		::={ acosDdosL7DnsS 8 } 
+
+		dstRateLimit4 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate 5 Exceeded" 
+		::={ acosDdosL7DnsS 9 } 
+
+		srcRateLimit0 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate 1 Exceeded" 
+		::={ acosDdosL7DnsS 10 } 
+
+		srcRateLimit1 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate 2 Exceeded" 
+		::={ acosDdosL7DnsS 11 } 
+
+		srcRateLimit2 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate 3 Exceeded" 
+		::={ acosDdosL7DnsS 12 } 
+
+		srcRateLimit3 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate 4 Exceeded" 
+		::={ acosDdosL7DnsS 13 } 
+
+		srcRateLimit4 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate 5 Exceeded" 
+		::={ acosDdosL7DnsS 14 } 
+
+		dnsAuthUdpPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth UDP Passed" 
+		::={ acosDdosL7DnsS 15 } 
+
+		dnsFqdnStage2Exceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "FQDN Rate Exceeded" 
+		::={ acosDdosL7DnsS 16 } 
+
+		dnsIsNx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NXDOMAIN Response" 
+		::={ acosDdosL7DnsS 17 } 
+
+		dnsNxDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NXDOMAIN Query Dropped" 
+		::={ acosDdosL7DnsS 18 } 
+
+		dnsNxBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NXDOMAIN Query Blacklisted" 
+		::={ acosDdosL7DnsS 19 } 
+
+		dnsTcpAuthPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth Force-TCP Passed" 
+		::={ acosDdosL7DnsS 20 } 
+
+		dnsAuthUdpFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth UDP Failed" 
+		::={ acosDdosL7DnsS 21 } 
+
+		dnsAuthUdpTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth UDP Timeout" 
+		::={ acosDdosL7DnsS 22 } 
+
+		dnsFqdnLabelLenExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "FQDN Label Length Exceeded" 
+		::={ acosDdosL7DnsS 23 } 
+
+		dnsPktProcessed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Packets Processed" 
+		::={ acosDdosL7DnsS 24 } 
+
+		dnsQueryTypeA OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type A" 
+		::={ acosDdosL7DnsS 25 } 
+
+		dnsQueryTypeAaaa OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type AAAA" 
+		::={ acosDdosL7DnsS 26 } 
+
+		dnsQueryTypeNs OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type NS" 
+		::={ acosDdosL7DnsS 27 } 
+
+		dnsQueryTypeCname OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type CNAME" 
+		::={ acosDdosL7DnsS 28 } 
+
+		dnsQueryTypeAny OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type ANY" 
+		::={ acosDdosL7DnsS 29 } 
+
+		dnsQueryTypeSrv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type SRV" 
+		::={ acosDdosL7DnsS 30 } 
+
+		dnsQueryTypeMx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type MX" 
+		::={ acosDdosL7DnsS 31 } 
+
+		dnsQueryTypeSoa OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type SOA" 
+		::={ acosDdosL7DnsS 32 } 
+
+		dnsQueryTypeOpt OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Type OPT" 
+		::={ acosDdosL7DnsS 33 } 
+
+		dnsDgActionPermit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Domain Group Action Permit" 
+		::={ acosDdosL7DnsS 34 } 
+
+		dnsDgActionDeny OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Domain Group Action Deny" 
+		::={ acosDdosL7DnsS 35 } 
+
+		dnsFqdnRateByLabelCountCheck OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "FQDN Rate by Label Count Checked" 
+		::={ acosDdosL7DnsS 36 } 
+
+		dnsFqdnRateByLabelCountExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "FQDN Rate by Label Count Exceeded" 
+		::={ acosDdosL7DnsS 37 } 
+
+		dnsUdpAuthRetryGapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth UDP Retry-Gap Drop" 
+		::={ acosDdosL7DnsS 38 } 
+
+		dnsPolicyDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Policy Dropped" 
+		::={ acosDdosL7DnsS 39 } 
+
+		dnsFqdnLabelCountExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "FQDN Label Count Exceeded" 
+		::={ acosDdosL7DnsS 40 } 
+
+		dnsRrtypeDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Record Type Dropped" 
+		::={ acosDdosL7DnsS 41 } 
+
+		forceTcpAuthTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth Force-TCP With UDP Auth Timeout" 
+		::={ acosDdosL7DnsS 42 } 
+
+		dnsAuthDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth Dropped" 
+		::={ acosDdosL7DnsS 43 } 
+
+		dnsAuthResp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth Responded" 
+		::={ acosDdosL7DnsS 44 } 
+
+		forceTcpAuthConnHit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth Force-TCP With UDP Auth Connection Hit" 
+		::={ acosDdosL7DnsS 45 } 
+
+		dnsAuthUdpFailBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Auth UDP Fail Blacklisted" 
+		::={ acosDdosL7DnsS 46 } 
+
+		dnsNxExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "NXDOMAIN Response Rate Exceeded" 
+		::={ acosDdosL7DnsS 47 } 
+
+		dnsQueryClassWhitelistMiss OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class Whitelist Miss" 
+		::={ acosDdosL7DnsS 48 } 
+
+		dnsMalform OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Malform Query (deprecated)" 
+		::={ acosDdosL7DnsS 49 } 
+
+		dnsQueryClassIn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class INTERNET" 
+		::={ acosDdosL7DnsS 50 } 
+
+		dnsQueryClassCsnet OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class CSNET" 
+		::={ acosDdosL7DnsS 51 } 
+
+		dnsQueryClassChaos OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class CHAOS" 
+		::={ acosDdosL7DnsS 52 } 
+
+		dnsQueryClassHs OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class HESIOD" 
+		::={ acosDdosL7DnsS 53 } 
+
+		dnsQueryClassNone OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class NONE" 
+		::={ acosDdosL7DnsS 54 } 
+
+		dnsQueryClassAny OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Query Class ANY" 
+		::={ acosDdosL7DnsS 55 } 
+
+		dnsDgRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Domain Group Domain Query Rate Exceeded" 
+		::={ acosDdosL7DnsS 56 } 
+
+		dnsOutboundQueryResponseSizeExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Outbound Query Resp Size Exceeded" 
+		::={ acosDdosL7DnsS 57 } 
+
+		dnsOutboundQuerySessTimedOut OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Outbound Query Session Timed Out" 
+		::={ acosDdosL7DnsS 58 } 
+
+		nonQueryOpcodePassThrough OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DNS Non Query Opcode Pass Through" 
+		::={ acosDdosL7DnsS 59 } 
+
+acosDdosL7Http                      OBJECT IDENTIFIER ::= { acosDdos 43 }
+acosDdosL7HttpS                     OBJECT IDENTIFIER ::= { acosDdosL7Http 1 }
+
+		reqProcessed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Packets Processed" 
+		::={ acosDdosL7HttpS 1 } 
+
+		reqOfo OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out-Of-Order Request" 
+		::={ acosDdosL7HttpS 2 } 
+
+		ofoTimerExpired OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out-Of-Order Timeout" 
+		::={ acosDdosL7HttpS 3 } 
+
+		ofoQueueExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out-Of-Order Queue Exceeded" 
+		::={ acosDdosL7HttpS 4 } 
+
+		ofo OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out-Of-Order Packets" 
+		::={ acosDdosL7HttpS 5 } 
+
+		partialHdr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Partial Header" 
+		::={ acosDdosL7HttpS 6 } 
+
+		httpIdleTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Http Idle Timeout" 
+		::={ acosDdosL7HttpS 7 } 
+
+		newSyn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN" 
+		::={ acosDdosL7HttpS 8 } 
+
+		retrans OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit" 
+		::={ acosDdosL7HttpS 9 } 
+
+		retransFin OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit FIN" 
+		::={ acosDdosL7HttpS 10 } 
+
+		retransPush OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit PSH" 
+		::={ acosDdosL7HttpS 11 } 
+
+		retransRst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Retransmit RST" 
+		::={ acosDdosL7HttpS 12 } 
+
+		reqRetrans OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Retransmit Request" 
+		::={ acosDdosL7HttpS 13 } 
+
+		request OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Total" 
+		::={ acosDdosL7HttpS 14 } 
+
+		reqContentLen OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Content-Length Received" 
+		::={ acosDdosL7HttpS 15 } 
+
+		srcReqRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate Exceeded" 
+		::={ acosDdosL7HttpS 16 } 
+
+		dstReqRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate Exceeded" 
+		::={ acosDdosL7HttpS 17 } 
+
+		lowerThanMssExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Min Payload Size Fail Exceeded" 
+		::={ acosDdosL7HttpS 18 } 
+
+		parsereqFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Parse Request Failed" 
+		::={ acosDdosL7HttpS 19 } 
+
+		negReqRemain OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Negative Request Remain" 
+		::={ acosDdosL7HttpS 20 } 
+
+		negRspRemain OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Negative Response Remain" 
+		::={ acosDdosL7HttpS 21 } 
+
+		invalidHeader OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Header Invalid" 
+		::={ acosDdosL7HttpS 22 } 
+
+		tooManyHeaders OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Header Too Many" 
+		::={ acosDdosL7HttpS 23 } 
+
+		headerNameTooLong OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Header Name Too Long" 
+		::={ acosDdosL7HttpS 24 } 
+
+		invalidHdrName OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Header Name Invalid" 
+		::={ acosDdosL7HttpS 25 } 
+
+		invalidHdrVal OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Header Value Invalid" 
+		::={ acosDdosL7HttpS 26 } 
+
+		lineTooLong OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Line Too Long" 
+		::={ acosDdosL7HttpS 27 } 
+
+		clientRst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Client TCP RST Received" 
+		::={ acosDdosL7HttpS 28 } 
+
+		hpsServerRst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Server TCP RST Received" 
+		::={ acosDdosL7HttpS 29 } 
+
+		ddosPolicyViolation OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Policy Violation" 
+		::={ acosDdosL7HttpS 30 } 
+
+		policyDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Policy Dropped" 
+		::={ acosDdosL7HttpS 31 } 
+
+		errorCondition OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Error Condition" 
+		::={ acosDdosL7HttpS 32 } 
+
+		http11 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request HTTP 1.1" 
+		::={ acosDdosL7HttpS 33 } 
+
+		http10 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request HTTP 1.0" 
+		::={ acosDdosL7HttpS 34 } 
+
+		rspChunk OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Chunk" 
+		::={ acosDdosL7HttpS 35 } 
+
+		httpGet OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method GET" 
+		::={ acosDdosL7HttpS 36 } 
+
+		httpHead OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method HEAD" 
+		::={ acosDdosL7HttpS 37 } 
+
+		httpPut OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method PUT" 
+		::={ acosDdosL7HttpS 38 } 
+
+		httpPost OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method POST" 
+		::={ acosDdosL7HttpS 39 } 
+
+		httpTrace OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method TRACE" 
+		::={ acosDdosL7HttpS 40 } 
+
+		httpOptions OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method OPTIONS" 
+		::={ acosDdosL7HttpS 41 } 
+
+		httpConnect OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method CONNECT" 
+		::={ acosDdosL7HttpS 42 } 
+
+		httpDel OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method DELETE" 
+		::={ acosDdosL7HttpS 43 } 
+
+		httpUnknown OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Method UNKNOWN" 
+		::={ acosDdosL7HttpS 44 } 
+
+		hpsReqSz1k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 1K" 
+		::={ acosDdosL7HttpS 45 } 
+
+		hpsReqSz2k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 2K" 
+		::={ acosDdosL7HttpS 46 } 
+
+		hpsReqSz4k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 4K" 
+		::={ acosDdosL7HttpS 47 } 
+
+		hpsReqSz8k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 8K" 
+		::={ acosDdosL7HttpS 48 } 
+
+		hpsReqSz16k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 16K" 
+		::={ acosDdosL7HttpS 49 } 
+
+		hpsReqSz32k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 32K" 
+		::={ acosDdosL7HttpS 50 } 
+
+		hpsReqSz64k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 64K" 
+		::={ acosDdosL7HttpS 51 } 
+
+		hpsReqSz256k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Less Than or Equal to 256K" 
+		::={ acosDdosL7HttpS 52 } 
+
+		hpsReqSz256kPlus OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Request Payload Size Larger Than 256K" 
+		::={ acosDdosL7HttpS 53 } 
+
+		hpsRsp11 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response HTTP 1.1" 
+		::={ acosDdosL7HttpS 54 } 
+
+		hpsRsp10 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response HTTP 1.0" 
+		::={ acosDdosL7HttpS 55 } 
+
+		hpsRspSz1k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 1K" 
+		::={ acosDdosL7HttpS 56 } 
+
+		hpsRspSz2k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 2K" 
+		::={ acosDdosL7HttpS 57 } 
+
+		hpsRspSz4k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 4K" 
+		::={ acosDdosL7HttpS 58 } 
+
+		hpsRspSz8k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 8K" 
+		::={ acosDdosL7HttpS 59 } 
+
+		hpsRspSz16k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 16K" 
+		::={ acosDdosL7HttpS 60 } 
+
+		hpsRspSz32k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 32K" 
+		::={ acosDdosL7HttpS 61 } 
+
+		hpsRspSz64k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 64K" 
+		::={ acosDdosL7HttpS 62 } 
+
+		hpsRspSz256k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Less Than or Equal to 256K" 
+		::={ acosDdosL7HttpS 63 } 
+
+		hpsRspSz256kPlus OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Response Payload Size Larger Than 256K" 
+		::={ acosDdosL7HttpS 64 } 
+
+		hpsRspStatus1xx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 1XX" 
+		::={ acosDdosL7HttpS 65 } 
+
+		hpsRspStatus2xx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 2XX" 
+		::={ acosDdosL7HttpS 66 } 
+
+		hpsRspStatus3xx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 3XX" 
+		::={ acosDdosL7HttpS 67 } 
+
+		hpsRspStatus4xx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 4XX" 
+		::={ acosDdosL7HttpS 68 } 
+
+		hpsRspStatus5xx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 5XX" 
+		::={ acosDdosL7HttpS 69 } 
+
+		hpsRspStatus504AX OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 504 AX-Gen" 
+		::={ acosDdosL7HttpS 70 } 
+
+		hpsRspStatus6xx OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code 6XX" 
+		::={ acosDdosL7HttpS 71 } 
+
+		hpsRspStatusUnknown OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Status Code Unknown" 
+		::={ acosDdosL7HttpS 72 } 
+
+		chunkSz512 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Payload Chunk Size Less Than or Equal to 512" 
+		::={ acosDdosL7HttpS 73 } 
+
+		chunkSz1k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Payload Chunk Size Less Than or Equal to 1K" 
+		::={ acosDdosL7HttpS 74 } 
+
+		chunkSz2k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Payload Chunk Size Less Than or Equal to 2K" 
+		::={ acosDdosL7HttpS 75 } 
+
+		chunkSz4k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Payload Chunk Size Less Than or Equal to 4K" 
+		::={ acosDdosL7HttpS 76 } 
+
+		chunkSzGt4k OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Payload Chunk Size Larger Than 4K" 
+		::={ acosDdosL7HttpS 77 } 
+
+		chunkBad OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Bad HTTP Chunk" 
+		::={ acosDdosL7HttpS 78 } 
+
+		challengeFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Challenge Failed" 
+		::={ acosDdosL7HttpS 79 } 
+
+		challengeUdSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Challenge URL Redirect Sent" 
+		::={ acosDdosL7HttpS 80 } 
+
+		challengeUdFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Challenge URL Redirect Failed" 
+		::={ acosDdosL7HttpS 81 } 
+
+		challengeJsSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Challenge Javascript Sent" 
+		::={ acosDdosL7HttpS 82 } 
+
+		challengeJsFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Challenge Javascript Failed" 
+		::={ acosDdosL7HttpS 83 } 
+
+		malformBadChunk OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Bad Chunk" 
+		::={ acosDdosL7HttpS 84 } 
+
+		malformContentLenTooLong OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Content Length Too Long" 
+		::={ acosDdosL7HttpS 85 } 
+
+		malformHeaderNameTooLong OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Header Name Too Long" 
+		::={ acosDdosL7HttpS 86 } 
+
+		malformLineTooLong OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Line Too Long" 
+		::={ acosDdosL7HttpS 87 } 
+
+		malformReqLineTooLong OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Request Line Too Long" 
+		::={ acosDdosL7HttpS 88 } 
+
+		malformTooManyHeaders OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Too Many Headers" 
+		::={ acosDdosL7HttpS 89 } 
+
+		windowSmall OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Window Size Small" 
+		::={ acosDdosL7HttpS 90 } 
+
+		windowSmallDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Window Size Small Dropped" 
+		::={ acosDdosL7HttpS 91 } 
+
+		allocFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Alloc Failed" 
+		::={ acosDdosL7HttpS 92 } 
+
+		allocHdrFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "FAIL_ALLOC_HDR (deprecated)" 
+		::={ acosDdosL7HttpS 93 } 
+
+		useHdrIpAsSource OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Use IP In Header As Src" 
+		::={ acosDdosL7HttpS 94 } 
+
+		agentFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Agent Filter Match" 
+		::={ acosDdosL7HttpS 95 } 
+
+		agentFilterBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Agent Filter Blacklisted" 
+		::={ acosDdosL7HttpS 96 } 
+
+		refererFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Referer Filter Match" 
+		::={ acosDdosL7HttpS 97 } 
+
+		refererFilterBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Referer Filter Blacklisted" 
+		::={ acosDdosL7HttpS 98 } 
+
+		dstFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Match" 
+		::={ acosDdosL7HttpS 99 } 
+
+		dstFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter No Match" 
+		::={ acosDdosL7HttpS 100 } 
+
+		dstFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Blacklist" 
+		::={ acosDdosL7HttpS 101 } 
+
+		dstFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Drop" 
+		::={ acosDdosL7HttpS 102 } 
+
+		dstFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Default Pass" 
+		::={ acosDdosL7HttpS 103 } 
+
+		dstPostRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Post Rate Exceeded" 
+		::={ acosDdosL7HttpS 104 } 
+
+		srcPostRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Post Rate Exceeded" 
+		::={ acosDdosL7HttpS 105 } 
+
+		dstRespRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Response Rate Exceeded" 
+		::={ acosDdosL7HttpS 106 } 
+
+		dstFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action WL" 
+		::={ acosDdosL7HttpS 107 } 
+
+		srcFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Match" 
+		::={ acosDdosL7HttpS 108 } 
+
+		srcFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter No Match" 
+		::={ acosDdosL7HttpS 109 } 
+
+		srcFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Blacklist" 
+		::={ acosDdosL7HttpS 110 } 
+
+		srcFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Drop" 
+		::={ acosDdosL7HttpS 111 } 
+
+		srcFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action Default Pass" 
+		::={ acosDdosL7HttpS 112 } 
+
+		srcFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Filter Action WL" 
+		::={ acosDdosL7HttpS 113 } 
+
+		srcDstFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Match" 
+		::={ acosDdosL7HttpS 114 } 
+
+		srcDstFilterNotMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter No Match" 
+		::={ acosDdosL7HttpS 115 } 
+
+		srcDstFilterActionBlacklist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Blacklist" 
+		::={ acosDdosL7HttpS 116 } 
+
+		srcDstFilterActionDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Drop" 
+		::={ acosDdosL7HttpS 117 } 
+
+		srcDstFilterActionDefaultPass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action Default Pass" 
+		::={ acosDdosL7HttpS 118 } 
+
+		srcDstFilterActionWhitelist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Filter Action WL" 
+		::={ acosDdosL7HttpS 119 } 
+
+		dstFilterRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Rate Exceed" 
+		::={ acosDdosL7HttpS 120 } 
+
+		dstFilterActionIgnore OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Ignore" 
+		::={ acosDdosL7HttpS 121 } 
+
+		dstFilterActionReset OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Filter Action Reset" 
+		::={ acosDdosL7HttpS 122 } 
+
+		uriFilterMatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "URI Filter Match" 
+		::={ acosDdosL7HttpS 123 } 
+
+		httpAuthDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Auth Dropped" 
+		::={ acosDdosL7HttpS 124 } 
+
+		httpAuthResp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "HTTP Auth Responded" 
+		::={ acosDdosL7HttpS 125 } 
+
+		headerProcessingTime0 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Header Process Time Less Than 1s" 
+		::={ acosDdosL7HttpS 126 } 
+
+		headerProcessingTime1 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Header Process Time Less Than 10s" 
+		::={ acosDdosL7HttpS 127 } 
+
+		headerProcessingTime2 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Header Process Time Less Than 30s" 
+		::={ acosDdosL7HttpS 128 } 
+
+		headerProcessingTime3 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Header Process Time Larger or Equal to 30s" 
+		::={ acosDdosL7HttpS 129 } 
+
+		headerProcessingIncomplete OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Header Process Incomplete" 
+		::={ acosDdosL7HttpS 130 } 
+
+		malformReqLineTooSmall OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Request Line Too Small" 
+		::={ acosDdosL7HttpS 131 } 
+
+		malformReqLineInvalidMethod OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Malform Request Line Invalid Method" 
+		::={ acosDdosL7HttpS 132 } 
+
+acosDdosL4Ssl                       OBJECT IDENTIFIER ::= { acosDdos 44 }
+acosDdosL4SslS                      OBJECT IDENTIFIER ::= { acosDdosL4Ssl 1 }
+
+		sslL4PolicyReset OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Policy Reset" 
+		::={ acosDdosL4SslS 1 } 
+
+		sslL4PolicyDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Policy Dropped" 
+		::={ acosDdosL4SslS 2 } 
+
+		sslL4DropPacket OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Packets Dropped" 
+		::={ acosDdosL4SslS 3 } 
+
+		sslL4ErCondition OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Error Condition" 
+		::={ acosDdosL4SslS 4 } 
+
+		sslL4Processed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Packets Processed" 
+		::={ acosDdosL4SslS 5 } 
+
+		sslL4NewSyn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "New TCP SYN" 
+		::={ acosDdosL4SslS 6 } 
+
+		sslL4IsSsl3 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL v3" 
+		::={ acosDdosL4SslS 7 } 
+
+		sslL4IsTls11 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TLS v1.0" 
+		::={ acosDdosL4SslS 8 } 
+
+		sslL4IsTls12 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TLS v1.1" 
+		::={ acosDdosL4SslS 9 } 
+
+		sslL4IsTls13 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TLS v1.2" 
+		::={ acosDdosL4SslS 10 } 
+
+		sslL4IsRenegotiation OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Renegotiation" 
+		::={ acosDdosL4SslS 11 } 
+
+		sslL4RenegotiationExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Renegotiation Exceeded" 
+		::={ acosDdosL4SslS 12 } 
+
+		sslL4IsDstReqRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Request Rate Exceed Dropped" 
+		::={ acosDdosL4SslS 13 } 
+
+		sslL4IsSrcReqRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Request Rate Exceed Dropped" 
+		::={ acosDdosL4SslS 14 } 
+
+		sslL4DoAuthHandshake OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Do Auth Handshake" 
+		::={ acosDdosL4SslS 15 } 
+
+		sslL4ResetForHandshake OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Reset While Others in Handshake" 
+		::={ acosDdosL4SslS 16 } 
+
+		sslL4HandshakeTimeout OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Auth Handshake Timeout" 
+		::={ acosDdosL4SslS 17 } 
+
+		sslL4AuthHandshakeOk OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Auth Handshake Success" 
+		::={ acosDdosL4SslS 18 } 
+
+		sslL4AuthHandshakeBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Auth Handshake Blacklisted" 
+		::={ acosDdosL4SslS 19 } 
+
+		sslL4AuthHandshakeFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Auth Handshake Failed" 
+		::={ acosDdosL4SslS 20 } 
+
+		sslL4RenegotiationIncomplete OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Renegotiation Incomplete" 
+		::={ acosDdosL4SslS 21 } 
+
+		sslL4AuthDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Auth Dropped" 
+		::={ acosDdosL4SslS 22 } 
+
+		sslL4AuthResp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Auth Responded" 
+		::={ acosDdosL4SslS 23 } 
+
+		sslNonTls OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Non-TLS Dropped" 
+		::={ acosDdosL4SslS 24 } 
+
+		sslHeaderInvalidType OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Header Invalid Type" 
+		::={ acosDdosL4SslS 25 } 
+
+		sslHeaderBadVer OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Header Bad Version" 
+		::={ acosDdosL4SslS 26 } 
+
+		sslHeaderBadLen OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Header Bad Length" 
+		::={ acosDdosL4SslS 27 } 
+
+		sslBadHeaderForw OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Traffic Check Bad Header Forwarded" 
+		::={ acosDdosL4SslS 28 } 
+
+		sslBadHeaderDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SSL Traffic Check Bad Header Dropped" 
+		::={ acosDdosL4SslS 29 } 
+
+acosDdosSession                     OBJECT IDENTIFIER ::= { acosDdos 56 }
+acosDdosSessionS                    OBJECT IDENTIFIER ::= { acosDdosSession 1 }
+
+		sessCreateIp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Session Created" 
+		::={ acosDdosSessionS 1 } 
+
+		sessCreateIp6 OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Session Created" 
+		::={ acosDdosSessionS 2 } 
+
+		sessCreateTcp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Sessions Created" 
+		::={ acosDdosSessionS 3 } 
+
+		connTcpEstWSyn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Established With SYN" 
+		::={ acosDdosSessionS 4 } 
+
+		connTcpEstWAck OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Established With ACK" 
+		::={ acosDdosSessionS 5 } 
+
+		connTcpEst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Established" 
+		::={ acosDdosSessionS 6 } 
+
+		connTcpCloseWRst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Closed With RST" 
+		::={ acosDdosSessionS 7 } 
+
+		connTcpCloseWFin OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Closed With FIN" 
+		::={ acosDdosSessionS 8 } 
+
+		connTcpCloseWIdle OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Closed With Idle" 
+		::={ acosDdosSessionS 9 } 
+
+		connTcpCloseWHalfOpen OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Closed With Half Open" 
+		::={ acosDdosSessionS 10 } 
+
+		connTcpClose OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Closed" 
+		::={ acosDdosSessionS 11 } 
+
+		sessCreateUdp OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Sessions Created" 
+		::={ acosDdosSessionS 12 } 
+
+		connUdpEst OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Conn Established" 
+		::={ acosDdosSessionS 13 } 
+
+		connUdpClose OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Conn Closed" 
+		::={ acosDdosSessionS 14 } 
+
+		sessAgedOut OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Session Aged Out" 
+		::={ acosDdosSessionS 15 } 
+
+		connEntryMismatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Conn Entry Mismatch Dropped" 
+		::={ acosDdosSessionS 16 } 
+
+		connTcpCreateFromSyn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Created From SYN" 
+		::={ acosDdosSessionS 17 } 
+
+		connTcpCreateFromAck OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Conn Created From ACK" 
+		::={ acosDdosSessionS 18 } 
+
+		sessOom OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out of Session Memory" 
+		::={ acosDdosSessionS 19 } 
+
+		sessCreateUdpAuth OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Helper Auth Sessions Created" 
+		::={ acosDdosSessionS 20 } 
+
+		sessAgedUdpAuth OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Helper Auth Sessions Aged Out" 
+		::={ acosDdosSessionS 21 } 
+
+		sessSnatFailed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Session Source NAT Failure" 
+		::={ acosDdosSessionS 22 } 
+
+acosDdosSwitch                      OBJECT IDENTIFIER ::= { acosDdos 57 }
+acosDdosSwitchS                     OBJECT IDENTIFIER ::= { acosDdosSwitch 1 }
+
+		ipRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Received" 
+		::={ acosDdosSwitchS 1 } 
+
+		ipSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Sent" 
+		::={ acosDdosSwitchS 2 } 
+
+		ipv6Rcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Received" 
+		::={ acosDdosSwitchS 3 } 
+
+		ipv6Sent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Sent" 
+		::={ acosDdosSwitchS 4 } 
+
+		inStatelessPkt OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Stateless Packets Received" 
+		::={ acosDdosSwitchS 5 } 
+
+		noroute OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4/v6 Out No Route" 
+		::={ acosDdosSwitchS 6 } 
+
+		pktNotForDdos OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Not For DDOS" 
+		::={ acosDdosSwitchS 7 } 
+
+		ingressBytes OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Inbound Bytes Received" 
+		::={ acosDdosSwitchS 8 } 
+
+		egressBytes OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Outbound Bytes Received" 
+		::={ acosDdosSwitchS 9 } 
+
+		ingressPackets OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Inbound Packets Received" 
+		::={ acosDdosSwitchS 10 } 
+
+		egressPackets OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Outbound Packets Received" 
+		::={ acosDdosSwitchS 11 } 
+
+		srcIpBypass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src IP Bypass" 
+		::={ acosDdosSwitchS 12 } 
+
+		dstIpBypass OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP Bypass" 
+		::={ acosDdosSwitchS 13 } 
+
+		dstBlackholeInject OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Blackhole Injected" 
+		::={ acosDdosSwitchS 14 } 
+
+		dstBlackholeWithdraw OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Blackhole Withdrawn" 
+		::={ acosDdosSwitchS 15 } 
+
+		mplsRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "MPLS Received" 
+		::={ acosDdosSwitchS 16 } 
+
+		mplsDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "MPLS Dropped" 
+		::={ acosDdosSwitchS 17 } 
+
+		mplsMalformed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "MPLS Malformed" 
+		::={ acosDdosSwitchS 18 } 
+
+		fragRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Fragment Received (deprecated)" 
+		::={ acosDdosSwitchS 19 } 
+
+		fragDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Fragment Drop (deprecated)" 
+		::={ acosDdosSwitchS 20 } 
+
+		jumboFragDropByFilter OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Jumbo Fragment Filter Miss Drop" 
+		::={ acosDdosSwitchS 21 } 
+
+		jumboFragDropBeforeSlb OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Jumbo Fragment Non Data Plane Drop" 
+		::={ acosDdosSwitchS 22 } 
+
+		jumboOutgoingMtuExceedDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Jumbo Outgoing MTU Exceed Drop" 
+		::={ acosDdosSwitchS 23 } 
+
+acosDdosTable                       OBJECT IDENTIFIER ::= { acosDdos 58 }
+acosDdosTableS                      OBJECT IDENTIFIER ::= { acosDdosTable 1 }
+
+		dstLearn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Entry Learned" 
+		::={ acosDdosTableS 1 } 
+
+		dstHit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Entry Hit" 
+		::={ acosDdosTableS 2 } 
+
+		dstMiss OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Entry Missed" 
+		::={ acosDdosTableS 3 } 
+
+		dstEntryAged OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Entry Aged" 
+		::={ acosDdosTableS 4 } 
+
+		srcLearn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Entry Learned" 
+		::={ acosDdosTableS 5 } 
+
+		srcHit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Entry Hit" 
+		::={ acosDdosTableS 6 } 
+
+		srcMiss OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Entry Missed" 
+		::={ acosDdosTableS 7 } 
+
+		srcEntryAged OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Entry Aged" 
+		::={ acosDdosTableS 8 } 
+
+		srcDstLearn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Entry Learned" 
+		::={ acosDdosTableS 9 } 
+
+		srcDstHit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Entry Hit" 
+		::={ acosDdosTableS 10 } 
+
+		srcDstMiss OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Entry Missed" 
+		::={ acosDdosTableS 11 } 
+
+		srcDstEntryAged OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Entry Aged" 
+		::={ acosDdosTableS 12 } 
+
+		srcUdpWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Whitelist (Deprecated)" 
+		::={ acosDdosTableS 13 } 
+
+		srcTcpWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Whitelist (Deprecated)" 
+		::={ acosDdosTableS 14 } 
+
+		srcIcmpWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Whitelist (Deprecated)" 
+		::={ acosDdosTableS 15 } 
+
+		srcOtherWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Whitelist (Deprecated)" 
+		::={ acosDdosTableS 16 } 
+
+		srcUdpBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Src Blacklist (Deprecated)" 
+		::={ acosDdosTableS 17 } 
+
+		srcTcpBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Src Blacklist (Deprecated)" 
+		::={ acosDdosTableS 18 } 
+
+		srcIcmpBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Src Blacklist (Deprecated)" 
+		::={ acosDdosTableS 19 } 
+
+		srcOtherBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER Src Blacklist (Deprecated)" 
+		::={ acosDdosTableS 20 } 
+
+		srcDstUdpWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Whitelist (Deprecated)" 
+		::={ acosDdosTableS 21 } 
+
+		srcDstTcpWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Whitelist (Deprecated)" 
+		::={ acosDdosTableS 22 } 
+
+		srcDstIcmpWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Whitelist (Deprecated)" 
+		::={ acosDdosTableS 23 } 
+
+		srcDstOtherWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Whitelist (Deprecated)" 
+		::={ acosDdosTableS 24 } 
+
+		srcDstUdpBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP SrcDst Blacklist (Deprecated)" 
+		::={ acosDdosTableS 25 } 
+
+		srcDstTcpBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SrcDst Blacklist (Deprecated)" 
+		::={ acosDdosTableS 26 } 
+
+		srcDstIcmpBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP SrcDst Blacklist (Deprecated)" 
+		::={ acosDdosTableS 27 } 
+
+		srcDstOtherBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "OTHER SrcDst Blacklist (Deprecated)" 
+		::={ acosDdosTableS 28 } 
+
+		dstOverLimitOn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Over Limit Trigger ON (Deprecated)" 
+		::={ acosDdosTableS 29 } 
+
+		dstPortOverLimitOn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Over Limit Trigger ON (Deprecated)" 
+		::={ acosDdosTableS 30 } 
+
+		srcOverLimitOn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Over Limit Trigger ON (Deprecated)" 
+		::={ acosDdosTableS 31 } 
+
+		srcDstOverLimitOn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Over Limit Trigger ON (Deprecated)" 
+		::={ acosDdosTableS 32 } 
+
+		dstOverLimitOff OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Over Limit Trigger OFF (Deprecated)" 
+		::={ acosDdosTableS 33 } 
+
+		dstPortOverLimitOff OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Over Limit Trigger OFF (Deprecated)" 
+		::={ acosDdosTableS 34 } 
+
+		srcOverLimitOff OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Over Limit Trigger OFF (Deprecated)" 
+		::={ acosDdosTableS 35 } 
+
+		srcDstOverLimitOff OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Over Limit Trigger OFF (Deprecated)" 
+		::={ acosDdosTableS 36 } 
+
+		telemErrMisc OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Misc Error" 
+		::={ acosDdosTableS 37 } 
+
+		telemRouteAddRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Route-add Received" 
+		::={ acosDdosTableS 38 } 
+
+		telemRouteDelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Route-del Received" 
+		::={ acosDdosTableS 39 } 
+
+		telemEntryCreated OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Zone Entry Created" 
+		::={ acosDdosTableS 40 } 
+
+		telemEntryCleared OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Zone Entry Deleted" 
+		::={ acosDdosTableS 41 } 
+
+		telemErrTelemEntryPreExist OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Zone Entry Pre-exist" 
+		::={ acosDdosTableS 42 } 
+
+		telemErrConflictWithStatic OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Conflict with Static Entry" 
+		::={ acosDdosTableS 43 } 
+
+		telemErrFailToCreate OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Zone Entry Create Fail" 
+		::={ acosDdosTableS 44 } 
+
+		telemErrFailToDelete OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "From-l3-peer: Zone Entry Delete Fail" 
+		::={ acosDdosTableS 45 } 
+
+		srcZoneServiceLearn OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Entry Learned" 
+		::={ acosDdosTableS 46 } 
+
+		srcZoneServiceHit OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Entry Hit" 
+		::={ acosDdosTableS 47 } 
+
+		srcZoneServiceMiss OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Entry Missed" 
+		::={ acosDdosTableS 48 } 
+
+		srcZoneServiceEntryAged OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Entry Aged" 
+		::={ acosDdosTableS 49 } 
+
+		dstWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Entry Whitelisted" 
+		::={ acosDdosTableS 50 } 
+
+		srcWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Entry Whitelisted" 
+		::={ acosDdosTableS 51 } 
+
+		srcDstWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Entry Whitelisted" 
+		::={ acosDdosTableS 52 } 
+
+		srcZoneServiceWhiteList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Entry Whitelisted" 
+		::={ acosDdosTableS 53 } 
+
+		dstBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Entry Blacklisted" 
+		::={ acosDdosTableS 54 } 
+
+		srcBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Entry Blacklisted" 
+		::={ acosDdosTableS 55 } 
+
+		srcDstBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Entry Blacklisted" 
+		::={ acosDdosTableS 56 } 
+
+		srcZoneServiceBlackList OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Entry Blacklisted" 
+		::={ acosDdosTableS 57 } 
+
+		dstLearningThreExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Dynamic Entry Count Overflow" 
+		::={ acosDdosTableS 58 } 
+
+		dstOverThrePolicyAtLearning OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Overflow Policy Hit At Learning Stage" 
+		::={ acosDdosTableS 59 } 
+
+		srcLearningThreExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Dynamic Entry Count Overflow" 
+		::={ acosDdosTableS 60 } 
+
+		srcOverThrePolicyAtLookup OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Overflow Policy Hit At Lookup Stage" 
+		::={ acosDdosTableS 61 } 
+
+		srcOverThrePolicyAtLearning OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Src Overflow Policy Hit At Learning Stage" 
+		::={ acosDdosTableS 62 } 
+
+		srcDstLearningThreExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Dynamic Entry Count Overflow" 
+		::={ acosDdosTableS 63 } 
+
+		srcDstOverThrePolicyAtLookup OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Overflow Policy Hit At Lookup Stage" 
+		::={ acosDdosTableS 64 } 
+
+		srcDstOverThrePolicyAtLearning OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Overflow Policy Hit At Learning Stage" 
+		::={ acosDdosTableS 65 } 
+
+		srcZoneServiceLearningThreExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Dynamic Entry Count Overflow" 
+		::={ acosDdosTableS 66 } 
+
+		srcZoneServiceOverThrePolicyAtLookup OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Overflow Policy Lookup Hit" 
+		::={ acosDdosTableS 67 } 
+
+		srcZoneServiceOverThrePolicyAtLearning OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Overflow Policy Learning Hit" 
+		::={ acosDdosTableS 68 } 
+
+		entryOom OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out of Entry Memory" 
+		::={ acosDdosTableS 69 } 
+
+		entryExtOom OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Out of Entry Extension Memory" 
+		::={ acosDdosTableS 70 } 
+
+		srcDstClasslistOverflowPolicyAtLearning OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcDst Class-List Overflow Policy Hit" 
+		::={ acosDdosTableS 71 } 
+
+		srcZoneServiceClasslistOverflowPolicyAtLearning OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "SrcZoneService Class-List Overflow Policy Hit" 
+		::={ acosDdosTableS 72 } 
+
+acosDdosProtect                     OBJECT IDENTIFIER ::= { acosDdos 59 }
+acosDdosProtectS                    OBJECT IDENTIFIER ::= { acosDdosProtect 1 }
+
+		rrSessLookup OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DDOS RR Session Lookup" 
+		::={ acosDdosProtectS 1 } 
+
+		dcmsgPkt OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DDOS DCMSG Pkt" 
+		::={ acosDdosProtectS 2 } 
+
+		runtimeEnable OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DDOS Runtime Enable" 
+		::={ acosDdosProtectS 3 } 
+
+		runtimeDisable OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "DDOS Runtime Disable" 
+		::={ acosDdosProtectS 4 } 
+
+acosDdosPort                        OBJECT IDENTIFIER ::= { acosDdos 60 }
+acosDdosPortS                       OBJECT IDENTIFIER ::= { acosDdosPort 1 }
+
+		dstPortUndefDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Undefined Dropped" 
+		::={ acosDdosPortS 1 } 
+
+		dstPortBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Blacklist Packets Dropped" 
+		::={ acosDdosPortS 2 } 
+
+		dstPortExceedDropAny OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Exceed Dropped" 
+		::={ acosDdosPortS 3 } 
+
+		dstPortPktRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Pkt Rate Exceeded" 
+		::={ acosDdosPortS 4 } 
+
+		dstPortKbitRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port KiBit Rate Exceeded (KiBit)" 
+		::={ acosDdosPortS 5 } 
+
+		dstPortFragRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Frag Pkt Rate Exceeded" 
+		::={ acosDdosPortS 6 } 
+
+		dstPortConnLimitExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Conn Limit Exceeded" 
+		::={ acosDdosPortS 7 } 
+
+		dstPortConnRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst Port Conn Rate Exceeded" 
+		::={ acosDdosPortS 8 } 
+
+		dstSportBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort Blacklist Packets Dropped" 
+		::={ acosDdosPortS 9 } 
+
+		dstSportExceedDropAny OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort Exceed Dropped" 
+		::={ acosDdosPortS 10 } 
+
+		dstSportPktRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort Pkt Rate Exceeded" 
+		::={ acosDdosPortS 11 } 
+
+		dstSportKbitRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort KiBit Rate Exceeded (KiBit)" 
+		::={ acosDdosPortS 12 } 
+
+		dstSportFragRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort Frag Pkt Rate Exceeded" 
+		::={ acosDdosPortS 13 } 
+
+		dstSportConnLimitExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort Conn Limit Exceeded" 
+		::={ acosDdosPortS 14 } 
+
+		dstSportConnRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst SrcPort Conn Rate Exceeded" 
+		::={ acosDdosPortS 15 } 
+
+acosDdosIpProto                     OBJECT IDENTIFIER ::= { acosDdos 61 }
+acosDdosIpProtoS                    OBJECT IDENTIFIER ::= { acosDdosIpProto 1 }
+
+		dstIpprotoRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto Total Packets Received" 
+		::={ acosDdosIpProtoS 1 } 
+
+		dstIpprotoDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto Total Packets Dropped" 
+		::={ acosDdosIpProtoS 2 } 
+
+		dstIpprotoBl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto Blacklist Packets Dropped" 
+		::={ acosDdosIpProtoS 3 } 
+
+		dstIpprotoExceedDropAny OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto Exceed Dropped" 
+		::={ acosDdosIpProtoS 4 } 
+
+		dstIpprotoPktRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto Pkt Rate Exceeded" 
+		::={ acosDdosIpProtoS 5 } 
+
+		dstIpprotoKbitRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto KiBit Rate Exceeded (KiBit)" 
+		::={ acosDdosIpProtoS 6 } 
+
+		dstIpprotoFragRateExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Dst IP-Proto Frag Pkt Rate Exceeded" 
+		::={ acosDdosIpProtoS 7 } 
+
+acosDdosTunnel                      OBJECT IDENTIFIER ::= { acosDdos 62 }
+acosDdosTunnelS                     OBJECT IDENTIFIER ::= { acosDdosTunnel 1 }
+
+		ipTunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Tunnel Received" 
+		::={ acosDdosTunnelS 1 } 
+
+		ipTunnelRateLimitInner OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Tunnel Rate Limit Inner Pkts" 
+		::={ acosDdosTunnelS 2 } 
+
+		ipTunnelEncap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Tunnel Encap" 
+		::={ acosDdosTunnelS 3 } 
+
+		ipTunnelEncapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Tunnel Encap Failed" 
+		::={ acosDdosTunnelS 4 } 
+
+		ipTunnelDecap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Tunnel Decap" 
+		::={ acosDdosTunnelS 5 } 
+
+		ipTunnelDecapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Tunnel Decap Failed" 
+		::={ acosDdosTunnelS 6 } 
+
+		ip6TunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Tunnel Received" 
+		::={ acosDdosTunnelS 7 } 
+
+		ip6TunnelRateLimitInner OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Tunnel Rate Limit Inner Pkts" 
+		::={ acosDdosTunnelS 8 } 
+
+		ip6TunnelEncap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Tunnel Encap" 
+		::={ acosDdosTunnelS 9 } 
+
+		ip6TunnelEncapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Tunnel Encap Failed" 
+		::={ acosDdosTunnelS 10 } 
+
+		ip6TunnelDecap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Tunnel Decap" 
+		::={ acosDdosTunnelS 11 } 
+
+		ip6TunnelDecapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv6 Tunnel Decap Failed" 
+		::={ acosDdosTunnelS 12 } 
+
+		ipGreTunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Received" 
+		::={ acosDdosTunnelS 13 } 
+
+		ipGreTunnelRateLimitInner OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Rate Limit Inner Pkts" 
+		::={ acosDdosTunnelS 14 } 
+
+		ipGreTunnelEncap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Encap" 
+		::={ acosDdosTunnelS 15 } 
+
+		ipGreTunnelEncapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Encap Failed" 
+		::={ acosDdosTunnelS 16 } 
+
+		ipGreTunnelDecap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Decap" 
+		::={ acosDdosTunnelS 17 } 
+
+		ipGreTunnelDecapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Decap Failed" 
+		::={ acosDdosTunnelS 18 } 
+
+		ipGreTunnelEncapKey OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Encap W/ Key" 
+		::={ acosDdosTunnelS 19 } 
+
+		ipGreTunnelDecapKey OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Decap W/ Key" 
+		::={ acosDdosTunnelS 20 } 
+
+		ipGreTunnelDecapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Decap Key Mismatch Dropped" 
+		::={ acosDdosTunnelS 21 } 
+
+		ip6GreTunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Received" 
+		::={ acosDdosTunnelS 22 } 
+
+		ip6GreTunnelRateLimitInner OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Rate Limit Inner Pkts" 
+		::={ acosDdosTunnelS 23 } 
+
+		ip6GreTunnelEncap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Encap" 
+		::={ acosDdosTunnelS 24 } 
+
+		ip6GreTunnelEncapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Encap Received Failed" 
+		::={ acosDdosTunnelS 25 } 
+
+		ip6GreTunnelDecap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Decap" 
+		::={ acosDdosTunnelS 26 } 
+
+		ip6GreTunnelDecapFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Decap Failed" 
+		::={ acosDdosTunnelS 27 } 
+
+		ip6GreTunnelEncapKey OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Encap W/ Key" 
+		::={ acosDdosTunnelS 28 } 
+
+		ip6GreTunnelDecapKey OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Decap W/ Key" 
+		::={ acosDdosTunnelS 29 } 
+
+		ip6GreTunnelDecapDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE V6 Tunnel Decap No Key Dropped" 
+		::={ acosDdosTunnelS 30 } 
+
+		ipEspTunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ESP Tunnel Received" 
+		::={ acosDdosTunnelS 31 } 
+
+		ipEspTunnelInspect OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ESP Tunnel Inspect" 
+		::={ acosDdosTunnelS 32 } 
+
+		ipEspTunnelInspectFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ESP Tunnel Inspect Fail" 
+		::={ acosDdosTunnelS 33 } 
+
+		ip6EspTunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ESP V6 Tunnel Received" 
+		::={ acosDdosTunnelS 34 } 
+
+		ip6EspTunnelInspect OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ESP V6 Tunnel Inspect" 
+		::={ acosDdosTunnelS 35 } 
+
+		ip6EspTunnelInspectFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ESP V6 Tunnel Inspect Fail" 
+		::={ acosDdosTunnelS 36 } 
+
+		ipVxlanTunnelRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP VxLAN Received" 
+		::={ acosDdosTunnelS 37 } 
+
+		ipVxlanTunnelInvalidVni OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP VxLAN Invalid VNI" 
+		::={ acosDdosTunnelS 38 } 
+
+		ipVxlanTunnelDecap OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP VxLAN Decap" 
+		::={ acosDdosTunnelS 39 } 
+
+		ipVxlanTunnelDecapErr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP VxLAN Decap Error" 
+		::={ acosDdosTunnelS 40 } 
+
+		ipGreTunnelKeepaliveRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "GRE Tunnel Keep-Alive Received" 
+		::={ acosDdosTunnelS 41 } 
+
+		jumboInTunnelDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Jumbo Packet in Tunnel Drop" 
+		::={ acosDdosTunnelS 42 } 
+
+acosDdosAnomaly                     OBJECT IDENTIFIER ::= { acosDdos 63 }
+acosDdosAnomalyS                    OBJECT IDENTIFIER ::= { acosDdosAnomaly 1 }
+
+		landAttack OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Land Attack" 
+		::={ acosDdosAnomalyS 1 } 
+
+		emptyFrag OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Empty Fragment" 
+		::={ acosDdosAnomalyS 2 } 
+
+		microFrag OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Micro Fragment" 
+		::={ acosDdosAnomalyS 3 } 
+
+		ipv4Opt OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Option" 
+		::={ acosDdosAnomalyS 4 } 
+
+		ipFrag OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Fragment" 
+		::={ acosDdosAnomalyS 5 } 
+
+		badIpHdrLen OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Invalid Header Length" 
+		::={ acosDdosAnomalyS 6 } 
+
+		badIpFlags OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Invalid Flags" 
+		::={ acosDdosAnomalyS 7 } 
+
+		badIpTtl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Invalid TTL" 
+		::={ acosDdosAnomalyS 8 } 
+
+		noIpPayload OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Payload None" 
+		::={ acosDdosAnomalyS 9 } 
+
+		oversizeIpPl OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Payload Too Large" 
+		::={ acosDdosAnomalyS 10 } 
+
+		badIpPlLen OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Invalid Payload Length" 
+		::={ acosDdosAnomalyS 11 } 
+
+		badIpFragOff OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Invalid Fragment Offset" 
+		::={ acosDdosAnomalyS 12 } 
+
+		badIpCsum OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IPv4 Invalid Checksum" 
+		::={ acosDdosAnomalyS 13 } 
+
+		icmpPod OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "ICMP Ping Of Death" 
+		::={ acosDdosAnomalyS 14 } 
+
+		tcpBadUrgOff OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Invalid Urgent Offset" 
+		::={ acosDdosAnomalyS 15 } 
+
+		tcpShortHdr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Short Header" 
+		::={ acosDdosAnomalyS 16 } 
+
+		tcpBadIpLen OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Invalid IPv4 Length" 
+		::={ acosDdosAnomalyS 17 } 
+
+		tcpNullFlags OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Null Flags" 
+		::={ acosDdosAnomalyS 18 } 
+
+		tcpNullScan OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Null Scan" 
+		::={ acosDdosAnomalyS 19 } 
+
+		tcpSynFin OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN&FIN" 
+		::={ acosDdosAnomalyS 20 } 
+
+		tcpXmasFlags OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP XMAS Flags" 
+		::={ acosDdosAnomalyS 21 } 
+
+		tcpXmasScan OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP XMAS Scan" 
+		::={ acosDdosAnomalyS 22 } 
+
+		tcpSynFrag OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP SYN Fragment" 
+		::={ acosDdosAnomalyS 23 } 
+
+		tcpFragHeader OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Fragment Header" 
+		::={ acosDdosAnomalyS 24 } 
+
+		tcpBadCsum OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Invalid Checksum" 
+		::={ acosDdosAnomalyS 25 } 
+
+		udpShortHdr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Short Header" 
+		::={ acosDdosAnomalyS 26 } 
+
+		udpShortLeng OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Invalid Length" 
+		::={ acosDdosAnomalyS 27 } 
+
+		udpKbFrag OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP KB Fragment" 
+		::={ acosDdosAnomalyS 28 } 
+
+		udpPortLb OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Port LB" 
+		::={ acosDdosAnomalyS 29 } 
+
+		udpBadCsum OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "UDP Invalid Checksum" 
+		::={ acosDdosAnomalyS 30 } 
+
+		runtIpHdr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Runt Header" 
+		::={ acosDdosAnomalyS 31 } 
+
+		runtTcpudpHdr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCPUDP Runt Header" 
+		::={ acosDdosAnomalyS 32 } 
+
+		tunMismatch OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "IP Tunnel Mismatch" 
+		::={ acosDdosAnomalyS 33 } 
+
+		tcpOptOverflow OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "TCP Option Error" 
+		::={ acosDdosAnomalyS 34 } 
+
+acosDdosL4Sync                      OBJECT IDENTIFIER ::= { acosDdos 64 }
+acosDdosL4SyncS                     OBJECT IDENTIFIER ::= { acosDdosL4Sync 1 }
+
+		syncHelloRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Hello Received" 
+		::={ acosDdosL4SyncS 1 } 
+
+		syncHelloSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Hello Sent" 
+		::={ acosDdosL4SyncS 2 } 
+
+		syncDstSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Dst Sent" 
+		::={ acosDdosL4SyncS 3 } 
+
+		syncDstRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Dst Received" 
+		::={ acosDdosL4SyncS 4 } 
+
+		syncSrcSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Src Sent" 
+		::={ acosDdosL4SyncS 5 } 
+
+		syncSrcRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Src Received" 
+		::={ acosDdosL4SyncS 6 } 
+
+		syncSrcDstSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync SrcDst Sent" 
+		::={ acosDdosL4SyncS 7 } 
+
+		syncSrcDstRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync SrcDst Received" 
+		::={ acosDdosL4SyncS 8 } 
+
+		syncSzpSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync SrcZoneService Sent" 
+		::={ acosDdosL4SyncS 9 } 
+
+		syncSzpRcv OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync SrcZoneService Received" 
+		::={ acosDdosL4SyncS 10 } 
+
+		syncSentNoPeer OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent No Peer" 
+		::={ acosDdosL4SyncS 11 } 
+
+		syncSentFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Failed" 
+		::={ acosDdosL4SyncS 12 } 
+
+		syncRcvHelloUnkPeer OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Hello Unknown Peer" 
+		::={ acosDdosL4SyncS 13 } 
+
+		syncSrcDstNoDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync SrcDst No-Dst" 
+		::={ acosDdosL4SyncS 14 } 
+
+		syncSzpNoDstDrop OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync SrcZoneService No-Dst" 
+		::={ acosDdosL4SyncS 15 } 
+
+		syncRcvEntryCreateFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Entry Create Failed" 
+		::={ acosDdosL4SyncS 16 } 
+
+		syncRcvEntryConflictStatic OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Entry Conflict Static" 
+		::={ acosDdosL4SyncS 17 } 
+
+		syncRcvUnkMsg OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Unknown Msg" 
+		::={ acosDdosL4SyncS 18 } 
+
+		syncRcvFail OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Failed" 
+		::={ acosDdosL4SyncS 19 } 
+
+		syncRcvHelloUnkSubtype OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Hello Unknown Subtype" 
+		::={ acosDdosL4SyncS 20 } 
+
+		syncRcvEntryUnkSubtype OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Entry Unknown Subtype" 
+		::={ acosDdosL4SyncS 21 } 
+
+		syncRcvEntryUnk OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Unknown Entry" 
+		::={ acosDdosL4SyncS 22 } 
+
+		syncSrcUdpWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src UDP Authenticated" 
+		::={ acosDdosL4SyncS 23 } 
+
+		syncSrcTcpWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src TCP Authenticated" 
+		::={ acosDdosL4SyncS 24 } 
+
+		syncSrcIcmpWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src ICMP Authenticated" 
+		::={ acosDdosL4SyncS 25 } 
+
+		syncSrcOtherWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src OTHER Authenticated" 
+		::={ acosDdosL4SyncS 26 } 
+
+		syncSrcDnsUdpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src DNS UDP Authenticated" 
+		::={ acosDdosL4SyncS 27 } 
+
+		syncSrcDnsTcpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src DNS Force-TCP Authenticated" 
+		::={ acosDdosL4SyncS 28 } 
+
+		syncSrcBlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent Src Blacklisted" 
+		::={ acosDdosL4SyncS 29 } 
+
+		syncSrcDstUdpWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst UDP Authenticated" 
+		::={ acosDdosL4SyncS 30 } 
+
+		syncSrcDstTcpWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst TCP Authenticated" 
+		::={ acosDdosL4SyncS 31 } 
+
+		syncSrcDstIcmpWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst ICMP Authenticated" 
+		::={ acosDdosL4SyncS 32 } 
+
+		syncSrcDstOtherWlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst OTHER Authenticated" 
+		::={ acosDdosL4SyncS 33 } 
+
+		syncSrcDstDnsUdpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst DNS UDP Authenticated" 
+		::={ acosDdosL4SyncS 34 } 
+
+		syncSrcDstDnsTcpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst DNS Force-TCP Authenticated" 
+		::={ acosDdosL4SyncS 35 } 
+
+		syncSrcDstBlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcDst Blacklisted" 
+		::={ acosDdosL4SyncS 36 } 
+
+		syncSzpTcpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService TCP Authenticated" 
+		::={ acosDdosL4SyncS 37 } 
+
+		syncSzpUdpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService UDP Authenticated" 
+		::={ acosDdosL4SyncS 38 } 
+
+		syncSzpIcmpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService ICMP Authenticated" 
+		::={ acosDdosL4SyncS 39 } 
+
+		syncSzpOtherAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService OTHER Authenticated" 
+		::={ acosDdosL4SyncS 40 } 
+
+		syncSzpDnsUdpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService DNS UDP Authenticated" 
+		::={ acosDdosL4SyncS 41 } 
+
+		syncSzpDnsTcpAuthSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService DNS Force-TCP Authenticated" 
+		::={ acosDdosL4SyncS 42 } 
+
+		syncSzpBlSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Sent SrcZoneService Blacklist" 
+		::={ acosDdosL4SyncS 43 } 
+
+		syncSrcUdpWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src UDP Authenticated" 
+		::={ acosDdosL4SyncS 44 } 
+
+		syncSrcTcpWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src TCP Authenticated" 
+		::={ acosDdosL4SyncS 45 } 
+
+		syncSrcIcmpWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src ICMP Authenticated" 
+		::={ acosDdosL4SyncS 46 } 
+
+		syncSrcOtherWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src OTHER Authenticated" 
+		::={ acosDdosL4SyncS 47 } 
+
+		syncSrcDnsUdpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src DNS UDP Authenticated" 
+		::={ acosDdosL4SyncS 48 } 
+
+		syncSrcDnsTcpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src DNS Force-TCP Authenticated" 
+		::={ acosDdosL4SyncS 49 } 
+
+		syncSrcBlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received Src Blacklisted" 
+		::={ acosDdosL4SyncS 50 } 
+
+		syncSrcDstUdpWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst UDP Authenticated" 
+		::={ acosDdosL4SyncS 51 } 
+
+		syncSrcDstTcpWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst TCP Authenticated" 
+		::={ acosDdosL4SyncS 52 } 
+
+		syncSrcDstIcmpWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst ICMP Authenticated" 
+		::={ acosDdosL4SyncS 53 } 
+
+		syncSrcDstOtherWlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst OTHER Authenticated" 
+		::={ acosDdosL4SyncS 54 } 
+
+		syncSrcDstDnsUdpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst DNS UDP Authenticated" 
+		::={ acosDdosL4SyncS 55 } 
+
+		syncSrcDstDnsTcpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst DNS Force-TCP Authenticated" 
+		::={ acosDdosL4SyncS 56 } 
+
+		syncSrcDstBlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcDst Blacklisted" 
+		::={ acosDdosL4SyncS 57 } 
+
+		syncSzpTcpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService TCP Authenticated" 
+		::={ acosDdosL4SyncS 58 } 
+
+		syncSzpUdpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService UDP Authenticated" 
+		::={ acosDdosL4SyncS 59 } 
+
+		syncSzpIcmpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService ICMP Authenticated" 
+		::={ acosDdosL4SyncS 60 } 
+
+		syncSzpOtherAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService OTHER Authenticated" 
+		::={ acosDdosL4SyncS 61 } 
+
+		syncSzpDnsUdpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService DNS UDP Authenticated" 
+		::={ acosDdosL4SyncS 62 } 
+
+		syncSzpDnsTcpAuthRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService DNS Force-TCP Authenticated" 
+		::={ acosDdosL4SyncS 63 } 
+
+		syncSzpBlRcvd OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Sync Received SrcZoneService Blacklist" 
+		::={ acosDdosL4SyncS 64 } 
+
+acosDdosLogging                     OBJECT IDENTIFIER ::= { acosDdos 67 }
+acosDdosLoggingS                    OBJECT IDENTIFIER ::= { acosDdosLogging 1 }
+
+		logMsgQuotaExceed OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Per CPU Quota Exceed" 
+		::={ acosDdosLoggingS 1 } 
+
+		logMsgOom OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Out of Memory Error" 
+		::={ acosDdosLoggingS 2 } 
+
+		logQueueFull OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Queue Full" 
+		::={ acosDdosLoggingS 3 } 
+
+		logMsgEnqueue OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Enqueue" 
+		::={ acosDdosLoggingS 4 } 
+
+		logMsgEnqueueErr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Enqueue Error" 
+		::={ acosDdosLoggingS 5 } 
+
+		logMsgDequeue OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Dequeue" 
+		::={ acosDdosLoggingS 6 } 
+
+		logMsgDequeueErr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Dequeue Error" 
+		::={ acosDdosLoggingS 7 } 
+
+		logMsgSent OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Sent" 
+		::={ acosDdosLoggingS 8 } 
+
+		logMsgSendErr OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Log Message Send Error" 
+		::={ acosDdosLoggingS 9 } 
+
+acosDdosTokenAuth                   OBJECT IDENTIFIER ::= { acosDdos 83 }
+acosDdosTokenAuthS                  OBJECT IDENTIFIER ::= { acosDdosTokenAuth 1 }
+
+		tokenAuthenticationMatched OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Token Authentication Matched Packets" 
+		::={ acosDdosTokenAuthS 1 } 
+
+		tokenAuthenticationMismatched OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Token Authentication Mismatched Packets" 
+		::={ acosDdosTokenAuthS 2 } 
+
+		tokenAuthenticationInvalid OBJECT-TYPE
+		SYNTAX  CounterBasedGauge64 
+		MAX-ACCESS read-only 
+		STATUS current
+		DESCRIPTION  "Token Authentication Invalid Packets" 
+		::={ acosDdosTokenAuthS 3 } 
+
+acosDdosL7Quic                      OBJECT IDENTIFIER ::= { acosDdos 94 }
+acosDdosL7QuicS                     OBJECT IDENTIFIER ::= { acosDdosL7Quic 1 }
+END
+
