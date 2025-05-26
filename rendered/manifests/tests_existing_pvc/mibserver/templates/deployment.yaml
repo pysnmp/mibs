@@ -62,6 +62,8 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
+            - mountPath: "/app/new_mibs/src/vendor"
+              name: task-pv-storage
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -75,3 +77,7 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
+          # Debug helper output
+        - name: task-pv-storage
+          persistentVolumeClaim:
+            claimName: "mibs-hostpath-pvc"
