@@ -70,12 +70,23 @@ Create mibserver.podAntiAffinity
 {{- end }}
 
 {{/*
-Whether to render pv and pvc for local mibs
+Whether to render PV and PVC for local MIBs
+*/}}
+{{- define "mibserver.createPV" -}}
+{{- if and .Values.localMibs.pathToMibs ( eq .Values.localMibs.persistence.existingClaim "" ) }}
+true
+{{- else }}
+false
+{{- end }}
+{{- end }}
+
+{{/*
+Whether to use PVC at all
 */}}
 {{- define "mibserver.enablePV" -}}
-{{- if and .Values.localMibs.pathToMibs ( eq .Values.localMibs.persistence.existingClaim "" ) }}
-{{- "true" }}
+{{- if or ( eq ( include "mibserver.createPV" . ) "true" ) ( ne .Values.localMibs.persistence.existingClaim "" ) }}
+true
 {{- else }}
-{{- "false" }}
+false
 {{- end }}
 {{- end }}

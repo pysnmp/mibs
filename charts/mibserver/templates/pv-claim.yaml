@@ -1,4 +1,4 @@
-{{- if eq ( include "mibserver.enablePV" . ) "true" }}
+{{- if eq ( include "mibserver.createPV" . ) "true" }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

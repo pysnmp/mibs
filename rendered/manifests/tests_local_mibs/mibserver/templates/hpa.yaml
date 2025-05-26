@@ -3,18 +3,18 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: default-mibserver
+  name: release-name-mibserver
   labels:
     helm.sh/chart: mibserver-CURRENT-VERSION
     app.kubernetes.io/name: mibserver
-    app.kubernetes.io/instance: default
+    app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "CURRENT-VERSION"
     app.kubernetes.io/managed-by: Helm
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: default-mibserver
+    name: release-name-mibserver
   minReplicas: 1
   maxReplicas: 3
   metrics:

@@ -96,7 +96,7 @@ spec:
         {{- if eq ( include "mibserver.enablePV" . ) "true" }}
         - name: task-pv-storage
           persistentVolumeClaim:
-        {{- if eq .Values.localMibs.persistence.existingClaim "" }}
+        {{- if eq ( include "mibserver.createPV" . ) "true" }}
             claimName: {{ include "mibserver.fullname" . }}
         {{ else }}
             claimName: {{ .Values.localMibs.persistence.existingClaim | quote }}
