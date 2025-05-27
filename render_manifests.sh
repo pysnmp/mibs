@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 DIR="rendered"
 prefix="$DIR/values_"
