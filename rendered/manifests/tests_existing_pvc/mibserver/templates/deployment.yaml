@@ -13,6 +13,7 @@ metadata:
   annotations:
     "kube-score/ignore": "container-image-pull-policy"
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: mibserver
@@ -54,8 +55,8 @@ spec:
               port: http-status
           resources:
             limits:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 500m
+              memory: 256Mi
             requests:
               cpu: 100m
               memory: 128Mi
