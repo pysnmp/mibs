@@ -68,14 +68,3 @@ Create mibserver.podAntiAffinity
 {{- "soft" }}
 {{- end }}
 {{- end }}
-
-{{/*
-Whether to render pv and pvc for local mibs
-*/}}
-{{- define "mibserver.enablePV" -}}
-{{- if and .Values.localMibs.pathToMibs ( eq .Values.localMibs.persistence.existingClaim "" ) }}
-{{- "true" }}
-{{- else }}
-{{- "false" }}
-{{- end }}
-{{- end }}

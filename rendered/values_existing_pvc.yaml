@@ -1,0 +1,4 @@
+localMibs:
+  pathToMibs: "/home/mibs"
+  persistence:
+    existingClaim: mibs-hostpath-pvc

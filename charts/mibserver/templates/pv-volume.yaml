@@ -1,4 +1,4 @@
-{{- if eq ( include "mibserver.enablePV" . ) "true" }}
+{{- if and .Values.localMibs.pathToMibs (eq .Values.localMibs.persistence.existingClaim "") }}
 apiVersion: v1
 kind: PersistentVolume
 metadata:

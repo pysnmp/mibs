@@ -5,10 +5,10 @@ kind: Pod
 metadata:
   name: "default-mibserver-test-connection"
   labels:
-    helm.sh/chart: mibserver-1.15.16-beta.2
+    helm.sh/chart: mibserver-CURRENT-VERSION
     app.kubernetes.io/name: mibserver
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "1.15.16-beta.2"
+    app.kubernetes.io/version: "CURRENT-VERSION"
     app.kubernetes.io/managed-by: Helm
   annotations:
     "helm.sh/hook": test

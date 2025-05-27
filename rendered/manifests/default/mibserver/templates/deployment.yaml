@@ -5,14 +5,15 @@ kind: Deployment
 metadata:
   name: default-mibserver
   labels:
-    helm.sh/chart: mibserver-1.15.16-beta.2
+    helm.sh/chart: mibserver-CURRENT-VERSION
     app.kubernetes.io/name: mibserver
     app.kubernetes.io/instance: default
-    app.kubernetes.io/version: "1.15.16-beta.2"
+    app.kubernetes.io/version: "CURRENT-VERSION"
     app.kubernetes.io/managed-by: Helm
   annotations:
     "kube-score/ignore": "container-image-pull-policy"
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: mibserver
@@ -36,7 +37,7 @@ spec:
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001
-          image: "ghcr.io/pysnmp/mibs/container:1.15.16-beta.2"
+          image: "ghcr.io/pysnmp/mibs/container:CURRENT-VERSION"
           imagePullPolicy: IfNotPresent
           env:
             - name: NGINX_ENTRYPOINT_QUIET_LOGS
@@ -54,8 +55,8 @@ spec:
               port: http-status
           resources:
             limits:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 500m
+              memory: 256Mi
             requests:
               cpu: 100m
               memory: 128Mi
@@ -75,3 +76,4 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
+          # Debug helper output

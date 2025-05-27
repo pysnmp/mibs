@@ -18,7 +18,7 @@ dirs:
 render:
 	rm -rf rendered/manifests/*
 	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
-	helm template --namespace default --values rendered/values.yaml --output-dir rendered/manifests/local_mibs default charts/mibserver
+	./render_manifests.sh
 
 standard: #dirs $(RFC)
 	@# Compile mibs

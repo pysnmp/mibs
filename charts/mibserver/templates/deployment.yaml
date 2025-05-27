@@ -1,3 +1,5 @@
+{{- $createPV := and .Values.localMibs.pathToMibs (eq .Values.localMibs.persistence.existingClaim "") }}
+{{- $enablePV := or $createPV (ne .Values.localMibs.persistence.existingClaim "") }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -59,7 +61,7 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
-          {{- if eq ( include "mibserver.enablePV" . ) "true" }}
+          {{- if $enablePV }}
             - mountPath: "/app/new_mibs/src/vendor"
               name: task-pv-storage
           {{- end }}
@@ -93,12 +95,13 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
-        {{- if eq ( include "mibserver.enablePV" . ) "true" }}
+          # Debug helper output
+      {{- if $enablePV }}
         - name: task-pv-storage
           persistentVolumeClaim:
-        {{- if eq .Values.localMibs.persistence.existingClaim "" }}
-            claimName: {{ include "mibserver.fullname" . }}
-        {{ else }}
+          {{- if .Values.localMibs.persistence.existingClaim }}
             claimName: {{ .Values.localMibs.persistence.existingClaim | quote }}
+        {{ else }}
+            claimName: {{ include "mibserver.fullname" . }}
         {{- end }}
         {{- end }}
