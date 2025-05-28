@@ -1,17 +1,14 @@
 --
 -- The Ericsson Alarm Probable Cause MIB
 --
--- Copyright (c) 2016 by Ericsson AB.
+-- Copyright (c) 2021 by Ericsson AB.
 -- All rights reserved.
 --
--- This MIB is part of the ERICSSON-ALARM-MIB Suite, and its use is documented 
--- further in TEA (The Ericsson Architecture), O&M System Architecture 
+-- This MIB is part of the ERICSSON-ALARM-MIB Suite, and its use is documented
+-- further in TEA (The Ericsson Architecture), O&M System Architecture
 -- Principles, FAE 151 01.
 --
--- Author:
--- Enda Murphy          
---
---
+
 ERICSSON-ALARM-PC-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -23,10 +20,10 @@ IMPORTS
                 FROM ERICSSON-TOP-MIB;
 
 ericssonAlarmPCMIB MODULE-IDENTITY
-        LAST-UPDATED "201703310000Z"
+        LAST-UPDATED "202102040000Z"
         ORGANIZATION "Ericsson AB"
         CONTACT-INFO
-                "Email: <snmp.mib.contact@ericsson.com> "
+                "IMF"
 
         DESCRIPTION
                 "This is a module with the single purpose of
@@ -38,17 +35,35 @@ ericssonAlarmPCMIB MODULE-IDENTITY
                 Others may be added, but existing definitions
                 MUST NOT be changed.
                 
-                Document number: 4/196 03-CXC 172 7549"
+                Document number: 4/196 03-CXC 172 7549."
                 
+
+        REVISION "202102040000Z"
+        DESCRIPTION
+                "Removed employee Id from CONTACT-INFO.
+                                Document number: 4/196 03-CXC 172 7549, Rev E."
+                                
+                REVISION      "201806270000Z"
+        DESCRIPTION
+                "Added the following value from RFC 3877:
+                    other (1024).
+                Added from the set of 'Enterprise added values'
+                from ERICSSON-ROUTER-ALARM-TC MIB.
+                Updated Reference documents in DESCRIPTION.
+                Added more detail to DESCRIPTION for each REVISION.
+                Document number: 4/196 03-CXC 172 7549, Rev D."
         REVISION      "201703310000Z"
         DESCRIPTION
-                "Updated as part of ERICSSON ALARM MIB 2.1 package."
-                REVISION      "201606240000Z"
+                "Minor Header and Description updates.
+                Document number: 4/196 03-CXC 172 7549, Rev C."
+        REVISION      "201606240000Z"
         DESCRIPTION
-                "Updated as part of ERICSSON ALARM MIB 2.0 package."
+                "Removed individual original author names.
+                Document number: 4/196 03-CXC 172 7549, Rev B."
         REVISION      "200810170000Z"
         DESCRIPTION
-                "Initial version of this MIB module."
+                "Initial version of this MIB module.
+                Document number: 4/196 03-CXC 172 7549, Rev A."
         ::= { ericssonModules 2 }
 
 --=======================
@@ -57,9 +72,16 @@ ericssonAlarmPCMIB MODULE-IDENTITY
 EriProbableCause ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
-                "Probable cause as specified in ITU
-                recommendations M.3100, X.733 and X.736, and in
-                ETSI recommendation GSM 12.11.
+                "Probable cause as specified in the following
+                specifications:
+                - 3GPP TS 32.111-2 V14.0.0 (2017-03)
+                - 3GPP TS 32.111-3 V9.1.0 (2012-09)
+                
+                Also referenced from the above specs are ITU
+                recommendations M.3100, X.733 and X.736, as well
+                as ETSI recommendation GSM 12.11, now more
+                generically referred to as 'Wireless Systems' in
+                the 3GPP specs above.
 
                 This list is updated upon internal requests from
                 Ericsson organizations. We do not use the
@@ -249,7 +271,7 @@ EriProbableCause ::= TEXTUAL-CONVENTION
                 x733MaterialSupplyExhausted(330),
                 -- x733MultiplexerProblem (use M.3100 value)
                 x733OutOfMemory(332),
-                x733OuputDeviceError(333),
+                x733OutputDeviceError(333),
                 x733PerformanceDegraded(334),
                 -- x733PowerProblem (use M.3100 value)
                 x733PressureUnacceptable(336),
@@ -396,6 +418,34 @@ EriProbableCause ::= TEXTUAL-CONVENTION
                 i610RdiSegmentLinkSide(607),
                 i610RdiSegmentCoreSide(608),
 
+                -- Added selected PC strings specific to Ericsson Router,
+                -- from ERICSSON-ROUTER-ALARM-TC MIB, listed as
+                -- "Enterprise added values".
+                -- Included is other (1024) from RFC 3877.
+
+                lossOfTimingSource (1001),
+                apsChannelProcessingFailure (1002),
+                apsByteFailure (1003),
+                apsChannelMatchFailure (1004),
+                apsModeMismatch (1005),
+                lossOfTUMultiframeIndicator (1007),
+                pathSelectorFailure (1010),
+                blsrDefaultKBytes (1011),
+                blsrInconsistentAPSCodes (1012),
+                blsrNodeIdMismatch (1013),
+                blsrImproperAPSCodes (1014),
+                blsrSquelching (1015),
+                blsrInvalidNeighbour (1016),
+                blsrInvalidRingMap (1017),
+                blsrInvalidRingId (1018),
+                blsrIncompleteRingConfig (1019),
+                blsrIncompleteETConfig (1020),
+                blsrNodeIncorrectOrientation (1021),
+                hwResourceExhaused (1022),
+                hwResourceThreshold (1023),
+                other (1024),
+                pwOutage (1025),
+
                 -- X.736, where they are 600 - 615 instead.
                 authenticationFailure (1600),
                 breachOfConfidentiality (1601),
@@ -464,7 +514,7 @@ EriProbableCause ::= TEXTUAL-CONVENTION
                 materialSupplyExhausted (100528),
                 multiplexerProblemX733 (100529),
                 outOfMemoryX733 (100530),
-                ouputDeviceError (100531),
+                outputDeviceError (100531),
                 performanceDegraded (100532),
                 powerProblems (100533),
                 pressureUnacceptable (100534),
@@ -492,4 +542,3 @@ EriProbableCause ::= TEXTUAL-CONVENTION
 
         }
 END
-
