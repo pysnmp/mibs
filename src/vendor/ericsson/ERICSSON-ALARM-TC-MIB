@@ -1,16 +1,14 @@
 --
 -- The Ericsson Alarm Textual Conventions MIB
 --
--- Copyright (c) 2017 by Ericsson AB.
+-- Copyright (c) 2021 by Ericsson AB.
 -- All rights reserved.
 --
 -- This MIB is part of the ERICSSON-ALARM-MIB Suite, and its use is documented 
 -- further in TEA (The Ericsson Architecture), O&M System Architecture 
 -- Principles, FAE 151 01.
 --
--- Author:
--- Enda Murphy
---
+
 ERICSSON-ALARM-TC-MIB DEFINITIONS ::= BEGIN
 
 -- Add imports as needed
@@ -23,23 +21,45 @@ IMPORTS
                 FROM ERICSSON-TOP-MIB;
 
 ericssonAlarmTCMIB MODULE-IDENTITY
-        LAST-UPDATED "201703310000Z"
+        LAST-UPDATED "202106160000Z"
         ORGANIZATION "Ericsson AB"
         CONTACT-INFO
-                "Email: <snmp.mib.contact@ericsson.com> "
+                "IMF"
         DESCRIPTION
                 "This MIB defines textual conventions used by the
                 ERICSSON-ALARM-MIB.
                 
-                                Document number: 3/196 03-CXC 172 7549"               
+                                Document number: 3/196 03-CXC 172 7549"
 
+        REVISION "202106160000Z"
+        DESCRIPTION
+                "Added EriAlarmSourceIdentifierType.
+                                Document number: 3/196 03-CXC 172 7549, Rev G." 
+ 
+                REVISION "202102040000Z"
+        DESCRIPTION
+                "Removed employee Id from CONTACT-INFO.
+                                Document number: 3/196 03-CXC 172 7549, Rev F." 
+
+        REVISION      "201708110000Z"
+        DESCRIPTION
+                "Updated as part of ERICSSON ALARM MIB 3.0 package.
+                Updated to remove author's name.
+                                Document number: 3/196 03-CXC 172 7549, Rev E."
+                REVISION      "201705180000Z"
+        DESCRIPTION
+                "Updated to increase size of Additional Info.
+                                Document number: 3/196 03-CXC 172 7549, Rev D."          
         REVISION      "201703310000Z"
         DESCRIPTION
-                "Updated as part of ERICSSON ALARM MIB 2.1 package."
-
+                "Updated as part of ERICSSON ALARM MIB 2.1 package.
+                                Updated with reference to TEA.
+                                Document number: 3/196 03-CXC 172 7549, Rev C."          
         REVISION      "201606240000Z"
         DESCRIPTION
-                "Updated as part of ERICSSON ALARM MIB 2.0 package."
+                "Updated as part of ERICSSON ALARM MIB 2.0 package.
+                                Updated header.
+                                Document number: 3/196 03-CXC 172 7549, Rev B."          
         REVISION      "200810170000Z"
         DESCRIPTION
                 "Initial version of this MIB module."
@@ -176,6 +196,18 @@ EriAdditionalInfo ::= TEXTUAL-CONVENTION
                 Operation & Maintenance Architecture Principles, FAE 151 01."
         SYNTAX OCTET STRING(SIZE(4..256))
 
+EriAppendedAdditionalInfo ::= TEXTUAL-CONVENTION
+        DISPLAY-HINT "1a"
+        STATUS current
+        DESCRIPTION
+                "Used for spillover of Additional Info in the append trap."
+        REFERENCE
+                "snmpFrameworkMIB in RFC 3411 defines
+                SnmpAdminString;
+                TEA (The Ericsson Architecture),
+                Operation & Maintenance Architecture Principles, FAE 151 01."
+        SYNTAX OCTET STRING(SIZE(4..512))
+
 EriLargeAdditionalInfo ::= TEXTUAL-CONVENTION
         DISPLAY-HINT "1a"
         STATUS current
@@ -188,7 +220,7 @@ EriLargeAdditionalInfo ::= TEXTUAL-CONVENTION
                                 Allowed strings for use as 'name' are defined in 
                                 The Ericsson Architecture and updated upon internal 
                                 requests from Ericsson organizations. 
-                                This is a large additional info to be used in tables. 
+                                This is a large additional info to be used in tables.   
                                 There is a corresponding textual convention to be used 
                                 in alarm notifications, EriAdditionalInfo.  
                                 The string should adhere to the rules for SnmpAdminString 
@@ -198,7 +230,7 @@ EriLargeAdditionalInfo ::= TEXTUAL-CONVENTION
                 SnmpAdminString;
                 TEA (The Ericsson Architecture),
                 Operation & Maintenance Architecture Principles, FAE 151 01."
-        SYNTAX OCTET STRING(SIZE(4..512))        
+        SYNTAX OCTET STRING(SIZE(4..768))        
 
 EriAlarmRecordType ::= TEXTUAL-CONVENTION
         STATUS current
@@ -209,6 +241,57 @@ EriAlarmRecordType ::= TEXTUAL-CONVENTION
                 alarmNew(0),
                 alarmChange(1)
         }
+                
+EriAlarmSourceIdentifierType ::= TEXTUAL-CONVENTION
+                STATUS      current
+                DESCRIPTION
+                        "A value that represents a type of source identifier.
+                        
+                         This is needed for deployments where the Source IP Address
+                         of the IP packet does not reflect the original source of the 
+                         alarm.
+
+                         unknown(0)  An unknown identifier type. This value MUST
+                                                 be used if the value of the corresponding
+                                                 EriAlarmSourceIdentifier object is a 
+                                                 zero-length string.
+
+                         ipv4(1)     An IPv4 address as defined by the
+                                                 InetAddressIPv4 textual convention.
+
+                         ipv6(2)     An IPv6 address as defined by the
+                                                 InetAddressIPv6 textual convention.
+
+                         Each definition of a concrete EriAlarmSourceIdentifierType 
+                         value must be accompanied by a definition of a textual 
+                         convention for use with that EriAlarmSourceIdentifierType.
+
+                         To support future extensions, the EriAlarmSourceIdentifierType 
+                         Textual convention SHOULD NOT be sub-typed in object type 
+                         definitions. It MAY be sub-typed in compliance statements in 
+                         order to require only a subset of these address types for a 
+                         compliant implementation.
+
+                         Implementations must ensure that EriAlarmSourceIdentifierType 
+                         objects and any dependent objects (e.g. EriAlarmSourceIdentifier 
+                         objects) are consistent. An inconsistentValue error must be 
+                         generated if an attempt to change an EriAlarmSourceIdentifierType
+                         object would, for example, lead to an undefined 
+                         EriAlarmSourceIdentifier value.  In particular, 
+                         EriAlarmSourceIdentifierType/EriAlarmSourceIdentifier pairs must 
+                         be changed together if the address type changes (e.g. from
+                         ipv6(2) to ipv4(1)).
+                         
+                         If extending the allowed values, it may be advisable to maintain
+                         consistency with the values for InetAddressType in the
+                         INET-ADDRESS-MIB."
+                REFERENCE
+                "INET-ADDRESS-MIB in RFC 3291 defines the textual 
+                                conventions InetAddressIPv4 and InetAddressIPv6."
+                SYNTAX  INTEGER {
+                                        unknown(0),
+                                        ipv4(1),
+                                        ipv6(2)
+                                }
                                 
 END
-
