@@ -36,7 +36,11 @@ spec:
             capabilities:
               drop:
                 - ALL
-            readOnlyRootFilesystem: {{ ternary "true" "false" ( empty .Values.localMibs.pathToMibs ) }}
+            {{- if $enablePV }}
+            readOnlyRootFilesystem: false
+            {{- else }}
+            readOnlyRootFilesystem: true
+            {{- end }}
             runAsNonRoot: true
             runAsUser: 10001
             runAsGroup: 10001

@@ -1,0 +1,21 @@
+---
+# Source: mibserver/templates/pv-volume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: release-name-mibserver
+  labels:
+    type: local
+    helm.sh/chart: mibserver-CURRENT-VERSION
+    app.kubernetes.io/name: mibserver
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "CURRENT-VERSION"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  storageClassName: microk8s-hostpath
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /home/mibs
