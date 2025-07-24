@@ -1,6 +1,6 @@
--- CloudGenix, Inc. SMI for Events MIB Copyright (c) 2017 by CloudGenix,
--- Inc.
--- 2017 revision, Aaron Edwards
+-- Palo Alto Networks, Inc. SMI for Events MIB Copyright (c) 2017-2022 by
+-- Palo Alto Networks, Inc.
+-- 2022 revision, Aaron Edwards
 
 CGX-EVENTS-MIB DEFINITIONS ::= BEGIN
 
@@ -17,23 +17,29 @@ IMPORTS
     ;
 
 cgxEventsMIB MODULE-IDENTITY
-    LAST-UPDATED  "201706191838Z" -- June 19, 2017
+    LAST-UPDATED  "202202241935Z" -- February 24, 2022
     ORGANIZATION
-        "CloudGenix, Inc."
+        "Palo Alto Networks, Inc."
     CONTACT-INFO
-        "CloudGenix Support
+        "Prisma SD-WAN Support
 
-         2665 N First Street
-         Suite 110
-         San Jose, CA 95134
+         Palo Alto Networks
+         3000 Tannery Way
+         Santa Clara, CA 95054
          USA
 
-         +1 844 800 CGNX
+         Technical Support
+         N. America: +1 408 738 7799
+         EMEA: +31 20 808 4600
+         APAC: +65 3158 5600
 
-         support@cloudgenix.com"
+         support@paloaltonetworks.com"
     DESCRIPTION
-        "The MIB that describes Events and Notifications from
-         CloudGenix Devices"
+        "The MIB that describes Events and Notifications from Prisma
+         SD-WAN Devices"
+    REVISION      "202202241935Z" -- February 24, 2022
+    DESCRIPTION
+        "24.2.2022 PaloAlto Rebranding and new hardware"
     REVISION      "201706191800Z" -- June 19, 2017
     DESCRIPTION
         "19.6.2017 Revision (inital)"
@@ -137,7 +143,7 @@ cgxRoutePeerDown NOTIFICATION-TYPE
         "Notification when a Routing peer has gone down"
     ::= { cgxEventsNotifications 102 }
 
-cgxPrivateWanUncreachableClear NOTIFICATION-TYPE
+cgxPrivateWanUnreachableClear NOTIFICATION-TYPE
     OBJECTS
         { cgxElementId, cgxElementName, cgxSiteId, cgxSiteName,
         cgxSiteWanInterfaceId, cgxSiteWanInterfaceName, cgxWanNetworkId,
@@ -147,7 +153,7 @@ cgxPrivateWanUncreachableClear NOTIFICATION-TYPE
         "Notification when a Private WAN unreachability has cleared"
     ::= { cgxEventsNotifications 201 }
 
-cgxPrivateWanUncreachable NOTIFICATION-TYPE
+cgxPrivateWanUnreachable NOTIFICATION-TYPE
     OBJECTS
         { cgxElementId, cgxElementName, cgxSiteId, cgxSiteName,
         cgxSiteWanInterfaceId, cgxSiteWanInterfaceName, cgxWanNetworkId,
@@ -234,6 +240,18 @@ cgxProcessStop NOTIFICATION-TYPE
     DESCRIPTION
         "Notification when a Process has stopped"
     ::= { cgxEventsNotifications 302 }
+
+-- This trap will often be recieved after seperate cgxProcessStop and
+-- cgxProcessStopClear traps.
+
+cgxProcessRestart NOTIFICATION-TYPE
+    OBJECTS
+        { cgxElementId, cgxElementName, cgxSiteId, cgxSiteName,
+        cgxProcessName }
+    STATUS        current
+    DESCRIPTION
+        "Notification when a Process has restarted."
+    ::= { cgxEventsNotifications 303 }
 
 cgxEventsObjects OBJECT IDENTIFIER ::= { cgxEventsMIB 1 }
 
@@ -536,9 +554,9 @@ cgxRoutingNotificationGroup NOTIFICATION-GROUP
 cgxWanNotificationGroup NOTIFICATION-GROUP
     NOTIFICATIONS
         { cgxPrivateWanDegraded, cgxPrivateWanDegradedClear,
-        cgxPrivateWanUncreachable, cgxPrivateWanUncreachableClear,
         cgxPublicWanDown, cgxPublicWanUp, cgxPrivateWanDown,
-        cgxPrivateWanUp }
+        cgxPrivateWanUp, cgxPrivateWanUnreachable,
+        cgxPrivateWanUnreachableClear }
     STATUS        current
     DESCRIPTION
         "Notifications for WAN related groups"
@@ -546,7 +564,7 @@ cgxWanNotificationGroup NOTIFICATION-GROUP
 
 cgxProcessNotificationGroup NOTIFICATION-GROUP
     NOTIFICATIONS
-        { cgxProcessStop, cgxProcessStopClear }
+        { cgxProcessStop, cgxProcessStopClear, cgxProcessRestart }
     STATUS        current
     DESCRIPTION
         "Notifications for Process related events"
