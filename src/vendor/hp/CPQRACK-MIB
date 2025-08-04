@@ -3313,7 +3313,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ::= { cpqRackPowerSupplyEntry 18 }
 
 -- ****************************************************************************
---   Rack Network 
+--   Rack Network
 --   ============
 --
 -- The compaq enterprise                 (1.3.6.1.4.1.232)
@@ -3336,26 +3336,26 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  not-accessible
         STATUS  mandatory
         DESCRIPTION
-            "Array of ALL the network addresses of the system generating the indication.  
+            "Array of ALL the network addresses of the system generating the indication.
 
-            This may include IPv4 addresses (based on IETF RFC 1208) or IPv6 addresses 
+            This may include IPv4 addresses (based on IETF RFC 1208) or IPv6 addresses
             (based on IETF RFC 4291)."
         INDEX  { cpqRackNetworkAddresses }
         ::= { cpqRackNetworkAddressesTable 1}
 
     CpqRackNetworkAddressesEntry ::= SEQUENCE {
-        cpqRackNetworkAddresses                    DisplayString 
-    } 
+        cpqRackNetworkAddresses                    DisplayString
+    }
 
     cpqRackNetworkAddresses OBJECT-TYPE
-        SYNTAX  DisplayString (SIZE (0..50)) 
+        SYNTAX  DisplayString (SIZE (0..50))
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
-            "A network address of the system generating the indication."  
+            "A network address of the system generating the indication."
         ::= { cpqRackNetworkAddressesEntry 1}
 
-		
+
 -- ****************************************************************************
 --   Rack Network Connector Table
 --   ============================
@@ -3600,9 +3600,9 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
 
                This will be -1 if it is not reported or can not be deteremined."
           ::= { cpqRackNetConnectorEntry 17 }
-		  
+
 -- ****************************************************************************
---   Rack Hardware Information 
+--   Rack Hardware Information
 --   =========================
 --
 -- The compaq enterprise                 (1.3.6.1.4.1.232)
@@ -3613,7 +3613,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
 -- ****************************************************************************
 
     cpqRackHWPartNumber OBJECT-TYPE
-        SYNTAX  DisplayString (SIZE (0..16))  
+        SYNTAX  DisplayString (SIZE (0..16))
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
@@ -3645,16 +3645,16 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         SYNTAX  DisplayString (SIZE (0..30))
         ACCESS  read-only
         STATUS  optional
-        DESCRIPTION 
+        DESCRIPTION
            "A version of firmware for the hardware associated with the indication."
         ::= { cpqRackHWFirmwareVersionEntry 1 }
 
     cpqRackHWManufacturer OBJECT-TYPE
-        SYNTAX  DisplayString (SIZE (0..65))  
+        SYNTAX  DisplayString (SIZE (0..65))
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "Manufacturer of the hardware associated with the indication.Device indication 
+            "Manufacturer of the hardware associated with the indication.Device indication
             hardware manufacturer."
         ::= { cpqRackHW 3 }
 
@@ -3667,7 +3667,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ::= { cpqRackHW 4 }
 
     cpqRackHWSerialNumberEntry OBJECT-TYPE
-        SYNTAX  CpqRackHWSerialNumberEntry  
+        SYNTAX  CpqRackHWSerialNumberEntry
         ACCESS  not-accessible
         STATUS  optional
         DESCRIPTION
@@ -3680,7 +3680,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
     }
 
     cpqRackHWSerialNumber OBJECT-TYPE
-        SYNTAX  DisplayString (SIZE (0..21))  
+        SYNTAX  DisplayString (SIZE (0..21))
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
@@ -3688,12 +3688,12 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ::= { cpqRackHWSerialNumberEntry 1 }
 
     cpqRackHWFRUDetails OBJECT-TYPE
-        SYNTAX  OCTET STRING (SIZE (0..256))  
+        SYNTAX  OCTET STRING (SIZE (0..256))
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
             "This is used to provide miscellaneous FRU specific details
-       
+
             Some examples are DIMM size, Processor stepping info etc."
         ::= { cpqRackHW 5 }
 
@@ -3707,20 +3707,20 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The format of the DevicePermanentName property is interpreted based upon 
+            "The format of the DevicePermanentName property is interpreted based upon
             the value of this property.
 
             Values are defined as:
-            1 - unknown. The format is not meaningfully interpretable by a CIM client 
+            1 - unknown. The format is not meaningfully interpretable by a CIM client
             application.
-            2 - other. The format is defined by the value of the OtherPermanentNameFormat 
+            2 - other. The format is defined by the value of the OtherPermanentNameFormat
             property.
             3 - worldWideName. The format is a WorldWideName.
             4 - macAddress. The format is a LAN MAC Address."
         ::= { cpqRackHW 6 }
 
     cpqRackHWOtherPermanentNameFormat OBJECT-TYPE
-        SYNTAX  DisplayString ( SIZE (0..64))  
+        SYNTAX  DisplayString ( SIZE (0..64))
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
@@ -3837,7 +3837,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
     cpqRackEventIndicationIdentifier OBJECT-TYPE
         SYNTAX  DisplayString (SIZE (0..25))
         ACCESS  read-only
-        STATUS  mandatory 
+        STATUS  mandatory
         DESCRIPTION
             "The Event Indication Identifier."
         ::= { cpqRackEventInfo 1 }
@@ -3863,7 +3863,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "Short description of the reason for the event." 
+            "Short description of the reason for the event."
         ::= { cpqRackEventInfo 4 }
 
     cpqRackEventCategory OBJECT-TYPE
@@ -3920,9 +3920,9 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "Category for the event. 
+            "Category for the event.
 
-            This category is intended to be used by the consumer to group events." 
+            This category is intended to be used by the consumer to group events."
         ::= { cpqRackEventInfo 5 }
 
     cpqRackOtherEventCategory OBJECT-TYPE
@@ -3932,7 +3932,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "A string defining other values for EventCategory.
 
-            It is empty unless EventCategory value is other(1)." 
+            It is empty unless EventCategory value is other(1)."
         ::= { cpqRackEventInfo 6 }
 
     cpqRackEventSubCategory OBJECT-TYPE
@@ -3940,12 +3940,12 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "Sub-category for the event. 
+            "Sub-category for the event.
 
-            This sub-category is intended to be used by the consumer in conjunction 
+            This sub-category is intended to be used by the consumer in conjunction
             with the EventCategory to provide additional granularity to group events.
             It is expected that additional values will be added that can be used with
-            other EventCategory values." 
+            other EventCategory values."
         ::= { cpqRackEventInfo 7 }
 
     cpqRackOtherEventSubCategory OBJECT-TYPE
@@ -3955,16 +3955,16 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "A string defining other values for EventSubCategory.
 
-            It is empty unless EventSubCategory value is other(1)" 
+            It is empty unless EventSubCategory value is other(1)"
         ::= { cpqRackEventInfo 8 }
 
     cpqRackEventThreshold OBJECT-TYPE
-        SYNTAX  INTEGER 
+        SYNTAX  INTEGER
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
             "Identifies the number of indications that need to occur as part of the
-            internal provider throttling configured for this event." 
+            internal provider throttling configured for this event."
         ::= { cpqRackEventInfo 9 }
 
     cpqRackEventTimeWin OBJECT-TYPE
@@ -3973,10 +3973,10 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "Identifies the time window during which the EventThreshold number of events
-            need to occur as part of the internal provider throttling configured for 
-            this event. 
+            need to occur as part of the internal provider throttling configured for
+            this event.
 
-            Time is in minutes. 0 means any amount of time." 
+            Time is in minutes. 0 means any amount of time."
         ::= { cpqRackEventInfo 10 }
 
     cpqRackEventActualThreshold OBJECT-TYPE
@@ -3985,19 +3985,19 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "Identifies the number of indications that have occurred to meet the
-            internal provider throttling configured for this event." 
+            internal provider throttling configured for this event."
         ::= { cpqRackEventInfo 11 }
 
     cpqRackEventActualTimeWin OBJECT-TYPE
-        SYNTAX  INTEGER 
+        SYNTAX  INTEGER
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
             "Identifies the time window during which the ActualEventThreshold number
             of events have occurred to meet the internal provider throttling configured
-            for this event. 
+            for this event.
 
-            Time is in minutes. 0 means any amount of time." 
+            Time is in minutes. 0 means any amount of time."
         ::= { cpqRackEventInfo 12 }
 
     cpqRackEventProviderVersion OBJECT-TYPE
@@ -4017,15 +4017,15 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The format of the AlertingManagedElement property is interpretable based 
+            "The format of the AlertingManagedElement property is interpretable based
             upon the value of this property.
 
             Values are defined as:
-            1 - unknown. The format is unknown or not meaningfully interpretable by a 
+            1 - unknown. The format is unknown or not meaningfully interpretable by a
             CIM client application.
             2 - other. The format is defined by the value of the OtherAlertingElementFormat
             property.
-            3 - cimObjectPath. The format is a CIMObjectPath, specifying an instance in 
+            3 - cimObjectPath. The format is a CIMObjectPath, specifying an instance in
             the CIM Schema."
         ::= { cpqRackEventInfo 14 }
 
@@ -4036,7 +4036,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "A string defining other values for AlertingElementFormat.
 
-            It is empty unless cpqRackEventAlertingElementFormat value is other(1)" 
+            It is empty unless cpqRackEventAlertingElementFormat value is other(1)"
         ::= { cpqRackEventInfo 15 }
 
     cpqRackEventImpactedDomain OBJECT-TYPE
@@ -4051,8 +4051,8 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "ImpactedDomain is an enumerated value indicating the domain this event 
-            affects." 
+            "ImpactedDomain is an enumerated value indicating the domain this event
+            affects."
         ::= { cpqRackEventInfo 16 }
 
     cpqRackEventComplexName OBJECT-TYPE
@@ -4060,7 +4060,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The name of the complex." 
+            "The name of the complex."
         ::= { cpqRackEventInfo 17 }
 
     cpqRackEventPartitionId OBJECT-TYPE
@@ -4068,9 +4068,9 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The Unique Identifier for the Partition. 
+            "The Unique Identifier for the Partition.
 
-            The format of the partitionId will be of the form nparId:vparId." 
+            The format of the partitionId will be of the form nparId:vparId."
         ::= { cpqRackEventInfo 18 }
 
     cpqRackEventTriggeringLogIDTable OBJECT-TYPE
@@ -4086,13 +4086,13 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  not-accessible
         STATUS  optional
         DESCRIPTION
-            "The list of Low level LOG ID which were used to generate this event. 
+            "The list of Low level LOG ID which were used to generate this event.
 
-            The format of the value contained in this array is defined using the 
-            TriggeringLogIDFormat field." 
+            The format of the value contained in this array is defined using the
+            TriggeringLogIDFormat field."
         INDEX { cpqRackEventTriggeringLogID }
         ::= { cpqRackEventTriggeringLogIDTable 1 }
-   
+
     CpqRackEventTriggeringLogIDEntry ::= SEQUENCE {
         cpqRackEventTriggeringLogID                     OCTET STRING
     }
@@ -4114,32 +4114,32 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The format of the TriggeringLogID property which interpretable based upon 
+            "The format of the TriggeringLogID property which interpretable based upon
             the value of this property.
 
             Values are defined as:
-            1 - unknown. The format is unknown or not meaningfully interpretable by a 
+            1 - unknown. The format is unknown or not meaningfully interpretable by a
             CIM client application.
-            2 - cimObjectPath. The format is a CIMObjectPath, with format specifying an 
-            instance in the CIM Schema." 
+            2 - cimObjectPath. The format is a CIMObjectPath, with format specifying an
+            instance in the CIM Schema."
         ::= { cpqRackEventInfo 20 }
 
     cpqRackEventAlertType OBJECT-TYPE
-        SYNTAX  INTEGER 
+        SYNTAX  INTEGER
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The event alert type." 
+            "The event alert type."
         ::= { cpqRackEventInfo 21 }
 
     cpqRackEventOtherAlertType OBJECT-TYPE
-        SYNTAX  DisplayString ( SIZE (0..33)) 
+        SYNTAX  DisplayString ( SIZE (0..33))
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
             "The event other alert type.
 
-            It is empty unless cpqRackEventAlertType value is other." 
+            It is empty unless cpqRackEventAlertType value is other."
         ::= { cpqRackEventInfo 22 }
 
     cpqRackEventProbableCause OBJECT-TYPE
@@ -4147,7 +4147,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "An enumerated value that describes the probable cause of the error." 
+            "An enumerated value that describes the probable cause of the error."
         ::= { cpqRackEventInfo 23 }
 
     cpqRackEventProbableCauseDescription OBJECT-TYPE
@@ -4155,16 +4155,16 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "A free-form string describing the probable cause of the error." 
+            "A free-form string describing the probable cause of the error."
         ::= { cpqRackEventInfo 24 }
 
     cpqRackEventPerceivedSeverity OBJECT-TYPE
-        SYNTAX  INTEGER 
+        SYNTAX  INTEGER
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "An enumerated value that describes the severity of the Indication from 
-            the point of view of the notifier." 
+            "An enumerated value that describes the severity of the Indication from
+            the point of view of the notifier."
         ::= { cpqRackEventInfo 25 }
 
     cpqRackEventOtherSeverity OBJECT-TYPE
@@ -4174,7 +4174,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "Other perceived severity.
 
-            It is empty unless cpqRackEventPerceivedSeverity value is other." 
+            It is empty unless cpqRackEventPerceivedSeverity value is other."
         ::= { cpqRackEventInfo 26 }
 
     cpqRackEventTrending OBJECT-TYPE
@@ -4182,7 +4182,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The event trending." 
+            "The event trending."
         ::= { cpqRackEventInfo 27 }
 
     cpqRackEventRecommendedActions OBJECT-TYPE
@@ -4190,7 +4190,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "A free-form string describing recommended actions to take to resolve the error." 
+            "A free-form string describing recommended actions to take to resolve the error."
         ::= { cpqRackEventInfo 28 }
 
     cpqRackEventID OBJECT-TYPE
@@ -4199,7 +4199,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "An instrumentation or provider specific value that describes the underlying real-world event
-            represented by the indication related to the not-OK status." 
+            represented by the indication related to the not-OK status."
         ::= { cpqRackEventInfo 29 }
 
     cpqRackEventTime OBJECT-TYPE
@@ -4207,7 +4207,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The event time." 
+            "The event time."
         ::= { cpqRackEventInfo 30 }
 
     cpqRackEventSystemCreationClassName OBJECT-TYPE
@@ -4215,7 +4215,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The event system creation class name." 
+            "The event system creation class name."
         ::= { cpqRackEventInfo 31 }
 
     cpqRackEventSystemName OBJECT-TYPE
@@ -4223,7 +4223,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The event system name." 
+            "The event system name."
         ::= { cpqRackEventInfo 32 }
 
     cpqRackEventProviderName OBJECT-TYPE
@@ -4231,7 +4231,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The name of the Provider that generated the indication related to the not-OK status." 
+            "The name of the Provider that generated the indication related to the not-OK status."
         ::= { cpqRackEventInfo 33 }
 
 
@@ -4277,7 +4277,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY OA
         --#LIFECYCLE
-             
+
         ::= 22001
 
     cpqRackEnclosureNameChanged TRAP-TYPE
@@ -4312,7 +4312,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY OA
         --#LIFECYCLE
-        
+
         ::= 22002
 
     cpqRackEnclosureRemoved TRAP-TYPE
@@ -4343,7 +4343,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY OA
         --#LIFECYCLE
-        
+
         ::= 22003
 
     cpqRackEnclosureInserted TRAP-TYPE
@@ -4374,7 +4374,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY OA
         --#LIFECYCLE
-        
+
         ::= 22004
 
     cpqRackEnclosureTempFailed TRAP-TYPE
@@ -4399,7 +4399,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
             that air flow in the rack has not been blocked."
 
         --#TYPE "Enclosure temperature failed (22005)"
-        --#SUMMARY "The temperature sensor %s in enclosure %s in rack %s has been set to failed."                
+        --#SUMMARY "The temperature sensor %s in enclosure %s in rack %s has been set to failed."
         --#ARGUMENTS {6, 4, 2}
         --#SEVERITY CRITICAL
         --#TIMEINDEX 99
@@ -4407,7 +4407,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY THERMAL
         --#ACTION "Shutdown the enclosure and possibly the rack as soon as possible.  Ensure all fans are working properly and that air flow in the rack has not been blocked."
-        
+
         ::= 22005
 
     cpqRackEnclosureTempDegraded TRAP-TYPE
@@ -4432,15 +4432,15 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
             that air flow in the rack has not been blocked."
 
         --#TYPE "Enclosure temperature degraded (22006)"
-        --#SUMMARY "The temperature sensor %s in enclosure %s in rack %s has been set to degraded."                
-        --#ARGUMENTS {6, 4, 2}        
+        --#SUMMARY "The temperature sensor %s in enclosure %s in rack %s has been set to degraded."
+        --#ARGUMENTS {6, 4, 2}
         --#SEVERITY MAJOR
         --#TIMEINDEX 99
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY THERMAL
         --#ACTION "Shutdown the enclosure and possibly the rack as soon as possible.  Ensure all fans are working properly and that air flow in the rack has not been blocked."
-                        
+
         ::= 22006
 
     cpqRackEnclosureTempOk TRAP-TYPE
@@ -4463,14 +4463,14 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
             User Action: None."
 
         --#TYPE "Enclosure temperature ok (22007)"
-        --#SUMMARY "The temperature sensor %s in enclosure %s in rack %s has been set to ok."                
-        --#ARGUMENTS {6, 4, 2}        
+        --#SUMMARY "The temperature sensor %s in enclosure %s in rack %s has been set to ok."
+        --#ARGUMENTS {6, 4, 2}
         --#SEVERITY INFORMATIONAL
         --#TIMEINDEX 99
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY THERMAL
-        
+
         ::= 22007
 
     cpqRackEnclosureFanFailed TRAP-TYPE
@@ -4502,7 +4502,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY THERMAL
         --#ACTION "Replace the failed enclosure fan."
-        
+
         ::= 22008
 
     cpqRackEnclosureFanDegraded TRAP-TYPE
@@ -4527,14 +4527,14 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
 
         --#TYPE "Enclosure fan degraded (22009)"
         --#SUMMARY "The fan %s in enclosure %s in rack %s has been set to degraded."
-        --#ARGUMENTS {6, 4, 2}       
+        --#ARGUMENTS {6, 4, 2}
         --#SEVERITY MAJOR
         --#TIMEINDEX 99
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY THERMAL
         --#ACTION "Replace the failing enclosure fan."
-                
+
         ::= 22009
 
     cpqRackEnclosureFanOk TRAP-TYPE
@@ -4558,13 +4558,13 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
 
         --#TYPE "Enclosure fan ok (22010)"
         --#SUMMARY "The fan %s in enclosure %s in rack %s has been set to ok."
-        --#ARGUMENTS {6, 4, 2}      
+        --#ARGUMENTS {6, 4, 2}
         --#SEVERITY INFORMATIONAL
         --#TIMEINDEX 99
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY THERMAL
-        
+
         ::= 22010
 
 
@@ -4586,14 +4586,14 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
 
         --#TYPE "Enclosure fan removed (22011)"
         --#SUMMARY "The fan %s in enclosure %s in rack %s has been removed."
-        --#ARGUMENTS {6, 4, 2}      
+        --#ARGUMENTS {6, 4, 2}
         --#SEVERITY MINOR
         --#TIMEINDEX 99
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY THERMAL
         --#LIFECYCLE
-        
+
         ::= 22011
 
     cpqRackEnclosureFanInserted TRAP-TYPE
@@ -4614,14 +4614,14 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
 
         --#TYPE "Enclosure fan inserted (22012)"
         --#SUMMARY "The fan %s in enclosure %s in rack %s has been inserted."
-        --#ARGUMENTS {6, 4, 2}      
+        --#ARGUMENTS {6, 4, 2}
         --#SEVERITY INFORMATIONAL
         --#TIMEINDEX 99
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY THERMAL
         --#LIFECYCLE
-        
+
         ::= 22012
 
     cpqRackPowerSupplyFailed TRAP-TYPE
@@ -4653,7 +4653,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Replace the failed power supply."
-        
+
         ::= 22013
 
     cpqRackPowerSupplyDegraded TRAP-TYPE
@@ -4684,8 +4684,8 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
-        --#ACTION "Replace the failing power supply."        
-        
+        --#ACTION "Replace the failing power supply."
+
         ::= 22014
 
     cpqRackPowerSupplyOk TRAP-TYPE
@@ -4717,7 +4717,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY POWER
-        
+
         ::= 22015
 
     cpqRackPowerSupplyRemoved TRAP-TYPE
@@ -4747,7 +4747,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#LIFECYCLE
-        
+
         ::= 22016
 
     cpqRackPowerSupplyInserted TRAP-TYPE
@@ -4777,7 +4777,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY POWER
         --#LIFECYCLE
-        
+
         ::= 22017
 
     cpqRackPowerSubsystemNotRedundant TRAP-TYPE
@@ -4805,7 +4805,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Replace any failed power supplies as soon as possible to return the system to a redundant state."
         --#CLEAR_PRIOR_EVENTS true
-        
+
         ::= 22018
 
     cpqRackPowerSubsystemLineVoltageProblem TRAP-TYPE
@@ -4836,7 +4836,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power input for the power supply or replace any failed power supplies as soon as possible."
-        
+
         ::= 22019
 
     cpqRackPowerSubsystemOverloadCondition TRAP-TYPE
@@ -4864,7 +4864,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Replace any failed power supplies as soon as possible."
-        --#CLEAR_PRIOR_EVENTS true 
+        --#CLEAR_PRIOR_EVENTS true
         ::= 22020
 
     cpqRackPowerShedAutoShutdown TRAP-TYPE
@@ -4894,7 +4894,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power connections for problems, then add power supplies if necessary."
-        
+
         ::= 22021
 
     cpqRackServerPowerOnFailedNotRedundant TRAP-TYPE
@@ -4925,7 +4925,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power connections for problems, then add power supplies if necessary."
-        
+
         ::= 22022
 
     cpqRackServerPowerOnFailedNotEnoughPower TRAP-TYPE
@@ -4955,7 +4955,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Check the power connections for problems, then add power supplies if necessary."
-                
+
         ::= 22023
 
     cpqRackServerPowerOnFailedEnclosureNotFound TRAP-TYPE
@@ -4986,7 +4986,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Check the server enclosure connections for problems, then add power supplies if necessary."
-                
+
         ::= 22024
 
     cpqRackServerPowerOnFailedPowerChassisNotFound TRAP-TYPE
@@ -5017,7 +5017,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Check the power enclosure connections for problems, then add power supplies if necessary."
-        
+
         ::= 22025
 
     cpqRackServerPowerOnManualOverride TRAP-TYPE
@@ -5046,7 +5046,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY DEVICEBAY
-        
+
         ::= 22026
 
     cpqRackFuseOpen TRAP-TYPE
@@ -5077,7 +5077,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY ENCLOSURE
         --#ACTION "Check the enclosure and blade power connections, then reset the fuse."
-        
+
         ::= 22027
 
 
@@ -5109,7 +5109,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22028
 
     cpqRackServerBladeInserted TRAP-TYPE
@@ -5140,7 +5140,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22029
 
     cpqRackPowerChassisNotLoadBalanced TRAP-TYPE
@@ -5171,7 +5171,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power enclosure and power supplies. Replace any failed or degraded power supplies. Add additional power supplies if needed."
-        
+
         ::= 22030
 
     cpqRackPowerChassisDcPowerProblem TRAP-TYPE
@@ -5201,7 +5201,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power enclosure and power supplies. Replace any failed or degraded power supplies."
-               
+
         ::= 22031
 
     cpqRackPowerChassisAcFacilityPowerExceeded TRAP-TYPE
@@ -5232,7 +5232,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power enclosure and power supplies. Replace any failed or degraded power supplies."
-                
+
         ::= 22032
 
 
@@ -5262,7 +5262,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the power enclosure and power supplies. Replace any failed or degraded power supplies."
-                
+
         ::= 22033
 
     cpqRackPowerChassisLoadBalancingWireMissing TRAP-TYPE
@@ -5291,7 +5291,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Connect the load balancing wire."
-        
+
         ::= 22034
 
     cpqRackPowerChassisTooManyPowerChassis TRAP-TYPE
@@ -5319,7 +5319,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Remove the extra power enclosure."
-        
+
         ::= 22035
 
     cpqRackPowerChassisConfigError TRAP-TYPE
@@ -5348,7 +5348,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY POWER
         --#ACTION "Check the cabling of the power enclosure."
-        
+
         ::= 22036
 
     cpqRackEnclosureManagerDegraded TRAP-TYPE
@@ -5380,9 +5380,9 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY OA
-        --#ACTION "The following conditions can result in a degraded Onboard Administrator (OA): 1) one OA failed but the second OA is still operating, 2) one or more OAs is in a non-optimal operating state, 3) a firmware revision mismatch occurred between the primary and secondary OAs, or 4) OA RTC battery is low.  To determine what caused the issue, see the OA and check the logs for more  information.    If a firmware mismatch occurred, use the OA UI or CLI (UPDATE IMAGE SYNC command) to resynchronize the firmware on the OAs.   If OA RTC battery  is found to be low, replace battery."
+        --#ACTION "The following conditions can result in a degraded Onboard Administrator (OA): 1) one OA failed but the second OA is still operating, 2) one or more OAs is in a non-optimal operating state, 3) a firmware revision mismatch occurred between the primary and secondary OAs, or 4) OA RTC battery is low.ï¿½ To determine what caused the issue, see the OA and check the logs for more  information.ï¿½   If a firmware mismatch occurred, use the OA UI or CLI (UPDATE IMAGE SYNC command) to resynchronize the firmware on the OAs.ï¿½  If OA RTC battery  is found to be low, replace battery."
 
-        
+
         ::= 22037
 
     cpqRackEnclosureManagerOk TRAP-TYPE
@@ -5413,7 +5413,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY OA
-        
+
         ::= 22038
 
     cpqRackEnclosureManagerRemoved TRAP-TYPE
@@ -5442,7 +5442,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY OA
         --#LIFECYCLE
-        
+
         ::= 22039
 
     cpqRackEnclosureManagerInserted TRAP-TYPE
@@ -5471,7 +5471,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY OA
         --#LIFECYCLE
-        
+
         ::= 22040
 
     cpqRackManagerPrimaryRole TRAP-TYPE
@@ -5499,7 +5499,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY OA
-        
+
         ::= 22041
 
     cpqRackServerBladeEKeyingFailed TRAP-TYPE
@@ -5532,7 +5532,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Reconfigure the server blade mezz cards."
-        
+
         ::= 22042
 
     cpqRackServerBladeEKeyingOK TRAP-TYPE
@@ -5563,7 +5563,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
-        
+
         ::= 22043
 
     cpqRackNetConnectorRemoved TRAP-TYPE
@@ -5594,7 +5594,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY INTERCONNECTBAY
         --#LIFECYCLE
-        
+
         ::= 22044
 
     cpqRackNetConnectorInserted TRAP-TYPE
@@ -5625,7 +5625,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY INTERCONNECTBAY
         --#LIFECYCLE
-        
+
         ::= 22045
 
     cpqRackNetConnectorFailed TRAP-TYPE
@@ -5656,7 +5656,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY INTERCONNECTBAY
         --#ACTION "Refer to the OA and the status diagnostics reported for the interconnect."
-        
+
         ::= 22046
 
     cpqRackNetConnectorDegraded TRAP-TYPE
@@ -5687,7 +5687,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY INTERCONNECTBAY
         --#ACTION "Refer to the OA and the status diagnostics reported for the interconnect."
-        
+
         ::= 22047
 
     cpqRackNetConnectorOk TRAP-TYPE
@@ -5718,7 +5718,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY INTERCONNECTBAY
-        
+
         ::= 22048
 
     cpqRackServerBladeToLowPower TRAP-TYPE
@@ -5746,7 +5746,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
-        
+
         ::= 22049
 
     cpqRackServerBladeRemoved2 TRAP-TYPE
@@ -5779,7 +5779,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22050
 
     cpqRackServerBladeInserted2 TRAP-TYPE
@@ -5812,7 +5812,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22051
 
     cpqRackServerBladeStatusRepaired TRAP-TYPE
@@ -5845,7 +5845,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
-        
+
         ::= 22052
 
 cpqRackServerBladeStatusDegraded TRAP-TYPE
@@ -5882,7 +5882,7 @@ cpqRackServerBladeStatusDegraded TRAP-TYPE
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Check the blade server and enclosure SYSLOG."
-        
+
         ::= 22053
 
 cpqRackServerBladeStatusCritical TRAP-TYPE
@@ -5919,7 +5919,7 @@ cpqRackServerBladeStatusCritical TRAP-TYPE
         --#SIMPLE_SEVERITY CRITICAL
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Check the blade server and enclosure SYSLOG."
-                
+
         ::= 22054
 
 cpqRackServerBladeGrpCapTimeout TRAP-TYPE
@@ -5983,7 +5983,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#ACTION "Check the blade server and enclosure SYSLOG."
-        
+
         ::= 22056
 
    cpqRackServerBladeMangementControllerFirmwareUpdating TRAP-TYPE
@@ -6017,7 +6017,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22057
 
    cpqRackServerBladeMangementControllerFirmwareUpdateComplete TRAP-TYPE
@@ -6051,7 +6051,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22058
 
    cpqRackServerBladeSystemBIOSFirmwareUpdating TRAP-TYPE
@@ -6085,7 +6085,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22059
 
    cpqRackServerBladeSystemBIOSFirmwareUpdateCompleted TRAP-TYPE
@@ -6119,7 +6119,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22060
 
 
@@ -6154,7 +6154,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
 	    --#LIFECYCLE
-        
+
         ::= 22061
 
 
@@ -6189,7 +6189,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
 	    --#LIFECYCLE
-        
+
         ::= 22062
 
  cpqRackServerBladeDiagnosticAdaptorInserted TRAP-TYPE
@@ -6223,7 +6223,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
 	    --#LIFECYCLE
-        
+
         ::= 22063
 
  cpqRackServerBladeDiagnosticAdaptorRemoved TRAP-TYPE
@@ -6257,7 +6257,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
   	    --#LIFECYCLE
-        
+
         ::= 22064
 
  cpqRackServerBladeEnteredPXEBootMode TRAP-TYPE
@@ -6291,7 +6291,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22065
 
  cpqRackServerBladeExitedPXEBootMode TRAP-TYPE
@@ -6325,7 +6325,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22066
 
 
@@ -6360,7 +6360,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
 	    --#LIFECYCLE
-        
+
         ::= 22067
 
  cpqRackServerBladePOSTCompleted TRAP-TYPE
@@ -6394,7 +6394,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22068
 
          cpqRackServerBladePoweredOn TRAP-TYPE
@@ -6426,7 +6426,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22069
 
          cpqRackServerBladePoweredOff TRAP-TYPE
@@ -6458,9 +6458,9 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22070
-		
+
     cpqRackInformationalEAETrap TRAP-TYPE
         ENTERPRISE compaq
         VARIABLES  { sysName,
@@ -6481,7 +6481,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
               --#TIMEINDEX 99
               --#SIMPLE_SEVERITY OK
               --#HWSTATUS_CATEGORY NONE
-              
+
         ::= 22071
 
     cpqRackMinorEAETrap TRAP-TYPE
@@ -6525,9 +6525,9 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
               --#SEVERITY MAJOR
               --#TIMEINDEX 99
               --#SIMPLE_SEVERITY MAJOR
-              --#HWSTATUS_CATEGORY NONE 
+              --#HWSTATUS_CATEGORY NONE
         ::= 22073
-		
+
     cpqRackCriticalEAETrap TRAP-TYPE
         ENTERPRISE compaq
         VARIABLES  { sysName,
@@ -6561,7 +6561,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackLastEAEEvent }
 
         DESCRIPTION
-           "FlexFabric Cmdr Power Subsystem Minor trap.  
+           "FlexFabric Cmdr Power Subsystem Minor trap.
             User Action: For FlexFabric Cmdr, please refer to product documentation for
             possible corrective actions."
 
@@ -6586,7 +6586,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackLastEAEEvent }
 
         DESCRIPTION
-           "FlexFabric Cmdr Power Subsystem Major trap.  
+           "FlexFabric Cmdr Power Subsystem Major trap.
             User Action: For FlexFabric Cmdr, please refer to product documentation for
             possible corrective actions."
 
@@ -6610,7 +6610,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackLastEAEEvent }
 
         DESCRIPTION
-           "FlexFabric Cmdr Power Subsystem Critical trap.  
+           "FlexFabric Cmdr Power Subsystem Critical trap.
             User Action: For FlexFabric Cmdr, please refer to product documentation for
             possible corrective actions."
 
@@ -6653,7 +6653,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY DEVICEBAY
         --#LIFECYCLE
-        
+
         ::= 22078
 
     cpqRackInformationalWSMANTrap TRAP-TYPE
@@ -6701,7 +6701,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackEventProbableCause,
                      cpqRackEventProbableCauseDescription,
                      cpqRackEventPerceivedSeverity,
-                     cpqRackEventOtherSeverity,                    
+                     cpqRackEventOtherSeverity,
                      cpqRackEventTrending,
                      cpqRackEventRecommendedActions,
                      cpqRackEventID,
@@ -6720,7 +6720,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
               --#TIMEINDEX 99
               --#SIMPLE_SEVERITY OK
               --#HWSTATUS_CATEGORY NONE
-              
+
         ::= 22079
 
     cpqRackMinorWSMANTrap TRAP-TYPE
@@ -6768,7 +6768,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackEventProbableCause,
                      cpqRackEventProbableCauseDescription,
                      cpqRackEventPerceivedSeverity,
-                     cpqRackEventOtherSeverity,                    
+                     cpqRackEventOtherSeverity,
                      cpqRackEventTrending,
                      cpqRackEventRecommendedActions,
                      cpqRackEventID,
@@ -6834,7 +6834,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackEventProbableCause,
                      cpqRackEventProbableCauseDescription,
                      cpqRackEventPerceivedSeverity,
-                     cpqRackEventOtherSeverity,                    
+                     cpqRackEventOtherSeverity,
                      cpqRackEventTrending,
                      cpqRackEventRecommendedActions,
                      cpqRackEventID,
@@ -6852,7 +6852,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
               --#SEVERITY MAJOR
               --#TIMEINDEX 99
               --#SIMPLE_SEVERITY MAJOR
-              --#HWSTATUS_CATEGORY NONE 
+              --#HWSTATUS_CATEGORY NONE
         ::= 22081
 
     cpqRackCriticalWSMANTrap TRAP-TYPE
@@ -6900,7 +6900,7 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
                      cpqRackEventProbableCause,
                      cpqRackEventProbableCauseDescription,
                      cpqRackEventPerceivedSeverity,
-                     cpqRackEventOtherSeverity,                    
+                     cpqRackEventOtherSeverity,
                      cpqRackEventTrending,
                      cpqRackEventRecommendedActions,
                      cpqRackEventID,
@@ -7035,4 +7035,3 @@ cpqRackServerBladeGrpCapTimeout TRAP-TYPE
         ::= 22086
 
 END
-
