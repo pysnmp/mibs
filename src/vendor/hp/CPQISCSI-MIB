@@ -5,7 +5,7 @@
 --           Management Information Base for SNMP Network Management
 --
 --
---      © Copyright 2016-2020 Hewlett Packard Enterprise Development LP
+--      ï¿½ Copyright 2016-2020 Hewlett Packard Enterprise Development LP
 --      Hewlett-Packard Company shall not be liable for technical or
 --      editorial errors or omissions contained herein. The information in
 --      this document is provided "as is" without warranty of any kind and
@@ -296,8 +296,8 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
             ACCESS read-only
             STATUS mandatory
             DESCRIPTION
-                "A string describing the name of the remote node from the 
-                 failed session. If the reason for failure is not found 
+                "A string describing the name of the remote node from the
+                 failed session. If the reason for failure is not found
                  then a null string will be returned."
             ::= { cpqiScsiInstanceAttributesEntry 12 }
 
@@ -2090,9 +2090,9 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
             DESCRIPTION
                 "A string describing the name of initiator node of the
                  iscsi session.
-                 
-                 This field will be a null (size 0) string if this session 
-                 is a discovery session that does not specify a particular 
+
+                 This field will be a null (size 0) string if this session
+                 is a discovery session that does not specify a particular
                  initiator."
             ::= { cpqiScsiSessionAttributesEntry 5 }
 
@@ -2103,9 +2103,9 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
             DESCRIPTION
                 "A string describing the name of target node of the
                  iscsi session.
-                 
-                 This field will be a null (size 0) string if this session 
-                 is a discovery session that does not specify a particular 
+
+                 This field will be a null (size 0) string if this session
+                 is a discovery session that does not specify a particular
                  target."
             ::= { cpqiScsiSessionAttributesEntry 6 }
 
@@ -2852,7 +2852,7 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
 --
 --  The SNMP trap messages must not be bigger than 484 octets (bytes).
 --
---  Trap support in an Agentless Management Service (AMS) implementation is 
+--  Trap support in an Agentless Management Service (AMS) implementation is
 --  optional. AMS implementation may support all, some, or none of the traps.
 --  If traps are supported, The user should be provided with the option of
 --  disabling traps.
@@ -2880,7 +2880,7 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
              --#TIMEINDEX 99
              --#SIMPLE_SEVERITY OK
              --#HWSTATUS_CATEGORY STORAGE
-             
+
         ::= 169001
 
     cpqiScsiLinkDown TRAP-TYPE
@@ -2892,13 +2892,13 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
 
 	     This trap will be sent any time an iSCSI session is down.
 
-             This can be caused by loss of session due to a disabled 
+             This can be caused by loss of session due to a disabled
              iSCSI initiator/target session or because the the iSCSI initiator driver
              was uninstalled.
 
-             User Action: Check the iSCSI initiator driver status or iSCSI initiator/target 
-             configuration. If no problems are found, the iSCSI initiator driver may need 
-             need to be installed or a iSCSI session may need to be configured on initiator 
+             User Action: Check the iSCSI initiator driver status or iSCSI initiator/target
+             configuration. If no problems are found, the iSCSI initiator driver may need
+             need to be installed or a iSCSI session may need to be configured on initiator
              and target system."
 
              --#TYPE "iSCSI Link Down Trap (169002)"
@@ -2909,7 +2909,7 @@ CPQISCSI-MIB DEFINITIONS ::= BEGIN
              --#SIMPLE_SEVERITY MAJOR
              --#HWSTATUS_CATEGORY STORAGE
              --#ACTION "Check the iSCSI initiator driver status or iSCSI initiator/target configuration. If no problems are found, the iSCSI initiator driver may need need to be installed or a iSCSI session may need to be configured on initiator and target system."
-             
+
         ::= 169002
 
 END

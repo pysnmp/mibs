@@ -196,7 +196,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "A table of software modules that provide an interface to the
             device this MIB describes."
-        ::= { cpqSeOsCommon 2 } 
+        ::= { cpqSeOsCommon 2 }
 
     cpqSeOsCommonModuleEntry OBJECT-TYPE
         SYNTAX  CpqSeOsCommonModuleEntry
@@ -316,7 +316,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  mandatory
         DESCRIPTION
             "A list of the CPUs (processors) in the system.
-            
+
             The main processor (if such a concept is valid for this machine)
             should be the first entry in the table."
         ::= { cpqSeProcessor 1 }
@@ -429,7 +429,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
             "The status of the processor.
 
             The following values are valid for CPU status:
- 
+
             Unknown (1)
               The status of the CPU could not be determined.
 
@@ -619,7 +619,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "CPU chip generation name e.g. Hondo, Montecito, Madison, Opteron."       
+            "CPU chip generation name e.g. Hondo, Montecito, Madison, Opteron."
         ::= { cpqSeCpuEntry 23 }
 
     cpqSeCPUMultiThreadStatus OBJECT-TYPE
@@ -653,7 +653,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  mandatory
         DESCRIPTION
             "Servers like Itanium has capability to lower power supply
-             to CPU if it is idle for specified period of time. Proliant 
+             to CPU if it is idle for specified period of time. Proliant
              servers can set to high/low/Dynamic mode of power through
              ILO.
 
@@ -667,7 +667,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
 
             Normal Powered (3)
                 The CPU is normal Power state.
-                
+
             High Powered (4)
                 The CPU is High Power state."
 
@@ -682,7 +682,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
-            "On SMP systems one of the CPU is set to Primary and the  
+            "On SMP systems one of the CPU is set to Primary and the
              other CPUs as secondary. A value of true is set if the
              CPU is primary.
 
@@ -700,11 +700,11 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ::= { cpqSeCpuEntry 27 }
 
     cpqSeCpuCoreSteppingText OBJECT-TYPE
-        SYNTAX DisplayString 
+        SYNTAX DisplayString
         ACCESS read-only
         STATUS optional
         DESCRIPTION
-            "The processor stepping version string. A NULL string 
+            "The processor stepping version string. A NULL string
              indicates that the stepping could not be determined."
         ::= { cpqSeCpuEntry 28 }
 
@@ -714,10 +714,10 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "This OID returns the current performance state of this processor.
-            Processor performance states are denoted as Pn states. The value 
-            of n is cpqSeCpuPerformanceState. The higher the value n is, the 
-            lower the performance state is being used. Value 0 describes the 
-            highest performance state, in which the processor uses its maximum 
+            Processor performance states are denoted as Pn states. The value
+            of n is cpqSeCpuPerformanceState. The higher the value n is, the
+            lower the performance state is being used. Value 0 describes the
+            highest performance state, in which the processor uses its maximum
             performance capability and may consume maximum power.
             The performance state number should not exceed 16 on Itanium servers.
             (-1) will be returned if this value is not available."
@@ -1021,7 +1021,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
-            "This value specifies the overall condition of the 			
+            "This value specifies the overall condition of the
               processor sub-system."
         ::= { cpqSeProcessor 4 }
 
@@ -1051,7 +1051,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
 
             A kilobyte is 1024 bytes."
         ::= { cpqSeMemory 1 }
- 
+
     cpqSeTotalMem OBJECT-TYPE
         SYNTAX  INTEGER (0..2147483647)
         ACCESS  read-only
@@ -1156,7 +1156,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
     }
 
     cpqSeEisaSlotIndex OBJECT-TYPE
-        SYNTAX  INTEGER (0..255) 
+        SYNTAX  INTEGER (0..255)
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
@@ -1249,7 +1249,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "A seven character board ID.
 
-            The first three characters are the manufacturers ID followed by 
+            The first three characters are the manufacturers ID followed by
             three character product ID followed by a one character revision
             level."
         ::= { cpqSeEisaSlotEntry 3 }
@@ -1641,7 +1641,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         SYNTAX  CpqSeEisaIntEntry
         ACCESS  not-accessible
         STATUS  mandatory
-        DESCRIPTION 
+        DESCRIPTION
             "A description of an EISA function interrupt configuration."
         INDEX   { cpqSeEisaIntSlotIndex , cpqSeEisaIntFunctIndex ,
                   cpqSeEisaIntAllocIndex }
@@ -1858,7 +1858,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
 
     cpqSeEisaPortTable OBJECT-TYPE
         SYNTAX  SEQUENCE OF CpqSeEisaPortEntry
-        ACCESS  not-accessible 
+        ACCESS  not-accessible
         STATUS  mandatory
         DESCRIPTION
             "A list of EISA function port I/O configuration entries."
@@ -1894,7 +1894,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
 
     cpqSeEisaPortFunctIndex OBJECT-TYPE
         SYNTAX  INTEGER (0..255)
-        ACCESS  read-only 
+        ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
             "The function in which this port I/O configuration was
@@ -2246,12 +2246,12 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
             "The version of the manageability firmware."
         ::= { cpqSeRom 7 }
 
-    cpqSeHPVMFwVer OBJECT-TYPE 
-        SYNTAX  DisplayString (SIZE (0..255)) 
-        ACCESS  read-only 
-        STATUS  optional 
-        DESCRIPTION 
-            "The version of the virtual machine firmware." 
+    cpqSeHPVMFwVer OBJECT-TYPE
+        SYNTAX  DisplayString (SIZE (0..255))
+        ACCESS  read-only
+        STATUS  optional
+        DESCRIPTION
+            "The version of the virtual machine firmware."
         ::= { cpqSeRom 8 }
 
 -- ****************************************************************************
@@ -2742,7 +2742,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
-            "A number that uniquely identifies this device on its PCI bus. 
+            "A number that uniquely identifies this device on its PCI bus.
              Values greater than 255 are considered dummy bus numbers for empty PCI slots.
              For systems supporting multiple PCI segments, the segment will be encoded into the high order
              word of this value (Bit16 to Bit31). If PCI segment is not supported, the high order word will be 0."
@@ -2768,7 +2768,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
     cpqSePciSlotSubSystemID OBJECT-TYPE
         SYNTAX  OCTET STRING (SIZE(0..7))
         ACCESS  read-only
-        STATUS  mandatory 
+        STATUS  mandatory
         DESCRIPTION
             "Uniquely identifies the board configured in this slot. A zero
             length ID indicates the Subsystem ID is not supported and the
@@ -2953,8 +2953,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "This is the maximum link speed for the PCIe slot. An entry of 0 indicates 
-             the maximum link speed could not be determined or the slot is not PCIe. 
+            "This is the maximum link speed for the PCIe slot. An entry of 0 indicates
+             the maximum link speed could not be determined or the slot is not PCIe.
              The unit is Mb/s."
         ::= { cpqSePciSlotEntry 18 }
 
@@ -2964,7 +2964,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "This is the maximum link for the PCIe slot. Value N means N lanes.
-             An entry of 0 indicates the maximum link width could not be determined 
+             An entry of 0 indicates the maximum link width could not be determined
              or the slot is not PCIe."
         ::= { cpqSePciSlotEntry 19 }
 
@@ -3042,7 +3042,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
              " The unique index that specifies this function."
         ::= { cpqSePciFunctEntry 3 }
 
- 
+
     cpqSePciFunctClassCode OBJECT-TYPE
         SYNTAX  OCTET STRING (SIZE(0..3))
         ACCESS  read-only
@@ -3124,7 +3124,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "A text description of the hardware location, on complex 
+            "A text description of the hardware location, on complex
              multi SBB hardware only, for the Peripheral Component
              Interconnect (PCI)  bus.
              A NULL string indicates that the hardware location could not
@@ -3136,8 +3136,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "This is the negotiated link speed for the PCIe link of the PCI device. 
-             An entry of 0 indicates the negotiated link speed could not be determined 
+            "This is the negotiated link speed for the PCIe link of the PCI device.
+             An entry of 0 indicates the negotiated link speed could not be determined
              or the device is not PCIe. The unit is Mb/s."
         ::= { cpqSePciFunctEntry 12 }
 
@@ -3146,8 +3146,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "This is the negotiated link width for the PCIe link of the device. 
-             Value N means N lanes. An entry of 0 indicates the negotiated link width 
+            "This is the negotiated link width for the PCIe link of the device.
+             Value N means N lanes. An entry of 0 indicates the negotiated link width
              could not be determined or the device is not PCIe."
         ::= { cpqSePciFunctEntry 13 }
 
@@ -3156,9 +3156,9 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "This is the maximum link speed for the PCIe device. An entry of 0 indicates 
-             the maximum link speed could not be determined or the device is not PCIe. 
-             The unit is Mb/s."           
+            "This is the maximum link speed for the PCIe device. An entry of 0 indicates
+             the maximum link speed could not be determined or the device is not PCIe.
+             The unit is Mb/s."
         ::= { cpqSePciFunctEntry 14 }
 
     cpqSePcieFunctMaxLinkWidth OBJECT-TYPE
@@ -3166,8 +3166,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "This is the maximum link width for the PCIe device. Value N means N lanes. 
-             An entry of 0 indicates the maximum link width could not be determined 
+            "This is the maximum link width for the PCIe device. Value N means N lanes.
+             An entry of 0 indicates the maximum link width could not be determined
              or the device is not PCIe."
         ::= { cpqSePciFunctEntry 15 }
 
@@ -3217,7 +3217,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  mandatory
         DESCRIPTION
             "The PCI  bus number for this memory entry.
-             For systems supporting multiple PCI segments, the segment will be encoded into the high order 
+             For systems supporting multiple PCI segments, the segment will be encoded into the high order
              word of this value (Bit16 to Bit31). If PCI segment is not supported, the high order word will be 0."
         ::= { cpqSePciMemoryEntry 1 }
 
@@ -3230,7 +3230,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ::= { cpqSePciMemoryEntry 2 }
 
     cpqSePciMemoryFunctionIndex OBJECT-TYPE
-        SYNTAX  INTEGER (0..7) 
+        SYNTAX  INTEGER (0..7)
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
@@ -3425,7 +3425,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
                 Bit 13 - 16 bit PC Card capable (if set),
                 Bit 14 - CardBus PC Card capable (if set),
                 Bit 15 - ZV Port capable (if set),
-                Bit 16 - Modem Ring Resume capable (if set), 
+                Bit 16 - Modem Ring Resume capable (if set),
             All other bits should be zero (reset) for PC Card slots."
         ::= { cpqSePCCardSlotEntry 4 }
 
@@ -3536,7 +3536,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
                 thermalDegraded (3)
                     PC Card operations have degraded due to unsafe thermal
                     conditions.
-                    Recommended Actions include: 
+                    Recommended Actions include:
                         Discontinue the use of the PC Card as soon as
                         possible.  If a Modem or LAN card then close
                         all communication applications/links.   If a
@@ -3621,8 +3621,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  not-accessible
         STATUS  mandatory
         DESCRIPTION
-            "A table of USB built-in port descriptions containing one entry 
-             for each physical USB connector shipped on the system. 
+            "A table of USB built-in port descriptions containing one entry
+             for each physical USB connector shipped on the system.
              Add-in USB ports are not reflected in this table."
         ::= { cpqSeUSBPort 1 }
 
@@ -3739,8 +3739,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The capacity of the USB/SD device in megabytes. 
-             Value 0 indicates the device capacity could not 
+            "The capacity of the USB/SD device in megabytes.
+             Value 0 indicates the device capacity could not
              be determined."
         ::= { cpqSeUSBPortEntry 6 }
 
@@ -3797,7 +3797,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "The number of flash media devices 
+            "The number of flash media devices
              attached to this USB port."
         ::= { cpqSeUSBPortEntry 12 }
 
@@ -3807,7 +3807,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "An array of octets corresponding to the number of
-             Read Errors on each flash media device 
+             Read Errors on each flash media device
              attached to this USB Port."
         ::= { cpqSeUSBPortEntry 13 }
 
@@ -3826,7 +3826,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "An array of octets corresponding to the 
+            "An array of octets corresponding to the
              Read Threshold on each flash media device
              attached to this USB Port."
         ::= { cpqSeUSBPortEntry 15 }
@@ -3836,7 +3836,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "An array of octets corresponding to the 
+            "An array of octets corresponding to the
              Write Threshold on each flash media device
              attached to this USB Port."
         ::= { cpqSeUSBPortEntry 16 }
@@ -3858,16 +3858,16 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
                  USB/SD device status is unknown.
 
              ok (2)
-                 The USB/SD device status is OK. For the HP Dual MicroSD EM 
+                 The USB/SD device status is OK. For the HP Dual MicroSD EM
                  USB Kit, both SD cards are OK and in redundant config.
 
              degraded (3)
-                 The USB/SD device status is degraded.  For the HP Dual 
-                 MicroSD EM, one of the SD cards has failed and redundancy 
+                 The USB/SD device status is degraded.  For the HP Dual
+                 MicroSD EM, one of the SD cards has failed and redundancy
                  is lost.
 
              failed (4)
-                 The USB/SD device status is failed.  For the HP Dual 
+                 The USB/SD device status is failed.  For the HP Dual
                  MicroSD EM, both SD cards have failed."
 
         ::= { cpqSeUSBPortEntry 17 }
@@ -3896,12 +3896,12 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ::= { cpqSeUSBPortEntry 18 }
 
     cpqSeUSBPortDeviceFailedSlot OBJECT-TYPE
-        SYNTAX  INTEGER 
+        SYNTAX  INTEGER
         ACCESS  read-only
         STATUS  mandatory
         DESCRIPTION
              "Identifies the slot location of the flash media device attached to this port
-              that failed and needs to be replaced on redundancy-capable devices.  
+              that failed and needs to be replaced on redundancy-capable devices.
               A value of -1 indicates that there is no failed flash media device
               attached to this port or the location could not be determined."
         ::= { cpqSeUSBPortEntry 19 }
@@ -3927,14 +3927,14 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "USB/SD Device Fault Tolerance for the HP Dual MicroSD EM USB Kit. 
+            "USB/SD Device Fault Tolerance for the HP Dual MicroSD EM USB Kit.
 
             This shows the fault tolerance mode of the HP Dual MicroSD EM USB Kit.
             The following values are valid for Fault Tolerance:
 
             None (2)
               Fault tolerance is not enabled. If read or write errors occur on the
-              primary SD card or if it fails, the data cannot be recovered. 
+              primary SD card or if it fails, the data cannot be recovered.
 
             Mirroring - RAID 1 (3)
               Both SD cards contain identical data. If read or write errors occur
@@ -3946,7 +3946,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "An array of octets corresponding to a value indicating the physical 
+            "An array of octets corresponding to a value indicating the physical
              presence of the flash media device.
              A value of zero (0) indicates the flash media for the specified
              slot is absent.  A value of one (1) indicates the flash media
@@ -4000,7 +4000,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         cpqSeCellHasPower                    TruthValue,
         cpqSeCellReadyForReconfig            TruthValue,
         cpqSeCellTotalMemory                 INTEGER,
-        cpqSeCellLEDState                    INTEGER, 
+        cpqSeCellLEDState                    INTEGER,
         cpqSeCellState                       INTEGER,
         cpqSeCellCLMRequestPercentage        INTEGER,
         cpqSeCellCLMRequestSize              INTEGER,
@@ -4072,7 +4072,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         ACCESS  read-only
         STATUS  optional
         DESCRIPTION
-            "This bitmap represents the state of cell to scan 
+            "This bitmap represents the state of cell to scan
                bus connection/RIO cable state.
 
              if bit 6 is set to 1, Cable port swapped.
@@ -4243,7 +4243,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
     cpqSeCellCLMRequestPercentage OBJECT-TYPE
         SYNTAX  INTEGER
         ACCESS  read-only
-        STATUS  optional 
+        STATUS  optional
         DESCRIPTION
             "The requested percentage of CLM memory to be configured in the cell."
         ::= { cpqSeCellEntry 17 }
@@ -5067,7 +5067,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
             "Description of the location of an LED entry."
         ::= { cpqSeLEDEntry 6 }
 
--- Below table has been deprecated in 870 release and merged with cpqSeUSBPortEntry        
+-- Below table has been deprecated in 870 release and merged with cpqSeUSBPortEntry
 -- ****************************************************************************
 --   Standard Equipment USB Device Group
 --   ====================================
@@ -5281,18 +5281,18 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
          The following values are valid for the physical drive solid state
          wear status:
          Other (1)
-           The instrument agent is unable to determine the physical drive’s 
+           The instrument agent is unable to determine the physical driveï¿½s
            solid state disk wear status. This value would be used for non
            SSD drives or SSD drives that do not support wear reporting.
          Ok (2)
-           Indicates the solid state disk is not in any imminent danger 
+           Indicates the solid state disk is not in any imminent danger
            of wear out.
 
          Fifty Six Day Threshold Passed (3)
            Indicates that based upon the current workload, the solid state
            disk will reach the maximum usage limit for writes (wear out)
            within fifty-six days. You should modify your write workload or
-           begin preparing to replace your SSD drive. 
+           begin preparing to replace your SSD drive.
 
          Five Percent Threshold Passed (4)
            Indicates that the solid state disk has passed the five percent
@@ -5305,7 +5305,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
            threshold and is at or below two percent of reaching the maximum
            usage limit for writes (wear out). You should begin to prepare
            to replace your SSD drive.
-                  
+
          SSD Wear Out(6)
            Indicates that a solid state drive is approaching the maximum
            usage limit for writes (wear out) and should be replaced as soon
@@ -5318,8 +5318,8 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         STATUS  optional
         DESCRIPTION
             "PCIe Disk Power On Hours.
-            This is the total number of hours that the PCIe disk 
-            has been powered on. This value will be 4,294,967,295 if the disk 
+            This is the total number of hours that the PCIe disk
+            has been powered on. This value will be 4,294,967,295 if the disk
             power on hours cannot be determined or is not supported."
         ::= { cpqSePCIeDiskEntry 14 }
 
@@ -5330,12 +5330,12 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "PCIe Drive Percent Endurance Used.
             This value specifies the hundredths of the percentage disk life used.
-            The value of this field is allowed to exceed 100%. 
-            As an example, if the value reported is 50, this would indicate .50 
-            percent endurance used.            
+            The value of this field is allowed to exceed 100%.
+            As an example, if the value reported is 50, this would indicate .50
+            percent endurance used.
             This value will be 4,294,967,295 if the percent endurance used cannot
              be determined or is not supported."
-        ::= { cpqSePCIeDiskEntry 15 } 
+        ::= { cpqSePCIeDiskEntry 15 }
 
     cpqSePCIeDiskTableCondition OBJECT-TYPE
         SYNTAX  INTEGER {
@@ -5349,7 +5349,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "The overall condition of PCIe Disk table."
         ::= { cpqSePCIeDisk 2 }
-        
+
 
 
 -- ****************************************************************************
@@ -5404,7 +5404,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         --#STATE DEGRADED
 		--#VARBINDSEVERITY 2
         --#SIMPLE_SEVERITY MAJOR
-        --#HWSTATUS_CATEGORY THERMAL        
+        --#HWSTATUS_CATEGORY THERMAL
         ::= 1002
 
 
@@ -5427,7 +5427,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         --#STATE NONOPERATIONAL
 		--#VARBINDSEVERITY 2
         --#SIMPLE_SEVERITY CRITICAL
-        --#HWSTATUS_CATEGORY THERMAL        
+        --#HWSTATUS_CATEGORY THERMAL
         ::= 1003
 
     cpqSePCCardThermalSafe TRAP-TYPE
@@ -5447,7 +5447,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
         --#STATE OPERATIONAL
 		--#VARBINDSEVERITY 2
         --#SIMPLE_SEVERITY OK
-        --#HWSTATUS_CATEGORY THERMAL        
+        --#HWSTATUS_CATEGORY THERMAL
         ::= 1004
 
 -- Updated for 7.20 trap replaced 1001
@@ -5470,7 +5470,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
 		--#VARBINDSEVERITY 2
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY PROCESSORS
-        
+
         ::= 1005
 
 cpqSeCpuStatusChange TRAP-TYPE
@@ -5478,7 +5478,7 @@ cpqSeCpuStatusChange TRAP-TYPE
         VARIABLES { sysName, cpqHoTrapFlags, cpqSeCpuUnitIndex,
                     cpqSeCpuSlot, cpqSeCpuName, cpqSeCpuSpeed,
                     cpqSeCpuStep, cpqSeCpuStatus,
-                    cpqSeCpuExtSpeed, cpqSeCpuSocketNumber, 
+                    cpqSeCpuExtSpeed, cpqSeCpuSocketNumber,
                     cpqSeCpuHwLocation}
         DESCRIPTION
             "This trap is sent when CPU status changed.
@@ -5497,7 +5497,7 @@ cpqSeCpuStatusChange TRAP-TYPE
 		--#VARBINDSEVERITY 2
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY PROCESSORS
-        
+
         ::= 1006
 
 cpqSeCpuPowerPodstatusChange TRAP-TYPE
@@ -5520,15 +5520,15 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
 		--#VARBINDSEVERITY 2
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY PROCESSORS
-        
+
         ::= 1007
-        
+
     cpqSeUSBStorageDeviceAttached TRAP-TYPE
         ENTERPRISE compaq
         VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName }
         DESCRIPTION
             "This trap is sent when a USB storage device has been attached "
-            
+
         --#TYPE "USB storage device attached (1008)"
         --#SUMMARY "A USB storage device has been attached to the system."
         --#ARGUMENTS {}
@@ -5539,7 +5539,7 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY NONE
         --#LIFECYCLE
-                
+
         ::= 1008
 
     cpqSeUSBStorageDeviceRemoved TRAP-TYPE
@@ -5547,7 +5547,7 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
         VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName }
         DESCRIPTION
 	    "This trap is sent when a attached USB storage device is removed "
-	    
+
         --#TYPE "USB storage device removed (1009)"
         --#SUMMARY "A USB storage device has been removed from the system."
         --#ARGUMENTS {}
@@ -5558,14 +5558,14 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
         --#SIMPLE_SEVERITY OK
         --#HWSTATUS_CATEGORY NONE
         --#LIFECYCLE
-                
-        ::= 1009        
+
+        ::= 1009
 
     cpqSeUSBStorageDeviceReadErrorOccurred TRAP-TYPE
         ENTERPRISE compaq
-        VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName, 
-                     cpqSeUSBPortDeviceModel, cpqSeUSBPortDeviceFWVersion, 
-                     cpqSeUSBPortDeviceSerialNumber, cpqSeUSBPortDevicePartNumber,  
+        VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName,
+                     cpqSeUSBPortDeviceModel, cpqSeUSBPortDeviceFWVersion,
+                     cpqSeUSBPortDeviceSerialNumber, cpqSeUSBPortDevicePartNumber,
                      cpqSeUSBPortDeviceReadErrorCount, cpqSeUSBPortDeviceReadThreshold,
                      cpqSeUSBPortDeviceLastSlotWithError }
         DESCRIPTION
@@ -5585,9 +5585,9 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
 
     cpqSeUSBStorageDeviceWriteErrorOccurred TRAP-TYPE
         ENTERPRISE compaq
-        VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName, 
-                     cpqSeUSBPortDeviceModel, cpqSeUSBPortDeviceFWVersion, 
-                     cpqSeUSBPortDeviceSerialNumber, cpqSeUSBPortDevicePartNumber,  
+        VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName,
+                     cpqSeUSBPortDeviceModel, cpqSeUSBPortDeviceFWVersion,
+                     cpqSeUSBPortDeviceSerialNumber, cpqSeUSBPortDevicePartNumber,
                      cpqSeUSBPortDeviceWriteErrorCount, cpqSeUSBPortDeviceWriteThreshold,
                      cpqSeUSBPortDeviceLastSlotWithError }
         DESCRIPTION
@@ -5608,7 +5608,7 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
     cpqSeUSBStorageDeviceRedundancyLost TRAP-TYPE
         ENTERPRISE compaq
         VARIABLES  { sysName, cpqHoTrapFlags, cpqSeUSBPortIndex, cpqSeUSBPortDeviceName,
-                     cpqSeUSBPortDeviceModel, cpqSeUSBPortDeviceFWVersion, 
+                     cpqSeUSBPortDeviceModel, cpqSeUSBPortDeviceFWVersion,
                      cpqSeUSBPortDeviceSerialNumber, cpqSeUSBPortDevicePartNumber,
                      cpqSeUSBPortDeviceFailedSlot   }
         DESCRIPTION
@@ -5718,7 +5718,7 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
         DESCRIPTION
             "PCIe Disk Status Change
 
-             A change in condition of PCIe disk has been detected. The current PCIe disk condition is 
+             A change in condition of PCIe disk has been detected. The current PCIe disk condition is
              indicated in the cpqSePCIeDiskCondition variable.
 
              User Action: If cpqSePCIeDiskCondition is 'failed(4)', replace the drive."
@@ -5745,7 +5745,7 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
              This trap signifies that the agent has detected a change in the PCIe Disk wear
              status.  The variable cpqSePCIeDiskWearStatus indicates the current wear status.
 
-             User Action: If cpqSePCIeDiskWearStatus is 'ssdWearOut(6)', 
+             User Action: If cpqSePCIeDiskWearStatus is 'ssdWearOut(6)',
              replace the drive."
 
               --#TYPE "PCIe Disk Wear Status Change (1018)"
@@ -5757,7 +5757,7 @@ cpqSeCpuPowerPodstatusChange TRAP-TYPE
               --#SIMPLE_SEVERITY CRITICAL
               --#HWSTATUS_CATEGORY STORAGE
               --#ACTION "If the PCIe disk wear status is 'ssdWearOut(6)', replace the drive."
-              
+
         ::= 1018
 
     cpqSePciDeviceAddedOrPoweredOn TRAP-TYPE
