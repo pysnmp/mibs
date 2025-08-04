@@ -42,20 +42,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           architecture: x64
-      - name: Run image
-        uses: abatilo/actions-poetry@v4.0.0
+      - name: Install poetry
+        run: pipx install --python python3.11 poetry
       - name: Cache pysnmp
         id: cache-pysnmp
         uses: actions/cache@v4
         with:
           path: .pycache/
-          key: ${{ runner.os }}-pysnmp          
+          key: ${{ runner.os }}-pysnmp
       - run: poetry install
       #Build and index
       - run: mkdir -p output/asn1
-      - run: make index
+      - run: poetry run make index
       - uses: actions/upload-artifact@v4
         with:
           path: log/
