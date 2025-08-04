@@ -16,10 +16,10 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox:1.34.1
+      image: busybox:1.37.0
       imagePullPolicy: Always
       command: ['wget']
-      args: ['release-name-mibserver:80/index.csv']
+      args: ['release-name-mibserver:80/index.csv', '-O', '/dev/null']
       securityContext:
         capabilities:
           drop:

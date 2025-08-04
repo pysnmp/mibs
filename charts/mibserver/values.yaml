@@ -41,3 +41,9 @@ localMibs:
     existingClaim: ""
     storageClass: "microk8s-hostpath"
     size: 1Gi
+
+test:
+  image:
+    repository: busybox
+    tag: "1.37.0"
+    pullPolicy: Always
