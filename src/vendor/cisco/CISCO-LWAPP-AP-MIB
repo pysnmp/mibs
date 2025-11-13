@@ -46,7 +46,8 @@ IMPORTS
     CLApDot11RadioSubband,
     CLApDot11RadioRole,
     CLApMode,
-    CLApNtpStatus
+    CLApNtpStatus,
+    CLDot11Band
         FROM CISCO-LWAPP-TC-MIB
     cldRegulatoryDomain
         FROM CISCO-LWAPP-DOT11-MIB
