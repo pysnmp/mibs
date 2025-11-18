@@ -10,7 +10,19 @@ jobs:
       contents: write
       packages: write
     steps:
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: false
+          swap-storage: false
+
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
         with:

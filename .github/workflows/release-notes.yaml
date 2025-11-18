@@ -13,7 +13,18 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: false
+          swap-storage: false
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - run: |
           git fetch --prune --unshallow --tags
       - uses: snyk/release-notes-preview@v1.6.2
