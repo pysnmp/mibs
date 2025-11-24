@@ -1,0 +1,101 @@
+-- *******************************************************************
+-- CISCO-LWAPP-BASE-MIB.my
+-- Draft 2025-11-24
+-- Common/shared objects between CISCO-LWAPP-AP-MIB and CISCO-LWAPP-DOT11-MIB
+--
+-- This MIB is intended to host fields needed by more than one LWAPP MIB
+-- to remove circular dependencies between them.
+-- *******************************************************************
+
+CISCO-LWAPP-BASE-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY,
+    OBJECT-TYPE,
+    Integer32,
+    Unsigned32
+        FROM SNMPv2-SMI
+    TruthValue,
+    MacAddress,
+    RowStatus,
+    DisplayString
+        FROM SNMPv2-TC
+    SnmpAdminString
+        FROM SNMP-FRAMEWORK-MIB
+    ciscoMgmt
+        FROM CISCO-SMI;
+
+-- ********************************************************************
+-- Module identity
+-- ********************************************************************
+
+ciscoLwappBaseMIB MODULE-IDENTITY
+    LAST-UPDATED    "202511240000Z"
+    ORGANIZATION    "Cisco Systems Inc."
+    CONTACT-INFO
+            "Cisco Systems
+            Customer Service
+            Postal: 170 West Tasman Drive
+            San Jose, CA  95134
+            USA
+            Tel: +1 800 553-NETS
+            Email: cs-wnbu-snmp@cisco.com"
+    DESCRIPTION
+        "Common LWAPP textual conventions and core identifiers
+         shared between CISCO-LWAPP-AP-MIB and CISCO-LWAPP-DOT11-MIB.
+         This module is introduced to eliminate circular MIB dependencies."
+    ::= { ciscoMgmt XXXX }   -- choose next free branch number from CISCO-MGMT
+
+-- ********************************************************************
+-- Sub-identifiers
+-- ********************************************************************
+
+ciscoLwappBaseObjects OBJECT IDENTIFIER ::= { ciscoLwappBaseMIB 1 }
+
+-- ********************************************************************
+-- Objects moved from DOT11-MIB
+-- ********************************************************************
+
+cldRegulatoryDomain OBJECT-TYPE
+    SYNTAX          SnmpAdminString (SIZE (1..255))
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+        "Regulatory domains for the controller.
+         Specifies allowed 802.11 channels. Multiple
+         domains can be listed separated by spaces."
+    ::= { ciscoLwappBaseObjects 1 }
+
+-- ********************************************************************
+-- Objects moved from AP-MIB
+-- ********************************************************************
+
+cLApSysMacAddress OBJECT-TYPE
+    SYNTAX          MacAddress
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+        "The base MAC address of the AP's system board.
+         This is a unique identifier for the AP."
+    ::= { ciscoLwappBaseObjects 2 }
+
+cLApDot11IfSlotId OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+        "The AP's Dot11 radio interface slot identifier."
+    ::= { ciscoLwappBaseObjects 3 }
+
+-- ********************************************************************
+-- Compliance statements
+-- ********************************************************************
+
+ciscoLwappBaseCompliance MODULE-COMPLIANCE
+    STATUS          current
+    DESCRIPTION
+        "Compliance statement for entities implementing
+         CISCO-LWAPP-BASE-MIB."
+    ::= { ciscoLwappBaseMIB 2 }
+
+END

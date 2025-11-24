@@ -50,7 +50,7 @@ IMPORTS
     CLDot11Band
         FROM CISCO-LWAPP-TC-MIB
     cldRegulatoryDomain
-        FROM CISCO-LWAPP-DOT11-MIB
+        FROM CISCO-LWAPP-BASE-MIB
     cLWlanIndex
         FROM CISCO-LWAPP-WLAN-MIB
     Unsigned64
