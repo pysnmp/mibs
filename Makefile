@@ -30,7 +30,7 @@ vendor: dirs $(RFC)
 	./scripts/vendor.sh vendor
 
 localmibs:
-	find src/vendor -type d -maxdepth 1 -mindepth 1 -type d ! -name '.git' | sort >list.tmp
+	find src/vendor -type d -maxdepth 1 -mindepth 1 | sort >list.tmp
 	while read line; do ./scripts/localmibs.sh "$$line"; done < list.tmp
 
 index: vendor standard  ##generate index
