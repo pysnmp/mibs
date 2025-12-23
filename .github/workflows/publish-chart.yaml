@@ -21,8 +21,6 @@ jobs:
           swap-storage: false
 
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
       - name: Publish Helm chart
         uses: stefanprodan/helm-gh-pages@master
         with:
