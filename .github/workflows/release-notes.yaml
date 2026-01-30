@@ -24,7 +24,7 @@ jobs:
           swap-storage: false
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           fetch-tags: true
       - uses: snyk/release-notes-preview@v1.6.2
         with:
