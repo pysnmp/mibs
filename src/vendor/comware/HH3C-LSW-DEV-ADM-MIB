@@ -648,7 +648,7 @@ IMPORTS
             type-SR01XK1VB(333),                -- 1-Port 10Gigabit Ethernet Optical Interface Card(VB)
             type-SR01XP2VC(334),                -- 2-Port 10GBase-RW Ethernet XFP Optical Interface Line Card(VC)
             type-SR01XP4LVB(335),               -- 4-Port 10GBase-R/W Ethernet XFP Optical Interface Line Speed Card(VB)
-            type-SR01SRPUEA(336),               -- Switching and Route Process Unit£¬Clock Module
+            type-SR01SRPUEA(336),               -- Switching and Route Process UnitÂ£Â¨Clock Module
             type-LSB1SRP1N4(337),               -- Switching and Route Process Unit, 12*LPU
             type-LSB1SRP1N5(338),               -- Switching and Route Process Unit, 8*LPU
             type-LSB1SRP1N6(339),               -- Switching and Route Process Unit, 5*LPU
@@ -870,7 +870,7 @@ IMPORTS
             type-LSD1GP48ES0(551),              -- 48-Port 1000BASE-X Ethernet SFP Interface Card
             type-LSQ1MPUA0(552),                -- Master Process Board
             type-LSQ1MPUA1(553),                -- Master Process Unit
-            type-LSQ1FWBSC0(554),               -- Gigabit Firewall Card£¬4 Gigabit Port for Management
+            type-LSQ1FWBSC0(554),               -- Gigabit Firewall CardÂ£Â¨4 Gigabit Port for Management
             type-LSQ1PT8PSC0(555),              -- 8-Port 1000Base-PX Optical Line Terminal(EPON OLT SFP,SC)+8-Port 1000BASE-X Optical Interface Board(SFP,LC)
             type-LSQ1PT16PSC0(556),             -- 16-Port 1000Base-PX Optical Line Terminal(EPON OLT SFP,SC)+8-Port 1000BASE-X Optical Interface Board(SFP,LC)
             type-SA11MPUA0(557),                -- SmartEngine I-Lite
