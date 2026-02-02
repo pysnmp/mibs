@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          fetch-tags: true
+          filter: blob:none
       - uses: snyk/release-notes-preview@v1.6.2
         with:
           releaseBranch: main
