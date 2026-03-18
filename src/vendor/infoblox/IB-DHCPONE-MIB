@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2004-2009, Infoblox, Inc
+-- Copyright (c) 2004-2024, Infoblox, Inc
 -- All rights reserved.
 
 IB-DHCPONE-MIB DEFINITIONS ::= BEGIN
@@ -78,7 +78,7 @@ ibDHCPSubnetPercentUsed OBJECT-TYPE
    STATUS        current
    DESCRIPTION   "Percentage of dynamic DHCP address for subnet leased out at this 
                   time. Fixed addresses are always counted as leased for this
-                  calcuation if the fixed addresses are within ranges of leases."
+                  calculation if the fixed addresses are within ranges of leases."
    ::= { ibDHCPSubnetEntry 3 }
 
 ibDHCPStatistics OBJECT IDENTIFIER
