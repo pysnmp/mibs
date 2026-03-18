@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2004-2016, Infoblox, Inc
+-- Copyright (c) 2004-2025, Infoblox, Inc
 -- All rights reserved.
 
 IB-PLATFORMONE-MIB DEFINITIONS ::= BEGIN
@@ -12,10 +12,25 @@ IMPORTS
    ibPlatformOne, IbString, IbIpAddr, IbFloat FROM IB-SMI-MIB;
 
 ibPlatformModule MODULE-IDENTITY
-    LAST-UPDATED "201606120000Z"  -- Jun 12, 2016
+    LAST-UPDATED "202209120000Z"  -- September 12, 2022
     ORGANIZATION "Infoblox"
     CONTACT-INFO "Please See IB-SMI-MIB."
     DESCRIPTION "This file defines the Infoblox One platform MIB."
+
+    REVISION  "202502230000Z"  -- February 23, 2025
+    DESCRIPTION "We no longer use LCDs in our appliances, so all LCD-related code has been removed from NIOS"
+
+    REVISION  "202209120000Z"  -- September 12, 2022
+    DESCRIPTION "Added continuous serial numbers in the services as bloxtools service was removed"
+
+    REVISION  "202112160000Z"  -- December 16, 2021
+    DESCRIPTION "Remove bloxtools services"
+
+    REVISION  "201806120000Z"  -- Jun 12, 2018
+    DESCRIPTION "Remove the TEXTUAL-CONVENTION IbSnicCoreNames for IbString type"
+
+    REVISION  "201803260000Z"  -- Mar 26, 2018
+    DESCRIPTION "Add SNIC CPU Core utilization for the cores"
 
     REVISION  "201606120000Z"  -- Jun 12, 2016
     DESCRIPTION "Add BFD service status"
@@ -55,21 +70,18 @@ ibPlatformModule MODULE-IDENTITY
 
     REVISION  "201205240000Z"  --  May 24, 2012
     DESCRIPTION   "Rename Node1, Node2 to Node, PassiveNode"
-    
+
     REVISION  "201204130000Z"  --  April 13, 2012
     DESCRIPTION   "Added DNS Cache Acceleration info"
-    
+
     REVISION  "201112020000Z"  --  December 02, 2011
     DESCRIPTION   "Add support for 8 fans and 8 raid disks"
-    
+
     REVISION  "201112010000Z"  --  December 01, 2011
     DESCRIPTION   "Added second power-supply service"
 
     REVISION  "201105050000Z"  --  May 05, 2011
     DESCRIPTION   "Removed Radius service status info"
-
-    REVISION  "201011150000Z"  --  November 15, 2010
-    DESCRIPTION   "Added Bloxtools_move service status info"
 
     REVISION  "201010190000Z"  --  October 19, 2010
     DESCRIPTION   "Added BGP service status info"
@@ -607,61 +619,59 @@ IbServiceNames ::= TEXTUAL-CONVENTION
                    tftp             (4),
                    http-file-dist   (5),
                    ftp              (6),
-                   bloxtools-move   (7),
-                   bloxtools        (8),
-                   node-status      (9),
-                   disk-usage       (10),
-                   enet-lan         (11),
-                   enet-lan2        (12),
-                   enet-ha          (13),
-                   enet-mgmt        (14),
-                   lcd              (15),
-                   memory           (16),
-                   replication      (17),
-                   db-object        (18),
-                   raid-summary     (19),
-                   raid-disk1       (20),
-                   raid-disk2       (21),
-                   raid-disk3       (22),
-                   raid-disk4       (23),
-                   raid-disk5       (24),
-                   raid-disk6       (25),
-                   raid-disk7       (26),
-                   raid-disk8       (27),
-                   fan1             (28),
-                   fan2             (29),
-                   fan3             (30),
-                   fan4             (31),
-                   fan5             (32),
-                   fan6             (33),
-                   fan7             (34),
-                   fan8             (35),
-                   power-supply1    (36),
-                   power-supply2    (37),
-                   ntp-sync         (38),
-                   cpu1-temp        (39),
-                   cpu2-temp        (40),
-                   sys-temp         (41),
-                   raid-battery     (42),
-                   cpu-usage        (43),
-                   ospf             (44),
-                   bgp              (45),
-                   mgm-service      (46),
-                   subgrid-conn     (47),
-                   network-capacity (48),
-                   reporting        (49),
-                   dns-cache-acceleration        (50),
-                   ospf6            (51),
-                   swap-usage       (52),
-                   discovery-consolidator        (53),
-                   discovery-collector           (54),
-                   discovery-capacity            (55),
-                   threat-protection             (56),
-                   cloud-api                     (57),
-                   threat-analytics              (58),
-                   taxii                         (59),
-                   bfd                           (60),
-                   outbound                      (61)
+                   node-status      (7),
+                   disk-usage       (8),
+                   enet-lan         (9),
+                   enet-lan2        (10),
+                   enet-ha          (11),
+                   enet-mgmt        (12),
+-- commenting this out, NIOS-77796   lcd              (xx),
+                   memory           (13),
+                   replication      (14),
+                   db-object        (15),
+                   raid-summary     (16),
+                   raid-disk1       (17),
+                   raid-disk2       (18),
+                   raid-disk3       (19),
+                   raid-disk4       (20),
+                   raid-disk5       (21),
+                   raid-disk6       (22),
+                   raid-disk7       (23),
+                   raid-disk8       (24),
+                   fan1             (25),
+                   fan2             (26),
+                   fan3             (27),
+                   fan4             (28),
+                   fan5             (29),
+                   fan6             (30),
+                   fan7             (31),
+                   fan8             (32),
+                   power-supply1    (33),
+                   power-supply2    (34),
+                   ntp-sync         (35),
+                   cpu1-temp        (36),
+                   cpu2-temp        (37),
+                   sys-temp         (38),
+                   raid-battery     (39),
+                   cpu-usage        (40),
+                   ospf             (41),
+                   bgp              (42),
+                   mgm-service      (43),
+                   subgrid-conn     (44),
+                   network-capacity (45),
+                   reporting        (46),
+                   dns-cache-acceleration        (47),
+                   ospf6            (48),
+                   swap-usage       (49),
+                   discovery-consolidator        (50),
+                   discovery-collector           (51),
+                   discovery-capacity            (52),
+                   threat-protection             (53),
+                   cloud-api                     (54),
+                   threat-insight                (55),
+                   taxii                         (56),
+                   bfd                           (57),
+                   outbound                      (58)
                  }
 
 ibMemberServiceStatusTable OBJECT-TYPE
@@ -752,49 +762,49 @@ ibNodeServiceDesc OBJECT-TYPE
    DESCRIPTION   "Service Description."
    ::= { ibMemberNodeServiceStatusEntry 3 }
 
-ibMemberPasiveNodeServiceStatusTable OBJECT-TYPE
-   SYNTAX SEQUENCE OF IbMemberPasiveNodeServiceStatusEntry
+ibMemberPassiveNodeServiceStatusTable OBJECT-TYPE
+   SYNTAX SEQUENCE OF IbMemberPassiveNodeServiceStatusEntry
    MAX-ACCESS    not-accessible
    STATUS        current
    DESCRIPTION   "A table of Physical Node's Service Status."
    ::= { ibPlatformModule 11 }
 
-ibMemberPasiveNodeServiceStatusEntry OBJECT-TYPE
-   SYNTAX        IbMemberPasiveNodeServiceStatusEntry
+ibMemberPassiveNodeServiceStatusEntry OBJECT-TYPE
+   SYNTAX        IbMemberPassiveNodeServiceStatusEntry
    MAX-ACCESS    not-accessible
    STATUS        current
    DESCRIPTION   "A conceptual row containing info about a particular
                   service status."
-   INDEX         {ibPasiveNodeServiceName}
-   ::= { ibMemberPasiveNodeServiceStatusTable 1 }
+   INDEX         {ibPassiveNodeServiceName}
+   ::= { ibMemberPassiveNodeServiceStatusTable 1 }
 
-IbMemberPasiveNodeServiceStatusEntry ::=
+IbMemberPassiveNodeServiceStatusEntry ::=
    SEQUENCE {
-     ibPasiveNodeServiceName                IbServiceNames,
-     ibPasiveNodeServiceStatus              IbServiceStates,
-     ibPasiveNodeServiceDesc                IbString
+     ibPassiveNodeServiceName                IbServiceNames,
+     ibPassiveNodeServiceStatus              IbServiceStates,
+     ibPassiveNodeServiceDesc                IbString
    }
 
-ibPasiveNodeServiceName OBJECT-TYPE
+ibPassiveNodeServiceName OBJECT-TYPE
    SYNTAX        IbServiceNames
    MAX-ACCESS    read-only
    STATUS        current
    DESCRIPTION   "Service Name."
-   ::= { ibMemberPasiveNodeServiceStatusEntry 1 }
+   ::= { ibMemberPassiveNodeServiceStatusEntry 1 }
 
-ibPasiveNodeServiceStatus OBJECT-TYPE
+ibPassiveNodeServiceStatus OBJECT-TYPE
    SYNTAX        IbServiceStates
    MAX-ACCESS    read-only
    STATUS        current
    DESCRIPTION   "Service Status."
-   ::= { ibMemberPasiveNodeServiceStatusEntry 2 }
+   ::= { ibMemberPassiveNodeServiceStatusEntry 2 }
 
-ibPasiveNodeServiceDesc OBJECT-TYPE
+ibPassiveNodeServiceDesc OBJECT-TYPE
    SYNTAX        IbString
    MAX-ACCESS    read-only
    STATUS        current
    DESCRIPTION   "Service Description."
-   ::= { ibMemberPasiveNodeServiceStatusEntry 3 }
+   ::= { ibMemberPassiveNodeServiceStatusEntry 3 }
 
 ibGridStatus  OBJECT-TYPE
    SYNTAX         IbString
@@ -832,14 +842,14 @@ ibGridReplicationState  OBJECT-TYPE
    ::= { ibPlatformModule 16 }
 
 ibCPU1Temperature  OBJECT-TYPE
-   SYNTAX         IbFloat 
+   SYNTAX         IbFloat
    MAX-ACCESS     read-only
    STATUS         current
    DESCRIPTION "Infoblox CPU One temperature."
    ::= { ibPlatformModule 17 }
 
 ibCPU2Temperature  OBJECT-TYPE
-   SYNTAX         IbFloat 
+   SYNTAX         IbFloat
    MAX-ACCESS     read-only
    STATUS         current
    DESCRIPTION "Infoblox CPU Two temperature."
@@ -1008,4 +1018,47 @@ ibSnicDropPackets5 OBJECT-TYPE
    DESCRIPTION   "SmartNic dropped packets per second."
    ::= { ibSystemMonitorSnicStatsEntry5 7 }
 
+ibSystemMonitorSnicCpuCoreUtiliz OBJECT-TYPE
+   SYNTAX SEQUENCE OF IbSystemMonitorSnicCpuCoreUtilizEntry
+   MAX-ACCESS    not-accessible
+   STATUS        current
+   DESCRIPTION   "A table of SNIC cpu core utilization during last 1 min."
+   ::= { ibSystemMonitorSnic 3 }
+
+ibSystemMonitorSnicCpuCoreUtilizEntry OBJECT-TYPE
+   SYNTAX        IbSystemMonitorSnicCpuCoreUtilizEntry
+   MAX-ACCESS    not-accessible
+   STATUS        current
+   DESCRIPTION   "A conceptual row containing info about a particular
+                  SNIC cpu core utilization on the card."
+   INDEX         { ibSnicCoreName }
+   ::= { ibSystemMonitorSnicCpuCoreUtiliz 1 }
+
+IbSystemMonitorSnicCpuCoreUtilizEntry ::=
+   SEQUENCE {
+     ibSnicCoreName               IbString,
+     ibSnicCoreCountIndex         INTEGER,
+     ibSnicCoreUtilz              IbString
+   }
+
+ibSnicCoreName OBJECT-TYPE
+   SYNTAX        IbString
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "SmartNic Core Name."
+   ::= { ibSystemMonitorSnicCpuCoreUtilizEntry 1 }
+
+ibSnicCoreCountIndex OBJECT-TYPE
+   SYNTAX        INTEGER
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "SmartNic Core Count index."
+   ::= { ibSystemMonitorSnicCpuCoreUtilizEntry 2 }
+
+ibSnicCoreUtilz OBJECT-TYPE
+   SYNTAX        IbString
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "SmartNic CPU Core utilisation"
+   ::= { ibSystemMonitorSnicCpuCoreUtilizEntry 3 }
 END

@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2004-2009, Infoblox, Inc
+-- Copyright (c) 2004-2024, Infoblox, Inc
 -- All rights reserved.
                                                                                                 
 IB-DNSONE-MIB DEFINITIONS ::= BEGIN
@@ -11,10 +11,13 @@ IMPORTS
    ibDNSOne, IbString FROM IB-SMI-MIB;
 
 ibDnsModule MODULE-IDENTITY
-    LAST-UPDATED "201003230000Z"  --  Mar 23, 2010
+    LAST-UPDATED "201205240000Z"  --  May 24, 2012
     ORGANIZATION "Infoblox"
     CONTACT-INFO "Please See IB-SMI-MIB."
     DESCRIPTION "This file defines the Infoblox DNS One MIB."
+
+    REVISION  "201205240000Z"  --  May 24, 2012
+    DESCRIPTION   "Added DNS chr and qps"
 
     REVISION  "201003230000Z"  --  Mar 23, 2010
     DESCRIPTION   "Fixed smilint errors"
@@ -242,5 +245,19 @@ ibBindZoneTransferCount OBJECT-TYPE
    STATUS        current
    DESCRIPTION   "Number of zone transfer."
    ::= { ibDnsModule 4 }
+
+ibDnsHitRatio OBJECT-TYPE
+   SYNTAX        Counter64
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "DNS hit ratio"
+   ::= { ibDnsModule 5 }
+
+ibDnsQueryRate OBJECT-TYPE
+   SYNTAX        Counter64
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "DNS queries per second"
+   ::= { ibDnsModule 6 }
 
 END

@@ -1,0 +1,41 @@
+--
+-- Copyright (c) 2010-2024, Infoblox, Inc
+-- All rights reserved.
+
+IB-DHCPSERV-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+   OBJECT-TYPE, NOTIFICATION-TYPE, MODULE-IDENTITY, enterprises
+        FROM SNMPv2-SMI
+   TEXTUAL-CONVENTION FROM SNMPv2-TC
+   Counter64, Unsigned32 FROM SNMPv2-SMI
+   Counter FROM RFC1155-SMI
+   ibDHCPServ, IbString FROM IB-SMI-MIB;
+
+ibDhcpv4ServerModule MODULE-IDENTITY
+    LAST-UPDATED "201107150000Z"  --  Jul 15, 2011
+    ORGANIZATION "Infoblox"
+    CONTACT-INFO "See IB-SMI-MIB for information."
+    DESCRIPTION "This module defines the Infoblox DHCPv4 Server One MIB."
+
+    REVISION  "201107150000Z"  --  Jul 15, 2011
+    DESCRIPTION   "Added DHCPv4 Server module."
+
+    ::= { ibDHCPServ 1 }
+
+-- Infoblox DHCP-Server MIB Definitions
+
+ibDhcpv4ServerObjects OBJECT IDENTIFIER ::=  { ibDhcpv4ServerModule 1 }
+
+ibDhcpv4ServerSystem OBJECT IDENTIFIER ::=  { ibDhcpv4ServerObjects 1 }
+
+ibDhcpv4ServerSystemDescr  OBJECT-TYPE
+   SYNTAX        IbString
+   MAX-ACCESS    read-only
+   STATUS        current
+   DESCRIPTION   "A textual description of the server.  This value SHOULD
+                  include the full name and version identification of the
+                  server."
+   ::= { ibDhcpv4ServerSystem 1 }
+
+END
