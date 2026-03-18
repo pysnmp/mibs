@@ -1,5 +1,5 @@
 --
--- Copyright (c) 2004-2009, Infoblox, Inc
+-- Copyright (c) 2004-2025, Infoblox, Inc
 -- All rights reserved.
 
 IB-SMI-MIB DEFINITIONS ::= BEGIN
@@ -8,7 +8,7 @@ IB-SMI-MIB DEFINITIONS ::= BEGIN
 -- Imports
 --
 
-IMPORTS MODULE-IDENTITY, OBJECT-TYPE, enterprises
+IMPORTS MODULE-IDENTITY, OBJECT-TYPE, enterprises, Opaque
 		        FROM SNMPv2-SMI 
         TEXTUAL-CONVENTION
 		        FROM SNMPv2-TC;
@@ -18,16 +18,31 @@ IMPORTS MODULE-IDENTITY, OBJECT-TYPE, enterprises
 --        
 
 infoblox MODULE-IDENTITY
-         LAST-UPDATED  "200911120000Z"  --  Nov 12, 2009
+         LAST-UPDATED  "201701240000Z"  -- Jan 24, 2017
          ORGANIZATION  "Infoblox"
          CONTACT-INFO  "Infoblox
-                        4750 Patrick Henry Drive
+                        3111 Coronado Drive
                         Santa Clara, CA 95054
                         1-888-463-6259
 	                support@infoblox.com"
          DESCRIPTION
            "This is the MIB module for object type definitions
 	    that are used throughout the infoblox enterprise MIBs."
+
+         REVISION  "201701240000Z"  --  Jan 24, 2017
+         DESCRIPTION   "Added oid for IB-FLEX and copyright update"
+
+         REVISION  "201505190000Z"  --  May 19, 2015
+         DESCRIPTION   "Added definitions for Opaque Float"
+
+         REVISION  "201310030000Z"  --  Oct 03, 2013
+         DESCRIPTION   "Added definitions for OM-license models, updated street-address and copyright update"
+
+         REVISION  "201308120000Z"  --  Aug 12, 2013
+         DESCRIPTION   "Added new products and copyright update"
+
+         REVISION  "201203270000Z"  --  Mar 27, 2012
+         DESCRIPTION   "Updated REVISION for new product update and copyright update"
 
          REVISION  "200801140000Z"  --  Jan 14, 2008
          DESCRIPTION   "Updated copyright and CONTACT_INFO"
@@ -68,23 +83,91 @@ ib1852a 	OBJECT IDENTIFIER ::= { infobloxProducts 1305 }
 ib250a 		OBJECT IDENTIFIER ::= { infobloxProducts 1306 }
 ib2000a 	OBJECT IDENTIFIER ::= { infobloxProducts 1307 }
 
-ib4000 		OBJECT IDENTIFIER ::= { infobloxProducts 1420 }
-ib4010 		OBJECT IDENTIFIER ::= { infobloxProducts 1421 }
-ib4020 		OBJECT IDENTIFIER ::= { infobloxProducts 1422 }
+ib810 		OBJECT IDENTIFIER ::= { infobloxProducts 1401 }
+ib820 		OBJECT IDENTIFIER ::= { infobloxProducts 1402 }
+ib1410 		OBJECT IDENTIFIER ::= { infobloxProducts 1403 }
+ib1420 		OBJECT IDENTIFIER ::= { infobloxProducts 1404 }
+ib1400 		OBJECT IDENTIFIER ::= { infobloxProducts 1405 }
+ib800 		OBJECT IDENTIFIER ::= { infobloxProducts 1406 }
+pt1400 		OBJECT IDENTIFIER ::= { infobloxProducts 1407 }
 
-ibSNMP        OBJECT IDENTIFIER ::= { infoblox 3 }  -- oid for SNMP tree
-ibProduct     OBJECT IDENTIFIER ::= { ibSNMP 1 }
-ibOne         OBJECT IDENTIFIER ::= { ibProduct 1 }
-ibTrapOne     OBJECT IDENTIFIER ::= { ibOne 1 }
-ibPlatformOne OBJECT IDENTIFIER ::= { ibOne 2 }
-ibDNSOne      OBJECT IDENTIFIER ::= { ibOne 3 }
-ibDHCPOne     OBJECT IDENTIFIER ::= { ibOne 4 }
+ib2200 		OBJECT IDENTIFIER ::= { infobloxProducts 1411 }
+ib2210 		OBJECT IDENTIFIER ::= { infobloxProducts 1412 }
+ib2220 		OBJECT IDENTIFIER ::= { infobloxProducts 1413 }
+pt2200 		OBJECT IDENTIFIER ::= { infobloxProducts 1414 }
+
+ib4010 		OBJECT IDENTIFIER ::= { infobloxProducts 1421 }
+ib4030 		OBJECT IDENTIFIER ::= { infobloxProducts 1422 }
+ib4000 		OBJECT IDENTIFIER ::= { infobloxProducts 1423 }
+pt4000 		OBJECT IDENTIFIER ::= { infobloxProducts 1424 }
+ib4020 		OBJECT IDENTIFIER ::= { infobloxProducts 1425 }
+
+ib100 		OBJECT IDENTIFIER ::= { infobloxProducts 1431 }
+
+nd800           OBJECT IDENTIFIER ::= { infobloxProducts 1441 }
+nd1400          OBJECT IDENTIFIER ::= { infobloxProducts 1442 }
+nd2200          OBJECT IDENTIFIER ::= { infobloxProducts 1443 }
+nd4000          OBJECT IDENTIFIER ::= { infobloxProducts 1444 }
+
+ib815 		OBJECT IDENTIFIER ::= { infobloxProducts 1501 }
+ib825 		OBJECT IDENTIFIER ::= { infobloxProducts 1502 }
+ib1415 		OBJECT IDENTIFIER ::= { infobloxProducts 1503 }
+ib1425 		OBJECT IDENTIFIER ::= { infobloxProducts 1504 }
+ib1405 		OBJECT IDENTIFIER ::= { infobloxProducts 1505 }
+ib805 		OBJECT IDENTIFIER ::= { infobloxProducts 1506 }
+pt1405 		OBJECT IDENTIFIER ::= { infobloxProducts 1507 }
+
+ib2205 		OBJECT IDENTIFIER ::= { infobloxProducts 1511 }
+ib2215 		OBJECT IDENTIFIER ::= { infobloxProducts 1512 }
+ib2225 		OBJECT IDENTIFIER ::= { infobloxProducts 1513 }
+pt2205 		OBJECT IDENTIFIER ::= { infobloxProducts 1514 }
+
+ib4015 		OBJECT IDENTIFIER ::= { infobloxProducts 1521 }
+ib4035 		OBJECT IDENTIFIER ::= { infobloxProducts 1522 }
+ib4005 		OBJECT IDENTIFIER ::= { infobloxProducts 1523 }
+pt4005 		OBJECT IDENTIFIER ::= { infobloxProducts 1524 }
+ib4025 		OBJECT IDENTIFIER ::= { infobloxProducts 1525 }
+
+nd805           OBJECT IDENTIFIER ::= { infobloxProducts 1541 }
+nd1405          OBJECT IDENTIFIER ::= { infobloxProducts 1542 }
+nd2205          OBJECT IDENTIFIER ::= { infobloxProducts 1543 }
+nd4005          OBJECT IDENTIFIER ::= { infobloxProducts 1544 }
+
+ibflex          OBJECT IDENTIFIER ::= { infobloxProducts 1551 }
+
+ib906           OBJECT IDENTIFIER ::= { infobloxProducts 1601 }
+ib1506          OBJECT IDENTIFIER ::= { infobloxProducts 1602 }
+ib1606          OBJECT IDENTIFIER ::= { infobloxProducts 1603 }
+ib2306          OBJECT IDENTIFIER ::= { infobloxProducts 1604 }
+ib4106          OBJECT IDENTIFIER ::= { infobloxProducts 1605 }
+ib-926          OBJECT IDENTIFIER ::= { infobloxProducts 1606 }
+nd-906          OBJECT IDENTIFIER ::= { infobloxProducts 1607 }
+ib-1516         OBJECT IDENTIFIER ::= { infobloxProducts 1608 }
+ib-1526         OBJECT IDENTIFIER ::= { infobloxProducts 1609 }
+nd-1606         OBJECT IDENTIFIER ::= { infobloxProducts 1610 }
+ib-2326         OBJECT IDENTIFIER ::= { infobloxProducts 1611 }
+nd-2306         OBJECT IDENTIFIER ::= { infobloxProducts 1612 }
+ib-4126         OBJECT IDENTIFIER ::= { infobloxProducts 1613 }
+nd-4106         OBJECT IDENTIFIER ::= { infobloxProducts 1614 }
+tr-5005         OBJECT IDENTIFIER ::= { infobloxProducts 1615 }
+
+ibSNMP          OBJECT IDENTIFIER ::= { infoblox 3 }  -- oid for SNMP tree
+ibProduct       OBJECT IDENTIFIER ::= { ibSNMP 1 }
+ibOne           OBJECT IDENTIFIER ::= { ibProduct 1 }
+ibTrapOne       OBJECT IDENTIFIER ::= { ibOne 1 }
+ibPlatformOne   OBJECT IDENTIFIER ::= { ibOne 2 }
+ibDNSOne        OBJECT IDENTIFIER ::= { ibOne 3 }
+ibDHCPOne       OBJECT IDENTIFIER ::= { ibOne 4 }
+ibDataplaneOne  OBJECT IDENTIFIER ::= { ibOne 5 }
+
+ibDNSServ     OBJECT IDENTIFIER ::= { enterprises 32 }
+ibDHCPServ    OBJECT IDENTIFIER ::= { enterprises 9999 }
 
 IbString ::= TEXTUAL-CONVENTION
-   DISPLAY-HINT  "255a"
+   DISPLAY-HINT  "300a"
    STATUS        current
-   DESCRIPTION   "A text string with 255 octets"
-   SYNTAX        OCTET STRING (SIZE (0..255))
+   DESCRIPTION   "A text string with 300 octets"
+   SYNTAX        OCTET STRING (SIZE (0..300))
 
 IbNode ::= TEXTUAL-CONVENTION
    STATUS        current
@@ -100,6 +183,11 @@ IbIpv6Addr ::= TEXTUAL-CONVENTION
    STATUS        current
    DESCRIPTION   "An Ipv6 address in semicolon notation"
    SYNTAX        OCTET STRING (SIZE (0..46))
+
+IbFloat ::= TEXTUAL-CONVENTION
+   STATUS        current
+   DESCRIPTION   "A float value"
+   SYNTAX        Opaque (SIZE(7))
 
 END
 
