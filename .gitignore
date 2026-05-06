@@ -133,3 +133,6 @@ list.tmp
 log/*
 .pycache/**
 .DS_Store
+.idea
+.vscode
+.cursor
