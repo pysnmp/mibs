@@ -1,14 +1,14 @@
 -- ***************************************************************************
+-- ***************************************************************************
 --
 -- File         : imm.mib                      
 -- Description  : Integrated Management Module mib for SNMP
--- By           : Lenovo
--- Version      : 1.45
--- Date         : Aug 27, 2015
+-- By           : IBM
+-- Version      : 1.40
+-- Date         : October 29, 2013
 --
 --
--- Copyright (c) 2015 Lenovo  All Rights Reserved.
--- Copyright (c) 2015 IBM  All Rights Reserved.
+-- Copyright (c) 2013 IBM  All Rights Reserved.
 --
 -- 
 -- Contains MIB description for: 
@@ -17,54 +17,11 @@
 -- ***************************************************************************
 -- ***************************************************************************
 -- ***************************************************************************
--- Revisions:                   
---
---     08/27/15 - Added ipmiConfig, ipmiEnable
---
---     05/13/15 - Added phyPortLinkStatus, phyPortLinkSpeed for Adapter Network Port
---              - Added memoryConfigSpeed, memoryRatedSpeed for System Memory VPD
---              - Added cpuVpdCpuModel for System CPU VPD
---              - Added Full Postal Address support
---              - Added driveRotationRate, driveMediaErrCnt, driveOtherErrCnt, drivePredFailCnt for RAID Drive
---
---     05/05/15 - removed SNMPv2-TC import and modified InetAddressIPv6 
---
---     03/11/15 - Rebranding changes
---                          
---     12/08/14 - Added Subject Alt Names support
---
---     08/08/14 - 07/09/14 - Corrected Raid object syntax errors
---
---     06/26/14 - Corrected sslClientConfigForLDAP OID's  
---              - Added sslCertificateCSRDownloadFormat and description updates
---
---     06/19/14 - Fixed skr skrServerCertificateExpirationDate OID typo and adjust skrServer OIDs
---
---     06/04/14 - Added table to items that have insufficient compliance to the current crypto mode.
---
---     05/23/14 - Added objects for Certificate Removal and Expiration Date
---
---     03/24/14 - Added VLANs for System Management support  GA6
---
---     03/20/14 - Added NSA B cryptoModes  GA6
---
---     03/14/14 - Updated PCIe support. Added RAID Link support. Corrected remoteAccessIdEntryPassword
---                and minimumPasswordLength to support up to 20 characters.
---
---     02/19/14 - Added bootServerF1Setup and smtpServerReversePath  GA6
---
---     01/22/14 - Added PCIe objects
---
---     01/10/14 - Added LAN over USB IP Configuration Objects
---
---     01/08/14 - Added Audit Event Config for Remote Alert Recipients
---
---     12/17/13 - Modified FlashDIMM Objects, and correct previous backed off changes
---
---     12/04/13 - Added unsupported values to configurationManagementStatus object
---              - Changed PowerEntry powerIndex to a 0-index
---
---     11/13/2013 - Added FlashDIMM Objects
+-- Revisions:
+--     11/14/2013 - corrected syntax errors in scalability objects, 
+--       missing comma and added index ranges
+--      
+--     10/29/2013 - modified diskIndex object to be 0-index 
 --
 --     09/30/2013 - Corrected enumerated value names starting with upper case
 --
@@ -149,14 +106,14 @@
             -- PTE: added following 7/12/2011
             Gauge                                FROM RFC1155-SMI
 
-            -- TEXTUAL-CONVENTION                FROM SNMPv2-TC
+            TEXTUAL-CONVENTION                   FROM SNMPv2-TC
             TRAP-TYPE                            FROM RFC-1215;
 
             InetAddressIPv6 ::= TEXTUAL-CONVENTION
                         DISPLAY-HINT "02x:02x:02x:02x:02x:02x:02x:02x"
                         -- PTE: changed to mandatory
-                        STATUS       current
-                        -- STATUS       mandatory
+                        -- STATUS       current
+                        STATUS       mandatory
                         DESCRIPTION
                         "Represents an IPv6 network address. Since MIB browsers
                          may require different formats, the address is
@@ -216,16 +173,16 @@
               -- and will allow for that possibility in its
               -- determination of this abnormally long period.
 
-        -- enterprise group  
+        -- IBM enterprise group  
         ibm         OBJECT IDENTIFIER ::=   { enterprises 2 }
 
-        -- products group
+        -- IBM products group
         ibmAgents      OBJECT IDENTIFIER ::=   { ibm 3 }
 
-        -- e-Server Advanced System Management Support Processor(SP) agent group
+        -- IBM e-Server Advanced System Management Support Processor(SP) agent group
         netfinitySupportProcessorAgent OBJECT IDENTIFIER ::= { ibmAgents 51 }
 
-        -- integrated Management Module
+        -- IBM integrated Management Module
         ibmIntegratedManagementModuleMIB     OBJECT IDENTIFIER ::= { netfinitySupportProcessorAgent 3 }
 
 -- ***************************************************************************
@@ -1125,8 +1082,7 @@
                   cpuVpdThreads INTEGER,
                   cpuVpdVoltage INTEGER,
                   cpuVpdDataWidth INTEGER,
-                  cpuVpdHealthStatus DisplayString,  --IMM2-only
-                  cpuVpdCpuModel DisplayString  --IMM2-only
+                  cpuVpdHealthStatus DisplayString  --IMM2-only
       }
 
       cpuVpdIndex  OBJECT-TYPE
@@ -1230,15 +1186,6 @@
                   individual entries for consistent results."
                   ::= { systemCPUVpdEntry 11 }
 
-      cpuVpdCpuModel  OBJECT-TYPE   --IMM2-only
-                  SYNTAX  DisplayString
-                  ACCESS  read-only
-                  STATUS  mandatory
-                  DESCRIPTION
-                  "System cpu model.  View as a table and not as
-                  individual entries for consistent results."
-                  ::= { systemCPUVpdEntry 12 }
-
       -- ***********************************************************************
       -- System Memory VPD 
       -- ***********************************************************************
@@ -1269,9 +1216,7 @@
                   memoryVpdManufactureDate DisplayString,
                   memoryVpdType DisplayString,
                   memoryVpdSize INTEGER,
-                  memoryHealthStatus DisplayString,  -- IMM2-only
-                  memoryConfigSpeed INTEGER,  -- IMM2-only
-                  memoryRatedSpeed INTEGER  -- IMM2-only
+                  memoryHealthStatus DisplayString  -- IMM2-only
       }
 
       memoryVpdIndex  OBJECT-TYPE
@@ -1344,24 +1289,6 @@
                   STATUS    mandatory
                   DESCRIPTION	"A description of the memory component status."
                   ::= { systemMemoryVpdEntry 8 }	
-
-      memoryConfigSpeed  OBJECT-TYPE -- IMM2-only
-                  SYNTAX  INTEGER
-                  ACCESS  read-only
-                  STATUS  mandatory
-                  DESCRIPTION
-                  "System configured memory clock speed in MHz.  View as a table and not as
-                  individual entries for consistent results."
-                  ::= { systemMemoryVpdEntry 9 }
-
-      memoryRatedSpeed  OBJECT-TYPE -- IMM2-only
-                  SYNTAX  INTEGER
-                  ACCESS  read-only
-                  STATUS  mandatory
-                  DESCRIPTION
-                  "System rated memory clock speed in MB/s.  View as a table and not as
-                  individual entries for consistent results."
-                  ::= { systemMemoryVpdEntry 10 }
 
      -- ********************************************************************************
      -- Users  IMM2-only
@@ -2001,7 +1928,7 @@
 
     PowerEntry ::=
          SEQUENCE {
-	     powerIndex             INTEGER (0..100),
+	     powerIndex             INTEGER (1..100),
 	     powerFruName           DisplayString,
          powerPartNumber        DisplayString,
          powerFRUNumber         DisplayString,
@@ -2010,7 +1937,7 @@
          }
 
     powerIndex      OBJECT-TYPE
-         SYNTAX     INTEGER (0..100)
+         SYNTAX     INTEGER (1..100)
          ACCESS     read-only
          STATUS     mandatory
          DESCRIPTION	"This column is used to identify a particular power module inventory channel."
@@ -2106,2248 +2033,8 @@
          STATUS     mandatory
          DESCRIPTION	"A description of the disk module status."
          ::= { diskEntry 3 }	
-
-  -- ********************************************************************************
-  -- Local Storage  IMM2-only
-  -- ********************************************************************************
-
-     localStorage  OBJECT IDENTIFIER ::= { monitors 13 }  
-     
-     -- ********************************************************************************
-     -- RAID Group  IMM2-only. Only the platform supports the OOB RAID function and
-     -- RAID cards, this table can be queried.
-     -- ********************************************************************************
-	 
-     raid  OBJECT IDENTIFIER ::= { localStorage 1 }
-
-     -- ********************************************************************************
-     -- Physical Resource: The properties of RAID Controller  IMM2-only
-     -- ********************************************************************************
-
-    raidOOBCapable     OBJECT-TYPE
-         SYNTAX    INTEGER {
-                   disabled(0),
-                   enabled(1)
-                 }
-         ACCESS     read-only
-         STATUS     mandatory
-         DESCRIPTION    "If raidOOBCapable is disabled, all the RAID information is not available."
-         ::= { raid 1 }
-     
-    raidControllerTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF RaidControllerEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Local Storage RAID Controller information."
-            ::= { raid 2 }
-
-    raidControllerEntry     OBJECT-TYPE
-            SYNTAX     RaidControllerEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID Controller Entry."
-            INDEX { controllerIndex }
-            ::= { raidControllerTable 1 }
-
-    RaidControllerEntry ::= SEQUENCE {
-            controllerIndex       INTEGER,
-            ctrlName              DisplayString,  
-            ctrlVPDProdName       DisplayString,
-            ctrlFWPkgVersion      DisplayString,
-            ctrlBatBCK            INTEGER,
-            ctrlVPDManufacture    DisplayString,
-            ctrlVPDUUID           DisplayString,
-            ctrlVPDMachineType    DisplayString,
-			ctrlVPDModel          DisplayString,
-            ctrlVPDSerialNo       DisplayString,
-            ctrlVPDFRUNo          DisplayString,
-            ctrlVPDPartNo         DisplayString,
-            ctrlCacheMdlStatus    DisplayString,
-            ctrlCacheMdlMemSize   DisplayString,
-            ctrlCacheMdlSerialNo  DisplayString,
-            ctrlPCISlotNo         INTEGER,
-            ctrlPCIBusNo          INTEGER,
-            ctrlPCIDevNo          INTEGER,
-            ctrlPCIFuncNo         INTEGER,
-            ctrlPCIDevID          DisplayString,
-            ctrlPCISubDevID       DisplayString,
-            ctrlBatBCKProdName    DisplayString,
-            ctrlBatBCKManufacture DisplayString,
-            ctrlBatBCKStatus      DisplayString,
-            ctrlBatBCKType        DisplayString,
-            ctrlBatBCKChem        DisplayString,
-            ctrlBatBCKSerialNo    DisplayString,
-            ctrlBatBCKChgCap      DisplayString,
-            ctrlBatBCKDgnChgCap   DisplayString,
-            ctrlBatBCKCrtTemp     DisplayString,
-			ctrlBatBCKFirmware    DisplayString,
-			ctrlBatBCKDgnVoltage  DisplayString,
-			ctrlBatBCKVoltage     DisplayString,
-			ctrlBatCurrent        DisplayString,
-            ctrlFWNames           DisplayString,
-            ctrlPortDetails       DisplayString,
-            ctrlStoragepools      DisplayString,
-            ctrlDrives            DisplayString
-    }
-     
-    controllerIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID controller."
-            ::= { raidControllerEntry 1 }
-            
-    ctrlName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to offer a name of one RAID controller."
-            ::= { raidControllerEntry 2 }
-      
-    ctrlVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of a particular RAID controller."
-            ::= { raidControllerEntry 3 }
-
-    ctrlFWPkgVersion     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Firmware Package Version of a particular RAID controller."
-            ::= { raidControllerEntry 4 }
-
-    ctrlBatBCK     OBJECT-TYPE
-            SYNTAX     INTEGER {
-             uninstalled(0),
-             installed(1)
-                 }
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "Whether Battery Backup of a particular RAID controller is installed."
-            ::= { raidControllerEntry 5 }
-  
-  
-    ctrlVPDManufacture     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacture of a particular RAID controller."
-            ::= { raidControllerEntry 6 }
-
-    ctrlVPDUUID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Device ID (UUID) of a particular RAID controller."
-            ::= { raidControllerEntry 7 }
-
-    ctrlVPDMachineType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model Type/Model of a particular RAID controller."
-            ::= { raidControllerEntry 8 }
-			
-	ctrlVPDModel     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model Type/Model of a particular RAID controller."
-            ::= { raidControllerEntry 9 }
-
-    ctrlVPDSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial Number of a particular RAID controller."
-            ::= { raidControllerEntry 10 }
-
-    ctrlVPDFRUNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FRU Number of a particular RAID controller."
-            ::= { raidControllerEntry 11 }
-
-    ctrlVPDPartNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Part Number of a particular RAID controller."
-            ::= { raidControllerEntry 12 }
-
-    ctrlCacheMdlStatus     OBJECT-TYPE
-            SYNTAX     DisplayString 
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Cache Model Status of a particular RAID controller."
-            ::= { raidControllerEntry 13 }
-
-    ctrlCacheMdlMemSize     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Cache Model Memory Size of a particular RAID controller."
-            ::= { raidControllerEntry 14 }
-
-    ctrlCacheMdlSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Cache Model Serial Number of a particular RAID controller."
-            ::= { raidControllerEntry 15 }
-
-    ctrlPCISlotNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Slot Number of a particular RAID controller."
-            ::= { raidControllerEntry 16 }
-
-    ctrlPCIBusNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Bus Number of a particular RAID controller."
-            ::= { raidControllerEntry 17 }
-
-    ctrlPCIDevNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device Number of a particular RAID controller."
-            ::= { raidControllerEntry 18 }
-
-    ctrlPCIFuncNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Function Number of a particular RAID controller."
-            ::= { raidControllerEntry 19 }
-
-    ctrlPCIDevID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device ID of a particular RAID controller."
-            ::= { raidControllerEntry 20 }
-
-     ctrlPCISubDevID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Device ID of a particular RAID controller."
-            ::= { raidControllerEntry 21 }
-
-     ctrlBatBCKProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 22 }
-
-    ctrlBatBCKManufacture     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacture of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 23 }
-
-    ctrlBatBCKStatus     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Status of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 24 }
-
-    ctrlBatBCKType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Battery Type of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 25 }
-
-    ctrlBatBCKChem     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Chemistry of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 26 }
-
-    ctrlBatBCKSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial Number of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 27 }
-
-    ctrlBatBCKChgCap     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Charge Capacity of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 28 }
-
-	ctrlBatBCKFirmware    OBJECT-TYPE
-			SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Firmware Info of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 29 }
-			
-	ctrlBatBCKDgnVoltage  OBJECT-TYPE
-			SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Designed Voltage of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 30 }
-			
-	ctrlBatBCKVoltage     OBJECT-TYPE
-			SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Voltage of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 31 }
-			
-	ctrlBatCurrent        OBJECT-TYPE
-			SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Current of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 32 }
-			
-    ctrlBatBCKDgnChgCap     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Design Charge Capacity of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 33 }
-
-    ctrlBatBCKCrtTemp     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Current degree Celsius temperature of Battery Backup of a particular RAID controller."
-            ::= { raidControllerEntry 34 }
-
-    ctrlFWNames     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "All the Firmware Names of a particular RAID controller."
-            ::= { raidControllerEntry 35 }
-
-    ctrlPortDetails     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "All the Port Details of a particular RAID controller, including Port Address and Port Controller Type."
-            ::= { raidControllerEntry 36 }
-
-    ctrlStoragepools     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The storage pools list of a particular RAID controller."
-            ::= { raidControllerEntry 37 }
-
-    ctrlDrives     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Physical drives list of a particular RAID controller."
-            ::= { raidControllerEntry 38 }
-
-    -- ********************************************************************************
-    -- Physical Resource: The properties of RAID Driver  IMM2-only
-    -- ********************************************************************************
-
-    raidDriveTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF RaidDriveEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Logic Storage RAID Drive information."
-            ::= { raid 3 }
-
-    raidDriveEntry     OBJECT-TYPE
-            SYNTAX     RaidDriveEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID Drive Entry."
-            INDEX { driveIndex }
-            ::= { raidDriveTable 1 }
-
-    RaidDriveEntry ::= SEQUENCE {
-            driveIndex             INTEGER,
-            driveName              DisplayString,
-            driveVPDProdName       DisplayString,
-            driveState             DisplayString,
-            driveSlotNo            INTEGER,
-            driveDeviceID          DisplayString,
-            driveDiskType          DisplayString,
-            driveMediaType         DisplayString,
-            driveSpeed             DisplayString,
-            driveCurTemp           DisplayString,
-            driveHealthStataus     DisplayString,
-            driveCapacity          DisplayString,
-            driveVPDManufacture    DisplayString,
-            driveEnclosureID       DisplayString,
-            driveVPDMachineType    DisplayString,
-            driveVPDModel          DisplayString,
-            driveVPDSerialNo       DisplayString,
-            driveVPDFRUNo          DisplayString,
-            driveVPDPartNo         DisplayString,
-            driveFWNames           DisplayString,
-            driveRotationRate      DisplayString,
-            driveMediaErrCnt       Gauge,
-            driveOtherErrCnt       Gauge,
-            drivePredFailCnt       Gauge
-    }
-
-    driveIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID drive."
-            ::= { raidDriveEntry 1 }
-   
-    driveName    OBJECT-TYPE
-         SYNTAX   DisplayString
-         ACCESS   read-only
-         STATUS   mandatory
-         DESCRIPTION   "A particular drive name."
-         ::= { raidDriveEntry 2 }
-
-    driveVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of a particular RAID drive."
-            ::= { raidDriveEntry 3 }
-
-    driveState     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The State of a particular RAID drive."
-            ::= { raidDriveEntry 4 }
-
-    driveSlotNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Slot No. of a particular RAID drive."
-            ::= { raidDriveEntry 5 }
-
-	driveDeviceID   OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Device ID of a particular RAID drive."
-            ::= { raidDriveEntry 6 }
-	
-    driveDiskType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Disk Type of a particular RAID drive."
-            ::= { raidDriveEntry 7 }
-
-    driveMediaType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Media Type of a particular RAID drive."
-            ::= { raidDriveEntry 8 }
-
-    driveSpeed     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Speed of a particular RAID drive."
-            ::= { raidDriveEntry 9 }
-
-    driveCurTemp     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Current degree Celsius temperature of a particular RAID drive."
-            ::= { raidDriveEntry 10 }
-
-    driveHealthStataus     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Health Status of a particular RAID drive."
-            ::= { raidDriveEntry 11 }
-
-    driveCapacity     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Capacity of a particular RAID drive."
-            ::= { raidDriveEntry 12 }
-
-    driveVPDManufacture     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacture of a particular RAID drive."
-            ::= { raidDriveEntry 13 }
-			
-    driveEnclosureID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Enclosure ID of a particular RAID drive."
-            ::= { raidDriveEntry 14 }
-
-    driveVPDMachineType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Machine type of a particular RAID drive."
-            ::= { raidDriveEntry 15 }
-			
-	driveVPDModel     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model of a particular RAID drive."
-            ::= { raidDriveEntry 16 }
-
-    driveVPDSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial No. of a particular RAID drive."
-            ::= { raidDriveEntry 17 }
-
-    driveVPDFRUNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FRU No. of a particular RAID drive."
-            ::= { raidDriveEntry 18 }
-
-    driveVPDPartNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Part No. of a particular RAID drive."
-            ::= { raidDriveEntry 19 }
-
-    driveFWNames     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "All the Firmware Names of a particular RAID drive."
-            ::= { raidDriveEntry 20 }
-
-    driveRotationRate     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Rotation Rate of a particular RAID drive."
-            ::= { raidDriveEntry 21 }
-
-    driveMediaErrCnt     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Media Error Count of a particular RAID drive."
-            ::= { raidDriveEntry 22 }
-
-    driveOtherErrCnt     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Other Error Count of a particular RAID drive."
-            ::= { raidDriveEntry 23 }
-
-    drivePredFailCnt     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Predication Fail Count of a particular RAID drive."
-            ::= { raidDriveEntry 24 }
-			
-    -- *************************************************************************************
-    -- Physical Resource: The properties of RAID Controller Firmwares information  IMM2-only
-    -- *************************************************************************************
-
-    raidControllerFirmwareTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF RaidFirmwareEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Logic Storage RAID Controller Firmware information."
-            ::= { raid 4 }
-
-    raidFirmwareEntry     OBJECT-TYPE
-            SYNTAX     RaidFirmwareEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID Firmware Entry."
-            INDEX { firmwareIndex }
-            ::= { raidControllerFirmwareTable 1 }
-      
-    RaidFirmwareEntry ::= SEQUENCE {
-            firmwareIndex     INTEGER,
-            fwName            DisplayString,
-            ctrlName          DisplayString,            
-            fwDescription     DisplayString,
-            fwManufacture     DisplayString,
-            fwVersion         DisplayString,
-            fwReleaseDate     DisplayString
-    }
-   
-    firmwareIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID Controller firmware."
-            ::= { raidFirmwareEntry 1 }
-  
-    fwName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Name of a particular RAID Controller firmware."
-            ::= { raidFirmwareEntry 2 }
-   
-    ctrlName    OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The controller name of the firmwares."
-            ::= { raidFirmwareEntry 3 }
-
-    fwDescription     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Description of a particular RAID Controller firmware."
-            ::= { raidFirmwareEntry 4 }
-
-    fwManufacture     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacture of a particular RAID Controller firmware."
-            ::= { raidFirmwareEntry 5 }
-
-    fwVersion     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Version of a particular RAID Controller firmware."
-            ::= { raidFirmwareEntry 6 }
-
-    fwReleaseDate     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Release Date of a particular RAID Controller firmware."
-            ::= { raidFirmwareEntry 7 }
-      
-      
-    -- *************************************************************************************
-    -- Physical Resource: The properties of RAID Drive Firmwares information  IMM2-only
-    -- ********************************************************************************
-
-    raidDriveFirmwareTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF RaidDriveFirmwareEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Logic Storage RAID Drive Firmware information."
-            ::= { raid 5 }
-
-    raidDriveFirmwareEntry     OBJECT-TYPE
-            SYNTAX     RaidDriveFirmwareEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID Drive Firmware Entry."
-            INDEX { firmwareIndex }
-            ::= { raidDriveFirmwareTable 1 }
-      
-    RaidDriveFirmwareEntry ::= SEQUENCE {
-            firmwareIndex     INTEGER,
-            fwName            DisplayString,
-            driveName         DisplayString,
-            fwDescription     DisplayString,
-            fwManufacture     DisplayString,
-            fwVersion         DisplayString,
-            fwReleaseDate     DisplayString
-     }
-   
-    firmwareIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID Drive firmware."
-            ::= { raidDriveFirmwareEntry 1 }
-  
-    fwName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Name of a particular RAID Drive firmware."
-            ::= { raidDriveFirmwareEntry 2 }
-
-    driveName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The drive name of the firmwares."
-            ::= { raidDriveFirmwareEntry 3 }
-
-    fwDescription     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Description of a particular RAID Drive firmware."
-            ::= { raidDriveFirmwareEntry 4 }
-
-    fwManufacture     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacture of a particular RAID Drive firmware."
-            ::= { raidDriveFirmwareEntry 5 }
-
-    fwVersion     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Version of a particular RAID Drive firmware."
-            ::= { raidDriveFirmwareEntry 6 }
-
-    fwReleaseDate     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Release Date of a particular RAID Drive firmware."
-            ::= { raidDriveFirmwareEntry 7 }
-			
-			
-    -- ********************************************************************************
-    -- Physical Resource: The properties of RAID Storagepool information  IMM2-only
-    -- ********************************************************************************
-   
-    raidStoragepoolTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF RaidStoragepoolEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Logic Storage RAID Storagepool information."
-            ::= { raid 6 }
-
-    raidStoragepoolEntry     OBJECT-TYPE
-            SYNTAX     RaidStoragepoolEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID Storagepool Entry."
-            INDEX { storagepoolIndex }
-            ::= { raidStoragepoolTable 1 }
-      
-    RaidStoragepoolEntry ::= SEQUENCE {
-            storagepoolIndex        INTEGER,
-            storagepoolName         DisplayString,
-			controllerName          DisplayString,
-            storagepoolState        DisplayString,
-            storagepoolCapacity     DisplayString,
-            storagepoolVols         DisplayString,
-            storagepoolDrives       DisplayString
-    }
-   
-    storagepoolIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID storagepool."
-            ::= { raidStoragepoolEntry 1 }
-  
-    storagepoolName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The name of a particular RAID storagepool."
-            ::= { raidStoragepoolEntry 2 }
-    controllerName      OBJECT-TYPE
-			SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The controller name of the storagepool."
-            ::= { raidStoragepoolEntry 3 }
-    storagepoolState     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The RAID State of a particular RAID storagepool."
-            ::= { raidStoragepoolEntry 4 }
-
-    storagepoolCapacity     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Capacity of a particular RAID storagepool, including total capacity and free capacity."
-            ::= { raidStoragepoolEntry 5 }
-
-    storagepoolVols     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The volumes list of a particular RAID storagepool."
-            ::= { raidStoragepoolEntry 6 }
-
-    storagepoolDrives     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The physical drives list of a particular RAID storagepool."
-            ::= { raidStoragepoolEntry 7 }
-
-    -- ********************************************************************************
-    -- Physical Resource: The properties of RAID Volume information  IMM2-only
-    -- ********************************************************************************
-
-    raidVolumeTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF RaidVolumeEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Logic Storage RAID Volume information."
-            ::= { raid 7 }
-
-    raidVolumeEntry     OBJECT-TYPE
-            SYNTAX     RaidVolumeEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID Volume Entry."
-            INDEX { volumeIndex }
-            ::= { raidVolumeTable 1 }
-      
-    RaidVolumeEntry ::= SEQUENCE {
-            volumeIndex      INTEGER,
-            volumeName       DisplayString,
-			controllerName   DisplayString,
-            volumeStatus     DisplayString,
-            volumeCapacity   DisplayString,
-			volumeStripSize  DisplayString,
-            volumeBootable    DisplayString
-     }
-   
-    volumeIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID volume."
-            ::= { raidVolumeEntry 1 }
-
-    volumeName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Name of a particular RAID volume."
-            ::= { raidVolumeEntry 2 }
     
-	controllerName    OBJECT-TYPE
-			SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The controller name of the volume."
-            ::= { raidVolumeEntry 3 }
-	
-    volumeStatus     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Status of a particular RAID volume."
-            ::= { raidVolumeEntry 4 }
-
-    volumeCapacity     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Capacity of a particular RAID volume."
-            ::= { raidVolumeEntry 5 }
     
-	volumeStripSize     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The strip size of the RAID volume."
-            ::= { raidVolumeEntry 6 }
-	
-    volumeBootable     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "Whether the RAID volume is bootable."
-            ::= { raidVolumeEntry 7 } 
-            
-     -- ***********************************************************************
-     --  FlashDIMM  IMM2-only
-     -- ***********************************************************************
-                        
-        flashdimm OBJECT IDENTIFIER ::= { localStorage 2 }  
-    
-        fdNumber      OBJECT-TYPE
-             SYNTAX     Gauge
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"The present number of rows in the disk flashdimm table."
-             ::= { flashdimm 1 }
-
-        fdTable      OBJECT-TYPE
-             SYNTAX     SEQUENCE OF FdEntry
-             ACCESS     not-accessible
-             STATUS     mandatory
-             DESCRIPTION	"This table contains flashdimm inventory information."
-             ::= { flashdimm 2 }
-
-        fdEntry       OBJECT-TYPE
-             SYNTAX     FdEntry
-             ACCESS     not-accessible
-             STATUS     mandatory
-             DESCRIPTION	"Each row contains parameters related to a flashdimm module inventory channel."
-             INDEX      { diskIndex }
-             ::= { fdTable 1 }
-
-        FdEntry ::=
-             SEQUENCE {
-             fdIndex         INTEGER (1..100),
-             fdFruName        DisplayString,
-             fdHealthStatus   DisplayString,
-             fdOpState        DisplayString,
-             fdCapacity       DisplayString,
-             fdModelType      DisplayString,
-             fdPartNum        DisplayString,
-             fdFruSerialNum   DisplayString,
-             fdManufID        DisplayString,
-             fdTemp           DisplayString,
-             fdWarrWrites     DisplayString,
-             fdWriteEndurance DisplayString,
-             fdFwLevel        DisplayString
-             }
-
-        fdIndex       OBJECT-TYPE
-             SYNTAX     INTEGER (1..100)
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"This column is used to identify a particular 
-        			flashdimm module inventory channel."
-             ::= { fdEntry 1 }
-
-        fdFruName     OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"flashdimm module FRU name."
-             ::= { fdEntry 2 }
-             
-        fdHealthStatus OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module health status."
-             ::= { fdEntry 3 }	
-
-        fdOpState     OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module operation status."
-             ::= { fdEntry 4 }	
-
-        fdCapacity    OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module capacity."
-             ::= { fdEntry 5 }	
-
-        fdModelType   OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module type."
-             ::= { fdEntry 6 }	
-
-        fdPartNum     OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module part number."
-             ::= { fdEntry 7 }	
-
-        fdFruSerialNum OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module serial number."
-             ::= { fdEntry 8 }	
-
-        fdManufID     OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module manufacture id."
-             ::= { fdEntry 9 }	
-
-        fdTemp        OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module temperature."
-             ::= { fdEntry 10 }	
-
-        fdWarrWrites  OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module warranty writes."
-             ::= { fdEntry 11 }	
-
-        fdWriteEndurance  OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module write endurance."
-             ::= { fdEntry 12 }	
-
-        fdFwLevel     OBJECT-TYPE
-             SYNTAX     DisplayString (SIZE(0..31))
-             ACCESS     read-only
-             STATUS     mandatory
-             DESCRIPTION	"A description of the flashdimm module status."
-             ::= { fdEntry 13 }	
-
-    -- ********************************************************************************
-    --    Adapter  IMM2-only
-    -- ********************************************************************************
-
-    adapters OBJECT IDENTIFIER ::= { monitors 14 }
-         
-     
-    -- *************************************************************************************
-    -- Physical Resource: The properties of Adapters generic information  IMM2-only
-    -- ********************************************************************************
-
-    adapterOOBCapable     OBJECT-TYPE
-            SYNTAX     INTEGER{
-                disable(0),
-                enable(1)
-            }
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "If adapterOOBCapable is disabled, all the adapter information is not available."
-            ::= { adapters 1 }
-
-    adapterGenericTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterGenericEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of all adapters generic information"
-            ::= { adapters 2 }
-            
-    adapterGenericEntry     OBJECT-TYPE
-            SYNTAX     AdapterGenericEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Adapters generic information entry."
-            INDEX { adapterGenericIndex }
-            ::= { adapterGenericTable 1 }
-
-    AdapterGenericEntry ::= SEQUENCE {
-            adapterGenericIndex         INTEGER,
-            adapterVPDProdName          DisplayString,
-            adapterSlotNo               INTEGER,
-            adapterLocation             DisplayString,
-            adapterCardInterface        DisplayString
-    }
-
-    adapterGenericIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular PCI adapter."
-            ::= { adapterGenericEntry 1 }
-
-    adapterVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of a particular PCI adapter. And if the Product Name contains PFA, PFA is in HEX."
-            ::= { adapterGenericEntry 2 }
-            
-    adapterSlotNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This Slot No. of a particular PCI adapter"
-            ::= { adapterGenericEntry 3 }
-
-    adapterLocation     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Location of a particular PCI adapter."
-            ::= { adapterGenericEntry 4 }
-   
-    adapterCardInterface     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Card Interface of a particular PCI adapter."
-            ::= { adapterGenericEntry 5 }
-            
-    -- *************************************************************************************
-    -- Firmware Information: The properties of Network Function information  IMM2-only
-    -- ********************************************************************************            
-
-    adapterNetworkFunctionTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterNetworkFunctionEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Network Function information."
-            ::= { adapters 3 }
-
-    adapterNetworkFunctionEntry     OBJECT-TYPE
-            SYNTAX     AdapterNetworkFunctionEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Network function information entry."
-            INDEX { networkAdapterIndex }
-            ::= { adapterNetworkFunctionTable 1 }
-      
-    AdapterNetworkFunctionEntry ::= SEQUENCE {
-            networkAdapterIndex         INTEGER,
-            networkVPDProdName          DisplayString,
-            adapterVPDProdName          DisplayString,
-            networkVPDManufacturer      DisplayString,
-            networkVPDUUID              DisplayString,
-            networkVPDModel             DisplayString,
-            networkVPDSerialNo          DisplayString,
-            networkVPDFRUNo             DisplayString,
-            networkVPDPartNo            DisplayString,
-            networkFoDUID               DisplayString,
-            networkSupportHotPlug       INTEGER,
-            networkPhysicalPortNumber   INTEGER,
-            networkMaxPortNumber        INTEGER,
-            networkPortNumber           INTEGER,
-            networkMaxDataWidth         INTEGER,
-            networkPackageType          DisplayString,
-            networkPCIBusNo             INTEGER,
-            networkPCIDevNo             INTEGER,
-            networkPCIFuncNo            INTEGER,
-            networkPCIVendorId          DisplayString,
-            networkPCIDevId             DisplayString,
-            networkPCIDevType           DisplayString,
-            networkPCIRevId             DisplayString,
-            networkPCISubVendorId       DisplayString,
-            networkPCISubDevId          DisplayString,
-            networkPCISlotDesignation   DisplayString
-     }
-    
-    networkAdapterIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular network function."
-            ::= { adapterNetworkFunctionEntry 1 }
-            
-    networkVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name and PFA of a particular network function and PFA is in HEX."
-            ::= { adapterNetworkFunctionEntry 2 }
-
-    adapterVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of a particular adapter providing this function. And if the Product Name contains PFA, PFA is in HEX."
-            ::= { adapterNetworkFunctionEntry 3 }
-            
-    networkVPDManufacturer     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacturer of a particular network function."
-            ::= { adapterNetworkFunctionEntry 4 }
-
-    networkVPDUUID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The UUID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 5 }
-   
-    networkVPDModel     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model of a particular network function."
-            ::= { adapterNetworkFunctionEntry 6 }
-            
-    networkVPDSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial No. of a particular network function."
-            ::= { adapterNetworkFunctionEntry 7 }
-
-    networkVPDFRUNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FRU No. of a particular network function."
-            ::= { adapterNetworkFunctionEntry 8 }
-   
-    networkVPDPartNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Part No. of a particular network function."
-            ::= { adapterNetworkFunctionEntry 9 }
-            
-    networkFoDUID        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FoD UID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 10 }
-            
-    networkSupportHotPlug     OBJECT-TYPE
-            SYNTAX     INTEGER {
-               false(0),
-               true(1)
-            }
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "Indicates whether the network function supports hot plug."
-            ::= { adapterNetworkFunctionEntry 11 }
-
-    networkPhysicalPortNumber     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Physical Port Number of a particular network function."
-            ::= { adapterNetworkFunctionEntry 12 }
-
-    networkMaxPortNumber     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Max Port Number of a particular network function."
-            ::= { adapterNetworkFunctionEntry 13 }
-
-    networkPortNumber     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Port Number of a particular network function."
-            ::= { adapterNetworkFunctionEntry 14 }
-
-    networkMaxDataWidth     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Maximum Data Width in Gbps of a particular network funtion."
-            ::= { adapterNetworkFunctionEntry 15 }
-
-    networkPackageType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Package Type of a particular network function."
-            ::= { adapterNetworkFunctionEntry 16 }
-           
-    networkPCIBusNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Bus No. of a particular network function."
-            ::= { adapterNetworkFunctionEntry 17 }
-            
-    networkPCIDevNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device No. of a particular network function."
-            ::= { adapterNetworkFunctionEntry 18 }
-            
-    networkPCIFuncNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Function No. of a particular network function."
-            ::= { adapterNetworkFunctionEntry 19 }
-
-    networkPCIVendorId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Vendor ID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 20 }
-            
-    networkPCIDevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device ID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 21 }
-
-    networkPCIDevType        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device Type of a particular network function."
-            ::= { adapterNetworkFunctionEntry 22 }
-
-    networkPCIRevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Revision ID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 23 }
-
-    networkPCISubVendorId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Vendor ID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 24 }
-
-    networkPCISubDevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Device ID of a particular network function."
-            ::= { adapterNetworkFunctionEntry 25 }
-
-    networkPCISlotDesignation        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Slot Designation of a particular network function."
-            ::= { adapterNetworkFunctionEntry 26 }
-           
-    -- *************************************************************************************
-    -- Physical Resource: The Port information of Network Function  IMM2-only
-    -- ********************************************************************************
-
-    adapterNetworkPortTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterNetworkPortEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Ports of Network Function information."
-            ::= { adapters 4 }
-
-    adapterNetworkPortEntry     OBJECT-TYPE
-            SYNTAX     AdapterNetworkPortEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Ports of Network Function information entry."
-            INDEX { portIndex }
-            ::= { adapterNetworkPortTable 1 }
-      
-    AdapterNetworkPortEntry ::= SEQUENCE {
-            portIndex                  INTEGER,
-            networkVPDProdName         DisplayString,
-            phyPortNo                  INTEGER,
-            phyPortConnector           DisplayString,
-            phyPortBurnedinAddress     DisplayString,
-            portNo                     INTEGER,
-            portMaxDataSize            Gauge,
-            portPermanentAddress       DisplayString,
-            portNetworkAddress         DisplayString,
-            portLinkTechnology         DisplayString,
-            portvNICMode               DisplayString,
-            portMaxSpeed               DisplayString,
-            portProtocolType           DisplayString,
-            portCurrentProtocol        DisplayString,
-            portFCoEPermanentAddress   DisplayString,
-            portFCoENetworkAddress     DisplayString,
-            portConnectionType         DisplayString,
-            portRole                   DisplayString,
-            portTargetRelativePortNo   Gauge,
-            phyPortLinkStatus          DisplayString,
-            phyPortLinkSpeed           DisplayString
-     }
-   
-    portIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular network port."
-            ::= { adapterNetworkPortEntry 1 }
-    
-    networkVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name and PFA of the network function for this port and PFA is in HEX."
-            ::= { adapterNetworkPortEntry 2 }
-    
-    phyPortNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Physical Port No. in the network function for this port."
-            ::= { adapterNetworkPortEntry 3 }
-            
-    phyPortConnector     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Physical Port Connector Layout in the network function for this port."
-            ::= { adapterNetworkPortEntry 4 }
-
-    phyPortBurnedinAddress     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Physical Permanent (burned-In) Address of a particular network port."
-            ::= { adapterNetworkPortEntry 5 }
-
-    portNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Port No. of this network port in the network function."
-            ::= { adapterNetworkPortEntry 6 }
-
-    portMaxDataSize     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Port Max Data Size of this network port in the network function."
-            ::= { adapterNetworkPortEntry 7 }
-
-    portPermanentAddress     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Permanent Address of a particular network port."
-            ::= { adapterNetworkPortEntry 8 }
-
-    portNetworkAddress     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Network Address of a particular network port."
-            ::= { adapterNetworkPortEntry 9 }
-   
-    portLinkTechnology     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Link Technology of a particular network port."
-            ::= { adapterNetworkPortEntry 10 }
-
-    portvNICMode     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "If the logical port vNIC mode is Virtual Fabric mode, Switch Independent mode, 
-                      or Unified Fabric Protocol mode, this column returns 1(enabled), otherwise, the columen
-                      returns 0(disabled)"
-            ::= { adapterNetworkPortEntry 11 }
-
-    portMaxSpeed     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Maximum Bandwidth in Gbps of a particular network port."
-            ::= { adapterNetworkPortEntry 12 }
-
-    portProtocolType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Protocol Type of a particular network port."
-            ::= { adapterNetworkPortEntry 13 }
-
-    portCurrentProtocol     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Current Work Protocol of a particular network port."
-            ::= { adapterNetworkPortEntry 14 }
-
-    portFCoEPermanentAddress     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FCoE Permanent Address of a particular network port."
-            ::= { adapterNetworkPortEntry 15 }
-
-    portFCoENetworkAddress     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FCoE Network Address of a particular network port."
-            ::= { adapterNetworkPortEntry 16 }
-   
-    portConnectionType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Connection Type of a particular network port if its current work protocol is FC or FCoE."
-            ::= { adapterNetworkPortEntry 17 }
-   
-    portRole     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Port Role of a particular network port if its current work protocol is FC or FCoE."
-            ::= { adapterNetworkPortEntry 18 }
-   
-    portTargetRelativePortNo     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Target Relative Port No. of a particular network port if its current work protocol is FC or FCoE."
-            ::= { adapterNetworkPortEntry 19 }   
-
-    phyPortLinkStatus   OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     " The Physical Port Link Status in the network function for this port."
-            ::= { adapterNetworkPortEntry 20 }
-
-    phyPortLinkSpeed    OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     " The Physical Port Link Speed in the network function for this port. "
-            ::= { adapterNetworkPortEntry 21 }
-            
-    -- *************************************************************************************
-    -- Physical Resource: The properties of GPU Function information  IMM2-only
-    -- ********************************************************************************
-
-    adapterGPUFunctionTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterGPUFunctionEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of GPU Function information."
-            ::= { adapters 5 }
-
-    adapterGPUFunctionEntry     OBJECT-TYPE
-            SYNTAX     AdapterGPUFunctionEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "GPU function information entry."
-            INDEX { gpuAdapterIndex }
-            ::= { adapterGPUFunctionTable 1 }
-      
-    AdapterGPUFunctionEntry ::= SEQUENCE {
-            gpuAdapterIndex             INTEGER,
-            gpuVPDProdName              DisplayString,
-            adapterVPDProdName          DisplayString,
-            gpuVPDManufacturer          DisplayString,
-            gpuVPDUUID                  DisplayString,
-            gpuVPDModel                 DisplayString,
-            gpuVPDSerialNo              DisplayString,
-            gpuVPDFRUNo                 DisplayString,
-            gpuVPDPartNo                DisplayString,
-            gpuFoDUID                   DisplayString,
-            gpuSupportHotPlug           INTEGER,
-            gpuVideoMemorySize          DisplayString,
-            gpuVideoMemoryType          DisplayString,
-            gpuChipNumber               INTEGER,
-            gpuMaxDataWidth             INTEGER,
-            gpuPackageType              DisplayString,
-            gpuPCIBusNo                 INTEGER,
-            gpuPCIDevNo                 INTEGER,
-            gpuPCIFuncNo                INTEGER,
-            gpuPCIVendorId              DisplayString,
-            gpuPCIDevId                 DisplayString,
-            gpuPCIDevType               DisplayString,
-            gpuPCIRevId                 DisplayString,
-            gpuPCISubVendorId           DisplayString,
-            gpuPCISubDevId              DisplayString,
-            gpuPCISlotDesignation       DisplayString
-     }
-   
-    gpuAdapterIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular GPU function."
-            ::= { adapterGPUFunctionEntry 1 }
-    
-    gpuVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name and PFA of a particular GPU function and PFA is in HEX."
-            ::= { adapterGPUFunctionEntry 2 }
-
-    adapterVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of a particular adapter providing this function. And if the Product Name contains PFA, PFA is in HEX."
-            ::= { adapterGPUFunctionEntry 3 }
-            
-    gpuVPDManufacturer     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacturer of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 4 }
-
-    gpuVPDUUID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The UUID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 5 }
-   
-    gpuVPDModel     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 6 }
-            
-    gpuVPDSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial No. of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 7 }
-
-    gpuVPDFRUNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FRU No. of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 8 }
-   
-    gpuVPDPartNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Part No. of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 9 }
-            
-    gpuFoDUID        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FoD UID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 10 }
-            
-    gpuSupportHotPlug     OBJECT-TYPE
-            SYNTAX     INTEGER {
-               false(0),
-               true(1)
-            }
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "Indicates whether the GPU function supports hot plug."
-            ::= { adapterGPUFunctionEntry 11 }
-  
-    gpuVideoMemorySize     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Video Memory Size of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 12 }
-
-    gpuVideoMemoryType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Video Memory Type of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 13 }
-
-    gpuChipNumber     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Chip Number of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 14 }
-
-    gpuMaxDataWidth     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Maximum Data Width in Gbps of a particular GPU funtion."
-            ::= { adapterGPUFunctionEntry 15 }
-
-    gpuPackageType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Package Type of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 16 }
-           
-    gpuPCIBusNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Bus No. of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 17 }
-            
-    gpuPCIDevNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device No. of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 18 }
-            
-    gpuPCIFuncNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Function No. of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 19 }
-
-    gpuPCIVendorId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Vendor ID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 20 }
-
-    gpuPCIDevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device ID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 21 }
-
-    gpuPCIDevType        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device Type of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 22 }
-
-    gpuPCIRevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Revision ID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 23 }
-            
-    gpuPCISubVendorId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Vendor ID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 24 }
-            
-    gpuPCISubDevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Device ID of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 25 }
-
-    gpuPCISlotDesignation        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Slot Designation of a particular GPU function."
-            ::= { adapterGPUFunctionEntry 26 }
-            
-    -- *************************************************************************************
-    -- Physical Resource: The Chip information of GPU function IMM2-only
-    -- ********************************************************************************
-
-    adapterGPUChipTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterGPUChipEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of Chips of GPU Function information."
-            ::= { adapters 6 }
-
-    adapterGPUChipEntry     OBJECT-TYPE
-            SYNTAX     AdapterGPUChipEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "GPU function chip information entry."
-            INDEX { chipIndex }
-            ::= { adapterGPUChipTable 1 }
-      
-    AdapterGPUChipEntry ::= SEQUENCE {
-            chipIndex                INTEGER,
-            gpuVPDProdName           DisplayString,
-            chipNo                   INTEGER,
-            chipName                 DisplayString,
-            chipFamily               DisplayString,
-            chipManufacturer         DisplayString,
-            chipCoresEnabled         INTEGER,
-            chipMaxClockSpeed        Gauge,
-            chipExtBusClockSpeed     Gauge,
-            chipAddressWidth         INTEGER,
-            chipDataWidth            INTEGER,
-            chipFormFactor           DisplayString,
-            chipModel                DisplayString,
-            chipSerialNo             DisplayString,
-            chipFRUNo                DisplayString,
-            chipPartNo               DisplayString,
-            chipUniqueID             DisplayString
-     }
-   
-    chipIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular GPU chip"
-            ::= { adapterGPUChipEntry 1 }
-    
-    gpuVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name and PFA of the GPU function for this chip and PFA is in HEX."
-            ::= { adapterGPUChipEntry 2 }
-    
-    chipNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Index of the GPU chip in the GPU adapter."
-            ::= { adapterGPUChipEntry 3 }
-
-    chipName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Name of a particular GPU chip."
-            ::= { adapterGPUChipEntry 4 }
-  
-    chipFamily     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Family Name of a particular GPU chip."
-            ::= { adapterGPUChipEntry 5 }
-
-    chipManufacturer     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacturer of a particular GPU chip."
-            ::= { adapterGPUChipEntry 6 }
-   
-    chipCoresEnabled     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "Indicates whether enable cores of a particular GPU chip."
-            ::= { adapterGPUChipEntry 7 }
-
-    chipMaxClockSpeed     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Maximum Clock Speed in MHz of a particular GPU chip."
-            ::= { adapterGPUChipEntry 8 }
-
-    chipExtBusClockSpeed     OBJECT-TYPE
-            SYNTAX     Gauge
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The External Bus Clock Speed in MHz of a particular GPU chip."
-            ::= { adapterGPUChipEntry 9 }
-   
-    chipAddressWidth     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Address Width of a particular GPU chip."
-            ::= { adapterGPUChipEntry 10 }
-            
-    chipDataWidth     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Data Width of a particular GPU chip."
-            ::= { adapterGPUChipEntry 11 }
-
-    chipFormFactor     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Form Factor of a particular GPU chip."
-            ::= { adapterGPUChipEntry 12 }
-   
-    chipModel     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model of a particular GPU chip."
-            ::= { adapterGPUChipEntry 13 }
-            
-    chipSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial No. of a particular GPU chip."
-            ::= { adapterGPUChipEntry 14 }
-
-    chipFRUNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FRU No. of a particular GPU chip."
-            ::= { adapterGPUChipEntry 15 }
-
-    chipPartNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Part No. of a particular GPU chip."
-            ::= { adapterGPUChipEntry 16 }
-
-    chipUniqueID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Unique ID of a particular GPU chip."
-            ::= { adapterGPUChipEntry 17 }    
-            
-    -- *************************************************************************************
-    -- Physical Resource: The properties of RAID Function information  IMM2-only
-    -- ********************************************************************************
-
-    adapterRAIDFunctionTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterRAIDFunctionEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of RAID Function information."
-            ::= { adapters 7 }
-
-    adapterRAIDFunctionEntry     OBJECT-TYPE
-            SYNTAX     AdapterRAIDFunctionEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "RAID function information entry."
-            INDEX { raidAdapterIndex }
-            ::= { adapterRAIDFunctionTable 1 }
-      
-    AdapterRAIDFunctionEntry ::= SEQUENCE {
-            raidAdapterIndex             INTEGER,
-            raidVPDProdName              DisplayString,
-            adapterVPDProdName           DisplayString,
-            raidVPDManufacturer          DisplayString,
-            raidVPDUUID                  DisplayString,
-            raidVPDModel                 DisplayString,
-            raidVPDSerialNo              DisplayString,
-            raidVPDFRUNo                 DisplayString,
-            raidVPDPartNo                DisplayString,
-            raidFoDUID                   DisplayString,
-            raidSupportHotPlug           INTEGER,
-            raidMaxDataWidth             INTEGER,
-            raidPackageType              DisplayString,
-            raidPCIBusNo                 INTEGER,
-            raidPCIDevNo                 INTEGER,
-            raidPCIFuncNo                INTEGER,
-            raidPCIVendorId              DisplayString,
-            raidPCIDevId                 DisplayString,
-            raidPCIDevType               DisplayString,
-            raidPCIRevId                 DisplayString,
-            raidPCISubVendorId           DisplayString,
-            raidPCISubDevId              DisplayString,
-            raidPCISlotDesignation       DisplayString
-     }
-   
-    raidAdapterIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 1 }
-    
-    raidVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name and PFA of a particular RAID function and PFA is in HEX."
-            ::= { adapterRAIDFunctionEntry 2 }
-
-    adapterVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name of a particular adapter providing this function. And if the Product Name contains PFA, PFA is in HEX."
-            ::= { adapterRAIDFunctionEntry 3 }
-           
-    raidVPDManufacturer     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Manufacturer of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 4 }
-
-    raidVPDUUID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The UUID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 5 }
-   
-    raidVPDModel     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Model of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 6 }
-            
-    raidVPDSerialNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Serial No. of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 7 }
-
-    raidVPDFRUNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FRU No. of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 8 }
-   
-    raidVPDPartNo     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Part No. of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 9 }
-            
-    raidFoDUID        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The FoD UID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 10 }
-            
-    raidSupportHotPlug     OBJECT-TYPE
-            SYNTAX     INTEGER {
-               false(0),
-               true(1)
-            }
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "Indicates whether the RAID function supports hot plug."
-            ::= { adapterRAIDFunctionEntry 11 }
-
-    raidMaxDataWidth     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Maximum Data Width in Gbps of a particular RAID funtion."
-            ::= { adapterRAIDFunctionEntry 12 }
-
-    raidPackageType     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Package Type of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 13 }
-         
-    raidPCIBusNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Bus No. of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 14 }
-            
-    raidPCIDevNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device No. of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 15 }
-            
-    raidPCIFuncNo     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Function No. of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 16 }
-
-    raidPCIVendorId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Vendor ID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 17 }
-            
-    raidPCIDevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device ID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 18 }
-
-    raidPCIDevType        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Device Type of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 19 }
-            
-    raidPCIRevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Revision ID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 20 }
-            
-    raidPCISubVendorId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Vendor ID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 21 }  
-            
-    raidPCISubDevId        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Subsystem Device ID of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 22 }
-
-    raidPCISlotDesignation        OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The PCI Slot Designation of a particular RAID function."
-            ::= { adapterRAIDFunctionEntry 23 }             
-            
-    -- *************************************************************************************
-    -- Firmware Information: The properties of PCI function firmware information  IMM2-only
-    -- ********************************************************************************
-
-    adapterFirmwareTable     OBJECT-TYPE
-            SYNTAX     SEQUENCE OF AdapterFirmwareEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Table of PCI Function Firmware information."
-            ::= { adapters 8 }
-
-    adapterFirmwareEntry     OBJECT-TYPE
-            SYNTAX     AdapterFirmwareEntry
-            ACCESS     not-accessible
-            STATUS     mandatory
-            DESCRIPTION
-            "Adapter Firmware Entry."
-            INDEX { adapterFwIndex }
-            ::= { adapterFirmwareTable 1 }
-      
-    AdapterFirmwareEntry ::= SEQUENCE {
-            adapterFwIndex          INTEGER,
-            functionVPDProdName     DisplayString,
-            adapterFwName           DisplayString,
-            adapterFwClassification DisplayString,
-            adapterFwDescription    DisplayString,
-            adapterFwManufacture    DisplayString,
-            adapterFwVersion        DisplayString,
-            adapterFwReleaseDate    DisplayString,
-            adapterFwSoftwareID     DisplayString
-    }
-   
-    adapterFwIndex     OBJECT-TYPE
-            SYNTAX     INTEGER
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "This column is used to identify a particular function firmware."
-            ::= { adapterFirmwareEntry 1 }
-
-    functionVPDProdName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Product Name and PFA of a particular function for this firmware and PFA is in HEX."
-            ::= { adapterFirmwareEntry 2 }
-  
-    adapterFwName     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The name of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 3 }
-  
-    adapterFwClassification     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The classification of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 4 }
-
-    adapterFwDescription     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The description of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 5 }
-
-    adapterFwManufacture     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The manufacturer of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 6 }
-
-    adapterFwVersion     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The version of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 7 }
-           
-    adapterFwReleaseDate     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The release date of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 8 }
-            
-    adapterFwSoftwareID     OBJECT-TYPE
-            SYNTAX     DisplayString
-            ACCESS     read-only
-            STATUS     mandatory
-            DESCRIPTION     "The Software ID of a particular PCI function firmware."
-            ::= { adapterFirmwareEntry 9 }    
-            
-                            
     -- ***********************************************************************
     -- Event Log Information  common to IMM1 and IMM2
     -- ***********************************************************************
@@ -5060,11 +2747,7 @@
                      passwordLength13(13),
                      passwordLength14(14),
                      passwordLength15(15),
-                     passwordLength16(16),
-                     passwordLength17(17),
-                     passwordLength18(18),
-                     passwordLength19(19),
-                     passwordLength20(20)                   
+                     passwordLength16(16)                   
                    }
                    ACCESS  read-write
                    STATUS  mandatory
@@ -5305,10 +2988,9 @@
                    remoteAlertIdEntryName OCTET STRING,
                    remoteAlertIdEmailAddr OCTET STRING,
                    remoteAlertIdEntryCriticalAlert INTEGER,
-		           remoteAlertIdEntryWarningAlert INTEGER,
-	               remoteAlertIdEntrySystemAlert INTEGER,
-	               remoteAlertIdEntryAuditAlert INTEGER,  -- IMM2-only
-	 	           remoteAlertIdEntryAttachmentsToEmailAlerts INTEGER,
+		   remoteAlertIdEntryWarningAlert INTEGER,
+	           remoteAlertIdEntrySystemAlert INTEGER,
+	 	   remoteAlertIdEntryAttachmentsToEmailAlerts INTEGER,
                    remoteAlertIdEntrySyslogPortAssignment INTEGER,  -- IMM2-only  
                    remoteAlertIdEntrySyslogHostname OCTET STRING,  -- IMM2-only
                    remoteAlertIdEntryType INTEGER  -- IMM2-only
@@ -5352,7 +3034,7 @@
                                   STATUS  mandatory
                                   DESCRIPTION
                                   "A null terminated string that 
-                                  contains a E-Mail Address. For example 'jeb@us.lenovo.com'.
+                                  contains a E-Mail Address. For example 'jeb@us.ibm.com'.
                                   Used only for a E-mail over Lan."
                                   
                                   ::= { remoteAlertIdsEntry 4} 
@@ -5371,9 +3053,9 @@
 
 
      remoteAlertIdEntryWarningAlert OBJECT-TYPE
-                                    SYNTAX  INTEGER {
-					                  disabled(0),
-					                  enabled(1)
+                                  SYNTAX  INTEGER {
+					disabled(0),
+					enabled(1)
                                   }
                                   ACCESS  read-write
                                   STATUS  mandatory
@@ -5393,30 +3075,20 @@
                                   "If Enabled,systemAlerts will be sent to this
                                   remote alert receipient,else systemAlerts will not be sent." 
                                   ::= { remoteAlertIdsEntry 7 }
-
-     remoteAlertIdEntryAuditAlert OBJECT-TYPE
-                                  SYNTAX  INTEGER {
-					disabled(0),
-					enabled(1)
-                                  }
-                                  ACCESS  read-write
-                                  STATUS  mandatory
-                                  DESCRIPTION
-                                  "If Enabled,systemAlerts will be sent to this
-                                  remote alert receipient,else systemAlerts will not be sent." 
-                                  ::= { remoteAlertIdsEntry 8 }                                
+	
 
       remoteAlertIdEntryAttachmentsToEmailAlerts  OBJECT-TYPE
-                    	          SYNTAX  INTEGER {
-		     	                    noAttachments(0),
-                      	            attachEventLog(1)
-                    	          }
-			                      ACCESS  read-write
-			                      STATUS  mandatory
-			                      DESCRIPTION
-			                      "Indicates if the event log should be attached to  
-		 	                      a email alert." 
-		 	                      ::= { remoteAlertIdsEntry 9 }
+                    	 SYNTAX  INTEGER {
+		     	   noAttachments(0),
+                      	   attachEventLog(1)
+                    	}
+			ACCESS  read-write
+			STATUS  mandatory
+			DESCRIPTION
+			"Indicates if the event log should be attached to  
+		 	a email alert." 
+		 	::= { remoteAlertIdsEntry 8 }
+
 
       remoteAlertIdEntrySyslogPortAssignment OBJECT-TYPE  -- IMM2-only
                       SYNTAX  INTEGER 
@@ -5424,7 +3096,7 @@
                       STATUS  mandatory
                       DESCRIPTION
                       "Syslog port number."
-                      ::= { remoteAlertIdsEntry 10 }                  
+                      ::= { remoteAlertIdsEntry 9 }                  
                       
       remoteAlertIdEntrySyslogHostname OBJECT-TYPE  -- IMM2-only
                       SYNTAX  OCTET STRING (SIZE(0..63)) 
@@ -5432,7 +3104,7 @@
                       STATUS  mandatory
                       DESCRIPTION
                       "Syslog hostname or IP address."
-                      ::= { remoteAlertIdsEntry 11 }
+                      ::= { remoteAlertIdsEntry 10 }
 
       
       remoteAlertIdEntryType OBJECT-TYPE
@@ -5444,7 +3116,7 @@
                                 STATUS  mandatory
                                 DESCRIPTION
                                 "Alert recipient type."
-                                ::= { remoteAlertIdsEntry 12 }                    
+                                ::= { remoteAlertIdsEntry 11 }                    
 
       remoteAlertFiltersTable  OBJECT-TYPE
                             SYNTAX  SEQUENCE OF RemoteAlertFiltersEntry
@@ -5492,8 +3164,7 @@
                             rafSpTrapLdrToS       INTEGER,
                             rafSpTrapPFAS         INTEGER,
                             rafSpTrapSysLogS      INTEGER,
-                            rafSpTrapNwChangeS    INTEGER,
-                            rafSpTrapAllAuditS    INTEGER                            
+                            rafSpTrapNwChangeS    INTEGER
       }
       
       rafIndex              OBJECT-TYPE
@@ -5805,17 +3476,6 @@
                                 "System Alert: Network change notification."
                             ::= { remoteAlertFiltersEntry 28 }
 
-       rafSpTrapAllAuditS   OBJECT-TYPE
-                            SYNTAX  INTEGER {
-                              disabled(0),
-                              enabled(1)
-                            }
-                            ACCESS  read-write
-                            STATUS  mandatory
-                            DESCRIPTION
-                                "System Alert: All Audit Events notification."
-                            ::= { remoteAlertFiltersEntry 29 }
-
       generateTestAlert  OBJECT-TYPE
                    SYNTAX  INTEGER {
                     execute(1)
@@ -5889,7 +3549,7 @@
                                 ::= { remoteAccessIdsEntry 2 }
 
       remoteAccessIdEntryPassword OBJECT-TYPE
-                                  SYNTAX  OCTET STRING(SIZE(0..20))
+                                  SYNTAX  OCTET STRING(SIZE(0..16))
                                   ACCESS  read-write
                                   STATUS  mandatory
                                   DESCRIPTION
@@ -6756,14 +4416,6 @@
                   "Bay number for system contained in a blade chassis."
                   ::= { spIdentification 6 }
 
-     spFullPostalAddress     OBJECT-TYPE   -- IMM2-only
-                  SYNTAX  DisplayString 
-                  ACCESS  read-write
-                  STATUS  mandatory
-                  DESCRIPTION
-                  "A NULL terminated 300 byte string that contains the 
-                   full postal address for this system."
-                  ::= { spIdentification 7 }
 
     -- ***********************************************************************
     -- Network Configuration
@@ -7275,282 +4927,7 @@
                     object will show nothing."
                     ::= { ethernetInterfaceStatelessAutoConfigAddressesEntry 3 }
 
-       -- ********************************************************************************
-       -- VLANs for System Management  NOTE: IMM2-only
-       -- ********************************************************************************
-        vlansSM  OBJECT IDENTIFIER ::= { networkInterfaces 5 }
-        
-          vlansSMvlan1config  OBJECT IDENTIFIER ::= { vlansSM 1 }
-                                                       
-             vlansSMvlan1Name  OBJECT-TYPE
-                     SYNTAX OCTET STRING
-                     ACCESS read-write
-                     STATUS mandatory
-                     DESCRIPTION
-                     "The name of VLAN1, 1-64 characters."
-                     ::= {vlansSMvlan1config 1}
 
-             vlansSMvlan1vlanId  OBJECT-TYPE
-                     SYNTAX  INTEGER (1..4094)
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The VLAN ID for VLAN1."
-                     ::= {vlansSMvlan1config 2}
-                    
-             vlansSMvlan1State   OBJECT-TYPE
-                     SYNTAX  INTEGER { disabled(0), 
-                                       enabled(1) }
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The state of VLAN1"
-                     ::= {vlansSMvlan1config 3}       
-
-             vlansSMvlan1RemoteControl   OBJECT-TYPE
-                     SYNTAX  INTEGER { disabled(0), 
-                                       enabled(1) }
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The state of the Remote Control feature for VLAN1.
-                      Note that Remote Control can only be enabled on one VLAN."
-                     ::= {vlansSMvlan1config 4}
-                     
-             vlansSMvlan1SSerialOverLan   OBJECT-TYPE
-                     SYNTAX  INTEGER { disabled(0), 
-                                       enabled(1) }
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The state of the Serail Over LAN feature for VLAN1.
-                      Note that Serial Over LAN can only be enabled on one VLAN."
-                     ::= {vlansSMvlan1config 5}                     
-                    
-          vlansSMvlan2config  OBJECT IDENTIFIER ::= { vlansSM 2 }
-                                                       
-             vlansSMvlan2Name  OBJECT-TYPE
-                     SYNTAX OCTET STRING
-                     ACCESS read-write
-                     STATUS mandatory
-                     DESCRIPTION
-                     "The name of VLAN1, 1-64 characters."
-                     ::= {vlansSMvlan2config 1}
-
-             vlansSMvlan2vlanId  OBJECT-TYPE
-                    SYNTAX  INTEGER (1..4094)
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "The VLAN ID for VLAN2."
-                    ::= {vlansSMvlan2config 2}
-
-             vlansSMvlan2State   OBJECT-TYPE
-                     SYNTAX  INTEGER { disabled(0), 
-                                       enabled(1) }
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The state of VLAN2"
-                     ::= {vlansSMvlan2config 3}       
-
-             vlansSMvlan2RemoteControl   OBJECT-TYPE
-                     SYNTAX  INTEGER { disabled(0), 
-                                       enabled(1) }
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The state of the Remote Control feature for VLAN2.
-                      Note that Remote Control can only be enabled on one VLAN."
-                     ::= {vlansSMvlan2config 4}
-                     
-             vlansSMvlan2SerialOverLan   OBJECT-TYPE
-                     SYNTAX  INTEGER { disabled(0), 
-                                       enabled(1) }
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "The state of the Serail Over LAN feature for VLAN2.
-                      Note that Serial Over LAN can only be enabled on one VLAN."
-                     ::= {vlansSMvlan2config 5}
-
-          vlansSMvlan2ipv4Config OBJECT IDENTIFIER ::= { vlansSMvlan2config 6 }
-                                                             
-             vlansSMvlan2IPv4Address   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv4 address for the VLAN2 interface." 
-                    ::= { vlansSMvlan2ipv4Config 1 }
-             
-             vlansSMvlan2IPv4Gateway   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Gateway IPv4 address for the VLAN2 interface." 
-                    ::= { vlansSMvlan2ipv4Config 2 }
-                    
-             vlansSMvlan2IPv4SubnetMask   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Subnet Mask for the IPv4 address for the VLAN2 interface." 
-                    ::= { vlansSMvlan2ipv4Config 3 }                                
-
-          vlansSMvlan2ipv6Config OBJECT IDENTIFIER ::= { vlansSMvlan2config 7 }
-          
-             vlansSMvlan2IPv6Address   OBJECT-TYPE
-                    SYNTAX  InetAddressIPv6
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv6 address for the VLAN2 interface." 
-                    ::= { vlansSMvlan2ipv6Config 1 }
-             
-             vlansSMvlan2IPv6Gateway OBJECT-TYPE
-                    SYNTAX  InetAddressIPv6 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Gateway IPv6 address for the VLAN2 interface." 
-                    ::= { vlansSMvlan2ipv6Config 2 }
-                    
-             vlansSMvlan2IPv6PrefixLength   OBJECT-TYPE
-                    SYNTAX  INTEGER (1..128)
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Prefix Length for the IPv6 address for the VLAN2 interface." 
-                    ::= { vlansSMvlan2ipv6Config 3 }                              
-
-          vlansSMvlan2ipv4StatusRoutes OBJECT IDENTIFIER ::= { vlansSMvlan2config 8 }
-          
-             vlansSMvlan2IPv4StaticRouteIP1   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv4 address for the first IPv4 static route." 
-                    ::= { vlansSMvlan2ipv4StatusRoutes 1 }              
-
-             vlansSMvlan2IPv4StaticRouteSM1   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Subnet Mask for the first IPv4 static route." 
-                    ::= { vlansSMvlan2ipv4StatusRoutes 2 }
-
-             vlansSMvlan2IPv4StaticRouteIP2   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv4 address for the second IPv4 static route." 
-                    ::= { vlansSMvlan2ipv4StatusRoutes 3 }              
-
-             vlansSMvlan2IPv4StaticRouteSM2   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Subnet Mask for the second IPv4 static route." 
-                    ::= { vlansSMvlan2ipv4StatusRoutes 4 }
-                    
-             vlansSMvlan2IPv4StaticRouteIP3   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv4 address for the third IPv4 static route." 
-                    ::= { vlansSMvlan2ipv4StatusRoutes 5 }              
-
-             vlansSMvlan2IPv4StaticRouteSM3   OBJECT-TYPE
-                    SYNTAX  IpAddress 
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Subnet Mask for the third IPv4 static route." 
-                    ::= { vlansSMvlan2ipv4StatusRoutes 6 }                    
-          
-          vlansSMvlan2ipv6StatusRoutes OBJECT IDENTIFIER ::= { vlansSMvlan2config 9 }
-          
-             vlansSMvlan2IPv6StaticRouteIP1   OBJECT-TYPE
-                    SYNTAX  InetAddressIPv6
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv6 address for the first IPv6 static route." 
-                    ::= { vlansSMvlan2ipv6StatusRoutes 1 }             
-           
-             vlansSMvlan2IPv6StaticRoutePL1   OBJECT-TYPE
-                    SYNTAX  INTEGER (1..128)
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Prefix Length for the first IPv6 static route." 
-                    ::= { vlansSMvlan2ipv6StatusRoutes 2 }          
-
-             vlansSMvlan2IPv6StaticRouteIP2   OBJECT-TYPE
-                    SYNTAX  InetAddressIPv6
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv6 address for the second IPv6 static route." 
-                    ::= { vlansSMvlan2ipv6StatusRoutes 3 }             
-           
-             vlansSMvlan2IPv6StaticRoutePL2   OBJECT-TYPE
-                    SYNTAX  INTEGER (1..128)
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Prefix Length for the second IPv6 static route." 
-                    ::= { vlansSMvlan2ipv6StatusRoutes 4 }
-
-             vlansSMvlan2IPv6StaticRouteIP3   OBJECT-TYPE
-                    SYNTAX  InetAddressIPv6
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the IPv6 address for the third IPv6 static route." 
-                    ::= { vlansSMvlan2ipv6StatusRoutes 5 }             
-           
-             vlansSMvlan2IPv6StaticRoutePL3   OBJECT-TYPE
-                    SYNTAX  INTEGER (1..128)
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the Prefix Length for the third IPv6 static route." 
-                    ::= { vlansSMvlan2ipv6StatusRoutes 6 }                              
-
-          vlansSMvlanControl   OBJECT IDENTIFIER ::= { vlansSM 3 }         
-
-             vlansSMvlanConfigRevertTimout   OBJECT-TYPE
-                    SYNTAX  INTEGER (1..60)
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "Contains the VLAN Config Revert Timeout value." 
-                    ::= { vlansSMvlanControl 1 }
-                    
-             vlansSMvlanAction   OBJECT-TYPE
-                  SYNTAX  INTEGER  {
-                        apply(1),
-                        commit(2)
-                  }                         
-                  ACCESS  write-only
-                  STATUS  mandatory
-                  DESCRIPTION
-                    "When the 'apply' setting is written, the VLANs for System Management settings will
-                     be applied and take affect. The settings will not be saved until the 'commit' 
-                     setting is written. If the 'commit' setting is not written by the time the VLAN
-                     Config Revert Timer expires, the VLANs for System Management settings will revert
-                     to thier previous values. "
-                  ::= { vlansSMvlanControl 2 }                    
-         
        ddnsStatus   OBJECT-TYPE
                     SYNTAX  INTEGER { disabled(0), enabled(1) }
                     ACCESS  read-write
@@ -7593,37 +4970,6 @@
                      DESCRIPTION
                      "The user assigned DNS domain name."
                      ::= { networkInterfaces 13 }
-
-       -- ***********************************************************************
-       -- LAN over USB Settings for ethernet interface 
-       -- ***********************************************************************
-       lanOverUSBInterface  OBJECT IDENTIFIER ::= { networkInterfaces 14 } 
-
-        immUSBIPAddress   OBJECT-TYPE
-                     SYNTAX  IpAddress 
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "Contains the IP address for the LAN over USB of IMM." 
-                     ::= { lanOverUSBInterface 1 }
-                     
-        immUSBSubnetMask   OBJECT-TYPE
-                     SYNTAX  IpAddress 
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "Contains the Subnet Mask for the LAN over USB of IMM." 
-                     ::= { lanOverUSBInterface 2 }
-
-
-        osUSBIPAddress   OBJECT-TYPE
-                     SYNTAX  IpAddress 
-                     ACCESS  read-write
-                     STATUS  mandatory
-                     DESCRIPTION
-                     "Contains the IP address for the LAN over USB of OS." 
-                     ::= { lanOverUSBInterface 3 }
-
 
      -- ***********************************************************************
      -- TCP/IP Protocol Configuration 
@@ -8089,17 +5435,7 @@
                     "SMTP authentication method , support CRAM-MD5 and PLAIN only"
                     ::= { smtpConfig 6 }
 
-       smtpServerReversePath     OBJECT-TYPE
-                    SYNTAX  OCTET STRING (SIZE(0..256)) -- IMM2 only
-                    ACCESS  read-write
-                    STATUS  mandatory
-                    DESCRIPTION
-                    "A NULL terminated 256 byte string that contains the SMTP Reverse Path. 
-                    The user can substitute their own sender information in place of the 
-                    IMM2 default sender information. For example imm@mycompany.com in place
-                    of the default alertmgr@a.b.c.d." 
-                    ::= { smtpConfig 7 }
-                   
+                    
      -- ***********************************************************************
      -- Telnet Configuration 
      -- ***********************************************************************
@@ -8286,12 +5622,14 @@
                             something like the following:  
                             openssl x509 -in cert.der -inform DER -text  
                         downloadCSR - 
-                            The file produced when creating a CSR is in DER or PEM format 
-                            according to sslCertificateCSRDownloadFormat. If your CA expects 
-                            the data in some other format, the file can be converted using a 
-                            third-party tool such as OpenSSL(www.openssl.org). 
+                            The file produced when creating a CSR is in DER format. If your 
+                            CA expects the data in some other format, such as PEM, the file 
+                            can be converted using a third-party tool such as OpenSSL(www.openssl.org). 
                             If the CA asks you to copy the contents of the CSR file into 
-                            a web browser window, PEM format is usually expected.
+                            a web browser window, PEM format is usually expected. An example 
+                            of the command line for converting a CSR from DER to PEM format 
+                            using OpenSSL would look something like the following:
+                            openssl req -in csr.der -inform DER -out csr.pem -outform PEM 
 
                         NOTE: Value returned for the GET command is meaningless
                         for this MIB object."
@@ -8311,31 +5649,12 @@
                         DESCRIPTION
                         "Get the status of the installed Web certificates.
                          1 = Private Key and Cert/CSR not available.
-	                     2 = Private Key and Self-signed cert installed.
-	                     3 = Private Key and CA-signed cert installed.
-	                     4 = Private Key stored, CSR available for download.
+	         	 2 = Private Key and Self-signed cert installed.
+	         	 3 = Private Key and CA-signed cert installed.
+	         	 4 = Private Key stored, CSR available for download.
                          5 = Private Key and Self-signed cert installed, Private Key stored, CSR available for download.
                          6 = Private Key and CA-signed cert installed, Private Key stored, CSR available for download. "
                         ::= { sslHTTPSServerConfigForWeb 4 }
-
-        sslHTTPSWebCertificateExpirationDate  OBJECT-TYPE
-                      SYNTAX  OCTET STRING (SIZE(0..63))
-                      ACCESS  read-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Expiration date of the HTTPS Web Server certificate."
-                      ::= { sslHTTPSServerConfigForWeb 5 }
-                      
-        sslHTTPSWebCertificateRemove  OBJECT-TYPE
-                      SYNTAX  INTEGER {
-                      removeServerCertificate(1)
-                      }
-                      ACCESS  write-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "removeServerCertificate - 
-                          Remove HTTPS Web Server certificate."
-                      ::= { sslHTTPSServerConfigForWeb 6 }
 
         sslHTTPSServerConfigForCIMXML OBJECT IDENTIFIER ::= { sslConfig 2 }
       
@@ -8380,7 +5699,7 @@
                         for this MIB object."
                         ::= { sslHTTPSServerConfigForCIMXML 2  }
 
-	    sslHTTPSServerCIMXMLCertificateTransfer OBJECT-TYPE
+        sslHTTPSServerCIMXMLCertificateTransfer OBJECT-TYPE
                         SYNTAX  INTEGER {
                         importSignedCertificate(1),
                         downloadCertificate(2),
@@ -8405,12 +5724,14 @@
                             something like the following:  
                             openssl x509 -in cert.der -inform DER -text  
                         downloadCSR - 
-                            The file produced when creating a CSR is in DER or PEM format 
-                            according to sslCertificateCSRDownloadFormat. If your CA expects 
-                            the data in some other format, the file can be converted using a 
-                            third-party tool such as OpenSSL(www.openssl.org). 
+                            The file produced when creating a CSR is in DER format. If your 
+                            CA expects the data in some other format, such as PEM, the file 
+                            can be converted using a third-party tool such as OpenSSL(www.openssl.org). 
                             If the CA asks you to copy the contents of the CSR file into 
-                            a web browser window, PEM format is usually expected.
+                            a web browser window, PEM format is usually expected. An example 
+                            of the command line for converting a CSR from DER to PEM format 
+                            using OpenSSL would look something like the following:
+                            openssl req -in csr.der -inform DER -out csr.pem -outform PEM 
 
                         NOTE: Value returned for the GET command is meaningless
                         for this MIB object."
@@ -8430,31 +5751,12 @@
                       DESCRIPTION
                       "Get the status of the installed CIM/XML certificates.
                        1 = Private Key and Cert/CSR not available.
-                       2 = Private Key and Self-signed cert installed.
-                       3 = Private Key and CA-signed cert installed.
-                       4 = Private Key stored, CSR available for download.
+	               2 = Private Key and Self-signed cert installed.
+	               3 = Private Key and CA-signed cert installed.
+	               4 = Private Key stored, CSR available for download.
                        5 = Private Key and Self-signed cert installed, Private Key stored, CSR available for download.
                        6 = Private Key and CA-signed cert installed, Private Key stored, CSR available for download. "
                       ::= { sslHTTPSServerConfigForCIMXML 4 }
-
-        sslHTTPSCIMXMLCertificateExpirationDate  OBJECT-TYPE
-                      SYNTAX  OCTET STRING (SIZE(0..63))
-                      ACCESS  read-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Expiration date of the HTTPS CIM/XML Server certificate."
-                      ::= { sslHTTPSServerConfigForCIMXML 5 }
-                      
-        sslHTTPSCIMXMLCertificateRemove  OBJECT-TYPE
-                      SYNTAX  INTEGER {
-                      removeServerCertificate(1)
-                      }
-                      ACCESS  write-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "removeServerCertificate - 
-                          Remove HTTPS CIM/XML Server certificate."
-                      ::= { sslHTTPSServerConfigForCIMXML 6 }
 
         sslClientConfigForLDAP OBJECT IDENTIFIER ::= { sslConfig 3 }
         
@@ -8499,7 +5801,7 @@
                         for this MIB object."
                         ::= { sslClientConfigForLDAP 2  }
 
-	    sslClientLDAPCertificateDownload OBJECT-TYPE
+        sslClientLDAPCertificateDownload OBJECT-TYPE
                         SYNTAX  INTEGER {
                         downloadCertificate(2),
                         downloadCSR(3)
@@ -8517,12 +5819,14 @@
                             something like the following:  
                             openssl x509 -in cert.der -inform DER -text  
                         downloadCSR - 
-                            The file produced when creating a CSR is in DER or PEM format 
-                            according to sslCertificateCSRDownloadFormat. If your CA expects 
-                            the data in some other format, the file can be converted using a 
-                            third-party tool such as OpenSSL(www.openssl.org). 
+                            The file produced when creating a CSR is in DER format. If your 
+                            CA expects the data in some other format, such as PEM, the file 
+                            can be converted using a third-party tool such as OpenSSL(www.openssl.org). 
                             If the CA asks you to copy the contents of the CSR file into 
-                            a web browser window, PEM format is usually expected.
+                            a web browser window, PEM format is usually expected. An example 
+                            of the command line for converting a CSR from DER to PEM format 
+                            using OpenSSL would look something like the following:
+                            openssl req -in csr.der -inform DER -out csr.pem -outform PEM 
 
                         NOTE: Value returned for the GET command is meaningless
                         for this MIB object."
@@ -8570,31 +5874,13 @@
                         DESCRIPTION
                         "Get the status of the installed SSL Client certificates.
                          1 = Private Key and Cert/CSR not available.
-	                     2 = Private Key and Self-signed cert installed.
-	                     3 = Private Key and CA-signed cert installed.
-	                     4 = Private Key stored, CSR available for download.
+	         	 2 = Private Key and Self-signed cert installed.
+	         	 3 = Private Key and CA-signed cert installed.
+	         	 4 = Private Key stored, CSR available for download.
                          5 = Private Key and Self-signed cert installed, Private Key stored, CSR available for download.
                          6 = Private Key and CA-signed cert installed, Private Key stored, CSR available for download. "
                         ::= { sslClientConfigForLDAP 5 }
 
-        sslClientLDAPCertificateExpirationDate  OBJECT-TYPE
-                        SYNTAX  OCTET STRING (SIZE(0..63))
-                        ACCESS  read-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Expiration date of the LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 6 }
-                      
-        sslClientLDAPCertificateRemove  OBJECT-TYPE
-                        SYNTAX  INTEGER {
-                        removeServerCertificate(1)
-                        }
-                        ACCESS  write-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "removeServerCertificate - 
-                            Remove LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 7 }
 
         sslClientLDAPTrustedCertificate1Status  OBJECT-TYPE
                         SYNTAX INTEGER {
@@ -8607,26 +5893,7 @@
                         "Get the status of the installed SSL Client trusted certificates.
                          0 = certificate not installed
                          1 = certificate installed. "
-                        ::= { sslClientConfigForLDAP 8 }
-
-        sslClientLDAPTrustedCertificate1ExpirationDate  OBJECT-TYPE
-                        SYNTAX  OCTET STRING (SIZE(0..63))
-                        ACCESS  read-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Expiration date of the LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 9 }
-                      
-        sslClientLDAPTrustedCertificate1Remove  OBJECT-TYPE
-                        SYNTAX  INTEGER {
-                        removeServerCertificate(1)
-                        }
-                        ACCESS  write-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "removeServerCertificate - 
-                            Remove LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 10 }
+                        ::= { sslClientConfigForLDAP 6 }
 
         sslClientLDAPTrustedCertificate2Status  OBJECT-TYPE
                         SYNTAX INTEGER {
@@ -8639,26 +5906,7 @@
                         "Get the status of the installed SSL Client trusted certificates.
                          0 = certificate not installed
                          1 = certificate installed. "
-                        ::= { sslClientConfigForLDAP 11 }
-
-        sslClientLDAPTrustedCertificate2ExpirationDate  OBJECT-TYPE
-                        SYNTAX  OCTET STRING (SIZE(0..63))
-                        ACCESS  read-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Expiration date of the LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 12 }
-                      
-        sslClientLDAPTrustedCertificate2Remove  OBJECT-TYPE
-                        SYNTAX  INTEGER {
-                        removeServerCertificate(1)
-                        }
-                        ACCESS  write-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "removeServerCertificate - 
-                            Remove LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 13 }
+                        ::= { sslClientConfigForLDAP 7 }
 
         sslClientLDAPTrustedCertificate3Status  OBJECT-TYPE
                         SYNTAX INTEGER {
@@ -8671,27 +5919,8 @@
                         "Get the status of the installed SSL Client trusted certificates.
                          0 = certificate not installed
                          1 = certificate installed. "
-                        ::= { sslClientConfigForLDAP 14 }
+                        ::= { sslClientConfigForLDAP 8 }
                         
-        sslClientLDAPTrustedCertificate3ExpirationDate  OBJECT-TYPE
-                        SYNTAX  OCTET STRING (SIZE(0..63))
-                        ACCESS  read-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Expiration date of the LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 15 }
-                      
-        sslClientLDAPTrustedCertificate3Remove  OBJECT-TYPE
-                        SYNTAX  INTEGER {
-                        removeServerCertificate(1)
-                        }
-                        ACCESS  write-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "removeServerCertificate - 
-                            Remove LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 16 }
-                      
         sslClientLDAPTrustedCertificate4Status  OBJECT-TYPE
                         SYNTAX INTEGER {
                           not-installed(0),
@@ -8703,27 +5932,7 @@
                         "Get the status of the installed SSL Client trusted certificates.
                          0 = certificate not installed
                          1 = certificate installed. "
-                        ::= { sslClientConfigForLDAP 17 }                        
-
-
-        sslClientLDAPTrustedCertificate4ExpirationDate  OBJECT-TYPE
-                        SYNTAX  OCTET STRING (SIZE(0..63))
-                        ACCESS  read-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Expiration date of the LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 18 }
-                      
-        sslClientLDAPTrustedCertificate4Remove  OBJECT-TYPE
-                        SYNTAX  INTEGER {
-                        removeServerCertificate(1)
-                        }
-                        ACCESS  write-only
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "removeServerCertificate - 
-                            Remove LDAP Client certificate."
-                        ::= { sslClientConfigForLDAP 19 }
+                        ::= { sslClientConfigForLDAP 9 }                        
 
         sslConfigTftpServer    OBJECT-TYPE
                                 SYNTAX  OCTET STRING (SIZE(0..63))
@@ -8937,177 +6146,8 @@
                         This field may contain a maximum of 60 characters."
                         ::= { sslCertificateData 14}
                         
-        sslCertificateDataSubjectAltName1 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 15}                        
+        
 
-        sslCertificateDataSubjectAltName2 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 16}
-
-        sslCertificateDataSubjectAltName3 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 17}
-                        
-        sslCertificateDataSubjectAltName4 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 18}
-                                        
-        sslCertificateDataSubjectAltName5 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 19}
-                        
-        sslCertificateDataSubjectAltName6 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 20}
-                        
-        sslCertificateDataSubjectAltName7 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 21}
-                        
-        sslCertificateDataSubjectAltName8 OBJECT-TYPE
-                        SYNTAX OCTET STRING
-                        ACCESS  read-write
-                        STATUS  mandatory
-                        DESCRIPTION
-                        "Optional field to allow an SSL certificate to specify
-                        an additional name that the certificate should match.  
-                        This field may contain a maximum of 60 characters."
-                        ::= { sslCertificateData 22}                                                                                                                        
-
-        sslCertificateCSRDownloadFormat OBJECT-TYPE
-                        SYNTAX INTEGER {
-                          DER(0),
-                          PEM(1)
-                        }
-                        ACCESS read-write
-                        STATUS mandatory
-                        DESCRIPTION
-                        "You can download the generated CSR in DER format or PEM format. 
-                        If the CA asks you to copy the contents of the CSR file into a web browser window, 
-                        PEM format is usually expected. 
-                        If the CA expects the data in PEM format, you need choose PEM format."
-                        ::= { sslConfig 7 }                        
-                        
-        -- ***********************************************************************
-        -- Cryptography Mode    NOTE: IMM2-only 
-        -- ***********************************************************************
-
-        cryptoSettings OBJECT IDENTIFIER ::= { tcpApplicationConfig 7 }
-  
-         cryptoMode  OBJECT-TYPE
-                      SYNTAX  INTEGER {
-                        basic(0),
-                        nist(1),
-                        nsaB128(2),
-                        nsaB192(3)
-                      }
-                      ACCESS  read-write
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Basic or NIST mode enabled.
-                      The Basic mode is compatible with older firmware versions and 
-                      with browers and other network clients that do not implement 
-                      the stricter security requirements of the compliance mode.
-                      The NIST mode is to have the IMM2 firmware comply with the 
-                      requirements of SP 800-131A.
-                      The NSA Suite B  128-bit and 192-bit modes have the IMM2 firmware
-                      comply with the requirements of the NSA Suite B Cryptography standards."
-                      ::= { cryptoSettings 1 }
-
-         cryptoSnmpv3 OBJECT-TYPE
-                      SYNTAX  INTEGER {
-                        disallow(0),
-                        allow(1)
-                      }
-                      ACCESS  read-write
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Disallow or allow SNMPv3 accounts that do not comply with 
-                      NIST compliance mode when NIST compliance has been enabled."
-                      ::= { cryptoSettings 2 } 
-                      
-            cryptoInsufCompliance OBJECT IDENTIFIER ::= { cryptoSettings 3 }
-             
-			  cryptoInsufComplianceTable OBJECT-TYPE
-                      SYNTAX			SEQUENCE OF CryptoInsufComplianceEntry
-                      ACCESS			not-accessible
-                      STATUS			mandatory
-                      DESCRIPTION	"This table contains items not in compliance with the current cyrptoMode setting."
-                      ::= { cryptoInsufCompliance 1 }
-
-              cryptoInsufComplianceEntry OBJECT-TYPE
-                      SYNTAX			CryptoInsufComplianceEntry
-                      ACCESS			not-accessible
-                      STATUS			mandatory
-                      DESCRIPTION	"Each row contains an insufficient compliance item name."
-                      INDEX			{ cryptoInsufComplianceItemIndex }
-                      ::= { cryptoInsufComplianceTable 1 }
-
-              CryptoInsufComplianceEntry ::=
-                      SEQUENCE {
-	                  cryptoInsufComplianceItemIndex   INTEGER,
-	                  cryptoInsufComplianceItemName    OCTET STRING,	                 			
-                      }
-
-              cryptoInsufComplianceItemIndex OBJECT-TYPE
-                      SYNTAX			INTEGER (1..1000)
-                      ACCESS			read-only
-                      STATUS			mandatory
-                      DESCRIPTION	"The index number of one insufficient compliance item entry."
-                      ::= { cryptoInsufComplianceEntry 1 }
-
-              cryptoInsufComplianceItemName OBJECT-TYPE
-                      SYNTAX  OCTET STRING
-                      ACCESS  read-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "The name of one insufficient compliance item."
-                      ::= { cryptoInsufComplianceEntry 2 }             
-   
-         
         -- ***********************************************************************
         -- Certificate Domain Names   NOTE: IMM2-only
         -- ***********************************************************************
@@ -9131,12 +6171,12 @@
 
              CertDomainNameEntry ::=
                       SEQUENCE {
-	                  certDomainNameIndex   INTEGER,
+	                  certDomainIndex       INTEGER,
 	                  certDomainName        OCTET STRING,
 	                  certDomainNameStatus  OCTET STRING			
                       }
 
-             certDomainNameIndex OBJECT-TYPE
+             certDomainIndex OBJECT-TYPE
                       SYNTAX			INTEGER (1..1000)
                       ACCESS			read-only
                       STATUS			mandatory
@@ -9182,7 +6222,7 @@
 
         skrServers OBJECT IDENTIFIER ::= { tcpApplicationConfig 9 }
 			 
-             skrServerTable OBJECT-TYPE
+		   skrServerTable OBJECT-TYPE
                       SYNTAX			SEQUENCE OF SkrServerEntry
                       ACCESS			not-accessible
                       STATUS			mandatory
@@ -9251,7 +6291,6 @@
                       "An optional NULL terminated 16 character string that contains the Device Group that the server drives belong to."
                       ::= { skrServers 3 }                 
 
-
            skrClientConfigCertficate OBJECT IDENTIFIER ::= { skrServers 4 }
         
              skrClientCertificateGeneration OBJECT-TYPE
@@ -9305,12 +6344,14 @@
                           something like the following:  
                           openssl x509 -in cert.der -inform DER -text  
                       downloadCSR - 
-                          The file produced when creating a CSR is in DER or PEM format 
-                          according to sslCertificateCSRDownloadFormat. If your CA expects 
-                          the data in some other format, the file can be converted using a 
-                          third-party tool such as OpenSSL(www.openssl.org). 
+                          The file produced when creating a CSR is in DER format. If your 
+                          CA expects the data in some other format, such as PEM, the file 
+                          can be converted using a third-party tool such as OpenSSL(www.openssl.org). 
                           If the CA asks you to copy the contents of the CSR file into 
-                          a web browser window, PEM format is usually expected.
+                          a web browser window, PEM format is usually expected. An example 
+                          of the command line for converting a CSR from DER to PEM format 
+                          using OpenSSL would look something like the following:
+                          openssl req -in csr.der -inform DER -out csr.pem -outform PEM 
 
                       NOTE: Value returned for the GET command is meaningless
                       for this MIB object."
@@ -9336,25 +6377,6 @@
                        5 = Private Key and Self-signed cert installed, Private Key stored, CSR available for download.
                        6 = Private Key and CA-signed cert installed, Private Key stored, CSR available for download. "
                       ::= { skrClientConfigCertficate 3 }         
-
-             skrClientCertificateExpirationDate  OBJECT-TYPE
-                      SYNTAX  OCTET STRING (SIZE(0..63))
-                      ACCESS  read-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Expiration date of the SKR client certificate."
-                      ::= { skrClientConfigCertficate 4 }
-                      
-             skrClientCertificateRemove  OBJECT-TYPE
-                      SYNTAX  INTEGER {
-                      removeServerCertificate(1)
-                      }
-                      ACCESS  write-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "removeServerCertificate - 
-                          Remove SKR client certificate."
-                      ::= { skrClientConfigCertficate 5 }
 
              
            skrCertificateData OBJECT IDENTIFIER ::= { skrServers 5 }
@@ -9597,14 +6619,6 @@
                       DESCRIPTION
                       "File name on target system for the imported certificate."
                       ::= { skrServers 11 }
-
-             skrServerCertificateExpirationDate  OBJECT-TYPE
-                      SYNTAX  OCTET STRING (SIZE(0..63))
-                      ACCESS  read-only
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Expiration date of the SKR Server certificate."
-                      ::= { skrServers 12 }
 
 
      -- ***********************************************************************
@@ -10118,22 +7132,7 @@
                       A valid NTP server must be configured first."
                       ::= { ntpConfig 5 }
 
-
-        -- ********************************************************************************
-        -- IPMI Configuration      NOTE: IMM2-only
-        -- ********************************************************************************
-        ipmiConfig  OBJECT IDENTIFIER ::= { tcpProtocols 10 }
-        
-         ipmiEnable    OBJECT-TYPE
-                      SYNTAX  INTEGER {
-                        disabled(0),
-                        enabled(1)
-                      }
-                      ACCESS  read-write
-                      STATUS  mandatory
-                      DESCRIPTION
-                      "Disable/Enable IPMI"
-                      ::= { ipmiConfig 1 }					  
+    
 
     -- ********************************************************************************
     -- Save/Restore Configuration    NOTE: IMM2-only
@@ -10219,8 +7218,7 @@
                                   success(0),
                                   failed(1),
                                   saving(2),
-                                  restoring(3),
-                                  unsupported(4)
+                                  restoring(3)
                                 }
                                 ACCESS  read-only
                                 STATUS  mandatory
@@ -10552,42 +7550,6 @@
                    The power sleep control actions will not work if the Sleep function is not enabled."
                    ::= { powerControlSleep  2 }
 
-
-    -- ***********************************************************************
-    -- Control Power Restore Policy
-    -- ***********************************************************************
-       powerRestorePolicyControl OBJECT IDENTIFIER ::= { systemPower 7 }
-             
-        powerRestorePolicy OBJECT-TYPE
-                   SYNTAX  INTEGER {
-                    alwaysoff(0),
-                    restore(1),
-                    alwayson(2)
-                   }
-                   ACCESS  read-write
-                   STATUS  mandatory
-                   DESCRIPTION
-                   "Power Restore Policy determines the mode of operation if a power loss occurs. This
-                    setting can also be configured via BIOS F1 setup.
-                    alwaysoff: System will remain off once power is restored.
-                    restore: Restores system to the same state it was before power failed.
-                    alwayson: System will automatically power on once power is restored."
-                   ::= { powerRestorePolicyControl 1 }
-
-	    powerRestoreDelay OBJECT-TYPE
-                   SYNTAX  INTEGER {
-                    disabled(0),
-                    random(1)
-                   }
-                   ACCESS  read-write
-                   STATUS  mandatory
-                   DESCRIPTION
-                   "Power Restore Delay is executed when power restore policy is set to alwayson or restore
-                    (if the previous state was power-on).
-                    disabled: Power on the server without after AC is restored.
-                    random: Provide a random delay between 1 and 15 seconds from the time when AC is restored 
-                            to the time when the server is automatically powered on."
-                   ::= { powerRestorePolicyControl 2 }
           
 -- ***********************************************************************
 --  Restart Control
@@ -10670,20 +7632,7 @@
             This does not reset powerSysOnClockSetting"
                    ::= { restartReset 6 }
  
-    bootServerF1Setup OBJECT-TYPE
-                   SYNTAX INTEGER {
-                    execute(1)
-                   }
-                   ACCESS write-only
-                   STATUS mandatory
-                   DESCRIPTION
-           "Boot the server to UEFI F1 Setup. If the server is powered on when the action is initiated, 
-           the server will be powered off with an OS shutdown, then powered back on immediately and will 
-           automatically boot into UEFI F1 Setup. If the server is powered off when the action is 
-           initiated, the server will be powered on immediately and will automatically boot into 
-           UEFI F1 Setup."
-                   ::= { restartReset 7 }
- 
+
 
 -- ***********************************************************************
 --  Firmware Update    NOTE: Supported on IMM1 only
@@ -10762,10 +7711,10 @@
          ACCESS read-write
          STATUS mandatory
          DESCRIPTION
-         "Accept Terms and Conditions of Service Advisor. The user will have to accept the terms and conditions
-         before Service Advisor can send diagnostic data to support personnel. If IMM configuration
+         "Accept Terms and Conditions of IMM Service Advisor. The user will have to accept the terms and conditions
+         before Service Advisor can send diagnostic data to IBM support personnel. If IMM configuration
          is reset to defaults, the user will have to accept the terms and conditions again before they can
-         enable Service Advisor. For more information, please refer to the BladeCenter User's Guide.
+         enable Service Advisor. For more information, please refer to the IBM BladeCenter User's Guide.
 
          A GET of this object may return disabled(0) or enabled(1), depending upon the current state. However,
          only enabled(1) is accepted on a SET in order to accept the license agreement. A SET of disabled(0)
@@ -10780,8 +7729,8 @@
          ACCESS read-write
          STATUS mandatory
          DESCRIPTION
-         "Disable/Enable Call Home Support. The User Agreement must be accepted and the contact information
-         must be set before the Call Home Support function of Service Advisor can be enabled."
+         "Disable/Enable IBM Support. The User Agreement must be accepted and the contact information
+         must be set before the IBM Support function of Service Advisor can be enabled."
          ::= {autoCallHomeSetup 2}
 
  serviceSupportCenter  OBJECT IDENTIFIER ::= {serviceAdvisor 2}
@@ -10791,7 +7740,7 @@
          ACCESS read-write
          STATUS mandatory
          DESCRIPTION
-         "The country code for the Support Center. 2 character ISO country code."
+         "The country code for the IBM Support Center. 2 character ISO country code."
          ::= {serviceSupportCenter 1}
          
  contactInformation  OBJECT IDENTIFIER ::= {serviceAdvisor 3}
@@ -10926,7 +7875,7 @@
         STATUS mandatory
         DESCRIPTION
         "Disable/Enable of the HTTP Proxy. Select Enable to use the proxy for call home
-         connections from the IMM to the Service Center. HTTP Proxy is used by the IMM when it is not connected to the internet directly."
+         connections from the IMM to IBM. HTTP Proxy is used by the IMM when it is not connected to the internet directly."
         ::= {httpProxyConfig 1}
 
     httpProxyLocation OBJECT-TYPE
@@ -10985,7 +7934,7 @@
                     DESCRIPTION
                     "
                     Activity Log table entry. Each entry has the result of the call-home attempt,
-                    the service number assigned for the issue by the Support Center, the event ID, event source, date and
+                    the service number assigned for the issue by IBM support, the event ID, event source, date and
                     time that event occured, and a text message.
                     "
                     INDEX { activityLogIndex }
@@ -11028,8 +7977,8 @@
                   DESCRIPTION
                   "The acknowledgement of one Activity Log entry as corrected. This field allows the users to set a reminder next to
                   certain events to indicate their awareness of the issue. Checking the acknowledge flag will not cause the event to be removed
-                  from the log or close the ticket at the Support Center. This log is not cleared, so the acknowledge flag can be used to indicate a problem
-                  can be ignored. This field can be also used to override the 120 hour (5 day) filtering of reports via the Support Center or FTP/TFTP Server
+                  from the log or close the ticket at IBM support. This log is not cleared, so the acknowledge flag can be used to indicate a problem
+                  can be ignored. This field can be also used to override the 120 hour (5 day) filtering of reports via IBM Support or FTP/TFTP Server
                   of Service Data.
                   For consistent results, view as a table and not as individual entries."
                   ::= { activityLogEntry 3 }
@@ -11040,14 +7989,14 @@
                   STATUS  mandatory
                   DESCRIPTION
                   "
-                  A string of data detailing one Activity Log entry's attribute. It contains states of both calling the Support Center and FTP/TFTP Server.
+                  A string of data detailing one Activity Log entry's attribute. It contains states of both calling IBM support and FTP/TFTP Server.
                   A PENDING indicates that the system is preparing for the event to be called home by collecting data about the systems state. A SUCCESS state
-                  indicates that the problem was successfully transmitted to the Support Center or FTP/TFTP Server. A DISABLED state indicates that Service Advisor
-                  has disabled calling the Support Center or FTP/TFTP Server while the hardware event is detected. A NOT SENT state indicates that the serviceable
+                  indicates that the problem was successfully transmitted to IBM support or FTP/TFTP Server. A DISABLED state indicates that Service Advisor
+                  has disabled calling IBM Support or FTP/TFTP Server while the hardware event is detected. A NOT SENT state indicates that the serviceable
                   event was not sent to prevent the same event from being sent repeatedly. The FAILED state indicates that the attempt
                   to transmit the event information was not successful. Additional information may be found in the Event Log.
                   The service number is similar to a ticket number that can be used as a reference to the issue reported by the machine
-                  when contacting the Support Center. The event ID, event source, date and time are all information from the original entry in the event log.
+                  when contacting IBM support. The event ID, event source, date and time are all information from the original entry in the event log.
                   The acknowledged as corrected field is a reminder to certain events to indicate their awareness of the issue.
 
                   For consistent results, view as a table and not as individual entries."
@@ -11163,7 +8112,7 @@
                       "Add one call home Event ID into the Call Home Exclusion List.
                       The Event ID is an 16-digit hexadecimal number (0-F) with an optional prefix of '0x' or '0X'.
                       The Event ID can be full specified with the 16 hexadecimal characters or can be specified with 
-                      an asterisk ??wild card character in any of the right 8 most characters. The wild card capability 
+                      an asterisk ?*? wild card character in any of the right 8 most characters. The wild card capability 
                       allows for excluding a group of similar events. 
                       
                       If Service Advisor Terms and Conditions are accepted, an event can be added into the exclusion list.
@@ -11179,7 +8128,7 @@
                       "Remove one call home Event ID from the Call Home Exclusion List.
                       The Event ID is an 16-digit hexadecimal number (0-F) with an optional prefix of '0x' or '0X'.
                       The Event ID can be full specified with the 16 hexadecimal characters or can be specified with 
-                      an asterisk ??wild card character in any of the right 8 most characters. The wild card capability 
+                      an asterisk ?*? wild card character in any of the right 8 most characters. The wild card capability 
                       allows for excluding a group of similar events.
                       
                       If Service Advisor Terms and Conditions are accepted, an event on the exclusion list can be removed.
@@ -11296,7 +8245,7 @@
                   }
 
       scalableComplexPartitionIdentifier  OBJECT-TYPE
-                  SYNTAX  INTEGER
+                  SYNTAX  INTEGER (1..16)
                   ACCESS  read-only
                   STATUS  mandatory
                   DESCRIPTION
@@ -11416,7 +8365,7 @@
                   }
 
       scalableComplexPartitionCreateIndex  OBJECT-TYPE
-                  SYNTAX  INTEGER
+                  SYNTAX  INTEGER (1..16)
                   ACCESS  read-only
                   STATUS  mandatory
                   DESCRIPTION
@@ -11489,7 +8438,7 @@
                   }
 
       scalableComplexNodeIndex  OBJECT-TYPE
-                  SYNTAX  INTEGER
+                  SYNTAX  INTEGER (1..16)
                   ACCESS  read-only
                   STATUS  mandatory
                   DESCRIPTION
@@ -11616,7 +8565,7 @@
                   }
 
       scalableComplexNodePortIndex  OBJECT-TYPE
-                  SYNTAX  INTEGER
+                  SYNTAX  INTEGER (1..16)
                   ACCESS  read-only
                   STATUS  mandatory
                   DESCRIPTION
@@ -11624,7 +8573,7 @@
                   ::= { scalableComplexNodePortEntry 1 }
 
       scalableComplexNodePortNum  OBJECT-TYPE
-                  SYNTAX  INTEGER
+                  SYNTAX  INTEGER (1..16)
                   ACCESS  read-only
                   STATUS  mandatory
                   DESCRIPTION
@@ -11676,4 +8625,4 @@
                   ::= { scalableComplexNodePortEntry 6 }
 
 
-END               
+END
