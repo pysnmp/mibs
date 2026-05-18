@@ -197,12 +197,12 @@ hpicfVrrpv3MIB  MODULE-IDENTITY
         SYNTAX       TruthValue
         MAX-ACCESS   read-create
         STATUS       current
-        DESCRIPTION  " When set to true appends authentication data at the end to an 
+        DESCRIPTION  " When set to TRUE appends authentication data at the end to an 
                        IPv6 VRRP packet being sent out. The authentication data is 8 
                        bytes filled with 0 and is applicable only for IPv6 Virtual 
                        router. By default hpicfVrrpv3VrNullAuthCompatibility is 
-                       set to false."
-        DEFVAL       { false }
+                       set to FALSE."
+        DEFVAL       { FALSE }
         ::= { hpicfVrrpv3OperationsEntry 6 }
     
      hpicfVrrpv3VrBfdIPAddr OBJECT-TYPE
@@ -531,8 +531,9 @@ hpicfVrrpv3MIB  MODULE-IDENTITY
     hpicfVrrpv3BfdGroup OBJECT-GROUP
           OBJECTS     { hpicfVrrpv3VrBfdIPAddr }
           STATUS      current
-          DESCRIPTION "A collection of HP proprietary objects to support 
+          DESCRIPTION "A collection of HP proprietary objects to support
                        BFD configuration on HP routers."
-          ::= { hpicfVrrpv3MIBGroups 5 }   
+          ::= { hpicfVrrpv3MIBGroups 3 }
+   
 END
 
