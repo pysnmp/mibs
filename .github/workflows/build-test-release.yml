@@ -33,6 +33,9 @@ jobs:
       contents: write
       packages: write
       pages: write
+    concurrency:
+      group: gh-pages
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v6
         with:
