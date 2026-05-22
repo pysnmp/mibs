@@ -20,7 +20,7 @@ render:
 	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
 	./render_manifests.sh
 
-standard: #dirs $(RFC)
+standard: dirs $(RFC)
 	@# Compile mibs
 
 	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
@@ -33,7 +33,7 @@ localmibs:
 	find src/vendor -type d -maxdepth 1 -mindepth 1   | sort >list.tmp
 	while read line; do ./scripts/localmibs.sh "$$line"; done < list.tmp
 
-index: vendor standard  ##generate index
+index: standard vendor  ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
 

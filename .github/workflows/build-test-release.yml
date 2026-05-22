@@ -18,10 +18,10 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
-          python-version: "3.10"
+          python-version: "3.11"
       - uses: pre-commit/action@v3.0.1
 
   build:
@@ -33,14 +33,17 @@ jobs:
       contents: write
       packages: write
       pages: write
+    concurrency:
+      group: gh-pages
+      cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           #Very Important semantic-release won't trigger a tagged
           #build if this is not set false
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           architecture: x64
@@ -56,11 +59,11 @@ jobs:
       #Build and index
       - run: mkdir -p output/asn1
       - run: poetry run make index
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           path: log/
       - name: Install Helm
-        uses: azure/setup-helm@v4
+        uses: azure/setup-helm@v5
         with:
           version: v3.6.3
       #      - name: Upload
@@ -123,7 +126,7 @@ jobs:
         with:
           node-version: "20"
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4.2.0
+        uses: cycjimmy/semantic-release-action@v6.0.0
         with:
           semantic_version: 24
           extra_plugins: |
@@ -138,5 +141,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: haya14busa/action-update-semver@v1

@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:1.21.6
+FROM nginxinc/nginx-unprivileged:1.29.1-bookworm
 USER 10001
 
 # Copy files necessary to compile mibs
@@ -15,7 +15,9 @@ USER root
 RUN apt update
 RUN apt install -y parallel
 RUN apt install -y python3-pip
-RUN pip install poetry
+RUN apt-get update && apt-get install -y --no-install-recommends pipx \
+ && pipx install 'poetry>=2.1,<3' \
+ && ln -s /root/.local/bin/poetry /usr/local/bin/poetry
 
 # Create directory for poetry's virtual environment
 # if not provided - it's being created in the root directory
