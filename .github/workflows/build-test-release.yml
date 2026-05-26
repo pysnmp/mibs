@@ -51,7 +51,7 @@ jobs:
         run: pipx install --python python3.11 poetry
       - name: Cache pysnmp
         id: cache-pysnmp
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .pycache/
           key: ${{ runner.os }}-pysnmp
