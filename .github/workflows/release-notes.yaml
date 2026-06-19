@@ -22,7 +22,7 @@ jobs:
           large-packages: true
           docker-images: false
           swap-storage: false
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           filter: blob:none
