@@ -124,7 +124,7 @@ gpfsClusterStatusEntry OBJECT-TYPE
 	STATUS		current
 	DESCRIPTION	"A conceptual row of the gpfsClusterTable containing information about a particular cluster."
 	INDEX		{
-				gpfsClusterName,
+				gpfsClusterName
 			}
 	::= { gpfsClusterStatusTable 1 }
 
@@ -146,7 +146,7 @@ gpfsClusterConfigEntry OBJECT-TYPE
 	STATUS		current
 	DESCRIPTION	"A conceptual row of the gpfsClusterTable containing information about a particular cluster."
 	INDEX		{
-				gpfsClusterConfigName,
+				gpfsClusterConfigName
 			}
 	::= { gpfsClusterConfigTable 1 }
 
@@ -308,7 +308,7 @@ gpfsNodeStatusEntry OBJECT-TYPE
 	STATUS		current
 	DESCRIPTION	"A conceptual row of the gpfsNodeTable containing information about a particular node currently associated with the cluster."
 	INDEX		{
-				gpfsNodeName,
+				gpfsNodeName
 			}
 	::= { gpfsNodeStatusTable 1 }
 
@@ -318,7 +318,7 @@ gpfsNodeConfigEntry OBJECT-TYPE
 	STATUS		current
 	DESCRIPTION	"A conceptual row of the gpfsNodeTable containing information about a particular node currently associated with the cluster."
 	INDEX		{
-				gpfsNodeConfigName,
+				gpfsNodeConfigName
 			}
 	::= { gpfsNodeConfigTable 1 }
 
@@ -551,7 +551,7 @@ gpfsFileSystemStatusEntry OBJECT-TYPE
 	STATUS		current
 	DESCRIPTION	"A conceptual row of the gpfsFileSystemStatusTable containing information about a particular file system currently associated with the cluster."
 	INDEX		{
-				gpfsFileSystemName,
+				gpfsFileSystemName
 			}
 	::= { gpfsFileSystemStatusTable 1 }
 
@@ -561,7 +561,7 @@ gpfsFileSystemPerfEntry OBJECT-TYPE
 	STATUS		current
 	DESCRIPTION	"A conceptual row of the gpfsFileSystemPerfTable containing performance information about a particular file system currently associated with the cluster."
 	INDEX		{
-				gpfsFileSystemPerfName,
+				gpfsFileSystemPerfName
 			}
 	::= { gpfsFileSystemPerfTable 1 }
 
@@ -579,7 +579,7 @@ GpfsFileSystemStatusEntry ::= SEQUENCE {
 	gpfsFileSystemFreeSpaceL		Unsigned32,
 	gpfsFileSystemFreeSpaceH		Unsigned32,
 	gpfsFileSystemNumFreeInodesL		Unsigned32,
-	gpfsFileSystemNumFreeInodesH		Unsigned32,
+	gpfsFileSystemNumFreeInodesH		Unsigned32
 }
 
 gpfsFileSystemName OBJECT-TYPE
@@ -686,7 +686,7 @@ GpfsFileSystemPerfEntry ::= SEQUENCE {
 	gpfsFileSystemInodesDeleted		Unsigned32, 
 	gpfsFileSystemInodesCreated		Unsigned32, 
 	gpfsFileSystemStatCacheHit		Unsigned32, 
-	gpfsFileSystemStatCacheMiss		Unsigned32, 
+	gpfsFileSystemStatCacheMiss		Unsigned32 
 }
 
 gpfsFileSystemPerfName OBJECT-TYPE
@@ -856,7 +856,7 @@ GpfsStgPoolEntry ::= SEQUENCE {
         gpfsStgPoolFreeSpaceL               Unsigned32,
         gpfsStgPoolFreeSpaceH               Unsigned32,
 -- Subordinate disk count:
-        gpfsStgPoolNumDisks                 Unsigned32,
+        gpfsStgPoolNumDisks                 Unsigned32
 }
 
 gpfsStgPoolEntry OBJECT-TYPE
@@ -866,7 +866,7 @@ gpfsStgPoolEntry OBJECT-TYPE
 	DESCRIPTION	"A conceptual row of the gpfsStgPoolTable containing information about a particular storage pool."
 	INDEX		{
 				gpfsStgPoolFSName,
-				gpfsStgPoolName,
+				gpfsStgPoolName
                          }
 	::= { gpfsStgPoolTable 1 }
 
@@ -931,7 +931,7 @@ gpfsDiskStatusEntry OBJECT-TYPE
 	INDEX		{
 				gpfsDiskFSName,
 				gpfsDiskStgPoolName,
-				gpfsDiskName,
+				gpfsDiskName
 			}
 	::= { gpfsDiskStatusTable 1 }
 
@@ -943,7 +943,7 @@ gpfsDiskConfigEntry OBJECT-TYPE
 	INDEX		{
 				gpfsDiskConfigFSName,
 				gpfsDiskConfigStgPoolName,
-				gpfsDiskConfigName,
+				gpfsDiskConfigName
 			}
 	::= { gpfsDiskConfigTable 1 }
 
@@ -956,7 +956,7 @@ gpfsDiskPerfEntry OBJECT-TYPE
 	INDEX		{
 				gpfsDiskPerfFSName,
 				gpfsDiskPerfStgPoolName,
-				gpfsDiskPerfName,
+				gpfsDiskPerfName
 			}
 	::= { gpfsDiskPerfTable 1 }
 
@@ -1074,7 +1074,7 @@ GpfsDiskConfigEntry ::= SEQUENCE {
 	gpfsDiskConfigFSName			OCTET STRING,
 	gpfsDiskConfigStgPoolName		OCTET STRING,
 	gpfsDiskMetadata		OCTET STRING,
-	gpfsDiskData			OCTET STRING,
+	gpfsDiskData			OCTET STRING
 }
 
 gpfsDiskConfigName OBJECT-TYPE

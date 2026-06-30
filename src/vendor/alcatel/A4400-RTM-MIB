@@ -44,7 +44,7 @@ IpDomainEntry ::= SEQUENCE {
         dspRessOverrun INTEGER,
         cacAllowed INTEGER,
         cacUsed INTEGER,
-        cacOverrun INTEGER,
+        cacOverrun INTEGER
 }
 
 ipDomain OBJECT-TYPE
@@ -141,7 +141,7 @@ pbxRole OBJECT-TYPE
                        MAIN(1),
                        STAND-BY(2),
                        ACTIVE-PCS(3),
-                       INACTIVE-PCS(4),
+                       INACTIVE-PCS(4)
                 }
         ACCESS read-only
                 STATUS current
@@ -207,7 +207,7 @@ TrunkEntry ::= SEQUENCE {
         ooschan INTEGER,
         trunkstatus INTEGER,
         cumuloos INTEGER,
-        cumuloverrun INTEGER,
+        cumuloverrun INTEGER
 }
 
 trunkid OBJECT-TYPE
@@ -260,7 +260,7 @@ trunktype OBJECT-TYPE
                         BCAADDON(13),
                         T2HYBRID(14),
                         LIALDE(15),
-                        T1(16),                                                                        
+                        T1(16)                                                                        
                 }
     ACCESS read-only
         STATUS current
@@ -304,7 +304,7 @@ ooschan OBJECT-TYPE
 trunkstatus OBJECT-TYPE
         SYNTAX INTEGER {
                        OOS(0),
-                       INS(1),                 
+                       INS(1)                 
                 }
     ACCESS read-only
         STATUS current

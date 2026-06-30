@@ -6386,7 +6386,7 @@
         SYNTAX INTEGER {
         private(1),
         tr101(2),
-	customer-remote-id(3),
+	customer-remote-id(3)
         }
         MAX-ACCESS read-create
         STATUS current
@@ -7843,7 +7843,7 @@
 				"20:00"(20), 
 				"21:00"(21), 
 				"22:00"(22),  
-        		"23:00"(23),  
+        		"23:00"(23)  
 		}
 	MAX-ACCESS read-write
 	STATUS current
@@ -7952,7 +7952,7 @@
 				"20:00"(20), 
 				"21:00"(21), 
 				"22:00"(22),  
-        		"23:00"(23), 
+        		"23:00"(23) 
     }
 	MAX-ACCESS read-write
 	STATUS current

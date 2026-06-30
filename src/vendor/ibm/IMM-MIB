@@ -9089,7 +9089,7 @@
               CryptoInsufComplianceEntry ::=
                       SEQUENCE {
 	                  cryptoInsufComplianceItemIndex   INTEGER,
-	                  cryptoInsufComplianceItemName    OCTET STRING,	                 			
+	                  cryptoInsufComplianceItemName    OCTET STRING	                 			
                       }
 
               cryptoInsufComplianceItemIndex OBJECT-TYPE

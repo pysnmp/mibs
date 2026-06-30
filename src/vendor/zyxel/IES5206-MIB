@@ -17920,7 +17920,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
 
 		Vdsl2TemplateConfProfileExEntry ::=
         	SEQUENCE {
-			vdsl2TemplateConfProfileInmProf DisplayString,
+			vdsl2TemplateConfProfileInmProf DisplayString
            	}
 
      vdsl2TemplateConfProfileInmProf OBJECT-TYPE
@@ -22873,7 +22873,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
 	    tmplateAction OBJECT-TYPE
 	        SYNTAX      INTEGER {
 	            templateDisable(0),
-	            templateEnable(1),
+	            templateEnable(1)
 	        }
 	        MAX-ACCESS  read-write
 	        STATUS      current
@@ -25467,7 +25467,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
 			bwProfileAir        INTEGER,
 			bwProfilePir        INTEGER,
 			bwProfileRowStatus  RowStatus,
-			bwProfileUstype     INTEGER,
+			bwProfileUstype     INTEGER
 		}
 
 		bwProfileName OBJECT-TYPE
@@ -28611,7 +28611,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
 			ontDdmiHistLast15RxPower                  DisplayString,
 			ontDdmiHistLast15TxPower                  DisplayString,
 			ontDdmiHistLast15LaserCurrent	         DisplayString,
-			ontDdmiHistLast15Temperature           DisplayString,
+			ontDdmiHistLast15Temperature           DisplayString
 		}
 
 		ontDdmiHistLast15Voltage OBJECT-TYPE
@@ -30924,7 +30924,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
       	  errdisStatusReason       INTEGER,
           errdisStatusDetectMode    INTEGER,
           errdisStatusDetectTime    DisplayString,
-          errdisStatusRecoveryTimeleft    INTEGER,
+          errdisStatusRecoveryTimeleft    INTEGER
          }
 
         errdisStatusIfindex OBJECT-TYPE
@@ -30947,7 +30947,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
         errdisStatusDetectMode OBJECT-TYPE
         SYNTAX  INTEGER{
         	None(0),
-        	Detected(1),
+        	Detected(1)
         }
         ACCESS  read-only
         STATUS  current
@@ -31192,7 +31192,7 @@ tacacsplusAuthor		OBJECT IDENTIFIER ::= { tacacsplus 3 }
 			activePortBandwidth				DisplayString,
 			backupPortBandwidth				DisplayString,
 			activePortTrunkingMember		PortList,
-			backupPortTrunkingMember		PortList,
+			backupPortTrunkingMember		PortList
 		}
 
 	groupId OBJECT-TYPE

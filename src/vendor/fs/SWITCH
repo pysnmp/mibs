@@ -25250,7 +25250,7 @@ poePortMaxPower OBJECT-TYPE
 dyingGaspEvent        OBJECT-TYPE
     SYNTAX            INTEGER
 	{
-		occur(1), 
+		occur(1) 
 	}
     MAX-ACCESS      not-accessible
     STATUS          current

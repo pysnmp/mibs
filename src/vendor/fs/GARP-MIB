@@ -2694,7 +2694,7 @@ GDot1qProtocolVlanAdminEntry ::=
         protocolVlanAdminTablePort
             INTEGER,
         protocolVlanAdminTableEnable
-            TruthValue,
+            TruthValue
     }
 
 protocolVlanAdminTablePort OBJECT-TYPE
@@ -2743,7 +2743,7 @@ GDot1qTranslateVlanIngressEntry ::=
         translateVlanIngressTableIndex
             INTEGER,
 	translateIngressTargetVlanID
-            INTEGER,
+            INTEGER
     }
     
 translateVlanIngressTableIndex OBJECT-TYPE
@@ -2789,7 +2789,7 @@ GDot1qTranslateVlanEgressEntry ::=
         translateVlanEgressTableIndex
             INTEGER,
 		translateEgressTargetVlanID
-            INTEGER,
+            INTEGER
     }
 translateVlanEgressTableIndex OBJECT-TYPE
     SYNTAX       INTEGER(1..4094)

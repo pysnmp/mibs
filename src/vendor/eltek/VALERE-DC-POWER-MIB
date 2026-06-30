@@ -365,7 +365,7 @@ VALERE-DC-POWER-MIB DEFINITIONS ::= BEGIN
 	     vpwrPanelModuleOperStatus   OBJECT-TYPE
 	           SYNTAX        INTEGER {
 	                                 moduleStatusOK(0),
-	                                 moduleStatusAlarm(1),
+	                                 moduleStatusAlarm(1)
 	                                 }
 	           MAX-ACCESS    read-only
 	           STATUS        current
@@ -441,7 +441,7 @@ VALERE-DC-POWER-MIB DEFINITIONS ::= BEGIN
 	     vpwrBayctrlOperStatus   OBJECT-TYPE
 	           SYNTAX        INTEGER {
 	                                 moduleStatusOK(0),
-	                                 moduleStatusAlarm(1),
+	                                 moduleStatusAlarm(1)
 	                                 }
 	           MAX-ACCESS    read-only
 	           STATUS        current

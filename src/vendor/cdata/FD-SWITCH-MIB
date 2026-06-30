@@ -672,7 +672,7 @@
 				swPortMultiCastRate
 					Integer32,
 				swPortUnkUcCastRate
-					Integer32,
+					Integer32
 			 }
 
 --   1.3.6.1.4.1.34592.1.3.2.3.2.1.2

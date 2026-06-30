@@ -317,7 +317,7 @@ ubiSwitchInterfaceMIB  MODULE-IDENTITY
 			cos4(4),
 			cos5(5),
 			cos6(6),
-			cos7(7),
+			cos7(7)
 		}
 		MAX-ACCESS  read-write
 		STATUS     current

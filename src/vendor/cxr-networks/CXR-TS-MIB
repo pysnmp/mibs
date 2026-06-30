@@ -432,7 +432,7 @@
 			muxv24(11),
 			modbus(12),
 			hnzs2(13),
-			hnzs5(14),
+			hnzs5(14)
 		}
     ACCESS          read-write
     STATUS          mandatory

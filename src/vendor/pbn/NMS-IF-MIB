@@ -231,7 +231,7 @@ nmsIfObjects   OBJECT IDENTIFIER ::= { nmsIfMIB 1 }
                   ifStormControlMulticast
                       INTEGER,
                   ifStormControlUnicast
-                      INTEGER,
+                      INTEGER
               }
           ifIndex OBJECT-TYPE
               SYNTAX  INTEGER

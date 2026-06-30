@@ -152,7 +152,7 @@ STATUS          current
 			cVlanComponent(3),      		-- vlan bridge or provider edge bridge
 			sVlanComponent(4),              -- provider bridge
 			dBridgeComponent(5),  
-			edgeComponent(6),                -- provider edge bridge
+			edgeComponent(6)                -- provider edge bridge
     }                                                        
     
           

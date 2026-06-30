@@ -349,7 +349,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 regularChannelNo                        INTEGER,
                         regularCompression                              DisplayString,
                         regularFPS                                              INTEGER,
-                        regularResolution                               DisplayString,
+                        regularResolution                               DisplayString
                 }               
         
         regularChannelNo             OBJECT-TYPE
@@ -408,7 +408,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 mdChannelNo                             INTEGER,
                         mdCompression                           DisplayString,
                         mdFPS                                           INTEGER,
-                        mdResolution                            DisplayString,
+                        mdResolution                            DisplayString
                 }               
         
         mdChannelNo             OBJECT-TYPE
@@ -468,7 +468,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 alarmChannelNo                          INTEGER,
                         alarmCompression                                DisplayString,
                         alarmFPS                                                INTEGER,
-                        alarmResolution                         DisplayString,
+                        alarmResolution                         DisplayString
                 }               
         
         alarmChannelNo             OBJECT-TYPE
@@ -530,7 +530,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 extra1ChannelNo                                 INTEGER,                        
                         extra1Compression                                       DisplayString,
                         extra1FPS                                                       INTEGER,        
-                        extra1Resolution                                        DisplayString,
+                        extra1Resolution                                        DisplayString
                 }       
         
         extra1ChannelNo             OBJECT-TYPE
@@ -702,7 +702,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 ::=  {  videoMotionInfoTable  1  }
         
         videoMotionInfoEntry ::= SEQUENCE {
-                videoMotionIndex                                INTEGER,                        
+                videoMotionIndex                                INTEGER                        
                         
                 }       
         videoMotionIndex        OBJECT-TYPE
@@ -728,7 +728,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 ::=  {  videoLossInfoTable  1  }
         
         videoLossInfoEntry ::= SEQUENCE {
-                videoLossIndex                                  INTEGER,                        
+                videoLossIndex                                  INTEGER                        
                         
                 }       
         videoLossIndex        OBJECT-TYPE
@@ -754,7 +754,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 ::=  {  videoBlindInfoTable  1  }
         
         videoBlindInfoEntry ::= SEQUENCE {
-                videoBlindIndex                                 INTEGER,                        
+                videoBlindIndex                                 INTEGER                        
                         
                 }       
         videoBlindIndex        OBJECT-TYPE
@@ -784,7 +784,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 ::=  {  localAlarmInfoTable  1  }
         
         localAlarmInfoEntry ::= SEQUENCE {
-                localAlarmIndex                                 INTEGER,                        
+                localAlarmIndex                                 INTEGER                        
                 }       
         localAlarmIndex        OBJECT-TYPE
         SYNTAX              INTEGER
@@ -809,7 +809,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 ::=  {  networkAlarmInfoTable  1  }
         
         networkAlarmInfoEntry ::= SEQUENCE {
-                networkAlarmIndex                                       INTEGER,                        
+                networkAlarmIndex                                       INTEGER                        
                 }       
         networkAlarmIndex        OBJECT-TYPE
         SYNTAX              INTEGER
@@ -917,7 +917,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                         physicalVolumeStatus                                    DisplayString,
                         --physicalVolumeUsedPercent                             INTEGER(ALL{0..100}),
                         --physicalVolumeTotal                                           Counter64,
-                        --physicalVolumeFree                                            Counter64,
+                        --physicalVolumeFree                                            Counter64
                 }
                         
         physicalVolumeIndex        OBJECT-TYPE

@@ -3987,7 +3987,7 @@ sdsMIBConformance OBJECT IDENTIFIER
         portSSHStrictHostKeyChecking OnOffValue,
         portSSHSixthSSH2Cipher            INTEGER,
         portSSHSeventhSSH2Cipher            INTEGER,
-        portSSHEighthSSH2Cipher            INTEGER,
+        portSSHEighthSSH2Cipher            INTEGER
 
   }
   portSSHIndex OBJECT-TYPE
@@ -17382,7 +17382,7 @@ ioChannelStatus      OBJECT IDENTIFIER ::= { ioChannelInfo 2 }
          ,
          wirelessWan(3),
          fiberOpticLan(4),
-         usb(5),
+         usb(5)
          }
       MAX-ACCESS  read-only
       STATUS      current

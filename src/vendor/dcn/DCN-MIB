@@ -3709,7 +3709,7 @@ portLEDTimeRangeTable OBJECT-TYPE
                 portTruckAllowedVlanAdd              OCTET STRING, 
              portTruckAllowedVlanExcept           OCTET STRING,   
              portTruckAllowedVlanRemove           OCTET STRING,
-             portTruckAllowedVlanAll              INTEGER ,
+             portTruckAllowedVlanAll              INTEGER 
             }
 --xxx.100.3.12.1.1   
  portTruckPortIndex OBJECT-TYPE

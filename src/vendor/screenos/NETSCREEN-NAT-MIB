@@ -67,7 +67,7 @@ NsNatDipPPortEntry ::= SEQUENCE
     nsNatDipAllocatedPort           Integer32,
     nsNatDipAvailablePort           Integer32,
     nsNatDipAllocatedPairedPort     Integer32,
-    nsNatDipAvailablePairedPort     Integer32,
+    nsNatDipAvailablePairedPort     Integer32
 }
 
 NsNatMipEntry ::= SEQUENCE

@@ -1295,7 +1295,7 @@
 				ubiDhcpSnoopBindingUpdate
 					INTEGER,				
 				ubiDhcpSnoopBindingLeaseTime
-					Unsigned32,
+					Unsigned32
 			}           
                             
  		ubiDhcpSnoopBindingIndex OBJECT-TYPE

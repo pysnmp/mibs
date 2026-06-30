@@ -399,7 +399,7 @@ portSecurityNotifications OBJECT IDENTIFIER ::= { gbnL2PortSecurityMib 0 }
             portSecurityActiveMacIpv4
                 IpAddress,
             portSecurityActiveMacType
-                INTEGER,
+                INTEGER
 	        }
 
 	portSecurityActiveMacDevice OBJECT-TYPE

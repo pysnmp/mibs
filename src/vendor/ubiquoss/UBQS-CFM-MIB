@@ -913,7 +913,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
     					  ubiCfmMepId,    
     					  ubiCfmRmepId,
     					  ubiCfmRmepRemoteMacAddr,      
-    					  ubiCfmRmepStatus,
+    					  ubiCfmRmepStatus
      					 }
     	STATUS          current
     	DESCRIPTION    
@@ -929,7 +929,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
     					  ubiCfmMepId,    
     					  ubiCfmRmepId,
     					  ubiCfmRmepRemoteMacAddr,      
-    					  ubiCfmRmepStatus,
+    					  ubiCfmRmepStatus
      					 }
     	STATUS          current
     	DESCRIPTION
@@ -945,7 +945,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
     					ubiCfmMepPmDelayMax,
     					ubiCfmMepPmDelayAvg,
         				ubiCfmMaPmDelayThreshold,    
-    					ubiCfmMepPmDelayState,	
+    					ubiCfmMepPmDelayState	
     	 }
     	STATUS          current
     	DESCRIPTION
@@ -961,7 +961,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
     					uniCfmMepPmLossNearEndTot,
     					uniCfmMepPmLossFarEndTot,
         				ubiCfmMaPmLossThreshold,     
-     					ubiCfmMepPmLossState,
+     					ubiCfmMepPmLossState
 	   	 }
     	STATUS          current
     	DESCRIPTION
@@ -1383,7 +1383,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
         	ubiCfmMaPmDelayInterval			Integer32,  
         	ubiCfmMaPmLossInterval			Integer32,
         	ubiCfmMaPmDelayThreshold		Integer32,   
-        	ubiCfmMaPmLossThreshold			Integer32,  
+        	ubiCfmMaPmLossThreshold			Integer32  
     }
 
    	ubiCfmMaPmDelayInterval OBJECT-TYPE
@@ -1450,7 +1450,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
         	ubiCfmRmepRemoteMacAddr			MacAddress,   
          	ubiCfmRmepCrossCheckType		INTEGER,           	     
         	ubiCfmRmepStatus				INTEGER,
-        	ubiCfmRmepRowStatus       		RowStatus,     
+        	ubiCfmRmepRowStatus       		RowStatus     
         }
   
   	ubiCfmRmepId OBJECT-TYPE
@@ -1898,7 +1898,7 @@ ubiCfmNotifications  OBJECT IDENTIFIER				::= { ubiCFMMIBNotificationPrefix 0 }
            	ubiCfmMepPmLossRttMax				Integer32,
           	ubiCfmMepPmLossRttAvg				Integer32,      
            	uniCfmMepPmLossNearEndTot			Integer32,
-          	uniCfmMepPmLossFarEndTot			Integer32,
+          	uniCfmMepPmLossFarEndTot			Integer32
         }
 
 

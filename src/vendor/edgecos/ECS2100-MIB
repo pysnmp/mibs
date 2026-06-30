@@ -6170,7 +6170,7 @@ prioSchedModePort OBJECT-TYPE
         SYNTAX  INTEGER {
                     wrr(1),
                     strict(2),
-                    strict-wrr(4),
+                    strict-wrr(4)
                 }
         MAX-ACCESS  read-write
         STATUS      current
@@ -6442,7 +6442,7 @@ RateLimitPortEntry ::= SEQUENCE
     rlPortOutputStatus          EnabledStatus,
     rlPortInputLimitInKilo      Integer32,
     rlPortOutputLimitInKilo     Integer32,
-    rlPortLimitInKiloResolution Integer32,
+    rlPortLimitInKiloResolution Integer32
 }
 
 rlPortIndex OBJECT-TYPE
