@@ -1089,7 +1089,7 @@ ubiTrafficControlNotifications  	OBJECT IDENTIFIER		::= { ubiInterfaceMIBNotific
 		SYNTAX		INTEGER
 		{
 			default(1)
-		}(1..1440)
+		}
 		MAX-ACCESS	read-write
 		STATUS		current
 		DESCRIPTION
@@ -1100,7 +1100,7 @@ ubiTrafficControlNotifications  	OBJECT IDENTIFIER		::= { ubiInterfaceMIBNotific
 		SYNTAX		INTEGER
 		{
 			default(1)
-		}(1..1440)
+		}
 		MAX-ACCESS	read-write
 		STATUS		current
 		DESCRIPTION

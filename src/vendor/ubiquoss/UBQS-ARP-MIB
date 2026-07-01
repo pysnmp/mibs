@@ -245,7 +245,7 @@ ubiArpSnoopMIBObjects			OBJECT IDENTIFIER	::= { ubiArpMIBObjects 3 }
 		SYNTAX		INTEGER
 		{
 			noProbeInterval(0)
-		}(10..120)
+		}
 		ACCESS		read-write
 		STATUS		current
 		DESCRIPTION
@@ -256,7 +256,7 @@ ubiArpSnoopMIBObjects			OBJECT IDENTIFIER	::= { ubiArpMIBObjects 3 }
 		SYNTAX		INTEGER
 		{
 			noWaitTime(0)
-		}(1..5)
+		}
 		ACCESS		read-write
 		STATUS		current
 		DESCRIPTION
@@ -311,7 +311,7 @@ ubiArpSnoopMIBObjects			OBJECT IDENTIFIER	::= { ubiArpMIBObjects 3 }
 		SYNTAX		INTEGER
 		{
 			defaultAgingTime(80)
-		}(0..300)
+		}
 		ACCESS		read-write
 		STATUS		current
 		DESCRIPTION
@@ -412,7 +412,7 @@ ubiArpSnoopMIBObjects			OBJECT IDENTIFIER	::= { ubiArpMIBObjects 3 }
 		{
 			noAge(301),
 			n/a(302)
-		}(0..300)
+		}
 		ACCESS		read-only
 		STATUS		current
 		DESCRIPTION

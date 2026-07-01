@@ -469,7 +469,7 @@ aeTrapRegistration NOTIFICATION-TYPE
         aeTrapConfigStatus,
         aeTrapManagementVlanId,
         aeTrapSequenceNo,
-        aeTrapMfgSerialNumber,
+        aeTrapMfgSerialNumber
         }
     STATUS        current
     DESCRIPTION "aeTrapRegistration is generated periodically after the ONT boots.
