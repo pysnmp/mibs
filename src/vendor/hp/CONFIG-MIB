@@ -4,7 +4,7 @@
 CONFIG-MIB DEFINITIONS ::= BEGIN
 
     IMPORTS
-        IpAddress
+        IpAddress, Counter
             FROM RFC1155-SMI
         OBJECT-TYPE
             FROM RFC-1212

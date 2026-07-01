@@ -5,7 +5,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
         NOTIFICATION-TYPE
             FROM SNMPv2-SMI
         MacAddress, TruthValue, RowStatus, DisplayString,
-        TDomain, TAddress, StorageType, TimeStamp
+        TDomain, TAddress, StorageType, TimeStamp, TimeInterval
             FROM SNMPv2-TC
         MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
             FROM SNMPv2-CONF
@@ -879,7 +879,7 @@ HP-ICF-BASIC DEFINITIONS ::= BEGIN
             hpicfTrapDestFilter             Integer32,
             hpicfTrapDestStatus             RowStatus,
 	    hpicfTrapDestNotifyType         INTEGER,
-	    hpicfTrapDestRetries            Interger32,
+	    hpicfTrapDestRetries            Integer32,
 	    hpicfTrapDestTimeout            TimeInterval
         }
 
