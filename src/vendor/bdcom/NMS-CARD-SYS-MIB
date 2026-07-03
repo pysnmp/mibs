@@ -11,7 +11,7 @@
 NMS-CARD-SYS-MIB DEFINITIONS ::= BEGIN 
 
 IMPORTS
-    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,INTEGER,
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
                                                 FROM SNMPv2-SMI
     TEXTUAL-CONVENTION, TimeStamp
                                                 FROM SNMPv2-TC
@@ -212,7 +212,7 @@ IMPORTS
     		::= { cardSysNotifications 1 }
 
 
--- cardSystemTemptureNodeTable(°å¿¨ÎÂ¶È½ÚµãÎÂ¶ÈÁÐ±í)
+-- cardSystemTemptureNodeTable(ï¿½å¿¨ï¿½Â¶È½Úµï¿½ï¿½Â¶ï¿½ï¿½Ð±ï¿½)
 
 
                cardSystemTemptureNodeTable OBJECT-TYPE

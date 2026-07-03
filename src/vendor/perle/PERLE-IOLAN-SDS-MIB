@@ -654,7 +654,7 @@ sdsMIBConformance OBJECT IDENTIFIER
      SYNTAX DisplayString(SIZE(0..32))
      MAX-ACCESS    read-only
      STATUS         current
-     Description
+     DESCRIPTION
      			"Device part Number"
      	::= { adminInfo 27}
 
@@ -662,7 +662,7 @@ sdsMIBConformance OBJECT IDENTIFIER
  	     SYNTAX DisplayString(SIZE(0..32))
      MAX-ACCESS    read-only
      STATUS         current
-     Description
+     DESCRIPTION
      			"IOLAN Internal temperature"
      	::= { adminInfo 28}
 

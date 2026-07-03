@@ -66,7 +66,7 @@
         STATUS current
         DESCRIPTION
             "A table of dlf packets port control."
-            --控制端口转发未知报文表
+            --
         ::= { gbnL2SwitchPacket 3 }
 
    dlfForwardPortEntry OBJECT-TYPE
@@ -75,7 +75,7 @@
         STATUS current
         DESCRIPTION
             "Table entry for dlf packets control."
-            --控制转发未知报文表项
+            --
         INDEX { dlfForwardPort }
         ::= { dlfForwardPortTable 1 }
 
@@ -90,7 +90,7 @@
         STATUS      current
         DESCRIPTION
             "The port number in dlf packets table Item."
-            --转发未知报文表项的端口号
+            --
         ::= { dlfForwardPortEntry 1 }
 
    dlfForwardStatus OBJECT-TYPE
@@ -99,7 +99,7 @@
         STATUS      current
         DESCRIPTION
             "The dlf packets flag Item."
-            --转发未知报文表项的状态
+            --
         ::= { dlfForwardPortEntry 2 }
 
 ------------------------------------------------------------------------------
@@ -169,19 +169,19 @@
         STATUS      current
         DESCRIPTION
             " "
-            --mac地址标志,dynamic(1)表示动态mac地址, static(2)表示静态mac地址不可以老化,
-            --permanent(3)表示保存重起交换机时,mac地址表项还存在,
-            --backhole(4)表示保存重起交换机时,mac地址表项还存在,且对源与目的过滤。
+            --mac,dynamic(1)mac, static(2)mac,
+            --permanent(3),mac,
+            --backhole(4),mac,
 
-            --添加mac地址表项操作增加如下错误号:
+            --mac:
 
-            --PermanentMacFULL(-2)表示永久或过滤表项已满；
-            --ArlFULL(-3)表示硬件arl表已满；
-            --CreateNvmError(-4)表示创建nvm对象错误；
-            --InValidVlanID(-6)输入的vlan ID号对应的vlan没创建；
-            --InValidVlanPort(-7)vlan没有包含对应的端口;
-            --InValidMac(-8)无效的mac地址；
-            --InValidArgument(-9)输入的参数取值范围有误。
+            --PermanentMacFULL(-2)
+            --ArlFULL(-3)arl
+            --CreateNvmError(-4)nvm
+            --InValidVlanID(-6)vlan IDvlan
+            --InValidVlanPort(-7)vlan;
+            --InValidMac(-8)mac
+            --InValidArgument(-9)
 
         ::= { macAddressEntry 4 }
 
@@ -250,7 +250,7 @@
           STATUS   current
           DESCRIPTION
                   "The total number of mac-address entries including learnt or configured."
-          	--"MAC地址总数，包括自动学习的以及手工配置的" 
+          	--"MAC" 
           ::= { gbnL2SwitchMac 3 }
 ------------------------------------------------------------------------------
 --
@@ -343,7 +343,7 @@
         DESCRIPTION
             "The default group learning policy when a group address is not found in
             IGMP Snooping white-list and black-list"
-            --当组地址不在IGMP Snooping黑白名单中时对该组播的默认学习规则
+            --IGMP Snooping
         ::= { gbnL2SwitchMulticast 5 }
 
     igmpSnoopMaxResponseTime OBJECT-TYPE
@@ -353,7 +353,7 @@
         DESCRIPTION
             "The timeout period in seconds waited before determinating whether
             a group port should be deleted or not after received a leave packet"
-            --在组端口收到离开报文后，决定是否删除该组端口的等待时间
+            --
         ::= { gbnL2SwitchMulticast 6 }
 
     igmpSnoopPortTable OBJECT-TYPE
@@ -363,8 +363,8 @@
         DESCRIPTION
             "Used to config IGMP Snooping port options,such as group-limit and
              fast-leave."
-             --该表用于配置IGMP Snooping中基于每个端口的信息，如端口学习限制，
-             --端口快速离开等功能
+             --IGMP Snooping
+             --
         ::= { gbnL2SwitchMulticast 7 }
 
     igmpSnoopPortEntry OBJECT-TYPE
@@ -373,7 +373,7 @@
         STATUS current
         DESCRIPTION
             "Entries of igmpSnoopPortTable."
-            --igmpSnoopPortTable表的表项信息
+            --igmpSnoopPortTable
         INDEX { igmpSnoopPort }
         ::= { igmpSnoopPortTable 1 }
 
@@ -390,7 +390,7 @@
         STATUS current
         DESCRIPTION
             "Index that uniquely identifies a Ap port within igmpSnoopPortTable."
-            --端口号用于igmpSnoopPortTable表的索引
+            --igmpSnoopPortTable
         ::= { igmpSnoopPortEntry 1 }
 
     igmpSnoopPortFastLeave OBJECT-TYPE
@@ -405,9 +405,9 @@
              a group port is deleted immediately on receiving a leave
              packet, otherwise a max-response-time should be waited
              before deleting the port."
-            --配置端口的快速离开功能，如果开启了端口的快速离开功能，在
-            --端口收到离开报文后就会立即由多播组中删除，否则在删除端口
-            --之前会等待max-response-time
+            --
+            --
+            --max-response-time
         ::= { igmpSnoopPortEntry 2 }
 
     igmpSnoopPortGroupLimit OBJECT-TYPE
@@ -416,7 +416,7 @@
         STATUS current
         DESCRIPTION
             "The max number of Multicast groups a port can learn."
-            --端口能够学习的最大多播组数目
+            --
         ::= { igmpSnoopPortEntry 3 }
 
     igmpSnoopPortMcastVlan OBJECT-TYPE
@@ -428,9 +428,9 @@
               on the port will be add to the multicast vlan, regardless of the
               vlan id indicated by the report packets, a zero vlan means no multicast
               vlan is used."
-          --为端口指定一个组播vlan，该端口收到了IGMP报告报文后该报告组会
-          --被添加到组播VLAN中，则不管报告报文中的vlan为何值,vlan为0表示不使用
-          --组播vlan
+          --vlanIGMP
+          --VLANvlan,vlan0
+          --vlan
         ::= { igmpSnoopPortEntry 4 }
 
     igmpSnoopGroupTable OBJECT-TYPE
@@ -440,7 +440,7 @@
         DESCRIPTION
             "This table is used to config IGMP Snooping white-list and
              black-list."
-             --该表用于配置IGMP Snooping的黑白名单
+             --IGMP Snooping
         ::= { gbnL2SwitchMulticast 8 }
 
     igmpSnoopGroupEntry OBJECT-TYPE
@@ -449,7 +449,7 @@
         STATUS current
         DESCRIPTION
             "Entries of igmpSnoopGroupTable."
-            --igmpSnoopGroupTable表的表项信息
+            --igmpSnoopGroupTable
         INDEX { igmpSnoopGroupAddress, igmpSnoopGroupPort , igmpSnoopGroupVLAN }
         ::= { igmpSnoopGroupTable 1 }
 
@@ -467,7 +467,7 @@
         DESCRIPTION
             "An index that uniquely identifies a multicast mac-address
              within igmpSnoopGroupTable."
-            --多播MAC地址用于索引igmpSnoopGroupTable表
+            --MACigmpSnoopGroupTable
         ::= { igmpSnoopGroupEntry 1 }
 
     igmpSnoopGroupPort OBJECT-TYPE
@@ -476,7 +476,7 @@
         STATUS current
         DESCRIPTION
             "An index that uniquely identifies a Ap port within igmpSnoopGroupTable."
-            --端口号用于索引igmpSnoopGroupTable表的索引
+            --igmpSnoopGroupTable
         ::= { igmpSnoopGroupEntry 2 }
 
     igmpSnoopGroupVLAN OBJECT-TYPE
@@ -485,7 +485,7 @@
         STATUS current
         DESCRIPTION
             "An index that uniquely identifies a VLAN ID within igmpSnoopGroupTable."
-            --VLAN号用于索引igmpSnoopGroupTable表的索引
+            --VLANigmpSnoopGroupTable
         ::= { igmpSnoopGroupEntry 3 }
 
     igmpSnoopGroupPolicy OBJECT-TYPE
@@ -502,9 +502,9 @@
             superior to that has beed defined by igmpSnoopDefaultGroupPolicy.
             If group is not found in white-list or black-list then
             'igmpSnoopDefaultGroupPolicy' takes effect"
-            --用于配置IGMP Snooping学习的黑白名单，黑白名单中的学习规则优先级
-            --高于igmpSnoopDefaultGroupPolicy定义的默认学习规则，如果组地址每在
-            --黑白名单中，那么组的学习取决于igmpSnoopDefaultGroupPolicy的值
+            --IGMP Snooping
+            --igmpSnoopDefaultGroupPolicy
+            --igmpSnoopDefaultGroupPolicy
         ::= { igmpSnoopGroupEntry 4 }
 
 
@@ -515,7 +515,7 @@
         DESCRIPTION
             "Setting this object to true(1) enables cross-vlan multicast.  Setting
              it to false(2) disables cross-vlan multicast."
-            --配置跨vlan组播状态，1打开，2关闭
+            --vlan12
         ::= { gbnL2SwitchMulticast 9 }
 
     crossVlanMulticastTable OBJECT-TYPE
@@ -524,7 +524,7 @@
         STATUS current
         DESCRIPTION
             "Used to config port info of cross-vlan multicast,such as tag/untag and vlanid of tag."
-            --跨vlan组播表，配置端口的多播属性，包括tag/untag以及tag属性的vlanid
+            --vlantag/untagtagvlanid
         ::= { gbnL2SwitchMulticast 10 }
 
     crossVlanMulticastEntry OBJECT-TYPE
@@ -533,7 +533,7 @@
         STATUS current
         DESCRIPTION
             "Entries of crossVlanMulticastPortTable."
-            --跨vlan组播端口列表
+            --vlan
         INDEX { crossVlanPort }
         ::= { crossVlanMulticastTable 1 }
 
@@ -549,7 +549,7 @@
         STATUS current
         DESCRIPTION
             "The port number."
-            --端口号
+            --
         ::= { crossVlanMulticastEntry 1 }
 
     crossVlanPortTag OBJECT-TYPE
@@ -559,7 +559,7 @@
         DESCRIPTION
             "Setting this object to true(1) of tag.  Setting
              it to false(2) of untag."
-            --端口 的tag属性，1为tag，2为untag
+            -- tag1tag2untag
         ::= { crossVlanMulticastEntry 2 }
 
 
@@ -569,7 +569,7 @@
         STATUS current
         DESCRIPTION
             "The vlanid of tag port."
-            --端口 的vlanid
+            -- vlanid
         ::= { crossVlanMulticastEntry 3 }
 
     igmpSnoopRoutePortForward OBJECT-TYPE
@@ -583,7 +583,7 @@
         DESCRIPTION
             "If the status is enabled, the route port can be added into the group automatically
              when an igmp snooping group is created . If the status is disabled, it will be not."
-            --控制是否将路由口自动加入到IGMP组播
+            --IGMP
         ::= { gbnL2SwitchMulticast 11 }
 
 ---------------------- IgmpSnooping Profile Function Begin --------------------------
@@ -855,7 +855,7 @@
             Lacp channel group that is associated with this System.
             This table is supported in products:TiNet S3750,TiNet S3526,
             TiNet S3026E,TiNet S2016EI,TiNet S2024EI."
-            --系统中lacp的通道组表项
+            --lacp
         ::= { gbnL2SwitchLacpGroup 3 }
 
     channelGroupEntry OBJECT-TYPE
@@ -865,7 +865,7 @@
         DESCRIPTION
             "A list of the Lacp channel group parameters. This is indexed
             by the group index."
-            --系统中lacp表项的具体参数，索引为通道组号
+            --lacp
         INDEX { ChannelGroupIndex }
         ::= { channelGroupTable 1 }
 
@@ -880,10 +880,10 @@
         channelGroupRowstatus
            RowStatus
     }
-    --channelGroupIndex:通道组号
-    --channelGroupPortList:通道组的端口成员列表
-    --channelGroupRule:通道组的负载均衡策略
-    --channelGroupRowstatus:行状态
+    --channelGroupIndex:
+    --channelGroupPortList:
+    --channelGroupRule:
+    --channelGroupRowstatus:
 
     channelGroupIndex OBJECT-TYPE
         SYNTAX       INTEGER
@@ -891,7 +891,7 @@
         STATUS       current
         DESCRIPTION
             "The Index of the Lacp Channel group."
-            --通道组的索引
+            --
         ::= { channelGroupEntry 1 }
 
     channelGroupPortList OBJECT-TYPE
@@ -902,7 +902,7 @@
             "The complete set of ports currently associated with
              this Group.  Each bit set in this list represents
              an Actor Port member of this Group."
-            --通道组的端口成员列表，每一个bit代表一个端口
+            --bit
 
         ::= { channelGroupEntry 2 }
 
@@ -935,9 +935,9 @@
 		with the last three bits of the Destination IP Address and used to 
 		index into the Trunk Group to get the destination port. This rule
 		defines the distribution algorithm applied to the aggregated link."
-         --通道组的负载均衡策略，也就是报文在汇聚端口组中选择发送端口的策略。
-         --分为源MAC、目的MAC、源和目的MAC、源IP、目的IP、源和目的IP六种
-         --对于TiNet S2008EI为只读属性。
+         --
+         --MACMACMACIPIPIP
+         --TiNet S2008EI
 	::= { channelGroupEntry 3 }
 
 
@@ -947,7 +947,7 @@
         STATUS       current
         DESCRIPTION
             "rowstatus of channel group."
-            --通道组的行状态
+            --
         ::= { channelGroupEntry 4 }
 
 ------------------------------------------------------------------------------
@@ -964,7 +964,7 @@
             Lacp channel group that is associated with this System.
             This table is supported in products:TiNet S3750,TiNet S3526,
             TiNet S3026E,TiNet S2016EI,TiNet S2024EI."
-            --端口lacp模式表
+            --lacp
         ::= { gbnL2SwitchLacpPort 1 }
 
     lacpPortModeEntry OBJECT-TYPE
@@ -974,7 +974,7 @@
         DESCRIPTION
             "The port mode of lacp. This is indexed
             by the port number."
-            --端口lacp模式表，以端口号为索引
+            --lacp
         INDEX { portIndex }
         ::= { lacpPortModeTable 1 }
 
@@ -987,9 +987,9 @@
         portLacpRowstatus
            RowStatus
     }
-    --portIndex:端口索引
-    --portLacpMode:端口lacp模式
-    --portLacpRowstatus：端口行状态，不可写
+    --portIndex:
+    --portLacpMode:lacp
+    --portLacpRowstatus
 
     portIndex OBJECT-TYPE
         SYNTAX       INTEGER
@@ -997,7 +997,7 @@
         STATUS       current
         DESCRIPTION
             "The Index of the port."
-            --端口索引，也就是端口号
+            --
         ::= { lacpPortModeEntry 1 }    
 
     portLacpMode OBJECT-TYPE
@@ -1013,9 +1013,9 @@
             static configguration,and lacp protocol do not run. Active:the port
             in this mode can send lacp pdu active.Passive:the port in this mode
             just send pdu when needed."
-            --端口模式。static为静态汇聚，在这中端口上不运行lacp协议，全手动配置。
-            --active为主动lacp模式，端口能够周期性的发送lacp报文
-            --passive为被动lacp模式，端口只响应lacp协商，不主动发送报文。
+            --staticlacp
+            --activelacplacp
+            --passivelacplacp
         ::= { lacpPortModeEntry 2 }
 
     portLacpRowstatus OBJECT-TYPE
@@ -1024,7 +1024,7 @@
         STATUS       current
         DESCRIPTION
             "rowstatus of port."
-            --端口行状态
+            --
         ::= { lacpPortModeEntry 3 } 
 ------------------------------------------------------------------------------
 --
@@ -1118,7 +1118,7 @@
         DESCRIPTION
             "The default group learning policy when a group address is not found in
             MLD Snooping white-list and black-list"
-            --当组地址不在MLD Snooping黑白名单中时对该组播的默认学习规则
+            --MLD Snooping
         ::= { gbnL2SwitchMLD 5 }
 
     mldSnoopMaxResponseTime OBJECT-TYPE
@@ -1128,7 +1128,7 @@
         DESCRIPTION
             "The timeout period in seconds waited before determinating whether
             a group port should be deleted or not after received a leave packet"
-            --在组端口收到离开报文后，决定是否删除该组端口的等待时间
+            --
         ::= { gbnL2SwitchMLD 6 }
 
     mldSnoopPortTable OBJECT-TYPE
@@ -1138,8 +1138,8 @@
         DESCRIPTION
             "Used to config MLD Snooping port options,such as group-limit and
              fast-leave."
-             --该表用于配置MLD Snooping中基于每个端口的信息，如端口学习限制，
-             --端口快速离开等功能
+             --MLD Snooping
+             --
         ::= { gbnL2SwitchMLD 7 }
 
     mldSnoopPortEntry OBJECT-TYPE
@@ -1148,7 +1148,7 @@
         STATUS current
         DESCRIPTION
             "Entries of mldSnoopPortTable."
-            --mldSnoopPortTable表的表项信息
+            --mldSnoopPortTable
         INDEX { mldSnoopPort }
         ::= { mldSnoopPortTable 1 }
 
@@ -1165,7 +1165,7 @@
         STATUS current
         DESCRIPTION
             "Index that uniquely identifies a Ap port within mldSnoopPortTable."
-            --端口号用于mldSnoopPortTable表的索引
+            --mldSnoopPortTable
         ::= { mldSnoopPortEntry 1 }
 
     mldSnoopPortFastLeave OBJECT-TYPE
@@ -1180,9 +1180,9 @@
              a group port is deleted immediately on receiving a leave
              packet, otherwise a max-response-time should be waited
              before deleting the port."
-            --配置端口的快速离开功能，如果开启了端口的快速离开功能，在
-            --端口收到离开报文后就会立即由多播组中删除，否则在删除端口
-            --之前会等待max-response-time
+            --
+            --
+            --max-response-time
         ::= { mldSnoopPortEntry 2 }
 
     mldSnoopPortGroupLimit OBJECT-TYPE
@@ -1191,7 +1191,7 @@
         STATUS current
         DESCRIPTION
             "The max number of MLD groups a port can learn."
-            --端口能够学习的最大多播组数目
+            --
         ::= { mldSnoopPortEntry 3 }
 
     mldSnoopPortMcastVlan OBJECT-TYPE
@@ -1203,9 +1203,9 @@
               on the port will be add to the multicast vlan, regardless of the
               vlan id indicated by the report packets, a zero vlan means no multicast
               vlan is used."
-          --为端口指定一个组播vlan，该端口收到了MLD报告报文后该报告组会
-          --被添加到组播VLAN中，则不管报告报文中的vlan为何值,vlan为0表示不使用
-          --组播vlan
+          --vlanMLD
+          --VLANvlan,vlan0
+          --vlan
         ::= { mldSnoopPortEntry 4 }
 
     mldSnoopGroupTable OBJECT-TYPE
@@ -1215,7 +1215,7 @@
         DESCRIPTION
             "This table is used to config MLD Snooping white-list and
              black-list."
-             --该表用于配置MLD Snooping的黑白名单
+             --MLD Snooping
         ::= { gbnL2SwitchMLD 8 }
 
     mldSnoopGroupEntry OBJECT-TYPE
@@ -1224,7 +1224,7 @@
         STATUS current
         DESCRIPTION
             "Entries of mldSnoopGroupTable."
-            --mldSnoopGroupTable表的表项信息
+            --mldSnoopGroupTable
         INDEX { mldSnoopGroupAddress, mldSnoopGroupPort, mldSnoopGroupVLAN }
         ::= { mldSnoopGroupTable 1 }
 
@@ -1242,7 +1242,7 @@
         DESCRIPTION
             "An index that uniquely identifies a multicast mac-address
              within mldSnoopGroupTable."
-            --多播MAC地址用于索引mldSnoopGroupTable表
+            --MACmldSnoopGroupTable
         ::= { mldSnoopGroupEntry 1 }
 
     mldSnoopGroupPort OBJECT-TYPE
@@ -1251,7 +1251,7 @@
         STATUS current
         DESCRIPTION
             "An index that uniquely identifies a Ap port within mldSnoopGroupTable."
-            --端口号用于索引mldSnoopGroupTable表的索引
+            --mldSnoopGroupTable
         ::= { mldSnoopGroupEntry 2 }
 
     mldSnoopGroupVLAN OBJECT-TYPE
@@ -1260,7 +1260,7 @@
         STATUS current
         DESCRIPTION
             "An index that uniquely identifies a VLAN ID within mldSnoopGroupTable."
-            --VLAN号用于索引mldSnoopGroupTable表的索引
+            --VLANmldSnoopGroupTable
         ::= { mldSnoopGroupEntry 3 }
 
     mldSnoopGroupPolicy OBJECT-TYPE
@@ -1277,9 +1277,9 @@
             superior to that has beed defined by mldSnoopDefaultGroupPolicy.
             If group is not found in white-list or black-list then
             'mldSnoopDefaultGroupPolicy' takes effect"
-            --用于配置MLD Snooping学习的黑白名单，黑白名单中的学习规则优先级
-            --高于mldSnoopDefaultGroupPolicy定义的默认学习规则，如果组地址每在
-            --黑白名单中，那么组的学习取决于mldSnoopDefaultGroupPolicy的值
+            --MLD Snooping
+            --mldSnoopDefaultGroupPolicy
+            --mldSnoopDefaultGroupPolicy
         ::= { mldSnoopGroupEntry 4 }
 
     mldSnoopRoutePortForward OBJECT-TYPE
@@ -1293,7 +1293,7 @@
         DESCRIPTION
             "If the status is enabled, the route port can be added into the group automatically
              when an mld snooping group is created . If the status is disabled, it will be not."
-            --控制是否将路由口自动加入到MLD组播
+            --MLD
         ::= { gbnL2SwitchMLD 9 }
 
 --

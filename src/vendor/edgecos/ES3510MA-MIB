@@ -802,7 +802,7 @@ portShutdownReason OBJECT-TYPE
                         lbd(6),
                         atcBstorm(7),
                         atcMstorm(8),
-                        udld(9),
+                        udld(9)
                     }
         MAX-ACCESS  read-only
         STATUS      current

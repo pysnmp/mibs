@@ -24,9 +24,9 @@ IMPORTS
     E7SnmpVers,
     E7EtherType,
     E7Pbit,
-    E7BondedInterfaceIndex
-    E7OperStatus
-    E7XdslGrpOperStatus 
+    E7BondedInterfaceIndex,
+    E7OperStatus,
+    E7XdslGrpOperStatus
                     FROM E7-TC;
 
     e7ResourceModule MODULE-IDENTITY

@@ -23,7 +23,7 @@ ZYXEL-PRESTIGE-MIB DEFINITIONS ::= BEGIN
            enterprises, Counter, Gauge, IpAddress,
            NetworkAddress, TimeTicks
 	           FROM RFC1155-SMI
-            ifIndex, ipRouteDest, ipAdEntAddr, egpNeighAddr
+            ifIndex, ipRouteDest, ipAdEntAddr, egpNeighAddr, PhysAddress
 	           FROM RFC1213-MIB
             atportIndex
 					FROM APPLETALK-MIB

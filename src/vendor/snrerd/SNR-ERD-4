@@ -128,8 +128,8 @@ dtsTemp 	OBJECT-TYPE
 tempCritNotif	OBJECT-TYPE
 	SYNTAX		INTEGER
 		{
-				No	(0),
-				Yes	(1),
+				no	(0),
+				yes	(1)
 		}
         MAX-ACCESS	read-write
         STATUS		current
@@ -141,7 +141,7 @@ tempCritMin		OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Minimal critical temperature. 
-Up to -55 °C"
+Up to -55 ï¿½C"
 ::= { dtsEntry 15 }
 
 tempCritMax	OBJECT-TYPE
@@ -149,13 +149,13 @@ tempCritMax	OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Maximum critical temperature. 
-Up to +125°C"
+Up to +125ï¿½C"
 ::= { dtsEntry 16 }
 
 -- shuntTable
 
 shuntTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF shuntEntry
+    SYNTAX      SEQUENCE OF ShuntEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -163,7 +163,7 @@ shuntTable OBJECT-TYPE
     ::= { oneWire 2 }
 
 shuntEntry OBJECT-TYPE
-    SYNTAX      shuntEntry
+    SYNTAX      ShuntEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -171,7 +171,7 @@ shuntEntry OBJECT-TYPE
     INDEX   { shuntId }
     ::= { shuntTable 1 }
 
-shuntEntry ::=
+ShuntEntry ::=
     SEQUENCE {
         shuntId      	UInteger32,
 	shuntName	OctetString,
@@ -435,7 +435,7 @@ tempCritMin		OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Minimal critical temperature. 
-Up to -55 °C"
+Up to -55 ï¿½C"
 ::= { rsshtpEntry 15 }
 
 tempCritMax	OBJECT-TYPE
@@ -443,7 +443,7 @@ tempCritMax	OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Maximum critical temperature. 
-Up to +125°C"
+Up to +125ï¿½C"
 ::= { rsshtpEntry 16 }
 
 -- rscounterTable
@@ -560,7 +560,7 @@ tempCritMin		OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Minimal critical temperature. 
-Up to -55 °C"
+Up to -55 ï¿½C"
 ::= { rsshtp1WEntry 15 }
 
 tempCritMax	OBJECT-TYPE
@@ -568,7 +568,7 @@ tempCritMax	OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Maximum critical temperature. 
-Up to +125°C"
+Up to +125ï¿½C"
 ::= { rsshtp1WEntry 16 }
 
 -- sensorsTemplate
