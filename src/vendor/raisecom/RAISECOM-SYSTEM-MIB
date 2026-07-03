@@ -909,13 +909,6 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
 		    SYNTAX OCTET STRING (SIZE (1))
 
 
-		    raisecomDeviceType OBJECT-TYPE
-		            SYNTAX  OCTET STRING
-		           	MAX-ACCESS read-only
-		            STATUS current
-		            DESCRIPTION
-		                  "Device type."
-					::= { raisecomInformation 1 }
 
 			--Temperature group
 		    raisecomTemperature    OBJECT IDENTIFIER ::= { raisecomInformation 2 }
@@ -1432,7 +1425,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
                        MAX-ACCESS  read-only
                        STATUS      current
                        DESCRIPTION
-                       		"The status of alarm information£¬asserted:alarm has generated,
+                       		"The status of alarm informationï¿½ï¿½asserted:alarm has generated,
                        		 cleared:alarm is cleared, clearall:all of alarm is cleared."
         		  	   ::= { raisecomAlarmHistEntry 2 }
 
@@ -1441,7 +1434,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
                        MAX-ACCESS  read-only
                        STATUS      current
                        DESCRIPTION
-                       		"The source of alarm information£¬switch or port."
+                       		"The source of alarm informationï¿½ï¿½switch or port."
         		  	   ::= { raisecomAlarmHistEntry 3 }
 
 			    raisecomAlarmHistDescr OBJECT-TYPE
@@ -1531,7 +1524,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
                        MAX-ACCESS  read-only
                        STATUS      current
                        DESCRIPTION
-                       		"The source of alarm information£¬switch or port."
+                       		"The source of alarm informationï¿½ï¿½switch or port."
         		  	   ::= { raisecomAlarmCurtEntry 2 }
 
 			    raisecomAlarmCurtDescr OBJECT-TYPE
