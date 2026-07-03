@@ -36,14 +36,7 @@ esSysInfo MODULE-IDENTITY
 		"The subtree for system information"
 	::= { esMgmt 1 }
 
-esSysMgmt MODULE-IDENTITY
-	LAST-UPDATED	"201009060000Z" 
-	ORGANIZATION "Enterprise Solution ZyXEL"     
-	CONTACT-INFO
-		""	   
-	DESCRIPTION
-		"The subtree for basic system management"
-	::= { esMgmt 2 }
+esSysMgmt OBJECT IDENTIFIER ::= { esMgmt 2 }
 
 -- esSysInfo OIDs
 

@@ -75,13 +75,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
 -- RAISECOM CPU objects
 --
 
-	raisecomCpu MODULE-IDENTITY
-                LAST-UPDATED 	"200412170000Z"
-                ORGANIZATION 	"RAISECOM TECH, Ltd."
-                CONTACT-INFO 	"www.raisecom.com"
-                DESCRIPTION
-                		"raisecom System objects: objects common to all platforms."
-        	::= { raisecomSystem 1 }
+	raisecomCpu OBJECT IDENTIFIER ::= { raisecomSystem 1 }
 
 -- =========================================
 -- raisecomCPUTrapGroup
@@ -676,13 +670,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
 -- RAISECOM END Pool objects
 -- =========================================
 
-	raisecomEndPool MODULE-IDENTITY
-                LAST-UPDATED 	"200412170000Z"
-                ORGANIZATION 	"RAISECOM TECH, Ltd."
-                CONTACT-INFO 	"www.raisecom.com"
-                DESCRIPTION
-                		"raisecom System objects: objects common to all platforms."
-        	::= { raisecomSystem 2 }
+	raisecomEndPool OBJECT IDENTIFIER ::= { raisecomSystem 2 }
 
 	raisecomEndPoolTable OBJECT-TYPE
 	        SYNTAX      SEQUENCE OF RaisecomEndPoolEntry
@@ -737,13 +725,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
 -- =========================================
 -- RAISECOM Memory objects
 -- =========================================
-	 raisecomMemory MODULE-IDENTITY
-                LAST-UPDATED 	"200412170000Z"
-                ORGANIZATION 	"RAISECOM TECH, Ltd."
-                CONTACT-INFO 	"www.raisecom.com"
-                DESCRIPTION
-                		"raisecom System objects: memory objects."
-      ::= { raisecomSystem 3 }
+	 raisecomMemory OBJECT IDENTIFIER ::= { raisecomSystem 3 }
 
 -- =========================================
 -- raisecomMemoryTrapGroup
@@ -867,13 +849,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
 -- =========================================
 
 
-		 raisecomInformation MODULE-IDENTITY
-                LAST-UPDATED 	"200507270000Z"
-                ORGANIZATION 	"RAISECOM TECH, Ltd."
-                CONTACT-INFO 	"www.raisecom.com"
-                DESCRIPTION
-                		"raisecom System objects: objects common to all platforms."
- 		   		::= { raisecomSystem 4 }
+		 raisecomInformation OBJECT IDENTIFIER ::= { raisecomSystem 4 }
 
 		PortAlarmEventList ::= TEXTUAL-CONVENTION
 		    STATUS current
