@@ -1011,7 +1011,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               INDEX   { cpuDescr }
               ::= { cpuTable 1 }
 
-          cpuEntry ::=
+          CpuEntry ::=
               SEQUENCE {
                   cpuDescr                    DisplayString,
                   cpuWorkloadCurrent                 Gauge32,
@@ -1086,7 +1086,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               INDEX   { memDescr }
               ::= { memoryPoolTable 1 }
 
-          memoryPoolEntry ::=
+          MemoryPoolEntry ::=
               SEQUENCE {
                   memDescr
                       DisplayString,
@@ -1201,7 +1201,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               INDEX   { tempProbeDescr }
               ::= { tempProbeTable 1 }
 
-          tempProbeEntry ::=
+          TempProbeEntry ::=
               SEQUENCE {
                   tempProbeDescr
                       DisplayString,
@@ -1258,7 +1258,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               INDEX   { gwDescr }
               ::= { gwTable 1 }
 
-          gwEntry ::=
+          GwEntry ::=
               SEQUENCE {
                   gwDescr
                       DisplayString,
@@ -1341,7 +1341,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               INDEX   { isdnPortDescr }
               ::= { isdnPortTable 1 }
 
-          isdnPortEntry ::=
+          IsdnPortEntry ::=
               SEQUENCE {
                   isdnPortDescr
                       DisplayString,

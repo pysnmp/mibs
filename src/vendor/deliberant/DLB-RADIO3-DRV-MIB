@@ -58,7 +58,7 @@ dlbRdo3StatsEntry OBJECT-TYPE
     INDEX { ifIndex, dlbRdo3Endpoint }
     ::= { dlbRdo3StatsTable 1 }
 
-dlbRdo3StatsEntry ::=
+DlbRdo3StatsEntry ::=
     SEQUENCE {
         dlbRdo3Endpoint                     Integer32,
         dlbRdo3LastUpdate                   TimeTicks,

@@ -291,7 +291,7 @@ nmsIfObjects   OBJECT IDENTIFIER ::= { nmsIfMIB 1 }
                  INDEX { IfIndex }
              ::= { ifSfpParameterTable 1 }
 
-             ifSfpParameterEntry ::=
+             IfSfpParameterEntry ::=
                  SEQUENCE {
                      IfIndex
                          INTEGER,

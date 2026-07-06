@@ -61,7 +61,7 @@
             INDEX { hwIptnIfIndex }
             ::= { hwIptnInterfaceTable 1 }
         
-        hwIptnEnableEntry ::=
+        HwIptnEnableEntry ::=
             SEQUENCE { 
                 hwIptnIfIndex
                     InterfaceIndex,

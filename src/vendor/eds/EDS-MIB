@@ -785,7 +785,7 @@ EDS-MIB DEFINITIONS ::= BEGIN
         ::= { owDevices 9 }
 
     owDS2408Entry OBJECT-TYPE
-        SYNTAX              owDS2408Entry
+        SYNTAX              OwDS2408Entry
         ACCESS              not-accessible
         STATUS              mandatory
         INDEX               {
@@ -793,7 +793,7 @@ EDS-MIB DEFINITIONS ::= BEGIN
                             }
         ::= { owDS2408Table 1 }
 
-    owDS2408Entry ::= SEQUENCE {
+    OwDS2408Entry ::= SEQUENCE {
         owDS2408PIOLogicState
             INTEGER,
         owDS2408PIOOutputLatchState
@@ -880,7 +880,7 @@ EDS-MIB DEFINITIONS ::= BEGIN
         ::= { owDevices 10 }
 
     owDS2450Entry OBJECT-TYPE
-        SYNTAX              owDS2450Entry
+        SYNTAX              OwDS2450Entry
         ACCESS              not-accessible
         STATUS              mandatory
         INDEX               {
@@ -888,7 +888,7 @@ EDS-MIB DEFINITIONS ::= BEGIN
                             }
         ::= { owDS2450Table 1 }
 
-    owDS2450Entry ::= SEQUENCE {
+    OwDS2450Entry ::= SEQUENCE {
         owDS2450ChannelAConversionValue
             DisplayString,
         owDS2450ChannelAConversionResolution

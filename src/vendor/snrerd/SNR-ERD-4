@@ -93,7 +93,7 @@ dtsEntry OBJECT-TYPE
     INDEX   { dtsId } 
 ::= { dtsTable 1 }
 
-dtsEntry ::=
+DtsEntry ::=
     SEQUENCE {
         dtsId           	UInteger32,
 	dtsName			OctetString,
@@ -304,7 +304,7 @@ in the wrlssSensTable"
     INDEX   { wrlssSensIdent }
     ::= { rfshtpTable 1 }
 
-rfshtpEntry ::=
+RfshtpEntry ::=
     SEQUENCE {
         rfshtpId           OctetString,
         rfshtpName         OctetString,
