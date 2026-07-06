@@ -206,7 +206,7 @@ hikDiskNum OBJECT-TYPE
 -- the disk table
 
 hikDiskTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF hikDiskEntry
+    SYNTAX  SEQUENCE OF HikDiskEntry
     ACCESS  not-accessible
     STATUS  mandatory
     DESCRIPTION

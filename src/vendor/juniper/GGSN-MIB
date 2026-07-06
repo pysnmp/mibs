@@ -6632,7 +6632,7 @@ ggsnApnSacc3RatingGroupDownlinkBytes	OBJECT-TYPE
 --
 
 pgwApnSaccRatingGroupStatsTable 	OBJECT-TYPE
-    SYNTAX        			SEQUENCE OF pgwApnSaccRatingGroupStats
+    SYNTAX        			SEQUENCE OF PgwApnSaccRatingGroupStats
     MAX-ACCESS    			not-accessible
     STATUS        			current
     DESCRIPTION
@@ -6640,7 +6640,7 @@ pgwApnSaccRatingGroupStatsTable 	OBJECT-TYPE
     ::= { ggsnFbcStats 20 }
 
 pgwApnSaccRatingGroupStatsEntry		OBJECT-TYPE
-    SYNTAX					pgwApnSaccRatingGroupStats
+    SYNTAX					PgwApnSaccRatingGroupStats
     MAX-ACCESS				not-accessible
     STATUS					current
     DESCRIPTION
@@ -6648,7 +6648,7 @@ pgwApnSaccRatingGroupStatsEntry		OBJECT-TYPE
     INDEX { ggsnGtpuIndex, ggsnApnIndex, pgwRatingGroupIndex }
     ::= { pgwApnSaccRatingGroupStatsTable 1 }
     
-pgwApnSaccRatingGroupStats ::= SEQUENCE {
+PgwApnSaccRatingGroupStats ::= SEQUENCE {
     pgwRatingGroupIndex			Unsigned32,
     pgwApnSaccRatingGroupUplinkBytes	Counter64,
     pgwApnSaccRatingGroupDownlinkBytes	Counter64

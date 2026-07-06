@@ -992,7 +992,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { cpu 1 }
 
           cpuTable OBJECT-TYPE
-              SYNTAX  SEQUENCE OF cpuEntry
+              SYNTAX  SEQUENCE OF CpuEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1002,7 +1002,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { cpu 2 }
 
           cpuEntry OBJECT-TYPE
-              SYNTAX  cpuEntry
+              SYNTAX  CpuEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1067,7 +1067,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { memory 1 }
 
           memoryPoolTable OBJECT-TYPE
-              SYNTAX  SEQUENCE OF memoryPoolEntry
+              SYNTAX  SEQUENCE OF MemoryPoolEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1077,7 +1077,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { memory 2 }
 
           memoryPoolEntry OBJECT-TYPE
-              SYNTAX  memoryPoolEntry
+              SYNTAX  MemoryPoolEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1181,7 +1181,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { temperature 1 }
 
           tempProbeTable OBJECT-TYPE
-              SYNTAX  SEQUENCE OF tempProbeEntry
+              SYNTAX  SEQUENCE OF TempProbeEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1191,7 +1191,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { temperature 2 }
 
           tempProbeEntry OBJECT-TYPE
-              SYNTAX  tempProbeEntry
+              SYNTAX  TempProbeEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1240,7 +1240,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { gateway 1 }
 
           gwTable OBJECT-TYPE
-              SYNTAX  SEQUENCE OF gwEntry
+              SYNTAX  SEQUENCE OF GwEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1249,7 +1249,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { gateway 2 }
 
           gwEntry OBJECT-TYPE
-              SYNTAX  gwEntry
+              SYNTAX  GwEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1323,7 +1323,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { isdn 1 }
 
           isdnPortTable OBJECT-TYPE
-              SYNTAX  SEQUENCE OF isdnPortEntry
+              SYNTAX  SEQUENCE OF IsdnPortEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION
@@ -1332,7 +1332,7 @@ vSBC       OBJECT IDENTIFIER ::= { vSN 1 }
               ::= { isdn 2 }
 
           isdnPortEntry OBJECT-TYPE
-              SYNTAX  isdnPortEntry
+              SYNTAX  IsdnPortEntry
               ACCESS  not-accessible
               STATUS  mandatory
               DESCRIPTION

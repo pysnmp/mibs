@@ -44,7 +44,7 @@
         hwIPTNMibObjects OBJECT IDENTIFIER ::= { hwBRASIPTN 1 }
         
         hwIptnInterfaceTable OBJECT-TYPE
-            SYNTAX SEQUENCE OF hwIptnEnableEntry
+            SYNTAX SEQUENCE OF HwIptnEnableEntry
             MAX-ACCESS not-accessible
             STATUS current
             DESCRIPTION
@@ -53,7 +53,7 @@
             ::= { hwIPTNMibObjects 1 }
         
         hwIptnEnableEntry OBJECT-TYPE
-            SYNTAX hwIptnEnableEntry
+            SYNTAX HwIptnEnableEntry
             MAX-ACCESS not-accessible
             STATUS current
             DESCRIPTION

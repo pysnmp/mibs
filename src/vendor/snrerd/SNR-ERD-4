@@ -79,14 +79,14 @@ humidityDHT		OBJECT-TYPE
 -- dtsTable
 
 dtsTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF dtsEntry
+    SYNTAX      SEQUENCE OF DtsEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION	"A list of temperature sensors values"
     ::= { oneWire 1 }
 
 dtsEntry OBJECT-TYPE
-    SYNTAX      dtsEntry
+    SYNTAX      DtsEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION	"An entry (conceptual row) in the dtsTable"
@@ -287,7 +287,7 @@ shuntDischTime OBJECT-TYPE
 -- wirelessSensors
 
 rfshtpTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF rfshtpEntry
+    SYNTAX      SEQUENCE OF RfshtpEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -295,7 +295,7 @@ rfshtpTable OBJECT-TYPE
     ::= { measurements 10 }
 
 rfshtpEntry OBJECT-TYPE
-    SYNTAX      rfshtpEntry
+    SYNTAX      RfshtpEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -357,14 +357,14 @@ rfshtpPres OBJECT-TYPE
 
 -- rsshtpTable
 rsshtpTable		OBJECT-TYPE
-	SYNTAX		SEQUENCE OF rsshtpEntry
+	SYNTAX		SEQUENCE OF RsshtpEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"A list of SNR-RSsensor-H/T/P values"
 ::= { sp 1 }
 
 rsshtpEntry OBJECT-TYPE
-	SYNTAX		rsshtpEntry
+	SYNTAX		RsshtpEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"An entry (conceptual row) 
@@ -372,7 +372,7 @@ in the rsshtpTable"
 	INDEX		{ rsshtpIdent }
 ::= { rsshtpTable 1 }
 
-rsshtpEntry ::= SEQUENCE 
+RsshtpEntry ::= SEQUENCE 
 {
     rsshtpIdent	OctetString,
 	rsshtpName	OctetString,
@@ -449,14 +449,14 @@ Up to +125�C"
 -- rscounterTable
 
 rscounterTable		OBJECT-TYPE
-	SYNTAX		SEQUENCE OF rscounterEntry
+	SYNTAX		SEQUENCE OF RscounterEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"A list of SNR-RS-Counter"
 ::= { sp 5 }
 
 rscounterEntry OBJECT-TYPE
-	SYNTAX		rscounterEntry
+	SYNTAX		RscounterEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"An entry (conceptual row) 
@@ -464,7 +464,7 @@ in the rscounterTable"
 	INDEX		{ rscounterIdent }
 ::= { rscounterTable 1 }
 
-rscounterEntry ::= SEQUENCE 
+RscounterEntry ::= SEQUENCE 
 {
     rscounterIdent	OctetString,
 	rscounterName	OctetString,
@@ -487,7 +487,7 @@ rscounterName		OBJECT-TYPE
 
 -- rsshtp1WTable
 rsshtp1WTable		OBJECT-TYPE
-	SYNTAX		SEQUENCE OF rsshtp1WEntry
+	SYNTAX		SEQUENCE OF Rsshtp1WEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"A list of temperature sensors 
@@ -495,7 +495,7 @@ are connected to SNR-RSsensor-H/T/P"
 ::= { sp 100 }
 
 rsshtp1WEntry 		OBJECT-TYPE
-	SYNTAX		rsshtp1WEntry
+	SYNTAX		Rsshtp1WEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"An entry (conceptual row) 
@@ -503,7 +503,7 @@ in the rsshtp1WTable"
 	INDEX		{ rsshtp1WIdent }
 ::= { rsshtp1WTable 1 }
 
-rsshtp1WEntry ::= SEQUENCE 
+Rsshtp1WEntry ::= SEQUENCE 
 {
         rsshtp1WIdent	UInteger32,
 	rsshtp1WName	OctetString,
@@ -574,14 +574,14 @@ Up to +125�C"
 -- sensorsTemplate
 
 sensorsTemplateTable		OBJECT-TYPE
-	SYNTAX		SEQUENCE OF sensorsTemplateEntry
+	SYNTAX		SEQUENCE OF SensorsTemplateEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"A list of sensors values"
 ::= { sensorsTemplate 1 }
 
 sensorsTemplateEntry 		OBJECT-TYPE
-	SYNTAX		sensorsTemplateEntry
+	SYNTAX		SensorsTemplateEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"An entry (conceptual row) 
@@ -589,7 +589,7 @@ in the rsshtp1WTable"
 	INDEX		{ sensorsTemplateValue }
 ::= { sensorsTemplateTable 1 }
 
-sensorsTemplateEntry ::= SEQUENCE 
+SensorsTemplateEntry ::= SEQUENCE 
 {
     sensorsTemplateValue	Integer,
 	sensorsTemplateName		OctetString
@@ -619,21 +619,21 @@ sensorsTemplateTotalConnected		OBJECT-TYPE
 -- dio
 
 diTable			OBJECT-TYPE
-	SYNTAX		SEQUENCE OF diEntry
+	SYNTAX		SEQUENCE OF DiEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"A list of digital inputs values"
 ::= { dio 1 }
 
 diEntry 		OBJECT-TYPE
-	SYNTAX		diEntry
+	SYNTAX		DiEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"An entry (conceptual row) 
 in the diTable"
 ::= { diTable 1 }
 
-diEntry ::= SEQUENCE 
+DiEntry ::= SEQUENCE 
 {
 	diName		OctetString,
     diAlarmName	OctetString,
@@ -677,21 +677,21 @@ diCnt			OBJECT-TYPE
 
 
 doTable			OBJECT-TYPE
-	SYNTAX		SEQUENCE OF doEntry
+	SYNTAX		SEQUENCE OF DoEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"A list of digital outputs values"
 ::= { dio 2 }
 
 doEntry 		OBJECT-TYPE
-	SYNTAX		doEntry
+	SYNTAX		DoEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION	"An entry (conceptual row) 
 in the doTable"
 ::= { doTable 1 }
 
-doEntry ::= SEQUENCE 
+DoEntry ::= SEQUENCE 
 {
 	doName			OctetString,
 	doDeviceName	OctetString,

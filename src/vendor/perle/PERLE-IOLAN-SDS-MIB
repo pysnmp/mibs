@@ -20654,7 +20654,7 @@ wwanStatsTxBytes OBJECT-TYPE
 -- sfpModuleTable
 --
   sfpModuleTable OBJECT-TYPE
-    SYNTAX		SEQUENCE OF sfpModuleEntry
+    SYNTAX		SEQUENCE OF SfpModuleEntry
     MAX-ACCESS	not-accessible
     STATUS		current
     DESCRIPTION

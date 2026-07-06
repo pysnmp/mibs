@@ -121,7 +121,7 @@ XMUX4-PLUS DEFINITIONS ::= BEGIN
 	-- XMUX's information // Datos de cada XMUX
 
 	muxTable OBJECT-TYPE
-		SYNTAX SEQUENCE OF muxEntry
+		SYNTAX SEQUENCE OF MuxEntry
 		ACCESS not-accessible
 		STATUS current
 		DESCRIPTION
@@ -129,7 +129,7 @@ XMUX4-PLUS DEFINITIONS ::= BEGIN
 		::= { dmux4 9 }
 
 	muxEntry OBJECT-TYPE
-		SYNTAX muxEntry
+		SYNTAX MuxEntry
 		ACCESS not-accessible
 		STATUS current
 		DESCRIPTION
@@ -137,7 +137,7 @@ XMUX4-PLUS DEFINITIONS ::= BEGIN
 		INDEX  { muxTableIndex }
 		::= { muxTable 1 }
 
-	muxEntry ::= SEQUENCE {
+	MuxEntry ::= SEQUENCE {
 		muxTableIndex       Integer32,
 		muxIdentity         DisplayString,
 		muxAlarmStatus      INTEGER,

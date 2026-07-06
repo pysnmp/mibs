@@ -42,7 +42,7 @@ dlbRdo3DrvStats
         OBJECT IDENTIFIER ::= { dlbRadio3DrvMIBObjects 3 }
 
 dlbRdo3StatsTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF dlbRdo3StatsEntry
+    SYNTAX  SEQUENCE OF DlbRdo3StatsEntry
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -50,7 +50,7 @@ dlbRdo3StatsTable OBJECT-TYPE
     ::= { dlbRdo3DrvStats 1 }
 
 dlbRdo3StatsEntry OBJECT-TYPE
-    SYNTAX  dlbRdo3StatsEntry
+    SYNTAX  DlbRdo3StatsEntry
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION

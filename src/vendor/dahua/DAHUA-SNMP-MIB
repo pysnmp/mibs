@@ -332,20 +332,20 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                                 -- regularResolution
                         
         regularStreamInfoTable   OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF regularStreamInfoTableEntry 
+                SYNTAX           SEQUENCE OF RegularStreamInfoTableEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel"
                 ::=  {  mainStreamInfo  1  }  
         
     regularStreamInfoTableEntry   OBJECT-TYPE
-                SYNTAX           regularStreamInfoTableEntry
+                SYNTAX           RegularStreamInfoTableEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  regularChannelNo  }
                 ::=  {  regularStreamInfoTable  1  }
-        regularStreamInfoTableEntry ::= SEQUENCE {
+        RegularStreamInfoTableEntry ::= SEQUENCE {
                 regularChannelNo                        INTEGER,
                         regularCompression                              DisplayString,
                         regularFPS                                              INTEGER,
@@ -390,21 +390,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                                 -- mdResolution
                         
         mdStreamInfoTable        OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF mdStreamInfoTableEntry 
+                SYNTAX           SEQUENCE OF MdStreamInfoTableEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel"
                 ::=  {  mainStreamInfo  2  }  
         
     mdStreamInfoTableEntry   OBJECT-TYPE
-                SYNTAX           mdStreamInfoTableEntry
+                SYNTAX           MdStreamInfoTableEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  mdChannelNo  }
                 ::=  {  mdStreamInfoTable  1  }
         
-        mdStreamInfoTableEntry ::= SEQUENCE {
+        MdStreamInfoTableEntry ::= SEQUENCE {
                 mdChannelNo                             INTEGER,
                         mdCompression                           DisplayString,
                         mdFPS                                           INTEGER,
@@ -449,14 +449,14 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                                 -- alarmResolution
                         
         alarmStreamInfoTable     OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF alarmStreamInfoTableEntry 
+                SYNTAX           SEQUENCE OF AlarmStreamInfoTableEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel"
                 ::=  {  mainStreamInfo  3  }  
         
     alarmStreamInfoTableEntry   OBJECT-TYPE
-                SYNTAX           alarmStreamInfoTableEntry
+                SYNTAX           AlarmStreamInfoTableEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
@@ -464,7 +464,7 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 ::=  {  alarmStreamInfoTable  1  }
                         
 
-        alarmStreamInfoTableEntry ::= SEQUENCE {
+        AlarmStreamInfoTableEntry ::= SEQUENCE {
                 alarmChannelNo                          INTEGER,
                         alarmCompression                                DisplayString,
                         alarmFPS                                                INTEGER,
@@ -512,21 +512,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 -- extra3StreamInfoTable
                 
         extra1StreamInfoTable    OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF extra1StreamInfoEntry 
+                SYNTAX           SEQUENCE OF Extra1StreamInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  extraStreamInfo  1  }  
         
     extra1StreamInfoEntry   OBJECT-TYPE
-                SYNTAX           extra1StreamInfoEntry
+                SYNTAX           Extra1StreamInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  extra1ChannelNo  }
                 ::=  {  extra1StreamInfoTable  1  }
         
-        extra1StreamInfoEntry ::= SEQUENCE {
+        Extra1StreamInfoEntry ::= SEQUENCE {
                 extra1ChannelNo                                 INTEGER,                        
                         extra1Compression                                       DisplayString,
                         extra1FPS                                                       INTEGER,        
@@ -687,21 +687,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 --exceptionConfig       
         
         videoMotionInfoTable     OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF videoMotionInfoEntry 
+                SYNTAX           SEQUENCE OF VideoMotionInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  videoDetectConfig  1  }  
         
     videoMotionInfoEntry   OBJECT-TYPE
-                SYNTAX           videoMotionInfoEntry
+                SYNTAX           VideoMotionInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  videoMotionIndex  }
                 ::=  {  videoMotionInfoTable  1  }
         
-        videoMotionInfoEntry ::= SEQUENCE {
+        VideoMotionInfoEntry ::= SEQUENCE {
                 videoMotionIndex                                INTEGER                        
                         
                 }       
@@ -713,21 +713,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
         ::=  {  videoMotionInfoEntry  1  }      
                 
         videoLossInfoTable       OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF videoLossInfoEntry 
+                SYNTAX           SEQUENCE OF VideoLossInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  videoDetectConfig  2  }  
         
     videoLossInfoEntry   OBJECT-TYPE
-                SYNTAX           videoLossInfoEntry
+                SYNTAX           VideoLossInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  videoLossIndex  }
                 ::=  {  videoLossInfoTable  1  }
         
-        videoLossInfoEntry ::= SEQUENCE {
+        VideoLossInfoEntry ::= SEQUENCE {
                 videoLossIndex                                  INTEGER                        
                         
                 }       
@@ -739,21 +739,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
         ::=  {  videoLossInfoEntry  1  }
                 
         videoBlindInfoTable      OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF videoBlindInfoEntry 
+                SYNTAX           SEQUENCE OF VideoBlindInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  videoDetectConfig  3  }  
         
     videoBlindInfoEntry   OBJECT-TYPE
-                SYNTAX           videoBlindInfoEntry
+                SYNTAX           VideoBlindInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  videoBlindIndex  }
                 ::=  {  videoBlindInfoTable  1  }
         
-        videoBlindInfoEntry ::= SEQUENCE {
+        VideoBlindInfoEntry ::= SEQUENCE {
                 videoBlindIndex                                 INTEGER                        
                         
                 }       
@@ -769,21 +769,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                         --networkAlarmInfoTable
         
         localAlarmInfoTable      OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF localAlarmInfoEntry 
+                SYNTAX           SEQUENCE OF LocalAlarmInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  alarmConfig  1  }  
         
     localAlarmInfoEntry   OBJECT-TYPE
-                SYNTAX           localAlarmInfoEntry
+                SYNTAX           LocalAlarmInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  localAlarmIndex  }
                 ::=  {  localAlarmInfoTable  1  }
         
-        localAlarmInfoEntry ::= SEQUENCE {
+        LocalAlarmInfoEntry ::= SEQUENCE {
                 localAlarmIndex                                 INTEGER                        
                 }       
         localAlarmIndex        OBJECT-TYPE
@@ -794,21 +794,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
         ::=  {  localAlarmInfoEntry  1  }
         
         networkAlarmInfoTable    OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF networkAlarmInfoEntry 
+                SYNTAX           SEQUENCE OF NetworkAlarmInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  alarmConfig  2  }  
         
     networkAlarmInfoEntry   OBJECT-TYPE
-                SYNTAX           networkAlarmInfoEntry
+                SYNTAX           NetworkAlarmInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  networkAlarmIndex  }
                 ::=  {  networkAlarmInfoTable  1  }
         
-        networkAlarmInfoEntry ::= SEQUENCE {
+        NetworkAlarmInfoEntry ::= SEQUENCE {
                 networkAlarmIndex                                       INTEGER                        
                 }       
         networkAlarmIndex        OBJECT-TYPE
@@ -823,20 +823,20 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 --recordMainStream
                 --recordExtraStream
         recordMainStreamInfoTable        OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF recordMainStreamInfoEntry 
+                SYNTAX           SEQUENCE OF RecordMainStreamInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  recordPlanInfo  1  }    
                 
         recordMainStreamInfoEntry   OBJECT-TYPE
-                SYNTAX           recordMainStreamInfoEntry
+                SYNTAX           RecordMainStreamInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "config infomation of the main stream record channel list"
                 INDEX            {  recordMainChannelIndex  }
                 ::=  {  recordMainStreamInfoTable  1  } 
-        recordMainStreamInfoEntry ::= SEQUENCE {
+        RecordMainStreamInfoEntry ::= SEQUENCE {
                 recordMainChannelIndex                          INTEGER,
         --              recordMainChannelType                                   INTEGER(ALL{0..6})
                 }
@@ -895,21 +895,21 @@ DAHUA-SNMP-MIB    DEFINITIONS ::= BEGIN
                 
         
         physicalVolumeInfoTable  OBJECT-TYPE    
-                SYNTAX           SEQUENCE OF physicalVolumeInfoEntry 
+                SYNTAX           SEQUENCE OF PhysicalVolumeInfoEntry 
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the extra stream channel"
                 ::=  {  storageInfo  1  }  
         
     physicalVolumeInfoEntry   OBJECT-TYPE
-                SYNTAX           physicalVolumeInfoEntry
+                SYNTAX           PhysicalVolumeInfoEntry
                 ACCESS           not-accessible
                 STATUS           current
                 DESCRIPTION      "infomation of the main stream channel list"
                 INDEX            {  physicalVolumeIndex  }
                 ::=  {  physicalVolumeInfoTable  1  }
         
-        physicalVolumeInfoEntry ::= SEQUENCE {
+        PhysicalVolumeInfoEntry ::= SEQUENCE {
                 physicalVolumeIndex                                     INTEGER,
                         physicNo                                                                INTEGER,
                         logicNo                                                                 INTEGER,

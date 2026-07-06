@@ -22,7 +22,7 @@ gandiMIB MODULE-IDENTITY
 	::= { enterprises 26384 }
 
 pktjTable OBJECT-TYPE
-	SYNTAX		SEQUENCE OF pktjTable
+	SYNTAX		SEQUENCE OF PktjEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION
@@ -30,7 +30,7 @@ pktjTable OBJECT-TYPE
 	::= { gandiMIB 1 }
 
 statTable OBJECT-TYPE
-	SYNTAX		SEQUENCE OF statTable
+	SYNTAX		SEQUENCE OF StatEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION
@@ -38,7 +38,7 @@ statTable OBJECT-TYPE
 	::= { pktjTable 1 }
 
 totalTable OBJECT-TYPE
-	SYNTAX		SEQUENCE OF totalTable
+	SYNTAX		SEQUENCE OF TotalEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION
@@ -46,7 +46,7 @@ totalTable OBJECT-TYPE
 	::= { statTable 1 }
 
 packetsCounters OBJECT-TYPE
-	SYNTAX		SEQUENCE OF packetsCounters
+	SYNTAX		SEQUENCE OF PacketsCountersEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION
@@ -71,7 +71,7 @@ txCounter OBJECT-TYPE
 
 	
 dropCounters OBJECT-TYPE
-	SYNTAX		SEQUENCE OF dropCounters
+	SYNTAX		SEQUENCE OF DropCountersEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION
@@ -103,7 +103,7 @@ ratedropCounter OBJECT-TYPE
 	::= { dropCounters 2 }
 
 kniCounters OBJECT-TYPE
-	SYNTAX		SEQUENCE OF kniCounters
+	SYNTAX		SEQUENCE OF KniCountersEntry
 	MAX-ACCESS	not-accessible
 	STATUS		current
 	DESCRIPTION
