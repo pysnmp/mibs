@@ -21684,9 +21684,7 @@ cableTable OBJECT-TYPE
         INDEX   { CableLengthInfo }
         ::= { cableTable 1 }
 
-    priCableEntry
-        ::= SEQUENCE
-            {
+    PriCableEntry ::= SEQUENCE {
                 CableLengthInfo               DisplayString                   
             }
 
@@ -21724,9 +21722,7 @@ priMrppRingEntry OBJECT-TYPE
             "The index of this table is RING index."
     INDEX      { mrppRingIndex }
     ::= { priMrppRingTable 1 }
-priMrppRingEntry
-        ::= SEQUENCE
-            {
+PriMrppRingEntry ::= SEQUENCE {
                 mrppRingIndex                      INTEGER,
                 mrppRingNodeMode                   INTEGER,
                 mrppRingNodeState                  INTEGER,
