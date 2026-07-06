@@ -67,7 +67,7 @@ IMPORTS
                        cardMemUtilThresholdMax
                        	   INTEGER,
                       cardSystemTemptureNodeNumber 
-                      `	   INTEGER
+                      	   INTEGER
                   }
 
 
