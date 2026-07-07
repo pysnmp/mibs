@@ -1292,7 +1292,7 @@ gDot1qGvrpLearningPermit OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "This object is used to add a vlan to garp so that other devices can learn it."
-        --将一个vlan加入到garp中以允许其他交换机学习该vlan
+        --vlangarpvlan
     ::= { gDot1qVlanStaticEntry 6 }
     
 gDot1qVlanSpanningTreeGroup OBJECT-TYPE
@@ -1301,7 +1301,7 @@ gDot1qVlanSpanningTreeGroup OBJECT-TYPE
     	STATUS      current
     	DESCRIPTION
     	    "This object is used to Get/Set current vlan's spanning-tree group num"
-    	    --用于获取/设置vlan的生成树组
+    	    --/vlan
     ::= { gDot1qVlanStaticEntry 7 }
     	
 gDot1qNextFreeLocalVlanIndex OBJECT-TYPE
@@ -1834,7 +1834,7 @@ gDot1qDoubleTagging OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "The global QinQ status"
-        --全局QinQ的状态
+        --QinQ
     ::= { gDot1qExtend 1 }
         
 gDot1qTpid OBJECT-TYPE
@@ -1845,8 +1845,8 @@ gDot1qTpid OBJECT-TYPE
         "The tag protocol id of service provider, this value is used to
          determine if a incoming packets is tagged and used when insert a
          new tag"
-       --用于配置服务提供者的vlan协议号,用于判断端口是否为tagged或者是
-       --为报文插入一个新的tag头时使用
+       --vlan,tagged
+       --tag
     ::= { gDot1qExtend 2 }
     
 gDot1qDoubleTaggingTable OBJECT-TYPE
@@ -1855,7 +1855,7 @@ gDot1qDoubleTaggingTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "This table is used to config the double tagging function."
-        --该表用于配置双tag头相关的功能.
+        --tag.
     ::= { gDot1qExtend 3 }
 
 gDot1qDoubleTaggingEntry OBJECT-TYPE
@@ -1864,7 +1864,7 @@ gDot1qDoubleTaggingEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about double tagging table entry."
-        --双tag表项
+        --tag
     INDEX   { gDot1qDoubleTaggingPort }
     ::= { gDot1qDoubleTaggingTable 1 }
 
@@ -1886,7 +1886,7 @@ gDot1qDoubleTaggingPort OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The index of double tagging entry."
-        --双tag表的索引
+        --tag
     ::= { gDot1qDoubleTaggingEntry 1 }
 
 gDot1qDoubleTaggingMode OBJECT-TYPE
@@ -1904,9 +1904,9 @@ gDot1qDoubleTaggingMode OBJECT-TYPE
         if it has no tag or its' tag-id doesn't match that of the port.
         dtagModeExternal means incoming pkt's tag is always be ignored
         and a new tag is inserted."
-       --配置端口的QinQ模式，dtagModeNone为关闭端口的QinQ，dtagModeInternal只有
-       --vlan协议号与端口的配置不同时才在报文中插入新的tag头，dtagModeExternal意
-       --味着端口总是忽略报文的tag属性而为报文新添一个tag头
+       --QinQdtagModeNoneQinQdtagModeInternal
+       --vlantagdtagModeExternal
+       --tagtag
     ::= { gDot1qDoubleTaggingEntry 2 }
     
 gDot1qPortInnerTpid OBJECT-TYPE
@@ -1915,7 +1915,7 @@ gDot1qPortInnerTpid OBJECT-TYPE
     STATUS      current
     DESCRIPTION
        "Used to change the original tag's(i.e.customer tag) tpid of packet when dtag enabled."
-       --双tag使能时,用于配置报文原始tag头的tpid
+       --tag,tagtpid
     ::= { gDot1qDoubleTaggingEntry 3 }
 
 gDot1qPortOuterTpid OBJECT-TYPE
@@ -1924,7 +1924,7 @@ gDot1qPortOuterTpid OBJECT-TYPE
     STATUS      current
     DESCRIPTION
        "Used to change the new tag's(i.e.service-provider tag) tpid of packet when dtag enabled."
-       --双tag使能时,用于配置报文新tag头的tpid
+       --tag,tagtpid
     ::= { gDot1qDoubleTaggingEntry 4 }
 
 gDot1qInnerTpid OBJECT-TYPE
@@ -1933,7 +1933,7 @@ gDot1qInnerTpid OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Used to change the original tag's(i.e.customer tag) tpid of packet when dtag enabled."
-       --双tag使能时,用于配置报文原始tag头的tpid
+       --tag,tagtpid
     ::= { gDot1qExtend 4 }
 -- -------------------------------------------------------------
 -- the current VLAN MAC Table
@@ -1946,8 +1946,8 @@ gDot1qVlanMacTable OBJECT-TYPE
         "This table is used to assign a VLAN ID for a packet based on
          the source MAC Address. If an entry is found, then the VLAN 
          ID, PRIORITY of vlan mac table will be used for the packet."
-        --该表用于基于报文的源MAC地址为报文添加一个tag头，如果找到匹配的表
-        --项，那么VLAN MAC表的vlan id以及优先级就会被添加到报文上.
+        --MACtag
+        --VLAN MACvlan id.
     ::= { gDot1qExtend 5 }
 
 gDot1qVlanMacEntry OBJECT-TYPE
@@ -1956,7 +1956,7 @@ gDot1qVlanMacEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan mac table entry."
-        --vlan mac表项的信息
+        --vlan mac
     INDEX   { gDot1qVlanMacAddress }
     ::= { gDot1qVlanMacTable 1 }
 
@@ -1978,7 +1978,7 @@ gDot1qVlanMacAddress OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The index of vlan mac table entry."
-        --vlan mac表的索引
+        --vlan mac
     ::= { gDot1qVlanMacEntry 1 }
 
 gDot1qVlanMacNewVlanId OBJECT-TYPE
@@ -1987,7 +1987,7 @@ gDot1qVlanMacNewVlanId OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Vlan id to be assigned to the packet."
-	--将要为报文添加的vlan id
+	--vlan id
     ::= { gDot1qVlanMacEntry 2 }
     
 gDot1qVlanMacNewPriority OBJECT-TYPE
@@ -1996,7 +1996,6 @@ gDot1qVlanMacNewPriority OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Priority to be assigned to the packet."
-        --将要为报文添加的优先级
     ::= { gDot1qVlanMacEntry 3 }
     
 gDot1qVlanMacStatus OBJECT-TYPE
@@ -2009,7 +2008,6 @@ gDot1qVlanMacStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "table entry status."
-        --表项的状态
     ::= { gDot1qVlanMacEntry 4 }
 -- -------------------------------------------------------------
 -- the current VLAN SUBNET Table
@@ -2021,7 +2019,7 @@ gDot1qVlanSubnetTable OBJECT-TYPE
     DESCRIPTION
         "This table is used to assign a VLAN ID for a packet based on
          the source IP Address."
-        --该表用于基于报文的源ip为报文添加tag头
+        --iptag
     ::= { gDot1qExtend 6 }
 
 gDot1qVlanSubnetEntry OBJECT-TYPE
@@ -2030,7 +2028,7 @@ gDot1qVlanSubnetEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan subnet table entry."
-        --vlan subnet表的表项信息
+        --vlan subnet
     INDEX   { gDot1qVlanSubnetIpAddress, gDot1qVlanSubnetIpMask }
     ::= { gDot1qVlanSubnetTable 1 }
 
@@ -2054,7 +2052,7 @@ gDot1qVlanSubnetIpAddress OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The first index of vlan subnet table entry."
-        --vlan subnet 表的第一个索引
+        --vlan subnet
     ::= { gDot1qVlanSubnetEntry 1 }
 
 gDot1qVlanSubnetIpMask OBJECT-TYPE
@@ -2063,7 +2061,7 @@ gDot1qVlanSubnetIpMask OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The second index of vlan subnet table entry."
-        --vlan subnet 表的第二个索引
+        --vlan subnet
     ::= { gDot1qVlanSubnetEntry 2 }
     
 gDot1qVlanSubnetNewVlanId OBJECT-TYPE
@@ -2072,7 +2070,7 @@ gDot1qVlanSubnetNewVlanId OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Vlan id to be assigned to the packet."
-        --将要为报文添加的vlan id
+        --vlan id
     ::= { gDot1qVlanSubnetEntry 3 }
     
 gDot1qVlanSubnetNewPriority OBJECT-TYPE
@@ -2081,7 +2079,6 @@ gDot1qVlanSubnetNewPriority OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Priority to be assigned to the packet."
-	--将要添加给报文的优先级值
     ::= { gDot1qVlanSubnetEntry 4 }
 
 gDot1qVlanSubnetStatus OBJECT-TYPE
@@ -2094,7 +2091,6 @@ gDot1qVlanSubnetStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "table entry status."
-        --表项的状态
     ::= { gDot1qVlanSubnetEntry 5 }
 -- -------------------------------------------------------------
 -- the current VLAN PROTOCOL Table
@@ -2106,7 +2102,7 @@ gDot1qVlanProtoTable OBJECT-TYPE
     DESCRIPTION
         "This table is used to assign a VLAN for a packet based 
          on the protocol(FrameType,EtherType)and the ingress port."
-        --该表用于基于报文的协议字段为报文添加新的tag头
+        --tag
     ::= { gDot1qExtend 7 }
 
 gDot1qVlanProtoEntry OBJECT-TYPE
@@ -2115,7 +2111,7 @@ gDot1qVlanProtoEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan protocol table entry."
-        --基于协议的vlan表的表项
+        --vlan
     INDEX   { gDot1qVlanProtoFrameType, gDot1qVlanProtoEthertype, gDot1qVlanProtoPortId }
     ::= { gDot1qVlanProtoTable 1 }
 
@@ -2138,8 +2134,8 @@ gDot1qVlanProtoFrameType OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Frame type：the first index of vlan protocol entry."
-        --Frame type：基于协议的vlan表的第一个索引.
+        "Frame typethe first index of vlan protocol entry."
+        --Frame typevlan.
     ::= { gDot1qVlanProtoEntry 1 }
 
 gDot1qVlanProtoEthertype OBJECT-TYPE
@@ -2147,8 +2143,8 @@ gDot1qVlanProtoEthertype OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-        "Ether type：the second index of vlan protocol entry."
-        --Ether type：基于协议的vlan表的第二个索引.
+        "Ether typethe second index of vlan protocol entry."
+        --Ether typevlan.
     ::= { gDot1qVlanProtoEntry 2 }
     
 gDot1qVlanProtoPortId OBJECT-TYPE
@@ -2157,7 +2153,7 @@ gDot1qVlanProtoPortId OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Ingress, wthe third index of vlan protocol entry."
-        --报文的入端口,基于协议的vlan表的第三个索引
+        --,vlan
     ::= { gDot1qVlanProtoEntry 3 }
     
 gDot1qVlanProtoNewVlanId OBJECT-TYPE
@@ -2166,7 +2162,7 @@ gDot1qVlanProtoNewVlanId OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Vlan id to be assigned to packet."
-        --将要赋予报文的vlan id
+        --vlan id
     ::= { gDot1qVlanProtoEntry 4 }
 
 gDot1qVlanProtoStatus OBJECT-TYPE
@@ -2179,7 +2175,6 @@ gDot1qVlanProtoStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "table entry status."
-        --表项的状态
     ::= { gDot1qVlanProtoEntry 5 }  
 -- -------------------------------------------------------------
 -- the current VLAN TRANSLATION Table
@@ -2192,7 +2187,7 @@ gDot1qVlanTranslationTable OBJECT-TYPE
         "This table is used to to translate the VLAN ID of an incoming
          tagged packet to another VLAN ID based on the ingress port and
          incoming packet VLAN ID."
-        --该表用于基于报文的vlan号和入端口转换报文的vlan id
+        --vlanvlan id
     ::= { gDot1qExtend 8 }
 
 gDot1qVlanTransEntry OBJECT-TYPE
@@ -2201,7 +2196,7 @@ gDot1qVlanTransEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan translation table entry."
-        --vlan转换表的表项信息
+        --vlan
     INDEX   { gDot1qVlanTransVlanId, gDot1qVlanTransPortId }
     ::= { gDot1qVlanTranslationTable 1 }
 
@@ -2225,7 +2220,7 @@ gDot1qVlanTransVlanId OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The first index of vlan translation table entry."
-        --vlan转换表项的第一个索引
+        --vlan
     ::= { gDot1qVlanTransEntry 1 }
 
 gDot1qVlanTransPortId OBJECT-TYPE
@@ -2234,7 +2229,7 @@ gDot1qVlanTransPortId OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The second index of vlan translation table entry."
-        --vlan转换表项的第二个索引
+        --vlan
     ::= { gDot1qVlanTransEntry 2 }
     
 gDot1qVlanTransNewVlanId OBJECT-TYPE
@@ -2244,7 +2239,7 @@ gDot1qVlanTransNewVlanId OBJECT-TYPE
     DESCRIPTION
         "The new vlan id to be assigned to the packet who match
         a vlan translation table entry."
-        --转换后的报文的新的vlan id值
+        --vlan id
     ::= { gDot1qVlanTransEntry 3 }
     
 gDot1qVlanTransNewPriority OBJECT-TYPE
@@ -2253,7 +2248,7 @@ gDot1qVlanTransNewPriority OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "The priority field of vlan translation table."
-        --VLAN转换表中的报文优先级字段
+        --VLAN
     ::= { gDot1qVlanTransEntry 4 }
    
 gDot1qVlanTransStatus OBJECT-TYPE
@@ -2266,7 +2261,6 @@ gDot1qVlanTransStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "table entry status."
-        --表项的状态
     ::= { gDot1qVlanTransEntry 5 } 
 -- -------------------------------------------------------------
 -- gDot1qExtend other
@@ -2281,7 +2275,7 @@ gDot1qVlanSubnetPrecede OBJECT-TYPE
     DESCRIPTION
         "Used to config whether the IP-Subnet Based VLAN has a higher
          precedence than the MAC Based VLAN."
-        --用于配置是否基于ip的vlan比基于MAC的vlan具有更高的优先级
+        --ipvlanMACvlan
     ::= { gDot1qExtend 9 }
     
 gDot1qVlanTransEnable OBJECT-TYPE
@@ -2293,7 +2287,7 @@ gDot1qVlanTransEnable OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "Used to config current vlan-translation's status."
-        --vlan转换的使能开关
+        --vlan
     ::= { gDot1qExtend 10 }
 
 -- -------------------------------------------------------------
@@ -2306,7 +2300,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     DESCRIPTION
          "A table containing stack vlan configuration information for 
          each stack vlan configured into the device by management."
-         --该表用于显示和配置Stack VLAN相关的信息.
+         --Stack VLAN.
     ::={ gDot1qExtend 11 }
 
  gDot1qStackVlanEntry OBJECT-TYPE
@@ -2316,7 +2310,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     DESCRIPTION
         "Information controlling stack VLAN configuration for a port
         on the device.  This is indexed by port and end vlan id."
-        --Stack VLAN表项,以端口号和结束VLAN ID为索引.
+        --Stack VLAN,VLAN ID.
 	INDEX   { gDot1qStackVlanPort, gDot1qEndStackVlan }
     ::= { gDot1qStackVlanTable 1 }
 
@@ -2340,7 +2334,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
           "The index of stack vlan."
-          --Stack VLAN的索引.
+          --Stack VLAN.
     ::={ gDot1qStackVlanEntry 1 }
     
  gDot1qStartStackVlan OBJECT-TYPE
@@ -2349,7 +2343,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
           "The start vlan of the serial vlans we want to insert a new vlan tag."
-          --Stack VLAN范围的起始VLAN ID.
+          --Stack VLANVLAN ID.
     ::={ gDot1qStackVlanEntry 2 }
     
  gDot1qEndStackVlan OBJECT-TYPE
@@ -2358,7 +2352,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
           "The end vlan of the serial vlans we want to insert a new vlan tag."
-          --Stack VLAN范围的结束VLAN ID.
+          --Stack VLANVLAN ID.
     ::={ gDot1qStackVlanEntry 3 } 
 
  gDot1qTargetStackVlan OBJECT-TYPE
@@ -2367,7 +2361,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
           "The target vlan of the serial vlans we want to insert."
-          --要插入的目标VLAN ID.
+          --VLAN ID.
     ::={ gDot1qStackVlanEntry 4 } 
 
  gDot1qStackVlanRowStatus OBJECT-TYPE
@@ -2376,7 +2370,7 @@ gDot1qStackVlanTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
            "Describe the oprations for the entry:4-create 6-delete"
-           --设置Stack VLAN:4-添加 6-删除.
+           --Stack VLAN:4- 6-.
     ::= { gDot1qStackVlanEntry 5 }
 
 -- -------------------------------------------------------------
@@ -2389,7 +2383,7 @@ gDot1qVlanPassthroughTable OBJECT-TYPE
     DESCRIPTION
          "A table containing  vlan passthrough configuration information for 
          each  vlan passthrough configured into the device by management."
-         --该表用于显示和配置VLAN透传相关的信息.
+         --VLAN.
     ::={ gDot1qExtend 12 }
 
  gDot1qVlanPassthroughEntry OBJECT-TYPE
@@ -2399,7 +2393,7 @@ gDot1qVlanPassthroughTable OBJECT-TYPE
     DESCRIPTION
         "Information controlling VLAN passthrough configuration for a port
         on the device.  This is indexed by port and end vlan id."
-        --VLAN透传表项,以端口号和结束VLAN ID为索引.
+        --VLAN,VLAN ID.
 	INDEX   { gDot1qPassthroughPort, gDot1qEndPassthroughVlan }
     ::= { gDot1qVlanPassthroughTable 1 }
  
@@ -2421,7 +2415,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The index of passthrough entry."
-          --VLAN透传的索引
+          --VLAN
     ::={ gDot1qVlanPassthroughEntry 1 }
     
  gDot1qStartPassthroughVlan OBJECT-TYPE
@@ -2430,7 +2424,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The start vlan of the serial vlans we want to passthrough."
-          --配置VLAN透传范围的起始VLAN
+          --VLANVLAN
     ::={ gDot1qVlanPassthroughEntry 2 }
     
  gDot1qEndPassthroughVlan OBJECT-TYPE
@@ -2439,7 +2433,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The end vlan of the serial vlans we want to passthrough. "
-          --配置VLAN透传范围的结束VLAN
+          --VLANVLAN
     ::={ gDot1qVlanPassthroughEntry 3 } 
 
  gDot1qPassthroughRowStatus OBJECT-TYPE
@@ -2448,7 +2442,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
            "Describe the oprations for the entry:4-create 6-delete."
-           --设置VLAN透传:4-添加 6-删除.
+           --VLAN:4- 6-.
     ::= { gDot1qVlanPassthroughEntry 4 }
     
 -- -------------------------------------------------------------
@@ -2461,7 +2455,7 @@ GarpDot1qVlanPassthroughEntry ::=
     DESCRIPTION
          "A table containing  vlan swap configuration information for 
          each  vlan swap configured into the device by management."
-         --该表用于显示和配置VLAN交换相关的信息.
+         --VLAN.
     ::={ gDot1qExtend 13 }
 
  gDot1qVlanSwapEntry OBJECT-TYPE
@@ -2471,7 +2465,7 @@ GarpDot1qVlanPassthroughEntry ::=
     DESCRIPTION
         "Information controlling VLAN swap configuration for a port
         on the device.  This is indexed by port and end vlan id."
-        --VLAN交换表项,以端口号和结束VLAN ID为索引.
+        --VLAN,VLAN ID.
 	INDEX   { gDot1qVlanSwapPort, gDot1qEndSwapVlan }
     ::= { gDot1qVlanSwapTable 1 }
  
@@ -2495,7 +2489,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The index of vlan swap entry."
-          --VLAN交换的索引
+          --VLAN
     ::={ gDot1qVlanSwapEntry 1 }
     
  gDot1qStartSwapVlan OBJECT-TYPE
@@ -2504,7 +2498,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The start vlan of the serial vlans we want to swap."
-          --配置VLAN交换范围的起始VLAN
+          --VLANVLAN
     ::={ gDot1qVlanSwapEntry 2 }
     
  gDot1qEndSwapVlan OBJECT-TYPE
@@ -2513,7 +2507,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The end vlan of the serial vlans we want to swap. "
-          --配置VLAN交换范围的结束VLAN
+          --VLANVLAN
     ::={ gDot1qVlanSwapEntry 3 }
 
  gDot1qTargetSwapVlan OBJECT-TYPE
@@ -2522,7 +2516,7 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
           "The target vlan of the serial vlans we want to swap."
-          --要交换的目标VLAN ID.
+          --VLAN ID.
     ::={ gDot1qVlanSwapEntry 4 }
     
  gDot1qVlanSwapRowStatus OBJECT-TYPE
@@ -2531,10 +2525,10 @@ GarpDot1qVlanPassthroughEntry ::=
     STATUS      current
     DESCRIPTION
            "Describe the oprations for the entry:4-create 6-delete."
-           --设置VLAN交换:4-添加 6-删除.
+           --VLAN:4- 6-.
     ::= { gDot1qVlanSwapEntry 5 }
 
----在marvell芯片中使用
+---marvell
 gDot1qProtocolVlan     OBJECT IDENTIFIER ::= { gDot1qExtend 14 }
 
 gDot1qProtocolVlanTable OBJECT-TYPE
@@ -2543,7 +2537,7 @@ gDot1qProtocolVlanTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "This table is used to classify a packet based on the protocol(FrameType,EtherType).only for marvell chip"
-        --该表用于基于报文的协议字段为报文进行分类，在marvell芯片中使用
+        --marvell
     ::= { gDot1qProtocolVlan 1 }
 
 gDot1qProtocolVlanEntry OBJECT-TYPE
@@ -2552,7 +2546,7 @@ gDot1qProtocolVlanEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan protocol table entry."
-        --基于协议的vlan表的表项
+        --vlan
     INDEX   { protocolVlanTableIndex }
     ::= { gDot1qProtocolVlanTable 1 }
 
@@ -2574,7 +2568,7 @@ protocolVlanTableIndex OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "index of vlan protocol entry."
-        --基于协议的vlan表的索引.
+        --vlan.
     ::= { gDot1qProtocolVlanEntry 1 }
 
 protocolVlanTableEthertype OBJECT-TYPE
@@ -2583,7 +2577,6 @@ protocolVlanTableEthertype OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "ether type of packet."
-        --报文的以太网类型.
     ::= { gDot1qProtocolVlanEntry 2 }
     
 protocolVlanTableProtocol OBJECT-TYPE
@@ -2600,7 +2593,7 @@ protocolVlanTableProtocol OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "protocol of packet.bit 0 is ethernetv2, bit 1 is non-snap-llc, bit 2 is snap-llc."
-        --报文的协议类型，位0表示ethernetv2，位1表示non-snap-llc，位2表示snap-llc
+        --0ethernetv21non-snap-llc2snap-llc
     ::= { gDot1qProtocolVlanEntry 3 }
     
 protocolVlanTableStatus OBJECT-TYPE
@@ -2609,7 +2602,6 @@ protocolVlanTableStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "table entry status."
-        --表项的状态
     ::= { gDot1qProtocolVlanEntry 4 }  
 
 gDot1qProtocolVlanActionTable OBJECT-TYPE
@@ -2619,7 +2611,7 @@ gDot1qProtocolVlanActionTable OBJECT-TYPE
     DESCRIPTION
         "This table is used to assign a VLAN for a packet based 
          on the protocol(FrameType,EtherType)and the ingress port.only for marvell chip"
-        --该表用于基于报文的协议字段为报文添加新的tag头，在marvell芯片中使用
+        --tagmarvell
     ::= { gDot1qProtocolVlan 2 }
 
 gDot1qProtocolVlanActionEntry OBJECT-TYPE
@@ -2628,7 +2620,7 @@ gDot1qProtocolVlanActionEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan protocol aciton table entry."
-        --基于协议的vlan动作表的表项
+        --vlan
     INDEX   { protocolVlanAcitonTablePort,  protocolVlanTableIndex}
     ::= { gDot1qProtocolVlanActionTable 1 }
 
@@ -2648,7 +2640,6 @@ protocolVlanAcitonTablePort OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "port index."
-        --端口索引
     ::= { gDot1qProtocolVlanActionEntry 1 }
 
 protocolVlanActionTableNewVlan OBJECT-TYPE
@@ -2657,7 +2648,7 @@ protocolVlanActionTableNewVlan OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "new vlan id of packet."
-        --报文新的VLAN号.
+        --VLAN.
     ::= { gDot1qProtocolVlanActionEntry 2 }
         
 protocolVlanActionTableStatus OBJECT-TYPE
@@ -2666,7 +2657,6 @@ protocolVlanActionTableStatus OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "table entry status."
-        --表项的状态
     ::= { gDot1qProtocolVlanActionEntry 3 }  
 
 gDot1qProtocolVlanAdminTable OBJECT-TYPE
@@ -2676,7 +2666,7 @@ gDot1qProtocolVlanAdminTable OBJECT-TYPE
     DESCRIPTION
         "This table is used to enable assign a VLAN for a packet based 
          on the protocol(FrameType,EtherType)and the ingress port.only for marvell chip"
-        --该表用于使能基于报文的协议字段为报文添加新的tag头，在marvell芯片中使用
+        --tagmarvell
     ::= { gDot1qProtocolVlan 3 }
 
 gDot1qProtocolVlanAdminEntry OBJECT-TYPE
@@ -2685,7 +2675,7 @@ gDot1qProtocolVlanAdminEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "Information about a vlan protocol admin table entry."
-        --使能基于协议的vlan表的表项
+        --vlan
     INDEX   { protocolVlanAdminTablePort }
     ::= { gDot1qProtocolVlanAdminTable 1 }
 
@@ -2703,7 +2693,6 @@ protocolVlanAdminTablePort OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "port index."
-        --端口索引
     ::= { gDot1qProtocolVlanAdminEntry 1 }
 
 protocolVlanAdminTableEnable OBJECT-TYPE
@@ -2712,7 +2701,7 @@ protocolVlanAdminTableEnable OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "enable protocol-based vlan function of a port."
-        --使能端口的基于协议的VLAN功能.
+        --VLAN.
     ::= { gDot1qProtocolVlanAdminEntry 2 }
 
 
@@ -2724,7 +2713,7 @@ gDot1qTranslateVlanIngressTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "This table is used to classify a packet based on the protocol(FrameType,EtherType).only for marvell chip"
-        --替换vlan全局表项
+        --vlan
     ::= { gDot1qTranslateVlan 1 }   
     
     
@@ -2734,7 +2723,7 @@ gDot1qTranslateVlanIngressEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "entry of ingress vlan translate."
-        --入口vlan替换表项
+        --vlan
     INDEX   { translateVlanIngressTableIndex }
     ::= { gDot1qTranslateVlanIngressTable 1 }  
     
@@ -2752,7 +2741,7 @@ translateVlanIngressTableIndex OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "index of ingress vlan."
-        --入口VLAN 索引.
+        --VLAN .
     ::= { gDot1qTranslateVlanIngressEntry 1 }
     
 translateIngressTargetVlanID OBJECT-TYPE
@@ -2762,7 +2751,7 @@ translateIngressTargetVlanID OBJECT-TYPE
     DESCRIPTION
         "Target vlan ID.        
         0 means not set"
-        --目标vlan ID. 0:表示没有设置,不能将目标vlan与原vlan设置相同
+        --vlan ID. 0:,vlanvlan
     ::= { gDot1qTranslateVlanIngressEntry 2 }
 
 gDot1qTranslateVlanEgressTable OBJECT-TYPE
@@ -2771,7 +2760,7 @@ gDot1qTranslateVlanEgressTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "This table is used to classify a packet based on the protocol(FrameType,EtherType).only for marvell chip"
-        --替换vlan全局表项
+        --vlan
     ::= { gDot1qTranslateVlan 2 } 
     
 gDot1qTranslateVlanEgressEntry OBJECT-TYPE
@@ -2780,7 +2769,7 @@ gDot1qTranslateVlanEgressEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "entry of Egress vlan translate."
-        --出口vlan替换表项
+        --vlan
     INDEX   { translateVlanEgressTableIndex }
     ::= { gDot1qTranslateVlanEgressTable 1 }
     
@@ -2797,7 +2786,7 @@ translateVlanEgressTableIndex OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "index of Egress vlan."
-        --出口VLAN 索引.
+        --VLAN .
     ::= { gDot1qTranslateVlanEgressEntry 1 }
     
 translateEgressTargetVlanID OBJECT-TYPE
@@ -2807,7 +2796,7 @@ translateEgressTargetVlanID OBJECT-TYPE
     DESCRIPTION
         "Target vlan ID.
         0 means not set"
-        --目标vlan ID. 0:表示没有设置,不能将目标vlan与原vlan设置相同
+        --vlan ID. 0:,vlanvlan
     ::= { gDot1qTranslateVlanEgressEntry 2 }
          
          
@@ -2818,7 +2807,7 @@ gDot1qTranslateVlanPortTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "translate vlan port list"
-        --替换vlan端口开启列表
+        --vlan
     ::= { gDot1qTranslateVlan 3 }
     
 gDot1qTranslateVlanPortEntry OBJECT-TYPE
@@ -2827,7 +2816,7 @@ gDot1qTranslateVlanPortEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "port entry of  vlan translate."
-        --vlan替换端口使能表项
+        --vlan
     INDEX   { translateVlanTablePort }
     ::= { gDot1qTranslateVlanPortTable 1 }
     
@@ -2846,7 +2835,6 @@ translateVlanTablePort OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "port index."
-        --端口索引
     ::= { gDot1qTranslateVlanPortEntry 1 }
     
 translateTargetVlanIngressTableEnable OBJECT-TYPE
@@ -2855,7 +2843,7 @@ translateTargetVlanIngressTableEnable OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "enable ingress Translate vlan function of a port.1:enable;2:disable"
-        --使能入端口的VLAN替换功能 1表示使能，2表示禁止.
+        --VLAN 12.
     ::= { gDot1qTranslateVlanPortEntry 2 }   
     
  translateTargetVlanEgressTableEnable OBJECT-TYPE
@@ -2864,7 +2852,7 @@ translateTargetVlanIngressTableEnable OBJECT-TYPE
     STATUS       current
     DESCRIPTION
         "enable Egress Translate vlan function of a port.1:enable;2:disable"
-        --使能出端口的VLAN替换功能 1表示使能，2表示禁止.
+        --VLAN 12.
     ::= { gDot1qTranslateVlanPortEntry 3 }           
 
             

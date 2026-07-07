@@ -53,7 +53,7 @@
         STATUS current
         DESCRIPTION
             "Chassis version, the format is V3.0."
-            --机架的版本号，格式为V3.0.
+            --V3.0.
         ::= { gbnChassis 1 }
 
     chassisSerialNo OBJECT-TYPE
@@ -62,7 +62,6 @@
         STATUS current
         DESCRIPTION
             "Product Serial Number."
-            --产品序列号.
         ::= { gbnChassis 2 }
 
     chassisType OBJECT-TYPE
@@ -75,7 +74,6 @@
         STATUS current
         DESCRIPTION
             "Chassis type."
-            --机架类型.
         ::= { gbnChassis 3 }
 
     chassisSlotAppTable OBJECT-TYPE
@@ -83,8 +81,7 @@
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
-            "Slots application table，for control board or line board."
-            --槽位用途表，用于主控板还是业务板.
+            "Slots application tablefor control board or line board."
         ::= { gbnChassis 4 }
 
     chassisSlotAppEntry OBJECT-TYPE
@@ -92,8 +89,7 @@
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
-            "Slots application table，for control board or line board."
-            --槽位用途表，用于主控板还是业务板.
+            "Slots application tablefor control board or line board."
         INDEX { slotNum }
         ::= { chassisSlotAppTable 1 }
 
@@ -108,7 +104,6 @@
         STATUS current
         DESCRIPTION
             "Slot number of the chassis."
-            --机架槽位号.
         ::= { chassisSlotAppEntry 1 }
 
     slotApp OBJECT-TYPE
@@ -121,7 +116,6 @@
         STATUS current
         DESCRIPTION
             "slots application, for control board or line board."
-            --槽位用途，用于主控板或业务板.
         ::= { chassisSlotAppEntry 2 }
 
 	powerTable OBJECT-TYPE
@@ -236,7 +230,7 @@
         MAX-ACCESS read-only
         STATUS	current
         DESCRIPTION
-            "Status of board；Below four states for control board: 'noInsert(0)', 'insertAsMaster(1)' ,'insertAsSlave(2)' and insertButUnconnected(3).
+            "Status of boardBelow four states for control board: 'noInsert(0)', 'insertAsMaster(1)' ,'insertAsSlave(2)' and insertButUnconnected(3).
              Below three states for line board: 'noInsert(0)', 'insertButUnconnected(3)' and 'insertAndConnected(4)'."
         ::= { boardEntry 2 }
 
@@ -252,7 +246,7 @@
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION
-            "Type of board，or unknown if unavailable."
+            "Type of boardor unknown if unavailable."
         ::= { boardEntry 3 }   
         
 	boardIfNum OBJECT-TYPE
@@ -412,7 +406,7 @@
         STATUS current
         DESCRIPTION
             "Board interface system index, matches RFC1213/RFC2233 ifTable IfIndex."
-            --插板端口的系统接口索引，对应于RFC1213/RFC2233 的ifIndex
+            --RFC1213/RFC2233 ifIndex
         ::= { boardIfIndexEntry 3 }
 
 
@@ -429,7 +423,7 @@
         STATUS  current
         DESCRIPTION
             "Power insert trap."
-             --电源 插入trap.
+             -- trap.
         ::= { gbnChassisTrap 2 }
 
     fanRemoveTrap NOTIFICATION-TYPE
@@ -448,70 +442,66 @@
         STATUS current
         DESCRIPTION
             "Board remove trap."
-            -- 插板 拔出trap.
+            -- trap.
         ::= { gbnChassisTrap 5 }
 
     boardInsertTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "Board insert trap."
-            -- 插板 插入trap.
+            -- trap.
         ::= { gbnChassisTrap 6 }
 
     boardConnectedTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "Line board connnected trap."
-            --业务板 已连接trap.
+            -- trap.
         ::= { gbnChassisTrap 7 }
 
     boardUnconnectedTrap NOTIFICATION-TYPE
         STATUS  current
         DESCRIPTION
             "Line board unconnnect trap."
-            --业务板 失去连接trap.
+            -- trap.
         ::= { gbnChassisTrap 8 }
 
     boardRoletoSlaveTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "To-Slave trap. Role of the control board change to slave."
-            --To-slave trap:主控板的主从角色转变为slave.
+            --To-slave trap:slave.
         ::= { gbnChassisTrap 9 }
 
     boardRoletoMasterTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "To-master trap. Role of the control board change to master."
-            --To-master trap:主控板主从角色转变为master.
+            --To-master trap:master.
         ::= { gbnChassisTrap 10 } 
      
 	powerRunningNoGoodTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "Power running status is no good"
-            --电源运行状态不正常.
         ::= { gbnChassisTrap 11 }   
         
 	powerRunningGoodTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "Power running status is good"
-            --电源运行状态正常
         ::= { gbnChassisTrap 12 }
     
     alarmPowerNoInsertTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "A power is not inserted When the system startup is completed."
-            --启动完成时有一个电源没有插入
         ::= { gbnChassisTrap 13 }
         
     alarmControlNoInsertTrap NOTIFICATION-TYPE
         STATUS current
         DESCRIPTION
             "A control board is not inserted When the system startup is completed."
-            --启动完成时有一块主控板没有插入
         ::= { gbnChassisTrap 14 }
      
 ------------------------------------------------------------------------------
@@ -530,7 +520,7 @@
             "Performs switchover of the master control board.  Use with care.
              A 'switchover(2)' switchover the master board,and 'noop(1)'does nothing.
              A value of 'noop(1)' is always returned for a GET operation."
-             --主备倒换，请小心使用。'switchover(2)'用于切换主备角色，而'noop(1)'没有任何操作。对于一个get请求，总是返回'noop(1)'的值.
+             --'switchover(2)''noop(1)'get'noop(1)'.
         ::= { gbnPlatformChassis 4 }     
         
 --

@@ -48,7 +48,6 @@
         STATUS current
         DESCRIPTION
             "enable or disable Mailalarm."
-            --打开或关闭邮件告警功能。
         ::= { gbnPlatformOAMMailalarm 1 } 
         
      mailalarmSrvAddr OBJECT-TYPE
@@ -57,7 +56,7 @@
         STATUS  current
         DESCRIPTION
             "the address of the SMTP server used by Mailalarm."
-            --邮件告警使用的SMTP服务器地址。
+            --SMTP
         ::= { gbnPlatformOAMMailalarm 2 }
         
 	mailalarmRceiverAddr OBJECT-TYPE
@@ -66,7 +65,7 @@
         STATUS   current
         DESCRIPTION
             "the e-mail address of the receiver."
-            --邮件接收者的e-mail地址。
+            --e-mail
         ::= { gbnPlatformOAMMailalarm 3 }         
                      
     mailalarmLogLevel OBJECT-TYPE
@@ -75,7 +74,7 @@
         STATUS   current
         DESCRIPTION
             "the mailalarm level of syslog."
-            --发送邮件告警的syslog级别。
+            --syslog
         ::= { gbnPlatformOAMMailalarm 4 }
 
 	mailalarmSmtpAuthEnable OBJECT-TYPE
@@ -87,7 +86,7 @@
         STATUS current
         DESCRIPTION
             "enable or disable smtp authentication."
-            --使能或禁止smtp身份验证。
+            --smtp
         ::= { gbnPlatformOAMMailalarm 5 }
 
 	mailalarmSmtpUsername OBJECT-TYPE
@@ -96,7 +95,7 @@
         STATUS   current
         DESCRIPTION
             "smtp username."
-            --smtp用户帐号。
+            --smtp
         ::= { gbnPlatformOAMMailalarm 6 }
                
 	mailalarmSmtpPasswd OBJECT-TYPE
@@ -105,7 +104,7 @@
         STATUS   current
         DESCRIPTION
             "smtp password."
-            --smtp用户密码。
+            --smtp
         ::= { gbnPlatformOAMMailalarm 7 }
                                
 ------------------------------------------------------------------------------     
@@ -118,7 +117,7 @@
         STATUS   current
         DESCRIPTION
             "the e-mail address table of the Cc. receiver."
-            --需要抄送的邮件接收者e-mail地址表。
+            --e-mail
         ::= { gbnPlatformOAMMailalarm 8 }   
         
     mailalarmCcAddrEntry OBJECT-TYPE
@@ -127,7 +126,7 @@
         STATUS   current
         DESCRIPTION
             "the e-mail address entry of the Cc. receiver."
-            --需要抄送的邮件接收者e-mail地址条目。
+            --e-mail
         INDEX { mailalarmCcAddrIdx }
         ::= { mailalarmCcAddrTable 1 }
         
@@ -145,7 +144,6 @@
         STATUS   current
         DESCRIPTION
             "the index of the address entry."
-            --地址条目的索引。
         ::= { mailalarmCcAddrEntry 1 }               
                  
 	mailalarmCcAddr OBJECT-TYPE
@@ -154,7 +152,7 @@
         STATUS   current
         DESCRIPTION
             "the e-mail address of the Cc. receiver."
-            --需要抄送的邮件接收者e-mail地址。
+            --e-mail
         ::= { mailalarmCcAddrEntry 2 } 
                                                    
    END

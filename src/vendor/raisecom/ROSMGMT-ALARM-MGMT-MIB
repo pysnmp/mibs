@@ -257,22 +257,22 @@
             
 	rosMgmtAlarmMgmtCfgAlarmResType OBJECT-TYPE
 	SYNTAX INTEGER {
-					slotindex(1),	--告警源:板卡
-					pwindex(2),	--告警源：PW
-					lspindex(3),	--告警源：LSP
-					loifindex(4),	--告警源：LOOPBACK口 
-					agifindex(5),	--告警源：AG口
-					apifindex(6),	--告警源：AP口
-					obifindex(7),	  --告警源：OUTBAND口  
-					tdmifindex(8),	--告警源：TDM口  
-					tunnelifindex(9),	--告警源：TRUNK口
-					vlanifindex(10),	--告警源：VLAN口   
-					subifindex(11),	--告警源：SUBIF口 
-					portindex(12),	--告警源：端口
-					apagsubifindex(13),	--告警源：AP,AG,子接口
-					powerindex(14), --告警源：电源
-					fanindex(15),	--告警源：风扇
-					boardindex(16),	--告警源：板卡，电源，风扇
+					slotindex(1),	--:
+					pwindex(2),	--PW
+					lspindex(3),	--LSP
+					loifindex(4),	--LOOPBACK
+					agifindex(5),	--AG
+					apifindex(6),	--AP
+					obifindex(7), --OUTBAND
+					tdmifindex(8),	--TDM
+					tunnelifindex(9),	--TRUNK
+					vlanifindex(10),	--VLAN
+					subifindex(11),	--SUBIF
+					portindex(12),	--
+					apagsubifindex(13),	--AP,AG,
+					powerindex(14), --
+					fanindex(15),	--
+					boardindex(16),	--
 					cfmindex(17),	
 					erpsindex(18),	
 					apsindex(19),	

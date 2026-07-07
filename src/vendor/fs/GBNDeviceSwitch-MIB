@@ -34,7 +34,7 @@
 MirrorMacType ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION
-       "null、destination、source"
+       "nulldestinationsource"
     SYNTAX      INTEGER { null(0), destination (1), source(2) }  
     
 ------------------------------------------------------------------------------
@@ -94,7 +94,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS      current
         DESCRIPTION
             "The MAC address which will be compared with the ingress frame, Only the matched frame will be mirrored"
-            --用于匹配ingress报文的MAC地址
+            --ingressMAC
         ::= { gbnDeviceSwitchMirror 4 }
 
     egressMirrorMac OBJECT-TYPE
@@ -103,7 +103,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS      current
         DESCRIPTION
             "The MAC address which will be compared with the egress frame, Only the matched frame will be mirrored"
-            --用于匹配egress报文的MAC地址
+            --egressMAC
         ::= { gbnDeviceSwitchMirror 5 }
 
     ingressMirrorMacType OBJECT-TYPE
@@ -112,7 +112,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS      current
         DESCRIPTION
             "The destination or source MAC address which will be compared with the ingress frame"
-            --指定用于匹配ingress报文的是目的还是源MAC地址
+            --ingressMAC
         ::= { gbnDeviceSwitchMirror 6 }    
 
     egressMirrorMacType OBJECT-TYPE
@@ -121,7 +121,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS      current
         DESCRIPTION
             "The destination or source MAC address which will be compared with the egress frame"
-            --指定用于匹配egress报文的是目的还是源MAC地址
+            --egressMAC
         ::= { gbnDeviceSwitchMirror 7 }     
 
     ingressMirrorDivider OBJECT-TYPE
@@ -130,7 +130,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS      current
         DESCRIPTION
             "the mirror sampling divider"
-            --ingress报文的采样值
+            --ingress
         ::= { gbnDeviceSwitchMirror 8 }        
 
     egressMirrorDivider OBJECT-TYPE
@@ -139,7 +139,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS      current
         DESCRIPTION
             "the mirror sampling divider"
-            --egress报文的采样值
+            --egress
         ::= { gbnDeviceSwitchMirror 9 }
                   
  
@@ -194,9 +194,9 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION
-            "端口类型:1为不存在；2为10/100M电口；3为100M单模光口；
-            4为100M多模光口；5为1000M光口；6为1000M光口；
-            7为1000M电口; 8为CPU接口;9为10000M光口"
+            ":1210/100M3100M
+            4100M51000M61000M
+            71000M; 8CPU;910000M"
         ::= { portTypeEntry 2 }
 
 ------------------------------------------------------------------------------
@@ -311,14 +311,14 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         SYNTAX      SEQUENCE OF L3Entry
         MAX-ACCESS  not-accessible
         STATUS      current
-        DESCRIPTION "此表为交换芯片的L3表项内容。"
+        DESCRIPTION "L3"
         ::= { gbnDeviceSwitchL3 1 }
 
     l3Entry OBJECT-TYPE
         SYNTAX      L3Entry
         MAX-ACCESS  not-accessible
         STATUS      current
-        DESCRIPTION "交换芯片的L3表项，此表为只读。"
+        DESCRIPTION "L3"
         INDEX   { l3IpAddress }
         ::= { l3Table 1 }
 
@@ -336,28 +336,28 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         SYNTAX       IpAddress
         MAX-ACCESS   read-only
         STATUS       current
-        DESCRIPTION "目的IP地址，作为索引。"
+        DESCRIPTION "IP"
         ::= { l3Entry 1 }
 
     l3NextHopMacAddress OBJECT-TYPE
         SYNTAX       MacAddress
         MAX-ACCESS   read-only
         STATUS       current
-        DESCRIPTION "下一跳IP的MAC地址。"
+        DESCRIPTION "IPMAC"
         ::= { l3Entry 2 }
 
     l3Vlan OBJECT-TYPE
         SYNTAX       VlanIndex
         MAX-ACCESS   read-only
         STATUS       current
-        DESCRIPTION "下一跳IP所在的VLAN。"
+        DESCRIPTION "IPVLAN"
         ::= { l3Entry 3 }
 
     l3Port OBJECT-TYPE
         SYNTAX       INTEGER
         MAX-ACCESS   read-only
         STATUS       current
-        DESCRIPTION "报文的出端口。"
+        DESCRIPTION ""
         ::= { l3Entry 4 }
 
     l3CreateTime OBJECT-TYPE
@@ -428,7 +428,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         MAX-ACCESS  read-write
         STATUS      current
         DESCRIPTION "Add network routes to hardware table or not.Default is enable."
-        -- "是否下发网段路由到硬件表中。默认为下发。"
+        -- ""
         ::= { gbnDeviceSwitchSRM 1 }
 
    srmHardwareDEFCPU OBJECT-TYPE
@@ -439,7 +439,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         MAX-ACCESS  read-write
         STATUS      current
         DESCRIPTION "The DEF routes goes to CPU."
-        -- "硬件查找失败的路由发送到CPU，此功能只有TiNet S3750支持，默认为disable"
+        -- "CPUTiNet S3750disable"
         ::= { gbnDeviceSwitchSRM 2 }
 ------------------------------------------------------------------------------
 --
@@ -452,7 +452,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "A Table of port flow alarm."
-            --端口流量告警表
         ::= { gbnDeviceSwitchFlowAlarm 1 }
 
     portFlowAlarmEntry OBJECT-TYPE
@@ -461,7 +460,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "A list of port flow alarm."
-            --端口流量告警列表
         INDEX { portFlowAlarmPort }
         ::= { portFlowAlarmTable 1 }
 
@@ -479,7 +477,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "The port number."
-            --端口号，端口流量告警表的索引值
         ::= { portFlowAlarmEntry 1 }
 
     portFlowAlarmEnable OBJECT-TYPE
@@ -488,7 +485,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "The enable status of the port flow alarm"
-            --端口流量告警开启/关闭状态
         ::= { portFlowAlarmEntry 2 }
 
     portFlowAlarmExceedStatus OBJECT-TYPE
@@ -497,7 +493,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "The exceed status of the port flow alarm"
-            --端口流量告警流量状态
         ::= { portFlowAlarmEntry 3 }
 
     portFlowAlarmExceedThreshold OBJECT-TYPE
@@ -506,7 +501,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "The exceed threshold of port flow alarm."
-            --端口流量过大的阈值
         ::= { portFlowAlarmEntry 4 }
 
     portFlowAlarmNormalThreshold OBJECT-TYPE
@@ -515,7 +509,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "The normal threshold of port flow alarm."
-            --端口流量正常的阈值
         ::= { portFlowAlarmEntry 5 }
 
     portFlowAlarmGlobalEnable OBJECT-TYPE
@@ -524,7 +517,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
             "The global enable status of port flow alarm."
-            --全局端口流量告警开启/关闭状态
         ::= { gbnDeviceSwitchFlowAlarm 2 }
 
 ------------------------------------------------------------------------------
@@ -546,7 +538,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS  current
         DESCRIPTION
                "Port ingress packet rate become normal, port flow normal alarm happen."
-               --如果端口进来的报文速率恢复正常，则发出端口速率正常的trap
+               --trap
         ::= { portFlowAlarmTrap 2 }
 
 -- the quene-scheduer QOS
@@ -559,7 +551,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 1th queue(%). for 3650, the range is 1 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列1的权重。对于3650，范围为1到255，对于3750-24/48，范围为1到15
+               --1365012553750-24/48115
        ::= { qosQueueSchedulerGroup 1 }
 
    qosWrrQueue2Weight OBJECT-TYPE
@@ -568,7 +560,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 2th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列2的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --2365002553750-24/48115
        ::= { qosQueueSchedulerGroup 2 }
 
 
@@ -578,7 +570,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 3th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列3的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --3365002553750-24/48115
        ::= { qosQueueSchedulerGroup 3 }
 
 
@@ -588,7 +580,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 4th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列4的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --4365002553750-24/48115
        ::= { qosQueueSchedulerGroup 4 }
 
    qosWrrMaxDelayValue OBJECT-TYPE
@@ -597,7 +589,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "the maximum allowable latency for packet transmission on the priorest COS"
-               --队列调度时最高优先级的队列最长等待时间
        ::= { qosQueueSchedulerGroup 5 }
 
    qosQueueSchedulerMode OBJECT-TYPE
@@ -609,7 +600,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "queue scheduler mode: strict priority, weighted round robin, strict priority+weighted round robin" 
-               --队列调度模式:绝对优先级、加权轮循调度
        DEFVAL  { strictPriority }
        ::= { qosQueueSchedulerGroup 6 }
 
@@ -619,7 +609,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 5th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列5的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --5365002553750-24/48115
        ::= { qosQueueSchedulerGroup 7 }
 
    qosWrrQueue6Weight OBJECT-TYPE
@@ -628,7 +618,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 6th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列6的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --6365002553750-24/48115
        ::= { qosQueueSchedulerGroup 8 }
 
 
@@ -638,7 +628,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 7th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列7的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --7365002553750-24/48115
        ::= { qosQueueSchedulerGroup 9 }
 
 
@@ -648,7 +638,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "Weight of 8th queue(%). for 3650, the range is 0 to 255, for 3750-24/48,the range is 1 to 15."
-               --队列8的权重。对于3650，范围为0到255，对于3750-24/48，范围为1到15
+               --8365002553750-24/48115
        ::= { qosQueueSchedulerGroup 10 }
 
    qosLineRateTable OBJECT-TYPE
@@ -657,7 +647,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "A list of line-rate QOS entries. "
-               --端口限速入口表
        ::= { gbnDeviceSwitchLineRate 1 }
 
    qosLineRateEntry OBJECT-TYPE
@@ -666,7 +655,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "A list of line-rate QOS entries. "
-               --端口限速入口
        INDEX   { qosLineRateInterface }
        ::= { qosLineRateTable 1 }
 
@@ -690,7 +678,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "the line rate interface.  "
-               --端口限速端口
        ::= { qosLineRateEntry 1 }
 
    qosLineRateTargetRate OBJECT-TYPE
@@ -699,7 +686,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "The target rate(Kbps) of the line-rate QOS. Must be a multiple of 64Kbps "
-               --端口限速目标速率(Kbps),必须是64Kbps的倍数
+               --(Kbps),64Kbps
        ::= { qosLineRateEntry 2 }
 
    qosLineRateTargetBurst OBJECT-TYPE
@@ -708,7 +695,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "The target burst(Kbps) of the line-rate QOS. Must be a multiple of 64Kbps "
-               --端口限速允许突发速率(Kbps),必须是64Kbps的倍数
+               --(Kbps),64Kbps
        ::= { qosLineRateEntry 3 }
 
    qosLineRateTargetRateIngress OBJECT-TYPE
@@ -717,7 +704,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "The ingress target rate(Kbps) of the line-rate QOS.0 means disable"
-               --入口端口限速目标速率(Kbps)
+               --(Kbps)
        ::= { qosLineRateEntry 4 }  
        
    portIsolationGroup  OBJECT IDENTIFIER ::= { gbnDeviceSwitchPortIsolation 1 }
@@ -728,7 +715,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "port isolation down link portlist"
-               -- 端口隔离的下行端口列表 --
        ::= { portIsolationGroup 1 }
 
    portIsolationUpLinkTable OBJECT-TYPE
@@ -737,7 +723,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "A list of uplink-ports of portisolation entries. conflict with portIsolationDownLinkPorts."
-               --基于端口的端口隔离上行口列表，不能够跟portIsolationDownLinkPorts同时使用
+               --portIsolationDownLinkPorts
        ::= { portIsolationGroup 2 }
  
    portIsolationUpLinkEntry OBJECT-TYPE
@@ -746,7 +732,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "A list of uplink-ports of portisolation entries. "
-               --基于端口的端口隔离上行口列表
        INDEX   { portisolationInterface }
        ::= { portIsolationUpLinkTable 1 }
  
@@ -764,7 +749,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "port index, start from 1. "
-               --端口索引
        ::= { portIsolationUpLinkEntry 1 }
 
    portisolationUplinkList OBJECT-TYPE
@@ -773,7 +757,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "portlist of uplink ports,when configured , a port can only communicate with it's uplink ports. "
-               --上行口列表，当配置后，端口只允许跟它的上行口通信
        ::= { portIsolationUpLinkEntry 2 }
 
 
@@ -783,7 +766,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "A list of storm control entries. "
-               --风暴控制入口表
        ::= { gbnDeviceSwitchStormControl 1 }
 
    stormControlEntry OBJECT-TYPE
@@ -792,7 +774,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "A list of storm control entries. "
-               --风暴控制入口
        INDEX   { stormControlInterface, stormControlType }
        ::= { stormControlTable 1 }
 
@@ -816,7 +797,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "the storm control interface. "
-               --风暴控制端口
        ::= { stormControlEntry 1 }
 
    stormControlType OBJECT-TYPE
@@ -825,7 +805,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "the pack flow type of the storm control. "
-               --风暴控制报文流类型
        ::= { stormControlEntry 2 }
 
    stormControlTargetRate OBJECT-TYPE
@@ -834,7 +813,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
        STATUS  current
        DESCRIPTION
                "the target rate of the storm control. "
-               --风暴控制目标速率
        ::= { stormControlEntry 3 }
 
    stormControlRowStatus OBJECT-TYPE
@@ -843,7 +821,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS   current
         DESCRIPTION
                 "row status of the storm control"
-                --风暴控制行状态
         ::= { stormControlEntry 4 }
 
    stormControlMode OBJECT-TYPE
@@ -870,7 +847,7 @@ MirrorMacType ::= TEXTUAL-CONVENTION
         STATUS current
         DESCRIPTION
            "Control IP with TTL=0 packet,default is not traffic  to the  CPU."
-         --控制TTL=0的报文是否送往CPU,默认情况是关闭上报CPU.
+         --TTL=0CPU,CPU.
          ::= { gbnDeviceSwitchAntiDos 2 } 
 
    bandwidthcontrolTable OBJECT-TYPE
@@ -1569,7 +1546,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The configed channel-group index list."
-          --已配置的汇聚组索引列表
       ::= { channelStatsEntry 1 }
     
     channelInOctetRate OBJECT-TYPE
@@ -1578,7 +1554,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The ingress octet rate of this channel-group."
-          --该汇聚组接收报文字节的速率
       ::= { channelStatsEntry 2 }
       
     channelInFrameRate OBJECT-TYPE
@@ -1587,7 +1562,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The ingress packet rate of this channel-group."
-          --该汇聚组接收报文的速率
       ::= { channelStatsEntry 3 }
 
     channelOutOctetRate OBJECT-TYPE
@@ -1596,7 +1570,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The egress octet rate of this channel-group."
-          --该汇聚组发送报文字节的速率
       ::= { channelStatsEntry 4 }
 
     channelOutFrameRate OBJECT-TYPE
@@ -1605,7 +1578,6 @@ MirrorMacType ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The egress packet rate of this channel-group."
-          --该汇聚组发送报文的速率
       ::= { channelStatsEntry 5 }
 
     channelPkts64Octets OBJECT-TYPE

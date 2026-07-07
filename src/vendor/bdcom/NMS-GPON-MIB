@@ -25,11 +25,10 @@ nmsGponMIB  MODULE-IDENTITY
                 "nmsGponProfile management group."
         ::= { nms 10 }
 
---nmsGponOltObj OLT»ŒŒÒ OID:1.3.6.1.4.1.3320.10.1
+--nmsGponOltObj OLT OID:1.3.6.1.4.1.3320.10.1
         
 nmsGponOltObj   OBJECT IDENTIFIER ::= { nmsGponMIB 1 }  
         
--- »´æ÷≈‰÷√±Ì
 
 gponOltConfigTable   OBJECT IDENTIFIER ::= { nmsGponOltObj 1 }  
 
@@ -78,9 +77,9 @@ gponOltConfigEntry   OBJECT IDENTIFIER ::= { gponOltConfigTable 1 }
               ::= { gponOltConfigEntry 4 }
                  
 
---nmsGponOltPonPortObj PON∂Àø⁄»ŒŒÒ OID:1.3.6.1.4.1.3320.10.2
+--nmsGponOltPonPortObj PON OID:1.3.6.1.4.1.3320.10.2
 
---PON∂Àø⁄≈‰÷√±Ì
+--PON
 
 nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }  
 
@@ -181,7 +180,7 @@ nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }
               ::= { gponOltPonPortConfigEntry 6 }
 
 
---OLT PON∂Àø⁄π‚π¶¬ 
+--OLT PON
 
              gponOltPonPortOpticalParameterTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF GponOltPonPortOpticalParameterEntry
@@ -260,7 +259,7 @@ nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }
                       ""
               ::= { gponOltPonPortOpticalParameterEntry 5 }
 
---OLT PON∂Àø⁄Ω” ’π‚π¶¬ 
+--OLT PON
 
              gponOltPonPortOpticalRxPowerTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF GponOltPonPortOpticalRxPowerEntry
@@ -321,7 +320,7 @@ nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }
               ::= { gponOltPonPortOpticalRxPowerEntry 3 }
 
 
---OLT PON∂Àø⁄π‚π¶¬ ∏ÊæØ
+--OLT PON
 
              gponOltPonPortOpticalParameterAlarmTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF GponOltPonPortOpticalParameterAlarmEntry
@@ -618,7 +617,7 @@ nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }
               ::= { gponOltPonPortOpticalParameterAlarmEntry 25 }
 
 
---OLT PON∂Àø⁄π‚π¶¬ ∏ÊæØœ›⁄Â
+--OLT PON
 --gponOltPonSfpParameterAlarmTrap  OID:1.3.6.1.4.1.3320.10.2.5
 
  	gponOltPonSfpParameterAlarmTrap OBJECT IDENTIFIER
@@ -651,7 +650,7 @@ nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }
         	"The agent generates this notification when alarm was triggered ."
     		::= { gponOltPonSfpParameterAlarmTrap 2 }
              
---PONø⁄”ÎONU∞Û∂®πÿœµ±Ì
+--PONONU
 
 --gponOltONUBindTable  OID:1.3.6.1.4.1.3320.10.2.6
 
@@ -734,11 +733,11 @@ nmsGponOltPonPortObj  OBJECT IDENTIFIER ::= { nmsGponMIB 2 }
               ::= { gponOltONUBindEntry 5 }
 
 
---nmsGponONUObj ONU»ŒŒÒ OID:1.3.6.1.4.1.3320.10.3
+--nmsGponONUObj ONU OID:1.3.6.1.4.1.3320.10.3
 
 nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }  
 
--- ONUª˘±æ–≈œ¢±Ì
+-- ONU
 
              gponOnuInfoTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF GponOnuInfoEntry
@@ -859,7 +858,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
 
               DESCRIPTION
                       "This attribute identifies the version of the ONT as defined by the vendor. Then character
-                       value°∞0°± indicates that version information is not available or applicable.(14 bytes) "
+                       value‚Äú0‚Äù indicates that version information is not available or applicable.(14 bytes) "
               ::= { gponOnuInfoEntry 3 }
 
           onuSerialNum OBJECT-TYPE
@@ -1196,7 +1195,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
                       ""
               ::= { gponOnuInfoEntry 35 }
 
---ONU π‹¿Ì±Ì
+--ONU
 
 --gponOnuConfigTable  OID:1.3.6.1.4.1.3320.10.3.2
 
@@ -1257,7 +1256,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "1-Acticate£ª2-Deacticate"
+                      "1-Acticate2-Deacticate"
               ::= { gponOnuConfigEntry 2 }
 
           gponOnuConfigEnable OBJECT-TYPE
@@ -1269,7 +1268,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "1-Enable£ª2-Disable."
+                      "1-Enable2-Disable."
               ::= { gponOnuConfigEntry 3 }
 
           gponOnuConfigReboot OBJECT-TYPE
@@ -1332,7 +1331,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
               ::= { gponOnuConfigEntry 9 }
 
 
---ONU ◊¥Ã¨±Ì        
+--ONU
 --gponOnuStatusTable  OID:1.3.6.1.4.1.3320.10.3.3
 
              gponOnuStatusTable OBJECT-TYPE
@@ -1407,7 +1406,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
                       ""
               ::= { gponOnuStatusEntry 4 }
 
---ONU PONø⁄π‚π¶¬ 
+--ONU PON
 
 --gponOnuOpticalPowerTable  OID:1.3.6.1.4.1.3320.10.3.4
 
@@ -1472,7 +1471,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
 
 
 
---ONU PONø⁄π‚π¶¬ ∏ÊæØ
+--ONU PON
 --gponOnuOpticalParameterAlarmTable  OID:1.3.6.1.4.1.3320.10.3.5
 
              gponOnuOpticalParameterAlarmTable OBJECT-TYPE
@@ -1695,7 +1694,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
                       ""
               ::= { gponOnuOpticalParameterAlarmEntry 17 }
 
---ONU PONø⁄π‚π¶¬ ∏ÊæØœ›⁄Â
+--ONU PON
 
 	gponOnuSfpParameterAlarmTrap OBJECT IDENTIFIER
                                 ::= { nmsGponONUObj 6 }
@@ -1732,7 +1731,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
     		::= { gponOnuSfpParameterAlarmTrap 2 }
 
 
--- ONU ◊¥Ã¨±‰ªØœ›⁄Â 
+-- ONU
  
 	gponOnuStatusAlarmTrap OBJECT IDENTIFIER
                                 ::= { nmsGponONUObj 7 }
@@ -1767,7 +1766,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
         	"The agent generates this notification when ONU status change alarms ."
     		::= { gponOnuStatusAlarmTrap 2 }
  
--- ONU Dying Gaspœ›⁄Â
+-- ONU Dying Gasp
 
 	gponOnuDyingGaspAlarmTrap OBJECT IDENTIFIER
                                 ::= { nmsGponONUObj 8 }
@@ -1800,7 +1799,7 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
         	"The agent generates this notification when ONU status change alarms ."
     		::= { gponOnuDyingGaspAlarmTrap 2 }
 
--- ONU≈˙¡ø…˝º∂
+-- ONU
 
              gponOnuBatchUpdateTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF GponOnuBatchUpdateEntry
@@ -1879,11 +1878,11 @@ nmsGponONUObj   OBJECT IDENTIFIER ::= { nmsGponMIB 3 }
               ::= { gponOnuBatchUpdateEntry 4 }
 
  
---nmsGponUNIPortObj UNI∂Àø⁄»ŒŒÒ OID:1.3.6.1.4.1.3320.10.4
+--nmsGponUNIPortObj UNI OID:1.3.6.1.4.1.3320.10.4
 
 nmsGponUNIPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 4 }  
 
--- UNI∂Àø⁄≈‰÷√±Ì
+-- UNI
 
              onuUniPortConfigTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuUniPortConfigEntry
@@ -1993,7 +1992,7 @@ nmsGponUNIPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 4 }
                       ""
               ::= { onuUniPortConfigEntry 7 }
 
--- UNI∂Àø⁄±®ŒƒÕ≥º∆±Ì
+-- UNI
 
              onuUniPortStatisticTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuUniPortStatisticEntry
@@ -2099,11 +2098,11 @@ nmsGponUNIPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 4 }
                       ""
               ::= { onuUniPortStatisticEntry 7 }
 
--- nmsGponVirPortObj –È∂Àø⁄»ŒŒÒ OID:1.3.6.1.4.1.3320.10.5
+-- nmsGponVirPortObj OID:1.3.6.1.4.1.3320.10.5
 
 nmsGponVirPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 5 }  
 
--- ONU–È∂Àø⁄≈‰÷√±Ì
+-- ONU
 
              onuVirPortConfigTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuVirPortConfigEntry
@@ -2175,7 +2174,7 @@ nmsGponVirPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 5 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "Static T-CONT index from ONU°Øs perspective. Default value is 1. "
+                      "Static T-CONT index from ONU‚Äôs perspective. Default value is 1. "
               ::= { onuVirPortConfigEntry 3 }
           onuVirPortConfigOltGEMPortID OBJECT-TYPE
               SYNTAX  INTEGER
@@ -2233,7 +2232,7 @@ nmsGponVirPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 5 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "It stores the profileIndex1 of the associated OLT VLAN translation profile. 1®C1024."
+                      "It stores the profileIndex1 of the associated OLT VLAN translation profile. 1‚Äì1024."
               ::= { onuVirPortConfigEntry 9 }
           onuVirPortConfigONUMacFilterProfileID OBJECT-TYPE
               SYNTAX  INTEGER
@@ -2265,7 +2264,7 @@ nmsGponVirPortObj   OBJECT IDENTIFIER ::= { nmsGponMIB 5 }
         
         
         
---GPONΩ≈±æ»ŒŒÒ        
+--GPON
 
 nmsGponProfile   OBJECT IDENTIFIER ::= { nmsGponMIB 6 }  
 
@@ -2455,7 +2454,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuVLANTranslationEntry 6 }
 
---ONU T-contπ‹¿Ì±Ì
+--ONU T-cont
 
              onuTCONTServiceProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuTCONTServiceProfileEntry
@@ -2512,7 +2511,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "It points to the associated ONU bandwidth profile for upstream. 1 ®C 256. Default value is 1."
+                      "It points to the associated ONU bandwidth profile for upstream. 1 ‚Äì 256. Default value is 1."
               ::= { onuTCONTServiceProfileEntry 3 }
                  
           onuTcontServiceProfileUsQueuingSchedulingType OBJECT-TYPE
@@ -2537,7 +2536,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuTCONTServiceProfileEntry 5 }
 
---  ONU ¥¯øÌπ‹¿Ì±Ì
+-- ONU
 
              onuBandwidthProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuBandwidthProfileEntry
@@ -2615,7 +2614,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "Fixed bandwidth, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ®C2500000. Default value is 128Kbps."
+                      "Fixed bandwidth, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ‚Äì2500000. Default value is 128Kbps."
               ::= { onuBandwidthProfileEntry 4 }
                  
           onuBandwidthProfileAssuredBandwidth OBJECT-TYPE
@@ -2624,7 +2623,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "Assured bandwidth, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 0, 256 ®C 2500000. Not Valid for Type 1
+                      "Assured bandwidth, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 0, 256 ‚Äì 2500000. Not Valid for Type 1
                        TCONT. Default value is 0."
               ::= { onuBandwidthProfileEntry 5 }
                  
@@ -2634,7 +2633,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               STATUS  mandatory
 
               DESCRIPTION
-                      "Maximum bandwidth, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ®C 2500000. Not valid for Type 1 
+                      "Maximum bandwidth, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ‚Äì 2500000. Not valid for Type 1 
                       TCONT. Default value is 1024."
               ::= { onuBandwidthProfileEntry 6 }
                  
@@ -2647,7 +2646,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuBandwidthProfileEntry 7 }
 
--- ONU T-CONT”Î–È∂Àø⁄∞Û∂®π‹¿Ì±Ì
+-- ONU T-CONT
 
              onuTcontVirportBindProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuTcontVirportBindProfileEntry
@@ -2705,7 +2704,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "T-CONT index from ONU°Øs perspective. Default value is 1."
+                      "T-CONT index from ONU‚Äôs perspective. Default value is 1."
               ::= { onuTcontVirportBindProfileEntry 3 }
                  
           onuTcontVirportBindProfileTcontServiceProfileID OBJECT-TYPE
@@ -2721,7 +2720,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "Virtual port index from ONU°Øs perspective. Default value is 1."
+                      "Virtual port index from ONU‚Äôs perspective. Default value is 1."
               ::= { onuTcontVirportBindProfileEntry 5 }
                  
           onuTcontVirportBindProfileVirportServiceProfileID OBJECT-TYPE
@@ -2741,7 +2740,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuTcontVirportBindProfileEntry 7 }
 
--- ONU–È∂Àø⁄π‹¿Ì±Ì              
+-- ONU
 
              onuVirtualPortServiceProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuVirtualPortServiceProfileEntry
@@ -2856,7 +2855,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "It°Øs valid only in either flow-based priority-controlled or flow-based priority-and-rate-
+                      "It‚Äôs valid only in either flow-based priority-controlled or flow-based priority-and-rate-
 		       controlled upstream queuing and scheduling type. Valid range 0 - 7.Default value is 0. "
               ::= { onuVirtualPortServiceProfileEntry 7 } 	
                  
@@ -2865,7 +2864,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "It°Øs valid only in flow-based rate-controlled queuing and scheduling type. Valid range 0-255.
+                      "It‚Äôs valid only in flow-based rate-controlled queuing and scheduling type. Valid range 0-255.
                       Default value is 1. "
               ::= { onuVirtualPortServiceProfileEntry 8 } 	
                  
@@ -2874,7 +2873,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "It points to the associated ONU upstream rate-control scheduler profile. 1®C128.
+                      "It points to the associated ONU upstream rate-control scheduler profile. 1‚Äì128.
                       Default value is 1. "
               ::= { onuVirtualPortServiceProfileEntry 9 } 	
                  
@@ -2894,7 +2893,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "0 ®C Priority Controlled. 1 - Flow-based priority-controlled. Default value is 1."
+                      "0 ‚Äì Priority Controlled. 1 - Flow-based priority-controlled. Default value is 1."
               ::= { onuVirtualPortServiceProfileEntry 11 } 	 
               
           onuVirportProfileDsFlowPriority OBJECT-TYPE
@@ -2902,7 +2901,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "It°Øs valid only in flow-based priority-controlled downstream queuing and scheduling type. 
+                      "It‚Äôs valid only in flow-based priority-controlled downstream queuing and scheduling type. 
                       Valid range 0 - 7. Default value is 0. "
               ::= { onuVirtualPortServiceProfileEntry 12 } 	
               
@@ -2915,7 +2914,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuVirtualPortServiceProfileEntry 13 }
 
--- ONU¡˜¡øπ‹¿Ì±Ì
+-- ONU
                  
              onuFlowProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuFlowProfileEntry
@@ -3041,7 +3040,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "The end of the VLAN Id range. 1..4095. VLAN ID Stop®CVLAN ID Start should be less than equal to 12 
+                      "The end of the VLAN Id range. 1..4095. VLAN ID Stop‚ÄìVLAN ID Start should be less than equal to 12 
                       for 1 flow. Set this value only if the mapping type is VLAN ID or VLAND + PBITS. Default value is 101."
               ::= { onuFlowProfileEntry 8 }
                  
@@ -3073,7 +3072,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuFlowProfileEntry 11 }
 
--- ONUÀŸ¬ øÿ÷∆π‹¿Ì±Ì
+-- ONU
 
              onuRateControlSchedulerProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuRateControlSchedulerProfileEntry
@@ -3129,7 +3128,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "SIR, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ®C 2500000. Default value is 128. "
+                      "SIR, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ‚Äì 2500000. Default value is 128. "
               ::= { onuRateControlSchedulerProfileEntry 3 }
                  
           onuRateCtlProfilePir OBJECT-TYPE
@@ -3137,7 +3136,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
               ACCESS  read-write
               STATUS  mandatory
               DESCRIPTION
-                      "SIR, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ®C 2500000. Default value is 1024. "
+                      "SIR, the granularity is 64Kbps. The unit is Kbps. Range of allowed values, 128 ‚Äì 2500000. Default value is 1024. "
               ::= { onuRateControlSchedulerProfileEntry 4 }
                  
           onuRateCtlProfileScheduleWeight OBJECT-TYPE
@@ -3156,7 +3155,7 @@ onuVLANProfile   OBJECT IDENTIFIER ::= { nmsGponProfile 1 }
                       ""
               ::= { onuRateControlSchedulerProfileEntry 6 }
                  
--- UNI∂Àø⁄≈‰÷√Profile±Ì  
+-- UNIProfile
 
              onuEthernetUNIConfigProfileTable OBJECT-TYPE
                  SYNTAX  SEQUENCE OF OnuEthernetUNIConfigProfileEntry

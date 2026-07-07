@@ -212,7 +212,7 @@ IMPORTS
     		::= { cardSysNotifications 1 }
 
 
--- cardSystemTemptureNodeTable(�忨�¶Ƚڵ��¶��б�)
+-- cardSystemTemptureNodeTable
 
 
                cardSystemTemptureNodeTable OBJECT-TYPE
