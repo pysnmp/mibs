@@ -2330,11 +2330,11 @@ AC INI-Param: ClearRequestBuffer"
        MAX-ACCESS read-write
        STATUS current
        DESCRIPTION
-           "Defines the endpoint naming pattern for a gateway. The �*� signs
+           "Defines the endpoint naming pattern for a gateway. The * signs
 will be replaced with an actual endpoint number or with
 a wild-card sign. The string will contain up to 63 characters.
 
-Default value will be �ACgw*�.
+Default value will be ACgw*.
 .
 Access: Offline.
 AC INI-Param: MGCPEndpointNamingPattern"
@@ -2348,11 +2348,11 @@ AC INI-Param: MGCPEndpointNamingPattern"
        STATUS current
        DESCRIPTION
            "Defines the trunk and B-channel naming pattern used by the gateway.
-The �*� signs will be replaced with a trunk or B-channel
+The * signs will be replaced with a trunk or B-channel
 number or with a wild-card sign. The string will contain
 up to 63 characters. 
 
-Default value will be �ds*/tr*�.
+Default value will be ds*/tr*.
 .
 Access: Offline.
 AC INI-Param: MGCPTrunkNamingPattern"
@@ -3112,7 +3112,7 @@ AC INI-Param: AASPACKAGESPROFILE"
 mode 0 - will create TDM to TDM connection through IP software
 Loopback 
 
-mode 1 - will create �pure� hair-pinning i.e. TDM to TDM connection
+mode 1 - will create pure hair-pinning i.e. TDM to TDM connection
 through PSTN .
 Access: Offline.
 AC INI-Param: MegacoTdmHairPinningMode"
@@ -3215,7 +3215,7 @@ AC INI-Param: CPSDPPROFILE"
        MAX-ACCESS read-write
        STATUS current
        DESCRIPTION
-           "Number Of Conference ports.� How many ports on the TPM are allocated
+           "Number Of Conference ports. How many ports on the TPM are allocated
 to the conferencing service.
 Access: Instant.
 AC INI-Param: MEGACOPROVISIONEDCONFSIZE"
@@ -3228,7 +3228,7 @@ AC INI-Param: MEGACOPROVISIONEDCONFSIZE"
        MAX-ACCESS read-write
        STATUS current
        DESCRIPTION
-           "Number Of Test Trunk ports.� How many ports on the TPM are allocated
+           "Number Of Test Trunk ports. How many ports on the TPM are allocated
 to the Test Trunk service.
 Access: Instant.
 AC INI-Param: MEGACOPROVISIONEDTRUNKTESTINGSIZE"
@@ -3241,7 +3241,7 @@ AC INI-Param: MEGACOPROVISIONEDTRUNKTESTINGSIZE"
        MAX-ACCESS read-write
        STATUS current
        DESCRIPTION
-           "Number Of Test Trunk ports.� How many ports on the TPM are allocated
+           "Number Of Test Trunk ports. How many ports on the TPM are allocated
 to the Lawful Intercept service.
 Access: Instant.
 AC INI-Param: MEGACOPROVISIONEDBCTSIZE"
@@ -3254,7 +3254,7 @@ AC INI-Param: MEGACOPROVISIONEDBCTSIZE"
        MAX-ACCESS read-write
        STATUS current
        DESCRIPTION
-           "Number Of Test Trunk ports.� How many ports on the TPM are allocated
+           "Number Of Test Trunk ports. How many ports on the TPM are allocated
 to the Announcement service.
 Access: Instant.
 AC INI-Param: MEGACOPROVISIONEDAUDIOSIZE"

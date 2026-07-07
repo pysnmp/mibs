@@ -141,7 +141,7 @@ tempCritMin		OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Minimal critical temperature. 
-Up to -55 �C"
+Up to -55 C"
 ::= { dtsEntry 15 }
 
 tempCritMax	OBJECT-TYPE
@@ -149,7 +149,7 @@ tempCritMax	OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Maximum critical temperature. 
-Up to +125�C"
+Up to +125C"
 ::= { dtsEntry 16 }
 
 -- shuntTable
@@ -435,7 +435,7 @@ tempCritMin		OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Minimal critical temperature. 
-Up to -55 �C"
+Up to -55 C"
 ::= { rsshtpEntry 15 }
 
 tempCritMax	OBJECT-TYPE
@@ -443,7 +443,7 @@ tempCritMax	OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Maximum critical temperature. 
-Up to +125�C"
+Up to +125C"
 ::= { rsshtpEntry 16 }
 
 -- rscounterTable
@@ -560,7 +560,7 @@ tempCritMin		OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Minimal critical temperature. 
-Up to -55 �C"
+Up to -55 C"
 ::= { rsshtp1WEntry 15 }
 
 tempCritMax	OBJECT-TYPE
@@ -568,7 +568,7 @@ tempCritMax	OBJECT-TYPE
         MAX-ACCESS	read-write
         STATUS		current
         DESCRIPTION	"Maximum critical temperature. 
-Up to +125�C"
+Up to +125C"
 ::= { rsshtp1WEntry 16 }
 
 -- sensorsTemplate

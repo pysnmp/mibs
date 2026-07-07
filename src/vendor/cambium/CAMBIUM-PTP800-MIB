@@ -4170,7 +4170,7 @@
       DESCRIPTION
              "For Receive Diversity to operate correctly, both 
              neighbor CMUs must both be configured with the Protection 
-             attribute set to �1+1 Hot Standby with Rx Diversity�. 
+             attribute set to 1+1 Hot Standby with Rx Diversity. 
              The Rx Diversity Neighbor Compatibility attribute 
              indicates when the neighbor CMU is configured to a 
              different setting"  

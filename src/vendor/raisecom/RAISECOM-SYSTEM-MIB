@@ -1401,7 +1401,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
                        MAX-ACCESS  read-only
                        STATUS      current
                        DESCRIPTION
-                       		"The status of alarm information��asserted:alarm has generated,
+                       		"The status of alarm informationasserted:alarm has generated,
                        		 cleared:alarm is cleared, clearall:all of alarm is cleared."
         		  	   ::= { raisecomAlarmHistEntry 2 }
 
@@ -1410,7 +1410,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
                        MAX-ACCESS  read-only
                        STATUS      current
                        DESCRIPTION
-                       		"The source of alarm information��switch or port."
+                       		"The source of alarm informationswitch or port."
         		  	   ::= { raisecomAlarmHistEntry 3 }
 
 			    raisecomAlarmHistDescr OBJECT-TYPE
@@ -1500,7 +1500,7 @@ RAISECOM-SYSTEM-MIB DEFINITIONS ::= BEGIN
                        MAX-ACCESS  read-only
                        STATUS      current
                        DESCRIPTION
-                       		"The source of alarm information��switch or port."
+                       		"The source of alarm informationswitch or port."
         		  	   ::= { raisecomAlarmCurtEntry 2 }
 
 			    raisecomAlarmCurtDescr OBJECT-TYPE

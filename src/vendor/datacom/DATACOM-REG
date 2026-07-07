@@ -375,7 +375,7 @@ datacomDm4000Mpu512ManagCard OBJECT IDENTIFIER ::={ datacomManagementCards 84 }
 
 datacomDmSwitch2104G2S3Wri-EddManagCard OBJECT IDENTIFIER ::={ datacomManagementCards 85 }
 --  DESCRIPTION
---  	" DATACOM EDDs3 modelo DM2104G2 � EDD WRI SNMP Management Card. "
+--  	" DATACOM EDDs3 modelo DM2104G2  EDD WRI SNMP Management Card. "
 
 ---
 datacomDm4100Eth24GXx4GXManagCard OBJECT IDENTIFIER ::={ datacomManagementCards 86 }

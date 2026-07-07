@@ -1835,7 +1835,7 @@ AC INI-Param: BROKENCONNECTIONEVENTTIMEOUT"
 the RTP stream is activated or when the first RTP packet
 is received.
 0 = After First incoming packet (default)
-1 = Upon channel�s RTP activation. 
+1 = Upon channels RTP activation. 
 .
 Access: Online.
 AC INI-Param: BROKENCONNECTIONEVENTACTIVATIONMODE"
@@ -2158,7 +2158,7 @@ AC INI-Param: NoOpInterval"
 1- support RFC 2658 format, 1 byte for interleaving header
 (always 0) and toc, no m-factor
 
-2 � payload including toc only, allow m-factor
+2  payload including toc only, allow m-factor
 
 3- RFC 3358 format
 .
@@ -2393,7 +2393,7 @@ AC INI-Param: AMRFECCodecPolicies_Rate"
        MAX-ACCESS read-create
        STATUS current
        DESCRIPTION
-           "Redundancy Level for policy x. Same values as �RFC 3267 Redundancy�
+           "Redundancy Level for policy x. Same values as RFC 3267 Redundancy
 field.
 Access: Online.
 AC INI-Param: AMRFECCodecPolicies_RedundancyLevel"
@@ -2439,7 +2439,7 @@ AC INI-Param: AMRFECCodecPolicies_Hysteresis"
 each report interval accords exactly to the parameter defining
 RTCP Mean Tx Interval (in milliseconds).
 0 = Randomize
-1 = Don�t Randomize.
+1 = Dont Randomize.
 Access: Online.
 AC INI-Param: DISABLERTCPRANDOMIZE"
        ::= {acRtcp 1}
@@ -3625,7 +3625,7 @@ AC INI-Param: VideoEnableActiveSpeakerHighlight"
        STATUS current
        DESCRIPTION
            "Indicates a participant's capabilities in the conference.
-Regular (2) � Regular participant who is able to both send
+Regular (2)  Regular participant who is able to both send
 and receive video.
 .
 Access: Online.
@@ -3648,11 +3648,11 @@ AC INI-Param: VideoConferenceParticipantType"
        DESCRIPTION
            "Participant trigger mode defines the trigger for modifying the
 participant's view.
-Voice Activated Video Switch (0) � A participant�s view will
-be changed according to the active speakers� detection. 
-Timer (1) � A participant�s view is rotated every configured
+Voice Activated Video Switch (0)  A participants view will
+be changed according to the active speakers detection. 
+Timer (1)  A participants view is rotated every configured
 time among the different video participants in the conference.
-Fixed (3) � A participant�s view is fixed.
+Fixed (3)  A participants view is fixed.
 .
 Access: Online.
 AC INI-Param: VideoConferenceParticipantTriggerMode"
@@ -4576,8 +4576,8 @@ AC INI-Param: VideoQualityParameterForRateControl"
        DESCRIPTION
            "Sets bitrate output to either a constant or a variable bit rate.
 
-CBR (0) � Constant Bit Rate.
-VBR (1) � Variable Bit Rate. Target Bitrate indicates the target
+CBR (0)  Constant Bit Rate.
+VBR (1)  Variable Bit Rate. Target Bitrate indicates the target
 average output bit rate. 
 .
 Access: Online.

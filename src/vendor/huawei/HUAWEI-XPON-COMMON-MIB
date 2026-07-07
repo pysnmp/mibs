@@ -5310,7 +5310,7 @@
             STATUS current
             DESCRIPTION
             "
-                Link length supported for EBW 50/125 ��m fiber, units of 2 m
+                Link length supported for EBW 50/125 m fiber, units of 2 m
             "
   	  ::= { hw10GponOltOpticsModuleInformationEntry 14 }
   	
@@ -5320,7 +5320,7 @@
             STATUS current
             DESCRIPTION
             "
-                Link length supported for 50/125 ��m fiber, units of 1 m 
+                Link length supported for 50/125 m fiber, units of 1 m 
             "
   	  ::= { hw10GponOltOpticsModuleInformationEntry 15 }
   	
@@ -5330,7 +5330,7 @@
             STATUS current
             DESCRIPTION
             "
-                Link length supported for 62.5/125 ��m fiber, units of 1 m
+                Link length supported for 62.5/125 m fiber, units of 1 m
             "
   	  ::= { hw10GponOltOpticsModuleInformationEntry 16 }
   	

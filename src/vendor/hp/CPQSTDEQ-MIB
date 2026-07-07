@@ -5281,7 +5281,7 @@ CPQSTDEQ-MIB DEFINITIONS ::= BEGIN
          The following values are valid for the physical drive solid state
          wear status:
          Other (1)
-           The instrument agent is unable to determine the physical drive�s
+           The instrument agent is unable to determine the physical drives
            solid state disk wear status. This value would be used for non
            SSD drives or SSD drives that do not support wear reporting.
          Ok (2)
