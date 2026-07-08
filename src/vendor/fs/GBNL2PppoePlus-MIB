@@ -32,8 +32,8 @@
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-            "start/stop pppoe plus.Default is off。" 
-        --开启关闭 pppoe plus 功能。
+            "start/stop pppoe plus.Default is off" 
+        -- pppoe plus 
         ::= { gbnL2PppoePlus 1 }
 
     pppoeplusType OBJECT-TYPE
@@ -45,7 +45,7 @@
         STATUS current
         DESCRIPTION
             "ppoeplus type."
-        --pppoeplus 类型，默认为standard.    
+        --pppoeplus standard.    
         ::= { gbnL2PppoePlus 2 }  
 
 END

@@ -559,7 +559,6 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "The LOOP DETECT status of the port."
-              --端口私有生成树的开启/关闭状态
               ::= { stpDot1dStpPortEntry 11 }
 
           stpDot1wRstpPortTxHoldCount OBJECT-TYPE
@@ -568,7 +567,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Maximum number of BPDUs allowed to be transmitted during per helloTime"
-                      --端口在每个helloTime时间内允许发送的最大BPDU数
+                      --helloTimeBPDU
               ::= { stpDot1dStpPortEntry 12 }
           
           stpDot1wRstpPortOperP2p OBJECT-TYPE
@@ -580,7 +579,6 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "The operational point-to-point status of the LAN segment attached to this port"
-                    --端口实际工作的点对点链接状态
               ::= { stpDot1dStpPortEntry 13 }
               
           stpDot1wRstpPortOperEdge OBJECT-TYPE
@@ -592,7 +590,6 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "The operational value of the Edge Port parameter"
-                      --端口实际工作的边界端口状态
               ::= { stpDot1dStpPortEntry 14 }
               
           stpDot1wRstpPortMcheck OBJECT-TYPE
@@ -603,7 +600,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "force port into transmitting rstp packets"
-                      --强制端口发送RSTP报文
+                      --RSTP
               ::= { stpDot1dStpPortEntry 15 }
               
           stpDot1wRstpPortTxTcn OBJECT-TYPE
@@ -612,7 +609,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Output statistics of TCN packets"
-                      --端口发送的TCN报文个数
+                      --TCN
               ::= { stpDot1dStpPortEntry 16 }
               
           stpDot1wRstpPortTxConfig OBJECT-TYPE
@@ -621,7 +618,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Output statistics of CONFIG packets"
-                      --端口发送的CONFIG报文个数
+                      --CONFIG
               ::= { stpDot1dStpPortEntry 17 }
               
           stpDot1wRstpPortTxRstp OBJECT-TYPE
@@ -630,7 +627,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Output statistics of RSTP packets"
-                      --端口发送的RSTP报文个数
+                      --RSTP
               ::= { stpDot1dStpPortEntry 18 }
           
           stpDot1wRstpPortRxTcn OBJECT-TYPE
@@ -639,7 +636,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Input statistics of TCN packets"
-                      --端口接收的TCN报文个数
+                      --TCN
               ::= { stpDot1dStpPortEntry 19 }
               
           stpDot1wRstpPortRxConfig OBJECT-TYPE
@@ -648,7 +645,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Input statistics of CONFIG packets"
-                      --端口接收的CONFIG报文个数
+                      --CONFIG
               ::= { stpDot1dStpPortEntry 20 }
               
           stpDot1wRstpPortRxRstp OBJECT-TYPE
@@ -657,7 +654,7 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Input statistics of RSTP packets"
-                      --端口接收的RSTP报文个数
+                      --RSTP
               ::= { stpDot1dStpPortEntry 21 }
               
           stpDot1wRstpPortClear OBJECT-TYPE
@@ -668,7 +665,6 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "Clear port spanning-tree statistics"
-                      --清除端口生成树统计信息
               ::= { stpDot1dStpPortEntry 22 }
               
           stpDot1wRstpPortAdminP2p OBJECT-TYPE
@@ -681,7 +677,6 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                    "The administrative point-to-point status of the LAN segment attached to this port"
-                    --配置的端口的点对点链接状态
               ::= { stpDot1dStpPortEntry 23 }
 
           stpDot1wRstpPortAdminEdge OBJECT-TYPE
@@ -693,7 +688,6 @@ STP-MIB DEFINITIONS ::= BEGIN
               STATUS  current
               DESCRIPTION
                       "The administrative value of the Edge Port parameter"
-                      --配置的边界端口状态
               ::= { stpDot1dStpPortEntry 24 }
               
     spanOnOff OBJECT-TYPE
@@ -721,7 +715,7 @@ STP-MIB DEFINITIONS ::= BEGIN
         STATUS current
         DESCRIPTION
              "which protocol mode the bridge chooses to execute ,RSTP or STP compatible"
-             --桥当前的协议模式，RSTP或者STP兼容模式
+             --RSTPSTP
         ::= { stpDot1dStp 19 }
         
 	stpDot1dStpTrap      OBJECT IDENTIFIER ::= { stpDot1dStp 18 }
@@ -741,7 +735,7 @@ STP-MIB DEFINITIONS ::= BEGIN
         STATUS  current
         DESCRIPTION
                "Port packet flood to CPU rate is too big, port exception happen."
-               --如果端口冲击CPU的报文速率太大，则发出端口异常的trap
+               --CPUtrap
        	::= { stpDot1dStpTrap 2 }
        	
         stpDot1dStpPortRecover NOTIFICATION-TYPE
@@ -749,7 +743,7 @@ STP-MIB DEFINITIONS ::= BEGIN
         STATUS  current
         DESCRIPTION
                "Port recover time pass after port encounter port CAR exception, and Port packet flood to CPU rate is normal, recover port."
-               --端口被端口CAR关闭后，过了端口恢复时间，并且该端口下冲击CPU的速率正常，重新打开端口，并发送端口恢复trap
+               --CARCPUtrap
        	::= { stpDot1dStpTrap 3 }
 
         stpDot1dStpPortRmtLoop NOTIFICATION-TYPE
@@ -757,7 +751,7 @@ STP-MIB DEFINITIONS ::= BEGIN
         STATUS  current
         DESCRIPTION
                "Port is blocked because of remote loop."
-               --端口因为远端环回而被block
+               --block
         ::= { stpDot1dStpTrap 4 }
 
         stpDot1dStpPortRmtLoopFree NOTIFICATION-TYPE
@@ -765,7 +759,6 @@ STP-MIB DEFINITIONS ::= BEGIN
         STATUS  current
         DESCRIPTION
                "Port is released from remote loop."
-               --端口远端环回解除
         ::= { stpDot1dStpTrap 5 }
 
         stpDot1dStpNewRoot NOTIFICATION-TYPE

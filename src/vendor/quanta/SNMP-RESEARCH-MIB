@@ -229,9 +229,6 @@ usmTargetTagMIB  OBJECT IDENTIFIER ::= { snmpResearchMIBs 35 }
 -- This MIB augments the snmpTargetAddrTable with an address mask
 tgtAddressMaskMIB OBJECT IDENTIFIER ::= { snmpResearchMIBs 36 }
 
--- MIB objects for Proxy Agent Option
-srProxyAgentOption     OBJECT IDENTIFIER ::= { snmpResearchMIBs 55 }
-
 --
 -- snmpResearch.12.37 was used for a "trap MIB" temporarily
 -- and has been put in as the softtrap MIB.  This branch should

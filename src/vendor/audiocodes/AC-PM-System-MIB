@@ -3249,7 +3249,7 @@ determined as the low and high thresholds."
        MAX-ACCESS not-accessible
        STATUS obsolete
        DESCRIPTION
-           "ATM resources are: ATM end point – as for today, restricted to 2016,;AAL2 VCC count (1024) and AAL1 VCC count (2016)."
+           "ATM resources are: ATM end point â€“ as for today, restricted to 2016,;AAL2 VCC count (1024) and AAL1 VCC count (2016)."
        ::= {acPMSystemCongestion 4}
 
 
@@ -3353,7 +3353,7 @@ determined as the low and high thresholds."
        MAX-ACCESS not-accessible
        STATUS current
        DESCRIPTION
-           "Extension Resources are actually a Conference Resource: Conference Resource congestion is running out of Conference DSP’s."
+           "Extension Resources are actually a Conference Resource: Conference Resource congestion is running out of Conference DSPâ€™s."
        ::= {acPMSystemCongestion 5}
 
 

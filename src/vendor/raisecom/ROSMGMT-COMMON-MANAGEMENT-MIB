@@ -9,7 +9,7 @@
 -- removed keepalve group by LIAOBIN 20070709
 -- raisecomEnableLogMethod add localradius radiuslocal  by yjg 20070112
 -- modify RaisecomUserEntry by cjy 20060616
--- add raisecomEnableLogPassword¡¢raisecomEnableLogOldPassword by cjy 20060616
+-- add raisecomEnableLogPassword,raisecomEnableLogOldPassword by cjy 20060616
 -- add rcNotificationGroup   by gongguidong 20041208
 -- add raisecomUserStatus    by gongguidong 20040205
 -- add online Upgrade group   by gongguidong 20040205

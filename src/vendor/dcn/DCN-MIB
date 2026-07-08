@@ -1412,7 +1412,7 @@ sysAddUserStatus OBJECT-TYPE
     
 --xxx.100.1.23 weiyya begin  
 priPowerTable OBJECT-TYPE
-        SYNTAX      SEQUENCE OF priPowerEntry
+        SYNTAX      SEQUENCE OF PriPowerEntry
         MAX-ACCESS  not-accessible
         STATUS      current
         DESCRIPTION "Table of power information about
@@ -1421,7 +1421,7 @@ priPowerTable OBJECT-TYPE
         
 --xxx.100.1.23.1
 priPowerEntry OBJECT-TYPE
-        SYNTAX      priPowerEntry
+        SYNTAX      PriPowerEntry
         MAX-ACCESS  not-accessible
         STATUS      current
         DESCRIPTION "An entry in the table, containing information
@@ -1429,7 +1429,7 @@ priPowerEntry OBJECT-TYPE
         INDEX       { priPowerIndex}
         ::= { priPowerTable 1 }
 
-priPowerEntry ::= SEQUENCE
+PriPowerEntry ::= SEQUENCE
 {
     priPowerIndex               INTEGER,
     priPowerPresent             INTEGER,
@@ -1487,7 +1487,7 @@ vsfCount OBJECT-TYPE
         ::= { vsfInfo 1 }
   
 vsfModuleTable OBJECT-TYPE
-        SYNTAX      SEQUENCE OF vsfModuleEntry
+        SYNTAX      SEQUENCE OF VsfModuleEntry
         MAX-ACCESS  not-accessible
         STATUS      current
         DESCRIPTION "Table of descriptive and status information about
@@ -1496,7 +1496,7 @@ vsfModuleTable OBJECT-TYPE
         
 --xxx.100.1.30.2.1
 vsfModuleEntry OBJECT-TYPE
-        SYNTAX      vsfModuleEntry
+        SYNTAX      VsfModuleEntry
         MAX-ACCESS  not-accessible
         STATUS      current
         DESCRIPTION "An entry in the table, containing information
@@ -1504,7 +1504,7 @@ vsfModuleEntry OBJECT-TYPE
         INDEX       { vsfSlotIndex , vsfMemberIndex }
         ::= { vsfModuleTable 1 }
 
-vsfModuleEntry ::= SEQUENCE
+VsfModuleEntry ::= SEQUENCE
 {
     vsfSlotIndex             INTEGER,
     vsfMemberIndex             INTEGER,
@@ -3685,7 +3685,7 @@ portLEDTimeRangeTable OBJECT-TYPE
 --********************************************************************************************************  
 --xxx.100.3.12
  portTruckAllowedVlanTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF portTruckAllowedVlanEntry
+    SYNTAX  SEQUENCE OF PortTruckAllowedVlanEntry
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -3693,7 +3693,7 @@ portLEDTimeRangeTable OBJECT-TYPE
     ::= { priPorts   12 }
  --xxx.100.3.12.1
     portTruckAllowedVlanEntry OBJECT-TYPE
-        SYNTAX  portTruckAllowedVlanEntry
+        SYNTAX  PortTruckAllowedVlanEntry
         MAX-ACCESS  not-accessible
         STATUS  current
         DESCRIPTION
@@ -3709,7 +3709,7 @@ portLEDTimeRangeTable OBJECT-TYPE
                 portTruckAllowedVlanAdd              OCTET STRING, 
              portTruckAllowedVlanExcept           OCTET STRING,   
              portTruckAllowedVlanRemove           OCTET STRING,
-             portTruckAllowedVlanAll              INTEGER ,
+             portTruckAllowedVlanAll              INTEGER 
             }
 --xxx.100.3.12.1.1   
  portTruckPortIndex OBJECT-TYPE
@@ -3768,7 +3768,7 @@ portLEDTimeRangeTable OBJECT-TYPE
 --********************************************************************************************************  
 --xxx.100.3.13
  portHybridTaggedAllowedVlanTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF portHybridTaggedAllowedVlanEntry
+    SYNTAX  SEQUENCE OF PortHybridTaggedAllowedVlanEntry
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -3776,7 +3776,7 @@ portLEDTimeRangeTable OBJECT-TYPE
     ::= { priPorts   13 }
  --xxx.100.3.12.1
     portHybridTaggedAllowedVlanEntry OBJECT-TYPE
-        SYNTAX  portHybridTaggedAllowedVlanEntry
+        SYNTAX  PortHybridTaggedAllowedVlanEntry
         MAX-ACCESS  not-accessible
         STATUS  current
         DESCRIPTION
@@ -3852,7 +3852,7 @@ portLEDTimeRangeTable OBJECT-TYPE
 --********************************************************************************************************  
 --xxx.100.3.14
  portHybridUntaggedAllowedVlanTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF portHybridUntaggedAllowedVlanEntry
+    SYNTAX  SEQUENCE OF PortHybridUntaggedAllowedVlanEntry
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -3860,7 +3860,7 @@ portLEDTimeRangeTable OBJECT-TYPE
     ::= { priPorts   14 }
  --xxx.100.3.12.1
     portHybridUntaggedAllowedVlanEntry OBJECT-TYPE
-        SYNTAX  portHybridUntaggedAllowedVlanEntry
+        SYNTAX  PortHybridUntaggedAllowedVlanEntry
         MAX-ACCESS  not-accessible
         STATUS  current
         DESCRIPTION
@@ -22090,7 +22090,7 @@ macStatus OBJECT-TYPE
 --***************************************      
 --xxx.100.37.1
 cableTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF priCableEntry
+    SYNTAX  SEQUENCE OF PriCableEntry
     MAX-ACCESS  not-accessible
     STATUS  current
     DESCRIPTION
@@ -22099,7 +22099,7 @@ cableTable OBJECT-TYPE
 
 --xxx.100.37.1.1
     priCableEntry OBJECT-TYPE
-        SYNTAX  priCableEntry
+        SYNTAX  PriCableEntry
         MAX-ACCESS  not-accessible
         STATUS  current
         DESCRIPTION
@@ -22132,7 +22132,7 @@ cableTable OBJECT-TYPE
 --xxx.100.38.1  priMrppRing
 
 priMrppRingTable OBJECT-TYPE
-    SYNTAX     SEQUENCE OF priMrppRingEntry
+    SYNTAX     SEQUENCE OF PriMrppRingEntry
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
@@ -22141,7 +22141,7 @@ priMrppRingTable OBJECT-TYPE
    
 --xxx.100.38.1.1
 priMrppRingEntry OBJECT-TYPE
-    SYNTAX     priMrppRingEntry
+    SYNTAX     PriMrppRingEntry
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION

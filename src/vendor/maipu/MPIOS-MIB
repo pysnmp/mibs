@@ -667,7 +667,7 @@ sysCpuAlertTemper		OBJECT-TYPE
 		STATUS		current
 		DESCRIPTION
 				"Get or set current system environment cpu alarm temperature
-				default is 85¡ãC"
+				default is 85 degrees C"
 		::= { sysTemperature 2 }
 sysMainBoardTemper		OBJECT-TYPE
 		SYNTAX		Integer32
@@ -683,7 +683,7 @@ sysMainBoardAlertTemper	 	OBJECT-TYPE
 		STATUS		current
 		DESCRIPTION
 				"Get or set current system environment main board alarm temperature
-				default is 65 ¡ãC"
+				default is 65  degrees C"
 		::= { sysTemperature 4 }
 
 sysAlertTrapInt	 	OBJECT-TYPE
@@ -792,9 +792,9 @@ rtrEntityLogType    	OBJECT-TYPE
                     		MAX-ACCESS  read-write
                     		STATUS  current
                     		DESCRIPTION
-                    			"RTR entity logging type¡£
-                    			 local£­stored in the device file system
-                    			 remote£­remote services"
+                    			"RTR entity logging type.
+                    			 local-stored in the device file system
+                    			 remote-remote services"
                     		::= { sysRtrEntityEntry 4 }
 
 rtrEntityLogMaxSize 	OBJECT-TYPE
@@ -892,9 +892,9 @@ rtrGroupEntityMembers	OBJECT-TYPE
                     		MAX-ACCESS  read-write
                     		STATUS  current
                     		DESCRIPTION
-                    			"RTR group members£¬string type£º
-                    			 1£¬3£¬10-20£¬50
-                    			 string length no more than 255, separated by comma,no space in the string¡£"
+                    			"RTR group members,string type:
+                    			 1,3,10-20,50
+                    			 string length no more than 255, separated by comma,no space in the string."
                     		::= { sysRtrGroupEntry 4 }
 
 rtrGroupRowStatus   	OBJECT-TYPE
@@ -978,9 +978,9 @@ rtrScheduleStartTimeFlag	OBJECT-TYPE
                     		MAX-ACCESS  read-write
                     		STATUS  current
                     		DESCRIPTION
-                    			"RTR schedule start time¡£
-                    			 startNow£»
-                    			 afterTime£»
+                    			"RTR schedule start time.
+                    			 startNow;
+                    			 afterTime;
                     			 startTime--start at the given time"
                     		::= { sysRtrScheduleEntry 4 }
 
@@ -989,10 +989,10 @@ rtrScheduleAfterTime	OBJECT-TYPE
                     		MAX-ACCESS  read-write
                     		STATUS  current
                     		DESCRIPTION
-                    			"RTR schedule given time¡£
-                    			 type string£º
+                    			"RTR schedule given time.
+                    			 type string:
                     			 HH:MM:SS
-                    			 valid when sysRtrScheduleFlag is afterTimeÊ±."
+                    			 valid when sysRtrScheduleFlag is afterTime."
                     		::= { sysRtrScheduleEntry 5 }
 
 rtrScheduleStartTime	OBJECT-TYPE
@@ -1000,8 +1000,8 @@ rtrScheduleStartTime	OBJECT-TYPE
                     		MAX-ACCESS  read-write
                     		STATUS  current
                     		DESCRIPTION
-                    			"RTR schedule given time¡£
-                    			 type string£º
+                    			"RTR schedule given time.
+                    			 type string:
                     			 HH:MM:SS,mm,dd,yyyy
                     			 valid when sysRtrScheduleFlag is startTime."
                     		::= { sysRtrScheduleEntry 6 }
@@ -1320,9 +1320,9 @@ rtrJitterState          OBJECT-TYPE
 							MAX-ACCESS  read-only
                     		STATUS  current
                     		DESCRIPTION
-                    		"JITTE entity£º1£­init£¬2£­close£¬
-                    		                 3£­send request£¬4-send packets£¬
-                    		                 5£­finish"
+                    		"JITTE entity:1-init,2-close,
+                    		                 3-send request,4-send packets,
+                    		                 5-finish"
 							::= { sysRtrJitterEntry 2 }
 
 rtrJitterTargetIp   	OBJECT-TYPE
@@ -1842,9 +1842,9 @@ rtrUdpechoState          OBJECT-TYPE
 				MAX-ACCESS  read-only
                     		STATUS  current
                     		DESCRIPTION
-                    		"UDPECHO entity£º1£­init£¬2£­close£¬
-                    		                 3£­send request£¬4-send packets£¬
-                    		                 5£­finish"
+                    		"UDPECHO entity:1-init,2-close,
+                    		                 3-send request,4-send packets,
+                    		                 5-finish"
 				::= { sysRtrUdpechoEntry   2 }
 
 rtrUdpechoTargetIp   	OBJECT-TYPE

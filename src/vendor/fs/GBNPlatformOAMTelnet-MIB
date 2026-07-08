@@ -48,7 +48,7 @@
         STATUS current
         DESCRIPTION
             "enable or disable telnet."
-            --打开或关闭telnet功能。
+            --telnet
         ::= { gbnPlatformOAMTelnet 1 } 
 
   telnetUserLimit OBJECT-TYPE
@@ -57,7 +57,7 @@
         STATUS current
         DESCRIPTION
             "The max user limit of telnet"
-            --允许telnet登录的最大用户数目
+            --telnet
         ::= { gbnPlatformOAMTelnet 2 }               
    
   telnetLoginUsers  OBJECT-TYPE
@@ -66,7 +66,7 @@
         STATUS current
         DESCRIPTION
             "Current login users of telnet"
-            --当前telnet登录的用户数目
+            --telnet
         ::= { gbnPlatformOAMTelnet 3 }
   
   telnetUserTable OBJECT-TYPE
@@ -75,7 +75,7 @@
         STATUS current
         DESCRIPTION
             "A table of  login user information"
-            --登录用户信息表
+            --
         ::= { gbnPlatformOAMTelnet 4 }
 
   telnetUserEntry OBJECT-TYPE
@@ -84,7 +84,7 @@
         STATUS current
         DESCRIPTION
             "A list of login user information"
-            --登录用户信息列表
+            --
         INDEX { telnetUserTerminal }
         ::= { telnetUserTable 1 }
 
@@ -103,7 +103,7 @@
         STATUS current
         DESCRIPTION
             "login terminal number"
-            --登录终端号
+            --
         ::= { telnetUserEntry 1 }
  
   telnetUserAddrIp OBJECT-TYPE
@@ -112,7 +112,7 @@
         STATUS current
         DESCRIPTION
             "login ip address"
-            -- 登录ip地址,包括IPV4和IPV6.
+            -- ip,IPV4IPV6.
         ::= { telnetUserEntry 2 }
 
   telnetUserName OBJECT-TYPE
@@ -121,7 +121,7 @@
         STATUS current
         DESCRIPTION
             "login user name"
-            --登录用户名称
+            --
         ::= { telnetUserEntry 3 }
 
   telnetUserLoginTime OBJECT-TYPE
@@ -130,7 +130,7 @@
         STATUS current
         DESCRIPTION
             "login time"
-            --登录时间
+            --
         ::= { telnetUserEntry 4 } 
         
   telnetUserTransport OBJECT-TYPE
@@ -139,7 +139,7 @@
         STATUS current
         DESCRIPTION
             "transport type"
-            --登录类型, telnet或ssh
+            --, telnetssh
         ::= { telnetUserEntry 5 }
         
   telnetUserRowStatus OBJECT-TYPE
@@ -148,6 +148,6 @@
         STATUS current
         DESCRIPTION
             "login user rowstatus"
-            --登录用户行状态，用来剔除用户
+            --
         ::= { telnetUserEntry 6 }                                        
    END

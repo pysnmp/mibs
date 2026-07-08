@@ -124,16 +124,16 @@
 	    SYNTAX      SEQUENCE OF ArpEntry
 	    MAX-ACCESS  not-accessible
 	    STATUS      current
-	    DESCRIPTION "此表为系统ARP的高速缓存表，在rfc1213中已经定义了两个有关系统
-	                 ARP的表格：at组中的atTable和ip组中的ipNetToMediaTable，但此两
-	                 个表没有VLAN信息和交换机端口信息，故定义此扩展表。" 
+	    DESCRIPTION "ARPrfc1213
+	                 ARPatatTableipipNetToMediaTable
+	                 VLAN"
 	    ::= { gbnL3Arp 1 }     
 	    
 	arpEntry OBJECT-TYPE 
 	    SYNTAX      ArpEntry
 	    MAX-ACCESS  not-accessible
 	    STATUS      current
-	    DESCRIPTION "系统ARP的高速缓存表。" 
+	    DESCRIPTION "ARP"
 	    INDEX   { arpIpAddress }
 	    ::= { arpTable 1 } 
 	    
@@ -152,55 +152,55 @@
         SYNTAX       IpAddress
         MAX-ACCESS   read-only
         STATUS       current
-        DESCRIPTION "IP地址，作为索引。" 
+        DESCRIPTION "IP"
         ::= { arpEntry 1 }
         
     arpMacAddress OBJECT-TYPE 
         SYNTAX       MacAddress
         MAX-ACCESS   read-write
         STATUS       current
-        DESCRIPTION "IP地址对应的MAC地址。" 
+        DESCRIPTION "IPMAC"
         ::= { arpEntry 2 }        
     
     arpIfIndex OBJECT-TYPE 
         SYNTAX       INTEGER
         MAX-ACCESS   read-only
         STATUS       current
-        DESCRIPTION "IP地址所在的接口索引。" 
+        DESCRIPTION "IP"
         ::= { arpEntry 3 }  
         
     arpVlan OBJECT-TYPE 
         SYNTAX       INTEGER
         MAX-ACCESS   read-write
         STATUS       current
-        DESCRIPTION "IP地址所在的VLAN。" 
+        DESCRIPTION "IPVLAN"
         ::= { arpEntry 4 }        
  
     arpPort OBJECT-TYPE 
         SYNTAX       INTEGER (1..26)
         MAX-ACCESS   read-write
         STATUS       current
-        DESCRIPTION "学习到IP地址的交换机端口号。" 
+        DESCRIPTION "IP"
         ::= { arpEntry 5 }
     
     arpType OBJECT-TYPE 
         SYNTAX       INTEGER {
                          other(1),
-                         invalid(2),--无效ARP表项
-                         dynamic(3),--学习到的ARP表项
-                         static(4)  --静态添加的ARP表项  
+                         invalid(2),--ARP
+                         dynamic(3),--ARP
+                         static(4) --ARP
                      }
         MAX-ACCESS   read-write
         STATUS       current
-        DESCRIPTION "此ARP表项的类型。" 
+        DESCRIPTION "ARP"
         ::= { arpEntry 6 }   
         
      arpRowStatus OBJECT-TYPE 
         SYNTAX       RowStatus
         MAX-ACCESS   read-write
         STATUS       current
-        DESCRIPTION "此ARP表项的状态，用来添加/删除静态ARP表项，ative为添加，destroy为删除。创建表项时首先
-                    添加mac地址，只有添加了VLAN和端口后active才可以返回成功。" 
+        DESCRIPTION "ARP/ARPativedestroy
+                    macVLANactive"
         ::= { arpEntry 7 }  
 
     arpAging OBJECT-TYPE 
@@ -208,7 +208,7 @@
         MAX-ACCESS   read-write
         STATUS       current
         DESCRIPTION "The age time of dynamic arp entry.Unit is minute.Default is 20." 
-        --arp表的老化时间，单位为分钟，默认为20分钟。
+        --arp20
         ::= { gbnL3Arp 2 }   
 
     arpNum OBJECT-TYPE 
@@ -216,7 +216,7 @@
         MAX-ACCESS   read-only
         STATUS       current
         DESCRIPTION "Total arp entries." 
-        --arp条目的总个数。
+        --arp
         ::= { gbnL3Arp 3 }  
 
 ------------------------------------------------------------------------------
@@ -231,7 +231,7 @@
         STATUS current
         DESCRIPTION
             "A table of ipaddress range for VLAN/Supervlan interface."
-        --VLAN/SuperVLAN接口的IP地址范围限制表.
+        --VLAN/SuperVLANIP.
         ::= { gbnL3IP 1 }
 
     ipRangeEntry OBJECT-TYPE
@@ -257,7 +257,7 @@
         STATUS current
         DESCRIPTION
             "sw,for 3526 1-32, for 3750 1-256"
-        --IP接口的ID,为gbnL3IpSubnetIfIndex的后2个字节的取值,对于3526范围为1-12,而对于3750为1-256
+        --IPID,gbnL3IpSubnetIfIndex2,35261-12,37501-256
         ::= { ipRangeEntry 1 }
 
     ipRangeIndex OBJECT-TYPE
@@ -266,7 +266,7 @@
         STATUS current
         DESCRIPTION
             "Index number of range."
-        --每个IP接口可以最多配置2048/4096个子范围.
+        --IP2048/4096.
         ::= { ipRangeEntry 2 }
 
    ipRangeStartIP OBJECT-TYPE
@@ -275,7 +275,7 @@
         STATUS current
         DESCRIPTION
             "The start ipaddress of this range."
-        --开始IP地址.
+        --IP.
         ::= { ipRangeEntry 3 }
 
    ipRangeEndIP OBJECT-TYPE
@@ -284,7 +284,7 @@
         STATUS current
         DESCRIPTION
             "The end ipaddress of this range."
-        --结束IP地址.
+        --IP.
         ::= { ipRangeEntry 4 }
 
   ipRangeStatus OBJECT-TYPE
@@ -310,7 +310,7 @@
         STATUS      current
         DESCRIPTION
             "Enable/disable option82.Default is disalbe"
-        --DHCP中继option82开关.默认为关闭            
+        --DHCPoption82.
             ::= { gbnL3DHCP 1 }
 
     Option82Strategy OBJECT-TYPE
@@ -323,9 +323,9 @@
         STATUS      obsolete
         DESCRIPTION
             "Actions when receive packets with option82."
-        --在option82开启后当DHCP中继接收到带option82选项内容的报文时采取的策略.
-        --drop为丢弃报文,keep为保留报文的option82选项内容,而replace为替换报文中的option82内容.
-        --默认为replace
+        --option82DHCPoption82.
+        --drop,keepoption82,replaceoption82.
+        --replace
             ::= { gbnL3DHCP 2 }
 
     option82Format OBJECT-TYPE
@@ -450,7 +450,6 @@
         STATUS current
         DESCRIPTION
             "Interface index,for 3650 1-256, for 3750-48 1-512"
-        --接口索引    
         ::= { urpfEntry 1 }     
     
     urpfState OBJECT-TYPE
@@ -463,7 +462,7 @@
         STATUS current
         DESCRIPTION
             "URPF state."
-        --urpf 状态，默认为关闭    
+        --urpf
         ::= { urpfEntry 2 }  
                
 END

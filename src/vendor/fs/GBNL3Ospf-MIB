@@ -50,7 +50,7 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "其他路由协议的路由引入到OSPF的默认花费值."
+           "OSPF."
        REFERENCE
           "OSPF Version 2, C.1 Global parameters" 
        DEFVAL { 1 }         
@@ -64,7 +64,7 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "其他路由协议的路由引入到OSPF的默认类型.第一类或第二类。"
+           "OSPF."
        REFERENCE
           "OSPF Version 2, C.1 Global parameters"  
        DEFVAL { type2 }         
@@ -75,7 +75,7 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "此项暂时不用." 
+           "."
        DEFVAL { 1 }        
       ::= { gbnL3OspfGroup 3 }
 
@@ -85,7 +85,7 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "OSPF引入外部路由的默认引入间隔，以秒（S）为单位."
+           "OSPFS."
        REFERENCE
           "OSPF Version 2, C.1 Global parameters" 
        DEFVAL { 1 }          
@@ -96,7 +96,7 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "OSPF每次引入外部路由的最大数目."
+           "OSPF."
        REFERENCE
           "OSPF Version 2, C.1 Global parameters"
        DEFVAL { 1000 }
@@ -157,7 +157,7 @@ Metric ::= TEXTUAL-CONVENTION
          MAX-ACCESS   read-only
         STATUS   current
         DESCRIPTION
-           "OSPF引入的外部路由协议."
+           "OSPF."
        REFERENCE
           "OSPF Version 2, C.1 Global parameters"
       ::= { ospfRedistributeEntry 1 }
@@ -167,10 +167,10 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "定义其他路由协议的路由引入到OSPF时路由的基准花费，
-           如:引入RIP路由协议的路由，配置RIP的metric为100，
-           此条路由在RIP中的跳数为10，则引入OSPF后此条路由的
-           实际花费为110."
+           "OSPF
+           :RIPRIPmetric100
+           RIP10OSPF
+           110."
        ::= { ospfRedistributeEntry 2 }
 
     ospfRedistributeType OBJECT-TYPE
@@ -181,17 +181,14 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "OSPF将所引入的自治系统外部路由分成两类：type1和type2，
-           第一类是指引入的是IGP路由（例如RIP，IGRP，STATIC）， 由
-           于这类路由的可信程度高一些，所以计算出的外部路由的花费
-           与自治系统内部的路由花费的数量级是相同的，即到第一类外部
-           路由的花费值 = 本路由器到相应的ASBR的花费值+ASBR到该路由
-           目的地址的花费值。对于第二类外部路由是指引入的是BGP路由，
-           由于这类路由的可信度比较低，所以OSPF协议认为从ASBR到自治
-           系统之外的花费远远大于在自治系统之内到达ASBR的花费。所以
-           计算路由花费时将主要考虑前者，即到第二类外部路由的花费值 
-           = ASBR到该路由目的地址的花费值。如果该值相等，再考虑本路
-           由器到相应的ASBR的花费值。如果加上前面所述的两种路由类型."
+           "OSPFtype1type2
+           IGPRIPIGRPSTATIC
+            = ASBR+ASBR
+           BGP
+           OSPFASBR
+           ASBR
+           = ASBR
+           ASBR."
        ::= { ospfRedistributeEntry 3 }
 
     ospfRedistributeTag OBJECT-TYPE
@@ -215,10 +212,10 @@ Metric ::= TEXTUAL-CONVENTION
         MAX-ACCESS   read-write
         STATUS   current 
         DESCRIPTION
-        "always 这个关键字使得就算本机没有配置缺省路由也要产生一个描
-        述缺省路由的ase lsa 发布出去若未指定该关键字本机必须要配置缺
-        省路由才可以引入产生缺省路由的ase lsa，这个参数只有在引入默认
-        路由时才用."
+        "always
+        ase lsa
+        ase lsa
+        ."
         ::= { ospfRedistributeEntry 6 } 
 
 END

@@ -122,7 +122,7 @@ HP-OPENCALL-SS7SNMPAGENT-BASE-MIB DEFINITIONS ::= BEGIN
 
 -- trap definitions
 
--- nécessaire de remplacer remplacer HPOC- par hHPOC-
+-- nÃ©cessaire de remplacer remplacer HPOC- par hHPOC-
    hHPOC-3100155  NOTIFICATION-TYPE
         OBJECTS {  	sourcePlatformEntity, 
 			sourceObjectID,

@@ -2465,7 +2465,7 @@ enterpriseApRadioAntennaLocation OBJECT-TYPE
         SYNTAX INTEGER
         {
             Indoor (1)
-            Outdoor(2),
+            Outdoor(2)
         }               
         MAX-ACCESS read-write
         STATUS current
@@ -3465,7 +3465,7 @@ enterpriseApWMMEntry OBJECT-TYPE
 EnterpriseApWMMEntry ::= SEQUENCE
 {
     enterpriseApWMMModeIndex Integer32,
-    enterpriseApWMMMode      INTEGER,
+    enterpriseApWMMMode      INTEGER
 }
 
 enterpriseApWMMModeIndex OBJECT-TYPE
@@ -3515,7 +3515,7 @@ enterpriseApWMMAckPolicyEntry OBJECT-TYPE
 EnterpriseApWMMAckPolicyEntry ::= SEQUENCE
 {
     enterpriseApWMMAckPolicyIndex Integer32,
-    enterpriseApWMMACKPolicy INTEGER,
+    enterpriseApWMMACKPolicy INTEGER
 }
 
 enterpriseApWMMAckPolicyIndex OBJECT-TYPE

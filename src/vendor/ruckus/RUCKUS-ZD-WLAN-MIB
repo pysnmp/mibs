@@ -1797,7 +1797,7 @@ RuckusZDWiredStaEntry ::= SEQUENCE {
   ruckusZDWiredStaRxPkts                Counter32,
   ruckusZDWiredStaRxBytes               Counter64,
   ruckusZDWiredStaTxPkts                Counter32,
-  ruckusZDWiredStaTxBytes               Counter64,
+  ruckusZDWiredStaTxBytes               Counter64
 }
 
 ruckusZDWiredStaMacAddr OBJECT-TYPE

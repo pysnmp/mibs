@@ -1998,7 +1998,7 @@
 		STATUS current
 		DESCRIPTION
 			"Battery discharge test duration .
-			 Effective range is 1�C100 hours.
+			 Effective range is 1C100 hours.
 			 Default :value is 10 hours
 			 Unit: hour
 			"
@@ -2011,7 +2011,7 @@
 		STATUS current
 		DESCRIPTION
 			"Battery discharge test end voltage.
-			Effective range (DC lack alarm voltage+0.5V�Cvoltage of floating charge).
+			Effective range (DC lack alarm voltage+0.5VCvoltage of floating charge).
 			Default: 45600 
 			Unit: mV
 			"

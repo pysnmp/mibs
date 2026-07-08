@@ -730,21 +730,21 @@ dsEPonLastOnuDeregister NOTIFICATION-TYPE
 	::= { dsEPonNotification 8 } 
 	
 dsEPonOltCableDown NOTIFICATION-TYPE
-	OBJECTS {   
+	OBJECTS {
 	   dsEPonSystemChannelNodeIndex,
-       dsEPonSystemChannelPortIndex,    -- OLT Index       
+       dsEPonSystemChannelPortIndex    -- OLT Index
     }
-	STATUS             current   
+	STATUS             current
 	DESCRIPTION
 			"."
 	::= { dsEPonNotification 9 }
 
 dsEPonOltRecoverCableDown NOTIFICATION-TYPE
-	OBJECTS {   
+	OBJECTS {
 	   dsEPonSystemChannelNodeIndex,
-       dsEPonSystemChannelPortIndex,    -- OLT Index       
+       dsEPonSystemChannelPortIndex    -- OLT Index
     }
-	STATUS             current   
+	STATUS             current
 	DESCRIPTION
 			"."
 	::= { dsEPonNotification 10 }	

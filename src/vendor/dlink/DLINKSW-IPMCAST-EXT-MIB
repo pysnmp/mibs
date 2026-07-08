@@ -56,7 +56,7 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
 	REVISION        "201408010000Z"
 	DESCRIPTION 
 		"Remove objects IpmcExtStaticMrouteDistance and dIpmcExtRpfDistance because 
-		we don¡¯t have plan to implement these objects now.
+		we don't have plan to implement these objects now.
 		Add the description for setting the value of dIpmcExtStaticMrouteRpfAddr to zero."  	
         ::= { dlinkIndustrialCommon 55 }
 
@@ -957,7 +957,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 3 }
    
     dIpmcExtPimPortIfTxHello OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -965,7 +966,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 4 }
 
     dIpmcExtPimPortIfRxRegister OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -973,7 +975,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 5 }
    
     dIpmcExtPimPortIfTxRegister OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -981,7 +984,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 6 }
 
     dIpmcExtPimPortIfRxRegisterStop OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -989,7 +993,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 7 }
    
     dIpmcExtPimPortIfTxRegisterStop OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -997,7 +1002,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 8 }
 
     dIpmcExtPimPortIfRxJoinPrune OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1005,7 +1011,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 9 }
    
     dIpmcExtPimPortIfTxJoinPrune OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1013,7 +1020,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 10 }
 
     dIpmcExtPimPortIfRxBootstrap OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1021,7 +1029,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 11 }
    
     dIpmcExtPimPortIfTxBootstrap OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1029,7 +1038,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 12 }
   
     dIpmcExtPimPortIfRxAssert OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1037,7 +1047,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 13 }
    
     dIpmcExtPimPortIfTxAssert OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1045,7 +1056,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 14 }
     
     dIpmcExtPimPortIfRxGraft OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1053,7 +1065,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 15 }
    
     dIpmcExtPimPortIfTxGraft OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1061,7 +1074,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 16 }
 
     dIpmcExtPimPortIfRxGraftAck OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1069,7 +1083,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 17 }
    
     dIpmcExtPimPortIfTxGraftAck OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1077,7 +1092,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 18 }
 
     dIpmcExtPimPortIfRxCRpAdv OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1086,7 +1102,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 19 }
    
     dIpmcExtPimPortIfTxCRpAdv OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1095,7 +1112,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 20 }
 
     dIpmcExtPimPortIfRxStateRefresh OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1103,7 +1121,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 21 }
    
     dIpmcExtPimPortIfTxStateRefresh OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1112,7 +1131,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 22 }
 
     dIpmcExtPimPortIfRxUnknown OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1121,7 +1141,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtPimPortIfStatEntry 23 }
    
     dIpmcExtPimPortIfTxUnknown OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1254,7 +1275,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtDvmrpPortIfStatEntry 11 }
 
     dIpmcExtDvmrpPortIfRxUnknown OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION
@@ -1263,7 +1285,8 @@ DLINKSW-IPMCAST-EXT-MIB DEFINITIONS ::= BEGIN
         ::= { dIpmcExtDvmrpPortIfStatEntry 12 }
    
     dIpmcExtDvmrpPortIfTxUnknown OBJECT-TYPE
-        SYNTAX          Counter32
+        SYNTAX          Counter32
+
         MAX-ACCESS      read-only
         STATUS          current
         DESCRIPTION

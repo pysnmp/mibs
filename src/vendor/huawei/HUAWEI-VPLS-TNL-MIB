@@ -116,8 +116,7 @@
       RowStatus 
     }    
 
---入参：
---索引，VSI名称 
+--VSI
     hwVplsVsiName OBJECT-TYPE
            SYNTAX DisplayString (SIZE (1..31))
            MAX-ACCESS    not-accessible
@@ -126,7 +125,7 @@
               "The name of this VPLS instance."
            ::= { hwVplsTunnelEntry 1 }  
            
---索引，对端PE地址,BGP VPLS为BGP路由的公网下一跳，LDP为配置的Peer IP
+--PE,BGP VPLSBGPLDPPeer IP
     hwVplsNexthopPeer OBJECT-TYPE 
            SYNTAX IpAddress
            MAX-ACCESS not-accessible
@@ -135,7 +134,7 @@
             "The ip address of the peer PE."
            ::= { hwVplsTunnelEntry 2 }   
 
---索引，bgp方式为远端site id；ldp方式为pw id，不配置pw id情况下默认使用vsi id      
+--bgpsite idldppw idpw idvsi id
     hwVplsSiteOrPwId OBJECT-TYPE
            SYNTAX   Unsigned32
            MAX-ACCESS not-accessible
@@ -144,7 +143,7 @@
             "Remote Site ID for BGP Mode, or PW id for LDP Mode"
            ::= { hwVplsTunnelEntry 3 }  
                              
---索引，隧道ID
+--ID
     hwVplsPeerTnlId OBJECT-TYPE
            SYNTAX   Unsigned32
            MAX-ACCESS not-accessible
@@ -153,8 +152,6 @@
             "The Tunnel ID."
            ::= { hwVplsTunnelEntry 4 } 
 
---出参：
---隧道名称            
     hwVplsTnlName OBJECT-TYPE
            SYNTAX OCTET STRING
            MAX-ACCESS read-only
@@ -163,7 +160,6 @@
             "The name of this Tunnel."
            ::= { hwVplsTunnelEntry 5 }           
               
---隧道类型            
     hwVplsTnlType OBJECT-TYPE
            SYNTAX Integer32 (0..255)
            MAX-ACCESS read-only
@@ -172,7 +168,6 @@
             "The type of this Tunnel. e.g. LSP/GRE/CR-LSP..."
            ::= { hwVplsTunnelEntry 6 }
            
---隧道源地址                     
     hwVplsTnlSrcAddress OBJECT-TYPE
            SYNTAX IpAddress 
            MAX-ACCESS read-only
@@ -181,7 +176,6 @@
             "The source ip address of this tunnel."   
            ::= { hwVplsTunnelEntry 7 }
 
---隧道目的地址                     
     hwVplsTnlDestAddress OBJECT-TYPE
            SYNTAX IpAddress 
            MAX-ACCESS read-only
@@ -190,7 +184,7 @@
             "The destination ip address of this tunnel."   
            ::= { hwVplsTunnelEntry 8 } 
        
---lsp索引
+--lsp
     hwVplsLspIndex OBJECT-TYPE
            SYNTAX Integer32
            MAX-ACCESS read-only
@@ -199,7 +193,7 @@
             "The index of lsp."
            ::= { hwVplsTunnelEntry 9 } 
            
---lsp出接口                     
+--lsp
     hwVplsLspOutIf OBJECT-TYPE
            SYNTAX OCTET STRING
            MAX-ACCESS read-only
@@ -208,7 +202,7 @@
             "The out-interface of lsp."
            ::= { hwVplsTunnelEntry 10 }
            
---lsp出标签    
+--lsp
     hwVplsLspOutLabel OBJECT-TYPE
            SYNTAX Integer32 (0..2147483647)
            MAX-ACCESS read-only
@@ -217,7 +211,7 @@
             "The out-label of lsp."
            ::= { hwVplsTunnelEntry 11 }
            
---lsp下一跳
+--lsp
     hwVplsLspNextHop OBJECT-TYPE
            SYNTAX IpAddress
            MAX-ACCESS read-only
@@ -235,7 +229,7 @@
             "The Fec of lsp."   
            ::= { hwVplsTunnelEntry 13 } 
            
---lsp fec掩码长度
+--lsp fec
     hwVplsLspFecPfxLen OBJECT-TYPE
            SYNTAX Integer32
            MAX-ACCESS read-only
@@ -244,7 +238,7 @@
             "The length of mask for hwVplsLspFec."  
            ::= { hwVplsTunnelEntry 14 } 
 
---lsp 主备属性
+--lsp
     hwVplsLspIsBackup OBJECT-TYPE
            SYNTAX TruthValue
            MAX-ACCESS read-only
@@ -253,7 +247,6 @@
             "Indicate whether the lsp is main."   
            ::= { hwVplsTunnelEntry 15 }
 
---负载分担属性
     hwVplsIsBalance OBJECT-TYPE
            SYNTAX TruthValue
            MAX-ACCESS read-only
@@ -262,7 +255,6 @@
             "Property of Balance. Rerurn True if Tunnel-Policy is configed."   
            ::= { hwVplsTunnelEntry 16 } 
 
---行状态:
     hwVplsTnlRowStatus OBJECT-TYPE
            SYNTAX RowStatus
            MAX-ACCESS read-only

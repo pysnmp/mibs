@@ -655,7 +655,7 @@ nwIpFwdIfForwarding       OBJECT-TYPE
     SYNTAX      INTEGER {
                             other(1),      -- none of the following,
                             disabled(2),  -- not forwarding,
-                            enabled(3)      -- forwarding,
+                            enabled(3)      -- forwarding
                         }
     ACCESS        read-write
     STATUS        mandatory
@@ -724,7 +724,7 @@ nwIpFwdIfCacheControl     OBJECT-TYPE
     SYNTAX      INTEGER {
                             other(1),     -- none of the following, 
                             disable(2),   -- next hop caching disabled,
-                            enable(3)     -- next hop caching enabled,
+                            enable(3)     -- next hop caching enabled
                         }
     ACCESS      read-write
     STATUS        mandatory
@@ -1677,7 +1677,7 @@ nwIpRipIfType  OBJECT-TYPE
      SYNTAX  INTEGER {
                         other(1),        --  none of the following,
                         bma(2),            --  broadcast media access,
-                        nbma(3)            --  non-broadcast media access,
+                        nbma(3)            --  non-broadcast media access
                  }
     ACCESS  read-only
     STATUS  mandatory
@@ -1789,7 +1789,7 @@ nwIpRipIfCtrAdminStatus  OBJECT-TYPE
     SYNTAX          INTEGER {
                 other(1),        --  none of the following,
                 disabled(2),    --  counters off,
-                enabled(3)        --  counters on,
+                enabled(3)        --  counters on
                         }
     ACCESS        read-write
     STATUS        mandatory
@@ -1804,7 +1804,7 @@ nwIpRipIfCtrAdminStatus  OBJECT-TYPE
 nwIpRipIfCtrReset      OBJECT-TYPE
     SYNTAX          INTEGER {
                             other(1),        --  none of the following,
-                            reset(2)         --  force a reset,
+                            reset(2)         --  force a reset
                         }
     ACCESS        read-write
     STATUS        mandatory

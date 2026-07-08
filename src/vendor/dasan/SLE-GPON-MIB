@@ -19434,7 +19434,7 @@
 			STATUS current
 			DESCRIPTION
 				"This attribute indicates the current measurement of the pilot signal level or 
-				broadband RF level. The unit of this attribute is dB¡ÍiV at the RF video 
+				broadband RF level. The unit of this attribute is dBuV at the RF video 
 				service port. 
 				If signal capability = 0 or 1, then this attribute is undefined. 
 				If signal capability = 2, 3, 4 or 5, this attribute reports the pilot signal level 
@@ -19453,7 +19453,7 @@
 			DESCRIPTION
 				"This attribute indicates the minimum optical RF power per channel that 
 				results in a CNR of 47 dBc for a channel of 4.5 MHz bandwidth at a 
-				receive optical power of -5 dBm. The unit of this attribute is dB¡ÍiW 
+				receive optical power of -5 dBm. The unit of this attribute is dBuW 
 				optical."
 			::= { sleGponOnuVideoAniEntry 11 }
 
@@ -19467,7 +19467,7 @@
 				"This attribute indicates the maximum optical RF power per channel that 
 				results in a CTB of -57 dBc for an 80-channel ensemble of carriers at a 
 				per-channel optical modulation index of 3.5%. The unit of this attribute is 
-				dB¡ÍiW optical. "
+				dBuW optical. "
 			::= { sleGponOnuVideoAniEntry 12 }
 
 		

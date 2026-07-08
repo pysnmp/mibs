@@ -132,7 +132,7 @@
             SYNTAX INTEGER
                 {
                 program(1),        -- program file
-                configuration(2),    -- configuration file¡¡
+                configuration(2),    -- configuration file
                 patch(3),        -- patch file
                 shellMacro(4),
                 resLocal(5),
@@ -143,7 +143,7 @@
                 programApp(10),        -- application program   
                 logicFpga(11),        -- fpga logic file          
                 logicCpld(12),        -- Cpld  logic file     
-                logicPci(13),        -- pci logic file        ¡¡
+                logicPci(13),        -- pci logic file        
                 logicAfc(14),        -- afc logic file        
                 programMicroCode(15),    -- micro code file       
                 programFirmware(16),    -- application program of pinch board 
@@ -173,7 +173,7 @@
                 enum                 explanation                  
                 **********************************************
                 program(1),        -- program file
-                configuration(2),    -- configuration file¡¡
+                configuration(2),    -- configuration file
                 patch(3),        -- patch file
                 shellMacro(4),
                 resLocal(5),
@@ -184,7 +184,7 @@
                 programApp(10),        -- application program   
                 logicFpga(11),        -- fpga logic file          
                 logicCpld(12),        -- Cpld  logic file     
-                logicPci(13),        -- pci logic file        ¡¡
+                logicPci(13),        -- pci logic file        
                 logicAfc(14),        -- afc logic file        
                 programMicroCode(15),    -- micro code file       
                 programFirmware(16),    -- application program of pinch board 
@@ -243,7 +243,7 @@
             STATUS current
             DESCRIPTION
                 "
-                The load user name£¬which is necessary in FTP mode 
+                The load user name,which is necessary in FTP mode 
                 and unnecessary in TFTP mode. 
                 "
             ::= { hwLoadParaEntry 8 }
@@ -345,7 +345,7 @@
         hwBackupContent OBJECT-TYPE
             SYNTAX INTEGER
                 {
-                configuration(1),    -- configuration file¡¡
+                configuration(1),    -- configuration file
                 shellMacro(2),
                 log(3),            -- log file
                 bill(4),
@@ -404,7 +404,7 @@
             STATUS current
             DESCRIPTION
                 "
-                The backup user name£¬which is necessary in FTP mode 
+                The backup user name,which is necessary in FTP mode 
                 and unnecessary in TFTP mode. 
                 "
             ::= { hwBackupParaEntry 6 }

@@ -126,7 +126,7 @@ ubiPingMIBNotifications  	OBJECT IDENTIFIER		::= { ubiIpMIBNotificationPrefix 2 
 			ubiIpAddrIfIndex					InterfaceIndex,  
 			ubiIpAddrPrefixLen                  InetAddressPrefixLength,
 			ubiIpAddrStatus						INTEGER, 
-			ubiIpAddrRowstatus					RowStatus,     
+			ubiIpAddrRowstatus					RowStatus     
 	}
   
  	ubiIpAddrType OBJECT-TYPE
@@ -235,7 +235,7 @@ ubiPingMIBNotifications  	OBJECT IDENTIFIER		::= { ubiIpMIBNotificationPrefix 2 
 			ubiInetRouteDistance				Integer32,
 			ubiInetRouteTag						Unsigned32,  
 			ubiInetRouteNextHopName				DisplayString,
-			ubiInetRouteRowstatus				RowStatus,     
+			ubiInetRouteRowstatus				RowStatus     
 	}
             
             
@@ -381,7 +381,7 @@ ubiPingMIBNotifications  	OBJECT IDENTIFIER		::= { ubiIpMIBNotificationPrefix 2 
  	ubiInetRouteStatus OBJECT-TYPE
     	SYNTAX          INTEGER {
     		active(1),
-    		inactive(2),
+    		inactive(2)
     	}
     	MAX-ACCESS      read-only
     	STATUS          current    

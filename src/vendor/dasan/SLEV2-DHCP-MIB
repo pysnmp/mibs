@@ -1805,12 +1805,12 @@
 			STATUS current
 			DESCRIPTION
 				"The request of a user command.
-				create될때는 항상 insert방식이면 개수가 넘쳐나면
-				실패한다.
-				destroy할때는 그 번호만을 삭제한다. 없으면 실패.삭제된 후에
-				뒤의 index들은 앞으로 당겨진다.
+				create  insert  
+				.
+				destroy   .  . 
+				 index  .
 				
-				이러한 동작은 gateway나 option에서도 마찬가지이다."
+				  gateway option ."
 			::= { sleV2Dhcp4DnsControl 1 }
 
 		
@@ -5168,7 +5168,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"단위는 1970.1.1일 0시 0분 0초부터 계산한 초"
+				" 1970.1.1 0 0 0  "
 			::= { sleV2Dhcp4IllegalEntry 3 }
 
 		
@@ -5646,7 +5646,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"시작시간: 단위는 1970.1.1일 0시 0분 0초부터 계산한 초"
+				":  1970.1.1 0 0 0  "
 			::= { sleV2Dhcp4LeasedEntry 9 }
 
 		

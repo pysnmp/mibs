@@ -566,8 +566,8 @@
 --                  modify name of 900 under hh3cevtModuleRouterType by ludezhen
 --                  add subidentifier 2223 to 2224 under hh3cevtModuleSwitchType by maoyun
 --                  add subidentifier 2225 to 2226 under hh3cevtModuleSwitchType by jiangyongjiang
---                  modify name of 864 to 880£¬890 to 894£¬901 to 906£¬924 to 934£¬938£¬940 to 943£¬945£¬
---                  954 to 958£¬961 to 962£¬969£¬981 to 984£¬1011£¬1025 to 1034 under hh3cevtModuleRouterType by ludezhen
+--                  modify name of 864 to 880890 to 894901 to 906924 to 934938940 to 943945
+--                  954 to 958961 to 962969981 to 98410111025 to 1034 under hh3cevtModuleRouterType by ludezhen
 --                  add subidentifier 1035 under  hh3cevtModuleRouterType by ludezhen
 --                  add subidentifier 1036 under  hh3cevtModuleRouterType by zhaomeng
 --                  add subidentifier 1037 to 1040 under  hh3cevtModuleRouterType by wangxinmeng
@@ -1390,7 +1390,7 @@ hh3cevtModuleRt-NSQM1CGQ4TG24SHA0           OBJECT IDENTIFIER ::= { hh3cevtModul
 hh3cevtModuleRt-NSQM2MPUF0                  OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 542 } -- SecPath M9000-S-V-NSQM2MPUF0
 hh3cevtModuleRt-NSQM2FWDFGD0                OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 543 } -- SecPath M9000-S-V-NSQM2FWDFGD0-SecBlade IV
 hh3cevtModuleRt-NSQM2MBFDB0                 OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 544 } -- SecPath M9000-S-V-NSQM2MBFDB0
-hh3cevtModuleRt-NSQM2QG2TG8GP4B0            OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 545 } -- SecPath M9000ÏµÁÐ-NSQM2QG2TG8GP4B0
+hh3cevtModuleRt-NSQM2QG2TG8GP4B0            OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 545 } -- SecPath M9000-NSQM2QG2TG8GP4B0
 hh3cevtModuleRt-NSQM2FAN08B                 OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 546 } -- SecPath M9000-S-V-NSQM2FAN08B
 hh3cevtModuleRt-NSQM5TSUP08A0               OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 547 } -- SecPath T9000-E8-NSQM5TSUP08A0
 hh3cevtModuleRt-NSQM5TIPSEMPA0              OBJECT IDENTIFIER ::= { hh3cevtModuleRouterType 548 } -- SecPath T9000-E-NS-IPSEMPA0
@@ -2469,8 +2469,8 @@ hh3cevtModuleSw-LSWM1WCM20                  OBJECT IDENTIFIER ::= { hh3cevtModul
 hh3cevtModuleSw-IPS-T1000-M                 OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 720 } -- IPS for T1000-M mainboard module
 hh3cevtModuleSw-IPS-T1000-A                 OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 721 } -- IPS for T1000-A mainboard module
 hh3cevtModuleSw-IPS-T1000-S                 OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 722 } -- IPS for T1000-S mainboard module
-hh3cevtModuleSw-IPS-GX4C                    OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 723 } -- four-port-gigabit-fiber-board£­module
-hh3cevtModuleSw-IPS-GT4C                    OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 724 } -- four-port-1000BASET-board£­module
+hh3cevtModuleSw-IPS-GX4C                    OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 723 } -- four-port-gigabit-fiber-boardmodule
+hh3cevtModuleSw-IPS-GT4C                    OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 724 } -- four-port-1000BASET-boardmodule
 hh3cevtModuleSw-LSPM2SP2P                   OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 725 } -- 2-Port 10G Ethernet SFP PLUS Optical Interface Module
 hh3cevtModuleSw-LSPM2SP2PA                  OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 726 } -- 2-Port Second Version SFP+ Module
 hh3cevtModuleSw-LSP5GP8P                    OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 727 } -- 8-Port 1G Ethernet SFP Optical Interface Module
@@ -2549,7 +2549,7 @@ hh3cevtModuleSw-EWPXM1XG03                  OBJECT IDENTIFIER ::= { hh3cevtModul
 hh3cevtModuleSw-EWPXM2X                     OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 818 } -- 2SFP Plus Interface Board  of wireless Lan Service Board
 hh3cevtModuleSw-EWPXM8G                     OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 819 } -- 8GE Interface Board  of wireless Lan Service Board
 hh3cevtModuleSw-IOT-CARD-C1K                OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 820 } -- IoT Service Board for Wireless Controller
-hh3cevtModuleSw-EWPXM1BSTX80                OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 821 } -- 8GE and 8*SFP Plus£¨or 2*40Ge£© Interface Board  of wireless Lan Service Board
+hh3cevtModuleSw-EWPXM1BSTX80                OBJECT IDENTIFIER ::= { hh3cevtModuleSwitchType 821 } -- 8GE and 8*SFP Plusor 2*40Ge Interface Board  of wireless Lan Service Board
 --
 -- 900 to 1199 reserved for advanced switches part II
 --

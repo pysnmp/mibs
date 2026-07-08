@@ -35,7 +35,7 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "Enable/disable errp function for this bridge."
-                          --errp使能开关
+                          --errp
               ::= { errp 1 }
     
     errpHealthTime OBJECT-TYPE
@@ -45,7 +45,6 @@ IMPORTS
               DESCRIPTION
                           "The hello timer is used by master or edge node for ring health detection.
                           The correct operational formula: FailedTimer >= 3 * HelloTimer "
-                          --主节点和边界节点使用此定时器对环路的完整性进行周期性检测
               ::= { errp 2 }
   
     errpHealthTimeout OBJECT-TYPE
@@ -55,7 +54,7 @@ IMPORTS
               DESCRIPTION
                           "The timeout value used by master during ring health detection.
                           The correct operational formula: FailedTimer >= 3 * HelloTimer"
-                          --主节点检测环路完整性使用的超时定时器值，该值必须大于等于HelloTimer的3倍。
+                          --HelloTimer3
               ::= { errp 3 }
               
     errpMajorFaultTime OBJECT-TYPE
@@ -64,7 +63,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "The timeout value used by assitant edge during ring health detection."
-                          --辅助边缘节点检测环路完整性使用的超时定时器值
               ::= { errp 4 }
                    
     errpPrefwdTimeout OBJECT-TYPE
@@ -73,7 +71,7 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "The block timeout value used by node when portup event occurs."
-                          --端口UP时节点使用的端口阻塞超时定时器
+                          --UP
               ::= { errp 5 } 
                       
     errpDomainTable OBJECT-TYPE
@@ -82,7 +80,7 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "A table that contains domain-specific information."
-                          --由errp域表项构成的表              
+                          --errp
               ::= { errp 6 }
     
     errpDomainEntry  OBJECT-TYPE
@@ -91,7 +89,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "A list of information maintained by every domain."
-                          --基于每个域的表项
               INDEX       { errpDomainId }
               ::= { errpDomainTable 1 }
               
@@ -110,7 +107,7 @@ IMPORTS
               DESCRIPTION
                           "The domain ID is used when network is managed in unit of domain, one
                           domain should be a set of contiguous bridges."
-                          --域ID在网络分域管理时使用，一个域就是一个毗邻的网桥集合
+                          --ID
               ::= { errpDomainEntry 1 }
               
     errpMVlanId OBJECT-TYPE
@@ -119,10 +116,10 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "The manage VLAN ID of the domain, can not be an existing vlan."
-                          --域的管理VLAN ID, 每个域具有两个控制VLAN，分别叫做主控制VLAN和子控制VLAN。
-                          --主环的协议报文在主控制VLAN中传播，子环的协议报文在子控制VLAN中传播。
-                          --配置时只需要指定主控制VLAN，而把比主控制VLAN ID值大1的VLAN作为子控制VLAN。
-                          --主控制VLAN和子控制VLAN都不能指定为已经存在的VLAN，MAC地址学习模式必须配置为IVL。
+                          --VLAN ID, VLANVLANVLAN
+                          --VLANVLAN
+                          --VLANVLAN ID1VLANVLAN
+                          --VLANVLANVLANMACIVL
               ::= { errpDomainEntry 2 }
     
     errpWorkMode OBJECT-TYPE
@@ -136,7 +133,6 @@ IMPORTS
                           "The work mode of the domain. If standard(1) is set, then the domain works on RFC3619
                            standard. If huaWei(2) is set, then the domain works on RRPP standard, and is able
                            to work together with the Huawei equipment."
-                          --域的工作模式
               ::= { errpDomainEntry 3 }
               
     errpDomainRowStatus OBJECT-TYPE
@@ -157,7 +153,7 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "A table that contains domain-and-ring-specific information."
-                          --由errp环表项构成的表
+                          --errp
               ::= { errp 7 }
     
     errpRingEntry  OBJECT-TYPE
@@ -166,7 +162,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "A list of information maintained by every ring."
-                          --基于每个环的表项
               INDEX       { errpDomainId, errpRingId }
               ::= { errpRingTable 1 }
                
@@ -190,7 +185,7 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "The identifier of ethernet ring which reside in a domain."
-                          --域内以太环的ID
+                          --ID
               ::= { errpRingEntry 1 }
   
     errpRingLevel OBJECT-TYPE
@@ -199,7 +194,7 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "The ring level,0 means master ring, while 1 means sub ring."
-                          --环的级别,0为主环,1为子环
+                          --,0,1
               ::= { errpRingEntry 2 }
   
     errpBrdgRole OBJECT-TYPE
@@ -213,7 +208,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                           "The bridge role in ethernet ring."
-                          --网桥在环中的角色
               ::= { errpRingEntry 3 }
     
     errpPriComPortId OBJECT-TYPE
@@ -222,7 +216,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                          "The primary port id when bridge is master or transmit,the common port id otherwise."
-                         --网桥为主节点或者传输节点时此值代表主端口,否则代表公共端口
               ::= { errpRingEntry 4 }
               
     errpSecEdgePortId OBJECT-TYPE
@@ -231,7 +224,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                          "The secondary port id when bridge is master or transmit,the edge port id otherwise."
-                         --网桥为主节点或者传输节点时此值代表副端口,否则代表边界端口
               ::= { errpRingEntry 5 }
           
     errpRingRowStatus OBJECT-TYPE
@@ -247,7 +239,6 @@ IMPORTS
               STATUS      current
               DESCRIPTION
                          "This object indicates the status of this ring."
-                         --指示当前环的活动状态
               ::= { errpRingEntry 6 }
               
     errpNodeState OBJECT-TYPE

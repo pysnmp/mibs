@@ -465,7 +465,7 @@ RuckusZDAPLBSVenueEntry ::= SEQUENCE {
   ruckusZDAPLBSVenueAPGrpName               OCTET STRING,
   ruckusZDAPLBSVenueLSConnection            INTEGER,
   ruckusZDAPLBSVenue24GMode                 INTEGER,
-  ruckusZDAPLBSVenue5GMode                  INTEGER,
+  ruckusZDAPLBSVenue5GMode                  INTEGER
 }
 ruckusZDAPLBSAPGroupID OBJECT-TYPE
     SYNTAX  INTEGER (1..1000)

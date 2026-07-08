@@ -407,7 +407,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
                   dynamically learned forwarding information.
                   802.1D-1990 recommends a default of 300 seconds.But in TiNet S2008Ei,
                   the value is from 16 to 4080 in 16 increments."
-          --"对于TiNet S2008EI，此值为16到4080，而且必须为16的倍数。"
+          --"TiNet S2008EI16408016"
           REFERENCE
                   "IEEE 802.1D-1990: Section 6.7.1.1.3"
           ::= { sDot1dTp 2 }
@@ -863,7 +863,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of MAC control frames received."
-          --接收的MAC控制帧总数.
+          --MAC.
       ::= { sEtherStatsEntry 20 }
       
     sEtherStatsRXPauseMACCtrlFrames OBJECT-TYPE
@@ -872,7 +872,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of pause frames received."
-          --接收的PAUSE控制帧总数.
+          --PAUSE.
       ::= { sEtherStatsEntry 21 }
     
     sEtherStatsTXPauseMACCtrlFrames OBJECT-TYPE
@@ -881,7 +881,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of pause frames transmitted."
-          --发送的PAUSE控制帧总数.
+          --PAUSE.
       ::= { sEtherStatsEntry 22 }
       
     sEtherStatsBcmIPMCBridgedPckts OBJECT-TYPE
@@ -890,7 +890,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of IPMC packets bridged."
-          --二层转发的IPMC报文总数.
+          --IPMC.
       ::= { sEtherStatsEntry 23 }
       
     sEtherStatsBcmIPMCRoutedPckts OBJECT-TYPE
@@ -899,7 +899,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of IPMC packets routed."
-          --三层路由的IPMC报文总数.
+          --IPMC.
       ::= { sEtherStatsEntry 24 }
       
     sEtherStatsBcmIPMCInDroppedPckts OBJECT-TYPE
@@ -908,7 +908,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of IPMC dropped packets for this port in the ingress."
-          --该端口ingress逻辑丢弃的IPMC报文总数.
+          --ingressIPMC.
       ::= { sEtherStatsEntry 25 }
       
     sEtherStatsBcmIPMCOutDroppedPckts OBJECT-TYPE
@@ -917,7 +917,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The total number of IPMC dropped packets for this port in the egress."
-          --该端口egress逻辑丢弃的IPMC报文总数.
+          --egressIPMC.
       ::= { sEtherStatsEntry 26 }
 
     sEtherStatsIfInFrameRate OBJECT-TYPE
@@ -926,7 +926,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The ingress packet rate of this port."
-          --该端口接收报文的速率
+          --
       ::= { sEtherStatsEntry 27 }
 
     sEtherStatsIfInOctetRate OBJECT-TYPE
@@ -935,7 +935,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The ingress octet rate of this port."
-          --该端口接收报文字节的速率
+          --
       ::= { sEtherStatsEntry 28 }  
 
     sEtherStatsIfOutFrameRate OBJECT-TYPE
@@ -944,7 +944,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The egress packet rate of this port."
-          --该端口发送报文的速率
+          --
       ::= { sEtherStatsEntry 29 }
 
     sEtherStatsIfOutOctetRate OBJECT-TYPE
@@ -953,7 +953,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
           "The egress octet rate of this port."
-          --该端口发送报文字节的速率
+          --
       ::= { sEtherStatsEntry 30 }  
 
 --
@@ -1709,7 +1709,7 @@ TimeFilter ::= TEXTUAL-CONVENTION
         ::= { sDot1dPortOutboundAccessPriorityEntry 1 }
 
 ------------------------------------------------------------------------------
---增加有关芯片队列weight的MIB
+--weightMIB
 ------------------------------------------------------------------------------
     oemQueueWeightTable OBJECT-TYPE
         SYNTAX SEQUENCE OF oemQueueWeightEntry

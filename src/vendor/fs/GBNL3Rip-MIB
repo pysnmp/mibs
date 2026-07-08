@@ -192,7 +192,7 @@
         STATUS   current
         DESCRIPTION
            "A list of RIP redistribute infomation."
-           --RIP重发布信息列表
+           --RIP
        ::= {gbnL3Rip 4 }    
 
    gbnL3RipRedistributeEntry OBJECT-TYPE
@@ -201,7 +201,7 @@
        STATUS   current
        DESCRIPTION
           "RIP redistribute information entry."
-          --RIP重发布信息条目
+          --RIP
       INDEX { gbnL3RipRedistributeProto }
       ::= { gbnL3RipRedistributeTable 1 } 
         
@@ -227,7 +227,6 @@
         STATUS   current
         DESCRIPTION
             "redistribute protocol"
-            --重发布协议号
         ::= { gbnL3RipRedistributeEntry 1 }   
                  
 	gbnL3RipRedistributeMetric OBJECT-TYPE
@@ -236,7 +235,6 @@
         STATUS   current
         DESCRIPTION
             "redistribute metric"
-            --重发布度量值
         ::= { gbnL3RipRedistributeEntry 2 }    
                  
 	gbnL3RipRedistributePrefixName OBJECT-TYPE
@@ -245,7 +243,6 @@
         STATUS   current
         DESCRIPTION
             "redistribute prefix-list name"
-            --重发布使用的前缀控制列表名
         ::= { gbnL3RipRedistributeEntry 3 }          
                  
 	gbnL3RipRedistributeRowStatus OBJECT-TYPE
@@ -254,8 +251,7 @@
         STATUS   current
         DESCRIPTION
             "row status."
-            --行状态
-            --删除重发布信息条目时，只需将行状态设置为destroy(6)即可
+            --destroy(6)
         ::= { gbnL3RipRedistributeEntry 4 }   
         
     gbnL3RipDistributeList    OBJECT IDENTIFIER ::= { gbnL3Rip 5 }        
@@ -266,7 +262,6 @@
         STATUS current
         DESCRIPTION
             "distribute-list name of gateway ingress" 
-            --基于路由源的发布列表
         ::= { gbnL3RipDistributeList 1 }      
 
     gbnL3RipDistributeListAllIn OBJECT-TYPE
@@ -275,7 +270,6 @@
         STATUS current
         DESCRIPTION
             "distribute-list name of ingress" 
-            --基于收到路由的发布列表
         ::= { gbnL3RipDistributeList 2 }    
 
     gbnL3RipDistributeListAllOut OBJECT-TYPE
@@ -284,7 +278,6 @@
         STATUS current
         DESCRIPTION
             "distribute-list name of egress" 
-            --基于发出路由的发布列表
         ::= { gbnL3RipDistributeList 3 }
         
         
@@ -294,7 +287,7 @@
         STATUS   current
         DESCRIPTION
            "RIP summary address table."
-           --RIP路由聚合网段表
+           --RIP
        ::= {gbnL3Rip 6 }    
 
    gbnL3RipSummaryAddrEntry OBJECT-TYPE
@@ -303,7 +296,7 @@
        STATUS   current
        DESCRIPTION
           "RIP summary address entry."
-          --RIP路由聚合网段条目
+          --RIP
       INDEX { gbnL3RipSummaryNetwork, gbnL3RipSummaryMask }
       ::= { gbnL3RipSummaryAddrTable 1 } 
         
@@ -323,7 +316,6 @@
         STATUS   current
         DESCRIPTION
             "summary network"
-            --聚合网段地址
         ::= { gbnL3RipSummaryAddrEntry 1 }   
                  
 	gbnL3RipSummaryMask OBJECT-TYPE
@@ -332,7 +324,6 @@
         STATUS   current
         DESCRIPTION
             "summary network mask"
-            --聚合网段掩码
         ::= { gbnL3RipSummaryAddrEntry 2 }      
                  
 	gbnL3RipSummaryAddrRowStatus OBJECT-TYPE
@@ -341,9 +332,8 @@
         STATUS   current
         DESCRIPTION
             "row status."
-            --行状态
-            --添加聚合网段条目时，将行状态设为active(1)、createAndGo(4)或createAndWait(5)
-            --删除聚合网段条目时，只需将行状态设置为destroy(6)即可
+            --active(1)createAndGo(4)createAndWait(5)
+            --destroy(6)
         ::= { gbnL3RipSummaryAddrEntry 3 }  
 
 END

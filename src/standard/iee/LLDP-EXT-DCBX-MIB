@@ -86,8 +86,8 @@ LldpXdcbxFeatureType ::= TEXTUAL-CONVENTION
     DESCRIPTION
         "Type code of the DCB Feature. Following is a list of defined types:
 
-         2 – Priority Groups
-         3 – Priority Flow Control
+         2 â€“ Priority Groups
+         3 â€“ Priority Flow Control
          4 - Application Protocol"
     SYNTAX    INTEGER {
                     priorityGroup(2),
@@ -242,7 +242,7 @@ lldpXdcbxPortSeqNo    OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "A value that changes each time an exchanged parameter in one or more
-         of the DCB feature TLV’s changes."
+         of the DCB feature TLVâ€™s changes."
     ::= { lldpXdcbxPortEntry 5 }
 
 lldpXdcbxPortAckNo    OBJECT-TYPE
@@ -303,9 +303,9 @@ lldpXdcbxFeatType    OBJECT-TYPE
     DESCRIPTION
         "Type code of the DCB Feature. Following is a list of defined types:
 
-         2 – Priority Groups
-         3 – Priority Flow Control
-         4 – Application Protocol"
+         2 â€“ Priority Groups
+         3 â€“ Priority Flow Control
+         4 â€“ Application Protocol"
     ::= { lldpXdcbxFeatEntry 1 }
 
 lldpXdcbxFeatSubType    OBJECT-TYPE
@@ -381,7 +381,7 @@ lldpXdcbxFeatError    OBJECT-TYPE
          turns OperMode to FALSE if either the local or remote Error flag is
          set to TRUE.
 
-         Duplicate TLV’s for the same Type/SubType or the DCBX Control TLV also
+         Duplicate TLVâ€™s for the same Type/SubType or the DCBX Control TLV also
          causes Error to be set to TRUE."
     DEFVAL { false }
     ::= { lldpXdcbxFeatEntry 7 }
@@ -947,7 +947,7 @@ lldpXdcbxDupControlTlv    NOTIFICATION-TYPE
         "This trap is sent when a duplicate control Sub-TLV is detected.
 
          The DCBX Control Sub-TLV and the set of Feature Sub-TLVs can be
-         arranged in any order within the DCBX TLV.  Duplicate Sub-TLV’s (such
+         arranged in any order within the DCBX TLV.  Duplicate Sub-TLVâ€™s (such
          as more than one Sub-TLV for the same feature) are not allowed.
          A duplicate DCBX Control TLV causes an error for all features."
     ::= { lldpXdcbxNotifications 6 }

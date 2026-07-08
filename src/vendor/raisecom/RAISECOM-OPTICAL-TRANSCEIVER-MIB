@@ -7,7 +7,7 @@
 -- *****************************************************************
 
 -- *****************************************************************
--- Modi Report：Format: <number>, <time>, <author>, <desc>
+-- Modi ReportFormat: <number>, <time>, <author>, <desc>
 -- 01, 20110623, yangzhognhong, change the value of the node raisecomOpticalTransceiverMediaType
 --                              for SFP+ development
 --
@@ -343,7 +343,7 @@ raisecomOpticalTransceiverConnectorType OBJECT-TYPE
 		ACCESS	read-only
 		STATUS	current
 		DESCRIPTION
-			"This object specifies the connector type of the transceiver，
+			"This object specifies the connector type of the transceiver
              unknown, sc, db9, hssdc, bnc_tnc, fiber_coaxial_head, fiber_outlet,
              lc, mt_rj, mu, sg, fiber_pigtail, mpo_parallel_optic , hssdcII,
              copper, rj45.
@@ -438,23 +438,23 @@ raisecomOpticalTransceiverAbility  OBJECT-TYPE
 			 this object belongs to xfp and sfp.
 
 			 The relation between parameters and bits is following:
-			32……16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1:
+			3216 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1:
 			The relation between parameters and bits is following:
-			32……16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1:
+			3216 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1:
 			| 1bit           | 2bit           | 3bit             | 4bit
-			| APD偏置电压    | 0（保留）      | TEC电流        | 激光器温度
+			| APD    | 0      | TEC        | 
 
 			| 5bit           | 6bit          |7bit             | 8bit
-			| 激光器波长     | +5V供电电压   | +3.3V供电电压  | +1.8V供电电压
+			|      | +5V   | +3.3V  | +1.8V
 
 			| 9bit           | 10bit         |11bit             | 12bit
-			| -5.2V供电电压  | +5V供电电流   | 0（无）          | 0（无）
+			| -5.2V  | +5V   | 0          | 0
 
 			| 13bit           | 14bit         | 15bit            | 16bit
-			| +3.3V供电电流   | +1.8V供电电流 | -5.2V供电电流   | 模块温度
+			| +3.3V   | +1.8V | -5.2V   | 
 
 			| 17bit           | 18bit         | 19bit            | 20bit ~ 32bit
-			| 激光器偏置电流  | 发送光功率    |接收光功率       |  0
+			|   |     |       |  0
 
             But when the optical module is sfp, the 6 bit will represents
             the supplyVoltage of sfp.
@@ -852,7 +852,7 @@ raisecomOpticalTransceiverBR OBJECT-TYPE
 		ACCESS	read-only
 		STATUS	current
 		DESCRIPTION
-			"This object specifies the Nominal bitrate of the transceiver，
+			"This object specifies the Nominal bitrate of the transceiver
              125Mbps, 155Mbps, 622Mbps, 1.25Gbps, 2.5Gbps.
 
              this object belongs to xfp and sfp.

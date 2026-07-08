@@ -3170,7 +3170,7 @@
         	ubiEponOnuRegistrationErrorNotification,
         	ubiEponOnuRegistrationOverloadNotification,
         	ubiEponSoftwareErrorNotification,
-        	ubiEponBadEncriptionKeyNotification, 
+        	ubiEponBadEncriptionKeyNotification 
                }
         STATUS  current
         DESCRIPTION

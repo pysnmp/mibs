@@ -154,7 +154,7 @@ netscreenChassis MODULE-IDENTITY
         	nsTemperatureId         Integer32,     
         	nsTemperatureSlotId 	  Integer32,     
         	nsTemperatureDesc		DisplayString,
-        	nsTemperatureCur        Integer32,
+        	nsTemperatureCur        Integer32
     }
                 
     nsTemperatureTable OBJECT-TYPE
@@ -211,7 +211,7 @@ netscreenChassis MODULE-IDENTITY
 				nsSlotId              Integer32,
         nsSlotType          	DisplayString,
         nsSlotStatus        	Integer32,  
-        nsSlotSN            	DisplayString,  
+        nsSlotSN            	DisplayString  
     }
 
     nsSlotTable OBJECT-TYPE

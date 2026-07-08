@@ -4281,7 +4281,7 @@ RlQosCosProfileEntry::= SEQUENCE {
 	rlQosCosProfileEgressCos    INTEGER,
         rlQosCosProfileEgressQueue  INTEGER
 --        rlQosCosProfileEgressDSCP      INTEGER,
---        rlQosCosProfileEgressDP        INTEGER,
+--        rlQosCosProfileEgressDP        INTEGER
     }
 
 rlQosCosProfileAppIndex OBJECT-TYPE

@@ -15,9 +15,6 @@ geist MODULE-IDENTITY
 	DESCRIPTION "The MIB for Geist Products"
 	::= { enterprises 21239 }
 
-geist OBJECT IDENTIFIER
-	::= { enterprises 21239 }
-	
 geistV3 OBJECT IDENTIFIER
 	::= { geist 2 }
 deviceInfo OBJECT IDENTIFIER

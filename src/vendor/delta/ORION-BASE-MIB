@@ -307,7 +307,7 @@ dcSystemDateTime OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-                "ISO 8601 representation of controller큦 local date/time. 
+                "ISO 8601 representation of controller쨈s local date/time. 
                 The value is in the format YYYY-MM-DDThh:mm:ss. 
                 An example of a valid string is: '2004-10-04T13:45:00'."
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.1.3 --  
@@ -318,7 +318,7 @@ dcSoftwareVersion OBJECT-TYPE
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION
-                "The controller큦 software version e.g V2.50Build1."
+                "The controller쨈s software version e.g V2.50Build1."
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.1.4 --  
  ::= { dcSystemInfo 4 }
 
@@ -500,7 +500,7 @@ dcBatteryCurrent OBJECT-TYPE
 
 dcBatteryTemperature OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-only
         STATUS current
         DESCRIPTION
@@ -650,7 +650,7 @@ dcUsys20 OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-                "Voltage to regulate to at 20캜. If temperature compensation 
+                "Voltage to regulate to at 20째C. If temperature compensation 
                 is used, this voltage will vary."
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.5.1.1 --  
  ::= { dcFloatCharge 1 }      
@@ -736,7 +736,7 @@ dcBatteryTestVoltageWithinUfloatPeriod OBJECT-TYPE
 
 dcBatteryTestTempFrom OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -748,7 +748,7 @@ dcBatteryTestTempFrom OBJECT-TYPE
 
 dcBatteryTestTempTo OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1220,7 +1220,7 @@ dcUsMax OBJECT-TYPE
                 'S Us low'/'S Us high' is activated. If temperature compensation is enabled,
                 the levels for Us min and / Us max are automatically temperature compensated 
                 to correspond to the required system voltage. The parameters are defined 
-                at 20캜."
+                at 20째C."
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.5.6.3 --  
  ::= { dcSystemVoltageSupervision 3 }
 
@@ -1360,7 +1360,7 @@ dcTempCompType OBJECT-TYPE
  
 dcSlope OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "-1 mV/캜"
+        UNITS "-1 mV/째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1370,7 +1370,7 @@ dcSlope OBJECT-TYPE
  
 dcStartTemp OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1381,7 +1381,7 @@ dcStartTemp OBJECT-TYPE
 
 dcStopTemp OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1413,7 +1413,7 @@ dcLowStopVoltage OBJECT-TYPE
  
 dcLowStartTemp OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1423,7 +1423,7 @@ dcLowStartTemp OBJECT-TYPE
  
 dcLowTempSlope OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "-1 mV/캜"
+        UNITS "-1 mV/째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1433,7 +1433,7 @@ dcLowTempSlope OBJECT-TYPE
  
 dcHighStartTemp OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1443,7 +1443,7 @@ dcHighStartTemp OBJECT-TYPE
  
 dcHighTempSlope OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "-1 mV/캜"
+        UNITS "-1 mV/째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1463,7 +1463,7 @@ dcHighStopVoltage OBJECT-TYPE
  
 dcRunawayTemp OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
@@ -1483,21 +1483,21 @@ dcRunawayVoltage OBJECT-TYPE
  
  dcHighTemp OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-                "Temperature threshold for high battery temperature alarm 10캜 ... 70캜"
+                "Temperature threshold for high battery temperature alarm 10째C ... 70째C"
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.5.9.1 --  
  ::= { dcTempSupervision 1 }  
  
  dcHighTempHyst OBJECT-TYPE
         SYNTAX Integer32
-        UNITS "0.1 캜"
+        UNITS "0.1 째C"
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-                "Hysteresis for the High Temp 1캜 ... 70캜"      
+                "Hysteresis for the High Temp 1째C ... 70째C"      
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.5.9.2 --  
  ::= { dcTempSupervision 2 }  
 
@@ -1545,7 +1545,7 @@ dcEventHistoryTable OBJECT-TYPE
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
-                "Controller큦 event history table that shows the content of the
+                "Controller쨈s event history table that shows the content of the
                 default log file."
  -- 1.3.6.1.4.1.20246.2.3.1.1.1.2.2.1 --  
  ::= { dcSystemAlarms 1 }

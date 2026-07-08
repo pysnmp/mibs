@@ -11,7 +11,7 @@
 NMS-CARD-SYS-MIB DEFINITIONS ::= BEGIN 
 
 IMPORTS
-    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,INTEGER,
+    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
                                                 FROM SNMPv2-SMI
     TEXTUAL-CONVENTION, TimeStamp
                                                 FROM SNMPv2-TC
@@ -67,7 +67,7 @@ IMPORTS
                        cardMemUtilThresholdMax
                        	   INTEGER,
                       cardSystemTemptureNodeNumber 
-                      `	   INTEGER
+                      	   INTEGER
                   }
 
 
@@ -212,7 +212,7 @@ IMPORTS
     		::= { cardSysNotifications 1 }
 
 
--- cardSystemTemptureNodeTable(板卡温度节点温度列表)
+-- cardSystemTemptureNodeTable
 
 
                cardSystemTemptureNodeTable OBJECT-TYPE

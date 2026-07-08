@@ -231,7 +231,7 @@ nmsIfObjects   OBJECT IDENTIFIER ::= { nmsIfMIB 1 }
                   ifStormControlMulticast
                       INTEGER,
                   ifStormControlUnicast
-                      INTEGER,
+                      INTEGER
               }
           ifIndex OBJECT-TYPE
               SYNTAX  INTEGER
@@ -274,7 +274,7 @@ nmsIfObjects   OBJECT IDENTIFIER ::= { nmsIfMIB 1 }
 
  --ifSfpParameterTable
              ifSfpParameterTable OBJECT-TYPE
-                 SYNTAX  SEQUENCE OF ifSfpParameterEntry
+                 SYNTAX  SEQUENCE OF IfSfpParameterEntry
                  ACCESS  not-accessible
                  STATUS  mandatory
                  DESCRIPTION
@@ -282,7 +282,7 @@ nmsIfObjects   OBJECT IDENTIFIER ::= { nmsIfMIB 1 }
                  ::= { nmsIfObjects 7 }
 
              ifSfpParameterEntry OBJECT-TYPE
-                 SYNTAX ifSfpParameterEntry
+                 SYNTAX IfSfpParameterEntry
                  ACCESS  not-accessible
                  STATUS  mandatory
                  DESCRIPTION
@@ -291,7 +291,7 @@ nmsIfObjects   OBJECT IDENTIFIER ::= { nmsIfMIB 1 }
                  INDEX { IfIndex }
              ::= { ifSfpParameterTable 1 }
 
-             ifSfpParameterEntry ::=
+             IfSfpParameterEntry ::=
                  SEQUENCE {
                      IfIndex
                          INTEGER,

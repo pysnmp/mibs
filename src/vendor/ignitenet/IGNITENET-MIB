@@ -411,13 +411,6 @@ EthernetIndex ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
             "A unique value, greater than zero, for each ethernet port, starting from one."
-    SYNTAX       Integer32 (1..2147483647)
-
-EthernetIndex ::= TEXTUAL-CONVENTION
-    DISPLAY-HINT "d"
-    STATUS       current
-    DESCRIPTION
-            "A unique value, greater or equal to zero, for each radio, starting from zero."
     SYNTAX       Integer32 (0..2147483647)
 
 FrequencyGHz ::= TEXTUAL-CONVENTION

@@ -93,21 +93,7 @@ myExperiment OBJECT-IDENTITY
 
 
 -- ****************************** router ***********************************
-routerMib MODULE-IDENTITY
-        LAST-UPDATED "200501060000Z"
-        ORGANIZATION "$Company$"
-        CONTACT-INFO
-                " 
-                Tel: $Telephone$ 
-
-                E-mail: $E-mail$"
-        DESCRIPTION
-                "The Structure of Management Information for the
-                 My enterprise."
-        REVISION      "200501060000Z"
-        DESCRIPTION
-                "Initial version of this MIB module."
-        ::= { router 1 }        
+routerMib OBJECT IDENTIFIER ::= { router 1 }
 
 myRouterProducts OBJECT-IDENTITY
         STATUS  current
@@ -118,21 +104,7 @@ myRouterProducts OBJECT-IDENTITY
         ::= { routerMib 1 }
 
 -- ****************************** wireless ***********************************
-wirelessMib MODULE-IDENTITY
-        LAST-UPDATED "200707040000Z"
-        ORGANIZATION "$Company$"
-        CONTACT-INFO
-                " 
-                Tel: $Telephone$ 
-
-                E-mail: $E-mail$"
-        DESCRIPTION
-                "The Structure of Management Information for the
-                 My enterprise."
-        REVISION      "200707040000Z"
-        DESCRIPTION
-                "Initial version of this MIB module."
-        ::= { wireless 1 }        
+wirelessMib OBJECT IDENTIFIER ::= { wireless 1 }
 
 myWirelessProducts OBJECT-IDENTITY
         STATUS  current

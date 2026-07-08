@@ -753,8 +753,8 @@ SPC200  DEFINITIONS ::= BEGIN
                 STATUS                  current
                 DESCRIPTION             "Minimum signal measured over several samples for the
                                         associated carrier wave entry. The value is expressed
-                                        in Glomer© which can be converted in dBm/Hz using the
-                                        following formula: dBm/Hz = 19*log10(Glomer©) - 113"
+                                        in GlomerÂ© which can be converted in dBm/Hz using the
+                                        following formula: dBm/Hz = 19*log10(GlomerÂ©) - 113"
                 ::=  {  plcSNAnalyserEntry 1  }
 
 
@@ -764,8 +764,8 @@ SPC200  DEFINITIONS ::= BEGIN
                 STATUS                  current
                 DESCRIPTION             "Maximum signal measured on several samples for the
                                         associated carrier wave entry. The value is expressed
-                                        in Glomer© which can be converted in dBm/Hz using the
-                                        following formula: dBm/Hz = 19*log10(Glomer©) - 113"
+                                        in GlomerÂ© which can be converted in dBm/Hz using the
+                                        following formula: dBm/Hz = 19*log10(GlomerÂ©) - 113"
                 ::=  {  plcSNAnalyserEntry  2  }
 
 
@@ -775,8 +775,8 @@ SPC200  DEFINITIONS ::= BEGIN
                 STATUS                  current
                 DESCRIPTION             "Average signal measured on several samples for the
                                         associated carrier wave entry. The value is expressed
-                                        in Glomer© which can be converted in dBm/Hz using the
-                                        following formula: dBm/Hz = 19*log10(Glomer©) - 113"
+                                        in GlomerÂ© which can be converted in dBm/Hz using the
+                                        following formula: dBm/Hz = 19*log10(GlomerÂ©) - 113"
                 ::=  {  plcSNAnalyserEntry  3  }
 
         plcSNAnalyserLastSignal OBJECT-TYPE     
@@ -785,8 +785,8 @@ SPC200  DEFINITIONS ::= BEGIN
                 STATUS                  current
                 DESCRIPTION             "Signal measured for last sample on the associated
                                         carrier wave entry. The value is expressed
-                                        in Glomer© which can be converted in dBm/Hz using the
-                                        following formula: dBm/Hz = 19*log10(Glomer©) - 113"
+                                        in GlomerÂ© which can be converted in dBm/Hz using the
+                                        following formula: dBm/Hz = 19*log10(GlomerÂ©) - 113"
                 ::=  {  plcSNAnalyserEntry  4  }
 
         plcSNAnalyserFFTDiv OBJECT-TYPE     

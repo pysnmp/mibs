@@ -262,7 +262,7 @@ Unsigned64 ::= TEXTUAL-CONVENTION
              adGenAOSQoSMapShapeEthOverhead     INTEGER,
              adGenAOSQoSMapClearCounters        INTEGER,
              adGenAOSQoSMapPriorityStrictRateLimiting INTEGER
-             -- adGenAOSQoSMapEntryDescription     DisplayString,
+             -- adGenAOSQoSMapEntryDescription     DisplayString
        }
 
      -- CID_QOS_MAP_ENTRY_ID
@@ -1930,7 +1930,7 @@ Unsigned64 ::= TEXTUAL-CONVENTION
                 adGenAOSQoSMapShapeEthOverhead,
                 adGenAOSQoSMapClearCounters,
                 adGenAOSQoSMapPriorityStrictRateLimiting
-             -- adGenAOSQoSMapEntryDescription,
+             -- adGenAOSQoSMapEntryDescription
                 }
          STATUS  current
          DESCRIPTION

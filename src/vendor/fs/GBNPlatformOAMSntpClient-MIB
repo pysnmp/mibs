@@ -43,7 +43,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "SNTP客户端的工作方式"   
+            "SNTP"
         DEFVAL  { broadcast }            
         ::= { sntpClientGeneral 1 }  
         
@@ -52,7 +52,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "发送请求的间隔，用于单播和任意播方式"      
+            ""
         DEFVAL  { 1000 }                 
         ::= { sntpClientGeneral 2 }              
        
@@ -61,7 +61,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "客户端重传请求的间隔"    
+            ""
         DEFVAL  { 5 }                 
         ::= { sntpClientGeneral 3 }  
         
@@ -70,7 +70,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "客户端没有收到回应时，重传请求的次数，用于单播和任意播方式"   
+            ""
         DEFVAL  { 0 }            
         ::= { sntpClientGeneral 4 }       
         
@@ -79,7 +79,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "正在使用的服务器地址，用于出单播和任意播方式"
+            ""
         ::= { sntpClientGeneral 5 }  
         
     sntpClientSynthFlag OBJECT-TYPE
@@ -87,7 +87,7 @@
         MAX-ACCESS  read-only
         STATUS  current
         DESCRIPTION
-            "客户端的时间是否被同步"
+            ""
         ::= { sntpClientGeneral 6 }               
         
     sntpClientState OBJECT-TYPE
@@ -95,7 +95,7 @@
         MAX-ACCESS  read-only
         STATUS  current
         DESCRIPTION
-            "客户端当前的状态，空闲状态或等待回应报文状态"
+            ""
         ::= { sntpClientGeneral 7 }  
         
     sntpClientLastSynthTime OBJECT-TYPE
@@ -103,7 +103,7 @@
         MAX-ACCESS  read-only
         STATUS  current
         DESCRIPTION
-            "客户端最后一次同步的时间"
+            ""
         ::= { sntpClientGeneral 8 }               
         
     sntpClientLastSynthErrno OBJECT-TYPE
@@ -111,7 +111,7 @@
         MAX-ACCESS  read-only
         STATUS  current
         DESCRIPTION
-            "客户端最后一次同步若失败时的错误码。"
+            ""
         ::= { sntpClientGeneral 9 }      
         
     sntpClientAdminStatus OBJECT-TYPE
@@ -122,7 +122,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "客户端打开和关闭状态"
+            ""
         ::= { sntpClientGeneral 10 }    
         
     sntpClientBcastDelay OBJECT-TYPE
@@ -130,7 +130,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "客户端工作在广播方式下的估计传输延时(毫秒数)"
+            "()"
         ::= { sntpClientGeneral 11 }  
         
      sntpClientMcastTtl OBJECT-TYPE
@@ -138,7 +138,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "客户端工作在组播方式下的TTL值"
+            "TTL"
         ::= { sntpClientGeneral 12 }  
     
       sntpClientAuthFlag OBJECT-TYPE
@@ -147,7 +147,7 @@
         STATUS  current
         DESCRIPTION
             "authentication enable flag"  
-             --认证使能标记，TRUE：打开认证，FALSE：关闭认证--
+             --TRUEFALSE--
         ::= { sntpClientGeneral 13 }   
         
       sntpClientUniKeyID OBJECT-TYPE
@@ -156,7 +156,7 @@
         STATUS  current
         DESCRIPTION
             "in client/server mode, client send request with this keyID"  
-             --在客户端/服务器模式下，客户端发送请求使用的keyID--
+             --/keyID--
         ::= { sntpClientGeneral 14 }         
    
       sntpClientAnyKeyID OBJECT-TYPE
@@ -165,7 +165,7 @@
         STATUS  current
         DESCRIPTION
             "in anycast mode, client send request with this keyID"  
-             --在任意播模式下，客户端使用广（组）播发送请求使用的keyID--
+             --keyID--
         ::= { sntpClientGeneral 15 }                   
       sntpClientServerBackup OBJECT-TYPE
         SYNTAX IpAddress
@@ -184,8 +184,8 @@
         MAX-ACCESS   not-accessible
         STATUS   current
         DESCRIPTION
-           "合法服务器网段表，SNTP根据次表检查报文源地址，只有源地址落在这个这个
-            表中的报文才为合法报文，否则丢弃。相当于访问控制列表"
+           "SNTP
+            "
        ::= { gbnPlatformOAMSntpClient 2 }
 
     sntpClientValidServerEntry OBJECT-TYPE
@@ -193,7 +193,7 @@
         MAX-ACCESS   not-accessible
         STATUS   current
         DESCRIPTION
-           "定义一条合法服务器列表."
+           "."
        INDEX { sntpClientValidServerNet, sntpClientValidServerMask }
        ::= { sntpClientValidServerTable 1 } 
          
@@ -212,7 +212,7 @@
         MAX-ACCESS   read-only
         STATUS   current
         DESCRIPTION
-           "源地址所在网段号"
+           ""
         ::= { sntpClientValidServerEntry 1 } 
         
     sntpClientValidServerMask OBJECT-TYPE
@@ -220,7 +220,7 @@
         MAX-ACCESS   read-only
         STATUS   current
         DESCRIPTION
-           "源地址所在网段掩码"
+           ""
         ::= { sntpClientValidServerEntry 2 }         
                                                 
     sntpClientValidServerRowStatus OBJECT-TYPE
@@ -228,7 +228,7 @@
         MAX-ACCESS   read-write
         STATUS   current
         DESCRIPTION
-           "行状态"
+           ""
         ::= { sntpClientValidServerEntry 3 }   
         
 ------------------------------------------------------------------------------     
@@ -241,7 +241,7 @@
         STATUS   current
         DESCRIPTION
            "keys userd for SNTP authentication"  
-           --用于SNTP认证的密码表--
+           --SNTP--
        ::= { gbnPlatformOAMSntpClient 3 }
 
     sntpAuthKeyEntry OBJECT-TYPE
@@ -250,7 +250,6 @@
         STATUS   current
         DESCRIPTION
            "define a key item."   
-           --定义一个密码表项--
        INDEX { sntpAuthKeyId }
        ::= { sntpAuthKeyTable 1 } 
          
@@ -281,7 +280,7 @@
         STATUS   current
         DESCRIPTION
            "key value"    
-           --一个最长为16字节的字符串--
+           --16--
         ::= { sntpAuthKeyEntry 2 }    
         
     sntpAuthKeyTrustFlag OBJECT-TYPE
@@ -290,7 +289,6 @@
         STATUS   current
         DESCRIPTION
            "whether the key is trusted" 
-           --此密码是否为可信任的标记--
         ::= { sntpAuthKeyEntry 3 }   
                                                 
     sntpAuthKeyRowStatus OBJECT-TYPE
@@ -299,7 +297,6 @@
         STATUS   current
         DESCRIPTION
            "row status"
-           --行状态，用于删除--
         ::= { sntpAuthKeyEntry 4 }                                                                             
                                
    END

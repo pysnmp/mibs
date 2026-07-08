@@ -753,7 +753,7 @@ jumblan1 OBJECT-TYPE
 	SYNTAX INTEGER {
 		mode1(0),
 		mode2(1),
-		mode3(2),
+		mode3(2)
 	}
 	MAX-ACCESS read-write
 	STATUS current
@@ -765,7 +765,7 @@ jumblan2 OBJECT-TYPE
 	SYNTAX INTEGER {
 		mode1(0),
 		mode2(1),
-		mode3(2),
+		mode3(2)
 	}
 	MAX-ACCESS read-write
 	STATUS current
@@ -777,7 +777,7 @@ jumblan3 OBJECT-TYPE
 	SYNTAX INTEGER {
 		mode1(0),
 		mode2(1),
-		mode3(2),
+		mode3(2)
 	}
 	MAX-ACCESS read-write
 	STATUS current
@@ -789,7 +789,7 @@ jumblan4 OBJECT-TYPE
 	SYNTAX INTEGER {
 		mode1(0),
 		mode2(1),
-		mode3(2),
+		mode3(2)
 	}
 	MAX-ACCESS read-write
 	STATUS current
@@ -801,7 +801,7 @@ jumbwan OBJECT-TYPE
 	SYNTAX INTEGER {
 		mode1(0),
 		mode2(1),
-		mode3(2),
+		mode3(2)
 	}
 	MAX-ACCESS read-write
 	STATUS current

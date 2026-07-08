@@ -324,8 +324,8 @@ ubiPbMIBGroups  		OBJECT IDENTIFIER		::= { ubiPbMIBConformance 2 }
     	DESCRIPTION
         	"The compliance statement for PB implementations."
     	MODULE          -- this module
-    	MANDATORY-GROUPS {             
-                       ubiPbCvlanRegGroup,
+    	MANDATORY-GROUPS {
+                       ubiPbCvlanRegGroup
                     }
     	::= { ubiPbMIBCompliances 1 }
 

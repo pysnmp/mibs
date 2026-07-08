@@ -615,7 +615,7 @@
         dsH248MonitorVgwGatewayContexts						DisplayString
  --       dsH248MonitorVgwInvalidControllerAddress			DisplayString,
  --       dsH248MonitorVgwGatewayHandoff						DisplayString,
- --       dsH248MonitorVgwProtocolError						DisplayString,     	 
+ --       dsH248MonitorVgwProtocolError						DisplayString     	 
      }  
 	 
 	 dsH248MonitorVgwIndex 		   	 OBJECT-TYPE

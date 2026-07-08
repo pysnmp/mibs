@@ -623,7 +623,7 @@ PortList ::= TEXTUAL-CONVENTION
         MAX-ACCESS read-only                
         STATUS current
         DESCRIPTION
-            "The SFP Temperature(¢XC) of monitor function"
+            "The SFP Temperature(Â¢XC) of monitor function"
         ::= { monitorSFPEntry 3 } 
         
     sfpVoltage OBJECT-TYPE

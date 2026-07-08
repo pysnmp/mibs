@@ -900,7 +900,7 @@ ubiTrafficControlNotifications  	OBJECT IDENTIFIER		::= { ubiInterfaceMIBNotific
 	UbiSwitchVlanStackingEntry ::= SEQUENCE
     {   
 		ubiVlanStackingMode				INTEGER,   
-		ubiVlanStackingEthertype		DisplayString,
+		ubiVlanStackingEthertype		DisplayString
     }     
     
     ubiVlanStackingMode			OBJECT-TYPE	
@@ -958,7 +958,7 @@ ubiTrafficControlNotifications  	OBJECT IDENTIFIER		::= { ubiInterfaceMIBNotific
 		ubiLoadMonitorUnit						DisplayString,
 		ubiLoadMonitorAlarmType					INTEGER,		
 		ubiLoadMonitorRowStatus					RowStatus,
-		ubiLoadMonitorAlarmZone					INTEGER,				
+		ubiLoadMonitorAlarmZone					INTEGER				
     }     
 
 	ubiLoadMonitorType OBJECT-TYPE
@@ -1089,7 +1089,7 @@ ubiTrafficControlNotifications  	OBJECT IDENTIFIER		::= { ubiInterfaceMIBNotific
 		SYNTAX		INTEGER
 		{
 			default(1)
-		}(1..1440)
+		}
 		MAX-ACCESS	read-write
 		STATUS		current
 		DESCRIPTION
@@ -1100,7 +1100,7 @@ ubiTrafficControlNotifications  	OBJECT IDENTIFIER		::= { ubiInterfaceMIBNotific
 		SYNTAX		INTEGER
 		{
 			default(1)
-		}(1..1440)
+		}
 		MAX-ACCESS	read-write
 		STATUS		current
 		DESCRIPTION
@@ -2139,7 +2139,7 @@ ubiInterfaceMIBGroups  	 OBJECT IDENTIFIER			::= { ubiInterfaceMIBConformance 2 
                         ubiIfStatsGroup,
                         ubiSwitchportGroup,
                         ubiTrafficMonitoringGroup,
-                        ubiExtIfStatsGroup,
+                        ubiExtIfStatsGroup
                      } 
     	::= { ubiInterfaceMIBCompliances 1 }
 

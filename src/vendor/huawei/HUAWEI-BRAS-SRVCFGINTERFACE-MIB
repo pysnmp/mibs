@@ -51,7 +51,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                BRAS接口配置表
+                                BRAS
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 1 }
                 
@@ -158,7 +158,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        BRAS接口index
+                        BRASindex
                         "
                     ::= { hwBRASIfCfgEntry 1 }
 
@@ -175,7 +175,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        BRAS接口接入用户类型
+                        BRAS
                         "
                     ::= { hwBRASIfCfgEntry 2 }
 
@@ -185,7 +185,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        BRAS接口name
+                        BRASname
                         "
                     ::= { hwBRASIfCfgEntry 3 }
 
@@ -195,7 +195,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        认证前默认域,--表示恢复为默认值
                         "
                     ::= { hwBRASIfCfgEntry 4 }
 
@@ -205,7 +204,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        认证时默认域,--表示恢复为默认值
                         "
                     ::= { hwBRASIfCfgEntry 5 }
 
@@ -220,7 +218,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        替换认证域方式
                         "
                     DEFVAL {0}
                     ::= { hwBRASIfCfgEntry 6}
@@ -231,7 +228,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        RADIUS计费抄送服务器
+                        RADIUS
                         "
                     ::= { hwBRASIfCfgEntry 7 }
 
@@ -241,7 +238,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        认证方式ppp(1)、dot1x(2)、web(4)、fast(8)、bind(16)
+                        ppp(1)dot1x(2)web(4)fast(8)bind(16)
                         "
                     DEFVAL {1}
                     ::= { hwBRASIfCfgEntry 8}
@@ -252,7 +249,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        接入端口类型,参见RFC2865的NAS-PORT-TYPE属性，20表示恢复为default value
+                        ,RFC2865NAS-PORT-TYPE20default value
                         "
                     ::= { hwBRASIfCfgEntry 9 }
 
@@ -262,7 +259,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        VLAN专线用户名
+                        VLAN
                         "
                     ::= { hwBRASIfCfgEntry 10 }
 
@@ -272,7 +269,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        VLAN专线密码
+                        VLAN
                         "
                     ::= { hwBRASIfCfgEntry 11 }
 
@@ -282,7 +279,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        ARP探测间隔,121表示恢复为缺省值
+                        ARP,121
                         "
                     DEFVAL { 30 }
                     ::= { hwBRASIfCfgEntry 12 }
@@ -293,7 +290,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        ARP探测允许失败Times,11表示恢复为缺省值
+                        ARPTimes,11
                         "
                     DEFVAL { 5 }
                     ::= { hwBRASIfCfgEntry 13 }
@@ -304,7 +301,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否ARP代理
+                        ARP
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 14 }
@@ -315,7 +312,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否允许漫游域
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 15 }
@@ -326,7 +322,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        DHCP报文是否采用广播方式
+                        DHCP
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 16 }
@@ -337,7 +333,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        主机CAR级别,16表示恢复为缺省值
+                        CAR,16
                         "
                     DEFVAL { 0 }
                     ::= { hwBRASIfCfgEntry 17 }
@@ -357,7 +353,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否主动触发EAP认证
+                        EAP
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 19 }
@@ -368,7 +364,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        WLAN开关
+                        WLAN
                         "
                     DEFVAL { 0 }
                     ::= { hwBRASIfCfgEntry 20 }
@@ -379,7 +375,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        WLAN接口用户是否接受AS授权
+                        WLANAS
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 21 }
@@ -390,7 +386,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        DHCP短租期配置
+                        DHCP
                         "
                     DEFVAL { 9 }
                     ::= { hwBRASIfCfgEntry 22 }
@@ -401,7 +397,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        认证时漫游域
                         "
                     ::= { hwBRASIfCfgEntry 23 }
                     
@@ -442,7 +437,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否按用户复制组播
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 27 }
@@ -453,7 +447,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否ND代理
+                        ND
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfCfgEntry 28 }
@@ -464,7 +458,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        vbas的MAC地址
+                        vbasMAC
                         "
                     ::= { hwBRASIfCfgEntry 29 }
                     
@@ -478,7 +472,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        vbas认证模式
+                        vbas
                         "
                     DEFVAL { 1 }
                     ::= { hwBRASIfCfgEntry 30 }
@@ -489,7 +483,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        接口下允许接入的域1
+                        1
                         "
                     ::= { hwBRASIfCfgEntry 31 }
                     
@@ -499,7 +493,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        接口下允许接入的域2
+                        2
                         "
                     ::= { hwBRASIfCfgEntry 32 }
                 
@@ -509,7 +503,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        接口下允许接入的域3
+                        3
                         "
                     ::= { hwBRASIfCfgEntry 33 }    
                      
@@ -519,7 +513,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        接口下允许接入的域4
+                        4
                         "
                     ::= { hwBRASIfCfgEntry 34 }     
                     
@@ -536,7 +530,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        响应延时类型
                         "                    
                     ::= { hwBRASIfCfgEntry 35 }
                     
@@ -546,7 +539,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        无条件响应延时的时间
                         "
                     DEFVAL { 0 }
                     ::= { hwBRASIfCfgEntry 36 }     
@@ -557,7 +549,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        根据odd mac响应延时的时间
+                        odd mac
                         "
                     DEFVAL { 0 }
                     ::= { hwBRASIfCfgEntry 37 }  
@@ -568,7 +560,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        根据even mac响应延时的时间
+                        even mac
                         "
                     DEFVAL { 0 }
                     ::= { hwBRASIfCfgEntry 38 }
@@ -579,7 +571,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        接入点标识
                         "
                     ::= { hwBRASIfCfgEntry 39 }
                     
@@ -589,7 +580,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        根据接入点标识响应延时的时间
                         "
                     DEFVAL { 0 }
                     ::= { hwBRASIfCfgEntry 40 }
@@ -600,7 +590,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        remote-backup-profile配置
+                        remote-backup-profile
                         "
                     ::= { hwBRASIfCfgEntry 42 }              
 
@@ -610,7 +600,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                BRAS接口VLAN表
+                                BRASVLAN
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 2 }
                 
@@ -657,7 +647,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        BRAS接口index
+                        BRASindex
                         "
                     ::= { hwBRASIfVlanEntry 1 }
 
@@ -667,7 +657,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        VLAN号,只有主接口才能指定VLAN0
+                        VLAN,VLAN0
                         "
                     ::= { hwBRASIfVlanEntry 2 }
 
@@ -677,7 +667,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        表示连续的VLAN number
+                        VLAN number
                         "
                     ::= { hwBRASIfVlanEntry 3 }
 
@@ -687,7 +677,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        最大接入限制,49153表示恢复为缺省值
+                        ,49153
                         "
                     DEFVAL { 49152 }
                     ::= { hwBRASIfVlanEntry 4 }
@@ -698,7 +688,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        已接入用户number
+                        number
                         "
                     DEFVAL { 49152 }
                     ::= { hwBRASIfVlanEntry 5 }                    
@@ -709,7 +699,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        阻塞BRAS接口的VLAN
+                        BRASVLAN
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfVlanEntry 6 }
@@ -720,7 +710,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        已接入设备用户number
+                        number
                         "
                     ::= { hwBRASIfVlanEntry 7 }
                     
@@ -770,7 +760,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                BAS接口PVC表
+                                BASPVC
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 3 }
                 
@@ -815,7 +805,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        BAS接口index
+                        BASindex
                         "
                     ::= { hwBRASIfPvcEntry 1 }
                     
@@ -825,7 +815,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        PVC的VPI号,VPI/VCI不能同时为0
+                        PVCVPI,VPI/VCI0
                         "
                     ::= { hwBRASIfPvcEntry 2 }
 
@@ -835,7 +825,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        PVC的VCI号,VPI/VCI不能同时为0
+                        PVCVCI,VPI/VCI0
                         "
                     ::= { hwBRASIfPvcEntry 3 }
                     
@@ -845,7 +835,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        表示连续的PVC number
+                        PVC number
                         "
                     ::= { hwBRASIfPvcEntry 4 }
 
@@ -855,7 +845,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        最大接入限制,49153表示恢复为缺省值
+                        ,49153
                         "
                     DEFVAL { 49152 }
                     ::= { hwBRASIfPvcEntry 5 }
@@ -866,7 +856,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        已接入用户number
+                        number
                         "
                     DEFVAL { 49152 }
                     ::= { hwBRASIfPvcEntry 6 }                    
@@ -877,7 +867,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        阻塞BAS接口的PVC
+                        BASPVC
                         "
                     DEFVAL { false }
                     ::= { hwBRASIfPvcEntry 7 }
@@ -888,7 +878,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        已接入设备用户number
+                        number
                         "
                     ::= { hwBRASIfPvcEntry 8 }
                     
@@ -918,7 +908,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                STP透传专线用户表
+                                STP
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 4 }
                 
@@ -959,7 +949,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                STP透传专线index
+                                STPindex
                                 "
                         ::= { hwSTPRelayEntry 1 }
                         
@@ -969,7 +959,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        入接口index
+                        index
                         "
                     ::= { hwSTPRelayEntry 2 }
                     
@@ -979,7 +969,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                出接口index
+                                index
                                 "
                         ::= { hwSTPRelayEntry 3 }
 
@@ -989,7 +979,6 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                行状态
                                 "
                         ::= { hwSTPRelayEntry 4 }
                         
@@ -999,7 +988,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                入接口name
+                                name
                                 "
                         ::= { hwSTPRelayEntry 5 }
                         
@@ -1009,7 +998,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                出接口name
+                                name
                                 "
                         ::= { hwSTPRelayEntry 6 }
                         
@@ -1040,7 +1029,6 @@
                         STATUS current
                         DESCRIPTION
                         "
-                        端口接入限制表
                         "
                         ::= { hwSrvcfgInterfaceMibObjects 5 }
                 
@@ -1073,7 +1061,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                端口index
+                                index
                                 "
                         ::= { hwPortAccessLimitEntry 1 }
                 
@@ -1083,7 +1071,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                端口接入用户限制,49153表示恢复为缺省值
+                                ,49153
                                 "
                         ::= { hwPortAccessLimitEntry 2 }
                         
@@ -1093,7 +1081,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                端口已接入用户number
+                                number
                                 "
                         ::= { hwPortAccessLimitEntry 3 }         
                         
@@ -1103,7 +1091,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                端口已接入设备用户number
+                                number
                                 "
                         ::= { hwPortAccessLimitEntry 4 }
                         
@@ -1113,7 +1101,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                Layer 3 认证用户域配置表
+                                Layer 3
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 6 }
                 
@@ -1148,7 +1136,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                Layer 3 认证用户网段起始IP地址
+                                Layer 3 IP
                                 "
                         ::= { hwL3SubscriberIspEntry 1 }
 
@@ -1158,7 +1146,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                Layer 3 认证用户网段VPN instance name
+                                Layer 3 VPN instance name
                                 "
                         ::= { hwL3SubscriberIspEntry 2 }
 
@@ -1168,7 +1156,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                Layer 3 认证用户网段结束IP地址
+                                Layer 3 IP
                                 "
                         ::= { hwL3SubscriberIspEntry 3 }
 
@@ -1178,7 +1166,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                Layer 3 认证用户网段的预认证域
+                                Layer 3
                                 "
                         ::= { hwL3SubscriberIspEntry 4 }
 
@@ -1188,7 +1176,6 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                行状态
                                 "
                         ::= { hwL3SubscriberIspEntry 5 }
                                                
@@ -1226,7 +1213,7 @@
            STATUS        current
            DESCRIPTION
               "
-              TCP连接老化时间
+              TCP
               "
            DEFVAL { 5 }
            ::= { hwConnTimeOutTable 1 }
@@ -1237,7 +1224,7 @@
            STATUS          current
            DESCRIPTION
               "
-              UDP连接老化时间
+              UDP
               "
            DEFVAL { 3 }
            ::= { hwConnTimeOutTable 2 }
@@ -1248,7 +1235,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                单板VLAN统计表
+                                VLAN
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 10 }
                 
@@ -1279,7 +1266,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        单板槽位号，0为trunk槽位
+                        0trunk
                         "
                     ::= { hwBRASIfVlanNumEntry 1 }
                     
@@ -1289,7 +1276,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        单板生成VLAN统计
+                        VLAN
                         "
                     ::= { hwBRASIfVlanNumEntry 2 }
                     
@@ -1299,7 +1286,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        单板配置静态VLAN统计
+                        VLAN
                         "
                     ::= { hwBRASIfVlanNumEntry 3 } 
 
@@ -1309,7 +1296,7 @@
                         STATUS current
                         DESCRIPTION
                                 "
-                                描述Service接口下的各项Service配置
+                                ServiceService
                                 "
                         ::= { hwSrvcfgInterfaceMibObjects 11 }
                 
@@ -1370,7 +1357,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        BRAS接口index
+                        BRASindex
                         "
                     ::= { hwServiceIfCfgEntry 1 }
 
@@ -1385,13 +1372,11 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        用户的标识模式
-                        从该接口上来的用户按配置的识别模式进行QoS资源的分配和计费
-                        host(1)：根据ip和mac标识一个用户
-                        location(2)：根据option82信息标识一个用户
-                        ce-vlan(3)：根据ce-vlan信息标识一个用户（以QINQ的内层Q来标识用户，如果相同内层Q的一组用户从多个access接口接入）
-                        缺省值：host(1)
-                        该节点不允许修改
+                        QoS
+                        host(1)ipmac
+                        location(2)option82
+                        ce-vlan(3)ce-vlanQINQQQaccess
+                        host(1)
                        "
                     ::= { hwServiceIfCfgEntry 2 }
 
@@ -1401,10 +1386,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        所属域
-                        缺省值：--
-                        取消配置直接下发--
-                        在域下有用户的情况下，不能取消该节点的配置。
                        "
                     ::= { hwServiceIfCfgEntry 3 }
                   
@@ -1414,12 +1395,8 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        专线用户名
-                        缺省值：--
-                        只有当hwServiceIfCfgIdentificationMode选择l2-lease-line(4)或者l3-lease-line(5)时
-                        ，才下发该节点且必须下发；
-                        下发该节点时必须和hwServiceIfCfgPassword节点绑定下发；
-                        同时创建之后不允许配置
+                        hwServiceIfCfgIdentificationModel2-lease-line(4)l3-lease-line(5)
+                        hwServiceIfCfgPassword
                        "
                     ::= { hwServiceIfCfgEntry 4 }
                
@@ -1429,9 +1406,6 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        专线密码
-                        缺省值：--
-                        限制条件见上面的节点
                        "
                     ::= { hwServiceIfCfgEntry 5 }
 
@@ -1441,10 +1415,9 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        探测number
-                        缺省值：5 
-                        只有当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)时
-                        ，才可下发该节点，并且为选配节点；
+                        number
+                        5
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                        "
                     ::= { hwServiceIfCfgEntry 6 }
 
@@ -1454,10 +1427,9 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        两次探测之间的间隔
-                        缺省值：30
-                        单位：S 
-                        只有当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)时，才可下发该节点，并且为选配节点；
+                        30
+                        S
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                        "
                     ::= { hwServiceIfCfgEntry 7 }
 
@@ -1467,12 +1439,12 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否支持Option82
-                        True(1):是
-                        False(2):否
-                        缺省值：False(2):否
-                        用于配置设备信任客户端上报的DHCP Option82信息；
-                        只有当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)时，才可下发该节点，并且为选配节点；
+                        Option82
+                        True(1):
+                        False(2):
+                        False(2):
+                        DHCP Option82
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                        "
                     ::= { hwServiceIfCfgEntry 8 }
 
@@ -1482,9 +1454,7 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        用户接入限制
-                        缺省值：16384
-                        如果接口下在线用户大于配置的限制，配置失败。
+                        16384
                       "
                     ::= { hwServiceIfCfgEntry 9 }
 
@@ -1494,12 +1464,12 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否支持Option60 
-                        True(1):是
-                        False(2):否
-                        缺省值：False(2):否
-                        用于配置设备信任客户端上报的DHCP Option60信息；
-                        只有当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)时，才可下发该节点，并且为选配节点；
+                        Option60
+                        True(1):
+                        False(2):
+                        False(2):
+                        DHCP Option60
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                       "
                     ::= { hwServiceIfCfgEntry 10 }  
                        
@@ -1509,9 +1479,9 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        使能IP报文触发用户上线功能
-                        缺省值：disable去使能
-                        当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)的情况下，才能设置该节点
+                        IP
+                        disable
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                         "      
                     DEFVAL {disabled}
                     ::= { hwServiceIfCfgEntry 11 }     
@@ -1522,9 +1492,9 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        使能arp报文触发用户上线功能
-                        缺省值：disable去使能
-                        当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)的情况下，才能设置该节点
+                        arp
+                        disable
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                         "   
                     DEFVAL {disabled}
                     ::= { hwServiceIfCfgEntry 12 }
@@ -1535,11 +1505,10 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        是否阻塞
-                        True(1):是
-                        False(2):否
-                        缺省值：False(2):否
-                        只有当hwServiceIfCfgIdentificationMode为非l3-lease-line(5)时，才可下发该节点，并且为选配节点；
+                        True(1):
+                        False(2):
+                        False(2):
+                        hwServiceIfCfgIdentificationModel3-lease-line(5)
                         "
                     ::= { hwServiceIfCfgEntry 13 }   
                     
@@ -1549,10 +1518,8 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        QoS模板
-                        缺省值：--
-                        必须配置已经创建的QoS模板。如果接口下已经配置了 hwServiceIfCfgCarProfile，并且接口下有用户的情况下，该节点不允许配置；
-                        如果在接口下有用户的情况下修改该节点，只影响后续上线的用户，不影响已经上线的用户
+                        QoS
+                        QoS hwServiceIfCfgCarProfile
                         "
                     ::= { hwServiceIfCfgEntry 14 }
 
@@ -1566,9 +1533,8 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        用于设置绑定用户名的密码方式，分明文和密文两种, 
-                        1：明文
-                        2：密文
+                        1
+                        2
                         "
                     ::= { hwServiceIfCfgEntry 15 }  
                     
@@ -1578,15 +1544,14 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        生成绑定用户名格式的版本
-                        mac(1)：使用用户的mac地址构造用户名。
-                        option82(2)：使用用户option82信息构造用户名。
-                        sys-name(3): 使用路由器的主机名构造用户名。
+                        mac(1)mac
+                        option82(2)option82
+                        sys-name(3):
                         mac+option82 (4)
                         mac+sys-name(5)
                         option82+ sys-name(6)
                         mac+option82+sys-name(7)
-                        缺省情况下：host用户使用mac地址构造用户，cvlan用户使用mac地址构造用户名，location方式用户使用option82＋mac地址构造用户名。
+                        hostmaccvlanmaclocationoption82mac
                         "
                     ::= { hwServiceIfCfgEntry 16 }
  
@@ -1596,10 +1561,8 @@
                     STATUS current
                     DESCRIPTION
                         "
-                        用于设置绑定用户名的密码，分明文和密文两种, 
-                        明文:区分大小写，不能输入空格和问号等命令行专用字符。
-                        密文：区分大小写，不能输入空格和问号等命令行专用字符。可以是长度为1～16的字符串，这时为明文密码。也可以是长度为24位的字符串，这时位加密后的密码。显示时都是密文
-                        缺省情况下，绑定用户密码为vlan。
+                        11624
+                        vlan
                         "
                     ::= { hwServiceIfCfgEntry 17 }
                     
@@ -1609,7 +1572,6 @@
                     STATUS current
                     DESCRIPTION
                         "  
-                        行状态
                         "
                     ::= { hwServiceIfCfgEntry 18 }
     --  ============== conformance information ==============
@@ -1681,7 +1643,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                BRAS接口配置表
+                BRAS
                 "
             ::= { hwSrvcfgInterfaceGroups 1 }
 
@@ -1700,7 +1662,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                BRAS接口VLAN
+                BRASVLAN
                 "
             ::= { hwSrvcfgInterfaceGroups 2 }
             
@@ -1717,7 +1679,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                BAS接口PVC
+                BASPVC
                 "
             ::= { hwSrvcfgInterfaceGroups 3 }
             
@@ -1734,7 +1696,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                STP透传专线用户
+                STP
                 "
             ::= { hwSrvcfgInterfaceGroups 4 }
             
@@ -1747,7 +1709,6 @@
             STATUS current
             DESCRIPTION 
                 "
-                端口接入限制
                 "
             ::= { hwSrvcfgInterfaceGroups 5 }
             
@@ -1760,7 +1721,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                Layer 3 认证用户域配置
+                Layer 3
                 "
             ::= { hwSrvcfgInterfaceGroups 6 }             
                     
@@ -1794,7 +1755,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                单板VLAN统计
+                VLAN
                 "
             ::= { hwSrvcfgInterfaceGroups 9 }
             
@@ -1821,7 +1782,7 @@
             STATUS current
             DESCRIPTION 
                 "
-                描述Service接口下的各项Service配置
+                ServiceService
                 "
             ::= { hwSrvcfgInterfaceGroups 10 }            
              

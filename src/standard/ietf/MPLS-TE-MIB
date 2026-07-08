@@ -395,7 +395,7 @@ mplsTunnelName OBJECT-TYPE
    DESCRIPTION
           "The canonical name assigned to the tunnel. This
            name can be used to refer to the tunnel on the
-           LSR’s console port.  If mplsTunnelIsIf is set to
+           LSRâ€™s console port.  If mplsTunnelIsIf is set to
            true then the ifName of the interface
            corresponding to this tunnel should have a value
            equal to mplsTunnelName.  Also see the description
@@ -1073,7 +1073,7 @@ mplsTunnelHopLspId OBJECT-TYPE
           "If mplsTunnelHopAddrType is set to lspid(4), then
            this value will contain the LSPID of a tunnel of
            this hop. The present tunnel being configured is
-           ‘tunneled’ through this hop (using label
+           â€˜tunneledâ€™ through this hop (using label
            stacking). This object is otherwise insignificant
            and should contain a value of 0 to indicate this
            fact."

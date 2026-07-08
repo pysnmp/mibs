@@ -5786,15 +5786,6 @@
 		    DESCRIPTION       "Returns the operating status of chassis cooling fan B."
 		    ::= { lte153PowerSupply 6 }
 	
-		upTime                OBJECT-TYPE
-		    SYNTAX            TimeTicks
-		    UNITS             "seconds"
-		    MAX-ACCESS        read-only
-		    STATUS            current
-		    DESCRIPTION       "Returns the number of elapsed seconds since the last time the
-		                       unit restarted." 
-		    ::= { lte153PowerSupply 7 }
-		
 		-----------------------------------------------------------------------
 		-- BEGIN power supply events
 		-----------------------------------------------------------------------

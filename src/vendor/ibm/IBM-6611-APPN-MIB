@@ -752,7 +752,7 @@ ibmappnNodePortDlcTracMsgType OBJECT-TYPE
 --              enumeration values between 4000 and 5999 are reserved
 --              for DLS traces,
 --              enumeration values between 6000 and 7999 are reserved
---              for TR  traces,
+--              for TR  traces
                          }
       ACCESS read-only
       STATUS mandatory

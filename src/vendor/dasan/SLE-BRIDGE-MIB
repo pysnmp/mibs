@@ -2326,7 +2326,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Use inner-tag¡¯s priority as outer-tag¡¯s priority."
+				"Use inner-tag's priority as outer-tag's priority."
 			::= { sleBridgePortEntry 32 }
 
 		
@@ -2339,7 +2339,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Use inner-tag¡¯s vlan-id as outer-tag¡¯s vlan-id."
+				"Use inner-tag's vlan-id as outer-tag's vlan-id."
 			::= { sleBridgePortEntry 33 }
 
 		
@@ -6735,7 +6735,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The Actor¡¯s System ID, encoded as a MAC address."
+				"The Actor's System ID, encoded as a MAC address."
 			::= { sleLagLacpEntry 3 }
 
 		

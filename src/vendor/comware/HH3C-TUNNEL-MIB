@@ -92,10 +92,10 @@ Hh3cTunnelType ::= TEXTUAL-CONVENTION
         tunnelModeIPv4IPv6Isatap(42),        -- IPv6 over IPv4 isatap tunnel
         tunnelModeIPv6IPv4(43),              -- IPv4 over IPv6
         tunnelModeIPv6IPv6(44),              -- IPv6 over IPv6 tunnel
-        tunnelModeIPv4UdpDVPN(45),           -- IPv4 DVPN tunnel£¬UDP method
-        tunnelModeIPv4GreDVPN(46),           -- IPv4 DVPN tunnel£¬GRE method
-        tunnelModeIPv6UdpDVPN(47),           -- IPv6 DVPN tunnel£¬UDP method
-        tunnelModeIPv6GreDVPN(48),           -- IPv6 DVPN tunnel£¬GRE method
+        tunnelModeIPv4UdpDVPN(45),           -- IPv4 DVPN tunnel,UDP method
+        tunnelModeIPv4GreDVPN(46),           -- IPv4 DVPN tunnel,GRE method
+        tunnelModeIPv6UdpDVPN(47),           -- IPv6 DVPN tunnel,UDP method
+        tunnelModeIPv6GreDVPN(48),           -- IPv6 DVPN tunnel,GRE method
         tunnelModeCrLsp(49),                 -- IPv4 CRLSP tunnel
         tunnelModeMax(50),
         tunnelModeIPv4UdpVxlan(51),          -- IPv4 VXLAN tunnel, UDP method

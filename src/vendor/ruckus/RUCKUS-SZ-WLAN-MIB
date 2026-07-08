@@ -268,7 +268,7 @@ RuckusSZAPEntry ::= SEQUENCE {
 --  ruckusWLANAPDNS2			IpAddress,
 --  ruckusWLANAPTotalUser		Unsigned32,
 --  ruckusWLANAPLANStatsRXByteRate	Counter32,
---  ruckusWLANAPLANStatsTXByteRate	Counter32,
+--  ruckusWLANAPLANStatsTXByteRate	Counter32
 }
 
 ruckusSZAPMac OBJECT-TYPE

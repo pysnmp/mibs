@@ -77,7 +77,7 @@ IMPORTS
         FROM HPN-ICF-OID-MIB;
 
 
----------- Following is for Node£ºhpnicfLswQosMib --------
+---------- Following is for Node:hpnicfLswQosMib --------
   hpnicfLswQosAclMib MODULE-IDENTITY
     LAST-UPDATED "200211190000Z"
     ORGANIZATION
@@ -107,7 +107,7 @@ IMPORTS
        board(2)
     }
 
----------- Following is for Node£ºhpnicfLswQosMibObject --------
+---------- Following is for Node:hpnicfLswQosMibObject --------
   hpnicfLswQosMibObject OBJECT IDENTIFIER ::= {  hpnicfLswQosAclMib 2  }
 
   hpnicfPriorityTrustMode OBJECT-TYPE

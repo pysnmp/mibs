@@ -479,11 +479,11 @@ Example: 200"
 		ACCESS			read-only
 		STATUS			mandatory
 		DESCRIPTION		"Indicates the actual condition of ATPC:
-Enabled – if config is on and no issues
+Enabled â€“ if config is on and no issues
 
-Auto-Disabled – if ATPC coordinated power condition, AAM triggered, or radio loss of link
+Auto-Disabled â€“ if ATPC coordinated power condition, AAM triggered, or radio loss of link
 
-Disabled-manual – if config set to off"
+Disabled-manual â€“ if config set to off"
 
 		::=  {  hzIduAtpc  2  }		
 

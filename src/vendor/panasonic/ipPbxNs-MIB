@@ -45,7 +45,7 @@ panaPbxNsAlmTrapTime OBJECT-TYPE
 panaPbxNsAlmTrapLevel OBJECT-TYPE
     SYNTAX     INTEGER {
                  minor(1),
-                 major(2),
+                 major(2)
                }
     ACCESS     not-accessible
     STATUS     mandatory
@@ -86,7 +86,7 @@ panaPbxNsAlmTrapMes OBJECT-TYPE
 panaPbxNsAlmTrapStype OBJECT-TYPE
     SYNTAX     INTEGER {
                  physical(0),
-                 virtual(1),
+                 virtual(1)
                }
     ACCESS     not-accessible
     STATUS     mandatory
