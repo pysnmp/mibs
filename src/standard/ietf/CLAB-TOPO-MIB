@@ -73,7 +73,7 @@ NodeName ::= TEXTUAL-CONVENTION
         "This data type is a human readable string that represents
         the name of a fiber node. Internationalization is supported
         by conforming to the SNMP textual convention SnmpAdminString.
-        The US-ASCII control characters (0x00 – 0x1F), the DEL
+        The US-ASCII control characters (0x00 â€“ 0x1F), the DEL
         Character (0x7F), and the double-quote mark (0x22) are 
         prohibited within the syntax of this data type."
      REFERENCE

@@ -1830,7 +1830,7 @@ to ISDN PRI protocols that support NFAS and/or D-channel backup
 procedures.
 0 = Active channel
 1 = Standby channel
-2 = Not applicable (this trunk doesn’t have D-channel defined).
+2 = Not applicable (this trunk doesnâ€™t have D-channel defined).
 AC INI-Param: N/A"
        ::= {acTrunkStatusEntry 8}
 
@@ -2275,7 +2275,7 @@ to ISDN PRI protocols that support NFAS and/or D-channel
 backup procedures.
 0 = Active channel
 1 = Standby channel
-2 = Not applicable (this trunk doesn’t have D-channel defined).
+2 = Not applicable (this trunk doesnâ€™t have D-channel defined).
 AC INI-Param: N/A"
        ::= {acNFASGroupStatusEntry 7}
 
@@ -2298,7 +2298,7 @@ to ISDN PRI protocols that support NFAS and/or D-channel
 backup procedures.
 0 = Active channel
 1 = Standby channel
-2 = Not applicable (this trunk doesn’t have D-channel defined).
+2 = Not applicable (this trunk doesnâ€™t have D-channel defined).
 AC INI-Param: N/A"
        ::= {acNFASGroupStatusEntry 8}
 

@@ -340,7 +340,7 @@
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
-            "子网的主ip地址表。"
+            "ip"
         ::= { gbnL3IpSubnet 4 }
 
     gbnL3IpSubnetPrimaryIpEntry OBJECT-TYPE
@@ -348,7 +348,7 @@
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
-            "子网的主ip地址表。"
+            "ip"
         INDEX { gbnL3IpSubnetPrimaryIpIfIndex}
         ::= { gbnL3IpSubnetPrimaryIpTable 1 }
 
@@ -362,7 +362,7 @@
         MAX-ACCESS not-accessible
         STATUS current
         DESCRIPTION
-            "接口的索引。"
+            ""
         ::= { gbnL3IpSubnetPrimaryIpEntry 1 }
 
     gbnL3IpSubnetPrimaryIpIpAddr  OBJECT-TYPE
@@ -370,7 +370,7 @@
         MAX-ACCESS read-create
         STATUS current
         DESCRIPTION
-            "接口的主ip地址。"
+            "ip"
         ::= { gbnL3IpSubnetPrimaryIpEntry 2 }
 
 ------------------------------------------------------------------------------

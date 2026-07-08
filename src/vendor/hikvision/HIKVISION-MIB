@@ -146,7 +146,7 @@ hikCPUFrequency OBJECT-TYPE
     ACCESS  read-only
     STATUS  mandatory
     DESCRIPTION
-            "the frequency of hikvision product's cpu, format like ¡°2000MHZ¡± "
+            "the frequency of hikvision product's cpu, format like "2000MHZ" "
     ::= { hikEntity 201}
 
 --hik memery info

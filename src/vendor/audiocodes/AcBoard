@@ -978,11 +978,11 @@ The protocol type parameter defines the interface
               1. E1 or T1 physical line configuration.
               2. Fixed connection of the relevant time-slots, 
               which are the Trunks' B-channels, mapping to the 60 
-        (128 for TrunkPack®-VoIP/400) DSP channels. 
+        (128 for TrunkPackÂ®-VoIP/400) DSP channels. 
         This limitation is about to change in versions higher than 3.4.
               3. Layer 3 specific telephony protocol or transparent mode of operation.
 Currently only identical configurations (protocol type, framing method, etc.) 
-  for the two trunks are supported.(see at the TrunkPack®-VoIP User Manual 
+  for the two trunks are supported.(see at the TrunkPackÂ®-VoIP User Manual 
   for available protocols families)  relevant only when TDMBusType=FRAMERS. 
 "
        ::= {trunkSettingsEntry 4}
@@ -2662,7 +2662,7 @@ This Object is obsolete and is replaces by acTrunkISDNCommonDuplicateQ931BuffMod
        MAX-ACCESS read-write
        STATUS obsolete
        DESCRIPTION
-           "Number Of Conference ports.  How many ports on the TPM are allocated to the conferencing service."
+           "Number Of Conference ports.Â  How many ports on the TPM are allocated to the conferencing service."
        ::= {aMsConfiguration 1}
 
 
@@ -2672,7 +2672,7 @@ This Object is obsolete and is replaces by acTrunkISDNCommonDuplicateQ931BuffMod
        MAX-ACCESS read-write
        STATUS obsolete
        DESCRIPTION
-           "Number Of Test Trunk ports.  How many ports on the TPM are allocated to the Test Trunk service."
+           "Number Of Test Trunk ports.Â  How many ports on the TPM are allocated to the Test Trunk service."
        ::= {aMsConfiguration 2}
 
 
@@ -2682,7 +2682,7 @@ This Object is obsolete and is replaces by acTrunkISDNCommonDuplicateQ931BuffMod
        MAX-ACCESS read-write
        STATUS obsolete
        DESCRIPTION
-           "Number Of Test Trunk ports.  How many ports on the TPM are allocated to the Lawful Intercept service."
+           "Number Of Test Trunk ports.Â  How many ports on the TPM are allocated to the Lawful Intercept service."
        ::= {aMsConfiguration 3}
 
 
@@ -2692,7 +2692,7 @@ This Object is obsolete and is replaces by acTrunkISDNCommonDuplicateQ931BuffMod
        MAX-ACCESS read-write
        STATUS obsolete
        DESCRIPTION
-           "Number Of Test Trunk ports.  How many ports on the TPM are allocated to the Announcement service."
+           "Number Of Test Trunk ports.Â  How many ports on the TPM are allocated to the Announcement service."
        ::= {aMsConfiguration 4}
 
 
@@ -3573,7 +3573,7 @@ The number of channels supported by the DSP can also vary between DSP versions.
        MAX-ACCESS read-only
        STATUS deprecated
        DESCRIPTION
-           "Voice Volume sets the voice decoder’s output gain
+           "Voice Volume sets the voice decoderâ€™s output gain
   Range: 0-63 corresponding to -31 dB to +31 dB in 1 dB steps"
        ::= {voiceSettingsEntry 8}
 
@@ -3584,7 +3584,7 @@ The number of channels supported by the DSP can also vary between DSP versions.
        MAX-ACCESS read-only
        STATUS deprecated
        DESCRIPTION
-           "PCM input gain sets the gain at the encoder’s input."
+           "PCM input gain sets the gain at the encoderâ€™s input."
        ::= {voiceSettingsEntry 9}
 
 
@@ -8316,9 +8316,9 @@ Relevant to HA systems only."
        DESCRIPTION
            "Active board sends notification when an alarm or notification is raised in the redundant board.
 The information is as follow:
-acBoardTrapGlobalsAdditionalInfo1: redundant’s original info
+acBoardTrapGlobalsAdditionalInfo1: redundantâ€™s original info
 acBoardTrapGlobalsAdditionalInfo2: trap Id
-acBoardTrapGlobalsAdditionalInfo3: redundant’s serial number
+acBoardTrapGlobalsAdditionalInfo3: redundantâ€™s serial number
 "
        ::= {acBoardTrapDefinitions 0 97}
 

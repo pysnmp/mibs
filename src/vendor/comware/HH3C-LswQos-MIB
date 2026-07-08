@@ -77,7 +77,7 @@ IMPORTS
         FROM HH3C-OID-MIB;
 
 
----------- Following is for Node£ºhh3cLswQosMib --------
+---------- Following is for Node:hh3cLswQosMib --------
   hh3cLswQosAclMib MODULE-IDENTITY
     LAST-UPDATED "200211190000Z"
     ORGANIZATION
@@ -111,7 +111,7 @@ IMPORTS
        board(2)
     }
 
----------- Following is for Node£ºhh3cLswQosMibObject --------
+---------- Following is for Node:hh3cLswQosMibObject --------
   hh3cLswQosMibObject OBJECT IDENTIFIER ::= {  hh3cLswQosAclMib 2  }
 
   hh3cPriorityTrustMode OBJECT-TYPE

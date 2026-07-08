@@ -4315,7 +4315,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The time since this session¡¯s status changed into ¡®Up¡¯."
+				"The time since this session's status changed into 'Up'."
 			::= { sleBFDSessionInfoEntry 9 }
 
 		
@@ -4634,7 +4634,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of State field of this session¡¯s control packet."
+				"Value of State field of this session's control packet."
 			::= { sleBFDSessionLocalEntry 1 }
 
 		
@@ -4649,7 +4649,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of Diag field of this session¡¯s control packet"
+				"Value of Diag field of this session's control packet"
 			::= { sleBFDSessionLocalEntry 2 }
 
 		
@@ -4666,7 +4666,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of Flags field of this session¡¯s control packet."
+				"Value of Flags field of this session's control packet."
 			::= { sleBFDSessionLocalEntry 3 }
 
 		
@@ -4675,7 +4675,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinTxInterval field of this session¡¯s control packet in unit of microseconds."
+				"Value of MinTxInterval field of this session's control packet in unit of microseconds."
 			::= { sleBFDSessionLocalEntry 4 }
 
 		
@@ -4684,7 +4684,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinTxInterval field of this session¡¯s control packet in unit of microseconds."
+				"Value of MinTxInterval field of this session's control packet in unit of microseconds."
 			::= { sleBFDSessionLocalEntry 5 }
 
 		
@@ -4693,7 +4693,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinRxInterval field of this session¡¯s control packet in unit of microseconds."
+				"Value of MinRxInterval field of this session's control packet in unit of microseconds."
 			::= { sleBFDSessionLocalEntry 6 }
 
 		
@@ -4702,7 +4702,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinEchoInterval field of this session¡¯s control packet in unit of microseconds."
+				"Value of MinEchoInterval field of this session's control packet in unit of microseconds."
 			::= { sleBFDSessionLocalEntry 7 }
 
 		
@@ -4763,7 +4763,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of State field of remote session¡¯s control packet."
+				"Value of State field of remote session's control packet."
 			::= { sleBFDSessionRemoteEntry 1 }
 
 		
@@ -4778,7 +4778,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of Diag field of remote session¡¯s control packet"
+				"Value of Diag field of remote session's control packet"
 			::= { sleBFDSessionRemoteEntry 2 }
 
 		
@@ -4795,7 +4795,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of Flags field of remote session¡¯s control packet."
+				"Value of Flags field of remote session's control packet."
 			::= { sleBFDSessionRemoteEntry 3 }
 
 		
@@ -4804,7 +4804,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinTxInterval field of this session¡¯s control packet in unit of microseconds."
+				"Value of MinTxInterval field of this session's control packet in unit of microseconds."
 			::= { sleBFDSessionRemoteEntry 4 }
 
 		
@@ -4813,7 +4813,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinTxInterval field of remote session¡¯s control packet in unit of microseconds."
+				"Value of MinTxInterval field of remote session's control packet in unit of microseconds."
 			::= { sleBFDSessionRemoteEntry 5 }
 
 		
@@ -4822,7 +4822,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinRxInterval field of remote session¡¯s control packet in unit of microseconds."
+				"Value of MinRxInterval field of remote session's control packet in unit of microseconds."
 			::= { sleBFDSessionRemoteEntry 6 }
 
 		
@@ -4831,7 +4831,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Value of MinEchoInterval field of remote session¡¯s control packet in unit of microseconds."
+				"Value of MinEchoInterval field of remote session's control packet in unit of microseconds."
 			::= { sleBFDSessionRemoteEntry 7 }
 
 		

@@ -32,7 +32,7 @@
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-            "start/stop dhcp6snooping.Default is off¡£"
+            "start/stop dhcp6snooping.Default is off."
         ::= { gbnL2Dhcp6Snooping 1 }
 
     dhcp6snoopingPortTable OBJECT-TYPE

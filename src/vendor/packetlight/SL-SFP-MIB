@@ -578,8 +578,8 @@ sfpConfigMaxTemp OBJECT-TYPE
 	STATUS  	current		-- 15xy
 	DESCRIPTION
 		"This field defines the maximum operating case temperature the module is 
-		rated for. The maximum case temperature is encoded as a signed twoís 
-		complement value in ∫C, yielding a total range of ñ128C to +127∫C. 
+		rated for. The maximum case temperature is encoded as a signed two‚Äôs 
+		complement value in ¬∫C, yielding a total range of ‚Äì128C to +127¬∫C. 
 		This field should be used even if a standard operating temperature class 
 		is indicated in the Extended Indentifier Byte (Byte 1)."
     REFERENCE   "DWDM MSA Table 2.3.1."
@@ -591,8 +591,8 @@ sfpConfigMinTemp OBJECT-TYPE
 	STATUS  	current		-- 15xy
 	DESCRIPTION
 		"This field defines the minimum operating case temperature the module is 
-		rated for. The maximum case temperature is encoded as a signed twoís 
-		complement value in ∫C, yielding a total range of ñ128C to +127∫C. 
+		rated for. The maximum case temperature is encoded as a signed two‚Äôs 
+		complement value in ¬∫C, yielding a total range of ‚Äì128C to +127¬∫C. 
 		This field should be used even if a standard operating temperature class 
 		is indicated in the Extended Indentifier Byte."
     REFERENCE   "DWDM MSA Table 2.3.1."
@@ -624,7 +624,7 @@ sfpConfigChannelSpacing OBJECT-TYPE
 			01: 100 GHz (DWDM)
 			10:  50 Ghz (DWDM)
 			11: Reserved
-		Bits 5..0: Number of channels (1 ñ 63).
+		Bits 5..0: Number of channels (1 ‚Äì 63).
 		In the case of XFP:
 		The value of this field is equal to the guaranteed range of laser 
 		wavelength (+/- value) from Nominal wavelength.
@@ -706,7 +706,7 @@ sfpConfigVendorRev OBJECT-TYPE
     DESCRIPTION
 		"The vendor revision number (vendor rev) is a 4-byte field that 
 		contains ASCII characters, left-aligned and padded on the right with 
-		ASCII spaces (20h), defining the vendorís product revision number. 
+		ASCII spaces (20h), defining the vendor‚Äôs product revision number. 
 		A value of all zero in the 4-byte field indicates that
 		the vendor PN is unspecified."
     REFERENCE   "DWDM MSA Table 2.3.1, SFP-8472 Table 3.1."
@@ -782,7 +782,7 @@ sfpConfigVendorSN OBJECT-TYPE
     DESCRIPTION
 		"The vendor serial number (vendor SN) is a 16 character field that 
 		contains ASCII characters, left-aligned and padded on the right with 
-		ASCII spaces (20h), defining thevendorís serial number for the transceiver. 
+		ASCII spaces (20h), defining thevendor‚Äôs serial number for the transceiver. 
 		A value of all zero in the 16-byte field indicates that the vendor PN is 
 		unspecified."
     REFERENCE   "DWDM MSA Table 2.3.1, SFP-8472 Table 3.1."
@@ -793,7 +793,7 @@ sfpConfigDateCode OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-		"The date code is an 6-byte field that contains the vendorís date 
+		"The date code is an 6-byte field that contains the vendor‚Äôs date 
 		code in ASCII characters. The date code is mandatory. 
 		The date code shall be in the format: <yy><mm><dd>."
     REFERENCE   "DWDM MSA Table 2.3.1 and 2.3.10, SFP-8472 Table 3.1 and 3.8."
@@ -807,14 +807,14 @@ sfpConfigDiagnosticMonitoring OBJECT-TYPE
 		"A field with 8 single bit indicators which describe the
 		optional digital diagnostic features implemented in the transceiver. 
 		Since transceivers will not necessarily implement all optional 
-		features described in this document, the ìEnhanced Optionsî bit field 
+		features described in this document, the ‚ÄúEnhanced Options‚Äù bit field 
 		allows the host system to determine which functions are
 		available over the 2 wire serial bus.
 		The bits assignment is:
 			7 Reserved for legacy diagnostic implementations. 
-				Must be ë0í for compilance with this document.
+				Must be ‚Äò0‚Äô for compilance with this document.
 			6 Digital diagnostic monitoring implemented (described in this document). 
-				Must be ë1í for compliance with this document.
+				Must be ‚Äò1‚Äô for compliance with this document.
 			5 Internally Calibrated
 			4 Externally Calibrated
 			3 Received power measurement type 0 = OMA, 1 = Average Power
@@ -830,9 +830,9 @@ sfpConfigEnhanceOptions OBJECT-TYPE
 		"A field with 6 single bit indicators which describe the
 		optional digital diagnostic features implemented in the transceiver. 
 		Since transceivers will not necessarily implement all optional features 
-		described in this document, the ìEnhanced Optionsî bit field allows the 
+		described in this document, the ‚ÄúEnhanced Options‚Äù bit field allows the 
 		host system to determine which functions are available over the 2 wire 
-		serial bus. A ë1í indicates that the particular function is
+		serial bus. A ‚Äò1‚Äô indicates that the particular function is
 		implemented in the transceiver..
 		The bits assignment is:
 			Bits 7: Optional Alarm/warning flags implemented for all monitored quantities
@@ -901,7 +901,7 @@ sfpConfigVdtControl  OBJECT-TYPE
 		"Variable Decision Threshold Control.
 		Used to control the variable decision threshold function.
 		The availability of this function is indicated in Bit 0 of sfpConfigOptionalWdm.
-		The object value is a 2ís complement 7 bit value (-128 - +127).
+		The object value is a 2‚Äôs complement 7 bit value (-128 - +127).
 		The decision threshold set is given by:
 			Decision Threshold = 50% + [VAL/256]*100%
 		The object value defaults to 0 on power-up corresponding to 50%."
@@ -2080,7 +2080,7 @@ sfpDiagHighLaserTempAlmThreshold OBJECT-TYPE
     STATUS      current
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for high laser temperature alarm. The value 0
 		means -128 Celsuis. An increment on one is equivalent to 1/256 degree,
@@ -2094,7 +2094,7 @@ sfpDiagLowLaserTempAlmThreshold OBJECT-TYPE
     STATUS      current		-- 15xy
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for low laser temperature alarm. The value 0
 		means -128 Celsuis. An increment on one is equivalent to 1/256 degree,
@@ -2108,7 +2108,7 @@ sfpDiagHighLaserTempWrnThreshold OBJECT-TYPE
     STATUS      current		-- 15xy
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for high laser temperature warning. The value 0
 		means -128 Celsuis. An increment on one is equivalent to 1/256 degree,
@@ -2122,7 +2122,7 @@ sfpDiagLowLaserTempWrnThreshold OBJECT-TYPE
     STATUS      current
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for low laser temperature warning. The value 0
 		means -128 Celsuis. An increment on one is equivalent to 1/256 degree,
@@ -2136,10 +2136,10 @@ sfpDiagHighWaveLenAlmThreshold OBJECT-TYPE
     STATUS      current		-- 15xy
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for high laser temperature alarm.
-		The reportable wavelength range is 1000.00 ñ 1655.35nm with a resolution 
+		The reportable wavelength range is 1000.00 ‚Äì 1655.35nm with a resolution 
 		of 0.01nm."
     REFERENCE   "DWDM MSA Table 2.3.19."
 	::= { sfpDiagEntry 26 }
@@ -2150,10 +2150,10 @@ sfpDiagLowWaveLenAlmThreshold OBJECT-TYPE
     STATUS      current		-- 15xy
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for low laser temperature alarm.
-		The reportable wavelength range is 1000.00 ñ 1655.35nm with a resolution 
+		The reportable wavelength range is 1000.00 ‚Äì 1655.35nm with a resolution 
 		of 0.01nm."
     REFERENCE   "DWDM MSA Table 2.3.19."
 	::= { sfpDiagEntry 27 }
@@ -2164,10 +2164,10 @@ sfpDiagHighWaveLenWrnThreshold OBJECT-TYPE
     STATUS      current		-- 15xy
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for high laser temperature warning.
-		The reportable wavelength range is 1000.00 ñ 1655.35nm with a resolution 
+		The reportable wavelength range is 1000.00 ‚Äì 1655.35nm with a resolution 
 		of 0.01nm."
     REFERENCE   "DWDM MSA Table 2.3.19."
 	::= { sfpDiagEntry 28 }
@@ -2178,10 +2178,10 @@ sfpDiagLowWaveLenWrnThreshold OBJECT-TYPE
     STATUS      current		-- 15xy
     DESCRIPTION
 		"For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The threshold value for low laser temperature warning.
-		The reportable wavelength range is 1000.00 ñ 1655.35nm with a resolution 
+		The reportable wavelength range is 1000.00 ‚Äì 1655.35nm with a resolution 
 		of 0.01nm."
     REFERENCE   "DWDM MSA Table 2.3.19."
 	::= { sfpDiagEntry 29 }
@@ -2244,7 +2244,7 @@ sfpDiagModuleTemperature OBJECT-TYPE
 		"Internally measured module temperature. The value 0 means -128 Celsuis. 
 		An increment on one is equivalent to 1/256 degree,
 		yielding a total range of -128 to +128 Celsius. 
-		Temperature accuracy is vendor specific but must be better than ±3
+		Temperature accuracy is vendor specific but must be better than ¬±3
 		degrees Celsius over specified operating temperature and voltage."
     REFERENCE   "DWDM MSA Table 2.3.21, SFP-8472 Table 3.17."
 	::= { sfpDiagEntry 34 }
@@ -2257,8 +2257,8 @@ sfpDiagSupplyVoltage OBJECT-TYPE
 		"Internally measured supply voltage in transceiver. The value 0 means 0 Volts. 
 		An increment on one is equivalent to 100 uVolt,
 		yielding a total range of +6.55 Volts.
-		Accuracy is vendor specific but must be better than ±3% of the
-		manufacturerís nominal value over specified operating temperature and voltage."
+		Accuracy is vendor specific but must be better than ¬±3% of the
+		manufacturer‚Äôs nominal value over specified operating temperature and voltage."
     REFERENCE   "DWDM MSA Table 2.3.21, SFP-8472 Table 3.17."
 	::= { sfpDiagEntry 35 }
 
@@ -2270,7 +2270,7 @@ sfpDiagTxBias OBJECT-TYPE
 		"Internally measured TX Bias Current. The value 0
 		means 0 Volt. An increment on one is equivalent to 2 uA,
 		yielding a total range of 0 to 131 mA.
-		Accuracy is vendor specific but must be better than ±3dB over specified 
+		Accuracy is vendor specific but must be better than ¬±3dB over specified 
 		temperature and voltage. Data is not valid when the transmitter is disabled."
     REFERENCE   "DWDM MSA Table 2.3.21, SFP-8472 Table 3.17."
 	::= { sfpDiagEntry 36 }
@@ -2283,7 +2283,7 @@ sfpDiagTxOutputPower OBJECT-TYPE
 		"Measured TX output power. The value 0
 		means 0 Watts. An increment on one is equivalent to 0.1 uW,
 		yielding a total range of 0 to 6.5535 mW.
-		For the vendor specified wavelength, accuracy shall be better than ±3dB 
+		For the vendor specified wavelength, accuracy shall be better than ¬±3dB 
 		over specified temperature and voltage."
     REFERENCE   "DWDM MSA Table 2.3.21, SFP-8472 Table 3.17."
 	::= { sfpDiagEntry 37 }
@@ -2296,7 +2296,7 @@ sfpDiagRxInputPower OBJECT-TYPE
 		"Measured RX input power. The value 0
 		means 0 Watts. An increment on one is equivalent to 0.1 uW,
 		yielding a total range of 0 to 6.5535 mW.
-		For the vendor specified wavelength, accuracy shall be better than ±3dB 
+		For the vendor specified wavelength, accuracy shall be better than ¬±3dB 
 		over specified temperature and voltage."
     REFERENCE   "DWDM MSA Table 2.3.21, SFP-8472 Table 3.17."
 	::= { sfpDiagEntry 38 }
@@ -2308,11 +2308,11 @@ sfpDiagRxLaserTemperature OBJECT-TYPE
     DESCRIPTION
 		"Measured Laser Temperature. 
 		For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The value 0 means -128 Celsuis. An increment on one is equivalent 
 		to 1/256 degree, yielding a total range of -128 to +128 Celsius. 
-		Temperature accuracy is vendor specific but must be better than ± 0.2
+		Temperature accuracy is vendor specific but must be better than ¬± 0.2
 		degrees Celsius over specified operating temperature and voltage."
     REFERENCE   "DWDM MSA Table 2.3.21."
 	::= { sfpDiagEntry 39 }
@@ -2324,11 +2324,11 @@ sfpDiagRxMeasuredWavelength OBJECT-TYPE
     DESCRIPTION
 		"Measured Laser Wavelength. 
 		For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The wavelength is defined as:
 			Wavelength = 1000nm + 0.01nm * 16 bit value.
-		Thus, the reportable wavelength range is 1000.00 ñ 1655.35nm with a 
+		Thus, the reportable wavelength range is 1000.00 ‚Äì 1655.35nm with a 
 		resolution of 0.01nm."
     REFERENCE   "DWDM MSA Table 2.3.21."
 	::= { sfpDiagEntry 40 }
@@ -2340,13 +2340,13 @@ sfpDiagRxTecCurrent OBJECT-TYPE
     DESCRIPTION
 		"Measured Laser Temperature or Wavelength. 
 		For DWDM applications, the diagnostic interface report either laser 
-		wavelength or temperature, with a given moduleís reporting defined 
+		wavelength or temperature, with a given module‚Äôs reporting defined 
 		by bit 1 of the object sfpConfigOptionalWdm.
 		The reported TEC current is defined as a positive number for cooling and 
 		a negative number for heating starting at -3276.8.
 		The increments are of 0.1 steps yielding a total range of -3276.8 to +3276.7, 
 		The accuracy of the TEC current monitor is vendor specific but must be 
-		better than ±15% of the maximum TEC current as stored in the TEC Current 
+		better than ¬±15% of the maximum TEC current as stored in the TEC Current 
 		High Alarm Threshold"
     REFERENCE   "DWDM MSA Table 2.3.21."
 	::= { sfpDiagEntry 41 }
@@ -2568,7 +2568,7 @@ sfpDiagModuleTemperatureCelsius OBJECT-TYPE
     DESCRIPTION
 		"Internally measured module temperature, while degress in Celsuis. 
 		Total range of -128 to +128 Celsius. 
-		Temperature accuracy is vendor specific but must be better than ±3
+		Temperature accuracy is vendor specific but must be better than ¬±3
 		degrees Celsius over specified operating temperature and voltage."
     REFERENCE   "DWDM MSA Table 2.3.21, SFP-8472 Table 3.17."
 	::= { sfpDiagEntry 57 }

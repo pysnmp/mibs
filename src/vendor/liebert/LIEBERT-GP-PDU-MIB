@@ -389,10 +389,10 @@ lgpPduTable OBJECT-TYPE
              to unlock such receptacles.
              If the feature is enabled, in case of PDU Over Current Warning or Alarm condition,
              following action will be taken on the receptacles:
-                a. Locked & OFF – No change
+                a. Locked & OFF â€“ No change
                 b. Locked & ON -  No change
-                c. UnLocked & OFF – Receptacle shall be locked
-                d. Unlocked & ON – If the receptacle is being used (current>0), no change.
+                c. UnLocked & OFF â€“ Receptacle shall be locked
+                d. Unlocked & ON â€“ If the receptacle is being used (current>0), no change.
                    If that outlet is being unused(current=0), turn it off and lock it in that position.
 
              No action will be taken if the feature is disabled.

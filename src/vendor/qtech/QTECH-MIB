@@ -2766,7 +2766,7 @@ lpbackDetecCtrlMode      OBJECT-TYPE
                                  nocontrol(0),
                                  shutdown(1),
                                  block(2)
---                               learning控制方式已被去掉  
+--                               learning  
 --                               learning(3)
                                 }                       
           MAX-ACCESS      read-write

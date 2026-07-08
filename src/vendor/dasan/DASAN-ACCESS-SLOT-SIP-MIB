@@ -235,7 +235,7 @@
      				For example,
      				ex1) aData[0] = 'add;010;0;3;10;none;none;;0'
      				ex2) aData[0] = 'mod;010;0;3;10;none;none;;0'
-     ¿				ex3) aData[0] = 'del;010'
+     Â¿				ex3) aData[0] = 'del;010'
      				[range]
      				<LEN(11)-LEN(255> = Syntax Length (Default: all;0;1;20;none;none;;0)"
      ::= {dsAccGwyConfigSipSlotEntry 12}

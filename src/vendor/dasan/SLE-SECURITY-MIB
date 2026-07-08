@@ -3900,7 +3900,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The rule index of except list. It¡¯s specific nuber per each rule."
+				"The rule index of except list. It's specific nuber per each rule."
 			::= { sleSecurityAttackBasicExceptListControl 6 }
 
 		
@@ -4135,7 +4135,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The rule index of except list. It¡¯s specific nuber per each rule."
+				"The rule index of except list. It's specific nuber per each rule."
 			::= { sleSecurityAttackBasicBlackListControl 6 }
 
 		
@@ -4422,7 +4422,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The Rule index of blocked list. It¡¯s specific nuber per each rule."
+				"The Rule index of blocked list. It's specific nuber per each rule."
 			::= { sleSecurityAttackBasicBlockedListControl 6 }
 
 		
@@ -4843,7 +4843,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The rule index. It¡¯s specific nuber per each rule."
+				"The rule index. It's specific nuber per each rule."
 			::= { sleSecurityAttackExpansionExceptListEntry 3 }
 
 		
@@ -5086,7 +5086,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The rule index of except list. It¡¯s specific nuber per each rule."
+				"The rule index of except list. It's specific nuber per each rule."
 			::= { sleSecurityAttackExpansionExceptListControl 7 }
 
 		
@@ -5372,7 +5372,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The Rule index of blocked list. It¡¯s specific nuber per each rule."
+				"The Rule index of blocked list. It's specific nuber per each rule."
 			::= { sleSecurityAttackExpansionBlockedListEntry 3 }
 
 		
@@ -5576,7 +5576,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The Rule index of blocked list. It¡¯s specific nuber per each rule."
+				"The Rule index of blocked list. It's specific nuber per each rule."
 			::= { sleSecurityAttackExpansionBlockedListControl 6 }
 
 		

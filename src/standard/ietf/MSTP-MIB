@@ -749,7 +749,7 @@ MSTP-MIB DEFINITIONS ::= BEGIN
               DESCRIPTION
                   "This parameter is used for enabling or disabling
                            digest snooping on  the bridge port."
-                  --使能或关闭摘要侦听特性
+                  --
            ::= { dot1sStpPortEntry 8}         
            
           dot1sStpTrapTable OBJECT IDENTIFIER ::= { dot1sStp 14 }

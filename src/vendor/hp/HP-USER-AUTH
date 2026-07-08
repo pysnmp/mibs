@@ -190,7 +190,7 @@ HP-USER-AUTH DEFINITIONS ::= BEGIN
         STATUS current
         DESCRIPTION
             "The operational status of hpicfUsrAuthCliAuthFail notifications.
-            The default value is ‘1’ (Enabled).  A value of ‘2’ represents 
+            The default value is â€˜1â€™ (Enabled).  A value of â€˜2â€™ represents 
             Disabled.  Writing this object requires authentication, such 
             as provided by SNMPv3.
             "
@@ -222,7 +222,7 @@ HP-USER-AUTH DEFINITIONS ::= BEGIN
         STATUS current
         DESCRIPTION
             "Indicates whether the CLI manager password
-            is set.  ‘1’ indicates True while ‘2’
+            is set.  â€˜1â€™ indicates True while â€˜2â€™
             indicates False.
             "
         ::= { hpicfUsrAuthSystem 7 }

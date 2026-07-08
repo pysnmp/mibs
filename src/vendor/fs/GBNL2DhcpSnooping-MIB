@@ -31,8 +31,8 @@
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-            "start/stop dhcpsnooping.Default is off。"
-            --开启关闭Dhcpsnooping功能。
+            "start/stop dhcpsnooping.Default is off"
+            --Dhcpsnooping
         ::= { gbnL2DhcpSnooping 1 }
 
     dhcpsnoopingPortTable OBJECT-TYPE
@@ -41,7 +41,7 @@
         STATUS      current
         DESCRIPTION
             "A table that contains port informations of dhcpsnooping."
-            --DHCPSnooping的端口信息表。
+            --DHCPSnooping
         ::= { gbnL2DhcpSnooping 2 }
 
     dhcpsnoopingPortEntry OBJECT-TYPE
@@ -51,7 +51,7 @@
         DESCRIPTION
             "Port informations of dhcpsnooping. This is indexed
             by the port number."
-            --DHCPSnooping的端口信息表，以端口号为索引。
+            --DHCPSnooping
         INDEX { portIndex }
         ::= { dhcpsnoopingPortTable 1 }
 
@@ -73,7 +73,7 @@
         STATUS       current
         DESCRIPTION
             "The Index of the port."
-            --端口索引，也就是端口号
+            --
         ::= { dhcpsnoopingPortEntry 1 }
 
     portTrustMode OBJECT-TYPE
@@ -85,7 +85,7 @@
     STATUS       current
     DESCRIPTION
         "Port mode of dhcpsnooping.Default is untrust."
-        --端口模式，默认为untrust。
+        --untrust
     ::= { dhcpsnoopingPortEntry 2 }
 
     portMaxNum OBJECT-TYPE
@@ -94,7 +94,7 @@
         STATUS current
         DESCRIPTION
             "Max clients in this port.Range is from 0 to 2048.Default is 2048."
-            --端口最多可以学习到的DHCP客户端，取值范围为0~2048。默认为2048。
+            --DHCP0~20482048
         ::= { dhcpsnoopingPortEntry 3 }
 
     portIpSourceGuardMode OBJECT-TYPE
@@ -108,7 +108,7 @@
     STATUS       current
     DESCRIPTION
         "Port IP source guard mode .Default is off."
-        --端口IP地址保护模式，默认为关闭。
+        --IP
     ::= { dhcpsnoopingPortEntry 4 }
 
     dhcpsnoopingVlanTable OBJECT-TYPE
@@ -117,7 +117,7 @@
         STATUS      current
         DESCRIPTION
             "A table that contains vlan informations of dhcpsnooping."
-            --DHCPSnooping的VLAN信息表。
+            --DHCPSnoopingVLAN
         ::= { gbnL2DhcpSnooping 3 }
 
     dhcpsnoopingVlanEntry OBJECT-TYPE
@@ -127,7 +127,7 @@
         DESCRIPTION
             "VLAN informations of dhcpsnooping. This is indexed
             by the vlan number."
-            --DHCPSnooping的VLAN信息表，以VLAN号为索引。
+            --DHCPSnoopingVLANVLAN
         INDEX { vlanIndex }
         ::= { dhcpsnoopingVlanTable 1 }
 
@@ -147,7 +147,7 @@
         STATUS       current
         DESCRIPTION
             "The Index of the vlan."
-            --VLAN索引，也就是VLAN号
+            --VLANVLAN
         ::= { dhcpsnoopingVlanEntry 1 }    
         
     vlanMaxNum OBJECT-TYPE
@@ -156,7 +156,7 @@
         STATUS current
         DESCRIPTION
             "Max clients in this vlan.Range is from 0 to 2048.Default is 2048."
-            --VLAN最多可以学习到的DHCP客户端，取值范围为0~2048。默认为2048。
+            --VLANDHCP0~20482048
         ::= { dhcpsnoopingVlanEntry 2 }
 
     vlandhcpsnoopingOnOff OBJECT-TYPE
@@ -164,8 +164,8 @@
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-            "start/stop dhcpsnooping of this vlan.Default is on。" 
-            --开启关闭VLAN Dhcpsnooping功能。
+            "start/stop dhcpsnooping of this vlan.Default is on" 
+            --VLAN Dhcpsnooping
         ::= { dhcpsnoopingVlanEntry 3 }
         
     dhcpsnoopingNto1VlanOnOff OBJECT-TYPE
@@ -174,7 +174,7 @@
         STATUS current
         DESCRIPTION
             "start/stop N:1 vlan.Default is off." 
-            --开启关闭N:1 vlan功能。
+            --N:1 vlan
         ::= { gbnL2DhcpSnooping 4 }
         
     dhcpsnoopingPortDownAction OBJECT-TYPE

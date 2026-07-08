@@ -129,7 +129,7 @@ hpnicfCATVTransOutputLvlLowerThr OBJECT-TYPE
 
 hpnicfCATVTransTempratureUpperThr OBJECT-TYPE
     SYNTAX     Integer32
-    UNITS      "¡æ"
+    UNITS      " C"
     MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION

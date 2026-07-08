@@ -106,8 +106,8 @@ rlPNPParamsAvailability 	OBJECT-TYPE
     STATUS 		current
     DESCRIPTION
         "The availability of parameters:
-	Current – the parameters that are currently used by session.
- 	Next – the parameters that will be used after end of session"
+	Current â€“ the parameters that are currently used by session.
+ 	Next â€“ the parameters that will be used after end of session"
     ::= { rlPNPParamsEntry   1 }
 
 rlPNPServerAddrType	OBJECT-TYPE

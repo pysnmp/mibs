@@ -4986,7 +4986,7 @@ vlanPortMode OBJECT-TYPE
                     Setting it to access(3) sets an access link."
         ::= { vlanPortEntry 2 }
 
---¡@SYS_CPNT_COMMUNITY_PRIVATE_VLAN¡@(use PVLAN_MGR API) start
+--SYS_CPNT_COMMUNITY_PRIVATE_VLAN(use PVLAN_MGR API) start
 vlanPortPrivateVlanType OBJECT-TYPE
         SYNTAX     INTEGER
                    {

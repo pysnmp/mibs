@@ -80,13 +80,13 @@ Dscp ::= TEXTUAL-CONVENTION
 AclType ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION
-       "standard¡¢extend¡¢link¡¢user"
+       "standard,extend,link,user"
     SYNTAX      INTEGER { standard(1), extend (2),link(3), user (4) }        
      
 PacketFlowType ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION
-       "broadcast¡¢multicast¡¢unicast"
+       "broadcast,multicast,unicast"
     SYNTAX      INTEGER { broadcast(1), multicast(2), unicast(3) }  
        
    -----------------------------------------------------
@@ -4013,7 +4013,7 @@ PacketFlowType ::= TEXTUAL-CONVENTION
        ACCESS  read-write
        STATUS  current
        DESCRIPTION
-               "the redirect interface of the traffic-redirect QOS.1£­24 for fast-ethernet port 1£­24£¬25£­26 for giga-ethernet port 1£­2£¬28 for CPU port£¬27 is invaild value. "
+               "the redirect interface of the traffic-redirect QOS.1-24 for fast-ethernet port 1-24,25-26 for giga-ethernet port 1-2,28 for CPU port,27 is invaild value. "
        ::= { qosTrafficRedirectEntry 8 }              
 
    qosTrafficRedirectBlock0Priority OBJECT-TYPE
@@ -4930,7 +4930,7 @@ PacketFlowType ::= TEXTUAL-CONVENTION
        ACCESS  read-write
        STATUS  current
        DESCRIPTION
-               "the vlan ID of the traffic-rewrite-vlan QOS.1£­24 for fast-ethernet port 1£­24£¬25£­26 for giga-ethernet port 1£­2£¬28 for CPU port£¬27 is invaild value. "
+               "the vlan ID of the traffic-rewrite-vlan QOS.1-24 for fast-ethernet port 1-24,25-26 for giga-ethernet port 1-2,28 for CPU port,27 is invaild value. "
        ::= { qosTrafficRewriteVlanEntry 8 }              
 
    qosTrafficRewriteVlanBlock0Priority OBJECT-TYPE
@@ -5185,7 +5185,7 @@ PacketFlowType ::= TEXTUAL-CONVENTION
        ACCESS  read-write
        STATUS  current
        DESCRIPTION
-               "the vlan ID of the traffic-insert-vlan QOS.1£­24 for fast-ethernet port 1£­24£¬25£­26 for giga-ethernet port 1£­2£¬28 for CPU port£¬27 is invaild value. "
+               "the vlan ID of the traffic-insert-vlan QOS.1-24 for fast-ethernet port 1-24,25-26 for giga-ethernet port 1-2,28 for CPU port,27 is invaild value. "
        ::= { qosTrafficInsertVlanEntry 8 }              
 
    qosTrafficInsertVlanBlock0Priority OBJECT-TYPE

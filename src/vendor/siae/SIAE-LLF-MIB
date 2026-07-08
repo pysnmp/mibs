@@ -50,12 +50,12 @@ SIAE-LLF-MIB
 -- Each physical interface (LAN) can be assigned to a LLF circuit in order to
 -- propagate its LOS alarm through a radio link.
 --
--- For each radio link, there are several circuits.
--- Each interface can insert into a circuit its LOS alarm to be propagate to the
+--Â For each radio link, there are several circuits.
+--Â Each interface can insert into a circuit its LOS alarm to be propagate to the
 -- other endpoint of a radio link.
--- In each directions, the circuit has an signal failure if at least the
+--Â In each directions, the circuit has an signal failure if at least the
 -- operative status of one LAN connected to the circuit is down (LOS).
--- In the local terminal, a LAN interface uses the signal failure of the circuit
+--Â In the local terminal, a LAN interface uses the signal failure of the circuit
 -- to propagate the LOS alarm by turning off physical level.
 --
 -- In order to propagate in both direction a LOS to an interface, a SNMP manager

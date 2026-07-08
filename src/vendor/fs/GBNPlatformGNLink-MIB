@@ -1295,7 +1295,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         DESCRIPTION
              " lanswitch's device-id which is the identifier of device-type,
                first 20 entries of device-id table have been occupied by
-               existing device-types,following details £º
+               existing device-types,following details :
                S3042V->0x01000000,S2008E->0x02000000,S2016E->0x03000000,
                S2016EF->0x03010000,S2024E->0x04000000,S2024EF->0x04010000,
                S2208->0x05000000,S2024M->0x06010000,S2024M->0x06010000,
@@ -1312,7 +1312,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-             " lanswitch's device-type name£¬such as ¡®TiNet S2008E¡¯"
+             " lanswitch's device-type name,such as 'TiNet S2008E'"
         ::= { ggmpGbnDeviceIdEntry 3 }
 
         ggmpGbnDeviceIDRowStatus   OBJECT-TYPE

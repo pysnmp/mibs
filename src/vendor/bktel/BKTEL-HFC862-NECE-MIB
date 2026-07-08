@@ -1105,35 +1105,35 @@ BKTEL-HFC862-NECE-MIB  DEFINITIONS ::= BEGIN
     SYNTAX INTEGER
     ACCESS read-only
     STATUS mandatory
-    DESCRIPTION "Temperature low alarm threshold in steps of 0,1캜."
+    DESCRIPTION "Temperature low alarm threshold in steps of 0,1째C."
   ::= { neceMeasuringValuesEntry 1 }
 
   neceTemperatureLo OBJECT-TYPE
     SYNTAX INTEGER
     ACCESS read-only
     STATUS mandatory
-    DESCRIPTION "Temperature low warning threshold in steps of 0,1캜."
+    DESCRIPTION "Temperature low warning threshold in steps of 0,1째C."
   ::= { neceMeasuringValuesEntry 2 }
 
   neceTemperatureValue OBJECT-TYPE
     SYNTAX INTEGER
     ACCESS read-only
     STATUS mandatory
-    DESCRIPTION "Temperature in steps of 0,1캜."
+    DESCRIPTION "Temperature in steps of 0,1째C."
   ::= { neceMeasuringValuesEntry 3 }
 
   neceTemperatureHi OBJECT-TYPE
     SYNTAX INTEGER
     ACCESS read-only
     STATUS mandatory
-    DESCRIPTION "Temperature high warning threshold in steps of 0,1캜."
+    DESCRIPTION "Temperature high warning threshold in steps of 0,1째C."
   ::= { neceMeasuringValuesEntry 4 }
 
   neceTemperatureHiHi OBJECT-TYPE
     SYNTAX INTEGER
     ACCESS read-only
     STATUS mandatory
-    DESCRIPTION "Temperature high alarm threshold in steps of 0,1캜."
+    DESCRIPTION "Temperature high alarm threshold in steps of 0,1째C."
   ::= { neceMeasuringValuesEntry 5 }
 
 

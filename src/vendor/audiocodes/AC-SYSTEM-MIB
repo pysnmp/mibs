@@ -640,13 +640,13 @@ with a BootP server. If a BootP server does not respond and
 if DHCP is enabled, the gateway attempts to obtain its IP address
 and other network parameters from the DHCP server. 
 Note that throughout the DHCP procedure, the BootP/TFTP application
-must be deactivated. If it isn’t deactivated, the gateway
+must be deactivated. If it isnâ€™t deactivated, the gateway
 receives a response from the BootP server instead of
 the DHCP server. 
 For additional information on DHCP, refer to the product documentation.
 
-Note: DHCPEnable is a special ‘Hidden’ parameter. Once defined
-and saved in flash memory, its assigned value doesn’t revert
+Note: DHCPEnable is a special â€˜Hiddenâ€™ parameter. Once defined
+and saved in flash memory, its assigned value doesnâ€™t revert
 to its default even if the parameter doesn't appear in
 the INI file.
 Access: Online.
@@ -750,7 +750,7 @@ if DHCP is disabled, the gateway will boot from flash. It will
 then attempt to communicate with the DHCP server to renew
 the lease. 
 Note that throughout the DHCP procedure, the BootP/TFTP application
-must be deactivated. If it isn’t deactivated, the gateway
+must be deactivated. If it isnâ€™t deactivated, the gateway
 receives a response from the BootP server instead of
 the DHCP server. 
 For additional information on DHCP, refer to the product documentation.
@@ -1241,7 +1241,7 @@ AC INI-Param: InterfaceTable_IPAddress"
        MAX-ACCESS read-create
        STATUS current
        DESCRIPTION
-           "The number of ‘1’ bits in this interface’s netmask.
+           "The number of â€˜1â€™ bits in this interfaceâ€™s netmask.
 Access: Offline.
 AC INI-Param: InterfaceTable_PrefixLength"
        ::= {acSysInterfaceEntry 8}
@@ -1277,7 +1277,7 @@ AC INI-Param: InterfaceTable_VlanID"
        MAX-ACCESS read-create
        STATUS current
        DESCRIPTION
-           "a 16 character string of this interface’s name.
+           "a 16 character string of this interfaceâ€™s name.
 Access: Offline.
 AC INI-Param: InterfaceTable_InterfaceName"
        ::= {acSysInterfaceEntry 11}
@@ -8365,12 +8365,12 @@ AC INI-Param: N/A"
        DESCRIPTION
            "The row's index.
 On 8410 Systems:
-Index 1 – related to GBE port no.1 in the TER (Media).
-Index 2 – related to GBE port no.2 in the TER (Media).
-Index 3 – related to port 1A in PEM #1 (Control).
- Index 4 – related to port 1B in PEM #2 (Control).
-Index 5 – related to port 2A in PEM #1 (OAM).
-Index 6 – related to port 2B in PEM #2 (OAM). 
+Index 1 â€“ related to GBE port no.1 in the TER (Media).
+Index 2 â€“ related to GBE port no.2 in the TER (Media).
+Index 3 â€“ related to port 1A in PEM #1 (Control).
+ Index 4 â€“ related to port 1B in PEM #2 (Control).
+Index 5 â€“ related to port 2A in PEM #1 (OAM).
+Index 6 â€“ related to port 2B in PEM #2 (OAM). 
 On MSBG only:
 1-12 LAN interfaces.
 AC INI-Param: N/A"
@@ -9080,7 +9080,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "The number of ‘1’ bits in this interface’s netmask.
+           "The number of â€˜1â€™ bits in this interfaceâ€™s netmask.
 AC INI-Param: N/A"
        ::= {acSysInterfaceStatusEntry 6}
 
@@ -9113,7 +9113,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "16 character string of this interface’s name.
+           "16 character string of this interfaceâ€™s name.
 AC INI-Param: N/A"
        ::= {acSysInterfaceStatusEntry 9}
 
@@ -9414,7 +9414,7 @@ AC INI-Param: N/A"
        STATUS current
        DESCRIPTION
            "The average  received bits  rate (bps) and packets rate (pps)
-during the last ‘acSysDataInterfaceStatusMinutes’ minutes.
+during the last â€˜acSysDataInterfaceStatusMinutesâ€™ minutes.
 AC INI-Param: N/A"
        ::= {acSysDataInterfaceStatusEntry 21}
 
@@ -9426,7 +9426,7 @@ AC INI-Param: N/A"
        STATUS current
        DESCRIPTION
            "The average  transmitted bits  rate (bps) and packets rate (pps)
-during the last ‘acSysDataInterfaceStatusMinutes’ minutes.
+during the last â€˜acSysDataInterfaceStatusMinutesâ€™ minutes.
 AC INI-Param: N/A"
        ::= {acSysDataInterfaceStatusEntry 22}
 
@@ -9451,7 +9451,7 @@ AC INI-Param: N/A"
        STATUS current
        DESCRIPTION
            "The average  received bits rate (bps) and packets rate (pps)
-during the last ‘acSysDataInterfaceStatusSeconds’ seconds.
+during the last â€˜acSysDataInterfaceStatusSecondsâ€™ seconds.
 AC INI-Param: N/A"
        ::= {acSysDataInterfaceStatusEntry 24}
 
@@ -9463,7 +9463,7 @@ AC INI-Param: N/A"
        STATUS current
        DESCRIPTION
            "The average transmitted bits rate (bps) and packets rate (pps)
-during the last ‘acSysDataInterfaceStatusSeconds’ seconds.
+during the last â€˜acSysDataInterfaceStatusSecondsâ€™ seconds.
 AC INI-Param: N/A"
        ::= {acSysDataInterfaceStatusEntry 25}
 
@@ -10255,7 +10255,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "Indicates current state of the alarm dry contacts – out signals
+           "Indicates current state of the alarm dry contacts â€“ out signals
 (3 signals).  This is a bit-map of possible conditions.
 AC INI-Param: N/A"
        ::= {acSystemChassis 1}
@@ -10920,7 +10920,7 @@ AC INI-Param: N/A"
            "This object built as a bit-field which represents the Fan-Tray's
 LEDs status.
 The first four bites represent the System's LED status and
-the last four bites represent the Shelf-LED’s status.
+the last four bites represent the Shelf-LEDâ€™s status.
 AC INI-Param: N/A"
        ::= {acSysFanTrayEntry 5}
 
@@ -11073,7 +11073,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "PS’s HW version.
+           "PSâ€™s HW version.
 AC INI-Param: N/A"
        ::= {acSysPowerSupplyEntry 4}
 
@@ -11200,7 +11200,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "PEM’s Type.
+           "PEMâ€™s Type.
 AC INI-Param: N/A"
        ::= {acSysPEMEntry 4}
 
@@ -11294,7 +11294,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "SAT’s Type.
+           "SATâ€™s Type.
 AC INI-Param: N/A"
        ::= {acSysSATEntry 3}
 
@@ -12098,7 +12098,7 @@ AC INI-Param: N/A"
            "This object built as a bit-field which represents the Fan-Tray's
 LEDs status.
 The first four bites represent the System's LED status and
-the last four bites represent the Shelf-LED’s status.
+the last four bites represent the Shelf-LEDâ€™s status.
 AC INI-Param: N/A"
        ::= {acSysRedundantFanTrayEntry 5}
 
@@ -12251,7 +12251,7 @@ AC INI-Param: N/A"
        MAX-ACCESS read-only
        STATUS current
        DESCRIPTION
-           "PS’s HW version.
+           "PSâ€™s HW version.
 AC INI-Param: N/A"
        ::= {acSysRedundantPowerSupplyEntry 4}
 

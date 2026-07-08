@@ -1011,7 +1011,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The syslog¡¯s bind ip address."
+				"The syslog's bind ip address."
 			::= { sleSystemBaseInfo 96 }
 
 		
@@ -1802,7 +1802,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"The syslog¡¯s bind ip address."
+				"The syslog's bind ip address."
 			::= { sleSystemBaseControl 65 }
 
 		

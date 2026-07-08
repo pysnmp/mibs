@@ -1476,7 +1476,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Neighbour6 entry¡¯s currently chip usage state."
+				"Neighbour6 entry's currently chip usage state."
 			::= { sleNeighbour6Entry 6 }
 
 		
@@ -1862,7 +1862,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Static route entry¡¯s BFD state."
+				"Static route entry's BFD state."
 			::= { sleRoute6Entry 12 }
 
 		

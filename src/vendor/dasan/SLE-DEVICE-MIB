@@ -3590,7 +3590,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The boot loader¡¯s S/W version."
+				"The boot loader's S/W version."
 			::= { sleSlotSystemInfoEntry 6 }
 
 		
@@ -3617,7 +3617,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The system¡¯s MAC address."
+				"The system's MAC address."
 			::= { sleSlotSystemInfoEntry 9 }
 
 		

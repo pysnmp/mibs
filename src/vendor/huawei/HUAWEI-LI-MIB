@@ -609,12 +609,12 @@
                 2 means bidirectional traffic is intercept. 
                 
                 for bidirectional interception,  if the source IP or destination IP 
-                in a packet is equal with the configured hwLiStreamSrcIpAddress£¬
+                in a packet is equal with the configured hwLiStreamSrcIpAddress,
                 If other condition is satisfied then the packet is intercepted.
                 
                 for one-directional interception,  if the sourceIP and DestinationIP 
                 in a packet is equal with the configured hwLiStreamSrcIpAddress and 
-                hwLiStreamDstIPAddress£¬If other condition is satisfied then the 
+                hwLiStreamDstIPAddress,If other condition is satisfied then the 
                 packet is intercepted"
             DEFVAL { biDirection }
             ::= { hwLiStreamEntry 5 }

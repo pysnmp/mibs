@@ -94,7 +94,7 @@ to IP.
 The valid range is 25 to 1500. The default value is 700 msec.
 Note: For FXO gateways, a constant of 90 msec must be added
 to the required hook-flash period. For example, to generate
-a 450 msec hook-flash, set ‘FlashHookPeriod’ to 540.
+a 450 msec hook-flash, set â€˜FlashHookPeriodâ€™ to 540.
 .
 Access: Instant.
 AC INI-Param: FLASHHOOKPERIOD"
