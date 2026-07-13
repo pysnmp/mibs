@@ -156,7 +156,7 @@ polPowerOverLan MODULE-IDENTITY
      portType OBJECT-TYPE
        SYNTAX INTEGER   {
                twopair(1),
-               fourpair(2),
+               fourpair(2)
           }
      MAX-ACCESS read-write
      STATUS current

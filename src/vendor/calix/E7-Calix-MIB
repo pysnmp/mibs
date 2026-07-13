@@ -24,9 +24,9 @@ IMPORTS
     E7SnmpVers,
     E7EtherType,
     E7Pbit,
-    E7BondedInterfaceIndex
-    E7OperStatus
-    E7XdslGrpOperStatus 
+    E7BondedInterfaceIndex,
+    E7OperStatus,
+    E7XdslGrpOperStatus
                     FROM E7-TC;
 
     e7ResourceModule MODULE-IDENTITY
@@ -96,7 +96,7 @@ E7CardEntry ::= SEQUENCE {
 	e7CardCleiCode				 OCTET STRING,
 	e7CardPartNumber			 OCTET STRING,
 	e7CardStartMacRange			 OCTET STRING,
-	e7CardEndMacRange            OCTET STRING,
+	e7CardEndMacRange            OCTET STRING
     }
 
 e7CardBank OBJECT-TYPE

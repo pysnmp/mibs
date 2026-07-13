@@ -106,7 +106,7 @@ AC INI-Param: CHANNELSELECTMODE"
        STATUS current
        DESCRIPTION
            "The table defines trunk/hunt groups and phone numbers for gateway endpoints. 
-The endpoints that aren’t defined will be disabled."
+The endpoints that arenâ€™t defined will be disabled."
        ::= {channelsSetting 21}
 
 
@@ -15004,8 +15004,8 @@ AC INI-Param: PEERHOSTNAMEVERIFICATIONMODE"
        STATUS current
        DESCRIPTION
            "Certificate validation behavior
-0 – No certificate validation.
-1 – Server certificate validation.
+0 â€“ No certificate validation.
+1 â€“ Server certificate validation.
 Access: Instant.
 AC INI-Param: VERIFYSERVERCERTIFICATE"
        ::= {gwSecurity 5}
@@ -16818,7 +16818,7 @@ AC INI-Param: SBCMINSE"
        STATUS current
        DESCRIPTION
            "Defines the coders combination in the outgoing message.
-0 - doesn’t include extentions (default). Extended coders will
+0 - doesnâ€™t include extentions (default). Extended coders will
 be added at the end.
 1- Include extentions.
 Access: Instant.
@@ -19697,7 +19697,7 @@ AC INI-Param: ISDNSuppServ_IsCallerIDEnabled"
            "Expires value SBC responds to user with. Used when server is
 offline or when the user is behind NAT. Otherwise expires is
 defined by the server. When the parameter is set to 0, the
-SBC does not change the Expires value, received in the user’s
+SBC does not change the Expires value, received in the userâ€™s
 REGISTER request.
 Access: Instant.
 AC INI-Param: SBCUSERREGISTRATIONTIME"
@@ -21006,7 +21006,7 @@ AC INI-Param: USEPROXYIPASHOST"
        STATUS current
        DESCRIPTION
            "The table defines phone numbers for gateway endpoints. 
-The endpoints that aren’t defined will be disabled."
+The endpoints that arenâ€™t defined will be disabled."
        ::= {sipProxy 21}
 
 
@@ -21764,14 +21764,14 @@ AC INI-Param: MUTUALAUTHENTICATIONMODE"
        MAX-ACCESS read-write
        STATUS current
        DESCRIPTION
-           "0. No caching mode – don't cache any challenges. Every new request
+           "0. No caching mode â€“ don't cache any challenges. Every new request
 will be sent without preliminary authorization. If the
-request is challenged – new request with authorization data
+request is challenged â€“ new request with authorization data
 will be sent.
-1. Cache for INVITE mode – challenges issued for INVITE request
+1. Cache for INVITE mode â€“ challenges issued for INVITE request
 and within the session will be cached. This will prevent
 the mixture of REGISTER and INVITE authorizations.
-2. Full cache mode – cache any challenges from the proxies.
+2. Full cache mode â€“ cache any challenges from the proxies.
 .
 Access: Instant.
 AC INI-Param: SIPCHALLENGECACHINGMODE"
@@ -22141,7 +22141,7 @@ AC INI-Param: REGISTERONINVITEFAILURE"
            "If (REGISTRATIONTIMETHRESHOLD > 0) and (REGISTRATIONTIMETHRESHOLD
 < computed registration time using existing logic) then
 new registration time will be (Registration time from expires
-header – REGISTRATIONTIMETHRESHOLD).
+header â€“ REGISTRATIONTIMETHRESHOLD).
 Access: Instant.
 AC INI-Param: REGISTRATIONTIMETHRESHOLD"
        ::= {sipRegistration 9}
@@ -23597,11 +23597,11 @@ AC INI-Param: SASBINDINGMODE"
        STATUS current
        DESCRIPTION
            "Defines the SAS working mode:
-0 – Standard Mode (working with configured proxy set)
-1 – Always emergency mode (working without proxy)
-2 – Ignore REGISTER in normal mode 
-3 – Auto-answer REGISTER (do not forward to proxy)
-4 – Use Routing Table only in normal mode (berfore forward
+0 â€“ Standard Mode (working with configured proxy set)
+1 â€“ Always emergency mode (working without proxy)
+2 â€“ Ignore REGISTER in normal mode 
+3 â€“ Auto-answer REGISTER (do not forward to proxy)
+4 â€“ Use Routing Table only in normal mode (berfore forward
 to proxy).
 Access: Instant.
 AC INI-Param: SASSURVIVABILITYMODE"

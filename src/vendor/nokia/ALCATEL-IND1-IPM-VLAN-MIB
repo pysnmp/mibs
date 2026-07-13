@@ -50,7 +50,7 @@ ALCATEL-IND1-IPM-VLAN-MIB DEFINITIONS ::= BEGIN
                 non-exclusive license to use this specification in connection with 
                 management of the products for which it is intended to be used.
 
-                Copyright ¨ 1995-2007 Alcatel-Lucent
+                Copyright Â¨ 1995-2007 Alcatel-Lucent
 	        ALL RIGHTS RESERVED WORLDWIDE"
 			::= { softentIND1IPMVlanMgt 1}
 

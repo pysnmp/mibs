@@ -7,7 +7,7 @@
                NMS-OPTICAL-PORT-MIB DEFINITIONS ::= BEGIN
 
                IMPORTS
-                    NOTIFICATION-TYPE,INTEGER
+                    NOTIFICATION-TYPE
                         FROM SNMPv2-SMI
                     Counter, IpAddress, Counter
 			FROM RFC1155-SMI

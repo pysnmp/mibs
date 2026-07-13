@@ -50,10 +50,10 @@ OTNTrafficRate ::= TEXTUAL-CONVENTION
 		gbe10GLan(2),     	-- 10.3125 Gbps (10GE LAN)
 		fc10G(3) , 			-- 10.5187 Gbps (10G FC)
 		otu2(4),            -- 10.7092 Gbps (G.709; G.Supp43 6.1; OTU2)
-		otu2eLan(5),        -- 11.0491 Gbps [= 255/238 × 10.3125] (G.Supp43 7.2; OTU2e LAN w/o stuffing)
-		otu2eLanStuff(6),   -- 11.0957 Gbps [= 255/237 × 10.3125] (G.Supp43 7.1; OTU2e LAN /w stuffing)
-		otu2eFc(7),       	-- 11.2701 Gbps [= 255/238 × 10.5187] (G.sup43 7.2 of 10G FC; OTU2e 10GFC w/o stuffing)    
-		otu2FcStuff(8)		-- 11.3176 Gbps [= 255/237 × 10.5187] (G.sup43 7.1 of 10G FC; OTU2 10G FC /w stuffing) 
+		otu2eLan(5),        -- 11.0491 Gbps [= 255/238 Ã— 10.3125] (G.Supp43 7.2; OTU2e LAN w/o stuffing)
+		otu2eLanStuff(6),   -- 11.0957 Gbps [= 255/237 Ã— 10.3125] (G.Supp43 7.1; OTU2e LAN /w stuffing)
+		otu2eFc(7),       	-- 11.2701 Gbps [= 255/238 Ã— 10.5187] (G.sup43 7.2 of 10G FC; OTU2e 10GFC w/o stuffing)    
+		otu2FcStuff(8)		-- 11.3176 Gbps [= 255/237 Ã— 10.5187] (G.sup43 7.1 of 10G FC; OTU2 10G FC /w stuffing) 
 	}
 
 OTNOperationMode ::= TEXTUAL-CONVENTION

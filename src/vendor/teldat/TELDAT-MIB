@@ -55,54 +55,54 @@
      	--      22-01-13    I. Munoz            Code clean-up.
         -- 17.0 02-01-13    E. Amorena          Compilation error
         -- 16.9 29-11-12    E. Amorena          Mibs checks
-        -- 16.8 22-11-12    Benjamín G.         Events subsystem NIC and add H1 Rail device.
+        -- 16.8 22-11-12    BenjamÃ­n G.         Events subsystem NIC and add H1 Rail device.
         -- 16.7 22-11-12    J. Lamamie          OSPFv3. Commented duplicate RIP6.
         -- 16.6 13-11-12    N. Moro             PIM protocol and MROUTE
         -- 16.5 12-11-12    E. Amorena          New ACL events subsystem
         -- 16.4 09-07-12    P. Nogueira         WLAN subinterfaces on Colibri platforms
-        -- 16.3 27-07-12    M. Fadón            New product Connect 104
+        -- 16.3 27-07-12    M. FadÃ³n            New product Connect 104
         -- 16.2 07-06-12    C. Godoy            Subsistema de eventos LLDP, RIP6 y MLD6.
         -- 16.1 30-01-12    J. Rodrigo          Nuevos interfaces
         -- 16.0 14-12-11    GrupoIPv6           Nuevo IPv6: Fase 1
         -- 15.9 18-01-12    V. Espejo           Subsistema de eventos IPSF
         -- 15.8 20-07-11    S. Font             Subsistema de eventos SDEV
-        -- 15.7 18-07-11    M.A. Pastor         Atlas 60: añadidos equipos,
+        -- 15.7 18-07-11    M.A. Pastor         Atlas 60: aÃ±adidos equipos,
         --                                      licencias, tipos de placa, tipos
         --                                      de interfaz y tipos de conector
-        -- 15.6 20-05-11    M.A. Pastor         Añadidos equipos, tipos de placa,
+        -- 15.6 20-05-11    M.A. Pastor         AÃ±adidos equipos, tipos de placa,
         --                                      tipos de interfaz, conectores,
         --                                      subsistemas de eventos y licencias
         -- 15.5 23-12-10    P. Nogueira         Subinterfaces WLAN
         -- 15.4 29-12-10    P. Ortiz            RegestaPro6xER. Feature ACAT
         -- 15.3 27-10-10    E. Amorena          Nuevo equipo RegestaPro6xER
-        -- 15.2 15-10-10    M. Fadón            XI 988. iRouter Pro. Feature VLI.
+        -- 15.2 15-10-10    M. FadÃ³n            XI 988. iRouter Pro. Feature VLI.
         -- 15.1 05-10-10    P. Ortiz            Equipos Regesta-1, RP81 y RP82
         -- 15.0 30-06-10    M.A. Pastor         Compatibilidad con Spectrum
-        -- 14.9 10-03-10    I. Muñoz            Se añade conector usb en teladminstatusiftable
+        -- 14.9 10-03-10    I. MuÃ±oz            Se aÃ±ade conector usb en teladminstatusiftable
         -- 14.8 30-12-09    FdMB                Plataforma H1+
         -- 14.7 03-11-09    FdMB                Plataforma T200W
         -- 14.6 23-10-09    FdMB                Plataforma H4
-        -- 14.5 07-09-09    Benjamín G.         PMP-909 Agente SPI.
-        -- 14.4 08-07-09    I. Muñoz            Revisión de todas las MIB para
+        -- 14.5 07-09-09    BenjamÃ­n G.         PMP-909 Agente SPI.
+        -- 14.4 08-07-09    I. MuÃ±oz            RevisiÃ³n de todas las MIB para
         --                  M.A. Pastor         evitar warnings y errores de
-        --                                      compilación
+        --                                      compilaciÃ³n
         -- 14.3 31-08-09    N. Moro             PMP 855. Contadores de bits en entrada
         -- 14.2 03-07-09    FdMB                Equipos C1+L y V1
-        -- 14.1 20-05-09    Benjamín G.         Cambio nombre H1 Ind. a AUTOMOTIVE.
-        -- 14.0 08-04-09    Benjamín G.         Equipo Teldat G1N
-        -- 13.9 18-03-09    Benjamín G.         Equipo Teldat H1 Industrial
+        -- 14.1 20-05-09    BenjamÃ­n G.         Cambio nombre H1 Ind. a AUTOMOTIVE.
+        -- 14.0 08-04-09    BenjamÃ­n G.         Equipo Teldat G1N
+        -- 13.9 18-03-09    BenjamÃ­n G.         Equipo Teldat H1 Industrial
         -- 13.8 11-03-09    J.Sirodey           Equipo Teldat T200 pasa a ser Teldat T200G
         -- 13.7 31-10-08    M.Fad & P.Ort       Prot MGCP obsoletando el anterior
         -- 13.6 30-07-08    FdMB                Plataforma TELDAT_T200
-        -- 13.5 24-06-08    R. Roldan           Se añade susbsistema NETFLOW y
+        -- 13.5 24-06-08    R. Roldan           Se aÃ±ade susbsistema NETFLOW y
         --                                      RIP obsoletando el anterior
         -- 13.4 05-03-08    J. Herrero          Reservado sistema de eventos para PIO
-        -- 13.3 05-03-08    M. Fadón            VyDa 4M
-        -- 13.2 21-02-08    M.A. Pastor         Actualización de los tipos de
+        -- 13.3 05-03-08    M. FadÃ³n            VyDa 4M
+        -- 13.2 21-02-08    M.A. Pastor         ActualizaciÃ³n de los tipos de
         --                  J. Herrero          interfaz y de los tipos de
         --                                      conector para soportar todos los
         --                                      incluidos en el CIT.
-        --                                      Se añaden los subsistemas de
+        --                                      Se aÃ±aden los subsistemas de
         --                                      eventos ME, ARLY, DNS Updater,
         --                                      UDP6, ICMP6, RIP6, SSL y SCCP
         -- 13.1 24-01-08    P. Nogueira         Eventos para CDP
@@ -119,13 +119,13 @@
         -- 12.0 18-04-07    R. Roldan           PMP 554: facilidad confirm-cfg-needed por SNMP
         -- 11.9 19-03-07    M.A. Berrojo        voip-cellular y cellular
         -- 11.8 08-03-07    P. Alonso           Traps BFD.
-        -- 11.7 20-12-06    M. Fadón            Traps NOE y AFS.
-        -- 11.6 05-12-06    Benjamín G.         Traps X28.
+        -- 11.7 20-12-06    M. FadÃ³n            Traps NOE y AFS.
+        -- 11.6 05-12-06    BenjamÃ­n G.         Traps X28.
         -- 11.5 20/10/06    J. Iglesias         Subsistema TIDP
         -- 11.4 26-07-06    P. Nogueira         Eventos de RSTP
         -- 11.3 10/10/06    A. Mata             Traps para IRVOZ
         -- 11.2 19/09/06    M.A. Pastor         Nuevo equipo CIRUS
-        -- 11.1 06-07-06    C. García           CIRUS: Implementación bridge-spoofing
+        -- 11.1 06-07-06    C. GarcÃ­a           CIRUS: ImplementaciÃ³n bridge-spoofing
         -- 11.0 15-06-06    FdMB                (II) HAP 222: Atlas3g. Soporte 85xx. Plataforma PQIII
         -- 10.9 16-02-06    FdMB                Plataformas X2-a, X4-a.
         -- 10.2 30-05-06    M.A. Pastor         La TELDAT-MIB no compilaba
@@ -137,7 +137,7 @@
         -- 10.5 22/11/05    J.Sirodey           C8+, C9+
         -- 10.4 04-01-06    S. Font             G4[i]-CDMA, G3[i]-CDMA, G1[i]-CDMA
         -- 10.3 30-11-05    FDMB                CISCO-HDLC
-        -- 10.2 12/12/05    Benjamín G.         Traps SCADA FW.
+        -- 10.2 12/12/05    BenjamÃ­n G.         Traps SCADA FW.
         -- 10.1 22/11/05    FdMB                C1+
         -- 10.0 29/08/05    M. Fadon            VyDa-Compacto
         -- 9.9  24/10/05    P. Marzo            Cliente STUN
@@ -157,18 +157,18 @@
         -- 8.5  14/07/05    FdMB                Tarjeta PCI-GIGABIT-Ethernet
         -- 8.4  17/06/05    M. Fadon            Nuevo subsistema de eventos
         --                                      TLPHY y se elimina mib h323
-        -- 8.3  17/06/05    M.A. Pastor         No se había añadido el ATLAS 250
+        -- 8.3  17/06/05    M.A. Pastor         No se habÃ­a aÃ±adido el ATLAS 250
         --                                      en telobjid ni en
         --                                      telAdminStatusSystemCode.
         --                                      Se corrige la etiqueta
         --                                      correspondiente al ATLAS 50 en
         --                                      el tipo enumerado de
         --                                      telAdminStatusSystemCode
-        -- 8.2  30/05/05    R. Sánchez          Eventos de consola
+        -- 8.2  30/05/05    R. SÃ¡nchez          Eventos de consola
         -- 8.1  03/06/05    M.A. Pastor         Nuevos tipos de hardware:
-        --                                      * PCI soporte VoIP analógico
+        --                                      * PCI soporte VoIP analÃ³gico
         --                                        3DXS, 1FXO con bypass
-        --                                      * PCI soporte VoIP analógico
+        --                                      * PCI soporte VoIP analÃ³gico
         --                                        2FXS, 2FXO con bypass
         --                                      * PCI E1/T1 sobre Acodes 490x
         --                                      * PCI soporte VoIP isdn BRI-TE
@@ -187,12 +187,12 @@
         -- 6.9  22/12/04    Benjamin G.         Protocolo SCADA.
         -- 6.8  14/12/04    M.A. Pastor         Corregidos identificadores de
         --                                      licencias (deben comenzar con
-        --                                      minúscula)
+        --                                      minÃºscula)
         -- 6.7  13/12/04    FdMB                Completadas licencias ATLAS 250
         -- 6.6  09/12/04    M.A. Pastor         ATLAS 100-B
         -- 6.5  09/12/04    M.A. Pastor         Nuevas licencias para ATLAS 100
         -- 6.4  29/11/04    M.A. Pastor         Corregidos valores medio activo
-        -- 6.3  25/11/04    M.A. Pastor         Se añaden nuevos tipos de placa
+        -- 6.3  25/11/04    M.A. Pastor         Se aÃ±aden nuevos tipos de placa
         -- 6.2  25/11/04    M.A. Pastor         Esta MIB no compilaba
         -- 6.1  24/11/04    M. Fuertes          Se agrega interfaz virtual de bridge (BVI)
         -- 6.0  26/10/04    S. Font             C4G
@@ -204,106 +204,106 @@
         --                                      enumerados (no se compilaba en
         --                                      OpenView)
         -- 5.5  10/09/04    FdMB                ATLAS300
-        -- 5.4  09/09/04    Benjamin G.         PMP(HT53) Se añade sub. TTTP.
+        -- 5.4  09/09/04    Benjamin G.         PMP(HT53) Se aÃ±ade sub. TTTP.
         -- 5.3  01-09-04    M.A. Berrojo        Se soportan eventos voip
         -- 5.2  09/07/04    M.A. Pastor         Cambio en las variables que
         --                                      ejecutan el restart y el reload
-        --                                      para que coincidan con la acción
+        --                                      para que coincidan con la acciÃ³n
         --                                      que realizan en equipos antiguos
         -- 5.1  05/05/04    M.A. Pastor         Nuevos equipos Atlas 300 y C1G.
         -- 5.0  23/06/04    M.A. Pastor         Nuevas licencias (CR: Calidad de
         --                                      Respaldo) y nuevo subsistema de
         --                                      eventos NSLA
         -- 4.9  01/06/04    M.A. Pastor         Nuevos tipos de interfaz (PCI
-        --                                      soporte VoIP analógico y L2TP)
+        --                                      soporte VoIP analÃ³gico y L2TP)
         --                                      y nuevos subsistemas de eventos
         --                                      (Telnet y L2TP)
-        -- 4.8  11/05/04    M.A. Pastor         Se añaden las licencias de los
+        -- 4.8  11/05/04    M.A. Pastor         Se aÃ±aden las licencias de los
         --                                      equipos antiguos por si desde
-        --                                      una misma estación se quiere
+        --                                      una misma estaciÃ³n se quiere
         --                                      gestionar todo un parque en el
-        --                                      que todavía convivan este tipo
+        --                                      que todavÃ­a convivan este tipo
         --                                      de equipos junto con los nuevos
-        -- 4.7  05/05/04    M.A. Pastor         Revisión tipos de interfaz.
-        --                                      Se añaden nuevas licencias.
-        --                                      Notificación de eventos mediante
+        -- 4.7  05/05/04    M.A. Pastor         RevisiÃ³n tipos de interfaz.
+        --                                      Se aÃ±aden nuevas licencias.
+        --                                      NotificaciÃ³n de eventos mediante
         --                                      mensajes syslog. Se obsoletan
         --                                      las alarmas propietarias.
-        -- 4.6  04/02/04    M.A. Pastor         Revisión tipos de interfaz y
+        -- 4.6  04/02/04    M.A. Pastor         RevisiÃ³n tipos de interfaz y
         --                                      subsistemas de eventos.
-        -- 4.5  09/12/03    F. Hernández        Cambio en las traps generadas en
+        -- 4.5  09/12/03    F. HernÃ¡ndez        Cambio en las traps generadas en
         --                                      el proceso de sondeo de los
         --                                      estados de los TE-Circuits
         -- 4.4  20/11/03    M.A. Pastor         Nuevo tipo de placa (board type)
-        -- 4.3  14/11/03    M.A. Pastor         Nuevas licencias y códigos de
-        --                                      gestión de los equipos.
-        -- 4.2  22/10/03    M.A. Pastor         Nuevas licencias, códigos de
+        -- 4.3  14/11/03    M.A. Pastor         Nuevas licencias y cÃ³digos de
+        --                                      gestiÃ³n de los equipos.
+        -- 4.2  22/10/03    M.A. Pastor         Nuevas licencias, cÃ³digos de
         --                                      equipo, tipos de interfaz y
         --                                      subsistemas de eventos.
         --                                      Los equipos Teldat C5x pasan a
         --                                      denominarse Teldat C4x SNA.
         -- 4.1  19/09/03    M.A. Pastor         Nuevos equipos Teldat C1/S1/G1.
         --                                      Motorola FEC con Switch KS8995M
-        -- 4.0  19/09/03    F. Hernández        Traps generadas en el proceso de
+        -- 4.0  19/09/03    F. HernÃ¡ndez        Traps generadas en el proceso de
         --                                      sondeo de los estados de los
         --                                      TE-Circuits encargado por MCI
         -- 3.9  24/07/03    M.A. Pastor         Nuevas licencias y sublicencias.
-        --                                      Revisión del subsistema de
-        --                                      eventos, de los códigos de
+        --                                      RevisiÃ³n del subsistema de
+        --                                      eventos, de los cÃ³digos de
         --                                      equipo y de los tipos de interfaz
         -- 3.8  05/12/02    M.A. Pastor         Nuevas variables para obtener el
-        --                                      tipo de placa y la revisión de
-        --                                      la misma y para saber si está o
+        --                                      tipo de placa y la revisiÃ³n de
+        --                                      la misma y para saber si estÃ¡ o
         --                                      no montado el controlador de
         --                                      SmartCard.
         --                                      Se aprovecha para revisar el
         --                                      sistema de eventos, licencias y
-        --                                      códigos de los equipos
+        --                                      cÃ³digos de los equipos
         -- 3.7  16/10/02    P. Nogueira         Nuevas variables relacionadas
-        --                                      con la elección del medio activo
+        --                                      con la elecciÃ³n del medio activo
         --                                      (Flash o SmartCard)
-        -- 3.6  19/07/02    M.A. Pastor         Se actualizan los códigos o
+        -- 3.6  19/07/02    M.A. Pastor         Se actualizan los cÃ³digos o
         --                                      identificadores de los equipos
-        --                                      de Teldat en telobjid. También
+        --                                      de Teldat en telobjid. TambiÃ©n
         --                                      se revisa el sistema de eventos
         -- 3.4  14/02/02    M.A. Pastor         Nuevas licencias para C2-UP
         --                                      y C6. Cambios en las licencias
         --                                      correspondientes al Visornet
-        -- 3.3  14/02/02    M.A. Pastor         Se corrige la descripción de la
+        -- 3.3  14/02/02    M.A. Pastor         Se corrige la descripciÃ³n de la
         --                                      variable sreEvnStatusAct (no se
         --                                      indicaban bien los valores de
-        --                                      las máscaras a aplicar)
+        --                                      las mÃ¡scaras a aplicar)
         -- 3.2  04/02/02    M.A. Pastor         Cambios en los tipos de los
         --                                      interfaces
         -- 3.1  04/02/02    M.A. Pastor         Nuevas licencias para Centrix-D
-        --                                      y Centrix-Sec-A (versión Atlas).
-        --                                      Nuevo código de equipo para el
+        --                                      y Centrix-Sec-A (versiÃ³n Atlas).
+        --                                      Nuevo cÃ³digo de equipo para el
         --                                      C2-UP.
         --                                      Se agregan los posibles tipos de
         --                                      conector que no se contemplaban
         -- 3.0  21/01/01    M.A. Pastor         Nuevos equipos Centrix-Sec y
-        --                                      Atlas-D. Inclusión de la
+        --                                      Atlas-D. InclusiÃ³n de la
         --                                      licencia de C-Master_Router
-        -- 2.9  14/12/01    M.A. Pastor         Revisión del sistema de eventos
+        -- 2.9  14/12/01    M.A. Pastor         RevisiÃ³n del sistema de eventos
         -- 2.8  25/10/01    J. L. Fuentes       Se agregan los interfaces serie
         --                                      sincrono y asincrono
         -- 2.7  25/10/01    M.A. Pastor         Revision de las licencias y de
-        --                                      los códigos de los equipos
-        -- 2.6  01/10/01    N. Villaseñor       Traducción a inglés
+        --                                      los cÃ³digos de los equipos
+        -- 2.6  01/10/01    N. VillaseÃ±or       TraducciÃ³n a inglÃ©s
         -- 2.5  10/04/01    M.A. Pastor         Se actualizan los posibles tipos
         --                                      de interfaces y se agrega el
         --                                      interfaz de Loopback
         -- 2.4  01/12/00    M.A. Pastor         Modificaciones para que pueda ser
         --                                      compilada utilizando compiladores
         --                                      distintos del de Teldat
-        -- 2.3  13/12/99    V.Ruiz-Ruano        Añado OID de subsistema ICU PLUS
+        -- 2.3  13/12/99    V.Ruiz-Ruano        AÃ±ado OID de subsistema ICU PLUS
         --                                      para que haga de enterprise en
-        --                                      TRAPS específicas de Teldat
+        --                                      TRAPS especÃ­ficas de Teldat
         -- 2.2  01/03/99    V.Ruiz-Ruano        Elimino SRETrapEquipo, puesto que
         --                                      no todas las TRAPS devuelven el
-        --                                      equipo como tercer parámetro.
-        -- 2.1  01/03/99    V.Ruiz-Ruano        Añado los OIDs que harán la
-        --                                      función de Enterprise en las TRAPS
+        --                                      equipo como tercer parÃ¡metro.
+        -- 2.1  01/03/99    V.Ruiz-Ruano        AÃ±ado los OIDs que harÃ¡n la
+        --                                      funciÃ³n de Enterprise en las TRAPS
 
         -- 2.0          08/07/98    Jose Picot  Agregacion de nuevos equipos
 
@@ -919,8 +919,8 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
     teldatSreTrap-PCMC      OBJECT IDENTIFIER ::= { teldatSreTrap 118 }
     teldatSreTrap-LAPD      OBJECT IDENTIFIER ::= { teldatSreTrap 119 }
     teldatSreTrap-TNIP      OBJECT IDENTIFIER ::= { teldatSreTrap 120 }
---  teldatSreTrap-BIRU      OBJECT IDENTIFIER ::= { teldatSreTrap 121 }     Está definida en biru.mib  (pruebas)
---  teldatSreTrap-EBANO     OBJECT IDENTIFIER ::= { teldatSreTrap 122 }     Está definida en ebano.mib (pruebas)
+--  teldatSreTrap-BIRU      OBJECT IDENTIFIER ::= { teldatSreTrap 121 }     EstÃ¡ definida en biru.mib  (pruebas)
+--  teldatSreTrap-EBANO     OBJECT IDENTIFIER ::= { teldatSreTrap 122 }     EstÃ¡ definida en ebano.mib (pruebas)
     teldatSreTrap-MBBU      OBJECT IDENTIFIER ::= { teldatSreTrap 123 }
     teldatSreTrap-BIR64     OBJECT IDENTIFIER ::= { teldatSreTrap 124 }
     teldatSreTrap-REXISMRU  OBJECT IDENTIFIER ::= { teldatSreTrap 125 }
@@ -1864,7 +1864,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         STATUS  mandatory
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for traces. The
-            mask´s meaning is:
+            maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -1878,7 +1878,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for syslog
             messages.
-            The mask´s meaning is:
+            The maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -1891,7 +1891,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         STATUS  mandatory
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for SNMP traps.
-            The mask´s meaning is:
+            The maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -1905,7 +1905,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for SNMP traps
             group 1.
-            The mask´s meaning is:
+            The maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -1919,7 +1919,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for SNMP traps
             group 2.
-            The mask´s meaning is:
+            The maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -1933,7 +1933,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for SNMP traps
             group 3.
-            The mask´s meaning is:
+            The maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -1947,7 +1947,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
         DESCRIPTION
             "This mask defines the way the subsystem is enabled for SNMP traps
             group 4.
-            The mask´s meaning is:
+            The maskÂ´s meaning is:
             (UI-ERROR,0x0001); (CI-ERROR,0x0002); (UE-ERROR,0x0004);
             (CE-ERROR,0x0008); (ERROR,0x000F); (U-INFO,0x0010); (C-INFO,0x0020);
             (INFO,0x0030); (P-TRACE,0x0100); (U-TRACE,0x0200); (C-TRACE,0x0400)
@@ -2729,7 +2729,7 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
             sr-PCI-POTS-VOIP-CARD(96),      --PCI soporte VoIP analogico $M4.7
             sr-PCI-BRI-VOIP-CARD(97),       --PCI soporte VoIP isdn bri $M4.7
             sr-PCI-PRI-VOIP-CARD(98),       --PCI soporte VoIP isdn pri $M4.7
-            sr-PCI-E-M-VOIP-CARD(99),       --PCI soporte VoIP analógico $M4.9
+            sr-PCI-E-M-VOIP-CARD(99),       --PCI soporte VoIP analÃ³gico $M4.9
             sr-TELDAT-LOOPBACK(100),        --Loopback interface
             sr-TELDAT-L2TP(101),            --Interfaz virtual L2TP $M4.9
             sr-FCC-ETH(102),                --FCC Fast Ethernet Interface
@@ -2739,8 +2739,8 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
             sr-QUIC-SL-SCADA(106),          --SCADA Serial Interface
             sr-TELDAT-ATM-PQ2SAR(107),      --Tarjeta PCI ATM con PQ2SAR
             sr-PCI-QMC-BRI(108),            --Tarjeta PCI PQ2BRI
-            sr-PCI-POTS-3S10VOIP-CARD(109), --PCI soporte VoIP analógico 3DXS, 1FXO con bypass
-            sr-PCI-POTS-2S2OVOIP-CARD(110), --PCI soporte VoIP analógico 2FXS, 2FXO con bypass
+            sr-PCI-POTS-3S10VOIP-CARD(109), --PCI soporte VoIP analÃ³gico 3DXS, 1FXO con bypass
+            sr-PCI-POTS-2S2OVOIP-CARD(110), --PCI soporte VoIP analÃ³gico 2FXS, 2FXO con bypass
             sr-PCI-INTEL-GIGABIT-ETH(111),  --Tarjeta PCI GIGABIT Ethernet Intel 8254x
             sr-ATHEROS-WLAN-BASE(112),      --WLAN
             sr-FCC-MARVELL(113),            --Ethernet Switch 8 o 16 puertas
@@ -2752,8 +2752,8 @@ TELDAT-MIB DEFINITIONS ::= BEGIN
             sr-QUIC-AUTO-INST-SL(119),
             sr-PCI-PRI-PQ2(120),
             sr-ETSEC-MARVELL-ETH(121),      --ETSEC + SWITCH
-            sr-QUIC-SL-MODEMEMU(122),       --Interfaz de emulación de modem AT
-            sr-PCI-VALARM-SL-MDMEMU(123),   --AT Modem Emulatión sobre PCI VisorAlarm UL
+            sr-QUIC-SL-MODEMEMU(122),       --Interfaz de emulaciÃ³n de modem AT
+            sr-PCI-VALARM-SL-MDMEMU(123),   --AT Modem EmulatiÃ³n sobre PCI VisorAlarm UL
             sr-PCI-VALARM-SL-SEPI(124),     --Interfaz SEPI sobre PCI VisorAlarm UL
             sr-PCI-CELLULAR(125),           --Interfaz PCI HSDPA
             sr-REMOTE-CELLULAR(126),        --Interfaz Remote Cellular

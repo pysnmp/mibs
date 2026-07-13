@@ -279,7 +279,7 @@ syupsNoOutlets OBJECT-TYPE
 
 
 syupsOutletTable OBJECT-TYPE
-       SYNTAX     SEQUENCE OF syupsOutletEntry
+       SYNTAX     SEQUENCE OF SyupsOutletEntry
        MAX-ACCESS not-accessible
        STATUS     mandatory
        DESCRIPTION
@@ -297,7 +297,7 @@ syupsOutletEntry OBJECT-TYPE
        INDEX { syupsOutletIndex }
        ::= {syupsOutletTable 1}
 
-syupsOutletEntry ::= SEQUENCE {
+SyupsOutletEntry ::= SEQUENCE {
        syupsOutletIndex              INTEGER,
        syupsOutletDescription        DisplayString (SIZE (0..15)),
        syupsOutletShutdownDelay      INTEGER,

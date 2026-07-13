@@ -4986,7 +4986,7 @@ vlanPortMode OBJECT-TYPE
                     Setting it to access(3) sets an access link."
         ::= { vlanPortEntry 2 }
 
---¡@SYS_CPNT_COMMUNITY_PRIVATE_VLAN¡@(use PVLAN_MGR API) start
+--SYS_CPNT_COMMUNITY_PRIVATE_VLAN(use PVLAN_MGR API) start
 vlanPortPrivateVlanType OBJECT-TYPE
         SYNTAX     INTEGER
                    {
@@ -5254,7 +5254,7 @@ MacVlanEntry ::= SEQUENCE
         macVlanId               VlanId,
         macVlanPriority         Integer32,
         macVlanStatus           ValidStatus,
-        macVlanMacMask          MacAddress,
+        macVlanMacMask          MacAddress
 }
 
 macVlanMacAddress OBJECT-TYPE
@@ -12261,7 +12261,7 @@ AppFilterPortEntry ::= SEQUENCE
 {
       appFilterPortIndex        InterfaceIndex,
       appFilterProtocolType     INTEGER,
-      appFilterPktStatus        INTEGER,
+      appFilterPktStatus        INTEGER
 }
 
 appFilterPortIndex OBJECT-TYPE
@@ -12278,7 +12278,7 @@ appFilterProtocolType OBJECT-TYPE
         SYNTAX        INTEGER
                       {
                         cdp(1),
-                        pvst(2),
+                        pvst(2)
                       }
         MAX-ACCESS    not-accessible
         STATUS        current
@@ -20515,7 +20515,7 @@ fileCopyTrap NOTIFICATION-TYPE
 
 userauthCreateUserTrap NOTIFICATION-TYPE
     OBJECTS     {
-                    userAuthUserName,
+                    userAuthUserName
                 }
     STATUS      current
     DESCRIPTION "This trap is sent when create user account."
@@ -20523,7 +20523,7 @@ userauthCreateUserTrap NOTIFICATION-TYPE
 
 userauthDeleteUserTrap NOTIFICATION-TYPE
     OBJECTS     {
-                    userAuthUserName,
+                    userAuthUserName
                 }
     STATUS      current
     DESCRIPTION "This trap is sent when delete user account."
@@ -20532,7 +20532,7 @@ userauthDeleteUserTrap NOTIFICATION-TYPE
 userauthModifyUserPrivilegeTrap NOTIFICATION-TYPE
     OBJECTS     {
                     userAuthUserName,
-                    userAuthPrivilege,
+                    userAuthPrivilege
                 }
     STATUS      current
     DESCRIPTION "This trap is sent when modify user privilege."

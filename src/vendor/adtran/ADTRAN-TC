@@ -467,7 +467,7 @@
     --   11/01/2010 jlb Added (1187030G2) TA5k 10G Switch Module with Ring Generator ( 5G Backplane ), and (1187030G3) TA5k 10G Switch Module with 1588v2 and SyncE ( 5G Backplane )
     --   11/03/2010 sls Added adGenTest(81) to AdSharedCommon
     --   01/05/2011 jlb Added (1174510G3) TA5k Optical Carrier Card
-    --   02/23/2011 jlb Added (1187561F1) 2nd Gen 24 port ActiveE card – Single
+    --   02/23/2011 jlb Added (1187561F1) 2nd Gen 24 port ActiveE card â€“ Single
     --   03/09/2011 jlb Added (1188085G3) Ta5k 19" High Flow Front Fan Module International
     --   04/01/2011 jlb Added (1187130G1) TA5000 VDSL2 48-PORT AM
     --   04/07/2011 jlb Added (117472xG1) Variable optical multiplexers/demultiplexers
@@ -1259,9 +1259,9 @@
         adTA30x0AccETSINoTest(627),    -- (1183007L1)       TA30x0 Accessory ETSI Splitter w/o Test Access
         adTA1500TriCdp(628),           -- (1180182L1)       TA1500 TRI-C DP
         adTA3kLpu(629),                -- (1181500L1)       TA3000 LPU line Power Unit for remote power
-        adOptiMXGESM(630),             -- (1184518L1)       OPTI-MX · Giga-Bit Ethernet With Single-Mode Fiber Interface
-        adOptiMXGEMM(631),             -- (1184519L1)       OPTI-MX · Giga-Bit Ethernet With Multi-Mode Fiber Interface
-        adOptiMXTRAM3(632),            -- (1184532L1)       OPTI-MX · 3 Wide TransMux - DS3 with VT1.5 payload (see ProdID 998)
+        adOptiMXGESM(630),             -- (1184518L1)       OPTI-MX Â· Giga-Bit Ethernet With Single-Mode Fiber Interface
+        adOptiMXGEMM(631),             -- (1184519L1)       OPTI-MX Â· Giga-Bit Ethernet With Multi-Mode Fiber Interface
+        adOptiMXTRAM3(632),            -- (1184532L1)       OPTI-MX Â· 3 Wide TransMux - DS3 with VT1.5 payload (see ProdID 998)
         adIQ310(633),                  -- (1203800L1)        IQ310
         adTA3kRMM(634),                -- (1181019L1)       TA3000 RMM  Remote management module ethernet bridge
         adTA3kIMA16GSHDSL(635),        -- (1181429L1)       TA3000 IMA G.SHDSL 16 Port
@@ -1575,7 +1575,7 @@
         adTracer6500(944),             -- (12806500L1A\B)   Tracer 6500 16T\Ethernet Radio(12806500L1A) and (12006500L1B)
         adTA1148ExpL4Q(945),           -- (1179740L4Q)      TA1248 2.5 gen Expansion, Qwest 48 ADSL Ports
         adTA1248sNIL5G25(946),         -- (1179641L5)       TA1248 2.5 gen Subtended Network Interface, 48 ADSL ports (same Part# as 673)
-        adOptiMXTRAM3G(947),           -- (1184532L2G)      OPTI-MX · DS3/E3 TransMux
+        adOptiMXTRAM3G(947),           -- (1184532L2G)      OPTI-MX Â· DS3/E3 TransMux
         adTA3050VdslSpltrNoTest(948),  -- (1183202L1)       TA3050 Accessory VDSL Splitter w/o Test Access
         adNV150AP(949),                -- (1700515E1)       NetVanta 150 W/AP
         adNV1355unused(950),           -- (1200740L1)       NetVanta 1355 backed out for duplicate with ID 864
@@ -1626,7 +1626,7 @@
         ad2GTA916e(995),               -- (4242916L1)       TA 916e 2nd Gen
         ad2GTA924e(996),               -- (4242924L1)       TA 924e 2nd Gen
         ad2GTA924eFxo(997),            -- (4242924L2)       TA 924e Fxo 2nd Gen
-        adOpti6100SdhPW3EM(998),       -- (1184535L2G)      OPTI-6100 · Pseudowire SDH (E1/T1) Module with Gigabit Ethernet
+        adOpti6100SdhPW3EM(998),       -- (1184535L2G)      OPTI-6100 Â· Pseudowire SDH (E1/T1) Module with Gigabit Ethernet
 
         adUnknown(999),                -- Any unresponsive or unrecognizable card actually detectable
 
@@ -1876,7 +1876,7 @@
         adTA5kSwM5GBp10G2(1239),       -- (1187030G2)       TA5k 10G Switch Module with Ring Generator ( 5G Backplane )
         adTA5kSwM5GBp10G3(1240),       -- (1187030G3)       TA5k 10G Switch Module with 1588v2 and SyncE ( 5G Backplane )
         adTA5kCarrier(1241),           -- (1174510G3)       TA5k Optical Carrier Card
-        adTA5k24pActiveEg2(1242),      -- (1187561F1)       2nd Gen 24 port ActiveE card – Single
+        adTA5k24pActiveEg2(1242),      -- (1187561F1)       2nd Gen 24 port ActiveE card â€“ Single
         adTA5kFan19IntlHF(1243),       -- (1188085G3)       Ta5k 19" High Flow Front Fan Module International
         adTA5k48pVDSL2Ovr(1244),       -- (1187133F1)       TA5000 VDSL2 48-PORT Overlay Module
         adTA5kVMux(1245),              -- (117472xG1)       Variable optical multiplexers/demultiplexers

@@ -692,7 +692,7 @@
                    SYNTAX  INTEGER {
 						unknown(0),
 						scc-serial(1),
-						ethernet-10M(2),
+						ethernet-10M(2)
 	
 					}
                    ACCESS  read-only

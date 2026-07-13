@@ -6798,11 +6798,11 @@ snMspsMrpInterconState              OBJECT-TYPE
     MAX-ACCESS      read-only
     STATUS          current
     DESCRIPTION     "Operational status of a MIM of the MRP Interconnection entity.
-                     disable(0)         – The entity is disabled.
-                     undefined(1)       – Value is not valid.
-                     interconnOpen(2)   – MRP Interconnection redundancy lost of this Media 
+                     disable(0)         â€“ The entity is disabled.
+                     undefined(1)       â€“ Value is not valid.
+                     interconnOpen(2)   â€“ MRP Interconnection redundancy lost of this Media 
                                           redundancy Interconnection domain.
-                     interconnClosed(3) – MRP Interconnection redundancy available of this Media 
+                     interconnClosed(3) â€“ MRP Interconnection redundancy available of this Media 
                                           redundancy Interconnection domain.
                     "
   ::= { snMspsMrpInterconEntry 10 }
@@ -6906,9 +6906,9 @@ snMspsMrpInterconStartDelay         OBJECT-TYPE
                       Value (hexadecimal) | Meaning                    | Usage   
                      ---------------------+----------------------------+-------------------------
                       0x0000              | Reserved                   | -
-                      0x0001              | Value   × 100 ms = 100 ms  | Optional Startup delay
-                      0x0002              | Value   × 100 ms = 200 ms  | Mandatory Startup delay
-                      0x0003 - 0xEA60     | Value   × 100 ms           | Optional Startup delay
+                      0x0001              | Value   Ã— 100 ms = 100 ms  | Optional Startup delay
+                      0x0002              | Value   Ã— 100 ms = 200 ms  | Mandatory Startup delay
+                      0x0003 - 0xEA60     | Value   Ã— 100 ms           | Optional Startup delay
                       0xEA61 - 0xFFFE     | Reserved                   | -
                       0xFFFF              | Wait infinite time         | Optional Startup delay
                      ---------------------+----------------------------+-------------------------

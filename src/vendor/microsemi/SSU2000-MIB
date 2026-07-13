@@ -380,30 +380,30 @@
         STATUS       current
         DESCRIPTION
             "The module hex code
-            1001    Input – 3 Port
-            1002    Input – 1 Port
-            1003    Input – DS1 3 Port
-            1004    Input – DS1 1 Port 
-            1005    Input – E1 3 Port 
-            1006    Input – E1 1 Port 
-            1008    Input – GPS
-            1010    Input – Composite Clock (1 Port)
-            1012    Input – Japanese CC (1 Port)
-            1013    Input – Japanese Sine (3 Port)
-            2001    Clock – Stratum 2E Rubidium
-            2002    Clock – Stratum 3E
-            2003    Clock – Type I
+            1001    Input â€“ 3 Port
+            1002    Input â€“ 1 Port
+            1003    Input â€“ DS1 3 Port
+            1004    Input â€“ DS1 1 Port 
+            1005    Input â€“ E1 3 Port 
+            1006    Input â€“ E1 1 Port 
+            1008    Input â€“ GPS
+            1010    Input â€“ Composite Clock (1 Port)
+            1012    Input â€“ Japanese CC (1 Port)
+            1013    Input â€“ Japanese Sine (3 Port)
+            2001    Clock â€“ Stratum 2E Rubidium
+            2002    Clock â€“ Stratum 3E
+            2003    Clock â€“ Type I
             3001    Communication Module
-            4001    Output – DS1
-            4002    Output – E1
-            4003    Output – Composite Clock
-            4004    Output – 2048 kHz
-            4007    Output – EIA 422
-            4008    Output – E1/2048 kHz
+            4001    Output â€“ DS1
+            4002    Output â€“ E1
+            4003    Output â€“ Composite Clock
+            4004    Output â€“ 2048 kHz
+            4007    Output â€“ EIA 422
+            4008    Output â€“ E1/2048 kHz
             4009    DS1 Line Retiming Module 4 Ports
             400A    DS1 Line Retiming Module 2 Ports
-            400B    Output  – Japanese CC
-            400C    Output  – Japanese Sine
+            400B    Output  â€“ Japanese CC
+            400C    Output  â€“ Japanese Sine
             400D    E1 Line Retiming Module 4 Ports
             4021    NTP Blade
             4022    PTP Blade
@@ -4402,7 +4402,7 @@ INDEX   { staPtNtpChassis, staPtNtpSlot}
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-        "Set the Antenna cable delay compensation {0 – 250} in the case of GPS 
+        "Set the Antenna cable delay compensation {0 â€“ 250} in the case of GPS 
         TOD Source(s) or the delay induced by the cable(s) used to connect 
         expansion shelves where the PackeTime ToD Source(s) is located in 
         relationship to the Main shelf. The time offset shall have a 100nS 

@@ -456,7 +456,7 @@ gpsHealth OBJECT-TYPE
     MAX-ACCESS	read-only
     STATUS		current	
     DESCRIPTION 
-        "This is the GPS’ receiver health status defined as
+        "This is the GPSâ€™ receiver health status defined as
         follows:
         ======================================================
         0 = Receiver Down       The Hardware Clock can't 

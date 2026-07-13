@@ -201,7 +201,7 @@
              auto-1000(10),
              full-10000(11),
              illegal(99),
-             full-2500(13),
+             full-2500(13)
         }
         MAX-ACCESS read-write
         STATUS current
@@ -230,7 +230,7 @@
              auto1000(10), 
              full-10000(11),
              illegal(99),
-	         full-2500(13),
+	         full-2500(13)
         }
         MAX-ACCESS read-only
         STATUS current

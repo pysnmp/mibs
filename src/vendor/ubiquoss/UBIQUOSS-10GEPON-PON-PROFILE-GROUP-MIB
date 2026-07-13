@@ -2527,7 +2527,7 @@
 				onu10gPonBridgeNniSideInnerTag
 					Integer32,    
 				onu10gPonBridgeNniSideOuterTag
-					Integer32,
+					Integer32
 			 }
 
 		onu10gPonBridgeType OBJECT-TYPE
@@ -3804,7 +3804,7 @@
 				pkbitsBurst
 					Integer32,  
 				oltFilterPolicerRowStatus 
-					RowStatus,					
+					RowStatus					
 			 }
 
 		policerName OBJECT-TYPE

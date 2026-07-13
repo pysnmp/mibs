@@ -6622,7 +6622,7 @@ CPQIDA-MIB DEFINITIONS ::= BEGIN
             The following values are defined:
 
             other(1)
-              The instrument agent is unable to determine the physical drive�s
+              The instrument agent is unable to determine the physical drives
               media type.
 
             rotatingPlatters(2)
@@ -6693,7 +6693,7 @@ CPQIDA-MIB DEFINITIONS ::= BEGIN
 
 
             Other (1)
-              The instrument agent is unable to determine the physical drive�s
+              The instrument agent is unable to determine the physical drives
               solid state disk wear status. This value would be used for non
               SSD drives or SSD drives that do not support wear reporting.
 
@@ -10656,7 +10656,7 @@ CPQIDA-MIB DEFINITIONS ::= BEGIN
              User Action: If cpqDaCntlrBoardStatus is 'generalFailure(3)', you
              may need to reboot the server or replace the controller.
              After the system is rebooted, check the variable
-             cpqDaCntlrLastLockupCode for the controller�s last lockup code.
+             cpqDaCntlrLastLockupCode for the controllers last lockup code.
              If cpqDaCntlrBoardStatus is 'cableProblem(4)', check the cable
              connections between the controller and the storage system. If
              cpqDaCntlrBoardStatus is 'cacheModuleMissing(6)', the array
@@ -11075,8 +11075,8 @@ CPQIDA-MIB DEFINITIONS ::= BEGIN
              the status of a drive array partner controller.  The variable
              cpqDaCntlrPartnerBoardStatus indicates the current partner
              controller status. The variable cpqDaCntlrSerialNumber indicates
-             the controller�s serial number and cpqDaCntlrPartnerSerialNumber
-             indicates the partner controller�s serial number.
+             the controllers serial number and cpqDaCntlrPartnerSerialNumber
+             indicates the partner controllers serial number.
 
              User Action: Check the partner controller for problems. If lost
              communication with the partner controller is the result of a user

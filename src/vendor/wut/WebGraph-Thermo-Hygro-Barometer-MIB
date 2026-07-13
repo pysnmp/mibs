@@ -91,7 +91,7 @@ WebGraph-Thermo-Hygro-Barometer-MIB DEFINITIONS ::= BEGIN
 ----------------------------------------------------------------
 -- 27.02.2004 	#57630/1, Webio Digital EA12x12
 --		Neu:
---		Länge erweitert auf 32 Bit:
+--		LÃ¤nge erweitert auf 32 Bit:
 --			wtWebioEA12x12InputValue
 --			wtWebioEA12x12OutputValue
 --			wtWebioEA12x12LoadControlView
@@ -146,7 +146,7 @@ WebGraph-Thermo-Hygro-Barometer-MIB DEFINITIONS ::= BEGIN
 -- Revison: 1.10
 ----------------------------------------------------------------
 -- 04.07.2003 	#57630, Webio Digital EA12x12
---		Neuer Menübaum, neue Binärmodi		
+--		Neuer MenÃ¼baum, neue BinÃ¤rmodi		
 --
 ----------------------------------------------------------------
 -- Revison: 1.09
@@ -363,7 +363,7 @@ wtWebGraphThermoBaroBinaryTempValueTable OBJECT-TYPE
     ACCESS not-accessible
     STATUS mandatory
     DESCRIPTION
-        "Liste binärer Messwerte korrespondiernd zu den Kanalnummern."
+        "Liste binÃ¤rer Messwerte korrespondiernd zu den Kanalnummern."
     ::= { wtWebGraphThermoBaroTemp 4 }
 
 wtWebGraphThermoBaroBinaryTempValueEntry OBJECT-TYPE
@@ -371,7 +371,7 @@ wtWebGraphThermoBaroBinaryTempValueEntry OBJECT-TYPE
     ACCESS not-accessible
     STATUS mandatory
     DESCRIPTION
-        "Binäre Messwerte der Sensoren."
+        "BinÃ¤re Messwerte der Sensoren."
     INDEX  { wtWebGraphThermoBaroSensorNo }
     ::= { wtWebGraphThermoBaroBinaryTempValueTable 1 }
 
@@ -384,9 +384,9 @@ wtWebGraphThermoBaroBinaryTempValue OBJECT-TYPE
     ACCESS read-only
     STATUS mandatory
     DESCRIPTION
-        "Binärer Messwert des Sensors in 1/10 Grad Celcius oder 1/10 Prozent,
+        "BinÃ¤rer Messwert des Sensors in 1/10 Grad Celcius oder 1/10 Prozent,
         vorzeichenbehaftete Zahl, der Wert 0x4FFF6 zeigt einen 
-        ungültigen Messwert an."
+        ungÃ¼ltigen Messwert an."
     ::= { wtWebGraphThermoBaroBinaryTempValueEntry 1 }
     
 -- wtWebGraphThermoBaroTempValuePkt Table
@@ -428,9 +428,9 @@ wtWebGraphThermoBaroSessCntrlPassword OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Durch Eintrag diese Passworts wird eine Session eröffnet, die durch Schreiben einer 1 
+        "Durch Eintrag diese Passworts wird eine Session erÃ¶ffnet, die durch Schreiben einer 1 
         in wtWebGraphThermoBaroSessCntrlLogout beendet wird. Gelesen liefert diese Variable einen String der
-        Länge Null."
+        LÃ¤nge Null."
     ::= { wtWebGraphThermoBaroSessCntrl 1 }
 
 wtWebGraphThermoBaroSessCntrlConfigMode OBJECT-TYPE
@@ -441,10 +441,10 @@ wtWebGraphThermoBaroSessCntrlConfigMode OBJECT-TYPE
     ACCESS read-only
     STATUS mandatory
     DESCRIPTION
-        "Wenn sich das Gerät im SNMP-Konfigurationsmodus befindet, wird der Wert
-        1 zurückgeliefert, ansonsten 0. Ist der ausgelesene Wert 0
-        obwohl das Passwort geschrieben wurde, befindet sich das Gerät bereits
-        im Configmodus und die Variablen können nur gelesen werden."
+        "Wenn sich das GerÃ¤t im SNMP-Konfigurationsmodus befindet, wird der Wert
+        1 zurÃ¼ckgeliefert, ansonsten 0. Ist der ausgelesene Wert 0
+        obwohl das Passwort geschrieben wurde, befindet sich das GerÃ¤t bereits
+        im Configmodus und die Variablen kÃ¶nnen nur gelesen werden."
     ::= { wtWebGraphThermoBaroSessCntrl 2 }
 
 wtWebGraphThermoBaroSessCntrlLogout OBJECT-TYPE
@@ -452,8 +452,8 @@ wtWebGraphThermoBaroSessCntrlLogout OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Wenn sich das Gerät im Konfigurationsmodus befindet und die Session wurde
-        von diesem SNMP Manager eröffnet, kann durch Schreiben einer 1 in diese 
+        "Wenn sich das GerÃ¤t im Konfigurationsmodus befindet und die Session wurde
+        von diesem SNMP Manager erÃ¶ffnet, kann durch Schreiben einer 1 in diese 
         Variable die Session beendet werden und alle Parameter werden gespeichert.
         Durch Schreiben einer 2 werden alle Eingaben wieder verworfen.
         Gelesen liefert diese Variable den Wert 0."
@@ -464,8 +464,8 @@ wtWebGraphThermoBaroSessCntrlAdminPassword OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Dieses Passwort schützt den Zugang der Variablen mit Administratorrechten. Es kann nur vom
-        Administrator verändert werden. Wurde kein Passwort vergeben so ist public das gültige Passwort.
+        "Dieses Passwort schÃ¼tzt den Zugang der Variablen mit Administratorrechten. Es kann nur vom
+        Administrator verÃ¤ndert werden. Wurde kein Passwort vergeben so ist public das gÃ¼ltige Passwort.
         Gelesen liefert diese Variable einen Null-Pointer."
     ::= { wtWebGraphThermoBaroSessCntrl 4 }
 
@@ -474,9 +474,9 @@ wtWebGraphThermoBaroSessCntrlConfigPassword OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Dieses Passwort schützt den Zugang der Variablen mit Configuratorrechten. Es kann vom
-        Administrator und vom Configurator verändert werden. Wurde kein Passwort vergeben so ist 
-        public das gültige Passwort.Gelesen liefert diese Variable einen Null-Pointer."
+        "Dieses Passwort schÃ¼tzt den Zugang der Variablen mit Configuratorrechten. Es kann vom
+        Administrator und vom Configurator verÃ¤ndert werden. Wurde kein Passwort vergeben so ist 
+        public das gÃ¼ltige Passwort.Gelesen liefert diese Variable einen Null-Pointer."
     ::= { wtWebGraphThermoBaroSessCntrl 5 }
     
 
@@ -539,7 +539,7 @@ wtWebGraphThermoBaroTzEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Bedingung:
+        "BinÃ¤r kodierte Bedingung:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -569,7 +569,7 @@ wtWebGraphThermoBaroStTzEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Bedingung:
+        "BinÃ¤r kodierte Bedingung:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -743,7 +743,7 @@ wtWebGraphThermoBaroTsEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Bedingung:
+        "BinÃ¤r kodierte Bedingung:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -768,7 +768,7 @@ wtWebGraphThermoBaroClockHrs OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Uhrzeit Stunde, unter Berücksichtigung der Zeitzoneneinstellungen."
+        "Uhrzeit Stunde, unter BerÃ¼cksichtigung der Zeitzoneneinstellungen."
     ::= { wtWebGraphThermoBaroDeviceClock 1 }
 
 wtWebGraphThermoBaroClockMin OBJECT-TYPE
@@ -776,7 +776,7 @@ wtWebGraphThermoBaroClockMin OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Uhrzeit Minute, unter Berücksichtigung der Zeitzoneneinstellungen."
+        "Uhrzeit Minute, unter BerÃ¼cksichtigung der Zeitzoneneinstellungen."
     ::= { wtWebGraphThermoBaroDeviceClock 2 }
 
 wtWebGraphThermoBaroClockDay OBJECT-TYPE
@@ -784,7 +784,7 @@ wtWebGraphThermoBaroClockDay OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Datum: Tag des Monats, unter Berücksichtigung der Zeitzoneneinstellungen."
+        "Datum: Tag des Monats, unter BerÃ¼cksichtigung der Zeitzoneneinstellungen."
     ::= { wtWebGraphThermoBaroDeviceClock 3 }
 
 wtWebGraphThermoBaroClockMonth OBJECT-TYPE
@@ -805,7 +805,7 @@ wtWebGraphThermoBaroClockMonth OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Datum: Monat, unter Berücksichtigung der Zeitzoneneinstellungen."
+        "Datum: Monat, unter BerÃ¼cksichtigung der Zeitzoneneinstellungen."
     ::= { wtWebGraphThermoBaroDeviceClock 4 }
 
 wtWebGraphThermoBaroClockYear OBJECT-TYPE
@@ -813,7 +813,7 @@ wtWebGraphThermoBaroClockYear OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Datum: Jahr, unter Berücksichtigung der Zeitzoneneinstellungen."
+        "Datum: Jahr, unter BerÃ¼cksichtigung der Zeitzoneneinstellungen."
     ::= { wtWebGraphThermoBaroDeviceClock 5 }
     
 
@@ -883,7 +883,7 @@ wtWebGraphThermoBaroStartup OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Legt die Startseite fest, nur eine Auswahl zulässig:
+        "Legt die Startseite fest, nur eine Auswahl zulÃ¤ssig:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -914,7 +914,7 @@ wtWebGraphThermoBaroHttpPort OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "HTTP Port, an den die TCP-Anfragen gesendet werden können (Default: 80)."
+        "HTTP Port, an den die TCP-Anfragen gesendet werden kÃ¶nnen (Default: 80)."
     ::= { wtWebGraphThermoBaroHTTP 3 }    
 
 -- wtWebGraphThermoBaroMail Group
@@ -925,7 +925,7 @@ wtWebGraphThermoBaroMailAdName OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Gerätename für die Mail-Administration."
+        "GerÃ¤tename fÃ¼r die Mail-Administration."
     ::= { wtWebGraphThermoBaroMail 1 }
     
 wtWebGraphThermoBaroMailReply OBJECT-TYPE
@@ -933,7 +933,7 @@ wtWebGraphThermoBaroMailReply OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Reply-Adresse für den Mailserver."
+        "Reply-Adresse fÃ¼r den Mailserver."
     ::= { wtWebGraphThermoBaroMail 2 }
     
 wtWebGraphThermoBaroMailServer OBJECT-TYPE
@@ -1031,7 +1031,7 @@ wtWebGraphThermoBaroSystemTrapEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Triggerbedingungen:
+        "BinÃ¤r kodierte Triggerbedingungen:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1072,7 +1072,7 @@ wtWebGraphThermoBaroUdpPort OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Udp Port, an den die Udp-Anfragen GET Single gesendet werden können"
+        "Udp Port, an den die Udp-Anfragen GET Single gesendet werden kÃ¶nnen"
     ::= { wtWebGraphThermoBaroUDP 1 }
     
 wtWebGraphThermoBaroUdpEnable OBJECT-TYPE
@@ -1113,7 +1113,7 @@ wtWebGraphThermoBaroSyslogSystemMessagesEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Triggerbedingungen:
+        "BinÃ¤r kodierte Triggerbedingungen:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1232,7 +1232,7 @@ wtWebGraphThermoBaroLoggerSensorSel OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Triggerbedingungen:
+        "BinÃ¤r kodierte Triggerbedingungen:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1275,7 +1275,7 @@ wtWebGraphThermoBaroRSSChannelImage OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Link zu eine Bild, dass mit dem Datensätzen in der Kopfzeile angezeigt wird."
+        "Link zu eine Bild, dass mit dem DatensÃ¤tzen in der Kopfzeile angezeigt wird."
     ::= { wtWebGraphThermoBaroRSS 4 }
 
 wtWebGraphThermoBaroRSSChannelImageTitle OBJECT-TYPE
@@ -1323,7 +1323,7 @@ wtWebGraphThermoBaroRSSChannelItemQuantity OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Anzahl der auszugebenen RSS Feeds Einträge."
+        "Anzahl der auszugebenen RSS Feeds EintrÃ¤ge."
     ::= { wtWebGraphThermoBaroRSS 10 }
 
 -- wtWebGraphThermoBaroAlarm Group
@@ -1334,7 +1334,7 @@ wtWebGraphThermoBaroAlarmCount OBJECT-TYPE
     ACCESS read-only
     STATUS mandatory
     DESCRIPTION
-        "Anzahl der unabhängigen Alarme."
+        "Anzahl der unabhÃ¤ngigen Alarme."
     ::= { wtWebGraphThermoBaroAlarm 1 }
     
 -- Alarm Interface Table
@@ -1375,7 +1375,7 @@ wtWebGraphThermoBaroAlarmTable OBJECT-TYPE
     ACCESS not-accessible
     STATUS mandatory
     DESCRIPTION
-        "Liste der Einstellungen abhängig von der Alarmnummer."
+        "Liste der Einstellungen abhÃ¤ngig von der Alarmnummer."
     ::= { wtWebGraphThermoBaroAlarm 3 }
 
 wtWebGraphThermoBaroAlarmEntry OBJECT-TYPE
@@ -1432,7 +1432,7 @@ wtWebGraphThermoBaroAlarmTrigger OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Triggerbedingungen:
+        "BinÃ¤r kodierte Triggerbedingungen:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3:
@@ -1468,8 +1468,8 @@ wtWebGraphThermoBaroAlarmHysteresis OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Bei Überschreiten der Temperatur Min+Hyst. und Unterschreiten der Temperatur Max-Hyst.
-        wird der Alarm gelöscht: pos. Temperaturdifferenz in Grad mit maximal 2 Nachkommastellen."
+        "Bei Ãœberschreiten der Temperatur Min+Hyst. und Unterschreiten der Temperatur Max-Hyst.
+        wird der Alarm gelÃ¶scht: pos. Temperaturdifferenz in Grad mit maximal 2 Nachkommastellen."
     ::= { wtWebGraphThermoBaroAlarmEntry 4 }
 
 wtWebGraphThermoBaroAlarmDelay OBJECT-TYPE
@@ -1477,8 +1477,8 @@ wtWebGraphThermoBaroAlarmDelay OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Der Alarm wird erst ausgelöst, wenn für die Dauer dieser Zeit
-        die Alarmbedingungen erfüllt sind (Zeit in Minuten)."
+        "Der Alarm wird erst ausgelÃ¶st, wenn fÃ¼r die Dauer dieser Zeit
+        die Alarmbedingungen erfÃ¼llt sind (Zeit in Minuten)."
     ::= { wtWebGraphThermoBaroAlarmEntry 5 }
     
 wtWebGraphThermoBaroAlarmInterval OBJECT-TYPE
@@ -1494,7 +1494,7 @@ wtWebGraphThermoBaroAlarmEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Alarmfreischaltung:
+        "BinÃ¤r kodierte Alarmfreischaltung:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1550,7 +1550,7 @@ wtWebGraphThermoBaroAlarmMailOptions OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Optionen:
+        "BinÃ¤r kodierte Optionen:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1565,7 +1565,7 @@ wtWebGraphThermoBaroAlarmTcpIpAddr OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "IP-Adresse des Gerätes, dass eine TCP-Nachricht empfangen soll."
+        "IP-Adresse des GerÃ¤tes, dass eine TCP-Nachricht empfangen soll."
     ::= { wtWebGraphThermoBaroAlarmEntry 14 }    
 
 wtWebGraphThermoBaroAlarmTcpPort OBJECT-TYPE
@@ -1573,7 +1573,7 @@ wtWebGraphThermoBaroAlarmTcpPort OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Portnummer des Gerätes, dass eine TCP-Nachricht empfangen soll."
+        "Portnummer des GerÃ¤tes, dass eine TCP-Nachricht empfangen soll."
     ::= { wtWebGraphThermoBaroAlarmEntry 15 }    
 
 wtWebGraphThermoBaroAlarmTcpText OBJECT-TYPE
@@ -1622,7 +1622,7 @@ wtWebGraphThermoBaroAlarmDeltaTemp OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Maximale Temperaturänderung in Grad/min mit maximal 2 Nachkommastellen.
+        "Maximale TemperaturÃ¤nderung in Grad/min mit maximal 2 Nachkommastellen.
         Es wird ein Mittelwert einer Periode von 5 Minuten verglichen."
     ::= { wtWebGraphThermoBaroAlarmEntry 21 }
 
@@ -1671,7 +1671,7 @@ wtWebGraphThermoBaroAlarmSyslogIpAddr OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "IP-Adresse des Gerätes, dass eine Syslog-Nachricht empfangen soll."
+        "IP-Adresse des GerÃ¤tes, dass eine Syslog-Nachricht empfangen soll."
     ::= { wtWebGraphThermoBaroAlarmEntry 27 }    
 
 wtWebGraphThermoBaroAlarmSyslogPort OBJECT-TYPE
@@ -1679,7 +1679,7 @@ wtWebGraphThermoBaroAlarmSyslogPort OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Portnummer des Gerätes, dass eine Syslog-Nachricht empfangen soll, default Port ist 514."
+        "Portnummer des GerÃ¤tes, dass eine Syslog-Nachricht empfangen soll, default Port ist 514."
     ::= { wtWebGraphThermoBaroAlarmEntry 28 }    
 
 wtWebGraphThermoBaroAlarmSyslogText OBJECT-TYPE
@@ -1687,7 +1687,7 @@ wtWebGraphThermoBaroAlarmSyslogText OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Jede Syslog-Nachricht beginnt mit einem Prioritätsschlüssel, einem Zeitstempel und der Host Ip-Nummer gemäß RFC3164.
+        "Jede Syslog-Nachricht beginnt mit einem PrioritÃ¤tsschlÃ¼ssel, einem Zeitstempel und der Host Ip-Nummer gemÃ¤ÃŸ RFC3164.
         Dieser Text wird im darauf folgenden Syslog-Nachrichtenteil gesendet."
     ::= { wtWebGraphThermoBaroAlarmEntry 29 }
 
@@ -1696,7 +1696,7 @@ wtWebGraphThermoBaroAlarmSyslogClearText OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Jede Syslog-Nachricht beginnt mit einem Prioritätsschlüssel, einem Zeitstempel und der Host Ip-Nummer gemäß RFC3164.
+        "Jede Syslog-Nachricht beginnt mit einem PrioritÃ¤tsschlÃ¼ssel, einem Zeitstempel und der Host Ip-Nummer gemÃ¤ÃŸ RFC3164.
         Dieser Text wird im darauf folgenden Syslog-Nachrichtenteil gesendet."
     ::= { wtWebGraphThermoBaroAlarmEntry 30 }
 
@@ -1705,7 +1705,7 @@ wtWebGraphThermoBaroAlarmFtpDataPort OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Lokaler Datenport: 1..65535 oder AUTO: der nächste ungenutzte Port wird automatisch zugewiesen."
+        "Lokaler Datenport: 1..65535 oder AUTO: der nÃ¤chste ungenutzte Port wird automatisch zugewiesen."
     ::= { wtWebGraphThermoBaroAlarmEntry 31 }
     
 wtWebGraphThermoBaroAlarmFtpFileName OBJECT-TYPE
@@ -1737,9 +1737,9 @@ wtWebGraphThermoBaroAlarmFtpOptions OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Binär kodierte Optionen, nur eine Option darf eingeschaltet sein:
+        "BinÃ¤r kodierte Optionen, nur eine Option darf eingeschaltet sein:
         STORE  = Datei ersetzen
-        APPEND = Nachrichten ans Dateiende anhängen
+        APPEND = Nachrichten ans Dateiende anhÃ¤ngen
         
         Octet 1: ungenutzt
         Octet 2: ungenutzt
@@ -1755,17 +1755,17 @@ wtWebGraphThermoBaroAlarmTimerCron OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Dieser Eintrag enthält 5 Leerzeichen- oder Tab-getrente Felder zur Definition von zeitgesteuerten
-        Ausgabe von Alarmnachrichten. Jedes der 5 Felder muss mit der aktuelle Zeit übereinstimmen, um
-        das Senden einer Nachricht auszulösen, Wochentag und Monatstag werden getrennt ausgewertet.
-        Feld		möglicher Zahlenbereich
+        "Dieser Eintrag enthÃ¤lt 5 Leerzeichen- oder Tab-getrente Felder zur Definition von zeitgesteuerten
+        Ausgabe von Alarmnachrichten. Jedes der 5 Felder muss mit der aktuelle Zeit Ã¼bereinstimmen, um
+        das Senden einer Nachricht auszulÃ¶sen, Wochentag und Monatstag werden getrennt ausgewertet.
+        Feld		mÃ¶glicher Zahlenbereich
         1: Minuten	0-59
         2. Stunden	0-23, 0 ist Mitternacht
         3: Monatstag	1-31
         4: Monat	1-12
         5: Wochentag	0-6, 0 ist Sonntag
         
-        Für jedes Feld kann nun angegeben werden:
+        FÃ¼r jedes Feld kann nun angegeben werden:
         - eine ganze Zahl aus dem angegebenen Zahlenbereich
 	- ein Teil-Zahlenbereich (wie z.B. 1-5) innerhalb des angegebenen Zahlenbereichs
 	- eine mit Komma getrennte Liste von ganzen Zahlen oder Tei-Zahlenbereichen (wie z.B. 2,4-6,8,10)
@@ -1807,7 +1807,7 @@ wtWebGraphThermoBaroGraphicsBaseHeight OBJECT-TYPE
         ACCESS read-write
         STATUS mandatory
         DESCRIPTION
-            "Definiert die Höhe der Grafik in Pixeln."
+            "Definiert die HÃ¶he der Grafik in Pixeln."
         ::= { wtWebGraphThermoBaroGraphicsBase 3 }
 
 wtWebGraphThermoBaroGraphicsBaseFrameColor OBJECT-TYPE
@@ -1843,7 +1843,7 @@ wtWebGraphThermoBaroGraphicsSelectDisplaySensorSel OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Die hier ausgewählten Sensoren werden grafisch angezeigt:
+        "Die hier ausgewÃ¤hlten Sensoren werden grafisch angezeigt:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1859,7 +1859,7 @@ wtWebGraphThermoBaroGraphicsSelectDisplayShowExtrem OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Die Anzeige von Minima und Maxima der hier ausgewählten Sensoren 
+        "Die Anzeige von Minima und Maxima der hier ausgewÃ¤hlten Sensoren 
         wird freigeschaltet:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
@@ -1927,7 +1927,7 @@ wtWebGraphThermoBaroGraphicsScaleAutoScaleEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Wählt den Auto Scale Modus für die jeweilige Skalierung aus:
+        "WÃ¤hlt den Auto Scale Modus fÃ¼r die jeweilige Skalierung aus:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -1943,7 +1943,7 @@ wtWebGraphThermoBaroGraphicsScaleAutoFitEnable OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Wählt den Auto Fit Modus für die jeweilige Skalierung aus:
+        "WÃ¤hlt den Auto Fit Modus fÃ¼r die jeweilige Skalierung aus:
         Octet 1: ungenutzt
         Octet 2: ungenutzt
         Octet 3: ungenutzt
@@ -2061,7 +2061,7 @@ wtWebGraphThermoBaroPortTable OBJECT-TYPE
     ACCESS not-accessible
     STATUS mandatory
     DESCRIPTION
-        "Liste der Einstellungen abhängig von der Sensornummer."
+        "Liste der Einstellungen abhÃ¤ngig von der Sensornummer."
     ::= { wtWebGraphThermoBaroPorts 1 }
 
 wtWebGraphThermoBaroPortEntry OBJECT-TYPE
@@ -2137,7 +2137,7 @@ wtWebGraphThermoBaroPortComment OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Offset-Kalibrierung: Angaben zu Datum, Referenzgerät, Operator."
+        "Offset-Kalibrierung: Angaben zu Datum, ReferenzgerÃ¤t, Operator."
     ::= { wtWebGraphThermoBaroPortEntry 7 }
 
 wtWebGraphThermoBaroPortAltidude OBJECT-TYPE
@@ -2145,7 +2145,7 @@ wtWebGraphThermoBaroPortAltidude OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Höhe des Sensors über Meereshöhe (üNN)."
+        "HÃ¶he des Sensors Ã¼ber MeereshÃ¶he (Ã¼NN)."
     ::= { wtWebGraphThermoBaroPorts 2 }
 
 -- wtWebGraphThermoBaroManufact Group
@@ -2188,7 +2188,7 @@ wtWebGraphThermoBaroMfDeviceTyp OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Gerätebezeichnung (Typ) des Herstellers."
+        "GerÃ¤tebezeichnung (Typ) des Herstellers."
     ::= { wtWebGraphThermoBaroManufact 5 }
 
 wtWebGraphThermoBaroMfOrderNo OBJECT-TYPE
@@ -2196,7 +2196,7 @@ wtWebGraphThermoBaroMfOrderNo OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Bestellnummer des Gerätes des Herstellers."
+        "Bestellnummer des GerÃ¤tes des Herstellers."
     ::= { wtWebGraphThermoBaroManufact 6 }
 
 -- wtWebGraphThermoBaroDiag Group
@@ -2207,7 +2207,7 @@ wtWebGraphThermoBaroDiagErrorCount OBJECT-TYPE
     ACCESS read-only
     STATUS mandatory
     DESCRIPTION
-        "Anzahl der Einträge im Fehlerspeicher."
+        "Anzahl der EintrÃ¤ge im Fehlerspeicher."
     ::= { wtWebGraphThermoBaroDiag 1 }
 
 wtWebGraphThermoBaroDiagBinaryError OBJECT-TYPE
@@ -2223,10 +2223,10 @@ wtWebGraphThermoBaroDiagErrorIndex OBJECT-TYPE
     ACCESS read-write
     STATUS mandatory
     DESCRIPTION
-        "Der Wert dieser Variable wird als Index für die Ausgabe
+        "Der Wert dieser Variable wird als Index fÃ¼r die Ausgabe
         eines Fehlertextes (wtWebGraphThermoBaroDiagErrorMessage) verwendet.
         Die Fehler im Speicher sind von 1 bis wtWebGraphThermoBaroDiagErrorCount durchnummeriert.
-        Nach dem Schreiben einens gültigen Wertes in diese Variable kann der dazugehörige Text
+        Nach dem Schreiben einens gÃ¼ltigen Wertes in diese Variable kann der dazugehÃ¶rige Text
         in wtWebGraphThermoBaroDiagErrorMessage ausgelesen werden."
     ::= { wtWebGraphThermoBaroDiag 3 }
 
@@ -2235,7 +2235,7 @@ wtWebGraphThermoBaroDiagErrorMessage OBJECT-TYPE
     ACCESS read-only
     STATUS mandatory
     DESCRIPTION
-        "Abhängig vom Wert wtWebGraphThermoBaroDiagErrorIndex wird ein Fehlertext angezeigt."
+        "AbhÃ¤ngig vom Wert wtWebGraphThermoBaroDiagErrorIndex wird ein Fehlertext angezeigt."
     ::= { wtWebGraphThermoBaroDiag 4 }
     
 wtWebGraphThermoBaroDiagErrorClear OBJECT-TYPE
@@ -2243,7 +2243,7 @@ wtWebGraphThermoBaroDiagErrorClear OBJECT-TYPE
     ACCESS write-only
     STATUS mandatory
     DESCRIPTION
-        "Durch Schreiben eine 1 in diese Variable, wird der Fehlerspeicher gelöscht."
+        "Durch Schreiben eine 1 in diese Variable, wird der Fehlerspeicher gelÃ¶scht."
     ::= { wtWebGraphThermoBaroDiag 5 }
 
 -- TRAP DEFINITIONS
@@ -2254,7 +2254,7 @@ wtWebGraphThermoBaroAlert1 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 1 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 1 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2270,7 +2270,7 @@ wtWebGraphThermoBaroAlert2 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 2 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 2 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2286,7 +2286,7 @@ wtWebGraphThermoBaroAlert3 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 3 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 3 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2302,7 +2302,7 @@ wtWebGraphThermoBaroAlert4 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 4 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 4 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2318,7 +2318,7 @@ wtWebGraphThermoBaroAlert5 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 5 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 5 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2334,7 +2334,7 @@ wtWebGraphThermoBaroAlert6 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 6 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 6 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2350,7 +2350,7 @@ wtWebGraphThermoBaroAlert7 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 7 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 7 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2366,7 +2366,7 @@ wtWebGraphThermoBaroAlert8 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 8 ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 8 ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2382,7 +2382,7 @@ wtWebGraphThermoBaroAlert9 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 1 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 1 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2398,7 +2398,7 @@ wtWebGraphThermoBaroAlert10 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 2 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 2 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2414,7 +2414,7 @@ wtWebGraphThermoBaroAlert11 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 3 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 3 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2430,7 +2430,7 @@ wtWebGraphThermoBaroAlert12 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 4 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 4 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2446,7 +2446,7 @@ wtWebGraphThermoBaroAlert13 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 5 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 5 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2462,7 +2462,7 @@ wtWebGraphThermoBaroAlert14 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 6 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 6 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2478,7 +2478,7 @@ wtWebGraphThermoBaroAlert15 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 7 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 7 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2494,7 +2494,7 @@ wtWebGraphThermoBaroAlert16 TRAP-TYPE
     ENTERPRISE  wtWebGraphThermoBaro
     VARIABLES   { wtWebGraphThermoBaroAlarmClearTrapText }
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn der Alarm 8 gelöscht wurde,
+        "Dieser SNMP-Trap wird generiert, wenn der Alarm 8 gelÃ¶scht wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation
@@ -2513,7 +2513,7 @@ wtWebGraphThermoBaroAlertDiag TRAP-TYPE
     	  	wtWebGraphThermoBaroDiagErrorMessage
     		}
     DESCRIPTION
-        "Dieser SNMP-Trap wird generiert, wenn eine Diagnose/Error-Message ausgelöst wurde,
+        "Dieser SNMP-Trap wird generiert, wenn eine Diagnose/Error-Message ausgelÃ¶st wurde,
         das SNMP-Trap-Enable gesetzt ist und
         SNMP in Enable freigegeben ist."
     -- NMS trap annotation

@@ -42,6 +42,7 @@ tlPowerAlert MODULE-IDENTITY
     remote management capabilities of Tripplite PowerAlert and related
     software."
   REVISION "201702281600Z"
+  DESCRIPTION
     "Corrected spelling errors"
   REVISION "201507290000Z"
   DESCRIPTION

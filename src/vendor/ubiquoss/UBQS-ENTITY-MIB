@@ -919,8 +919,8 @@ ubiEntitySensorNotifications  		OBJECT IDENTIFIER	 	::= { ubiEntityMIBNotificati
     			ubiEntSensorAlarmHighThreshold,      
        			ubiEntSensorWarningHighThreshold,
     			ubiEntSensorWarningLowThreshold, 
-    			ubiEntSensorAlarmLowThreshold, 
-    	}             
+    			ubiEntSensorAlarmLowThreshold
+    	}
     	STATUS          current
     	DESCRIPTION
         	"The ubiEntSensorThreshold notification indicates that 

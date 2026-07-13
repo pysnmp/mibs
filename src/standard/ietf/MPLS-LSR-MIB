@@ -667,7 +667,7 @@ mplsInSegmentAdminStatus OBJECT-TYPE
    MAX-ACCESS    read-create
    STATUS        current
    DESCRIPTION
-       "This value is used to represent the manager’s
+       "This value is used to represent the managerâ€™s
         desired operational status of this segment."
    ::= { mplsInSegmentEntry 10 }
 

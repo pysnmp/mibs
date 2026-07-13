@@ -248,11 +248,11 @@ ubiPonLagMIBGroups    OBJECT IDENTIFIER  ::= { ubiPonLagMIBConformance 2 }
 		ubiPonReduPeerIfName,
 		ubiPonReduAggIfIndex,
 		ubiPonReduAggIfName,
-		ubiPonReduActive,
+		ubiPonReduActive
      }
      STATUS          current
      DESCRIPTION
-         "A collection of objects that provide redundancy port 
+         "A collection of objects that provide redundancy port
           creation or deletion."
      ::= { ubiPonLagMIBGroups 1 }     
 

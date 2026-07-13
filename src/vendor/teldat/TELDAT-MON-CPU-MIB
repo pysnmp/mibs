@@ -1,6 +1,6 @@
                 -- Teldat, S.A.
 
-                -- Parque Tecnol骻ico de Madrid
+                -- Parque Tecnol贸gico de Madrid
 
                 -- 28760, Tres Cantos (Madrid)
 
@@ -13,19 +13,19 @@
 
             -- MIB privada de Teldat
 
-            -- Monitorizaci髇 del porcentaje de uso de la CPU
+            -- Monitorizaci贸n del porcentaje de uso de la CPU
 
 
     -- Historial:
     --      07/02/14    M.A. Pastor     XH 3523. Errors with HP Openview 9.20
-    -- 1.1  08/07/09    I. Mu駉z        Revisi髇 de todas las MIB para evitar
-    --                  M.A. Pastor     warnings y errores de compilaci髇
+    -- 1.1  08/07/09    I. Mu帽oz        Revisi贸n de todas las MIB para evitar
+    --                  M.A. Pastor     warnings y errores de compilaci贸n
     -- 1.0  ??/??/??    Javier Molina   Initial Coding. Based on TELDAT-CPU-MIB.mib
 
 
     -- Historial de TELDAT-CPU-MIB.mib:
 
-    -- 25-05-04  M.A. Pastor    Implementaci髇 inicial
+    -- 25-05-04  M.A. Pastor    Implementaci贸n inicial
 --------------------------------------------------------------------------------
 
 TELDAT-MON-CPU-MIB DEFINITIONS ::= BEGIN
@@ -39,7 +39,7 @@ TELDAT-MON-CPU-MIB DEFINITIONS ::= BEGIN
             FROM TELDAT-SW-STRUCTURE-MIB;
 
 
-    -- Informaci髇 acerca de la carga de la CPU
+    -- Informaci贸n acerca de la carga de la CPU
 
     teldatCPUMonMIB             OBJECT IDENTIFIER ::= {telProdNpMonitSistema 2}
 

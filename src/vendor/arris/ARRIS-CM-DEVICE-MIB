@@ -87,10 +87,10 @@ arrisCmDevWanIsolationState OBJECT-TYPE
           the state is as follows:
           
           off-InActiveMode(1) - Data traffic passes freely between 
-             the home user’s network and the outside network (i.e. the Internet).  
+             the home userâ€™s network and the outside network (i.e. the Internet).  
              In this mode, the WAN Isolation state is considered 'InActive'.
 
-          on-ActiveMode(2) - The home user’s network is isolated from the Internet.  
+          on-ActiveMode(2) - The home userâ€™s network is isolated from the Internet.  
              Data traffic will not pass between the home user's network and the Internet.  
              In this mode, the WAN Isolation state is considered 'Active'."                           
      ::= { arrisCmDevBase 1 } 

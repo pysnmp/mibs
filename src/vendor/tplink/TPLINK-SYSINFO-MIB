@@ -169,7 +169,7 @@ tpSysInfoPortTable OBJECT-TYPE
 tpSysInfoLed OBJECT-TYPE
  SYNTAX INTEGER{
 		off(0), 				--LED off
-		on(1),					--LED on
+		on(1)					--LED on
 		}   
   MAX-ACCESS  read-write
   STATUS  current

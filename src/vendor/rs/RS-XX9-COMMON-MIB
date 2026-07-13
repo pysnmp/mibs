@@ -2226,7 +2226,7 @@
                 geographical position of the receivable satellites. If the receivable 
                 satellites are positioned very closely together or are very low on the 
                 horizon, the time calculation will be imprecise. A low value describes a 
-                good geometrical arrangement of the satellites. A value less than 2 
+                good geometrical arrangement of the satellites. A value less thanÂ 2 
                 should be achieved. Large values are returned if the line of sight of the 
                 receiving antenna is restricted.
                 "

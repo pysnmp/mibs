@@ -95,11 +95,11 @@ OpticalParameterValue ::= TEXTUAL-CONVENTION
         1 microamperes.
 
         When the optical parameter being monitored is 'txOutputPower',
-        the supported range is from 0 to 65535, in units of 1/10000 mW ..and express in units of dBm¡£
+        the supported range is from 0 to 65535, in units of 1/10000 mW ..and express in units of dBm.
         Example: A value of 60000 represents a txOutputPower reading of 7.78 dBm.
 
         When the optical parameter being monitored is 'receivedPower',
-        the supported range is from 0 to 65535, in units of 1/10000 mW ..and express in units of dBm¡£
+        the supported range is from 0 to 65535, in units of 1/10000 mW ..and express in units of dBm.
         Example: A value of 60000 represents a receivedPower reading of 7.78 dBm.        "
     SYNTAX    Integer32 (-1000000..65535 )
 

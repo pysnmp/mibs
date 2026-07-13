@@ -1447,7 +1447,7 @@ networkStorageServer    OBJECT IDENTIFIER ::= { products 2 }
 	ApClientMacEntry ::=
 		SEQUENCE {
 			apClientMacIndex      INTEGER,
-			apClientMacAddress    PhysAddress,
+			apClientMacAddress    PhysAddress
 		}                               
 	                                    
 	apClientMacIndex OBJECT-TYPE        
@@ -1505,7 +1505,7 @@ networkStorageServer    OBJECT IDENTIFIER ::= { products 2 }
 	ApBridgeMacEntry ::=
 		SEQUENCE {
 			apBridgeMacIndex      INTEGER,
-			apBridgeMacAddress    PhysAddress,
+			apBridgeMacAddress    PhysAddress
 		}
 	
 	apBridgeMacIndex OBJECT-TYPE
@@ -1563,7 +1563,7 @@ networkStorageServer    OBJECT IDENTIFIER ::= { products 2 }
 	ApRepeatorMacEntry ::=
 		SEQUENCE {
 			apRepeatorMacIndex      INTEGER,
-			apRepeatorMacAddress    PhysAddress,
+			apRepeatorMacAddress    PhysAddress
 		}
 	
 	apRepeatorMacIndex OBJECT-TYPE
@@ -3551,4 +3551,4 @@ networkStorageServer    OBJECT IDENTIFIER ::= { products 2 }
 
 END
 
-
+

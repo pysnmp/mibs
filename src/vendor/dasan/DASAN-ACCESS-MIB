@@ -628,7 +628,7 @@
 		dsMgcpTraceMessageIndex				INTEGER,
 		dsMgcpTraceMessageTime				DisplayString,
 		dsMgcpTraceMessageDirection			INTEGER,
-		dsMgcpTraceMessageContent			DisplayString,
+		dsMgcpTraceMessageContent			DisplayString
      }
         
 --     dsMgcpTraceSlotIndex		OBJECT-TYPE

@@ -48,7 +48,7 @@
         STATUS current
         DESCRIPTION
             "SSH version."
-            --SSH 版本。
+            --SSH
         ::= { gbnPlatformOAMSsh 1 }
 
 	sshState OBJECT-TYPE
@@ -60,7 +60,7 @@
         STATUS current
         DESCRIPTION
             "enable or disable SSH."
-            --打开或关闭SSH功能。
+            --SSH
         ::= { gbnPlatformOAMSsh 2 } 
 
 	sshKeyAvailable OBJECT-TYPE
@@ -72,7 +72,7 @@
         STATUS current
         DESCRIPTION
             "SSH key file state."
-            --SSH密钥文件状态: 已从Flash中加载密钥文件则状态为available，否则为unavailable。
+            --SSH: Flashavailableunavailable
         ::= { gbnPlatformOAMSsh 3 } 
         
   sshUserLimit OBJECT-TYPE
@@ -81,7 +81,7 @@
         STATUS current
         DESCRIPTION
             "The max user limit of ssh"
-            --允许ssh登录的最大用户数目
+            --ssh
         ::= { gbnPlatformOAMSsh 4 }               
    
   sshLoginUsers  OBJECT-TYPE
@@ -90,7 +90,7 @@
         STATUS current
         DESCRIPTION
             "Current login users of ssh"
-            --当前ssh登录的用户数目
+            --ssh
         ::= { gbnPlatformOAMSsh 5 }          
                                            
    END

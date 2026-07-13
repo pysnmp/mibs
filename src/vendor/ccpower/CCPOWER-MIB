@@ -94,7 +94,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-write
    	STATUS		mandatory
    	DESCRIPTION	"Temperature which when exceeded will cause a specific load to disconnect.
-                  Return value is XX representing XX 캜."
+                  Return value is XX representing XX 째C."
    	::= { settings 6 }
 
    disconnect1LoadShedSundayOff OBJECT-TYPE
@@ -166,7 +166,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-write
    	STATUS		mandatory
    	DESCRIPTION	"Temperature which when exceeded will cause a specific load to disconnect.
-                  Return value is XX representing XX 캜."
+                  Return value is XX representing XX 째C."
    	::= { settings 15 }
 
    disconnect2LoadShedSundayOff OBJECT-TYPE
@@ -238,7 +238,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-write
    	STATUS		mandatory
    	DESCRIPTION	"Temperature which when exceeded will cause a specific load to disconnect.
-                  Return value is XX representing XX 캜."
+                  Return value is XX representing XX 째C."
    	::= { settings 24 }
 
    disconnect3LoadShedSundayOff OBJECT-TYPE
@@ -587,7 +587,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-only
    	STATUS		mandatory
    	DESCRIPTION	"Battery temperature.
-                  Return value is XX representing XX 캜. Valid ranges are -40 to 99 캜."
+                  Return value is XX representing XX 째C. Valid ranges are -40 to 99 째C."
    	::= { batteries 2 }
 
    batteryResistanceReference OBJECT-TYPE
@@ -718,7 +718,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-only
    	STATUS		mandatory
    	DESCRIPTION	"Disconnect temperature 1 factory setting.
-                  Return value is XX 캜."
+                  Return value is XX 째C."
    	::= { factorySettings 5 }
 
    disconnect1LoadShedSundayPresets OBJECT-TYPE
@@ -798,7 +798,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-only
    	STATUS		mandatory
    	DESCRIPTION	"Disconnect temperature 2 factory setting.
-                  Return value is XX 캜."
+                  Return value is XX 째C."
    	::= { factorySettings 15 }
 
    disconnect2LoadShedSundayPresets OBJECT-TYPE
@@ -878,7 +878,7 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    	ACCESS		read-only
    	STATUS		mandatory
    	DESCRIPTION	"Disconnect temperature 3 factory setting.
-                  Return value is XX 캜."
+                  Return value is XX 째C."
    	::= { factorySettings 25 }
 
    disconnect3LoadShedSundayPresets OBJECT-TYPE
@@ -1326,21 +1326,21 @@ CCPOWER-MIB DEFINITIONS ::= BEGIN
    loadDisconnect1TemperatureTrap TRAP-TYPE
    	ENTERPRISE ccpower
    	DESCRIPTION "Load disconnect 1 temperature has exceeded preset value.
-                  Return value: Load disconnect 1 temperature alarm XX 캜."
+                  Return value: Load disconnect 1 temperature alarm XX 째C."
       --#SEVERITY CRITICAL
    	::= 11
 
    loadDisconnect2TemperatureTrap TRAP-TYPE
    	ENTERPRISE ccpower
    	DESCRIPTION "Load disconnect 2 temperature has exceeded preset value.
-                  Return value: Load disconnect 2 temperature alarm XX 캜."
+                  Return value: Load disconnect 2 temperature alarm XX 째C."
       --#SEVERITY CRITICAL
    	::= 12
 
    loadDisconnect3TemperatureTrap TRAP-TYPE
    	ENTERPRISE ccpower
    	DESCRIPTION "Load disconnect 3 temperature has exceeded preset value.
-                  Return value: Load disconnect 3 temperature alarm XX 캜."
+                  Return value: Load disconnect 3 temperature alarm XX 째C."
       --#SEVERITY CRITICAL
    	::= 13
 

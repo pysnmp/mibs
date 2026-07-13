@@ -350,18 +350,6 @@ hillstoneSlotDown OBJECT-IDENTITY
 	DESCRIPTION
 		"The slot down trap OIDs."
 	::= {hillstoneTraps 21}
-	
-hillstoneSlotDown OBJECT-IDENTITY
-	STATUS current
-	DESCRIPTION
-		"The slot down trap OIDs."
-	::= {hillstoneTraps 21}
-	
-hillstoneSlotDown OBJECT-IDENTITY
-	STATUS current
-	DESCRIPTION
-		"The slot down trap OIDs."
-	::= {hillstoneTraps 21}
 
 END
 

@@ -8,7 +8,7 @@
 --   V1.0 2004-07-24 Created by Gaolong
 --   V1.1 2004-09-08 Update file by Gaolong for some syntax errors.
 --   V1.2 2004-11-19 Update file by liuhongxu for poe need.
---                   add hpnicfMainPsePriorityMode¡¢hpnicfPsePowerMaxValue¡¢
+--                   add hpnicfMainPsePriorityMode,hpnicfPsePowerMaxValue,
 --                   hpnicfpsePDChangNotification adjust the objects' sequence of
 --                   hpnicfPsePortTable and hpnicfMainPseTable add the description
 --                   of MANDATORY-GROUPS in hpnicfPseCompliance.

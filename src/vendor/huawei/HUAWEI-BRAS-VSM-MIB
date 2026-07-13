@@ -79,7 +79,7 @@
                 " Service policy entry,
                 service policy name is identified as key word, direct a service policy when create, and don't allow to change.
                 Index item is hwVsmServicePolicyName node. The table is used for configuration of service policy.
-                Operation restriction description£º
+                Operation restriction description:
                 1. must input service policy name when created.
                 2. if a service is being used for users, can't be deleted.
                 3. if a service is being used by domain, can't be deleted."
@@ -159,7 +159,7 @@
             MAX-ACCESS read-create
             STATUS current
             DESCRIPTION
-                " In traffic policy name£¬optional, if bind, must direct an acl policy name.
+                " In traffic policy name,optional, if bind, must direct an acl policy name.
                   If the acl policy policy ACL has been bound by a service policy, it can't be bound by another service policy.
                 "
             ::= { hwVsmServicePolicyEntry 3 }
@@ -196,7 +196,7 @@
             MAX-ACCESS read-create
             STATUS current
             DESCRIPTION
-                " The out traffic policy name£¬optional, if bind, must direct an acl policy name.
+                " The out traffic policy name,optional, if bind, must direct an acl policy name.
                   If the acl policy policy ACL has been bound by a service policy, it can't be bound by another service policy.
                 "
             ::= { hwVsmServicePolicyEntry 7 }

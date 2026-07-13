@@ -92,7 +92,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         ::= { gnlinkMib 2 }
 
         ----------------------------------------------------------------------------------
-        --LANSWITCH属性数据MIB表--
+        --LANSWITCHMIB--
         ----------------------------------------------------------------------------------
         gbnGgmpLsProTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GbnGgmpLsProEntry
@@ -283,8 +283,8 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
              " ggmp client vlan mode.
              port-based vlan means ingress does not check packets' vlan header,
              802.1q means ingress checks packets' vlan header. "
-             --vlan模式分为基于端口的vlan和802.1qvlan，基于端口的vlan表示入端口不检查报文
-             --的vlan首部，802.1qvlan表示入端口检查报文的vlan首部
+             --vlanvlan802.1qvlanvlan
+             --vlan802.1qvlanvlan
         ::= { gbnGgmpLsProEntry 16 }
 
         ggmplanMacLearningMode OBJECT-TYPE
@@ -298,7 +298,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         DESCRIPTION
              " ggmp client mac-learning mode.
              ivl means independent vlan learning,svl means share vlan learning."
-             --ivl代表独立vlan学习，svl代表共享vlan学习
+             --ivlvlansvlvlan
         ::= { gbnGgmpLsProEntry 17 }
 
         ggmplanHardwareVersion OBJECT-TYPE
@@ -311,7 +311,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              " client's hardware version,0 means CD version and 1 means CG version."
-             --客户端的硬件版本，0代表CD版本，1代表CG坂本
+             --0CD1CG
         ::= { gbnGgmpLsProEntry 18 }
 
         ggmplanBootVer OBJECT-TYPE
@@ -331,7 +331,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         ::= { gbnGgmpLsProEntry 20 }
 
         ----------------------------------------------------------------------------------
-        --LANSWITCH端口属性数据MIB表--
+        --LANSWITCHMIB--
         ----------------------------------------------------------------------------------
         gbnGgmpPortPropertyTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GbnGgmpPortPropertyEntry
@@ -790,7 +790,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             "Maximum time that command waiting for its reply "
-            --命令的超时时间
+            --
         ::= { gbnGgmpSvrProperty 5 }
 
         ggmpSvrClientErrTimeout OBJECT-TYPE
@@ -799,7 +799,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " Time that server must wait to delete a lanswith in error state "
-            --server删除处于错误状态的client前需要等待的时间
+            --serverclient
         ::= { gbnGgmpSvrProperty 6 }
 
         ggmpSvrClientErrMaxHellos OBJECT-TYPE
@@ -808,7 +808,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " Times which lanswitch hasn't shankhands with server before being setted to error "
-            --设置server在握手超时多少次后将client置为error
+            --serverclienterror
         ::= { gbnGgmpSvrProperty 7 }
 
         ggmpSvrRequestMaxRetries OBJECT-TYPE
@@ -817,7 +817,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " Retransmit times for server before sending a command successfully "
-            --命令发送失败允许的重试次数
+            --
         ::= { gbnGgmpSvrProperty 8 }
 
         ggmpserverMacAddr OBJECT-TYPE
@@ -826,7 +826,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " ZY.Link protocol packets' destination MAC address"
-            --ZY.Link协议报文的目的MAC地址
+            --ZY.LinkMAC
         ::= { gbnGgmpSvrProperty 9 }
 
         ggmpClientAppGetMode OBJECT-TYPE
@@ -838,7 +838,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " config mode by which to get application from server,ftp or tftp"
-            --选择通过哪种方式由服务器下载客户端应用程序,分为ftp模式和tftp模式
+            --,ftptftp
         ::= { gbnGgmpSvrProperty 10 }
 
         ggmpClientAppSvrIpAddr OBJECT-TYPE
@@ -847,7 +847,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " ggmp client application ftp server ipaddress"
-            --集群管理客户端应用程序ftp服务器的ip地址
+            --ftpip
         ::= { gbnGgmpSvrProperty 11 }
 
         ggmpClientAppFtpSvrUserName OBJECT-TYPE
@@ -856,7 +856,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             "ggmp client application ftp server userName"
-            --集群管理客户端ftp服务器用户名
+            --ftp
         ::= { gbnGgmpSvrProperty 12 }
 
         ggmpClientAppFtpSvrPassword OBJECT-TYPE
@@ -865,7 +865,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             "ggmp client application ftp server password"
-            --集群管理客户端ftp服务器密码
+            --ftp
         ::= { gbnGgmpSvrProperty 13 }
 
         ggmpClientRemoteReboot OBJECT-TYPE
@@ -877,11 +877,11 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " config ZY.Link server allow client remote reboot"
-            --配置ZY.Link服务器端是否允许支持触发重启的客户端设备在远程升级完毕后触发重启
+            --ZY.Link
         ::= { gbnGgmpSvrProperty 14 }
 
         ----------------------------------------------------------------------------------
-        --LANSWITCH ARL表查询MIB表--
+        --LANSWITCH ARLMIB--
         ----------------------------------------------------------------------------------
         gbnGgmpLsARLTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GbnGgmpLsARLEntry
@@ -992,7 +992,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         ::= { gbnGgmpTrap 8 }
         
         -----------------------------------------------------------------------
-        --GGMP 远程升级客户端应用程序名的配置 MIB--
+        --GGMP  MIB--
         -----------------------------------------------------------------------
         ggmpDevClientAppTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GgmpDevClientAppEntry
@@ -1000,7 +1000,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             "Table used to config Lanswitch application table"
-            --该表用来配置下挂交换机的应用程序
+            --
         ::= { gnlinkMib 10 }
 
         ggmpDevClientAppEntry OBJECT-TYPE
@@ -1009,7 +1009,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
                "Table entry for configging clients' application list."
-               --用于配置客户端的应用程序列表
+               --
         INDEX {
            ggmpDevTypeNum ,
            ggmpRmtLoadAppType
@@ -1030,8 +1030,8 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
                "This value actually is the same as the index of device id table,
                 please refer to device id table for more details about which
                 value each device corresponds to"
-               --此节点的值和device id表的索引值相同,可以参考device id表来查看每种
-               --设备对应的索引值
+               --device id,device id
+               --
         ::= { ggmpDevClientAppEntry 1 }
 
         ggmpRmtLoadAppType OBJECT-TYPE
@@ -1043,7 +1043,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              "config file type to be loaded :bootrom or host"
-             --配置待加载的文件类型，bootrom文件或主机文件
+             --bootrom
         ::= { ggmpDevClientAppEntry 2 }
 
         ggmpDevAppName OBJECT-TYPE
@@ -1052,11 +1052,11 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
                "ggmp client application filename"
-               --集群管理客户端应用程序名
+               --
         ::= { ggmpDevClientAppEntry 3 }
 
         ----------------------------------------------------------------------
-        --GGMP 远程升级客户端以及加载时间的配置mib--
+        --GGMP mib--
         ----------------------------------------------------------------------
         ggmpDevRmtLoadTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GgmpDevRmtLoadEntry
@@ -1072,7 +1072,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
                "Table entry for configging/showing clients remote load information."
-               --用于配置显示客户端的加载信息
+               --
         INDEX { ggmpRmtLoadDevMac }
         ::= { ggmpDevRmtLoadTable 1 }
 
@@ -1091,7 +1091,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
             " MAC address of the regist lanswtich"
-            --集群管理客户端的设备MAC地址
+            --MAC
         ::= { ggmpDevRmtLoadEntry 1 }
 
         ggmpRmtLoadQueIn OBJECT-TYPE
@@ -1105,7 +1105,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              " current queue in which lanswitch resides"
-             --指示设备处于哪个队列
+             --
         ::= { ggmpDevRmtLoadEntry 2 }
 
         ggmplanRmtLoadPercent OBJECT-TYPE
@@ -1114,7 +1114,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              " Show the process of loading"
-             --显示加载的进度
+             --
         ::= { ggmpDevRmtLoadEntry 3 }
 
         ggmplanRmtLoadAppType OBJECT-TYPE
@@ -1127,7 +1127,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              "config file type to be loaded :bootrom or host or both"
-             --配置待加载的文件类型，bootrom文件或主机文件或者全部文件
+             --bootrom
         ::= { ggmpDevRmtLoadEntry 4 }
 
         ggmplanRmtLoadTime OBJECT-TYPE
@@ -1136,7 +1136,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              " Time at which lanswitch to be loaded"
-             --下挂交换机的加载时间
+             --
         ::= { ggmpDevRmtLoadEntry 5 }
 
         ggmplanRmtLoadRowStatus OBJECT-TYPE
@@ -1145,11 +1145,11 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
              "Status of this entry."
-            --表项的状态
+            --
         ::= { ggmpDevRmtLoadEntry 6 }
 
         -----------------------------------------------------------------------
-        --GGMP 远程升级模式的配置 MIB--
+        --GGMP  MIB--
         -----------------------------------------------------------------------
         ggmpRmtLoadModeTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GgmpRmtLoadModeEntry
@@ -1165,7 +1165,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
                "Table entry for configging/showing remote load mode."
-               --用于配置显示客户端的加载模式
+               --
         INDEX { ggmpRmtLoadDevType }
         ::= { ggmpRmtLoadModeTable 1 }
 
@@ -1185,8 +1185,8 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
              "value '0'means all device,the others actually are the same as the
               index of device id table,please refer to device id table for more
               details about which value each device corresponds to"
-             --此节点值为'0'代表配置所有设备,其他值的意义和device id表的索引值相同,
-             --可以参考device id表来查看每种设备对应的索引值
+             --'0',device id,
+             --device id
         ::= { ggmpRmtLoadModeEntry 1 }
 
         ggmpRmtLoadmode OBJECT-TYPE
@@ -1205,9 +1205,9 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
              " Config loading mode:1.load all lanswitchs'host file ,or bootrom
                file, or both ,at specified time; 2.load all lanswitchs'host file,
                or bootrom file ,or both, periodically at specified time"
-             --配置加载的模式,分为：
-             --1.在给定时间一次性升级所有设备的主机文件或bootrom文件或所有文件;
-             --2.在给定时间周期性加载所有设备的主机文件或bootrom文件或所有文件。
+             --,
+             --1.bootrom;
+             --2.bootrom
         ::= { ggmpRmtLoadModeEntry 2 }
 
         ggmpRmtLoadModeTime OBJECT-TYPE
@@ -1219,9 +1219,9 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
                of seconds relative to start point which is '1970/01/01 00:00:00'
                if remote-load-mode is 'loadAllOnce',or 'sunday 00:00:00'if
                remote-load-time is 'loadAllPeriodic' "
-             --配置加载的时间,当加载模式为"loadAllOnce"时，加载时间为相对于
-             --1970/01/01 00:00:00的总秒数，当加载模式为'loadAllPeriodic'时，
-             --加载时间为相对于星期天00:00:00的总秒数
+             --,"loadAllOnce"
+             --1970/01/01 00:00:00'loadAllPeriodic'
+             --00:00:00
         ::= { ggmpRmtLoadModeEntry 3 }
 
         ggmpRmtLoadNewRegAuto OBJECT-TYPE
@@ -1236,8 +1236,8 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         DESCRIPTION
             "Config if all lanswitchs newly registered are loaded automatically.
              File to be loaded :host file, bootrom file, or both"
-            --配置是否自动加载所有新注册设备,待升级的文件分为主机文件，bootrom文件
-            --或者是两种文件都升级
+            --,bootrom
+            --
         ::= { ggmpRmtLoadModeEntry 4 }
 
         ggmpRmtLoadModeRowStatus OBJECT-TYPE
@@ -1246,10 +1246,10 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS      current
         DESCRIPTION
             "Status of this entry."
-            --表项的状态
+            --
         ::= { ggmpRmtLoadModeEntry 5 }
         ----------------------------------------------------------------------
-        --此表用来配置客户端的设备id列表--
+        --id--
         ----------------------------------------------------------------------
         ggmpGbnDeviceIdTable OBJECT-TYPE
         SYNTAX SEQUENCE OF GgmpGbnDeviceIdEntry
@@ -1265,7 +1265,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         STATUS current
         DESCRIPTION
                "Table entry for configging lanswitch deviceId information."
-               --用于配置客户端的设备id信息
+               --id
         INDEX { ggmpGbnDevIdIndex }
         ::= { ggmpGbnDeviceIdTable 1 }
 
@@ -1284,8 +1284,8 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         DESCRIPTION
              " index of deviceId table,the first 20 entries of id table
                have been occupied,so index should not less than 21"
-             --设备id表的索引,由于前20条表项已经被占用，所以用户配置
-             --输入的索引不应小于21
+             --id,20
+             --21
         ::= { ggmpGbnDeviceIdEntry 1 }
 
         ggmpGbnDeviceId  OBJECT-TYPE
@@ -1295,7 +1295,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         DESCRIPTION
              " lanswitch's device-id which is the identifier of device-type,
                first 20 entries of device-id table have been occupied by
-               existing device-types,following details ：
+               existing device-types,following details :
                S3042V->0x01000000,S2008E->0x02000000,S2016E->0x03000000,
                S2016EF->0x03010000,S2024E->0x04000000,S2024EF->0x04010000,
                S2208->0x05000000,S2024M->0x06010000,S2024M->0x06010000,
@@ -1312,7 +1312,7 @@ gbnGgmpTrap                   OBJECT IDENTIFIER ::= { gnlinkMib 9 }
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION
-             " lanswitch's device-type name，such as ‘TiNet S2008E’"
+             " lanswitch's device-type name,such as 'TiNet S2008E'"
         ::= { ggmpGbnDeviceIdEntry 3 }
 
         ggmpGbnDeviceIDRowStatus   OBJECT-TYPE

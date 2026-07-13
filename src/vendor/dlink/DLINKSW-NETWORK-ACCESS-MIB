@@ -484,7 +484,7 @@ DLINKSW-NETWORK-ACCESS-MIB DEFINITIONS ::= BEGIN
     }
 
     dnaSessionId OBJECT-TYPE
-        SYNTAX          Unsigned32 ( 0 .. 0xffffffff)
+        SYNTAX          Unsigned32 ( 0 .. 4294967295)
         MAX-ACCESS      not-accessible
         STATUS          current
         DESCRIPTION

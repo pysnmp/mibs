@@ -292,9 +292,9 @@ DLINKSW-PACKET-MONITOR-MIB DEFINITIONS ::= BEGIN
             "This object indicates if the monitoring of the packets transmitted 
             on the interface will be affected by the interface's STG status.
             'no-care' -  monitor the packets transmitted on the interface regardless 
-                         of the interface¡¯s STG status.
+                         of the interface's STG status.
             'forwarding' - monitor the packets transmitted on the interface only when 
-                          the interface¡¯s all STGs status are forwarding."
+                          the interface's all STGs status are forwarding."
         DEFVAL { no-care }
         ::= { dPktMonSessionSrcTxIfEntry 2 }
 

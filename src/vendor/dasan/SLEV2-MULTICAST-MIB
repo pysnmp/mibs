@@ -5546,7 +5546,7 @@
 			STATUS current
 			DESCRIPTION
 				"This object specifies the multicast router port learning method for IGMP Snooping as described below:
-				none(0) : don¡¯t learning, Only use static router ports.
+				none(0) : don't learning, Only use static router ports.
 				pim(1) : Protocol Independent Multicast.
 				"
 			::= { sleV2IgsVlanControl 11 }
@@ -5558,7 +5558,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Multicast router ports learned by dynamic method (ex: PIM when MRouterLearningMode is ¡®pim¡¯"
+				"Multicast router ports learned by dynamic method (ex: PIM when MRouterLearningMode is 'pim'"
 			::= { sleV2IgsVlanControl 12 }
 
 		
@@ -5568,7 +5568,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"It¡¯s TRUE, IGMP Snooping will suppress duplicate IGMP Reports on the VLAN. FALSE, all IGMP Reports are forwarded to multicast routers on the VLAN. Alias of this is IGMP Snooping Proxy."
+				"It's TRUE, IGMP Snooping will suppress duplicate IGMP Reports on the VLAN. FALSE, all IGMP Reports are forwarded to multicast routers on the VLAN. Alias of this is IGMP Snooping Proxy."
 			::= { sleV2IgsVlanControl 13 }
 
 		
@@ -7739,7 +7739,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				" Policy applied when exceeds the maximum group count. default value ¡®deny(1)¡¯."
+				" Policy applied when exceeds the maximum group count. default value 'deny(1)'."
 			::= { sleV2IgfPortEntry 4 }
 
 		

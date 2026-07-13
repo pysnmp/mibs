@@ -5380,7 +5380,7 @@ CPQRACK-MIB DEFINITIONS ::= BEGIN
         --#STATE DEGRADED
         --#SIMPLE_SEVERITY MAJOR
         --#HWSTATUS_CATEGORY OA
-        --#ACTION "The following conditions can result in a degraded Onboard Administrator (OA): 1) one OA failed but the second OA is still operating, 2) one or more OAs is in a non-optimal operating state, 3) a firmware revision mismatch occurred between the primary and secondary OAs, or 4) OA RTC battery is low.� To determine what caused the issue, see the OA and check the logs for more  information.�   If a firmware mismatch occurred, use the OA UI or CLI (UPDATE IMAGE SYNC command) to resynchronize the firmware on the OAs.�  If OA RTC battery  is found to be low, replace battery."
+        --#ACTION "The following conditions can result in a degraded Onboard Administrator (OA): 1) one OA failed but the second OA is still operating, 2) one or more OAs is in a non-optimal operating state, 3) a firmware revision mismatch occurred between the primary and secondary OAs, or 4) OA RTC battery is low. To determine what caused the issue, see the OA and check the logs for more  information.   If a firmware mismatch occurred, use the OA UI or CLI (UPDATE IMAGE SYNC command) to resynchronize the firmware on the OAs.  If OA RTC battery  is found to be low, replace battery."
 
 
         ::= 22037

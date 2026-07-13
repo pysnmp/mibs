@@ -7,7 +7,7 @@
 -- All rights reserved.
 --
 -- modify history 
---  01£¬20110901,hetao, Ìí¼Ó raisecomPowerStatusTrapºÍ raisecomPowerStatus 
+--  0120110901,hetao,  raisecomPowerStatusTrap raisecomPowerStatus 
 -- *****************************************************************         
 RAISECOM-POWERMONITOR-MIB  DEFINITIONS ::= BEGIN
 IMPORTS

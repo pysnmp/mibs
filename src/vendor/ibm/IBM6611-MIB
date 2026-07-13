@@ -12737,7 +12737,7 @@ ibmappnNodePortDlcTracMsgType OBJECT-TYPE
  
  
 --              enumeration values between 6000 and 7999 are reserved for
---              TR  traces,
+--              TR  traces
  
  
                          }

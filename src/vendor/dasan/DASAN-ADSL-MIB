@@ -1556,7 +1556,7 @@ dsAdslAtucPerfDataExtnPrev1DayLossL OBJECT-TYPE
 --	MAX-ACCESS   read-only
 --	STATUS       current
 --	DESCRIPTION
---		"Count of the failed line initialization attempts in the day as measured by “adslAtucPerfCurr1Day-TimeElapsed.(length = 4 bytes)"
+--		"Count of the failed line initialization attempts in the day as measured by â€œadslAtucPerfCurr1Day-TimeElapsed.(length = 4 bytes)"
 --	::= { dsAdslAtucPerfDataExtnEntry 25 }
 
 

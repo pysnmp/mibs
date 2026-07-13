@@ -2255,7 +2255,7 @@
 				pmOltQueueStatsDroppedBytes
 					Counter64,
 				pmOltQueueStatsDroppedFrames
-					Counter64,
+					Counter64
 			 }      
 			 
 		pmOltQueueStatsRxOctets OBJECT-TYPE

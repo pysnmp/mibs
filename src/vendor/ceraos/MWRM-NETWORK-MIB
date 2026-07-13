@@ -3929,7 +3929,7 @@ GenEquipProtocolsG8032ErpiPortAttributesEntry ::=
 		genEquipProtocolsG8032ErpiPortAttributesFsCommand
 			INTEGER,
 		genEquipProtocolsG8032ErpiPortAttributesMsCommand
-			INTEGER,
+			INTEGER
 	}
 
 genEquipProtocolsG8032ErpiPortAttributesErpiId OBJECT-TYPE

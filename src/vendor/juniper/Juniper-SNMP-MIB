@@ -732,7 +732,7 @@ juniSnmpTrapGlobalFilter  OBJECT-TYPE
         "This object provides global control over trap generation by this agent.
         For each bit position, a '1' or '0' indicates the corresponding trap
         category is enabled or disabled, respectively. For security reasons, 
-        ‘Mirror’ category will not be allowed to be configured through SNMP."
+        â€˜Mirrorâ€™ category will not be allowed to be configured through SNMP."
     ::= { juniSnmpTrap 1 }
 
 juniSnmpTrapSource  OBJECT-TYPE
@@ -845,7 +845,7 @@ juniSnmpTrapHostFilter  OBJECT-TYPE
         "Bit mask designating the specific trap types enabled for transmission
         to this trap destination.  For each bit position, a '1' or '0' indicates
         the corresponding trap type is enabled or disabled, respectively. For 
-        security reasons, ‘Mirror’ category will not be allowed to be configured 
+        security reasons, â€˜Mirrorâ€™ category will not be allowed to be configured 
         through SNMP.
 
         Note, trap generation is further constrained by the value
@@ -1132,7 +1132,7 @@ juniSnmpTrapSeverityFilter  OBJECT-TYPE
         level, a trap must have in order to be forwarded for the destination
         level trap filtering. A trap will be discarded and counted in 
         juniSnmpTrapGlobalDiscards if its severity level is less than the value
-        of this object. For security reasons, ‘Mirror’ category will not be
+        of this object. For security reasons, â€˜Mirrorâ€™ category will not be
         allowed to be configured through SNMP.
         Only those trap categories which are configured using per category
         based trap severity filter are displayed as part of this table.

@@ -1122,13 +1122,13 @@ PM8ECCMIB DEFINITIONS ::= BEGIN
         ACCESS              read-only
         STATUS              mandatory
         DESCRIPTION         "For Digital Inputs and Outputs this object is
-                            always 0 indicating ìDiscreteî.
+                            always 0 indicating ‚ÄúDiscrete‚Äù.
                             
                             For Analog Inputs and Outputs this object indicates
                             the range of analog I/O values (used without
-                            units) 0 = 0 ñ 1 1 = 0 ñ 5 2 = 0 ñ 10 3 = 0 ñ
-                            20 4 = 1 ñ 5 5 = 4 ñ 20 6 = -5 ñ 5 7 = -10 ñ
-                            10 8 = -100 ñ 100 9 = User defined (values default
+                            units) 0 = 0 ‚Äì 1 1 = 0 ‚Äì 5 2 = 0 ‚Äì 10 3 = 0 ‚Äì
+                            20 4 = 1 ‚Äì 5 5 = 4 ‚Äì 20 6 = -5 ‚Äì 5 7 = -10 ‚Äì
+                            10 8 = -100 ‚Äì 100 9 = User defined (values default
                             to 0)"
         ::= { ioConfigurationEntry 6 }
 

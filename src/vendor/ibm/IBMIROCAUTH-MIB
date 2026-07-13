@@ -423,7 +423,7 @@ authUserProfileIpAddr OBJECT-TYPE
     STATUS mandatory
     DESCRIPTION
         "IP address for this user."
-    DEFVAL { 0.0.0.0 }
+    DEFVAL { '00000000'H }
     ::= { authUserProfileEntry 18 }
 
 authUserProfileIpMask OBJECT-TYPE
@@ -432,7 +432,7 @@ authUserProfileIpMask OBJECT-TYPE
     STATUS mandatory
     DESCRIPTION
         "IP mask for this user."
-    DEFVAL { 255.255.255.255 }
+    DEFVAL { 'ffffffff'H }
     ::= { authUserProfileEntry 19 }
 
 authUserProfileHostName OBJECT-TYPE

@@ -265,7 +265,7 @@
            MAX-ACCESS read-only
            STATUS current
            DESCRIPTION
-            "the outlabel of pw£¬specified for SVC."   
+            "the outlabel of pw,specified for SVC."   
            ::= { hwPwe3TunnelEntry 16 }
 
 

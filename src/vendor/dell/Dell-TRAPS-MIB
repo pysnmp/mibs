@@ -663,14 +663,14 @@ rldot1xSupplicantLoggedOutTrap NOTIFICATION-TYPE
     STATUS  current
     DESCRIPTION
         "Warning trap is indicating that supplicant was logged out
-         Since the port’s time-range state was changed to inactive."
+         Since the portâ€™s time-range state was changed to inactive."
     ::=  { rndNotifications 215 }
 
 rldot1xPortControlModeNotAutoTrap NOTIFICATION-TYPE
     OBJECTS   { rndErrorDesc, rndErrorSeverity }
     STATUS  current
     DESCRIPTION
-        "Warning trap is indicating that altough port’s time-range
+        "Warning trap is indicating that altough portâ€™s time-range
          Is active now, it can not start working in mode auto."
     ::=  { rndNotifications 216 }
 

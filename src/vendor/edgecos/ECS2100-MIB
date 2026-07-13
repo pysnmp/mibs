@@ -5595,7 +5595,7 @@ vlanPortMode OBJECT-TYPE
                     Setting it to access(3) sets an access link."
         ::= { vlanPortEntry 2 }
 
---¡@SYS_CPNT_COMMUNITY_PRIVATE_VLAN¡@(use PVLAN_MGR API) start
+--SYS_CPNT_COMMUNITY_PRIVATE_VLAN(use PVLAN_MGR API) start
 vlanPortPrivateVlanType OBJECT-TYPE
         SYNTAX     INTEGER
                    {
@@ -6170,7 +6170,7 @@ prioSchedModePort OBJECT-TYPE
         SYNTAX  INTEGER {
                     wrr(1),
                     strict(2),
-                    strict-wrr(4),
+                    strict-wrr(4)
                 }
         MAX-ACCESS  read-write
         STATUS      current
@@ -6442,7 +6442,7 @@ RateLimitPortEntry ::= SEQUENCE
     rlPortOutputStatus          EnabledStatus,
     rlPortInputLimitInKilo      Integer32,
     rlPortOutputLimitInKilo     Integer32,
-    rlPortLimitInKiloResolution Integer32,
+    rlPortLimitInKiloResolution Integer32
 }
 
 rlPortIndex OBJECT-TYPE
@@ -15333,8 +15333,8 @@ timeRangePeriodicStartDaysOfTheWeek OBJECT-TYPE
         MAX-ACCESS   read-create
         STATUS       current
         DESCRIPTION "Specifies the start days-of-the-week of the periodic time-range entry.
-                     1. If the start days-of-the-week is set to Sunday, Monday¡K or Saturday
-                        then the end days-of-the-week shall be set to Sunday, Monday¡K, or Saturday.
+                     1. If the start days-of-the-week is set to Sunday, Monday... or Saturday
+                        then the end days-of-the-week shall be set to Sunday, Monday..., or Saturday.
                         1-1. If the start time is equal to the end time (for example: 09:00 - 09:00),
                              it means that the rule is active in the whole day.
                         1-2. If the end time is prior to the start time (for example: 05:00 - 01:00),
@@ -15375,8 +15375,8 @@ timeRangePeriodicEndDaysOfTheWeek OBJECT-TYPE
         MAX-ACCESS   read-create
         STATUS       current
         DESCRIPTION "Specifies the end days-of-the-week of the periodic time-range entry.
-                     1. If the start days-of-the-week is set to Sunday, Monday¡K or Saturday
-                        then the end days-of-the-week shall be set to Sunday, Monday¡K, or Saturday.
+                     1. If the start days-of-the-week is set to Sunday, Monday... or Saturday
+                        then the end days-of-the-week shall be set to Sunday, Monday..., or Saturday.
                         1-1. If the start time is equal to the end time (for example: 09:00 - 09:00),
                              it means that the rule is active in the whole day.
                         1-2. If the end time is prior to the start time (for example: 05:00 - 01:00),

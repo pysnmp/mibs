@@ -329,7 +329,7 @@ dsGOTransceiverExtDateCode OBJECT-TYPE
        MAX-ACCESS  read-only  
        STATUS      current
        DESCRIPTION
-               "Vendor¡¯s manufacturing date code."
+               "Vendor's manufacturing date code."
        ::= { dsGOTransceiverExtEntry 5 }
 		
 dsGOTransceiverExtDiagMonitoringType OBJECT-TYPE

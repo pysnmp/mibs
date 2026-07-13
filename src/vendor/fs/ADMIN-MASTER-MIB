@@ -110,8 +110,6 @@ S5330-28TX   OBJECT IDENTIFIER ::= {vdsl 1}
     
 -- Switch Products
 S5330          OBJECT IDENTIFIER ::= { mnt 10 }
--- S5330
-S5330-28TX           OBJECT IDENTIFIER ::= {S5330  24 }
 --
 -- END of ADMIN-MASTER-MIB
 --

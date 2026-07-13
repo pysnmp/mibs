@@ -107,12 +107,4 @@ BINTEC-MIB DEFINITIONS ::= BEGIN
     BitValue ::=
 	INTEGER (0..4294967295)
 
-    -- dont use, only for internal signaling, use standard BITS
-    BitField ::=	-- alias type to distinguish BITS from OCTET STR
-	BITS
-
-    InetAddressV6 ::=	-- alias type to output in IPv6 ::-format
-	OCTET STRING (SIZE(0..16))
-
-
 END

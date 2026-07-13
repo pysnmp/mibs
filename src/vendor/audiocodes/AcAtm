@@ -197,7 +197,7 @@ AcAtm DEFINITIONS ::= BEGIN
        MAX-ACCESS read-write
        STATUS obsolete
        DESCRIPTION
-           "This is the Administrative ATM Port Address (20 octets in length - 40 hexadecimal characters). This address is manually configured. This address is used when ILMI is not available."
+           "This is the AdministrativeÂ ATM Port Address (20 octets in length - 40 hexadecimal characters). This address is manually configured.Â This address is used when ILMI is not available."
        ::= {atmPortEntry 4}
 
 
@@ -207,7 +207,7 @@ AcAtm DEFINITIONS ::= BEGIN
        MAX-ACCESS read-only
        STATUS obsolete
        DESCRIPTION
-           "This is the port ATM address currently in operation (i.e.:assigned to this port). This address is set to atmPortAdminAddress if no ILMI address is registered. If an ILMI address is successfully registered, then atmPortOperationalAddress will be set to the ILMI one, though an administrative address may have already been configured. Thus ILMI address always takes precedence over the administrative one. If both the administrative and ILMI addresses are unavailable then the operational address is left empty. Refer to atmPortAddressMode for which address is operational."
+           "This is the port ATM address currently in operation (i.e.:assigned to this port). This addressÂ is set to atmPortAdminAddress if no ILMI address is registered. If an ILMI address is successfully registered, then atmPortOperationalAddress will be set to the ILMI one, though an administrative address may have already been configured. Thus ILMI address always takes precedence over the administrative one. If both the administrative and ILMI addresses are unavailable then the operational address is left empty. Refer to atmPortAddressMode for which address is operational."
        ::= {atmPortEntry 5}
 
 

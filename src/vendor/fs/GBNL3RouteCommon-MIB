@@ -42,7 +42,7 @@
         MAX-ACCESS  read-only
         STATUS  current
         DESCRIPTION
-            "此router id是配置的还是系统自动选举的"
+            "router id"
         ::= { routerId 1 }  
         
     routerIdValue OBJECT-TYPE
@@ -50,7 +50,7 @@
         MAX-ACCESS  read-write
         STATUS  current
         DESCRIPTION
-            "当前配置或选举的router id"
+            "router id"
         ::= { routerId 2 }        
 
 

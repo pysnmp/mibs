@@ -202,7 +202,7 @@ hpicfVrrpv3MIB  MODULE-IDENTITY
                        bytes filled with 0 and is applicable only for IPv6 Virtual 
                        router. By default hpicfVrrpv3VrNullAuthCompatibility is 
                        set to FALSE."
-        DEFVAL       { FALSE }
+        DEFVAL       { false }
         ::= { hpicfVrrpv3OperationsEntry 6 }
     
      hpicfVrrpv3VrBfdIPAddr OBJECT-TYPE

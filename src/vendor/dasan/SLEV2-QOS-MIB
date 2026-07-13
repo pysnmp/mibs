@@ -680,7 +680,7 @@
 				The flat internet protocol is from sleV2QoS4FlowTcpSrcStartPort to sleV2QoS4FlowIcmpCode
 				If the value is tcp(6),
 				From sleV2QoS4FlowTcpSrcStartPort to sleV2QoS4FlowTcpFlag value is available
-				If the value is u¿¡(17),
+				If the value is udp(17),
 				From sleV2QoS4FlowUdpSrcStartPort to sleV2QoS4FlowUdpDstEndPort value is available
 				If the value is icmp(1),
 				The value of sleV2QoS4FlowIcmpType and sleV2QoS4FlowIcmpCode is available
@@ -1017,7 +1017,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The IP address to match against the packet¡¯s source IP address."
+				"The IP address to match against the packet's source IP address."
 			::= { sleV2QoS4FlowEntry 44 }
 
 		
@@ -1027,7 +1027,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The IP address to match against the packet¡¯s destination IP address."
+				"The IP address to match against the packet's destination IP address."
 			::= { sleV2QoS4FlowEntry 45 }
 
 		
@@ -1364,7 +1364,7 @@
 				The flat internet protocol is from sleV2QoS4FlowTcpSrcStartPort to sleV2QoS4FlowIcmpCode
 				If the value is tcp(6),
 				From sleV2QoS4FlowControlTcpSrcStartPort to sleV2QoS4FlowControlTcpFlag value is available
-				If the value is u¿¡(17),
+				If the value is udp(17),
 				From sleV2QoS4FlowControlUdpSrcStartPort to sleV2QoS4FlowControlUdpDstEndPort value is available
 				If the value is icmp(1),
 				The value of sleV2QoS4FlowControlIcmpType and sleV2QoS4FlowControlIcmpCode is available
@@ -1673,7 +1673,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The IP address to match against the packet¡¯s source IP address."
+				"The IP address to match against the packet's source IP address."
 			::= { sleV2QoS4FlowControl 46 }
 
 		
@@ -1683,7 +1683,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"The IP address to match against the packet¡¯s destination IP address."
+				"The IP address to match against the packet's destination IP address."
 			::= { sleV2QoS4FlowControl 47 }
 
 		
@@ -4039,7 +4039,7 @@
 			STATUS current
 			DESCRIPTION
 				"The value of the average counter of 5 second.
-				The bytes according to policer¡¯s average counter mode.
+				The bytes according to policer's average counter mode.
 				The value of 0 is no matched count.
 				"
 			::= { sleV2QoS4PolicyEntry 33 }
@@ -4052,7 +4052,7 @@
 			STATUS current
 			DESCRIPTION
 				"The value of the average counter of 1 minute.
-				The bytes according to policer¡¯s average counter mode.
+				The bytes according to policer's average counter mode.
 				The value of 0 is no matched count.
 				"
 			::= { sleV2QoS4PolicyEntry 34 }
@@ -4065,7 +4065,7 @@
 			STATUS current
 			DESCRIPTION
 				"The value of the average counter of 10 minute.
-				The bytes according to policer¡¯s average counter mode.
+				The bytes according to policer's average counter mode.
 				The value of 0 is no matched count.
 				"
 			::= { sleV2QoS4PolicyEntry 35 }

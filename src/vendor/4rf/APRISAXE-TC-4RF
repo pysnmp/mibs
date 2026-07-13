@@ -108,20 +108,20 @@ AprisaXECardType ::= TEXTUAL-CONVENTION
                   The values for the enumerations match the hardware type
                   values returned from the MUX card FPGAs and EEPROMs."
     SYNTAX      INTEGER { none             (0),  -- No card present
-                          motherboard      ('E0'h),
-                          transmitterCard  ('E3'h),
-                          receiverCard     ('E4'h),
-                          quadJETCard      ('E5'h),
-                          quadFourWireCard ('E7'h),
-                          dualFXOCard      ('E8'h),
-                          dualFXSCard      ('E9'h),
-                          modemCard        ('EA'h),
-                          quadV24Card      ('EB'h),
-                          hssCard          ('EC'h),
-                          pscCard          ('ED'h),
-                          picCard          ('EE'h),
-			  dualJETCard      ('D5'h),
-			  singleJETCard    ('C5'h)		
+                          motherboard      (224),
+                          transmitterCard  (227),
+                          receiverCard     (228),
+                          quadJETCard      (229),
+                          quadFourWireCard (231),
+                          dualFXOCard      (232),
+                          dualFXSCard      (233),
+                          modemCard        (234),
+                          quadV24Card      (235),
+                          hssCard          (236),
+                          pscCard          (237),
+                          picCard          (238),
+			              dualJETCard      (213),
+			              singleJETCard    (197)
                 }
 
 AprisaXEAlarmSource ::= TEXTUAL-CONVENTION

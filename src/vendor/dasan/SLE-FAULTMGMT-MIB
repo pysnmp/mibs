@@ -1195,10 +1195,10 @@
 				015: systemRestart: Network system is restarted by operator. This is not H/W start but S/W start.
 				===============
 				016: systemStart: Network system is restarted by operator or system status. This is not S/W start but H/W start.
-						  (This alarm isn¡¯t used current)
+						  (This alarm isn't used current)
 				===============
 				017: broadcastOver: To detect the receipt of broadcast packet.
-				 			    (This alarm isn¡¯t used current)
+				 			    (This alarm isn't used current)
 				018: broadcastUnder: 
 				===============
 				019: cpuOverLoad: To detect whether the configured CPU load threshold is less than current CPU load usage or not.
@@ -1938,10 +1938,10 @@
 				015: systemRestart: Network system is restarted by operator. This is not H/W start but S/W start.
 				===============
 				016: systemStart: Network system is restarted by operator or system status. This is not S/W start but H/W start.
-						  (This alarm isn¡¯t used current)
+						  (This alarm isn't used current)
 				===============
 				017: broadcastOver: To detect the receipt of broadcast packet.
-				 			    (This alarm isn¡¯t used current)
+				 			    (This alarm isn't used current)
 				018: broadcastUnder: 
 				===============
 				019: cpuOverLoad: To detect whether the configured CPU load threshold is less than current CPU load usage or not.
@@ -2681,10 +2681,10 @@
 				015: systemRestart: Network system is restarted by operator. This is not H/W start but S/W start.
 				===============
 				016: systemStart: Network system is restarted by operator or system status. This is not S/W start but H/W start.
-						  (This alarm isn¡¯t used current)
+						  (This alarm isn't used current)
 				===============
 				017: broadcastOver: To detect the receipt of broadcast packet.
-				 			    (This alarm isn¡¯t used current)
+				 			    (This alarm isn't used current)
 				018: broadcastUnder: 
 				===============
 				019: cpuOverLoad: To detect whether the configured CPU load threshold is less than current CPU load usage or not.
@@ -3639,10 +3639,10 @@
 				015: systemRestart: Network system is restarted by operator. This is not H/W start but S/W start.
 				===============
 				016: systemStart: Network system is restarted by operator or system status. This is not S/W start but H/W start.
-						  (This alarm isn¡¯t used current)
+						  (This alarm isn't used current)
 				===============
 				017: broadcastOver: To detect the receipt of broadcast packet.
-				 			    (This alarm isn¡¯t used current)
+				 			    (This alarm isn't used current)
 				018: broadcastUnder: 
 				===============
 				019: cpuOverLoad: To detect whether the configured CPU load threshold is less than current CPU load usage or not.
@@ -11733,7 +11733,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicate the MIP¡¯s type"
+				"Indicate the MIP's type"
 			::= { sleY1731MipEntry 3 }
 
 		
@@ -11876,7 +11876,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the cross-check MEP¡¯s state"
+				"Indicates the cross-check MEP's state"
 			::= { sleY1731XcheckEntry 2 }
 
 		
@@ -11946,7 +11946,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the MEG¡¯s Index"
+				"Indicates the MEG's Index"
 			::= { sleY1731XcheckControl 7 }
 
 		
@@ -16229,7 +16229,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicate the MIP¡¯s type"
+				"Indicate the MIP's type"
 			::= { sleCfmMipEntry 3 }
 
 		
@@ -16372,7 +16372,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the cross-check MEP¡¯s state"
+				"Indicates the cross-check MEP's state"
 			::= { sleCfmXcheckEntry 2 }
 
 		
@@ -16442,7 +16442,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the MD¡¯s Index"
+				"Indicates the MD's Index"
 			::= { sleCfmXcheckControl 7 }
 
 		
@@ -17595,7 +17595,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s ID"
+				"Indicates the Ring's ID"
 			::= { sleRapsRingEntry 1 }
 
 		
@@ -17609,7 +17609,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s type"
+				"Indicates the Ring's type"
 			::= { sleRapsRingEntry 2 }
 
 		
@@ -17618,7 +17618,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s level"
+				"Indicates the Ring's level"
 			::= { sleRapsRingEntry 3 }
 
 		
@@ -17627,7 +17627,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s control-vlan"
+				"Indicates the Ring Node's control-vlan"
 			::= { sleRapsRingEntry 4 }
 
 		
@@ -17636,7 +17636,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s traffic-vlans"
+				"Indicates the Ring Node's traffic-vlans"
 			::= { sleRapsRingEntry 5 }
 
 		
@@ -17654,7 +17654,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s ID"
+				"Indicates the Ring Node's ID"
 			::= { sleRapsRingEntry 7 }
 
 		
@@ -17682,7 +17682,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s Role"
+				"Indicates the Ring Node's Role"
 			::= { sleRapsRingEntry 9 }
 
 		
@@ -17700,7 +17700,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s State"
+				"Indicates the Ring Node's State"
 			::= { sleRapsRingEntry 10 }
 
 		
@@ -17709,7 +17709,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s east port"
+				"Indicates the Ring Node's east port"
 			::= { sleRapsRingEntry 11 }
 
 		
@@ -17733,7 +17733,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s west port"
+				"Indicates the Ring Node's west port"
 			::= { sleRapsRingEntry 13 }
 
 		
@@ -17762,7 +17762,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s RPL port"
+				"Indicates the Ring's RPL port"
 			::= { sleRapsRingEntry 15 }
 
 		
@@ -17776,7 +17776,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s interconnection port"
+				"Indicates the Ring's interconnection port"
 			::= { sleRapsRingEntry 16 }
 
 		
@@ -18020,7 +18020,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s ID"
+				"Indicates the Ring's ID"
 			::= { sleRapsRingControl 6 }
 
 		
@@ -18034,7 +18034,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s type"
+				"Indicates the Ring's type"
 			::= { sleRapsRingControl 7 }
 
 		
@@ -18043,7 +18043,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s level"
+				"Indicates the Ring's level"
 			::= { sleRapsRingControl 8 }
 
 		
@@ -18052,7 +18052,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s control-vlan"
+				"Indicates the Ring Node's control-vlan"
 			::= { sleRapsRingControl 9 }
 
 		
@@ -18061,7 +18061,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s traffic-vlans"
+				"Indicates the Ring Node's traffic-vlans"
 			::= { sleRapsRingControl 10 }
 
 		
@@ -18097,7 +18097,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s east port"
+				"Indicates the Ring Node's east port"
 			::= { sleRapsRingControl 13 }
 
 		
@@ -18106,7 +18106,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node¡¯s west port"
+				"Indicates the Ring Node's west port"
 			::= { sleRapsRingControl 14 }
 
 		
@@ -18134,7 +18134,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring¡¯s RPL port type"
+				"Indicates the Ring's RPL port type"
 			::= { sleRapsRingControl 16 }
 
 		
@@ -24473,7 +24473,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s east port(ifindex)"
+				"Indicates the Ring Nodeâ€™s east port(ifindex)"
 			::= { sle2ErpsPhyRingEntry 3 }
 
 		
@@ -24500,7 +24500,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s west port(ifindex)"
+				"Indicates the Ring Nodeâ€™s west port(ifindex)"
 			::= { sle2ErpsPhyRingEntry 6 }
 
 		
@@ -24608,7 +24608,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s east interface index"
+				"Indicates the Ring Nodeâ€™s east interface index"
 			::= { sle2ErpsPhyRingControl 8 }
 
 		
@@ -24617,7 +24617,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s west interface index"
+				"Indicates the Ring Nodeâ€™s west interface index"
 			::= { sle2ErpsPhyRingControl 9 }
 
 		
@@ -25123,7 +25123,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring’s ID"
+				"Indicates the Ringâ€™s ID"
 			::= { sle2ErpsInstanceEntry 5 }
 
 		
@@ -25132,7 +25132,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring’s Level"
+				"Indicates the Ringâ€™s Level"
 			::= { sle2ErpsInstanceEntry 6 }
 
 		
@@ -25147,7 +25147,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s Role"
+				"Indicates the Ring Nodeâ€™s Role"
 			::= { sle2ErpsInstanceEntry 7 }
 
 		
@@ -25161,7 +25161,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring’s RPL port"
+				"Indicates the Ringâ€™s RPL port"
 			::= { sle2ErpsInstanceEntry 8 }
 
 		
@@ -25175,8 +25175,8 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Sub-Ring’s RPL port.
-				Indicates the Ring’s interconnection port.
+				"Indicates the Sub-Ringâ€™s RPL port.
+				Indicates the Ringâ€™s interconnection port.
 				You should only give this command on interconnection nodes.
 				"
 			::= { sle2ErpsInstanceEntry 9 }
@@ -25187,7 +25187,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s control-vlan"
+				"Indicates the Ring Nodeâ€™s control-vlan"
 			::= { sle2ErpsInstanceEntry 10 }
 
 		
@@ -25196,7 +25196,7 @@
 			MAX-ACCESS read-only
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s traffic-vlans"
+				"Indicates the Ring Nodeâ€™s traffic-vlans"
 			::= { sle2ErpsInstanceEntry 11 }
 
 		
@@ -25477,7 +25477,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring’s ID"
+				"Indicates the Ringâ€™s ID"
 			::= { sle2ErpsInstanceControl 10 }
 
 		
@@ -25486,7 +25486,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring’s Level"
+				"Indicates the Ringâ€™s Level"
 			::= { sle2ErpsInstanceControl 11 }
 
 		
@@ -25501,7 +25501,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s Role"
+				"Indicates the Ring Nodeâ€™s Role"
 			::= { sle2ErpsInstanceControl 12 }
 
 		
@@ -25514,7 +25514,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring’s RPL port"
+				"Indicates the Ringâ€™s RPL port"
 			::= { sle2ErpsInstanceControl 13 }
 
 		
@@ -25527,8 +25527,8 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Sub-Ring’s RPL port.
-				Indicates the Ring’s interconnection port.
+				"Indicates the Sub-Ringâ€™s RPL port.
+				Indicates the Ringâ€™s interconnection port.
 				You should only give this command on interconnection nodes.
 				"
 			::= { sle2ErpsInstanceControl 14 }
@@ -25539,7 +25539,7 @@
 			MAX-ACCESS read-write
 			STATUS current
 			DESCRIPTION
-				"Indicates the Ring Node’s control-vlan"
+				"Indicates the Ring Nodeâ€™s control-vlan"
 			::= { sle2ErpsInstanceControl 15 }
 
 		

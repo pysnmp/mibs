@@ -1645,7 +1645,7 @@ saRgIpMgmtLanDhcpServerEntry OBJECT-TYPE
 SaRgIpMgmtLanDhcpServerEntry ::= SEQUENCE {
     saRgIpMgmtLanDhcpServerPoolStart         IpAddress,
     saRgIpMgmtLanDhcpServerPoolEnd           IpAddress,
-    saRgIpMgmtLanDhcpServerLeaseTime         Unsigned32,
+    saRgIpMgmtLanDhcpServerLeaseTime         Unsigned32
     }
 
 

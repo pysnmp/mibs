@@ -3472,7 +3472,7 @@ HUAWEI-SERVER-IBMC-MIB DEFINITIONS ::= BEGIN
 				userPublicKeyHash
 					DisplayString,
 				userSNMPPrivacyPassword
-					DisplayString,
+					DisplayString
 				}
 				 
 
@@ -15379,7 +15379,7 @@ HUAWEI-SERVER-IBMC-MIB DEFINITIONS ::= BEGIN
 				raidControllerDriverVersion
 					DisplayString,
 				raidControllerSupportedRAIDLevels
-					DisplayString,
+					DisplayString
 				}											   
 
 		raidControllerIndex OBJECT-TYPE
@@ -15887,7 +15887,7 @@ HUAWEI-SERVER-IBMC-MIB DEFINITIONS ::= BEGIN
 				logicalDriveDelete
 					INTEGER,					
 				logicalDriveOSLetter
-					DisplayString,					
+					DisplayString					
 				}											   
 
 		logicalDriveRAIDControllerIndex OBJECT-TYPE
@@ -16322,7 +16322,7 @@ HUAWEI-SERVER-IBMC-MIB DEFINITIONS ::= BEGIN
 				diskArrayPDCount
 					INTEGER,
 				diskArrayPDId
-					DisplayString,
+					DisplayString
 				}	
 
 		diskArrayRAIDControllerIndex OBJECT-TYPE

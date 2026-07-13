@@ -64,7 +64,7 @@ WlanRadioEntry ::= SEQUENCE {
 	wlanStationCount		Unsigned32,
 	wlanSupportedChannel	OCTET STRING,
 	wlanMode			INTEGER,
-	wlanChannel			INTEGER,
+	wlanChannel			INTEGER
 	}
 
     	wlanCurrentChannel OBJECT-TYPE
