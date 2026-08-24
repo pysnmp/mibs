@@ -49,6 +49,8 @@ spec:
           env:
             - name: NGINX_ENTRYPOINT_QUIET_LOGS
               value: "1"
+            - name: MIBSERVER_IPV6_ENABLED
+              value: {{ .Values.ipv6Enabled | quote }}
           ports:
             - name: http
               containerPort: 8000

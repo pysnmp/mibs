@@ -9,6 +9,7 @@ COPY scripts /app/new_mibs/scripts
 COPY output /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY local_mibs.sh /app/local_mibs.sh
+COPY mibserver-entrypoint.sh /app/mibserver-entrypoint.sh
 
 # Install necassary dependecies
 USER root
@@ -31,8 +32,9 @@ WORKDIR /app
 
 # adjust permissions for k8s user
 RUN poetry install
-RUN chmod a+x /app/local_mibs.sh
+RUN chmod a+x /app/local_mibs.sh /app/mibserver-entrypoint.sh
 RUN chown -R 10001:10001 /usr/share/nginx/html
 RUN chown -R 10001:10001 /app
 USER 10001
-ENTRYPOINT /app/local_mibs.sh && nginx -g 'daemon off;'
+ENTRYPOINT ["/app/mibserver-entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
