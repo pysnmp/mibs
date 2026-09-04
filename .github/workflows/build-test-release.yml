@@ -62,21 +62,13 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           path: log/
-      - name: Install Helm
-        uses: azure/setup-helm@v5
-        with:
-          version: v3.6.3
-      #      - name: Upload
-      #        run: |
-      #          mkdir /tmp/package
-      #          mkdir /tmp/index
-      #          mkdir /tmp/origin
-      #          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-      #          VERSION="$(echo "$GITHUB_REF" | cut -d / -f 3)"
-      #          helm package mibserver -d /tmp/package
-      #          gh release upload "$VERSION" /tmp/package/*
-      #          helm repo index /tmp/package --url https://github.com/pysnmp/mibs/releases/download/"$VERSION"
-      #          cp /tmp/package/index.yaml ./output
+      - name: Carry forward legacy chart index
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse --branch gh-pages \
+            https://github.com/${{ github.repository }}.git /tmp/ghp
+          git -C /tmp/ghp sparse-checkout set charts
+          mkdir -p output/charts
+          cp /tmp/ghp/charts/index.yaml output/charts/index.yaml
       - name: Deploy - GH-PAGES
         uses: peaceiris/actions-gh-pages@v4
         with:
