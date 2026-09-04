@@ -36,6 +36,7 @@ localmibs:
 index: standard vendor  ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
+	cp -R static/. output/
 
 index-local-mibs: dirs $(RFC) localmibs
 	touch output/.nojekyll

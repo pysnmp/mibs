@@ -63,12 +63,13 @@ jobs:
         with:
           path: log/
       - name: Carry forward legacy chart index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git clone --depth 1 --filter=blob:none --sparse --branch gh-pages \
-            https://github.com/${{ github.repository }}.git /tmp/ghp
-          git -C /tmp/ghp sparse-checkout set charts
           mkdir -p output/charts
-          cp /tmp/ghp/charts/index.yaml output/charts/index.yaml
+          gh release download helm-legacy --pattern index.yaml --dir output/charts
+          test -s output/charts/index.yaml
+          grep -q 'releases/download' output/charts/index.yaml
       - name: Deploy - GH-PAGES
         uses: peaceiris/actions-gh-pages@v4
         with:
