@@ -34,7 +34,10 @@ jobs:
       packages: write
       pages: write
     concurrency:
-      group: gh-pages
+      # Only main deploys to gh-pages, so only main needs the shared lock.
+      # develop/tag/PR runs get their own group or they evict main while it is
+      # queued (GitHub keeps at most one pending run per group).
+      group: ${{ github.ref == 'refs/heads/main' && 'gh-pages' || format('ci-{0}', github.ref) }}
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
