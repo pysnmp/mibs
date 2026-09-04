@@ -68,12 +68,9 @@ jobs:
           path: log/
       - name: Carry forward legacy chart index
         if: github.ref == 'refs/heads/main'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p output/charts
-          gh release download helm-legacy --pattern index.yaml --dir output/charts
-          test -s output/charts/index.yaml
+          cp charts/index.yaml output/charts/index.yaml
           grep -q 'releases/download' output/charts/index.yaml
       - name: Deploy - GH-PAGES
         if: github.ref == 'refs/heads/main'
