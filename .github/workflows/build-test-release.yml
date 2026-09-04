@@ -75,7 +75,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
-          keep_files: true
+          force_orphan: true
       #Build docker images
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
