@@ -10,7 +10,7 @@ jobs:
       contents: write
       packages: write
     concurrency:
-      group: gh-pages
+      group: legacy-chart-index
       cancel-in-progress: false
     steps:
       - name: Free Disk Space
@@ -24,10 +24,51 @@ jobs:
           swap-storage: false
 
       - uses: actions/checkout@v7
-      - name: Publish Helm chart
-        uses: stefanprodan/helm-gh-pages@master
+      - name: Install Helm
+        uses: azure/setup-helm@v5
+      - name: Login to GitHub Packages Docker Registry
+        uses: docker/login-action@v4.6.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          charts_url: https://pysnmp.github.io/mibs
-          branch: gh-pages
-          target_dir: charts
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Package chart
+        run: helm package charts/mibserver -d /tmp/chart
+      - name: Publish Helm chart - OCI
+        run: helm push /tmp/chart/*.tgz oci://ghcr.io/${{ github.repository_owner }}/charts
+      - name: Verify OCI chart
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          mkdir -p /tmp/verify
+          helm pull oci://ghcr.io/${{ github.repository_owner }}/charts/mibserver \
+            --version "$VERSION" -d /tmp/verify
+          test -s /tmp/verify/mibserver-"$VERSION".tgz
+      - name: Attach chart to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "$GITHUB_REF_NAME" /tmp/chart/*.tgz --clobber
+      - name: Build legacy chart index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/index
+          gh release download helm-legacy --pattern index.yaml --dir /tmp/prev
+          cp /tmp/chart/*.tgz /tmp/index/
+          helm repo index /tmp/index \
+            --url https://github.com/${{ github.repository }}/releases/download/$GITHUB_REF_NAME \
+            --merge /tmp/prev/index.yaml
+          rm -f /tmp/index/*.tgz
+          PREV=$(grep -c 'releases/download' /tmp/prev/index.yaml)
+          NEW=$(grep -c 'releases/download' /tmp/index/index.yaml)
+          test "$NEW" -gt "$PREV"
+      - name: Store legacy chart index - release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload helm-legacy /tmp/index/index.yaml --clobber
+      - name: Publish legacy chart index - gh-pages (deprecated)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/index
+          destination_dir: charts
+          keep_files: false
