@@ -10,7 +10,7 @@ jobs:
       contents: write
       packages: write
     concurrency:
-      group: legacy-chart-index
+      group: gh-pages
       cancel-in-progress: false
     steps:
       - name: Free Disk Space
@@ -48,23 +48,26 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release upload "$GITHUB_REF_NAME" /tmp/chart/*.tgz --clobber
       - name: Build legacy chart index
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p /tmp/index
-          gh release download helm-legacy --pattern index.yaml --dir /tmp/prev
           cp /tmp/chart/*.tgz /tmp/index/
           helm repo index /tmp/index \
             --url https://github.com/${{ github.repository }}/releases/download/$GITHUB_REF_NAME \
-            --merge /tmp/prev/index.yaml
+            --merge charts/index.yaml
           rm -f /tmp/index/*.tgz
-          PREV=$(grep -c 'releases/download' /tmp/prev/index.yaml)
+          PREV=$(grep -c 'releases/download' charts/index.yaml)
           NEW=$(grep -c 'releases/download' /tmp/index/index.yaml)
           test "$NEW" -gt "$PREV"
-      - name: Store legacy chart index - release asset
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload helm-legacy /tmp/index/index.yaml --clobber
+      - name: Commit legacy chart index to main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          cp /tmp/index/index.yaml charts/index.yaml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add charts/index.yaml
+          git commit -m "chore(charts): index $GITHUB_REF_NAME"
+          git push origin main || (git pull --rebase origin main && git push origin main)
       - name: Publish legacy chart index - gh-pages (deprecated)
         uses: peaceiris/actions-gh-pages@v4
         with:
