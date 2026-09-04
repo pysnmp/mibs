@@ -18,6 +18,10 @@ RUN uv sync --frozen --no-dev
 
 FROM nginxinc/nginx-unprivileged:1.29.1-bookworm
 
+USER root
+RUN chown 10001:10001 /usr/share/nginx/html
+USER 10001
+
 COPY --from=builder --chown=10001:10001 /opt/python /opt/python
 COPY --from=builder --chown=10001:10001 /opt/venv /opt/venv
 

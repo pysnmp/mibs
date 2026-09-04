@@ -34,9 +34,13 @@ start() {
 }
 
 stop() {
-  docker logs "$CID" >"$WORK/logs.txt" 2>&1
   docker rm -f "$CID" >/dev/null
   CID=""
+}
+
+# curl straight into grep/head trips SIGPIPE under pipefail, so land it on disk first
+fetch() {
+  curl -sf "http://127.0.0.1:${PORT}/$1" -o "$WORK/$2"
 }
 
 echo "== runtime image must not carry build tooling"
@@ -53,10 +57,12 @@ docker run --rm --entrypoint sh "$IMAGE" \
 
 echo "== baseline: serves the prebuilt index with no local mibs"
 start
-grep -q 'No local mibs. Skipping' <(docker logs "$CID" 2>&1) || fail "expected the no-local-mibs branch"
-curl -sf "http://127.0.0.1:${PORT}/index.csv" | head -1 | grep -q ',' || fail "index.csv is not being served"
-curl -sf -o /dev/null "http://127.0.0.1:${PORT}/asn1/SNMPv2-SMI" || fail "asn1 tree is not being served"
-BASE_LINES="$(curl -sf "http://127.0.0.1:${PORT}/index.csv" | wc -l | tr -d ' ')"
+docker logs "$CID" >"$WORK/logs.txt" 2>&1
+grep -q 'No local mibs. Skipping' "$WORK/logs.txt" || fail "expected the no-local-mibs branch"
+fetch index.csv base.csv || fail "index.csv is not being served"
+grep -q ',' "$WORK/base.csv" || fail "index.csv is not in name,oid form"
+fetch asn1/SNMPv2-SMI smi.txt || fail "asn1 tree is not being served"
+BASE_LINES="$(wc -l <"$WORK/base.csv" | tr -d ' ')"
 [ "$BASE_LINES" -gt 1000 ] || fail "index.csv looks truncated ($BASE_LINES lines)"
 stop
 
@@ -82,14 +88,16 @@ smokeValue OBJECT-TYPE
 END
 MIB
 
+# mktemp -d is 0700; the container runs as 10001 and has to read the mount
+chmod -R a+rX "$WORK/vendor"
+
 start -v "$WORK/vendor:/app/new_mibs/src/vendor:ro"
-curl -sf "http://127.0.0.1:${PORT}/index.csv" | grep -q '^SMOKE-TEST-MIB,1\.3\.6\.1\.4\.1\.99999$' \
+fetch index.csv merged.csv || fail "index.csv is not being served after the local mib compile"
+grep -q '^SMOKE-TEST-MIB,1\.3\.6\.1\.4\.1\.99999$' "$WORK/merged.csv" \
   || fail "compiled mib is missing from the merged index"
-curl -sf -o /dev/null "http://127.0.0.1:${PORT}/asn1/SMOKE-TEST-MIB" \
-  || fail "compiled mib is not being served from asn1/"
-curl -sf -o /dev/null "http://127.0.0.1:${PORT}/asn1/SNMPv2-SMI" \
-  || fail "merge clobbered the prebuilt asn1 tree"
-MERGED_LINES="$(curl -sf "http://127.0.0.1:${PORT}/index.csv" | wc -l | tr -d ' ')"
+fetch asn1/SMOKE-TEST-MIB smoke.txt || fail "compiled mib is not being served from asn1/"
+fetch asn1/SNMPv2-SMI smi2.txt || fail "merge clobbered the prebuilt asn1 tree"
+MERGED_LINES="$(wc -l <"$WORK/merged.csv" | tr -d ' ')"
 [ "$MERGED_LINES" -gt "$BASE_LINES" ] || fail "merged index did not grow ($MERGED_LINES vs $BASE_LINES)"
 stop
 
