@@ -63,6 +63,7 @@ jobs:
         with:
           path: log/
       - name: Carry forward legacy chart index
+        if: github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -71,6 +72,7 @@ jobs:
           test -s output/charts/index.yaml
           grep -q 'releases/download' output/charts/index.yaml
       - name: Deploy - GH-PAGES
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
