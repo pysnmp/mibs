@@ -1,0 +1,9 @@
+*
+!index.py
+!local_mibs.sh
+!mibserver-entrypoint.sh
+!nginx.conf
+!output
+!pyproject.toml
+!scripts
+!uv.lock

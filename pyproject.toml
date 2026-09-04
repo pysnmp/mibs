@@ -1,19 +1,19 @@
-[tool.poetry]
+[project]
 name = "pysnmp-mibs"
 version = "1.17.1"
 description = ""
-authors = ["rfaircloth-splunk <rfaircloth@splunk.com>"]
+authors = [{ name = "rfaircloth-splunk", email = "rfaircloth@splunk.com" }]
 license = "BSD-2-Clause"
-package-mode = false
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "pysnmp-pysmi>=1.1.12,<2",
+    "pyyaml!=6.0.0",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<3.12"
-pysnmp-pysmi = "^1.1.12"
-pyyaml = { version = "!=6.0.0" }
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.2,<5",
+]
 
-[tool.poetry.group.dev.dependencies]
-pre-commit = "^4.6.2"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv]
+package = false
