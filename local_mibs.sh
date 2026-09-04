@@ -2,12 +2,14 @@
 if [ -n "$(ls -A /app/new_mibs/src/vendor 2>/dev/null)" ]
 then
   cd /app/new_mibs
-  mkdir output
-  source /app/.cache/pysnmp-mibs*/bin/activate
+  mkdir -p output/asn1 output/texts output/notexts output/json log
   echo "**********************************"
   echo "Found local mibs. Compiling..."
   echo "**********************************"
-  make index-local-mibs
+  find src/vendor -type d -maxdepth 1 -mindepth 1 | sort >list.tmp
+  while read -r line; do ./scripts/localmibs.sh "$line"; done <list.tmp
+  touch output/.nojekyll
+  python index.py
   echo "**********************************"
   echo "Successfully compiled MIBs are: "
   echo "**********************************"

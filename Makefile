@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := help
+PY ?= uv run
 .PHONY: all vendor
 #RFC=$(notdir $(wildcard mibs/*))
 RFC=$(wildcard src/standard/*)
@@ -35,16 +36,16 @@ localmibs:
 
 index: standard vendor  ##generate index
 	touch output/.nojekyll
-	poetry run python index.py
+	$(PY) python index.py
 
 index-local-mibs: dirs $(RFC) localmibs
 	touch output/.nojekyll
-	poetry run python index.py
+	$(PY) python index.py
 
 compile-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 		echo "## Compiling $$f"; \
-		poetry run mibdump \
+		$(PY) mibdump \
 			--no-python-compile \
 			--mib-source=file://$$(pwd)/src/standardasn1 \
 			--destination-directory=./pysnmp \
@@ -54,7 +55,7 @@ compile-changed:  ## Compile With Texts all MIBs into .py files
 compile-with-texts:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(ls mibs/asn1); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump \
+	  $(PY) mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
@@ -65,7 +66,7 @@ compile-with-texts:  ## Compile With Texts all MIBs into .py files
 compile-with-texts-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump \
+	  $(PY) mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
@@ -76,7 +77,7 @@ compile-with-texts-changed:  ## Compile With Texts all MIBs into .py files
 compile-json:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(ls output/asn1); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump \
+	  $(PY) mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
@@ -88,7 +89,7 @@ compile-json:  ## Compile With Texts all MIBs into .py files
 compile-json-changed:  ## Compile With Texts all MIBs into .py files
 	@for f in $$(git diff --name-only --diff-filter=AM HEAD mibs/asn1/); do \
 	  echo "## Compiling $$f with texts"; \
-	  poetry run mibdump \
+	  $(PY) mibdump \
 	    --generate-mib-texts \
 	    --no-python-compile \
 	    --mib-source=file://$$(pwd)/src/standardasn1 \
