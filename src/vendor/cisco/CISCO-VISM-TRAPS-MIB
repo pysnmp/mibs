@@ -99,7 +99,7 @@ IMPORTS
         cwAnnFileName,
         cwAnnFileCodec,
         cwAnnFileStatus              FROM CISCO-WAN-ANNOUNCEMENT-MIB
-        intSrvFlowStatus             FROM INT-SERV-MIB
+        intSrvFlowStatus             FROM INTEGRATED-SERVICES-MIB
         rsvpSessionDestAddr,
         rsvpResvFwdStatus,
         rsvpResvStatus,
