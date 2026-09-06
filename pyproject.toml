@@ -6,7 +6,7 @@ authors = [{ name = "rfaircloth-splunk", email = "rfaircloth@splunk.com" }]
 license = "BSD-2-Clause"
 requires-python = ">=3.10,<3.12"
 dependencies = [
-    "pysnmp-pysmi>=2.2.0,<3",
+    "pysnmp-pysmi>=2.3.0,<3",
     "pyyaml!=6.0.0",
 ]
 
