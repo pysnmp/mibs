@@ -1,16 +1,4 @@
--- *****************************************************************
--- DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB.my: Cable Device notification mib
---
--- September 2007, Lihua Chen
---
--- This mib was extracted from RFC 4547
---
--- Copyright (c) 2007-2008 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
-
-
-DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
+   DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
 
      IMPORTS
            MODULE-IDENTITY,
@@ -19,7 +7,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            mib-2
                  FROM SNMPv2-SMI -- RFC 2578
            MODULE-COMPLIANCE,
-
            OBJECT-GROUP,
            NOTIFICATION-GROUP
                  FROM SNMPv2-CONF -- RFC 2580
@@ -68,7 +55,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
 
                 IETF IPCDN Working Group
                 General Discussion: ipcdn@ietf.org
-
                 Subscribe: http://www.ietf.org/mailman/listinfo/ipcdn
                 Archive: ftp://ftp.ietf.org/ietf-mail-archive/ipcdn
                 Co-chairs: Richard Woundy,
@@ -117,7 +103,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            cmSwUpgradeInitNotif( 8),
            cmSwUpgradeFailNotif( 9),
            cmSwUpgradeSuccessNotif( 10),
-
            cmSwUpgradeCVCNotif( 11),
            cmTODFailNotif( 12),
            cmDCCReqFailNotif( 13),
@@ -165,7 +150,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            the notification is disabled.  Note that notifications are
            also under the control of the MIB modules defined in
            RFC3413.
-
            If the device is rebooted,the value of this object SHOULD
            revert to the default value.
           "
@@ -212,7 +196,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               methodology used by the CM.
            "
        ::= { docsDevCmNotifs 1 }
-
    docsDevCmDynServReqFailNotif NOTIFICATION-TYPE
        OBJECTS {
            docsDevEvLevel,
@@ -261,7 +244,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            docsDevEvId,
            docsDevEvText,
            ifPhysAddress,
-
            docsIfCmCmtsAddress,
            docsIfDocsisBaseCapability,
            docsIfCmStatusDocsisOperMode,
@@ -310,7 +292,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
        }
        STATUS current
        DESCRIPTION
-
            "A notification to report the failure of a dynamic service
             acknowledgement during the dynamic services process.
 
@@ -359,7 +340,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             the event by including the following objects in its
             varbinding list.
             - docsDevEvLevel: the priority level associated with the
-
               event.
             - docsDevEvId: the unique identifier of the event that
               occurred.
@@ -408,7 +388,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             - ifPhysAddress: the MAC address of the cable
               interface of this cable modem.
             - docsIfCmCmtsAddress: the MAC address of the CMTS
-
               to which the CM is connected (if there is a cable
               card/interface in the CMTS, then it is actually the
               MAC address of the cable interface to which it is
@@ -457,7 +436,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             - docsIfDocsisBaseCapability: the highest
               version of the DOCSIS specification (1.0, 1.1, 2.0)
               that the device is capable of supporting.
-
             - docsIfCmStatusDocsisOperMode: the QOS level (1.0, 1.1)
               that the CM is operating in.
             - docsIfCmStatusModulationType: the upstream modulation
@@ -506,7 +484,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               methodology used by the CM.
            "
        ::= { docsDevCmNotifs 8 }
-
    docsDevCmSwUpgradeInitNotif NOTIFICATION-TYPE
        OBJECTS {
            docsDevEvLevel,
@@ -555,7 +532,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            docsDevEvLevel,
            docsDevEvId,
            docsDevEvText,
-
            ifPhysAddress,
            docsIfCmCmtsAddress,
            docsDevSwFilename,
@@ -604,7 +580,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            docsDevEvText,
            ifPhysAddress,
            docsIfCmCmtsAddress,
-
            docsDevSwFilename,
            docsDevSwServer,
            docsIfDocsisBaseCapability,
@@ -653,7 +628,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            docsIfCmCmtsAddress,
            docsIfDocsisBaseCapability,
            docsIfCmStatusDocsisOperMode,
-
            docsIfCmStatusModulationType
        }
        STATUS current
@@ -702,7 +676,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
        STATUS current
        DESCRIPTION
            "A notification to report the failure of a time of day
-
             operation.
 
             This notification sends additional information about
@@ -751,7 +724,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             This notification sends additional information about
             the event by including the following objects in its
             varbinding list.
-
             - docsDevEvLevel: the priority level associated with the
               event.
             - docsDevEvId: the unique identifier of the event that
@@ -800,7 +772,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               occurred.
             - docsDevEvText: a textual description of the event.
             - ifPhysAddress: the MAC address of the cable
-
               interface of this cable modem.
             - docsIfCmCmtsAddress: the MAC address of the CMTS
               to which the CM is connected (if there is a cable
@@ -849,7 +820,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               to which the CM is connected (if there is a cable
               card/interface in the CMTS, then it is actually the
               MAC address of the cable interface to which it is
-
               connected).
             - docsIfDocsisBaseCapability: the highest
               version of the DOCSIS specification (1.0, 1.1, 2.0)
@@ -898,7 +868,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             - docsIfDocsisBaseCapability: the highest
               version of the DOCSIS specification (1.0, 1.1, 2.0)
               that the device is capable of supporting.
-
             - docsIfCmtsCmStatusModulationType: the upstream
               modulation methodology used by the CM.
            "
@@ -947,7 +916,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
        ::= { docsDevCmtsNotifs 2 }
 
    docsDevCmtsInitRegAckFailNotif NOTIFICATION-TYPE
-
        OBJECTS {
            docsDevEvLevel,
            docsDevEvId,
@@ -996,7 +964,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            docsDevEvText,
            docsIfCmtsCmStatusMacAddress,
            ifPhysAddress,
-
            docsIfCmtsCmStatusDocsisRegMode,
            docsIfDocsisBaseCapability,
            docsIfCmtsCmStatusModulationType
@@ -1045,7 +1012,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
        }
        STATUS current
        DESCRIPTION
-
            "A notification to report the failure of a dynamic service
             response during the dynamic services process
             that was detected by the CMTS.
@@ -1094,7 +1060,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
 
             This notification sends additional information about
             the event by including the following objects in its
-
             varbinding list.
             - docsDevEvLevel: the priority level associated with the
               event.
@@ -1117,6 +1082,7 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               modulation methodology used by the CM.
            "
        ::= { docsDevCmtsNotifs 6 }
+
 
    docsDevCmtsBpiInitNotif NOTIFICATION-TYPE
        OBJECTS {
@@ -1142,7 +1108,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               event.
             - docsDevEvId: the unique identifier of the event that
               occurred.
-
             - docsDevEvText: a textual description of the event.
             - docsIfCmtsCmStatusMacAddress: the MAC address of the CM
               with which this notification is associated.
@@ -1191,7 +1156,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
               (if there is a cable card/interface in the CMTS,
               then it is actually the MAC address of the cable
               interface that connected to the CM) cable interface
-
               connected to the CM.
             - docsIfCmtsCmStatusDocsisRegMode: the QOS level (1.0, 1.1)
               that the reporting CM is operating in.
@@ -1240,7 +1204,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             - docsIfDocsisBaseCapability: the highest
               version of the DOCSIS specification (1.0, 1.1, 2.0)
               that the device is capable of supporting.
-
             - docsIfCmtsCmStatusModulationType: the upstream
               modulation methodology used by the CM.
            "
@@ -1289,7 +1252,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
        ::= { docsDevCmtsNotifs 10 }
 
    docsDevCmtsDCCRspFailNotif NOTIFICATION-TYPE
-
        OBJECTS {
            docsDevEvLevel,
            docsDevEvId,
@@ -1338,7 +1300,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
            docsDevEvId,
            docsDevEvText,
            docsIfCmtsCmStatusMacAddress,
-
            ifPhysAddress,
            docsIfCmtsCmStatusDocsisRegMode,
            docsIfDocsisBaseCapability,
@@ -1387,7 +1348,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
       ::= { docsDevNotifConformance 2 }
    docsDevCmNotifCompliance MODULE-COMPLIANCE
        STATUS current
-
        DESCRIPTION
        "The compliance statement for CM Notifications and Control."
 
@@ -1436,7 +1396,6 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
    docsDevCmtsNotifCompliance MODULE-COMPLIANCE
        STATUS current
        DESCRIPTION
-
            "The compliance statement for DOCSIS CMTS Notification
             and Control."
        MODULE --docsDevNotif
@@ -1477,5 +1436,4 @@ DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB DEFINITIONS ::= BEGIN
             status and control."
        ::= { docsDevNotifGroups 4 }
 
-END
-
+   END

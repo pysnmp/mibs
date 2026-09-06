@@ -27,8 +27,6 @@ CONTACT-INFO "
                      Postal: 20 Corporate Place South
                                 Piscataway, NJ 08854
                                 Tel:    +1 (732)465-1000
-
-
                                 E-mail: murali@photuris.com
 
                                 Dan Romascanu
@@ -77,8 +75,6 @@ DESCRIPTION
     reached a value of (2**32-1)."
 SYNTAX  INTEGER {
 last30sec(1),   -- Performance Statics for the last 30 sec
-
-
 last15min(2),   --    15 min
 last24Hr(3),    --    24 Hour
 sinceReboot(4)  --    Since the time the pint server was
@@ -127,8 +123,6 @@ pintApplInstallPkgEntry OBJECT-TYPE
     ::= { pintApplInstallPkgTable 1 }
 
 PintApplInstallPkgEntry ::= SEQUENCE {
-
-
 pintApplInstallPkgDescription    SnmpAdminString
 }
 
@@ -177,8 +171,6 @@ pintRegisteredGatewayDescription OBJECT-TYPE
     DESCRIPTION
      "Textual description of the registered gateway."
     ::= { pintRegisteredGatewayEntry 2 }
-
-
 -- pintServerMonitor - PINT monitoring statistics MIB variables
 
 pintServerGlobalPerf    OBJECT IDENTIFIER ::= {pintServerMonitor 1 }
@@ -227,8 +219,6 @@ pintServerServiceTypeIndex OBJECT-TYPE
 pintServerPerfStatPeriodIndex OBJECT-TYPE
     SYNTAX     PintPerfStatPeriod
     MAX-ACCESS not-accessible
-
-
     STATUS     current
     DESCRIPTION
      "Time period for which the performance statistics are requested
@@ -277,8 +267,6 @@ pintServerGlobalDisServProbCalls OBJECT-TYPE
      "Number of global calls that were disconnected because of
      server problems."
     ::= { pintServerGlobalStatsEntry 7 }
-
-
 pintServerGlobalDisGatProbCalls OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -326,9 +314,6 @@ pintServerClientAddress OBJECT-TYPE
      "The unique identifier of the monitored client
      identified by its address represented as as a string."
     ::= { pintServerClientStatsEntry 1 }
-
-
-
 pintServerClientCallsReceived OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -377,8 +362,6 @@ pintServerUserIdStatsTable      OBJECT-TYPE
     SYNTAX      SEQUENCE OF PintServerUserIdStatsEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-
-
     DESCRIPTION
      "Table displaying the monitored Pint service user statistics."
     ::= { pintServerUserIdPerf 1 }
@@ -426,9 +409,6 @@ pintServerUserIdCallsReceived OBJECT-TYPE
     DESCRIPTION
      "Number of calls received from the specific user."
     ::= { pintServerUserIdStatsEntry 2 }
-
-
-
 pintServerUserIdSuccessfulCalls OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -477,8 +457,6 @@ pintServerGatewayStatsEntry OBJECT-TYPE
     SYNTAX      PintServerGatewayStatsEntry
     MAX-ACCESS  not-accessible
     STATUS      current
-
-
     DESCRIPTION
      "Entries in the gateway table.
      One entry is defined for each gateway identified by name,
@@ -527,8 +505,6 @@ pintServerGatewayDisconnectedCalls OBJECT-TYPE
 
 --
 -- Conformance Section
-
-
 --
 
 pintMibCompliances OBJECT IDENTIFIER ::= { pintMibConformance 1 }
@@ -577,8 +553,6 @@ pintServerUserIdSuccessfulCalls,
 pintServerUserIdDisconnectedCalls,
 pintServerUserIdDiscUIdAFailCalls,
 pintServerUserIdEFProbCalls,
-
-
 pintServerGatewayCallsReceived,
 pintServerGatewaySuccessfulCalls,
 pintServerGatewayDisconnectedCalls

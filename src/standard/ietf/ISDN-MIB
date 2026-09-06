@@ -44,7 +44,6 @@ isdnMib MODULE-IDENTITY
         ::= { transmission 20 }
 
 -- The ISDN hardware interface (BRI or PRI) is represented
-
 -- by a media specific ifEntry.
 --
 -- For basic rate lines, the media specifics for the physical interface
@@ -93,7 +92,6 @@ IsdnSignalingProtocol ::= TEXTUAL-CONVENTION
              dss1(2),           -- ITU DSS1 (formerly CCITT) Q.931
              etsi(3),           -- Europe / ETSI ETS300-102
                                 -- plus supplementary services
-
                                 -- (ETSI 300-xxx)
                                 -- note that NET3, NET5 define
                                 -- test procedures for ETS300-102
@@ -477,7 +475,6 @@ isdnSignalingGroup OBJECT IDENTIFIER ::= { isdnMibObjects 3 }
 -- In case of NFAS trunks, one lower interface is the
 -- LAPD interface, while the other lower interfaces are physical
 -- interfaces.
-
 -- If directory number and calling address differ from each other
 -- or multiple directory numbers are being used,
 -- the isdnDirectoryTable has to be used to enter such
@@ -813,7 +810,6 @@ isdnLapdRecvdFrmr OBJECT-TYPE
 
 --
 -- Optional groups follow here.
-
 -- The Terminal Endpoint group and table
 
 -- This table is required only if TEI values or SPID numbers

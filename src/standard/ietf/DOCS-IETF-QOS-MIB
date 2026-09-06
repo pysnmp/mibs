@@ -1,14 +1,3 @@
--- *****************************************************************
--- DOCS-IETF-QOS-MIB.my:
---
--- May 2007 Bo Wu
---
--- Initial Version: Apr 2007: RFC4323 
---
--- Copyright (c) 2007-2008 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
-
 DOCS-IETF-QOS-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -318,7 +307,6 @@ docsIetfQosPktClassIpProtocol OBJECT-TYPE
     DESCRIPTION    "This object indicates the value of the IP
                     Protocol field required for IP packets to match
                     this rule.
-
                     The value 256 matches traffic with any IP Protocol
                     value.  The value 257 by convention matches both TCP
                     and UDP.
@@ -366,7 +354,6 @@ docsIetfQosPktClassInetSourceAddr OBJECT-TYPE
                     '00000000'H."
     REFERENCE      "SP-RFIv2.0-I06-040804, Appendix C.2.1.5.3"
     ::= { docsIetfQosPktClassEntry 9 }
-
 docsIetfQosPktClassInetSourceMask OBJECT-TYPE
     SYNTAX          InetAddress
     MAX-ACCESS      read-only
@@ -462,7 +449,6 @@ docsIetfQosPktClassSourcePortEnd OBJECT-TYPE
                     65535."
     REFERENCE      "SP-RFIv2.0-I06-040804, Appendix C.2.1.5.8"
     ::= { docsIetfQosPktClassEntry 14 }
-
 docsIetfQosPktClassDestPortStart OBJECT-TYPE
     SYNTAX          InetPortNumber
     MAX-ACCESS      read-only
@@ -607,7 +593,6 @@ docsIetfQosPktClassEnetProtocol OBJECT-TYPE
                     type codes.  Certain message type codes are
                     excluded from matching, as specified in the
                     reference.
-
                     If the Ethernet frame contains an 802.1P/Q Tag
                     header (i.e., EtherType 0x8100), this object applies
                     to the embedded EtherType field within the 802.1P/Q
@@ -656,7 +641,6 @@ docsIetfQosPktClassUserPriHigh OBJECT-TYPE
                     docsIetfQosPktClassPriLow to
                     docsIetfQosPktClassPriHigh in order to match this
                     rule.
-
                     If the referenced parameter is not present in the
                     classifier, the value of this object is reported
                     as 7."
@@ -753,7 +737,6 @@ docsIetfQosPktClassBitMap OBJECT-TYPE
 --
 -- QOS Parameter Set Table
 --
-
 docsIetfQosParamSetTable OBJECT-TYPE
     SYNTAX          SEQUENCE OF DocsIetfQosParamSetEntry
     MAX-ACCESS      not-accessible
@@ -1329,7 +1312,6 @@ docsIetfQosParamSetRequestPolicyOct OBJECT-TYPE
 
                     suppresspayloadheaders(7):
                          suppress payload headers
-
                     dropPktsExceedUGSize(8):
                          A value of 1 means that the Service Flow must
                          drop packets that do not fit in the Unsolicited
@@ -1426,7 +1408,6 @@ DocsIetfQosServiceFlowEntry ::= SEQUENCE {
     docsIetfQosServiceFlowDirection        DocsIetfQosRfMacIfDirection,
     docsIetfQosServiceFlowPrimary          TruthValue
     }
-
 docsIetfQosServiceFlowId    OBJECT-TYPE
     SYNTAX          Unsigned32 (1..4294967295)
     MAX-ACCESS      not-accessible
@@ -2194,7 +2175,6 @@ docsIetfQosServiceFlowLogControl OBJECT-TYPE
 
                     Reading this object returns the value active(1)."
     ::= { docsIetfQosServiceFlowLogEntry 15 }
-
 --
 -- Service Class Table (CMTS ONLY)
 --
@@ -2387,7 +2367,6 @@ docsIetfQosServiceClassMaxLatency OBJECT-TYPE
     REFERENCE      "SP-RFIv2.0-I06-040804, Appendix C.2.2.7.1"
     DEFVAL          { 0 }
     ::= { docsIetfQosServiceClassEntry 15 }
-
 docsIetfQosServiceClassActiveTimeout OBJECT-TYPE
     SYNTAX          Integer32 (0..65535)
     UNITS           "seconds"
@@ -2838,7 +2817,7 @@ docsIetfQosCompliance MODULE-COMPLIANCE
              that are classifying packets and not policing packets."
 
         OBJECT  docsIetfQosPktClassInetAddressType
-        -- SYNTAX InetAddressType { ipv4(1) }
+        SYNTAX InetAddressType { ipv4(1) }
         DESCRIPTION
             "An implementation is only required to support IPv4
              address."
@@ -2868,13 +2847,13 @@ docsIetfQosCompliance MODULE-COMPLIANCE
              address."
 
         OBJECT  docsIetfQosServiceClassStorageType
-        -- SYNTAX StorageType { nonVolatile(3) }
+        SYNTAX StorageType { nonVolatile(3) }
         DESCRIPTION
             "An implementation is only required to support nonvolatile
              storage."
 
         OBJECT  docsIetfQosServiceClassPolicyStorageType
-        -- SYNTAX StorageType { nonVolatile(3) }
+        SYNTAX StorageType { nonVolatile(3) }
         DESCRIPTION
             "An implementation is only required to support nonvolatile
              storage."

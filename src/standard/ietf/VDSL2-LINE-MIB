@@ -36,7 +36,6 @@ IMPORTS
    Xdsl2LineLdsf,
    Xdsl2LdsfResult,
    Xdsl2LineBpsc,
-
    Xdsl2BpscResult,
    Xdsl2LineReset,
    Xdsl2SymbolProtection,
@@ -83,7 +82,6 @@ vdsl2MIB MODULE-IDENTITY
    ORGANIZATION "ADSLMIB Working Group"
    CONTACT-INFO "WG-email:  adslmib@ietf.org
    Info:      https://www1.ietf.org/mailman/listinfo/adslmib
-
              Chair:     Mike Sneed
                         Sand Channel Systems
              Postal:    P.O. Box 37324
@@ -132,7 +130,6 @@ vdsl2MIB MODULE-IDENTITY
 
          The MIB module described in RFC 2662 [RFC2662] defines
          objects used for managing Asymmetric Bit-Rate DSL (ADSL)
-
          interfaces per [T1E1.413], [G.992.1], and [G.992.2].
          These object descriptions are based upon the specifications
          for the ADSL Embedded Operations Channel (EOC) as defined
@@ -180,7 +177,6 @@ vdsl2MIB MODULE-IDENTITY
            copyright notice, this list of conditions and the
            following disclaimer in the documentation and/or other
            materials provided with the distribution.
-
          - Neither the name of Internet Society, IETF or IETF Trust,
            nor the names of specific contributors, may be used to
            endorse or promote products derived from this software
@@ -229,7 +225,6 @@ vdsl2MIB MODULE-IDENTITY
   ------------------------------------------------
 
 ------------------------------------------------
-
 --          xdsl2LineTable                    --
 ------------------------------------------------
 
@@ -278,7 +273,6 @@ Xdsl2LineEntry  ::=
       xdsl2LineStatusXtuc              Xdsl2LineStatus,
       xdsl2LineStatusAttainableRateDs  Unsigned32,
       xdsl2LineStatusAttainableRateUs  Unsigned32,
-
       xdsl2LineStatusActPsdDs          Integer32,
       xdsl2LineStatusActPsdUs          Integer32,
       xdsl2LineStatusActAtpDs          Integer32,
@@ -327,7 +321,6 @@ xdsl2LineConfFallbackTemplate  OBJECT-TYPE
        cannot be achieved.
 
        The value of this object identifies a row in the xDSL2 Line
-
        Configuration Template Table, xdsl2LineConfTemplateTable.
        Any row in the xdsl2LineConfTemplateTable table may be used as a
        fall-back template.
@@ -376,7 +369,6 @@ xdsl2LineCmndConfPmsf  OBJECT-TYPE
 
 xdsl2LineCmndConfLdsf  OBJECT-TYPE
    SYNTAX      Xdsl2LineLdsf
-
    MAX-ACCESS  read-write
    STATUS      current
    DESCRIPTION
@@ -425,7 +417,6 @@ xdsl2LineCmndConfBpsc  OBJECT-TYPE
    MAX-ACCESS  read-write
    STATUS      current
    DESCRIPTION
-
       "Request a bits-per-subcarrier measurement to be made.
 
        A request for a bits-per-subcarrier measurement is made by
@@ -474,7 +465,6 @@ xdsl2LineCmndConfBpscRequests  OBJECT-TYPE
       "Measurement request counter.
        This counter is incremented by one every time a request for a
        bits-per-subcarrier measurement is made.  A measurement request
-
        is made by modifying the xdsl2LineCmndConfBpsc object from
        idle(1) to the value measure(2).
 
@@ -523,7 +513,6 @@ xdsl2LineCmndAutomodeColdStart   OBJECT-TYPE
        configuration profile being used for the line, and where the
        selection of the actual operation-mode depends not only on the
        common capabilities of both xTUs (as exchanged in G.994.1), but
-
        also on achievable data rates under given loop conditions."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.1.10
                 (Automode Cold Start Forced)"
@@ -572,7 +561,6 @@ xdsl2LineStatusXtuTransSys  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "The xTU Transmission System (xTS) in use.
-
        It is coded in a bitmap representation with one bit set to
        '1' (the selected coding for the DSL line).  This
        parameter may be derived from the handshaking procedures defined
@@ -621,7 +609,6 @@ xdsl2LineStatusLastStateDs  OBJECT-TYPE
 
 xdsl2LineStatusLastStateUs  OBJECT-TYPE
    SYNTAX      Xdsl2LastTransmittedState
-
    MAX-ACCESS  read-only
    STATUS      current
    DESCRIPTION
@@ -670,7 +657,6 @@ xdsl2LineStatusAttainableRateDs  OBJECT-TYPE
    REFERENCE    "ITU-T G.997.1, paragraph #7.5.1.19 (ATTNDRds)"
    DEFVAL       { 0 }
    ::= { xdsl2LineEntry 20 }
-
 xdsl2LineStatusAttainableRateUs  OBJECT-TYPE
    SYNTAX      Unsigned32
    UNITS       "bits/second"
@@ -719,7 +705,6 @@ xdsl2LineStatusActPsdUs OBJECT-TYPE
 xdsl2LineStatusActAtpDs  OBJECT-TYPE
    SYNTAX      Integer32 (-310..310 | 2147483647)
    UNITS       "0.1 dBm"
-
    MAX-ACCESS  read-only
    STATUS      current
    DESCRIPTION
@@ -768,7 +753,6 @@ xdsl2LineStatusActProfile  OBJECT-TYPE
 
 xdsl2LineStatusActLimitMask  OBJECT-TYPE
    SYNTAX      Xdsl2LineLimitMask
-
    MAX-ACCESS  read-only
    STATUS      current
    DESCRIPTION
@@ -817,7 +801,6 @@ xdsl2LineStatusActSnrModeUs  OBJECT-TYPE
    MAX-ACCESS  read-only
    STATUS      current
    DESCRIPTION
-
       "This parameter indicates if the transmitter-referred virtual
        noise is active on the line in the upstream direction.
        The configuration parameter xdsl2LConfProfSnrModeUs is used to
@@ -866,7 +849,6 @@ xdsl2LineStatusTssiUs  OBJECT-TYPE
 xdsl2LineStatusMrefPsdDs  OBJECT-TYPE
      SYNTAX      Xdsl2MrefPsdDs
      MAX-ACCESS  read-only
-
      STATUS      current
      DESCRIPTION
      "The MEDLEY Reference PSD status parameters
@@ -915,7 +897,6 @@ xdsl2LineStatusActualCe  OBJECT-TYPE
    MAX-ACCESS  read-only
    STATUS      current
    DESCRIPTION
-
       "(ACTUALCE)
        This parameter reports the cyclic extension used on the line.  It
        is coded as an unsigned integer from 2 to 16 in units of N/32
@@ -964,7 +945,6 @@ xdsl2LineSegmentEntry  OBJECT-TYPE
        highest supported upstream and downstream subcarriers according
        to the selected implementation profile.  For ADSL, NSus is equal
        to NSCus-1 and NSds is equal to NSCds-1.
-
        One index of this table is an interface index where the interface
        has an ifType of vdsl2(251).  A second index of this table is the
        transmission direction.  A third index identifies the specific
@@ -1013,7 +993,6 @@ xdsl2LineSegmentBitsAlloc  OBJECT-TYPE
      MAX-ACCESS  read-only
      STATUS      current
      DESCRIPTION
-
      "The bits allocation per subcarrier.  An array of 256 octets
       (512 nibbles), designed for supporting up to 512 (downstream)
       subcarriers.  When more than 512 subcarriers are supported, the
@@ -1062,7 +1041,6 @@ xdsl2LineSegmentRowStatus  OBJECT-TYPE
       The management system (the operator) may delete rows from this
       table according to any scheme.  For example, after retrieving
       the results.
-
       When the SNMP manager deletes any row in this table, the SNMP
       agent MUST delete all rows in this table that have the same
       ifIndex value."
@@ -1111,7 +1089,6 @@ xdsl2LineBand OBJECT-TYPE
      "Identifies the band(s) associated with this line.
       For ADSL/ADSL2/ADSL2+, the values 'upstream' and 'downstream'
       will always be present.
-
       For VDSL2, a subset of {'us0', 'ds1', 'us1' ... 'ds4', 'us4' }
       will always be present, together with rows for
       'upstream' and 'downstream', in which only the
@@ -1160,7 +1137,6 @@ xdsl2LineBandStatusSigAtten  OBJECT-TYPE
        subcarriers of that band during Showtime.
 
        When referring to a band in the upstream direction, it is the
-
        measured difference in the total power transmitted by the xTU-R
        and the total power received by the xTU-C over all subcarriers of
        that band during Showtime.
@@ -1209,7 +1185,6 @@ xdsl2ChannelStatusTable  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "The table xdsl2ChannelStatusTable contains status
-
        parameters of VDSL2/ADSL/ADSL2 or ADSL2+ channel.
        This table contains live data from equipment."
    ::= { xdsl2Status 2 }
@@ -1258,7 +1233,6 @@ xdsl2ChStatusActDataRate  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "The actual net data rate at which the bearer channel is
-
        operating, if in L0 power management state.  In L1 or L2
        states, it relates to the previous L0 state.  The data rate is
        coded in bit/s."
@@ -1307,7 +1281,6 @@ xdsl2ChStatusActInp  OBJECT-TYPE
    DESCRIPTION
       "Actual impulse noise protection.
        This parameter reports the actual impulse noise protection (INP)
-
        on the bearer channel in the L0 state.  In the L1 or L2 state,
        the parameter contains the INP in the previous L0 state.  For
        ADSL, this value is computed according to the formula specified
@@ -1356,7 +1329,6 @@ xdsl2ChStatusRFec  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "Actual number of Reed-Solomon redundancy bytes.
-
        This parameter reports the actual number of Reed-Solomon
        redundancy bytes per codeword used in the latency path in which
        the bearer channel is transported.  The value is coded in bytes.
@@ -1405,7 +1377,6 @@ xdsl2ChStatusIntlvBlock  OBJECT-TYPE
        This parameter reports the actual block length of the interleaver
        used in the latency path in which the bearer channel is
        transported.
-
        The value ranges from 4 to 255 in steps of 1."
    REFERENCE    "ITU-T G.997.1, paragraph #7.5.2.6.5 (INTLVBLOCK)"
    DEFVAL       { 4 }
@@ -1454,7 +1425,6 @@ xdsl2ChStatusPtmStatus  OBJECT-TYPE
       In case the channel is not of PTM Data Path, the object is set
       to '0'."
    REFERENCE    "ITU-T G.997.1, paragraph #7.1.5
-
                  (PTM Data Path failures)"
    DEFVAL       { { noDefect } }
    ::= { xdsl2ChannelStatusEntry 14 }
@@ -1503,7 +1473,6 @@ xdsl2SCStatusTable  OBJECT-TYPE
 
 xdsl2SCStatusEntry  OBJECT-TYPE
    SYNTAX      Xdsl2SCStatusEntry
-
    MAX-ACCESS  not-accessible
    STATUS      current
    DESCRIPTION
@@ -1552,7 +1521,6 @@ xdsl2SCStatusLinScale  OBJECT-TYPE
      ::= { xdsl2SCStatusEntry 2 }
 
 xdsl2SCStatusLinScGroupSize OBJECT-TYPE
-
      SYNTAX      Unsigned32(1 | 2 | 4 | 8)
      MAX-ACCESS  read-only
      STATUS      current
@@ -1601,7 +1569,6 @@ xdsl2SCStatusLogScGroupSize OBJECT-TYPE
      ::= { xdsl2SCStatusEntry 5 }
 
 xdsl2SCStatusQlnMt  OBJECT-TYPE
-
      SYNTAX      Unsigned32 (1..65535)
      MAX-ACCESS  read-only
      STATUS      current
@@ -1650,7 +1617,6 @@ xdsl2SCStatusSnrMtime  OBJECT-TYPE
      ::= { xdsl2SCStatusEntry 8 }
 
 xdsl2SCStatusSnrScGroupSize OBJECT-TYPE
-
      SYNTAX      Unsigned32(1 | 2 | 4 | 8)
      MAX-ACCESS  read-only
      STATUS      current
@@ -1699,7 +1665,6 @@ xdsl2SCStatusRowStatus  OBJECT-TYPE
 
       The SNMP manager is not permitted to create rows in this table or
       set the row status to 'notInService'.  In the first case,
-
       if the SNMP manager tries to create a new row, the SNMP agent
       responds with the value 'noCreation' in the error status
       field of the response-PDU.  In the latter case the SNMP agent
@@ -1748,7 +1713,6 @@ xdsl2SCStatusBandEntry  OBJECT-TYPE
    DESCRIPTION
        "One index of this table is an interface index where the
        interface
-
        has an ifType of vdsl2(251).  A second index of this table is the
        transmission band."
    INDEX  { ifIndex, xdsl2SCStatusBand }
@@ -1797,7 +1761,6 @@ xdsl2SCStatusBandLnAtten  OBJECT-TYPE
                and paragraph #7.5.1.10 (LATNus)"
    DEFVAL       { 2147483646 }
    ::= { xdsl2SCStatusBandEntry 2 }
-
 xdsl2SCStatusBandSigAtten  OBJECT-TYPE
    SYNTAX      Unsigned32 (0..1270 | 2147483646 | 2147483647)
    UNITS       "0.1 dB"
@@ -1846,7 +1809,6 @@ xdsl2SCStatusSegmentTable  OBJECT-TYPE
        For ADSL, NSus is equal to NSCus-1 and NSds is equal to NSCds-1.
 
        The parameters in this table MUST be updated after a loop
-
        diagnostic procedure and MAY be updated after a line
        initialization and MAY be updated at Showtime."
    ::= { xdsl2Status 5 }
@@ -1895,7 +1857,6 @@ xdsl2SCStatusSegment  OBJECT-TYPE
 
 xdsl2SCStatusSegmentLinReal  OBJECT-TYPE
      SYNTAX      OCTET STRING  (SIZE(0..1024))
-
      MAX-ACCESS  read-only
      STATUS      current
      DESCRIPTION
@@ -1944,7 +1905,6 @@ xdsl2SCStatusSegmentLinImg  OBJECT-TYPE
       xdsl2SCStatusSegmentLinReal object) and b(i) are in the range
       (-2^15+1) to (+2^15-1).
       A special value a(i)=b(i)= -2^15 indicates that no measurement
-
       could be done for the subcarrier group because it is out of the
       passband or that the attenuation is out of range to be
       represented.  This parameter is only available after a loop
@@ -1993,7 +1953,6 @@ xdsl2SCStatusSegmentQln  OBJECT-TYPE
       to 512 (downstream) subcarrier groups and can be retrieved in a
       single segment.
       The number of utilized values in the downstream direction depends
-
       on NSds; in the upstream direction, it depends on NSus.  This
       value is referred to here as NS.
       Each array entry represents the QLN(f = i*Df) value for a
@@ -2042,7 +2001,6 @@ xdsl2SCStatusSegmentBitsAlloc  OBJECT-TYPE
      DESCRIPTION
      "The bits allocation per subcarrier.  An array of 256 octets
       (512 nibbles) designed for supporting up to 512 (downstream)
-
       subcarriers.  When more than 512 subcarriers are supported, the
       status information is reported through multiple (up to 8)
       segments.  The first segment is then used for the first 512
@@ -2091,7 +2049,6 @@ xdsl2SCStatusSegmentGainAlloc  OBJECT-TYPE
 
 ------------------------------------------------
 --        xdsl2LineInventoryTable             --
-
 ------------------------------------------------
 
 xdsl2LineInventoryTable  OBJECT-TYPE
@@ -2140,7 +2097,6 @@ xdsl2LInvG994VendorId  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "The ADSL Transceiver Unit (ATU) G.994.1 Vendor ID as
-
        inserted in the G.994.1 CL/CLR message.
        It consists of 8 binary octets, including a country
        code followed by a (regionally allocated) provider code, as
@@ -2189,7 +2145,6 @@ xdsl2LInvSerialNumber  OBJECT-TYPE
    ::= { xdsl2LineInventoryEntry 5 }
 
 xdsl2LInvSelfTestResult  OBJECT-TYPE
-
    SYNTAX      Unsigned32
    MAX-ACCESS  read-only
    STATUS      current
@@ -2238,7 +2193,6 @@ xdsl2LineConfTemplateTable  OBJECT-TYPE
        set to a non-null value, then rows SHOULD be created in
        xdsl2ChannelStatusTable, xdsl2PMChCurrTable, and all other tables
        indexed by a channel index.
-
        For example, if the value of xdsl2LConfTempChan2ConfProfile is
        set to a null value, then rows SHOULD be deleted in
        xdsl2ChannelStatusTable, xdsl2PMChCurrTable, and all other
@@ -2286,7 +2240,6 @@ xdsl2LConfTempTemplateName  OBJECT-TYPE
       "This object identifies a row in this table."
    REFERENCE    "DSL Forum TR-129, paragraph #5.4"
    ::= { xdsl2LineConfTemplateEntry 1 }
-
 xdsl2LConfTempLineProfile  OBJECT-TYPE
    SYNTAX      SnmpAdminString (SIZE(1..32))
    MAX-ACCESS  read-create
@@ -2335,7 +2288,6 @@ xdsl2LConfTempChan1RaRatioDs  OBJECT-TYPE
 xdsl2LConfTempChan1RaRatioUs  OBJECT-TYPE
    SYNTAX      Unsigned32(0..100)
    UNITS       "percent"
-
    MAX-ACCESS  read-create
    STATUS      current
    DESCRIPTION
@@ -2384,7 +2336,6 @@ xdsl2LConfTempChan2RaRatioDs  OBJECT-TYPE
        excess data rate to be assigned to all other bearer channels on
        Downstream direction.  The sum of rate adaptation ratios over all
        bearers on the same direction shall be equal to
-
        100%."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.2.1.4
                  (Rate adaptation ratio)"
@@ -2433,7 +2384,6 @@ xdsl2LConfTempChan3RaRatioDs  OBJECT-TYPE
    SYNTAX      Unsigned32(0..100)
    UNITS       "percent"
    MAX-ACCESS  read-create
-
    STATUS      current
    DESCRIPTION
       "Rate Adaptation Ratio.  The ratio (in percent) that should be
@@ -2482,7 +2432,6 @@ xdsl2LConfTempChan4ConfProfile  OBJECT-TYPE
        string.
        This object may be set to a non-zero-length string only if
        xdsl2LConfTempChan3ConfProfile contains a non-zero-length
-
        string."
    DEFVAL       { "" }
    ::= { xdsl2LineConfTemplateEntry 12 }
@@ -2531,7 +2480,6 @@ xdsl2LConfTempRowStatus  OBJECT-TYPE
    SYNTAX      RowStatus
    MAX-ACCESS  read-create
    STATUS      current
-
    DESCRIPTION
       "This object is used to create a new row or to modify or
        delete an existing row in this table.
@@ -2580,7 +2528,6 @@ Xdsl2LineConfProfEntry  ::=
       xdsl2LConfProfRfiBands             Xdsl2RfiBands,
       xdsl2LConfProfRaModeDs             Xdsl2RaMode,
       xdsl2LConfProfRaModeUs             Xdsl2RaMode,
-
       xdsl2LConfProfRaUsNrmDs            Unsigned32,
       xdsl2LConfProfRaUsNrmUs            Unsigned32,
       xdsl2LConfProfRaUsTimeDs           Unsigned32,
@@ -2629,7 +2576,6 @@ xdsl2LConfProfProfileName  OBJECT-TYPE
    MAX-ACCESS  not-accessible
    STATUS      current
    DESCRIPTION
-
       "This object identifies a row in this table."
      ::= { xdsl2LineConfProfEntry 1 }
 
@@ -2678,7 +2624,6 @@ xdsl2LConfProfVdsl2CarMask  OBJECT-TYPE
        both the upstream and downstream directions.
        The parameter shall describe the not masked subcarriers as one or
        more frequency bands.  Each band is represented by start and stop
-
        subcarrier indices with a subcarrier spacing of 4.3125 kHz.  The
        valid range of subcarrier indices runs from 0 to at least the
        index of the highest allowed subcarrier in both transmission
@@ -2727,7 +2672,6 @@ xdsl2LConfProfRaModeDs  OBJECT-TYPE
        transmit direction."
    REFERENCE   "ITU-T G.997.1, paragraph #7.3.1.4.1 (RA-MODEds)"
    DEFVAL      { manual }
-
    ::= { xdsl2LineConfProfEntry 6 }
 
 xdsl2LConfProfRaModeUs  OBJECT-TYPE
@@ -2776,7 +2720,6 @@ xdsl2LConfProfRaUsNrmUs  OBJECT-TYPE
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.4.4 (RA-USNRMus)"
    DEFVAL       { 10 }
    ::= { xdsl2LineConfProfEntry 9 }
-
 xdsl2LConfProfRaUsTimeDs  OBJECT-TYPE
    SYNTAX      Unsigned32(0..16383)
    UNITS       "seconds"
@@ -2825,7 +2768,6 @@ xdsl2LConfProfRaDsNrmDs  OBJECT-TYPE
        are 0 to 31 dB)."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.4.7 (RA-DSNRMds)"
    DEFVAL       { 10 }
-
    ::= { xdsl2LineConfProfEntry 12 }
 
 xdsl2LConfProfRaDsNrmUs  OBJECT-TYPE
@@ -2874,7 +2816,6 @@ xdsl2LConfProfRaDsTimeUs  OBJECT-TYPE
        decrease the upstream net data rate.  The time interval ranges
        from 0 to 16383 seconds."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.4.10 (RA-DTIMEus)"
-
    DEFVAL       { 3600 }
    ::= { xdsl2LineConfProfEntry 15 }
 
@@ -2923,7 +2864,6 @@ xdsl2LConfProfMaxSnrmDs  OBJECT-TYPE
        0x7FFFFFFF (2147483647) means that there is no maximum."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.3.3 (MAXSNRMds)"
    DEFVAL       { 310 }
-
    ::= { xdsl2LineConfProfEntry 18 }
 
 xdsl2LConfProfMaxSnrmUs  OBJECT-TYPE
@@ -2972,7 +2912,6 @@ xdsl2LConfProfMinSnrmUs  OBJECT-TYPE
        request that the xTU-R increase the xTU-R transmit power.
        If an increase of xTU-R transmit power is not possible, a loss-
        of-margin (LOM) defect occurs, the xTU-C shall fail and attempt
-
        to re-initialize and the NMS shall be notified.  The minimum
        noise margin ranges from 0 to 310 units of 0.1 dB (physical
        values are 0 to 31 dB).  A value of 0 means that there is no
@@ -3021,7 +2960,6 @@ xdsl2LConfProfCeFlag  OBJECT-TYPE
    ::= { xdsl2LineConfProfEntry 24 }
 
 xdsl2LConfProfSnrModeDs  OBJECT-TYPE
-
    SYNTAX      Xdsl2LineSnrMode
    MAX-ACCESS  read-create
    STATUS      current
@@ -3070,7 +3008,6 @@ xdsl2LConfProfTxRefVnUs  OBJECT-TYPE
        Each breakpoint shall consist of a subcarrier index t, with a
        subcarrier spacing of 4.3125 kHz, and a noise PSD level
        (expressed in dBm/Hz) at that subcarrier.  The set of breakpoints
-
        can then be represented as:
        [(t1, PSD1), (t2, PSD2), ... , (tN, PSDN)]."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.7.4 (TXREFVNus)"
@@ -3119,7 +3056,6 @@ xdsl2LConfProfL0Time  OBJECT-TYPE
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.1.5 (L0-TIME)"
    DEFVAL       { 255 }
    ::= { xdsl2LineConfProfEntry 31 }
-
 xdsl2LConfProfL2Time  OBJECT-TYPE
    SYNTAX      Unsigned32 (0..255)
    UNITS       "seconds"
@@ -3168,7 +3104,6 @@ xdsl2LConfProfProfiles  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "The configuration parameter contains the G.993.2 profiles
-
        to be allowed by the near-end xTU on this line.
        It is coded in a bitmap representation (0 if not allowed, 1 if
        allowed)."
@@ -3217,7 +3152,6 @@ xdsl2LConfProfDpboEsCableModelA  OBJECT-TYPE
    SYNTAX      Unsigned32 (0..640)
    UNITS       "2^-8"
    MAX-ACCESS  read-create
-
    STATUS      current
    DESCRIPTION
       "The E-side Cable Model parameter A (DPBOESCMA) of the cable
@@ -3266,7 +3200,6 @@ xdsl2LConfProfDpboEsCableModelB  OBJECT-TYPE
 
 xdsl2LConfProfDpboEsCableModelC  OBJECT-TYPE
    SYNTAX      Unsigned32 (0..640)
-
    UNITS       "2^-8"
    MAX-ACCESS  read-create
    STATUS      current
@@ -3315,7 +3248,6 @@ xdsl2LConfProfDpboFMin OBJECT-TYPE
    MAX-ACCESS  read-create
    STATUS      current
    DESCRIPTION
-
       "This configuration parameter defines the minimum frequency
        from which the DPBO shall be applied.  It ranges from 0 kHz
        (coded as 0) to 8832 kHz (coded as 2048) in steps of
@@ -3364,7 +3296,6 @@ xdsl2LConfProfUpboKLF OBJECT-TYPE
    DESCRIPTION
       "Defines the upstream power backoff force mode."
    REFERENCE   "ITU-T G.997.1, paragraph #7.3.1.2.14 (UPBOKLF)
-
    "
    DEFVAL      { disableUpbo }
    ::= { xdsl2LineConfProfEntry 45 }
@@ -3412,7 +3343,6 @@ xdsl2LConfProfRowStatus  OBJECT-TYPE
        Before a profile can be deleted or taken out of service (by
        setting this object to 'destroy' or 'notInService'), it MUST be
        first unreferenced from all templates.
-
        A row in this table is said to be unreferenced when there is no
        instance of xdsl2LConfTempLineProfile that refers to the row.
 
@@ -3461,7 +3391,6 @@ xdsl2LineConfProfModeSpecTable  OBJECT-TYPE
 
        Entries in this table MUST be maintained in a persistent
        manner."
-
    ::= { xdsl2ProfileLine 3 }
 
 xdsl2LineConfProfModeSpecEntry  OBJECT-TYPE
@@ -3510,7 +3439,6 @@ xdsl2LConfProfMaxNomPsdDs  OBJECT-TYPE
    SYNTAX      Integer32(-600..-300)
    UNITS       "0.1 dBm/Hz"
    MAX-ACCESS  read-create
-
    STATUS      current
    DESCRIPTION
       "The maximum nominal transmit PSD in the downstream direction
@@ -3559,7 +3487,6 @@ xdsl2LConfProfMaxNomAtpUs  OBJECT-TYPE
        direction during initialization and Showtime.  It ranges from
        0 to 255 units of 0.1 dBm (physical values are 0 to 25.5
        dBm)."
-
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.2.4 (MAXNOMATPus)"
    DEFVAL       { 255 }
    ::= { xdsl2LineConfProfModeSpecEntry 5 }
@@ -3608,7 +3535,6 @@ xdsl2LConfProfPsdMaskDs   OBJECT-TYPE
       When the number of breakpoints is less than 32, all remaining
       octets are set to the value '0'.  Note that the content of this
       object should be correlated with the subcarrier mask and with
-
       the RFI setup."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.1.2.9 (PSDMASKds)"
      ::= { xdsl2LineConfProfModeSpecEntry 7 }
@@ -3657,7 +3583,6 @@ xdsl2LConfProfPsdMaskSelectUs  OBJECT-TYPE
                 (Upstream PSD mask selection)"
    DEFVAL       { adlu32Eu32 }
     ::= { xdsl2LineConfProfModeSpecEntry 9 }
-
 xdsl2LConfProfClassMask  OBJECT-TYPE
    SYNTAX      Xdsl2LineClassMask
    MAX-ACCESS  read-create
@@ -3706,7 +3631,6 @@ xdsl2LConfProfUs0Disable  OBJECT-TYPE
        xdsl2LConfProfLimitMask parameter.
        This parameter is defined per VDSL2 Annex enabled in the
        xdsl2LConfProfXtuTransSysEna object.
-
        For each limit PSD mask enabled in the xdsl2LConfProfLimitMask
        parameter, a bit shall indicate if the US0 is disabled.  The
        disabling parameter is coded as a bitmap.  The bit is set to '1'
@@ -3755,7 +3679,6 @@ xdsl2LineConfProfModeSpecBandUsTable  OBJECT-TYPE
        parameters for VDSL2, such as upstream power back-off
        parameters xdsl2LConfProfUpboPsdA and xdsl2LConfProfUpboPsdB
        (UPBOPSD-pb).
-
        When a parent 'mandatory row' is created in
        xdsl2LineConfProfModeSpecTable, the SNMP agent will automatically
        create several 'mandatory' rows in this table -- one for each
@@ -3803,7 +3726,6 @@ Xdsl2LineConfProfModeSpecBandUsEntry  ::=
       xdsl2LConfProfUpboPsdB                   Integer32,
       xdsl2LConfProfModeSpecBandUsRowStatus    RowStatus
    }
-
 xdsl2LConfProfXdslBandUs    OBJECT-TYPE
    SYNTAX      Xdsl2BandUs
    MAX-ACCESS  not-accessible
@@ -3852,7 +3774,6 @@ xdsl2LConfProfUpboPsdB  OBJECT-TYPE
        dBm/Hz; and parameter 'b' (xdsl2LConfProfUpboPsdB) ranges from 0
        dBm/Hz (coded as 0) to 40.95 dBm/Hz (coded as 4095) in steps of
        0.01 dBm/Hz.  The UPBO reference PSD at the frequency 'f'
-
        expressed in MHz shall be equal to '-a-b(SQRT(f))'.  Setting
        xdsl2LConfProfUpboPsdA to 4000 and xdsl2LConfProfUpboPsdB to 0 is
        a special configuration to disable UPBO in the respective
@@ -3901,7 +3822,6 @@ xdsl2ChConfProfileTable  OBJECT-TYPE
    ::= { xdsl2ProfileChannel 1 }
 
 xdsl2ChConfProfileEntry  OBJECT-TYPE
-
    SYNTAX      Xdsl2ChConfProfileEntry
    MAX-ACCESS  not-accessible
    STATUS      current
@@ -3950,7 +3870,6 @@ xdsl2ChConfProfProfileName  OBJECT-TYPE
    ::= { xdsl2ChConfProfileEntry 1 }
 
 xdsl2ChConfProfMinDataRateDs  OBJECT-TYPE
-
    SYNTAX      Unsigned32
    UNITS       "bits/second"
    MAX-ACCESS  read-create
@@ -3999,7 +3918,6 @@ xdsl2ChConfProfMinResDataRateUs  OBJECT-TYPE
        minimum reserved net data rate for the bearer channel, coded in
        bit/s.  This parameter is used only if the Rate Adaptation Mode
        in the direction of the bearer channel (i.e.,
-
        xdsl2LConfProfRaModeUs) is set to 'dynamicRa'."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.2.1.2
                  (Minimum reserved data rate)"
@@ -4048,7 +3966,6 @@ xdsl2ChConfProfMinDataRateLowPwrDs  OBJECT-TYPE
 xdsl2ChConfProfMinDataRateLowPwrUs  OBJECT-TYPE
    SYNTAX      Unsigned32
    UNITS       "bits/second"
-
    MAX-ACCESS  read-create
    STATUS      current
    DESCRIPTION
@@ -4097,7 +4014,6 @@ xdsl2ChConfProfMaxDelayUs  OBJECT-TYPE
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.2.2
                  (Maximum interleaving delay)"
    ::= { xdsl2ChConfProfileEntry 11 }
-
 xdsl2ChConfProfMinProtectionDs  OBJECT-TYPE
    SYNTAX      Xdsl2SymbolProtection
    UNITS       "symbols"
@@ -4146,7 +4062,6 @@ xdsl2ChConfProfMinProtection8Ds  OBJECT-TYPE
        noise protection is expressed in DMT symbols with a subcarrier
        spacing of 8.625 kHz."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.2.4 (INPMIN8ds)"
-
    DEFVAL       { noProtection }
    ::= { xdsl2ChConfProfileEntry 14 }
 
@@ -4195,7 +4110,6 @@ xdsl2ChConfProfUsDataRateDs  OBJECT-TYPE
    MAX-ACCESS  read-create
    STATUS      current
    DESCRIPTION
-
       "Data Rate Threshold Upshift for Downstream direction.  An
        'Up-Shift rate change' event is triggered when the
        actual downstream data rate exceeds, by more than the threshold,
@@ -4244,7 +4158,6 @@ xdsl2ChConfProfDsDataRateUs  OBJECT-TYPE
       "Data Rate Threshold Downshift for Upstream direction.  A
        'Down-Shift rate change' event is triggered when the
        actual upstream data rate is below the data rate at the last
-
        entry into Showtime, by more than the threshold.  The parameter
        is coded in bit/s."
    REFERENCE    "ITU-T G.997.1, paragraph #7.3.2.8.2
@@ -4293,7 +4206,6 @@ xdsl2ChConfProfInitPolicy  OBJECT-TYPE
        to determine the transceiver configuration parameters at
        initialization.  Those policies are defined in the respective
        Recommendations."
-
    REFERENCE    "ITU-T G.997.1 Amendment 1, paragraph #7.3.2.10
                  (CIPOLICY)"
    DEFVAL       { policy0 }
@@ -4342,7 +4254,6 @@ xdsl2LineAlarmConfTemplateEntry  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "A default template with an index of 'DEFVAL' will always
-
        exist, and its parameters will be set to vendor-specific values,
        unless otherwise specified in this document."
    INDEX  { xdsl2LAlarmConfTempTemplateName }
@@ -4391,7 +4302,6 @@ xdsl2LAlarmConfTempChan1ConfProfile  OBJECT-TYPE
        the name of an existing row in the xdsl2ChAlarmConfProfileTable
        table."
    REFERENCE    "DSL Forum TR-129, paragraph #8.4"
-
    DEFVAL       { "DEFVAL" }
    ::= { xdsl2LineAlarmConfTemplateEntry 3 }
 
@@ -4440,7 +4350,6 @@ xdsl2LAlarmConfTempChan4ConfProfile  OBJECT-TYPE
        channel #4.  The channel profile name specified here MUST match
        the name of an existing row in the xdsl2ChAlarmConfProfileTable
        table.
-
        This object may be set to a non-zero-length string only if
        xdsl2LAlarmConfTempChan3ConfProfile contains a non-zero-length
        string."
@@ -4489,7 +4398,6 @@ xdsl2LineAlarmConfProfileTable  OBJECT-TYPE
        Entries in this table MUST be maintained in a persistent
        manner."
      ::= { xdsl2ProfileAlarmConf 2 }
-
 xdsl2LineAlarmConfProfileEntry  OBJECT-TYPE
      SYNTAX      Xdsl2LineAlarmConfProfileEntry
      MAX-ACCESS  not-accessible
@@ -4538,7 +4446,6 @@ xdsl2LineAlarmConfProfileName  OBJECT-TYPE
      DESCRIPTION
      "This object identifies a row in this table."
      ::= { xdsl2LineAlarmConfProfileEntry 1 }
-
 xdsl2LineAlarmConfProfileXtucThresh15MinFecs  OBJECT-TYPE
      SYNTAX      HCPerfIntervalThreshold
      UNITS       "seconds"
@@ -4587,7 +4494,6 @@ xdsl2LineAlarmConfProfileXtucThresh15MinLoss  OBJECT-TYPE
      MAX-ACCESS  read-create
      STATUS      current
      DESCRIPTION
-
      "A threshold for the xdsl2PMLCurr15MLoss counter, when
       xdsl2PMLCurrUnit is xtuc {1}.
       The value 0 means that no threshold is specified for the
@@ -4636,7 +4542,6 @@ xdsl2LineAlarmConfProfileXturThresh15MinEs  OBJECT-TYPE
       associated counter."
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.7.2"
    DEFVAL       { 0 }
-
      ::= { xdsl2LineAlarmConfProfileEntry 8 }
 
 xdsl2LineAlarmConfProfileXturThresh15MinSes  OBJECT-TYPE
@@ -4685,7 +4590,6 @@ xdsl2LineAlarmConfProfileThresh15MinFailedFullInt  OBJECT-TYPE
      SYNTAX      Unsigned32
      MAX-ACCESS  read-create
      STATUS      current
-
      DESCRIPTION
      "A threshold for the xdsl2PMLInitCurr15MfailedFullInits
       counter.
@@ -4734,7 +4638,6 @@ xdsl2LineAlarmConfProfileRowStatus  OBJECT-TYPE
 xdsl2ChAlarmConfProfileTable  OBJECT-TYPE
      SYNTAX      SEQUENCE  OF  Xdsl2ChAlarmConfProfileEntry
      MAX-ACCESS  not-accessible
-
      STATUS      current
      DESCRIPTION
       "The table xdsl2ChAlarmConfProfileTable contains DSL channel
@@ -4782,7 +4685,6 @@ xdsl2ChAlarmConfProfileName  OBJECT-TYPE
      DESCRIPTION
      "This object identifies a row in this table."
      ::= { xdsl2ChAlarmConfProfileEntry 1 }
-
 xdsl2ChAlarmConfProfileXtucThresh15MinCodingViolations OBJECT-TYPE
      SYNTAX      Unsigned32
      MAX-ACCESS  read-create
@@ -4831,7 +4733,6 @@ xdsl2ChAlarmConfProfileXturThresh15MinCorrected  OBJECT-TYPE
       counter, when xdsl2PMChCurrUnit is xtur {2}.
       The value 0 means that no threshold is specified for the
       associated counter."
-
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.7.2"
    DEFVAL       { 0 }
      ::= { xdsl2ChAlarmConfProfileEntry 5 }
@@ -4880,7 +4781,6 @@ xdsl2PMLineCurrEntry  OBJECT-TYPE
         interface has an ifType of vdsl2(251).  A second index of this
         table is the termination unit."
    INDEX  { ifIndex, xdsl2PMLCurrUnit }
-
    ::= { xdsl2PMLineCurrTable 1 }
 
 Xdsl2PMLineCurrEntry  ::=
@@ -4928,7 +4828,6 @@ xdsl2PMLCurr15MValidIntervals  OBJECT-TYPE
        intervals are unavailable.  In this case, this interval is the
        maximum interval number for which data is available."
    ::= { xdsl2PMLineCurrEntry 2 }
-
 xdsl2PMLCurr15MInvalidIntervals  OBJECT-TYPE
    SYNTAX      Unsigned32 (0..96)
    MAX-ACCESS  read-only
@@ -4977,7 +4876,6 @@ xdsl2PMLCurr15MEs  OBJECT-TYPE
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.1.1.2 (ES-L)
                  and paragraph #7.2.1.2.2 (ES-LFE)"
    ::= { xdsl2PMLineCurrEntry 6 }
-
 xdsl2PMLCurr15MSes  OBJECT-TYPE
    SYNTAX      Counter32
    UNITS       "seconds"
@@ -5026,7 +4924,6 @@ xdsl2PMLCurr1DayValidIntervals  OBJECT-TYPE
    SYNTAX      Unsigned32 (0..30)
    MAX-ACCESS  read-only
    STATUS      current
-
    DESCRIPTION
       "The number of 24-hour PM intervals for which data was
        collected.  The value will typically be equal to the maximum
@@ -5075,7 +4972,6 @@ xdsl2PMLCurr1DayFecs  OBJECT-TYPE
 
 xdsl2PMLCurr1DayEs  OBJECT-TYPE
    SYNTAX      Counter32
-
    UNITS       "seconds"
    MAX-ACCESS  read-only
    STATUS      current
@@ -5124,7 +5020,6 @@ xdsl2PMLCurr1DayUas  OBJECT-TYPE
    SYNTAX      Counter32
    UNITS       "seconds"
    MAX-ACCESS  read-only
-
    STATUS      current
    DESCRIPTION
       "Count of seconds in Unavailability State during this
@@ -5173,7 +5068,6 @@ Xdsl2PMLineInitCurrEntry  ::=
       xdsl2PMLInitCurr1DayTimeElapsed         Unsigned32,
       xdsl2PMLInitCurr1DayFullInits           Unsigned32,
       xdsl2PMLInitCurr1DayFailedFullInits     Unsigned32,
-
       xdsl2PMLInitCurr1DayShortInits          Unsigned32,
       xdsl2PMLInitCurr1DayFailedShortInits    Unsigned32
    }
@@ -5222,7 +5116,6 @@ xdsl2PMLInitCurr15MFullInits  OBJECT-TYPE
    DESCRIPTION
       "Count of full initializations attempted on the line
        (successful and failed) during this interval."
-
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.1.3.1"
    ::= { xdsl2PMLineInitCurrEntry 4 }
 
@@ -5271,7 +5164,6 @@ xdsl2PMLInitCurr1DayValidIntervals  OBJECT-TYPE
        the case where the agent is a proxy), it is possible that some
        intervals are unavailable.  In this case, this interval is the
        maximum interval number for which data is available."
-
    ::= { xdsl2PMLineInitCurrEntry 8 }
 
 xdsl2PMLInitCurr1DayInvalidIntervals  OBJECT-TYPE
@@ -5320,7 +5212,6 @@ xdsl2PMLInitCurr1DayShortInits  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "Count of short initializations attempted on the line
-
        (successful and failed) during this interval."
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.1.3.3"
    ::= { xdsl2PMLineInitCurrEntry 13 }
@@ -5369,7 +5260,6 @@ Xdsl2PMLineHist15MinEntry  ::=
       xdsl2PMLHist15MMonitoredTime        Unsigned32,
       xdsl2PMLHist15MFecs                 Counter32,
       xdsl2PMLHist15MEs                   Counter32,
-
       xdsl2PMLHist15MSes                  Counter32,
       xdsl2PMLHist15MLoss                 Counter32,
       xdsl2PMLHist15MUas                  Counter32,
@@ -5418,7 +5308,6 @@ xdsl2PMLHist15MEs  OBJECT-TYPE
    SYNTAX      Counter32
    UNITS       "seconds"
    MAX-ACCESS  read-only
-
    STATUS      current
    DESCRIPTION
       "Count of seconds during this interval that there was:
@@ -5467,7 +5356,6 @@ xdsl2PMLHist15MUas  OBJECT-TYPE
    MAX-ACCESS  read-only
    STATUS      current
    DESCRIPTION
-
       "Count of seconds in Unavailability State during this
        interval.
        Unavailability begins at the onset of 10 contiguous severely
@@ -5516,7 +5404,6 @@ xdsl2PMLineHist1DayEntry  OBJECT-TYPE
 Xdsl2PMLineHist1DayEntry  ::=
    SEQUENCE {
       xdsl2PMLHist1DUnit              Xdsl2Unit,
-
       xdsl2PMLHist1DInterval          Unsigned32,
       xdsl2PMLHist1DMonitoredTime     Unsigned32,
       xdsl2PMLHist1DFecs              Counter32,
@@ -5564,7 +5451,6 @@ xdsl2PMLHist1DFecs  OBJECT-TYPE
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.1.1.1 (FECS-L)
                  and paragraph #7.2.1.2.1 (FECS-LFE)"
    ::= { xdsl2PMLineHist1DayEntry 4 }
-
 xdsl2PMLHist1DEs  OBJECT-TYPE
    SYNTAX      Counter32
    UNITS       "seconds"
@@ -5613,7 +5499,6 @@ xdsl2PMLHist1DLoss  OBJECT-TYPE
 
 xdsl2PMLHist1DUas  OBJECT-TYPE
    SYNTAX      Counter32
-
    UNITS       "seconds"
    MAX-ACCESS  read-only
    STATUS      current
@@ -5661,7 +5546,6 @@ xdsl2PMLineInitHist15MinEntry  OBJECT-TYPE
    INDEX  { ifIndex,
             xdsl2PMLInitHist15MInterval }
    ::= { xdsl2PMLineInitHist15MinTable 1 }
-
 Xdsl2PMLineInitHist15MinEntry  ::=
    SEQUENCE {
       xdsl2PMLInitHist15MInterval              Unsigned32,
@@ -5709,7 +5593,6 @@ xdsl2PMLInitHist15MFailedFullInits  OBJECT-TYPE
        interval."
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.1.3.2"
    ::= { xdsl2PMLineInitHist15MinEntry 4 }
-
 xdsl2PMLInitHist15MShortInits  OBJECT-TYPE
    SYNTAX      Unsigned32
    MAX-ACCESS  read-only
@@ -5758,7 +5641,6 @@ xdsl2PMLineInitHist1DayEntry  OBJECT-TYPE
    MAX-ACCESS  not-accessible
    STATUS      current
    DESCRIPTION
-
        "One index of this table is an interface index where the
         interface has an ifType of vdsl2(251).  A second index is the
         interval number."
@@ -5807,7 +5689,6 @@ xdsl2PMLInitHist1DFullInits  OBJECT-TYPE
 xdsl2PMLInitHist1DFailedFullInits  OBJECT-TYPE
    SYNTAX      Unsigned32
    MAX-ACCESS  read-only
-
    STATUS      current
    DESCRIPTION
       "Count of failed full initializations on the line during this
@@ -5856,7 +5737,6 @@ xdsl2PMChCurrTable        OBJECT-TYPE
       "The table xdsl2PMChCurrTable contains current Performance
        Monitoring results for DSL channels."
    ::= { xdsl2PMChannel 1 }
-
 xdsl2PMChCurrEntry  OBJECT-TYPE
    SYNTAX      Xdsl2PMChCurrEntry
    MAX-ACCESS  not-accessible
@@ -5905,7 +5785,6 @@ xdsl2PMChCurr15MValidIntervals  OBJECT-TYPE
        the agent has at least some data.  In certain cases (e.g., in
        the case where the agent is a proxy), it is possible that some
        intervals are unavailable.  In this case, this interval is the
-
        maximum interval number for which data is available."
    ::= { xdsl2PMChCurrEntry 2 }
 
@@ -5954,7 +5833,6 @@ xdsl2PMChCurr15MCorrectedBlocks  OBJECT-TYPE
        over multiple channels, then each related FEC (or FFEC) anomaly
        SHOULD increment each of the counters related to the individual
        channels."
-
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.2.1.2 (FEC-C)
                  and paragraph #7.2.2.2.2 (FEC-CFE)"
    ::= { xdsl2PMChCurrEntry 6 }
@@ -6003,7 +5881,6 @@ xdsl2PMChCurr1DayCodingViolations  OBJECT-TYPE
    DESCRIPTION
       "Count of CRC-8 (FEBE for xTU-R) anomalies occurring in the
        channel during the interval.  This parameter is inhibited during
-
        UAS or SES.  If the CRC is applied over multiple channels, then
        each related CRC-8 (or FEBE) anomaly SHOULD increment each of the
        counters related to the individual channels."
@@ -6052,7 +5929,6 @@ xdsl2PMChHist15MinEntry  OBJECT-TYPE
    INDEX  { ifIndex,
             xdsl2PMChHist15MUnit,
             xdsl2PMChHist15MInterval }
-
    ::= { xdsl2PMChHist15MinTable 1 }
 
 Xdsl2PMChHist15MinEntry  ::=
@@ -6101,7 +5977,6 @@ xdsl2PMChHist15MCodingViolations  OBJECT-TYPE
        each related CRC-8 (or FEBE) anomaly SHOULD increment each of the
        counters related to the individual channels."
    REFERENCE    "ITU-T G.997.1, paragraph #7.2.2.1.1 (CV-C)
-
                  and paragraph #7.2.2.2.1 (CV-CFE)"
   ::= { xdsl2PMChHist15MinEntry 4 }
 
@@ -6150,7 +6025,6 @@ xdsl2PMChHist1DEntry  OBJECT-TYPE
    DESCRIPTION
       "One index of this table is an interface index where the
        interface has an ifType of a DSL channel.  A second index of
-
        this table is the transmission unit.  The third index is the
        interval number."
    INDEX  { ifIndex,
@@ -6199,7 +6073,6 @@ xdsl2PMChHist1DCodingViolations  OBJECT-TYPE
    STATUS      current
    DESCRIPTION
       "Count of CRC-8 (FEBE for xTU-R) anomalies occurring in the
-
        channel during the interval.  This parameter is inhibited during
        UAS or SES.  If the CRC is applied over multiple channels, then
        each related CRC-8 (or FEBE) anomaly SHOULD increment each of the
@@ -6247,7 +6120,6 @@ xdsl2LinePerfFECSThreshXtuc NOTIFICATION-TYPE
      "This notification indicates that the FEC seconds threshold
       has been reached/exceeded for the referred xTU-C."
    ::= { xdsl2Notifications 1 }
-
 xdsl2LinePerfFECSThreshXtur NOTIFICATION-TYPE
    OBJECTS
    {
@@ -6295,7 +6167,6 @@ xdsl2LinePerfSESThreshXtuc NOTIFICATION-TYPE
      "This notification indicates that the severely errored seconds
       threshold has been reached/exceeded for the referred xTU-C."
    ::= { xdsl2Notifications 5 }
-
 xdsl2LinePerfSESThreshXtur NOTIFICATION-TYPE
    OBJECTS
    {
@@ -6343,7 +6214,6 @@ xdsl2LinePerfUASThreshXtuc NOTIFICATION-TYPE
      "This notification indicates that the unavailable seconds
       threshold has been reached/exceeded for the referred xTU-C."
    ::= { xdsl2Notifications 9 }
-
 xdsl2LinePerfUASThreshXtur NOTIFICATION-TYPE
    OBJECTS
    {
@@ -6392,7 +6262,6 @@ xdsl2LinePerfCorrectedThreshXtuc NOTIFICATION-TYPE
       (FEC events) threshold has been reached/exceeded for the
       referred xTU-C."
    ::= { xdsl2Notifications 13 }
-
 xdsl2LinePerfCorrectedThreshXtur NOTIFICATION-TYPE
    OBJECTS
    {
@@ -6441,7 +6310,6 @@ xdsl2LineStatusChangeXtuc NOTIFICATION-TYPE
    DESCRIPTION
      "This notification indicates that a status change is
       detected for the referred xTU-C."
-
    ::= { xdsl2Notifications 17 }
 
 xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
@@ -6454,6 +6322,7 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
      "This notification indicates that a status change is
       detected for the referred xTU-R."
    ::= { xdsl2Notifications 18 }
+
 
    -- conformance information
 
@@ -6488,7 +6357,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           xdsl2PMChHist15MinGroup,
           xdsl2PMChHist1DGroup
           }
-
    GROUP  xdsl2LineFallbackGroup
       DESCRIPTION
         "The group of configuration, status, and commands
@@ -6536,7 +6404,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       DESCRIPTION
         "The group of objects that define the alarm thresholds
         on channel-level PM counters."
-
    GROUP  xdsl2ChConfProfileAtmGroup
       DESCRIPTION
         "The group of configuration objects required when the data
@@ -6585,7 +6452,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
    -- units of conformance
 
    xdsl2LineGroup OBJECT-GROUP
-
       OBJECTS
           {
           xdsl2LineConfTemplate,
@@ -6634,7 +6500,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
    xdsl2LineFallbackGroup OBJECT-GROUP
       OBJECTS
           {
-
           xdsl2LineConfFallbackTemplate,
           xdsl2LineStatusActTemplate
            }
@@ -6683,7 +6548,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           xdsl2ChStatusNFec,
           xdsl2ChStatusRFec,
           xdsl2ChStatusLSymb,
-
           xdsl2ChStatusIntlvDepth,
           xdsl2ChStatusIntlvBlock,
           xdsl2ChStatusLPath
@@ -6732,7 +6596,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           xdsl2SCStatusRowStatus,
           xdsl2SCStatusSegmentLinReal,
           xdsl2SCStatusSegmentLinImg,
-
           xdsl2SCStatusSegmentLog,
           xdsl2SCStatusSegmentQln,
           xdsl2SCStatusSegmentSnr,
@@ -6781,7 +6644,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       STATUS     current
       DESCRIPTION
          "The group of objects in a line configuration
-
           template."
       ::= { xdsl2Groups 10 }
 
@@ -6830,7 +6692,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       DESCRIPTION
          "The group of objects in a line configuration
           profile."
-
       ::= { xdsl2Groups 11 }
 
    xdsl2LineConfProfRaGroup OBJECT-GROUP
@@ -6879,7 +6740,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           xdsl2LConfProfUs0Disable,
           xdsl2LConfProfModeSpecRowStatus
           }
-
       STATUS     current
       DESCRIPTION
          "The group of objects in a line configuration profile
@@ -6928,7 +6788,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
          "The group of objects in a channel configuration
           profile."
       ::= { xdsl2Groups 16 }
-
    xdsl2ChConfProfileAtmGroup OBJECT-GROUP
       OBJECTS
           {
@@ -6977,7 +6836,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       STATUS     current
       DESCRIPTION
          "The group of objects in a line alarm template."
-
       ::= { xdsl2Groups 20 }
 
    xdsl2LineAlarmConfProfileGroup OBJECT-GROUP
@@ -7026,7 +6884,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           xdsl2PMLCurr15MEs,
           xdsl2PMLCurr15MSes,
           xdsl2PMLCurr15MLoss,
-
           xdsl2PMLCurr15MUas,
           xdsl2PMLCurr1DayValidIntervals,
           xdsl2PMLCurr1DayInvalidIntervals,
@@ -7075,7 +6932,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       DESCRIPTION
          "The group of objects that report the short
           initialization counters for current PM intervals."
-
       ::= { xdsl2Groups 25 }
 
    xdsl2PMLineHist15MinGroup OBJECT-GROUP
@@ -7124,7 +6980,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       DESCRIPTION
          "The group of PM counters for the previous 15-minute
           interval full initializations."
-
       ::= { xdsl2Groups 28 }
 
    xdsl2PMLineInitHist15MinShortGroup OBJECT-GROUP
@@ -7173,7 +7028,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           xdsl2PMChCurr15MTimeElapsed,
           xdsl2PMChCurr15MCodingViolations,
           xdsl2PMChCurr15MCorrectedBlocks,
-
           xdsl2PMChCurr1DayValidIntervals,
           xdsl2PMChCurr1DayInvalidIntervals,
           xdsl2PMChCurr1DayTimeElapsed,
@@ -7222,7 +7076,6 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
           }
       STATUS     current
       DESCRIPTION
-
          "The group of objects that report the available memory
           resources for DELT processes."
       ::= { xdsl2Groups 35 }
@@ -7266,4 +7119,3 @@ xdsl2LineStatusChangeXtur NOTIFICATION-TYPE
       ::= { xdsl2Groups 37 }
 
 END
-

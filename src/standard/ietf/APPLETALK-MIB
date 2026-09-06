@@ -1,6 +1,3 @@
--- extracted from rfc1742.txt
--- at Mon Nov 15 17:11:50 1999
-
           APPLETALK-MIB DEFINITIONS ::= BEGIN
 
           IMPORTS
@@ -131,7 +128,6 @@
                   this index is the same interface as identified
                   by the same value of ifIndex."
               ::= { llapEntry 1 }
-
           -- this object has been deprecated because it duplicates the
           -- sum of the MIB-II variables ifInUcastPkts and
           -- ifInNUcastPkts
@@ -180,7 +176,6 @@
                   interface whose actual length did not match the length
                   in the header."
               ::= { llapEntry 5 }
-
           -- this object has been deprecated because it duplicates the
           -- MIB-II variable ifInErrors
 
@@ -372,7 +367,6 @@
 
                   As an example, an instance of the atportNetFrom object
                   might be named atportNetFrom.2"
-
               INDEX { atportIndex }
               ::= { atportTable 1 }
 
@@ -420,7 +414,6 @@
                   to a human; it must not contain anything but printable
                   ASCII characters."
               ::= { atportEntry 2 }
-
           -- Several objects throughout the MIB key off of atportType to
           -- determine the format of OCTET STRING addresses of peers.
           -- The address formats are as follows:
@@ -564,7 +557,6 @@
                   If this port is not a native AppleTalk port, this
                   object shall have the value unconfigured(4)."
               ::= { atportEntry 8 }
-
           atportZoneConfig OBJECT-TYPE
               SYNTAX INTEGER {
                   conflictOrientedSeed(1), -- use configured zone
@@ -658,7 +650,6 @@
                   any zone confirmation, this variable should be set
                   to three octets of zero."
               ::= { atportEntry 13 }
-
           atportInPkts OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only
@@ -993,7 +984,6 @@
               DESCRIPTION
                   "The number of packets received for this listener."
               ::= { ddpListenerEntry 2 }
-
           ddpListenerStatus OBJECT-TYPE
               SYNTAX INTEGER {
                   valid(1),
@@ -1330,7 +1320,6 @@
                   destination network to which this routing entry
                   pertains."
               ::= { rtmpEntry 6 }
-
           rtmpState OBJECT-TYPE
               SYNTAX INTEGER {
                   good(1),
@@ -1426,7 +1415,6 @@
                   "The number of times RTMP attempted to add a route
                   to the RTMP table but failed due to lack of space."
               ::= { rtmp 8 }
-
           -- The RTMP Stub Group
           --
           -- Implementation of this group is mandatory for all
@@ -1571,7 +1559,6 @@
                    host(3),
                    other(4),
                    async(5)
-
               }
               ACCESS read-write
               STATUS mandatory
@@ -1715,7 +1702,6 @@
                   value for zipZoneNetEnd shall be two octets of
                   zero."
               ::= { zipEntry 4 }
-
           zipZoneState OBJECT-TYPE
               SYNTAX INTEGER {
                   valid(1),
@@ -1812,7 +1798,6 @@
                   obsoleted, the receipt of one of these packets
                   indicates that a node sent it in error."
               ::= { zipRouter 6 }
-
           -- The zipRouterNetInfoTable is used to record information
           -- about zipGetNetInfo and zipGetNetInfo Reply packets that
           -- were received on each port for a router.  This table
@@ -1909,7 +1894,6 @@
                   "The table of Net Info packets received by each port
                   on this entity."
               ::= { zipEndNode 1 }
-
           zipNetInfoEntry OBJECT-TYPE
               SYNTAX ZipNetInfoEntry
               ACCESS not-accessible
@@ -1958,7 +1942,6 @@
                   because the corresponding GetNetInfo Request had an
                   invalid zone name."
               ::= { zipNetInfoEntry 3 }
-
           zipInErrors OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only
@@ -2195,7 +2178,6 @@
               DESCRIPTION
                   "The count of AppleTalk Echo replies received."
               ::= { atecho 4 }
-
           -- The ATP Group
           --
           -- Implementation of this group is mandatory for all entities
@@ -2434,7 +2416,6 @@
                   "An unique value for each Printer Access Protocol
                   Server."
               ::= { papServerEntry 1 }
-
           papServerListeningSocket OBJECT-TYPE
               SYNTAX DdpSocketAddress
               ACCESS read-write
@@ -2480,7 +2461,6 @@
                   "The minimum number of GetNextJob calls that are
                   currently waiting for a job."
               ::= { papServerEntry 6 }
-
           papServerAuthenticationFailures OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only
@@ -2577,7 +2557,6 @@
                   "The number of ASP Open Session requests and replies
                   received by this entity."
               ::= { asp 3 }
-
           aspOutOpenSessions OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only
@@ -2625,7 +2604,6 @@
                   messages from the remote end before its timer
                   expired."
               ::= { asp 8 }
-
           aspConnTable OBJECT-TYPE
               SYNTAX SEQUENCE OF AspConnEntry
               ACCESS not-accessible
@@ -2674,7 +2652,6 @@
                   this entry is in the listening mode, this object
                   shall have a value of four octets of zero."
               ::= { aspConnEntry 2 }
-
           aspConnID OBJECT-TYPE
               SYNTAX INTEGER (1..255)
               ACCESS not-accessible
@@ -2911,7 +2888,6 @@
                   requires examination of the relevant adspConnState
                   object."
               ::= { adspConnEntry 5 }
-
           -- The ATPortPtoP Group
           --
           -- Implementation of this group is mandatory for all entities
@@ -3007,7 +2983,6 @@
                   interface as identified by the same value of
                   atportIndex."
               ::= { atportPtoPEntry 5 }
-
           atportPtoPStatus OBJECT-TYPE
               SYNTAX INTEGER {
                   valid(1),
@@ -3050,7 +3025,6 @@
           pToPProtoIpx OBJECT IDENTIFIER ::= { atportPtoPProtoOids 6 }
           pToPProtoShivaIp OBJECT IDENTIFIER ::=
                       { atportPtoPProtoOids 7 }
-
           -- The Per Port Counters Group
           --
           -- Implementation of this group is optional.
@@ -3145,7 +3119,6 @@
                   "The total number of AARP Request packets sent by
                   this entity on this port."
               ::= { perPortEntry 4 }
-
           perPortAarpInRsps OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only
@@ -3194,7 +3167,6 @@
                   layer protocol for which no protocol handler
                   existed."
               ::= { perPortEntry 9 }
-
           perPortDdpTooShortErrors OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only
@@ -3386,7 +3358,6 @@
                   "The number of NBP packets received by this entity
                   on this port that were rejected for any error."
               ::= { perPortEntry 29 }
-
           perPortEchoRequests OBJECT-TYPE
               SYNTAX Counter
               ACCESS read-only

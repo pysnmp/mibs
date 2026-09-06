@@ -23,8 +23,6 @@ igmpStdMIB MODULE-IDENTITY
     DESCRIPTION
             "The MIB module for IGMP Management."
     REVISION     "200009280000Z" -- September 28, 2000
-
-
     DESCRIPTION
             "Initial version, published as RFC 2933."
     ::= { mib-2 85 }
@@ -72,9 +70,6 @@ IgmpInterfaceEntry ::= SEQUENCE {
     igmpInterfaceRobustness            Unsigned32,
     igmpInterfaceLastMembQueryIntvl    Unsigned32
 }
-
-
-
 igmpInterfaceIfIndex OBJECT-TYPE
     SYNTAX     InterfaceIndex
     MAX-ACCESS not-accessible
@@ -123,8 +118,6 @@ igmpInterfaceQuerier OBJECT-TYPE
     STATUS     current
     DESCRIPTION
             "The address of the IGMP Querier on the IP subnet to which
-
-
             this interface is attached."
     ::= { igmpInterfaceEntry 5 }
 
@@ -173,8 +166,6 @@ igmpInterfaceWrongVersionQueries OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-
-
             "The number of queries received whose IGMP version does not
             match igmpInterfaceVersion, over the lifetime of the row
             entry.  IGMP requires that all routers on a LAN be
@@ -223,8 +214,6 @@ igmpInterfaceGroups OBJECT-TYPE
 igmpInterfaceRobustness OBJECT-TYPE
     SYNTAX     Unsigned32 (1..255)
     MAX-ACCESS read-create
-
-
     STATUS     current
     DESCRIPTION
             "The Robustness Variable allows tuning for the expected
@@ -272,9 +261,6 @@ igmpCacheEntry OBJECT-TYPE
             "An entry (conceptual row) in the igmpCacheTable."
     INDEX      { igmpCacheAddress, igmpCacheIfIndex }
     ::= { igmpCacheTable 1 }
-
-
-
 IgmpCacheEntry ::= SEQUENCE {
     igmpCacheAddress            IpAddress,
     igmpCacheIfIndex            InterfaceIndex,
@@ -323,8 +309,6 @@ igmpCacheLastReporter OBJECT-TYPE
             received for this IP Multicast group address on this
             interface.  If no membership report has been received, this
             object has the value 0.0.0.0."
-
-
     ::= { igmpCacheEntry 4 }
 
 igmpCacheUpTime OBJECT-TYPE
@@ -372,9 +356,6 @@ igmpCacheVersion1HostTimer OBJECT-TYPE
     ::= { igmpCacheEntry 8 }
 
 -- conformance information
-
-
-
 igmpMIBConformance
                OBJECT IDENTIFIER ::= { igmpStdMIB 2 }
 igmpMIBCompliances
@@ -422,9 +403,6 @@ igmpV1RouterMIBCompliance MODULE-COMPLIANCE
     MIN-ACCESS read-only
     DESCRIPTION
              "Write access is not required."
-
-
-
     ::= { igmpMIBCompliances 2 }
 
 igmpV2HostMIBCompliance MODULE-COMPLIANCE
@@ -473,8 +451,6 @@ igmpV2RouterMIBCompliance MODULE-COMPLIANCE
 
 
 -- units of conformance
-
-
 igmpBaseMIBGroup OBJECT-GROUP
     OBJECTS { igmpCacheSelf,
               igmpCacheStatus, igmpInterfaceStatus
@@ -523,8 +499,6 @@ igmpV2RouterMIBGroup OBJECT-GROUP
               igmpInterfaceQueryMaxResponseTime,
               igmpInterfaceRobustness,
               igmpInterfaceWrongVersionQueries,
-
-
               igmpInterfaceLastMembQueryIntvl,
               igmpCacheVersion1HostTimer
             }

@@ -30,34 +30,37 @@ IMPORTS
 
 ieee8021MirpMib
  MODULE-IDENTITY
-    LAST-UPDATED "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-       "WG-URL:   http://www.ieee802.org/1/
-        WG-EMail: stds-802-1-L@ieee.org 
-        Contact:  IEEE 802.1 Working Group Chair
-        Postal:   IEEE Standards Board
-                  445 Hoes Lane
-                  Piscataway, NJ 08854
-                  USA
-        E-mail:   stds-802-1-L@ieee.org
-       "
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
+          Contact: IEEE 802.1 Working Group Chair
+           Postal: C/O IEEE 802.1 Working Group
+                   IEEE Standards Association
+                   445 Hoes Lane
+                   Piscataway, NJ 08854
+                   USA
+           E-mail: stds-802-1-chairs@ieee.org"
    DESCRIPTION 
-       "Multiple I-SID Registration Protocol module for managing
-        IEEE 802.1Qbe
+       "The Bridge MIB module for managing devices that support the
+        Multiple I-SID Registration Protocol module for IEEE 802.1Q Bridges
 
         Unless otherwise indicated, the references in this MIB
-        module are to IEEE Std 802.1Q.
+        module are to IEEE Std 802.1Q-2022.
 
-        Copyright (C) IEEE (2018).
+        Copyright (C) IEEE (2022).
         This version of this MIB module is part of IEEE Std 802.1Q;
-        see the draft itself for full legal notices.
-       "
-
-
-    REVISION "201806280000Z" -- June 28, 2018
+        see that standard for full legal notices."
+        
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q-2018.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Description, cross references, and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
             
     REVISION "201412150000Z" -- December 15, 2014
@@ -137,7 +140,7 @@ ieee8021MirpV2PortEnabledStatus
         If MIRP is enabled on a VIP, then the MIRP Participant is
         enabled on that VIP's PIP.  If MIRP is enabled on none of the
         VIPs on a PIP, then the MIRP Participant on the PIP is
-        diabled; any MIRP packets received will be silently discarded,
+        disabled; any MIRP packets received will be silently discarded,
         and no MIRP registrations will be propagated from the PIP. A
         transition from all VIPs on a PIP false(2) to at least one VIP
         on the PIP true(1) will cause a reset of all MIRP state
@@ -192,7 +195,7 @@ ieee8021PbbMirpBvid
     DESCRIPTION
        "The B-VID to which received MIRPDUs are to be assigned, or 0,
         if they are to be sent on the CBP PVID."
-    REFERENCE   "12.14.7.7.2 j), 12.14.7.7.2 c)"
+    REFERENCE   "12.14.7.7.2 j),12.14.7.7.2 c)"
     DEFVAL      { 0 }
     ::= { ieee8021PbbBackboneEdgeBridgeObjects 8 }
 
@@ -245,7 +248,7 @@ ieee8021PbbMirpPnpEnable
         The value of this object MUST be retained across
         reinitializations of the management system.
        "
-    REFERENCE   "12.14.7.7.2 j), 12.14.7.7.2 c)"
+    REFERENCE   "12.14.7.7.2 j),12.14.7.7.2 c)"
     DEFVAL      { true }
     ::= { ieee8021PbbBackboneEdgeBridgeObjects 10 }
 

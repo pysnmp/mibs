@@ -7,12 +7,10 @@ DSA-MIB DEFINITIONS ::= BEGIN
           DisplayString,    TimeStamp,
           TEXTUAL-CONVENTION
                      FROM SNMPv2-TC
-          MODULE-COMPLIANCE, OBJECT-GROUP
-                     FROM SNMPv2-CONF
           mib-2
                      FROM RFC1213-MIB
           applIndex, DistinguishedName
-                     FROM NETWORK-SERVICES-MIB;
+                     FROM APPLICATION-MIB;
 
         dsaMIB MODULE-IDENTITY
            LAST-UPDATED "9311250000Z"
@@ -66,7 +64,6 @@ DSA-MIB DEFINITIONS ::= BEGIN
                 Counter32,
             dsaBindSecurityErrors
                 Counter32,
-
  -- In-coming operations
 
             dsaInOps
@@ -115,7 +112,6 @@ DSA-MIB DEFINITIONS ::= BEGIN
               " Number of anonymous  binds to this DSA from DUAs
                 since application start."
             ::= {dsaOpsEntry 1}
-
         dsaUnauthBinds OBJECT-TYPE
             SYNTAX Counter32
             MAX-ACCESS read-only
@@ -211,7 +207,6 @@ DSA-MIB DEFINITIONS ::= BEGIN
               " CCITT Blue Book Fascicle VIII.8 - Rec. X.511, 1988:
                 Section 11.1."
             ::= {dsaOpsEntry 9}
-
         dsaRemoveEntryOps OBJECT-TYPE
             SYNTAX Counter32
             MAX-ACCESS read-only
@@ -259,7 +254,6 @@ DSA-MIB DEFINITIONS ::= BEGIN
               " CCITT Blue Book Fascicle VIII.8 - Rec. X.511, 1988:
                 Section 10.1."
             ::= {dsaOpsEntry 13}
-
         dsaSearchOps OBJECT-TYPE
             SYNTAX Counter32
             MAX-ACCESS read-only
@@ -308,7 +302,6 @@ DSA-MIB DEFINITIONS ::= BEGIN
               " CCITT Blue Book Fascicle VIII.8 - Rec. X.511, 1988:
                 Section 12.6."
             ::= {dsaOpsEntry 17}
-
         dsaChainings OBJECT-TYPE
             SYNTAX Counter32
             MAX-ACCESS read-only

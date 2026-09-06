@@ -203,7 +203,6 @@ mdmIDProductDetails OBJECT-TYPE
     REFERENCE
             "V.58 attribute manufacturerID subfield productDetails"
     ::= { mdmIDEntry 3 }
-
 -- The modem Line Interface Table
 
 mdmLineTable OBJECT-TYPE
@@ -683,7 +682,6 @@ mdmDTEInactivityTimeout OBJECT-TYPE
 
 
 -- The Call Control Table
-
 mdmCallControlTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF MdmCallControlEntry
     MAX-ACCESS  not-accessible

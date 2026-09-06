@@ -1,11 +1,4 @@
--- *****************************************************************
--- MPLS-LDP-GENERIC-STD-MIB.my
---
--- Generated from IETF RFC 3815
--- 
--- *****************************************************************
-
-MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
+   MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
 
    IMPORTS
        OBJECT-TYPE,
@@ -42,8 +35,6 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
 
             Hans Sjostrand (hans@ipunplugged.com)
             ipUnplugged
-
-
             James V. Luciani (james_luciani@mindspring.com)
             Marconi Communications, Inc.
 
@@ -91,8 +82,6 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
    --
    -- The MPLS LDP Entity Generic Label Range Table
    --
-
-
    mplsLdpEntityGenericLRTable OBJECT-TYPE
        SYNTAX SEQUENCE OF MplsLdpEntityGenericLREntry
        MAX-ACCESS not-accessible
@@ -141,8 +130,6 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
        mplsLdpEntityGenericLRMin           Unsigned32,
        mplsLdpEntityGenericLRMax           Unsigned32,
        mplsLdpEntityGenericLabelSpace      INTEGER,
-
-
        mplsLdpEntityGenericIfIndexOrZero   InterfaceIndexOrZero,
        mplsLdpEntityGenericLRStorageType   StorageType,
        mplsLdpEntityGenericLRRowStatus     RowStatus
@@ -191,8 +178,6 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
        DESCRIPTION
           "This value represents either the InterfaceIndex of
           the 'ifLayer' where these Generic Label would be created,
-
-
           or 0 (zero).  The value of zero means that the
           InterfaceIndex is not known.
 
@@ -241,8 +226,6 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
             There must exist at least one entry in this
             table for every LDP Entity that has a
             generic label configured."
-
-
        ::= { mplsLdpEntityGenericLREntry 6 }
 
    --****************************************************************
@@ -272,8 +255,8 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
                                }
 
        OBJECT       mplsLdpEntityGenericLRRowStatus
-       SYNTAX       RowStatus
-       WRITE-SYNTAX RowStatus
+       SYNTAX       RowStatus { active(1) }
+       WRITE-SYNTAX RowStatus { createAndGo(4), destroy(6) }
        DESCRIPTION
           "Support for createAndWait and notInService is not required."
 
@@ -291,8 +274,6 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
            is available by implementing this MODULE-COMPLIANCE."
        MODULE -- this module
            MANDATORY-GROUPS    {
-
-
                                   mplsLdpGenericGroup
                                }
 
@@ -312,7 +293,7 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
           "Write access is not required."
 
        OBJECT       mplsLdpEntityGenericLRRowStatus
-       SYNTAX       RowStatus
+       SYNTAX       RowStatus { active(1) }
        MIN-ACCESS   read-only
        DESCRIPTION
           "Write access is not required, and active is the
@@ -337,4 +318,4 @@ MPLS-LDP-GENERIC-STD-MIB DEFINITIONS ::= BEGIN
            using Generic Labels as the Layer 2."
        ::= { mplsLdpGenericGroups 1 }
 
-END
+   END

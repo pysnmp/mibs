@@ -134,7 +134,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
     STATUS         current
     DESCRIPTION    "Represents the BB_Credit model of an FxPort."
     SYNTAX         INTEGER { regular(1), alternate (2) }
-
   -- The Configuration group
 
   -- This group consists of scalar objects and tables.
@@ -230,7 +229,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
           include the full name and version identification of the
           module."
   ::= { fcFeModuleEntry 2 }
-
   fcFeModuleObjectID OBJECT-TYPE
       SYNTAX      OBJECT IDENTIFIER
       MAX-ACCESS  read-only
@@ -327,7 +325,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
              FcFeFxPortIndex,
          fcFxPortName
              FcNameId,
-
          -- FxPort common service parameters
          fcFxPortFcphVersionHigh
              FcphVersion,
@@ -376,7 +373,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
          "The World_wide Name of this FxPort.  Each FxPort has a
           unique Port World_wide Name within the Fabric."
   ::= { fcFxPortEntry 2 }
-
   -- FxPort common service parameters
 
   fcFxPortFcphVersionHigh OBJECT-TYPE
@@ -711,7 +707,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
           explicit or implicit. Note that an FxPort may have one or
           more NxPort attached to it."
   ::= { fcFeStatus 3 }
-
   fcFxLoginEntry OBJECT-TYPE
       SYNTAX      FcFxLoginEntry
       MAX-ACCESS  not-accessible
@@ -759,7 +754,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
          "The object identifies the associated NxPort in the
           attachment for which the entry contains information."
   ::= { fcFxLoginEntry 1 }
-
   fcFxPortFcphVersionAgreed OBJECT-TYPE
       SYNTAX      FcphVersion
       MAX-ACCESS  read-only
@@ -951,7 +945,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
          "The number of loss of synchronization detected by the
           FxPort."
   ::= { fcFxPortErrorEntry 2 }
-
   fcFxPortSigLosses OBJECT-TYPE
       SYNTAX      Counter32
       MAX-ACCESS  read-only
@@ -1048,7 +1041,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
 
   -- the Class 1 Accounting table
   -- This table contains, one entry for each FxPort in the Fabric
-
   -- Element, Counter32s for certain types of events occurred in the
   -- the FxPorts since the the management agent has re-initialized.
 
@@ -1096,7 +1088,6 @@ FIBRE-CHANNEL-FE-MIB DEFINITIONS ::= BEGIN
           fcFxPortC1ConnTime
               MilliSeconds
       }
-
   fcFxPortC1InFrames OBJECT-TYPE
       SYNTAX      Counter32
       MAX-ACCESS  read-only

@@ -27,10 +27,6 @@ t11FcFspfMIB MODULE-IDENTITY
                     170 West Tasman Drive
                     San Jose, CA 95134 USA
                     EMail: cds@cisco.com
-
-
-
-
                     Keith McCloghrie
                     Cisco Systems, Inc.
                     170 West Tasman Drive
@@ -79,9 +75,6 @@ T11FspfLsrType ::= TEXTUAL-CONVENTION
 T11FspfLinkType ::= TEXTUAL-CONVENTION
     STATUS    current
     DESCRIPTION
-
-
-
            "Type of an the FSPF Link.  Presently defined values:
 
                1           - Point-to-Point
@@ -130,9 +123,6 @@ T11FspfLastCreationTime ::= TEXTUAL-CONVENTION
            causing an otherwise undetectable discontinuity in the
            data."
     SYNTAX  TimeTicks
-
-
-
 --
 -- t11FspfTable
 
@@ -181,9 +171,6 @@ T11FspfEntry ::= SEQUENCE  {
     t11FspfNbrStateChangNotifyEnable   TruthValue,
     t11FspfSetToDefault                INTEGER,
     t11FspfStorageType                 StorageType
-
-
-
 }
 
 t11FspfFabricIndex OBJECT-TYPE
@@ -232,9 +219,6 @@ t11FspfMinLsInterval OBJECT-TYPE
            on the same Fabric."
     REFERENCE  "Fibre Channel - Switch Fabric - 4 (FC-SW-4),
                ANSI INCITS 418-2006, section 15.1."
-
-
-
     DEFVAL     {5000}
     ::= { t11FspfEntry 3 }
 
@@ -283,9 +267,6 @@ t11FspfPathComputations OBJECT-TYPE
            "The number of times that the path computation algorithm
            has been invoked by this Switch on this Fabric to compute
            a set of minimum cost paths for this Fabric.  The last
-
-
-
            discontinuity of this counter is indicated by
            t11FspfCreateTime."
     REFERENCE  "Fibre Channel - Switch Fabric - 4 (FC-SW-4),
@@ -334,9 +315,6 @@ t11FspfAdminStatus OBJECT-TYPE
            this object is set to 'up', then FSPF is enabled in
            this Fabric.  If set to 'down', then FSPF is disabled
            in this Fabric -- when FSPF is disabled, FSPF provides
-
-
-
            no routes to be included in the T11-FC-ROUTE-MIB module.
            (see the T11-FC-ROUTE-MIB)."
     REFERENCE  "T11-FC-ROUTE-MIB, The Fibre Channel Routing
@@ -385,9 +363,6 @@ t11FspfSetToDefault OBJECT-TYPE
     DESCRIPTION
            "Setting this value to 'default' changes the value of each
            and every writable object in this row to its default
-
-
-
            value.
 
            No action is taken if this object is set to 'noOp'.
@@ -436,9 +411,6 @@ t11FspfIfTable OBJECT-TYPE
            Therefore, when an E_Port becomes isolated, its row gets
            deleted if and only if all of its parameter values are the
            default values; also, when an E_Port becomes non-isolated
-
-
-
            in a particular Fabric, a row in this table needs to exist
            and is automatically created, if necessary.
 
@@ -487,9 +459,6 @@ T11FspfIfEntry ::= SEQUENCE {
     t11FspfIfAdminStatus               INTEGER,
     t11FspfIfCreateTime                T11FspfLastCreationTime,
     t11FspfIfSetToDefault              INTEGER,
-
-
-
     t11FspfIfLinkCostFactor            Unsigned32,
     t11FspfIfStorageType               StorageType,
     t11FspfIfRowStatus                 RowStatus
@@ -538,9 +507,6 @@ t11FspfIfRetransmitInterval OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-
-
-
            "The time after which an unacknowledged LSR is
            retransmitted on this interface in this Fabric."
     DEFVAL {5}
@@ -588,10 +554,6 @@ t11FspfIfOutLsaPkts OBJECT-TYPE
            last discontinuity of this counter is indicated by
            t11FspfIfCreateTime."
     ::= { t11FspfIfEntry 8 }
-
-
-
-
 t11FspfIfOutHelloPkts OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
@@ -640,9 +602,6 @@ t11FspfIfNbrState OBJECT-TYPE
     DESCRIPTION
            "The state of FSPF's 'neighbor state machine', which is
            the operational state of the interaction with the
-
-
-
            neighbor's interface that is connected to this interface.
 
            If the 't11FspfIfAdminStatus' is 'down', then this object
@@ -691,9 +650,6 @@ t11FspfIfAdminStatus OBJECT-TYPE
            interface is given by t11FspfIfNbrState."
     DEFVAL  {up}
     ::= { t11FspfIfEntry 16 }
-
-
-
 t11FspfIfCreateTime OBJECT-TYPE
     SYNTAX      T11FspfLastCreationTime
     MAX-ACCESS  read-only
@@ -742,9 +698,6 @@ t11FspfIfLinkCostFactor OBJECT-TYPE
            "Fibre Channel - Switch Fabric - 4 (FC-SW-4),
             ANSI INCITS 418-2006, section 8.5.5; and
             IF-MIB, RFC 2863."
-
-
-
     DEFVAL { 100 }
     ::= { t11FspfIfEntry 19 }
 
@@ -793,9 +746,6 @@ t11FspfLsrTable OBJECT-TYPE
            A Fabric's topology database contains the LSRs that
            have been either issued or received by a local switch on
            that Fabric, and that have not reached t11FspfMaxAge."
-
-
-
     ::= { t11FspfDatabase 1 }
 
 t11FspfLsrEntry OBJECT-TYPE
@@ -844,9 +794,6 @@ t11FspfLsrAdvDomainId OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-
-
-
            "Domain Id of the switch that is advertising the LSR on
            the behalf of the switch owning it."
     ::= { t11FspfLsrEntry 3 }
@@ -895,9 +842,6 @@ t11FspfLsrLinks OBJECT-TYPE
 
 t11FspfLinkNumber  OBJECT-TYPE
     SYNTAX      Unsigned32 (0..2147483647)
-
-
-
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
@@ -946,9 +890,6 @@ t11FspfLinkIndex OBJECT-TYPE
     ::= { t11FspfLinkEntry 1 }
 
 t11FspfLinkNbrDomainId OBJECT-TYPE
-
-
-
     SYNTAX      FcDomainIdOrZero
     MAX-ACCESS  read-only
     STATUS      current
@@ -997,9 +938,6 @@ t11FspfLinkCost OBJECT-TYPE
 
            For issued LSRs, S is determined by the value of
            t11FspfIfLinkCostFactor for the corresponding interface
-
-
-
            and Fabric."
     ::= { t11FspfLinkEntry 6 }
 
@@ -1047,10 +985,6 @@ t11FspfMIBCompliances
 
 t11FspfMIBGroups
     OBJECT IDENTIFIER ::= { t11FspfConformance 2 }
-
-
-
-
 t11FspfMIBCompliance MODULE-COMPLIANCE
     STATUS     current
     DESCRIPTION
@@ -1099,9 +1033,6 @@ t11FspfMIBCompliance MODULE-COMPLIANCE
         MIN-ACCESS read-only
         DESCRIPTION
                "Write access is not required."
-
-
-
         OBJECT     t11FspfSetToDefault
         MIN-ACCESS read-only
         DESCRIPTION
@@ -1150,9 +1081,6 @@ t11FspfGeneralGroup OBJECT-GROUP
     OBJECTS  { t11FspfMinLsArrival,
                t11FspfMinLsInterval,
                t11FspfLsRefreshTime,
-
-
-
                t11FspfMaxAge,
                t11FspfMaxAgeDiscards,
                t11FspfPathComputations,
@@ -1201,9 +1129,6 @@ t11FspfIfCounterGroup OBJECT-GROUP
                t11FspfIfInErrorPkts  }
     STATUS   current
     DESCRIPTION
-
-
-
             "A collection of objects for counting particular
             FSPF-packet occurrences on an interface."
     ::= { t11FspfMIBGroups 3 }

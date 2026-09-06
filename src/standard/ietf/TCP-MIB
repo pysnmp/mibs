@@ -43,10 +43,6 @@ tcpMIB MODULE-IDENTITY
     ::= { mib-2 49 }
 
 -- the TCP base variables group
-
-
-
-
 tcp      OBJECT IDENTIFIER ::= { mib-2 6 }
 
 -- Scalars
@@ -94,10 +90,6 @@ tcpRtoMax OBJECT-TYPE
             rfc2988(5) provides an upper bound (as part of an
             adaptive backoff algorithm)."
     ::= { tcp 3 }
-
-
-
-
 tcpMaxConn OBJECT-TYPE
     SYNTAX     Integer32 (-1 | 0..2147483647)
     MAX-ACCESS read-only
@@ -146,9 +138,6 @@ tcpAttemptFails OBJECT-TYPE
 
             Discontinuities in the value of this counter are
             indicated via discontinuities in the value of sysUpTime."
-
-
-
     ::= { tcp 7 }
 
 tcpEstabResets OBJECT-TYPE
@@ -197,9 +186,6 @@ tcpOutSegs OBJECT-TYPE
 
             Discontinuities in the value of this counter are
             indicated via discontinuities in the value of sysUpTime."
-
-
-
     ::= { tcp 11 }
 
 tcpRetransSegs OBJECT-TYPE
@@ -248,9 +234,6 @@ tcpHCInSegs OBJECT-TYPE
     DESCRIPTION
            "The total number of segments received, including those
             received in error.  This count includes segments received
-
-
-
             on currently established connections.  This object is
             the 64-bit equivalent of tcpInSegs.
 
@@ -299,9 +282,6 @@ tcpConnectionEntry OBJECT-TYPE
               tcpConnectionLocalAddress,
               tcpConnectionLocalPort,
               tcpConnectionRemAddressType,
-
-
-
               tcpConnectionRemAddress,
               tcpConnectionRemPort }
     ::= { tcpConnectionTable 1 }
@@ -350,9 +330,6 @@ tcpConnectionLocalPort OBJECT-TYPE
     ::= { tcpConnectionEntry 3 }
 
 tcpConnectionRemAddressType OBJECT-TYPE
-
-
-
     SYNTAX     InetAddressType
     MAX-ACCESS not-accessible
     STATUS     current
@@ -401,9 +378,6 @@ tcpConnectionState OBJECT-TYPE
                 }
     MAX-ACCESS read-write
     STATUS     current
-
-
-
     DESCRIPTION
            "The state of this TCP connection.
 
@@ -452,9 +426,6 @@ tcpListenerTable OBJECT-TYPE
 
             1. An application that is willing to accept both IPv4 and
                IPv6 datagrams is represented by
-
-
-
                a tcpListenerLocalAddressType of unknown (0) and
                a tcpListenerLocalAddress of ''h (a zero-length
                octet-string).
@@ -503,9 +474,6 @@ tcpListenerLocalAddressType OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
-
-
-
            "The address type of tcpListenerLocalAddress.  The value
             should be unknown (0) if connection initiations to all
             local IP addresses are accepted."
@@ -554,9 +522,6 @@ tcpListenerLocalPort OBJECT-TYPE
     DESCRIPTION
            "The local port number for this TCP connection."
     ::= { tcpListenerEntry 3 }
-
-
-
 tcpListenerProcess OBJECT-TYPE
     SYNTAX     Unsigned32
     MAX-ACCESS read-only
@@ -605,9 +570,6 @@ TcpConnEntry ::= SEQUENCE {
         tcpConnLocalPort     Integer32,
         tcpConnRemAddress    IpAddress,
         tcpConnRemPort       Integer32
-
-
-
     }
 
 tcpConnState OBJECT-TYPE
@@ -656,9 +618,6 @@ tcpConnLocalAddress OBJECT-TYPE
             accept connections for any IP interface associated with the
             node, the value 0.0.0.0 is used."
     ::= { tcpConnEntry 2 }
-
-
-
 tcpConnLocalPort OBJECT-TYPE
     SYNTAX     Integer32 (0..65535)
     MAX-ACCESS read-only
@@ -707,9 +666,6 @@ tcpMIBCompliance2 MODULE-COMPLIANCE
             -- SYNTAX      InetAddressType { ipv4(1), ipv6(2) }
             -- DESCRIPTION
             --     This MIB requires support for only global IPv4
-
-
-
             --     and IPv6 address types.
             --
             -- OBJECT      tcpConnectionRemAddressType
@@ -758,9 +714,6 @@ tcpMIBCompliance MODULE-COMPLIANCE
             tcpMIBCompliance2.  However, agents are still encouraged
             to implement these objects in order to interoperate with
             the deployed base of managers."
-
-
-
     MODULE  -- this module
         MANDATORY-GROUPS { tcpGroup }
         OBJECT      tcpConnState
@@ -809,9 +762,6 @@ tcpConnectionGroup OBJECT-GROUP
 
 tcpListenerGroup OBJECT-GROUP
     OBJECTS    { tcpListenerProcess }
-
-
-
     STATUS     current
     DESCRIPTION
            "This group has objects providing general information about

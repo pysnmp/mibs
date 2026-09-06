@@ -21,7 +21,6 @@ IMPORTS
 
 t11FcSpZoningMIB  MODULE-IDENTITY
     LAST-UPDATED  "200808200000Z"
-
     ORGANIZATION  "This MIB module was developed through the
                   coordinated effort of two organizations:
                   T11 began the development and the IETF (in
@@ -117,7 +116,6 @@ t11FcSpZsServerCapabilityObject OBJECT-TYPE
               Fibre Channel - Security Protocols (FC-SP),
               February 2007, Table 184."
     ::= { t11FcSpZsServerEntry 1 }
-
 t11FcSpZsServerEnabled OBJECT-TYPE
     SYNTAX       TruthValue
     MAX-ACCESS   read-write
@@ -166,7 +164,6 @@ t11FcSpZoneSetHashStatus OBJECT-TYPE
            then if write access is supported to any instance of a
            read-write object in any row of any table governed by the
            'permanent' value of t11ZsServerDatabaseStorageType, then
-
            write access to the corresponding instance of this object
            must also be supported."
     REFERENCE
@@ -263,7 +260,6 @@ t11FcSpZsSPCMITrequestsSent OBJECT-TYPE
     STATUS       current
     DESCRIPTION
            "The number of SP Commit Zone Changes (SPCMIT) operation
-
            requests sent by the Zone Server.
 
            This counter has no discontinuities other than those
@@ -312,7 +308,6 @@ t11FcSpZsZcpRequestsAccepted OBJECT-TYPE
     STATUS       current
     DESCRIPTION
            "The number of Zoning Check Protocol (ZCP) requests received
-
            and accepted by the Zone Server.
 
            This counter has no discontinuities other than those
@@ -409,7 +404,6 @@ t11FcSpZsNotifyJoinFailureEnable OBJECT-TYPE
 --
 -- Notifications
 --
-
 t11FcSpZsFabricJoinSuccessNotify NOTIFICATION-TYPE
     OBJECTS      { ifIndex, t11ZsFabricIndex }
     STATUS       current
@@ -458,7 +452,6 @@ t11FcSpZsMIBCompliance MODULE-COMPLIANCE
            Fibre Channel's Zone Server."
 
     MODULE  -- this module
-
         MANDATORY-GROUPS { t11FcSpZsObjectsGroup,
                            t11FcSpZsNotificationControlGroup,
                            t11FcSpZsNotificationGroup }
@@ -490,6 +483,7 @@ t11FcSpZsMIBCompliance MODULE-COMPLIANCE
         MIN-ACCESS   read-only
         DESCRIPTION
             "Write access is not required."
+
     ::= { t11FcSpZsMIBCompliances 1 }
 
 -- Units of Conformance
@@ -506,7 +500,6 @@ t11FcSpZsObjectsGroup OBJECT-GROUP
     STATUS   current
     DESCRIPTION
            "A collection of objects for Zone configuration
-
            information of a Zone Server capable of
            operating in FC-SP Zoning mode."
     ::= { t11FcSpZsMIBGroups 1 }

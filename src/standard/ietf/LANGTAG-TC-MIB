@@ -1,5 +1,3 @@
-
-
 LANGTAG-TC-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -46,7 +44,6 @@ LangTag ::= TEXTUAL-CONVENTION
             limited length.  The analysis of language tag lengths in BCP
             47 confirms that this limit will not pose a problem in
             practice.  In particular, this length is greater than the
-
             minimum requirements set out in Section 4.3.1.
 
             A zero-length language tag is not a valid language tag.
@@ -56,5 +53,3 @@ LangTag ::= TEXTUAL-CONVENTION
    SYNTAX      OCTET STRING (SIZE (0 | 2..63))
 
 END
-
-

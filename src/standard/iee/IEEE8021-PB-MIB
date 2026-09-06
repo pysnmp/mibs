@@ -21,37 +21,39 @@ IMPORTS
         FROM SNMPv2-CONF;
 
 ieee8021PbMib MODULE-IDENTITY
-    LAST-UPDATED  "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
         "  WG-URL: http://www.ieee802.org/1/
-         WG-EMail: stds-802-1-L@ieee.org
-
+         WG-EMail: stds-802-1-l@ieee.org
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@IEEE.ORG"
+           E-mail: stds-802-1-chairs@ieee.org"
     DESCRIPTION
         "Provider Bridge MIB module.
 
-         Unless otherwise indicated, the references in this MIB
-         module are to IEEE Std 802.1Q.
+        Unless otherwise indicated, the references in this MIB
+        module are to IEEE Std 802.1Q-2022.
 
-         Copyright (C) IEEE (2018).
-         This version of this MIB module is part of IEEE Std 802.1Q;
-         see the draft itself for full legal notices."
-
-    REVISION "201806280000Z" -- June 28, 2018
+        Copyright (C) IEEE (2022).
+        This version of this MIB module is part of IEEE Std 802.1Q;
+        see that standard for full legal notices."
+        
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q-2018.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
             
     REVISION "201412150000Z" -- December 15, 2014
-    
     DESCRIPTION
             "Published as part of IEEE Std 802.1Q 2014 revision.
             Cross references updated and corrected.
@@ -63,9 +65,11 @@ ieee8021PbMib MODULE-IDENTITY
          "Deprecated ieee8021PbVidTranslationTable
           moved the new object to the Q Bridge as part
           of VID translation for IEEE Std 802.1aq."
+
     REVISION     "201104060000Z" -- April 6, 2011
     DESCRIPTION
          "Additions to support Remote Customer Service Interfaces."
+
     REVISION     "201102270000Z" -- February 27, 2011
     DESCRIPTION
          "Change to ieee8021PbEdgePortAcceptableFrameTypes
@@ -122,7 +126,7 @@ ieee8021PbVidTranslationEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      deprecated
     DESCRIPTION
-        "An entry for the S-VID translation table which includes 
+        "An entry for the S-VID translation table, which includes 
         both the Local and Relay S-VIDs between which the PNP or CNP
         translates.
 
@@ -147,7 +151,7 @@ ieee8021PbVidTranslationLocalVid OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      deprecated
     DESCRIPTION
-        "The S-VID on received(transmitted) at the ISS of a CNP or PNP."
+        "The S-VID on received (transmitted) at the ISS of a CNP or PNP."
     ::= { ieee8021PbVidTranslationEntry 1 }
 
 ieee8021PbVidTranslationRelayVid OBJECT-TYPE
@@ -155,7 +159,7 @@ ieee8021PbVidTranslationRelayVid OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      deprecated
     DESCRIPTION
-        "The translated S-VID delivered(received) over the EISS from a
+        "The translated S-VID delivered (received) over the EISS from a
         CNP or PNP.  The default value of this object on creation will
         be the value of the corresponding instance of
         ieee8021PbVidTranslationLocalVid."
@@ -204,7 +208,7 @@ ieee8021PbCVidRegistrationEntry OBJECT-TYPE
         "An element of the C-VID registration table accessed by PB
         C-VLAN component, Customer Edge Port Bridge Port number, and
         C-VID.  Each element contains the mapping between a C-VID and
-        the S-VID which carries the service and booleans for handling
+        the S-VID that carries the service and booleans for handling
         untagged frames at the PEP and CEP."
     INDEX { ieee8021BridgeBasePortComponentId,
             ieee8021BridgeBasePort,
@@ -285,7 +289,7 @@ ieee8021PbEdgePortTable OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
-        "A Provider Edge Port (PEP) table which indicate the subset of
+        "A Provider Edge Port (PEP) table that indicates the subset of
         parameters needed for each PEP."
     REFERENCE   "12.13.2.3, 12.13.2.4"
     ::= { ieee8021PbObjects 3 }
@@ -687,7 +691,7 @@ ieee8021PbRcapSComponentId OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-        "This column is an implmentation specific column that may be
+        "This column is an implementation specific column that may be
          used to map the Port-mapping S-VLAN component associated with
          this RCAP to other tables within the system, such as the
          Entity MIB.  This column may not be created or modified
@@ -749,11 +753,11 @@ ieee8021PbIiEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "An element of the internal interface table accessed by PB
-        S-VLAN component ID, Remnote Customer Access Port Bridge Port
+        S-VLAN component ID, Remote Customer Access Port Bridge Port
         number, and external S-VID.  Each element contains the mapping
         between an external S-VID and the internal port it selects and,
         except in the case of a C-tagged service interface the
-        internal S-VID which carries the service ."
+        internal S-VID that carries the service ."
     INDEX { ieee8021BridgeBasePortComponentId,
             ieee8021BridgeBasePort,
             ieee8021PbIiExternalSVid }

@@ -73,7 +73,6 @@ flowRules           OBJECT IDENTIFIER ::= { flowMIB 3 }
 flowMIBConformance  OBJECT IDENTIFIER ::= { flowMIB 4 }
 
 -- Textual Conventions
-
 UTF8OwnerString ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "127t"
     STATUS  current
@@ -551,7 +550,6 @@ flowInterfaceLostPackets OBJECT-TYPE
         Such losses may occur because the meter has been unable to
         keep up with the traffic volume."
     ::= { flowInterfaceEntry 2 }
-
 --
 -- Control Group:  Meter Reader Info Table
 --
@@ -935,7 +933,6 @@ flowFloodMode OBJECT-TYPE
 -- could achieve this using two identical copies of a RuleSet in that
 -- meter and switching back and forth between them.  This is discussed
 -- further in the RTFM Architecture document [RTFM-ARC].
-
 flowDataTable OBJECT-TYPE
     SYNTAX  SEQUENCE OF FlowDataEntry
     MAX-ACCESS  not-accessible
@@ -1319,7 +1316,6 @@ flowDataDestSubscriberID OBJECT-TYPE
         time the means by which a Subscriber ID may be associated
         with a flow is unspecified."
     ::= { flowDataEntry 34 }
-
 flowDataSessionID OBJECT-TYPE
     SYNTAX  OCTET STRING (SIZE (4..10))
     MAX-ACCESS  read-only

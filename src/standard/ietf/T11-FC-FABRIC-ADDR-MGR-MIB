@@ -21,9 +21,6 @@ IMPORTS
     T11FabricIndex                     FROM T11-TC-MIB;
 
 t11FcFabricAddrMgrMIB MODULE-IDENTITY
-
-
-
     LAST-UPDATED "200603020000Z"
     ORGANIZATION "T11"
     CONTACT-INFO
@@ -72,9 +69,6 @@ t11FamNotifyControl   OBJECT IDENTIFIER ::= { t11FamMIBObjects 3 }
 -- Textual Conventions
 
 T11FamDomainPriority ::= TEXTUAL-CONVENTION
-
-
-
     DISPLAY-HINT  "d"
     STATUS    current
     DESCRIPTION
@@ -123,9 +117,6 @@ T11FamDomainInterfaceRole ::= TEXTUAL-CONVENTION
 
 T11FamState ::= TEXTUAL-CONVENTION
     STATUS    current
-
-
-
     DESCRIPTION
            "The state of the Fabric Address Manager, as described in
            Table 86 and Figure 15 of FC-SW-3.
@@ -174,9 +165,6 @@ T11FamState ::= TEXTUAL-CONVENTION
     REFERENCE   "Fibre Channel - Switch Fabric - 3 (FC-SW-3),
                  ANSI INCITS 384-2004, Table 86 and Figure 15."
     SYNTAX    INTEGER {
-
-
-
                        other(1),
                        starting(2),
                        unconfigured(3),
@@ -225,9 +213,6 @@ t11FamEntry OBJECT-TYPE
 T11FamEntry ::= SEQUENCE {
     t11FamFabricIndex                       T11FabricIndex,
     t11FamConfigDomainId                    FcDomainIdOrZero,
-
-
-
     t11FamConfigDomainIdType                INTEGER,
     t11FamAutoReconfigure                   TruthValue,
     t11FamContiguousAllocation              TruthValue,
@@ -275,10 +260,6 @@ t11FamFabricIndex OBJECT-TYPE
            identify a particular Fabric within a physical
            infrastructure."
     ::= { t11FamEntry 1 }
-
-
-
-
 t11FamConfigDomainId OBJECT-TYPE
     SYNTAX      FcDomainIdOrZero
     MAX-ACCESS  read-write
@@ -327,9 +308,6 @@ t11FamConfigDomainId OBJECT-TYPE
            MODULE-IDENTITY's DESCRIPTION clause."
     REFERENCE   "Fibre Channel - Switch Fabric - 4 (FC-SW-4),
                  ANSI INCITS 418-2006, section 7."
-
-
-
     DEFVAL      { 0 }
     ::= { t11FamEntry 2 }
 
@@ -377,10 +355,6 @@ t11FamAutoReconfigure OBJECT-TYPE
                    (FC-MI), INCITS TR-30-2002, table 14, note g."
     DEFVAL  { false }
     ::= { t11FamEntry 4 }
-
-
-
-
 t11FamContiguousAllocation OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-write
@@ -429,9 +403,6 @@ t11FamPrincipalSwitchWwn OBJECT-TYPE
 t11FamLocalSwitchWwn OBJECT-TYPE
     SYNTAX      FcNameIdOrZero
     MAX-ACCESS  read-only
-
-
-
     STATUS      current
     DESCRIPTION
            "The WWN of the particular switch on this Fabric."
@@ -480,9 +451,6 @@ t11FamRecoveredFcIds OBJECT-TYPE
 
            This counter has no discontinuities other than those
            that all Counter32s have when sysUpTime=0."
-
-
-
     ::= { t11FamEntry 11 }
 
 t11FamFreeFcIds OBJECT-TYPE
@@ -531,9 +499,6 @@ t11FamRunningPriority OBJECT-TYPE
     SYNTAX     T11FamDomainPriority
     MAX-ACCESS read-only
     STATUS      current
-
-
-
     DESCRIPTION
            "The running priority of a particular switch on this Fabric.
            This value is initialized to the value of t11FamPriority,
@@ -581,10 +546,6 @@ t11FamPrincipalSwitchSelections OBJECT-TYPE
            This counter has no discontinuities other than those
            that all Counter32s have when sysUpTime=0."
     ::= { t11FamEntry 19 }
-
-
-
-
 t11FamBuildFabrics OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -633,9 +594,6 @@ t11FamSticky   OBJECT-TYPE
            maintaining rows in the t11FamFcIdCacheTable for this
            Fabric."
     ::= { t11FamEntry 23 }
-
-
-
 t11FamRestart  OBJECT-TYPE
     SYNTAX     INTEGER {
                        nonDisruptive(1),
@@ -684,9 +642,6 @@ t11FamRcFabricNotifyEnable OBJECT-TYPE
 
            For the persistence of values across reboots, see the
            MODULE-IDENTITY's DESCRIPTION clause."
-
-
-
     DEFVAL { false }
     ::= { t11FamEntry 25 }
 
@@ -735,9 +690,6 @@ t11FamFabricName  OBJECT-TYPE
            then the behavior of the switches and associated management
            functions is not specified by Fibre Channel or Internet
            standards.
-
-
-
            For the persistence of values across reboots, see the
            MODULE-IDENTITY's DESCRIPTION clause."
     REFERENCE   "Fibre Channel - Switch Fabric - 4 (FC-SW-4),
@@ -786,9 +738,6 @@ t11FamIfEntry OBJECT-TYPE
     DESCRIPTION
            "An entry containing information on the interface
            configuration on the Fabric identified by
-
-
-
            t11FamFabricIndex."
     INDEX { fcmInstanceIndex, fcmSwitchIndex,
             t11FamFabricIndex, ifIndex}
@@ -837,9 +786,6 @@ t11FamIfRowStatus    OBJECT-TYPE
 
 
 --
-
-
-
 -- t11FamAreaTable
 --
 
@@ -888,9 +834,6 @@ t11FamAreaAssignedPortIdList    OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS      current
     DESCRIPTION
-
-
-
            "The list of Port_IDs which have been assigned in
            this area and Fabric, formatted as an array of
            octets in ascending order.  There could be zero or more
@@ -939,9 +882,6 @@ T11FamDatabaseEntry ::= SEQUENCE {
 
 t11FamDatabaseDomainId  OBJECT-TYPE
     SYNTAX     FcDomainIdOrZero (1..239)
-
-
-
     MAX-ACCESS not-accessible
     STATUS      current
     DESCRIPTION
@@ -990,9 +930,6 @@ t11FamFcIdCacheTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF T11FamFcIdCacheEntry
     MAX-ACCESS not-accessible
     STATUS     current
-
-
-
     DESCRIPTION
            "This table contains all the Fibre Channel Address
            Identifiers that have recently been released by the
@@ -1041,9 +978,6 @@ t11FamFcIdCacheWwn  OBJECT-TYPE
     SYNTAX     FcNameIdOrZero
     MAX-ACCESS not-accessible
     STATUS      current
-
-
-
     DESCRIPTION
            "The N_Port_Name (WWN) of the port associated with this
            entry."
@@ -1092,9 +1026,6 @@ t11FamNotifyFabricIndex OBJECT-TYPE
 
            However, the current standard, FC-SW-4, defines
            how multiple Fabrics, each with its own management
-
-
-
            instrumentation, could operate within one (or more)
            physical infrastructures.  In order to accommodate this
            scenario, this index value is used to uniquely identify a
@@ -1143,9 +1074,6 @@ t11FamFabricChangeNotify NOTIFICATION-TYPE
            identified by t11FamLocalSwitchWwn, sends or
            receives a Build Fabric (BF) or a ReConfigure Fabric
            (RCF) message on the Fabric identified by
-
-
-
            t11FamNotifyFabricIndex.
 
            This notification is not sent if a
@@ -1194,9 +1122,6 @@ t11FamMIBCompliance MODULE-COMPLIANCE
              "Write access is not required."
 
       OBJECT t11FamPriority
-
-
-
       MIN-ACCESS read-only
       DESCRIPTION
              "Write access is not required."
@@ -1245,9 +1170,6 @@ t11FamGroup OBJECT-GROUP
                t11FamRecoveredFcIds,
                t11FamFreeFcIds,
                t11FamAssignedFcIds,
-
-
-
                t11FamAvailableFcIds,
                t11FamRunningPriority,
                t11FamPrincSwRunningPriority,
@@ -1296,9 +1218,6 @@ t11FamAreaGroup OBJECT-GROUP
            "A collection of objects containing information about
            currently assigned addresses within a domain."
     ::= { t11FamMIBGroups 4 }
-
-
-
 t11FamCacheGroup OBJECT-GROUP
     OBJECTS  { t11FamMaxFcIdCacheSize,
                t11FamFcIdCacheAreaIdPortId,

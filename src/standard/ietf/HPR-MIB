@@ -180,7 +180,6 @@ hprAnrCounterStateTime OBJECT-TYPE
           brought up."
 
       ::= { hprAnrRouting 3 }
-
 hprAnrRoutingTable OBJECT-TYPE
       SYNTAX SEQUENCE OF HprAnrRoutingEntry
       MAX-ACCESS not-accessible
@@ -372,7 +371,6 @@ hprNceType OBJECT-TYPE
           Network Connection Endpoint (NCE)."
 
       ::= { hprNceEntry 2 }
-
 hprNceDefault OBJECT-TYPE
       SYNTAX HprNceTypes
       MAX-ACCESS read-only
@@ -804,7 +802,6 @@ hprRtpSmRdTripDelay OBJECT-TYPE
           see the High Performance Routing Architecture Reference."
 
       ::= { hprRtpEntry 19 }
-
 hprRtpSendPackets OBJECT-TYPE
       SYNTAX HprRtpCounter
       UNITS "RTP packets"
@@ -1237,7 +1234,6 @@ hprCompliance  MODULE-COMPLIANCE
               supporting the HPR transport tower."
 
       ::= { hprCompliances 1 }
-
 -- Units of conformance
 hprGlobalConfGroup OBJECT-GROUP
         OBJECTS {

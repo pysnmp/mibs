@@ -70,7 +70,6 @@ ipMcastMIB MODULE-IDENTITY
                     one multicast routing protocol.  Multicast routing
                     protocols are now per-route, see
                     ipMcastRouteProtocol.
-
                  o  This MIB module includes objects that are not
                     specific to multicast routing.  It allows management
                     of multicast function on systems that do not perform
@@ -167,7 +166,6 @@ IpMcastInterfaceEntry ::= SEQUENCE {
     ipMcastInterfaceRateLimit         Unsigned32,
     ipMcastInterfaceStorageType       StorageType
 }
-
 ipMcastInterfaceIPVersion OBJECT-TYPE
     SYNTAX     InetVersion
     MAX-ACCESS not-accessible
@@ -264,7 +262,6 @@ IpMcastSsmRangeEntry ::= SEQUENCE {
     ipMcastSsmRangeRowStatus     RowStatus,
     ipMcastSsmRangeStorageType   StorageType
 }
-
 ipMcastSsmRangeAddressType OBJECT-TYPE
     SYNTAX     InetAddressType
     MAX-ACCESS not-accessible
@@ -552,7 +549,6 @@ ipMcastRouteInIfIndex OBJECT-TYPE
             on multiple interfaces (for example, in BIDIR-PIM)."
     REFERENCE "RFC 5015"
     ::= { ipMcastRouteEntry 9 }
-
 ipMcastRouteTimeStamp OBJECT-TYPE
     SYNTAX     TimeStamp
     MAX-ACCESS read-only
@@ -744,7 +740,6 @@ ipMcastRouteDifferentInIfOctets OBJECT-TYPE
             were dropped because of this failed RPF check.  (RPF paths
             are 'Reverse Path Forwarding' paths; the unicast routes to
             the expected origin of multicast data flows).
-
             Other protocols may drop packets on an incoming interface
             check for different reasons (for example, BIDIR-PIM performs
             a DF check on receipt of packets).  All packets dropped as a
@@ -984,7 +979,6 @@ ipMcastRouteNextHopSourcePrefixLength OBJECT-TYPE
             the corresponding value specified in
             ipMcastRouteNextHopSource, identifies the sources for which
             this entry specifies a next-hop on an outgoing interface.
-
             The InetAddressType is given by
             ipMcastRouteNextHopSourceAddressType.  For the value
             'unknown', this object must be zero.  For values 'ipv4' and
@@ -1080,7 +1074,6 @@ ipMcastRouteNextHopClosestMemberHops OBJECT-TYPE
             A value of 0 means all multicast datagrams are forwarded out
             the interface.  A value of 256 means that no multicast
             datagrams are forwarded out the interface.
-
             This is an optimization applied by multicast routing
             protocols that explicitly track hop counts to downstream
             listeners.  Multicast protocols that are not aware of hop
@@ -1128,7 +1121,6 @@ ipMcastRouteNextHopPkts OBJECT-TYPE
 --
 --  The IP Multicast Scope Boundary Table
 --
-
 ipMcastBoundaryTable OBJECT-TYPE
     SYNTAX     SEQUENCE OF IpMcastBoundaryEntry
     MAX-ACCESS not-accessible
@@ -1417,7 +1409,6 @@ ipMcastScopeNameAddressPrefixLength OBJECT-TYPE
             range 4..32.  For values 'ipv6' and 'ipv6z', this object
             must be set to 16."
     ::= { ipMcastScopeNameEntry 3 }
-
 ipMcastScopeNameLanguage OBJECT-TYPE
     SYNTAX     LangTag
     MAX-ACCESS not-accessible
@@ -1465,7 +1456,6 @@ ipMcastScopeNameDefault OBJECT-TYPE
             is available in a desired language."
     DEFVAL { false }
     ::= { ipMcastScopeNameEntry 6 }
-
 ipMcastScopeNameStatus OBJECT-TYPE
     SYNTAX     RowStatus
     MAX-ACCESS read-create
@@ -1513,7 +1503,6 @@ ipMcastLocalListenerEntry OBJECT-TYPE
     DESCRIPTION
             "An entry (conceptual row) identifying a local application
             or service that has joined a multicast group as a listener.
-
             OIDs are limited to 128 sub-identifiers, but this limit
             is not enforced by the syntax of this entry.  In practice,
             this does not present a problem, because IP address types
@@ -1753,7 +1742,6 @@ ipMcastZoneScopeAddressPrefixLength OBJECT-TYPE
             range 4..32.  For values 'ipv6' and 'ipv6z', this object
             must be set to 16."
     ::= { ipMcastZoneEntry 5 }
-
 --
 -- Conformance information
 --
@@ -1994,7 +1982,6 @@ ipMcastMIBComplianceRouter MODULE-COMPLIANCE
       DESCRIPTION
           "This group is not mandatory, but SHOULD be supported where
           hardware permits."
-
       GROUP        ipMcastMIBPktsOutGroup
       DESCRIPTION
           "This group is optional."
@@ -2138,7 +2125,6 @@ ipMcastMIBComplianceBorderRouter MODULE-COMPLIANCE
                        ipMcastMIBRouteGroup,
                        ipMcastMIBBoundaryIfGroup,
                        ipMcastMIBScopeNameGroup }
-
       OBJECT     ipMcastEnabled
       MIN-ACCESS read-only
       DESCRIPTION
@@ -2234,7 +2220,6 @@ ipMcastMIBComplianceBorderRouter MODULE-COMPLIANCE
       SYNTAX     InetAddress (SIZE (4|16))
       DESCRIPTION
           "This compliance requires support for ipv4 or ipv6."
-
     ::= { ipMcastMIBCompliances 3 }
 
 --

@@ -43,7 +43,6 @@ usmDHKeyObjects OBJECT IDENTIFIER ::= { snmpUsmDHObjectsMIB 1 }
 usmDHKeyConformance OBJECT IDENTIFIER ::= { snmpUsmDHObjectsMIB 2 }
 
 -- Textual conventions
-
 DHKeyChange ::=         TEXTUAL-CONVENTION
     STATUS              current
     DESCRIPTION
@@ -92,7 +91,6 @@ DHKeyChange ::=         TEXTUAL-CONVENTION
         "-- Diffie-Hellman Key-Agreement Standard, PKCS #3;
             RSA Laboratories, November 1993"
     SYNTAX              OCTET STRING
-
 -- Diffie Hellman public values
 
 usmDHPublicObjects      OBJECT IDENTIFIER ::= { usmDHKeyObjects 1 }

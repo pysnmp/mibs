@@ -92,9 +92,6 @@ pBridgeMIB MODULE-IDENTITY
          "Added dot1dPortRestrictedGroupRegistration.
           Deprecated pBridgePortGmrpGroup and pBridgeCompliance
           and added pBridgePortGmrpGroup2 and pBridgeCompliance2."
-
-
-
     REVISION     "199908250000Z"
     DESCRIPTION
          "The Bridge MIB Extension module for managing Priority
@@ -143,9 +140,6 @@ dot1dDeviceCapabilities OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-
-
-
         "Indicates the optional parts of IEEE 802.1D and 802.1Q
         that are implemented by this device and are manageable
         through this MIB.  Capabilities that are allowed on a
@@ -194,9 +188,6 @@ dot1dTrafficClassesEnabled OBJECT-TYPE
         The value of this object MUST be retained across
         reinitializations of the management system."
     DEFVAL      { true }
-
-
-
     ::= { dot1dExtBase 2 }
 
 dot1dGmrpStatus OBJECT-TYPE
@@ -245,9 +236,6 @@ dot1dPortCapabilitiesEntry OBJECT-TYPE
 
 Dot1dPortCapabilitiesEntry ::=
     SEQUENCE {
-
-
-
         dot1dPortCapabilities
             BITS
     }
@@ -296,9 +284,6 @@ dot1dPortPriorityTable OBJECT-TYPE
     DESCRIPTION
         "A table that contains information about every port that
         is associated with this transparent bridge."
-
-
-
     ::= { dot1dPriority 1 }
 
 dot1dPortPriorityEntry OBJECT-TYPE
@@ -347,9 +332,6 @@ dot1dPortNumTrafficClasses OBJECT-TYPE
 -- -------------------------------------------------------------
 -- User Priority Regeneration Table
 -- -------------------------------------------------------------
-
-
-
 dot1dUserPriorityRegenTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF Dot1dUserPriorityRegenEntry
     MAX-ACCESS  not-accessible
@@ -398,9 +380,6 @@ dot1dRegenUserPriority OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "The Regenerated User Priority that the incoming User
-
-
-
         Priority is mapped to for this port.
 
         The value of this object MUST be retained across
@@ -449,9 +428,6 @@ dot1dTrafficClassPriority OBJECT-TYPE
         This value is equivalent to the priority indicated in
         the tagged frame received, or one of the evaluated
         priorities, determined according to the media-type.
-
-
-
         For untagged frames received from Ethernet media, this
         value is equal to the dot1dPortDefaultUserPriority value
         for the ingress port.
@@ -500,9 +476,6 @@ dot1dPortOutboundAccessPriorityEntry OBJECT-TYPE
 
 Dot1dPortOutboundAccessPriorityEntry ::=
     SEQUENCE {
-
-
-
         dot1dPortOutboundAccessPriority
             Integer32
     }
@@ -551,9 +524,6 @@ Dot1dPortGarpEntry ::=
         dot1dPortGarpLeaveAllTime
             TimeInterval
     }
-
-
-
 dot1dPortGarpJoinTime OBJECT-TYPE
     SYNTAX      TimeInterval
     MAX-ACCESS  read-write
@@ -602,9 +572,6 @@ dot1dPortGmrpTable OBJECT-TYPE
         "A table of GMRP control and status information about
         every bridge port.  Augments the dot1dBasePortTable."
     ::= { dot1dGmrp 1 }
-
-
-
 dot1dPortGmrpEntry OBJECT-TYPE
     SYNTAX      Dot1dPortGmrpEntry
     MAX-ACCESS  not-accessible
@@ -653,9 +620,6 @@ dot1dPortGmrpStatus OBJECT-TYPE
 dot1dPortGmrpFailedRegistrations OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
-
-
-
     STATUS      current
     DESCRIPTION
         "The total number of failed GMRP registrations, for any
@@ -703,10 +667,6 @@ dot1dTpHCPortTable OBJECT-TYPE
         capacity port that is associated with this transparent
         bridge."
     ::= { dot1dTp 5 }
-
-
-
-
 dot1dTpHCPortEntry OBJECT-TYPE
     SYNTAX      Dot1dTpHCPortEntry
     MAX-ACCESS  not-accessible
@@ -755,9 +715,6 @@ dot1dTpHCPortOutFrames OBJECT-TYPE
         bridge management frames."
     REFERENCE
         "ISO/IEC 15802-3 Section 14.6.1.1.3"
-
-
-
     ::= { dot1dTpHCPortEntry 2 }
 
 dot1dTpHCPortInDiscards OBJECT-TYPE
@@ -806,9 +763,6 @@ dot1dTpPortOverflowEntry OBJECT-TYPE
         associated with a corresponding object in dot1dTpPortTable
         that indicates the least significant bits of the counter."
     INDEX   { dot1dTpPort }
-
-
-
     ::= { dot1dTpPortOverflowTable 1 }
 
 Dot1dTpPortOverflowEntry ::=
@@ -857,9 +811,6 @@ dot1dTpPortInOverflowDiscards OBJECT-TYPE
 -- -------------------------------------------------------------
 -- IEEE 802.1p MIB - Conformance Information
 -- -------------------------------------------------------------
-
-
-
 pBridgeConformance OBJECT IDENTIFIER ::= { pBridgeMIB 2 }
 
 pBridgeGroups OBJECT IDENTIFIER ::= { pBridgeConformance 1 }
@@ -908,9 +859,6 @@ pBridgeDefaultPriorityGroup OBJECT-GROUP
     }
     STATUS      current
     DESCRIPTION
-
-
-
         "A collection of objects defining the User Priority
         applicable to each port for media that do not support
         native User Priority."
@@ -959,9 +907,6 @@ pBridgePortGarpGroup OBJECT-GROUP
         "A collection of objects providing port level control
         and status information for GARP operation."
     ::= { pBridgeGroups 8 }
-
-
-
 pBridgePortGmrpGroup OBJECT-GROUP
     OBJECTS {
         dot1dPortGmrpStatus,
@@ -1010,9 +955,6 @@ pBridgePortGmrpGroup2 OBJECT-GROUP
         "A collection of objects providing port level control
         and status information for GMRP operation."
     ::= { pBridgeGroups 12 }
-
-
-
 -- -------------------------------------------------------------
 -- compliance statements
 -- -------------------------------------------------------------
@@ -1061,9 +1003,6 @@ pBridgeCompliance MODULE-COMPLIANCE
         DESCRIPTION
             "This group is optional and is relevant only for devices
             supporting the priority forwarding operations defined by
-
-
-
             IEEE 802.1D and that have interface media types that
             support native Access Priority, e.g., IEEE 802.5."
 
@@ -1111,10 +1050,6 @@ pBridgeCompliance MODULE-COMPLIANCE
             "Write access is not required."
 
        ::= { pBridgeCompliances 1 }
-
-
-
-
 pBridgeCompliance2 MODULE-COMPLIANCE
     STATUS  current
     DESCRIPTION
@@ -1163,9 +1098,6 @@ pBridgeCompliance2 MODULE-COMPLIANCE
             support native Access Priority, e.g., IEEE 802.5."
 
         GROUP       pBridgePortGarpGroup
-
-
-
         DESCRIPTION
             "This group is mandatory for devices supporting any
             of the GARP applications: e.g., GMRP, defined by the

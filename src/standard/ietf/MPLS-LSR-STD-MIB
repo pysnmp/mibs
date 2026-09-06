@@ -1,10 +1,3 @@
--- *****************************************************************
--- MPLS-LSR-STD-MIB.my
---
--- Generated from IETF RFC 3813
---
--- *****************************************************************
-
 MPLS-LSR-STD-MIB DEFINITIONS ::= BEGIN
 IMPORTS
    MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
@@ -770,7 +763,6 @@ mplsInSegmentPerfHCOctets OBJECT-TYPE
         if mplsInSegmentPerfHCOctets is supported according to
         the rules spelled out in RFC2863."
    ::= { mplsInSegmentPerfEntry 5 }
-
 mplsInSegmentPerfDiscontinuityTime OBJECT-TYPE
    SYNTAX      TimeStamp
    MAX-ACCESS  read-only
@@ -1154,7 +1146,6 @@ mplsOutSegmentPerfDiscontinuityTime OBJECT-TYPE
         initialization of the local management subsystem,
         then this object contains a zero value."
    ::= { mplsOutSegmentPerfEntry 6 }
-
 -- End of mplsOutSegmentPerfTable.
 
 
@@ -1201,7 +1192,6 @@ mplsXCEntry  OBJECT-TYPE
         - in-segment index, mplsXCInSegmentIndex
 
         - out-segment index, mplsXCOutSegmentIndex
-
        LSPs originating at this LSR:
         These are represented by using the special
         of value of mplsXCInSegmentIndex set to the
@@ -1346,7 +1336,6 @@ mplsXCStorageType OBJECT-TYPE
         Conceptual rows having the value 'permanent'
         need not allow write-access to any columnar
         objects in the row."
-
    DEFVAL { volatile }
    ::= { mplsXCEntry 8 }
 
@@ -1394,7 +1383,6 @@ mplsMaxLabelStackDepth  OBJECT-TYPE
    DESCRIPTION
        "The maximum stack depth supported by this LSR."
 ::= { mplsLsrObjects 11 }
-
 mplsLabelStackIndexNext  OBJECT-TYPE
    SYNTAX        MplsIndexNextType
    MAX-ACCESS    read-only
@@ -1538,7 +1526,6 @@ mplsInSegmentMapTable OBJECT-TYPE
         provide the manager with an alternative
         means by which to locate in-segments."
    ::= { mplsLsrObjects 14 }
-
 mplsInSegmentMapEntry OBJECT-TYPE
    SYNTAX        MplsInSegmentMapEntry
    MAX-ACCESS    not-accessible
@@ -1760,13 +1747,15 @@ mplsLsrModuleFullCompliance MODULE-COMPLIANCE
                 contained in this group."
 
    OBJECT       mplsInSegmentRowStatus
-   SYNTAX       RowStatus
-   WRITE-SYNTAX RowStatus
+   SYNTAX       RowStatus { active(1), notInService(2) }
+   WRITE-SYNTAX RowStatus { active(1), notInService(2),
+                            createAndGo(4), destroy(6)
+                          }
    DESCRIPTION "Support for createAndWait and notReady is
                 not required."
 
    OBJECT       mplsOutSegmentNextHopAddrType
-   SYNTAX       InetAddressType
+   SYNTAX       InetAddressType { unknown(0), ipv4(1), ipv6(2) }
    DESCRIPTION "Only unknown(0), ipv4(1) and ipv6(2) support
                 is required."
 
@@ -1776,20 +1765,26 @@ mplsLsrModuleFullCompliance MODULE-COMPLIANCE
                 unknown(0), ipv4(1) and ipv6(2) sizes."
 
    OBJECT       mplsOutSegmentRowStatus
-   SYNTAX       RowStatus
-   WRITE-SYNTAX RowStatus
+   SYNTAX       RowStatus { active(1), notInService(2) }
+   WRITE-SYNTAX RowStatus { active(1), notInService(2),
+                            createAndGo(4), destroy(6)
+                          }
    DESCRIPTION "Support for createAndWait and notReady is not
                 required."
 
    OBJECT       mplsLabelStackRowStatus
-   SYNTAX       RowStatus
-   WRITE-SYNTAX RowStatus
+   SYNTAX       RowStatus { active(1), notInService(2) }
+   WRITE-SYNTAX RowStatus { active(1), notInService(2),
+                            createAndGo(4), destroy(6)
+                          }
    DESCRIPTION "Support for createAndWait and notReady is not
                 required."
 
    OBJECT       mplsXCRowStatus
-   SYNTAX       RowStatus
-   WRITE-SYNTAX RowStatus
+   SYNTAX       RowStatus { active(1), notInService(2) }
+   WRITE-SYNTAX RowStatus { active(1), notInService(2),
+                            createAndGo(4), destroy(6)
+                          }
    DESCRIPTION "Support for createAndWait and notReady is not
                 required."
 
@@ -1819,7 +1814,6 @@ mplsLsrModuleReadOnlyCompliance MODULE-COMPLIANCE
          mplsXCGroup,
          mplsPerfGroup
      }
-
    GROUP        mplsLabelStackGroup
    DESCRIPTION "This group is only mandatory for LSRs that wish to
                 support the modification of LSP label stacks.
@@ -1868,9 +1862,8 @@ mplsLsrModuleReadOnlyCompliance MODULE-COMPLIANCE
                 the agent may not know about or support any address
                 types.
                "
-
    OBJECT       mplsInSegmentRowStatus
-   SYNTAX       RowStatus
+   SYNTAX       RowStatus { active(1) }
    MIN-ACCESS   read-only
    DESCRIPTION "Write access is not required."
 
@@ -1896,7 +1889,7 @@ mplsLsrModuleReadOnlyCompliance MODULE-COMPLIANCE
    DESCRIPTION "Write access is not required."
 
    OBJECT       mplsOutSegmentNextHopAddrType
-   SYNTAX       InetAddressType
+   SYNTAX       InetAddressType { unknown(0), ipv4(1), ipv6(2) }
    MIN-ACCESS   read-only
    DESCRIPTION "Write access is not required.  Only unknown(0),
                 ipv4(1) and ipv6(2) support is required.
@@ -1910,7 +1903,7 @@ mplsLsrModuleReadOnlyCompliance MODULE-COMPLIANCE
                 ipv6(2) sizes."
 
    OBJECT       mplsOutSegmentRowStatus
-   SYNTAX       RowStatus
+   SYNTAX       RowStatus { active(1) }
    MIN-ACCESS   read-only
    DESCRIPTION "Write access is not required."
 
@@ -1927,7 +1920,7 @@ mplsLsrModuleReadOnlyCompliance MODULE-COMPLIANCE
    DESCRIPTION "Read only support is required."
 
    OBJECT       mplsXCRowStatus
-   SYNTAX       RowStatus
+   SYNTAX       RowStatus { active(1) }
    MIN-ACCESS   read-only
    DESCRIPTION "Write access is not required."
 

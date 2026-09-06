@@ -119,7 +119,6 @@ dot5SrRouteStatus  OBJECT-TYPE
              of dot5SrRouteControl and dot5SrRouteDescr can be
              modified while the row's status is 'active."
     ::= { dot5SrRouteEntry 5 }
-
 -- conformance information
 
 dot5SrConformance OBJECT IDENTIFIER ::= { dot5SrMIB 2 }

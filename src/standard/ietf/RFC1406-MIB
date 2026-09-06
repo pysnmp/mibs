@@ -1,6 +1,3 @@
--- extracted from rfc1406.txt
--- at Mon Nov 15 17:11:57 1999
-
      RFC1406-MIB DEFINITIONS ::= BEGIN
      IMPORTS
              Gauge
@@ -239,7 +236,6 @@
 
                 dsx1SendPayloadCode
                      sending a request for a payload loopback
-
                 dsx1SendResetCode
                      sending a loopback termination request
 
@@ -334,7 +330,6 @@
           2     dsx1RcvFarEndLOF      Far end LOF (a.k.a., Yellow Alarm)
           4     dsx1XmtFarEndLOF      Near end sending LOF Indication
           8     dsx1RcvAIS            Far end sending AIS
-
          16     dsx1XmtAIS            Near end sending AIS
          32     dsx1LossOfFrame       Near end LOF (a.k.a., Red Alarm)
          64     dsx1LossOfSignal      Near end Loss Of Signal
@@ -526,7 +521,6 @@
                 by a DS1 interface in the current 15 minute in-
                 terval."
             ::= { dsx1CurrentEntry 5 }
-
          dsx1CurrentCSSs OBJECT-TYPE
              SYNTAX  Gauge
              ACCESS  read-only
@@ -671,7 +665,6 @@
                 val   (assuming   that  all  96  intervals  are
                 valid)."
             ::= { dsx1IntervalEntry 2 }
-
          dsx1IntervalESs OBJECT-TYPE
              SYNTAX  Gauge
              ACCESS  read-only
@@ -816,7 +809,6 @@
                  Gauge,
              dsx1TotalSEFSs
                  Gauge,
-
              dsx1TotalUASs
                  Gauge,
              dsx1TotalCSSs
@@ -910,7 +902,6 @@
                 tered  by  a  DS1  interface in the previous 24
                 hour interval."
             ::= { dsx1TotalEntry 7 }
-
          dsx1TotalLESs OBJECT-TYPE
              SYNTAX  Gauge
              ACCESS  read-only
@@ -1100,7 +1091,6 @@
                 by a DS1 interface in the current 15 minute in-
                 terval."
             ::= { dsx1FarEndCurrentEntry 7 }
-
          dsx1FarEndCurrentCSSs OBJECT-TYPE
              SYNTAX  Gauge
              ACCESS  read-only
@@ -1197,7 +1187,6 @@
                  Gauge,
              dsx1FarEndIntervalUASs
                  Gauge,
-
              dsx1FarEndIntervalCSSs
                  Gauge,
              dsx1FarEndIntervalLESs
@@ -1246,7 +1235,6 @@
                 tered by a DS1 interface in one of the previous
                 96, individual 15 minute, intervals."
             ::= { dsx1FarEndIntervalEntry 3 }
-
          dsx1FarEndIntervalSESs OBJECT-TYPE
              SYNTAX  Gauge
              ACCESS  read-only
@@ -1485,7 +1473,6 @@
                 encountered  by a DS1 interface in the previous
                 24 hour interval."
             ::= { dsx1FarEndTotalEntry 9 }
-
          dsx1FarEndTotalDMs OBJECT-TYPE
              SYNTAX Gauge
              ACCESS read-only

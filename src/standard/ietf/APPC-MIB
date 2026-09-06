@@ -89,7 +89,6 @@ appcObjects          OBJECT IDENTIFIER ::= { appcMIB 1 }
 -- *********************************************************************
 
 -- *********************************************************************
-
 -- Textual Convention
 
 -- ---------------------------------------------------------------------
@@ -186,7 +185,6 @@ appcCntrlAdminTraceParm OBJECT-TYPE
       ::= { appcCntrlAdminGroup  4 }
 
 -- *********************************************************************
-
 -- Control Oper
 --      These objects contain the actual states of the controls.
 -- *********************************************************************
@@ -282,7 +280,6 @@ appcCntrlOperTraceParm OBJECT-TYPE
       ::= { appcCntrlOperGroup 7 }
 
 -- ******************************************************************
-
 --
 --    APPC global settings
 --
@@ -378,7 +375,6 @@ appcDefaultMaxMcLlSndSize OBJECT-TYPE
           mapped conversation."
 
       ::= { appcGlobalObjects 5 }
-
 appcDefaultFileSpec OBJECT-TYPE
       SYNTAX DisplayString (SIZE (0..80))
       MAX-ACCESS read-only
@@ -904,7 +900,6 @@ appcLluAdminCompression OBJECT-TYPE
                              level of compression is also negotiated."
 
       ::= { appcLluAdminEntry 6 }
-
 appcLluAdminInBoundCompLevel OBJECT-TYPE
       SYNTAX INTEGER {
                       none(1),
@@ -1001,7 +996,6 @@ appcLluAdminAlias OBJECT-TYPE
 
 -- *********************************************************************
 --    APPC Local LU Oper Table
-
 --    Objects in this table contain current operational values, such
 --    as state values or negotiated parameters, for local 6.2 LUs.
 -- *********************************************************************
@@ -1049,7 +1043,6 @@ appcLluOperName OBJECT-TYPE
           the NetId from the NAU name if the NetId is present."
 
       ::= { appcLluOperEntry 1 }
-
 appcLluOperDepType OBJECT-TYPE
       SYNTAX INTEGER {
                       dependent(1),
@@ -1097,7 +1090,6 @@ appcLluOperBindRspMayQ OBJECT-TYPE
           immediately."
 
       ::= { appcLluOperEntry 5 }
-
 appcLluOperCompression OBJECT-TYPE
       SYNTAX INTEGER {
                       prohibited(1),
@@ -2150,7 +2142,6 @@ appcModeOperEntry OBJECT-TYPE
               appcModeOperModeName }
 
       ::= { appcModeOperTable 1 }
-
 AppcModeOperEntry     ::= SEQUENCE {
 
    appcModeOperLocLuName            DisplayString,
@@ -2390,7 +2381,6 @@ appcModeOperPrefSendRuSz OBJECT-TYPE
            value or down to the appcModeOperSendRuSzLoBnd value."
 
       ::= { appcModeOperEntry 14 }
-
 appcModeOperRecvRuSzUpBnd OBJECT-TYPE
       SYNTAX Integer32
       MAX-ACCESS read-only
@@ -2534,7 +2524,6 @@ appcModeOperInBoundCompLevel OBJECT-TYPE
               lz12  -  specifies a 12 bit code Lempel-Ziv-like compression."
 
       ::= { appcModeOperEntry 21 }
-
 appcModeOperOutBoundCompLevel OBJECT-TYPE
       SYNTAX INTEGER {
                       none(1),
@@ -2869,7 +2858,6 @@ appcTpAdminFileSpec OBJECT-TYPE
           May be a zero-length string if not applicable."
 
       ::= { appcTpAdminEntry 3 }
-
 appcTpAdminStartParm OBJECT-TYPE
       SYNTAX DisplayString (SIZE (0..128))
       MAX-ACCESS read-only
@@ -3733,7 +3721,6 @@ appcSessStatsRcvdFmdRus OBJECT-TYPE
           the local LU."
 
       ::= { appcSessStatsEntry 10 }
-
 appcSessStatsRcvdNonFmdRus OBJECT-TYPE
       SYNTAX Counter32
       MAX-ACCESS read-only
@@ -3926,7 +3913,6 @@ appcHistSessDetectModule OBJECT-TYPE
 -- *********************************************************************
 -- APPC Session RTP Connection Table
 -- ---------------------------------------------------------------------
-
 -- This table contains information on APPC sessions that are being
 -- transported on RTP connections by High Performance Routing (HPR).
 -- *********************************************************************
@@ -3975,7 +3961,6 @@ appcSessRtpTcid OBJECT-TYPE
           "The local TCID of the RTP connection."
 
       ::= { appcSessRtpEntry 2 }
-
 appcSessRtpSessions OBJECT-TYPE
       SYNTAX Gauge32
       MAX-ACCESS read-only
@@ -4072,7 +4057,6 @@ appcActiveConvParLuName OBJECT-TYPE
           resource (specifically, to the same partner LU)."
 
       ::= { appcActiveConvEntry 2 }
-
 appcActiveConvSessIndex OBJECT-TYPE
       SYNTAX Integer32
       MAX-ACCESS not-accessible
@@ -4313,7 +4297,6 @@ appcActiveConvUpTime OBJECT-TYPE
           hundredths of a second."
 
       ::= { appcActiveConvEntry 11 }
-
 appcActiveConvSendBytes OBJECT-TYPE
       SYNTAX Counter32
       MAX-ACCESS read-only
@@ -4409,7 +4392,6 @@ appcActiveConvLuwIdInstance OBJECT-TYPE
           "The instance identifier for the logical unit of work."
 
       ::= { appcActiveConvEntry 19 }
-
 appcActiveConvLuwIdSequence OBJECT-TYPE
       SYNTAX OCTET STRING (SIZE (0..2))
       MAX-ACCESS read-only
@@ -4601,7 +4583,6 @@ appcHistConvSenseData OBJECT-TYPE
           conversation, e.g., FMH-7 or UNBIND."
 
       ::= { appcHistConvEntry 8 }
-
 appcHistConvLogData OBJECT-TYPE
       SYNTAX OCTET STRING (SIZE (0..32))
       MAX-ACCESS read-only
@@ -4838,7 +4819,6 @@ appcCpicOperEntry OBJECT-TYPE
               appcCpicOperSymbDestName }
 
       ::= { appcCpicOperTable 1 }
-
 AppcCpicOperEntry ::= SEQUENCE {
           appcCpicOperLocLuName          DisplayString,
           appcCpicOperSymbDestName       DisplayString,
@@ -5076,7 +5056,6 @@ appcGlobalConfGroup OBJECT-GROUP
           global information and defaults."
 
       ::= { appcGroups 1 }
-
 appcLluConfGroup OBJECT-GROUP
       OBJECTS  {
                 appcLluAdminDepType,
@@ -5221,7 +5200,6 @@ appcTpConfGroup OBJECT-GROUP
           Transaction Programs."
 
       ::= { appcGroups 5 }
-
 appcSessionConfGroup OBJECT-GROUP
       OBJECTS  {
                 appcActSessPcidCpName,

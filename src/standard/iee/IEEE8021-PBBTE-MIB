@@ -1,4 +1,3 @@
-
 IEEE8021-PBBTE-MIB DEFINITIONS ::= BEGIN
 
 -- =============================================================
@@ -38,30 +37,37 @@ IMPORTS
         FROM SNMPv2-CONF;
 
 ieee8021PbbTeMib MODULE-IDENTITY
-    LAST-UPDATED "201412150000Z" -- December 15, 2014
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-       "  WG-URL: http://grouper.ieee.org/groups/8021/1/index.html
-        WG-EMAIL: stds-802-1@ieee.org
-
-        Contact:   IEEE 802.1 Working Group Chair
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
+          Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   P.O. Box 1331
-                   Piscataway
-                   NJ 08855-1331
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@LISTSERV.IEEE.ORG"
+           E-mail: stds-802-1-chairs@ieee.org"
 
     DESCRIPTION
-       "Copyright (C) IEEE (2014).  All Rights Reserved
-        This version of this MIB module is part of IEEE 802.1Q;
-        See the standard itself for full legal notices.
+       "Unless otherwise indicated, the references in this MIB
+        module are to IEEE Std 802.1Q-2022.
 
-        Unless otherwise indicated, the references in this MIB    
-        module  are to IEEE Std 802.1Q-2014"
+        Copyright (C) IEEE (2022).
+        This version of this MIB module is part of IEEE Std 802.1Q;
+        see that standard for full legal notices."
 
+    REVISION "202211080000Z" -- November 8, 2022
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
+            Cross references updated and corrected."
+            
     REVISION "201412150000Z" -- December 15, 2014
     DESCRIPTION
             "Published as part of IEEE Std 802.1Q 2014 revision.
@@ -75,7 +81,7 @@ ieee8021PbbTeMib MODULE-IDENTITY
     REVISION "200811180000Z" -- November 18, 2008
     DESCRIPTION
         "Initial version of the PBB-TE MIB module based upon draft 3.2
-         of the MIB modules defined in 802.1ap and 802.1Qay"
+         of the MIB modules defined in IEEE Std 802.1ap and IEEE Std 802.1Qay"
 
     ::= { ieee802dot1mibs 10 }
 
@@ -295,7 +301,7 @@ ieee8021PbbTeTesiId OBJECT-TYPE
     DESCRIPTION
         "This is the unique identifier for a PBB-TE TE-SID."
     REFERENCE
-        "3.241"
+        "3.276"
     ::= { ieee8021PbbTeTesiEntry 1 }
 
 ieee8021PbbTeTesiComponent OBJECT-TYPE
@@ -377,8 +383,8 @@ ieee8021PbbTeTeSiEspEspIndex OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
-        "This is an identifier, of local signifigance to a particular
-         PBB-TE TE-SID which is used to index all of the ESPs associated
+        "This is an identifier, of local significance to a particular
+         PBB-TE TE-SID that is used to index all of the ESPs associated
          with the TE-SID."
     REFERENCE
         "12.16.5.3.2 c)"
@@ -437,7 +443,7 @@ ieee8021PbbTeProtectionGroupConfigEntry OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
-        "The protection group confguration table entry.  Rows are
+        "The protection group configuration table entry.  Rows are
         created in this table implicitly when a row is added to the
         ieee8021PbbTeProtectionGroupListTable."
     INDEX { ieee8021BridgeBaseComponentId,
@@ -554,9 +560,9 @@ ieee8021PbbTeProtectionGroupConfigHoldOff OBJECT-TYPE
     DESCRIPTION
        "This column is used to configure the hold off
         timer.  The purpose is to allow a service layer protection
-        mechanism to have a chance to fix athe problem before
+        mechanism to have a chance to fix the problem before
         switching at the client layer, or to allow an upstream
-        protected domain to switch before a downsream domain.  The
+        protected domain to switch before a downstream domain.  The
         hold off timer has a period of from 0 to 10 seconds, the
         default being 0, with a 100ms granularity."
     REFERENCE "12.18.2.1.3 f)"
@@ -689,7 +695,7 @@ ieee8021PbbTeBridgeStaticForwardAnyUnicastEntry OBJECT-TYPE
          applies.
 
          The EgressPorts and ForbiddenPorts PortList objects, together,
-         implement the PortMap control element listed in 802.1Q 8.8.1.c."
+         implement the PortMap control element listed in IEEE Std 802.1Q 8.8.1.c."
     INDEX { ieee8021QBridgeVlanCurrentComponentId,
             ieee8021PbbTeBridgeStaticForwardAnyUnicastVlanIndex }
     ::= { ieee8021PbbTeBridgeStaticForwardAnyUnicastTable 1 }
@@ -714,7 +720,7 @@ ieee8021PbbTeBridgeStaticForwardAnyUnicastVlanIndex OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
-       "The VLAN-ID or other identifier refering to the VLAN to
+       "The VLAN-ID or other identifier referring to the VLAN to
        which this static filtering entry applies."
     ::= { ieee8021PbbTeBridgeStaticForwardAnyUnicastEntry 1 }
 
@@ -785,7 +791,7 @@ ieee8021PbbTeProtectionGroupAdminFailure NOTIFICATION-TYPE
     STATUS  current
     DESCRIPTION
         "A protection group generates this notification whenever
-         an adminisistrative command cannot be executed by the
+         an administrative command cannot be executed by the
          protection state machine.  For example, a requested
          manual switch cannot be performed because of a signal
          failure condition.
@@ -928,7 +934,7 @@ ieee8021PbbTeCompliance MODULE-COMPLIANCE
         MANDATORY-GROUPS {
             ieee8021PbbTeGroupListGroup,
             ieee8021PbbTeMASharedGroup,
-        ieee8021PbbTeTesiGroup,
+            ieee8021PbbTeTesiGroup,
             ieee8021PbbTeSiEspGroup,
             ieee8021PbbTeProtectionConfigManGroup,
             ieee8021PbbTeProtectionGroupISidGroup,
@@ -937,7 +943,7 @@ ieee8021PbbTeCompliance MODULE-COMPLIANCE
         }
         GROUP ieee8021PbbTeProtectionConfigOptGroup
         DESCRIPTION
-           "This group allows implmementation to optionally change the
+           "This group allows implementation to optionally change the
             WaitToRestore and HoldOff timers for protection groups."
 
     OBJECT ieee8021PbbTeProtectionGroupConfigWTR
@@ -969,8 +975,3 @@ ieee8021PbbTeCompliance MODULE-COMPLIANCE
     ::= { ieee8021PbbTeCompliances 1 }
 
 END
-
-
-
-
-

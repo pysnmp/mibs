@@ -100,7 +100,6 @@
            "A table that contains port-specific Rapid Spanning Tree
             information."
        ::= { dot1dStp 19 }
-
    dot1dStpExtPortEntry OBJECT-TYPE
        SYNTAX      Dot1dStpExtPortEntry
        MAX-ACCESS  not-accessible
@@ -304,4 +303,3 @@
        ::= { rstpCompliances 1 }
 
    END
-

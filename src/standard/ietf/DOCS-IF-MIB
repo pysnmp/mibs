@@ -466,7 +466,6 @@
                 management interface with their corresponding
                 ifStack hierarchy and are not administratively
                 created by this table.
-
               o Upstream Temporary Interfaces: A fictitious
                 interface created for the purpose of manipulating
                 physical interface parameters offline, then
@@ -1330,7 +1329,6 @@
    --
    -- DOCSIS Version of the device
    --
-
    docsIfDocsisBaseCapability OBJECT-TYPE
            SYNTAX      DocsisVersion
            MAX-ACCESS  read-only
@@ -1378,7 +1376,6 @@
             docsIfCmRangingRespTimeout    TimeTicks,
             docsIfCmRangingTimeout        TimeInterval
          }
-
    docsIfCmCmtsAddress OBJECT-TYPE
         SYNTAX      MacAddress
         MAX-ACCESS  read-only
@@ -1426,7 +1423,6 @@
              Section 9.1.6."
         DEFVAL { 20 }
         ::= { docsIfCmMacEntry 3 }
-
    docsIfCmRangingTimeout OBJECT-TYPE
         SYNTAX      TimeInterval
         UNITS       "HundredOfSeconds"
@@ -3298,7 +3294,6 @@
              Frequency Interface Specification SP-RFIv2.0-I10-051209,
              Tables 6-7, and 8-19."
         ::= { docsIfCmtsModulationEntry 19 }
-
    docsIfCmtsModScdmaSubframeCodes OBJECT-TYPE
         SYNTAX      Unsigned32 (0 | 1..128)
         MAX-ACCESS  read-create
@@ -4594,7 +4589,6 @@
    MANDATORY-GROUPS {
         docsIfBasicGroupV2
         }
-
    -- conditionally mandatory group
    GROUP docsIfCmGroupV2
         DESCRIPTION
@@ -4690,7 +4684,6 @@
              Standards Committee) standards.  If DOCSIS is extended to
              work with other standards (e.g., European standards), this
              object will be modified accordingly."
-
    OBJECT  docsIfUpChannelModulationProfile
         MIN-ACCESS  read-only
         DESCRIPTION

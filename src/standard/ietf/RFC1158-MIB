@@ -1,22 +1,26 @@
--- This file is corresponding to Release 10.2.3.100 from 2018/07/18 00:00:00
+               RFC1158-MIB
+
+               DEFINITIONS ::= BEGIN
+               IMPORTS
+                       mgmt, OBJECT-TYPE, NetworkAddress, IpAddress,
+                       Counter, Gauge, TimeTicks
+                           FROM RFC1155-SMI;
+
+               DisplayString ::=
+                           OCTET STRING
 
 
----------------------------------------------------------------------------
--- (C)opyright 2004-2014 bintec elmeg GmbH
--- $RCSfile: mib-standards,v $
--- $Revision: 1.19 $
--- $Date: 2017-03-10 16:15:21 $
----------------------------------------------------------------------------
+               mib-2      OBJECT IDENTIFIER ::= { mgmt 1 }    -- MIB-II
 
--- INFO for importing MIB files into SNMP manager
--- 
--- if MIBcompiler dont like multiple modules or redefinitions of standard MIBs
--- listed in this file, remove everything with except of last BINTEC-MIB:
---   keep only lines from:
---     from : BINTEC-MIB DEFINITIONS ::= BEGIN
---     to   : END
-
-RFC1158-MIB DEFINITIONS ::= BEGIN
-    DisplayString ::=
-	OCTET STRING (SIZE(0..255))
-END
+               system     OBJECT IDENTIFIER ::= { mib-2 1 }
+               interfaces OBJECT IDENTIFIER ::= { mib-2 2 }
+               at         OBJECT IDENTIFIER ::= { mib-2 3 }
+               ip         OBJECT IDENTIFIER ::= { mib-2 4 }
+               icmp       OBJECT IDENTIFIER ::= { mib-2 5 }
+               tcp        OBJECT IDENTIFIER ::= { mib-2 6 }
+               udp        OBJECT IDENTIFIER ::= { mib-2 7 }
+               egp        OBJECT IDENTIFIER ::= { mib-2 8 }
+               -- cmot    OBJECT IDENTIFIER ::= { mib-2 9 }
+               transmission OBJECT IDENTIFIER ::= { mib-2 10 }
+               snmp       OBJECT IDENTIFIER ::= { mib-2 11 }
+               END

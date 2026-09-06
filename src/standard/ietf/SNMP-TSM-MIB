@@ -33,7 +33,6 @@ snmpTsmMIB MODULE-IDENTITY
                     Germany
                     +49 421 200-3587
                     j.schoenwaelder@jacobs-university.de
-
                   Editor:
                     David Harrington
                     Huawei Technologies USA
@@ -81,7 +80,6 @@ snmpTsmMIB MODULE-IDENTITY
           copyright notice, this list of conditions and the following
           disclaimer in the documentation and/or other materials
           provided with the distribution.
-
         - Neither the name of Internet Society, IETF or IETF Trust,
           nor the names of specific contributors, may be used to endorse
           or promote products derived from this software without
@@ -106,6 +104,7 @@ snmpTsmMIB MODULE-IDENTITY
 
     REVISION    "200906090000Z"
     DESCRIPTION "The initial version, published in RFC 5591."
+
     ::= { mib-2 190 }
 
 -- ---------------------------------------------------------- --
@@ -129,7 +128,6 @@ snmpTsmInvalidCaches OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION "The number of incoming messages dropped because the
-
                  tmStateReference referred to an invalid cache.
                 "
     ::= { snmpTsmStats 1 }
@@ -226,9 +224,9 @@ snmpTsmGroup OBJECT-GROUP
     STATUS      current
     DESCRIPTION "A collection of objects for maintaining
                  information of an SNMP engine that implements
-
                  the SNMP Transport Security Model.
                 "
+
     ::= { snmpTsmGroups 2 }
 
 END

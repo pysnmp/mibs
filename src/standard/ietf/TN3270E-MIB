@@ -1,11 +1,3 @@
--- *****************************************************************
--- TN3270E MIB
---
--- September 1998, Vince Deters
---
--- Copyright (c) 1998, 2005 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
   TN3270E-MIB DEFINITIONS ::= BEGIN
 
   IMPORTS
@@ -30,7 +22,7 @@
           FROM IANATn3270eTC-MIB;
 
     tn3270eMIB MODULE-IDENTITY
-        LAST-UPDATED "200601130000Z"
+        LAST-UPDATED "9807270000Z" -- July 27, 1998
         ORGANIZATION "TN3270E Working Group"
         CONTACT-INFO
             "Kenneth White (kennethw@vnet.ibm.com)
@@ -50,15 +42,9 @@
         DESCRIPTION
             "This module defines a portion of the management
             information base (MIB) for managing TN3270E servers."
-        REVISION     "200601130000Z"
-        DESCRIPTION
-            "Removed the IMPORTing of Unsigned32 from CISCO-TC, by
-            changing it back to be IMPORTed from SNMPv2-SMI (as in
-            RFC 2561)."
         REVISION  "9807270000Z" -- July 27, 1998
         DESCRIPTION
-            "Initial version of this MIB Module, published as
-            RFC 2561."
+            "RFC nnnn (Proposed Standard)" -- RFC Editor to fill in
         ::= { snanauMIB 8 }
 
   -- Textual Conventions
@@ -103,7 +89,6 @@
                   +---+---+----+----------------------+
                   !length !type!data                  !
                   +---+---+----+----------------------+
-
             where:
 
             length = two-octet length of the data portion of the
@@ -152,7 +137,6 @@
           have a single entry.  Modeling of the configuration
           elements as a table allows multiple TN3270E
           servers to be serviced by the same SNMP agent.
-
           An implementation SHOULD NOT retain an SNMP-created
           entry in this table across re-IPLs (Initial Program
           Loads) of the corresponding TN3270E server."
@@ -352,7 +336,6 @@
       DESCRIPTION
          "This object determines what a TN3270E server
           should do when a TN3270 Session terminates:
-
          terminate(1)     => Terminate the TCP connection.
          luSessionPend(2) => Do not drop the TCP connection
                              associated with a client when its
@@ -394,7 +377,6 @@
           (SSCP) for the dependent Secondary Logical Units (SLUs)
           that the server makes available to its clients for
           connecting into an SNA network.
-
           A gateway TN3270E server resides on an SNA node other
           than an SSCP, either an SNA type 2.0 node or an APPN node
           acting in the role of a Dependent LU Requester (DLUR).
@@ -442,7 +424,6 @@
           and the tn3270eResMapTable.  All entries in the
           tn3270eTcpConnTable that belong to a TN3270E server
           that has been deleted MUST also be removed.
-
           In other words, a tn3270eSrvrConfEntry must exist for
           a TN3270E server in order for it to have entries in
           any of the other tables defined by this MIB."
@@ -490,7 +471,6 @@
           entries in this table across re-IPLs (Initial Program
           Loads) of the corresponding TN3270E server."
       ::= { tn3270eObjects 2 }
-
   tn3270eSrvrPortEntry OBJECT-TYPE
       SYNTAX      Tn3270eSrvrPortEntry
       MAX-ACCESS  not-accessible
@@ -539,7 +519,6 @@
           SHALL be used for this object when the port is not
           to be restricted to a local address."
       ::= { tn3270eSrvrPortEntry 2 }
-
   tn3270eSrvrPortAddress OBJECT-TYPE
       SYNTAX      IANATn3270eAddress
       MAX-ACCESS  not-accessible
@@ -683,7 +662,6 @@
          conceptual row (server-wide, port, or
          port-and-local-address)."
       ::= { tn3270eSrvrStatsEntry 3 }
-
   tn3270eSrvrStatsInUseTerms OBJECT-TYPE
       SYNTAX      Gauge32
       UNITS       "LUs"
@@ -731,7 +709,6 @@
          granularity of this conceptual row (server-wide,
          port, or port-and-local-address)."
       ::= { tn3270eSrvrStatsEntry 6 }
-
   tn3270eSrvrStatsInUsePtrs OBJECT-TYPE
       SYNTAX      Gauge32
       UNITS       "Printer Resources"
@@ -1115,7 +1092,6 @@
           name by which it is known locally at the TN3270e
           server.  This latter name serves as an index into
           the tn3270eResPoolTable and the tn3270eResMapTable.
-
           No entry in this table shall exist without
           a corresponding (same tn3270eSrvrConfIndex) entry in
           the tn3270eSrvrConfTable existing."
@@ -1547,7 +1523,6 @@
           "LU/Print secondary name for connecting an client
            into an SNA network."
       ::= { tn3270eTcpConnEntry 10 }
-
   tn3270eTcpConnResourceType OBJECT-TYPE
       SYNTAX   IANATn3270ResourceType
       MAX-ACCESS  read-only
@@ -1595,7 +1570,6 @@
            The value 0 indicates that a connection does not have
            a valid connection identifier."
       ::= { tn3270eTcpConnEntry 14 }
-
   tn3270eTcpConnClientIdFormat OBJECT-TYPE
       SYNTAX      IANATn3270eClientType
       MAX-ACCESS  read-only
@@ -1838,6 +1812,7 @@
              MIN-ACCESS read-only
              DESCRIPTION
                  "Write access is not required."
+
           OBJECT tn3270eClientResMapRowStatus
              MIN-ACCESS read-only
              DESCRIPTION
@@ -1931,7 +1906,6 @@
           "This group is optional for all hosts supporting the
            TN3270E-MIB."
       ::= { tn3270eGroups 3 }
-
   tn3270eHiCapacityGroup OBJECT-GROUP
       OBJECTS {
           tn3270eSrvrStatsHCInOctets,

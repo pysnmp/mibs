@@ -24,9 +24,6 @@ arcMibModule MODULE-IDENTITY
         Editor:    Hing-Kam Lam
                    Lucent Technologies, 4C-616
                    101 Crawfords Corner Road
-
-
-
                    Holmdel, NJ 07733
                    USA
                    Tel: +1 732 949 8338
@@ -75,9 +72,6 @@ arcTITimeInterval OBJECT-TYPE
   MAX-ACCESS  read-write
   STATUS  current
   DESCRIPTION
-
-
-
     "This variable indicates the time interval used for the nalmTI
      state, in units of second.  It is a pre-defined length of time
      in which the resource will stay in the nalmTI state before
@@ -126,9 +120,6 @@ arcTable OBJECT-TYPE
 
 arcEntry OBJECT-TYPE
   SYNTAX  ArcEntry
-
-
-
   MAX-ACCESS  not-accessible
   STATUS  current
   DESCRIPTION
@@ -176,10 +167,6 @@ arcAlarmType OBJECT-TYPE
      IANAItuProbableCause that is applicable to the resource.
      IANAItuProbableCause is defined in the IANA-ITU-ALARM-TC
      module in the Alarm MIB document.
-
-
-
-
      The value of zero (0) implies any probable causes that are
      applicable to the resource.  Usually, the applicable probable
      causes of a resource are specified in the resource-specific mib."
@@ -227,10 +214,6 @@ arcState OBJECT-TYPE
      alm may transition to nalm, nalmQI or nalmTI by management request.
 
      nalm may transition to alm, nalmQI or nalmTI by management request.
-
-
-
-
      nalmQI may transition to nalm or alm by management request.
 
      nalmQI may transition to alm automatically
@@ -279,9 +262,6 @@ arcNalmTimeRemaining OBJECT-TYPE
 
      At the moment the resource enters the nalmTI state, this variable
      will have the initial value equal to the value of
-
-
-
      arcNalmTITimeInterval and then starts decrementing as time goes by.
 
      Similarly at the moment the resource enters the nalmQICD state,
@@ -330,9 +310,6 @@ arcStorageType OBJECT-TYPE
      If a set operation tries to set the value to 'readOnly',
      then an 'inconsistentValue' error must be returned."
   DEFVAL      { nonVolatile }
-
-
-
   ::= { arcEntry 7}
 
 --------------------------
@@ -380,10 +357,6 @@ arcCompliance MODULE-COMPLIANCE
   ::= { arcCompliances 1 }
 
 arcGroups OBJECT IDENTIFIER ::= { arcConformance 2 }
-
-
-
-
 arcSettingGroup OBJECT-GROUP
   OBJECTS {
           arcState,

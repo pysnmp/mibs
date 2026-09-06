@@ -39,8 +39,6 @@ ifInvStackTable  OBJECT-TYPE
    STATUS        current
    DESCRIPTION
           "A table containing information on the relationships between
-
-
           the multiple sub-layers of network interfaces.  In
           particular, it contains information on which sub-layers run
           'underneath' which other sub-layers, where each sub-layer
@@ -89,8 +87,6 @@ IfInvStackEntry ::=
    }
 
 ifInvStackStatus  OBJECT-TYPE
-
-
   SYNTAX         RowStatus
   MAX-ACCESS     read-only
   STATUS         current
@@ -134,13 +130,6 @@ ifInvCompliance MODULE-COMPLIANCE
       SYNTAX       INTEGER { active(1) }
       DESCRIPTION
           "Support is only required for 'active'."
-
-
-
-
-
-
-
   MODULE  IF-MIB
       MANDATORY-GROUPS { ifStackGroup2 }
 

@@ -10,7 +10,7 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
     ianaBfdTCStdMib MODULE-IDENTITY
 
         LAST-UPDATED
-                   "201408120000Z" -- 12 August 2014 00:00:00 GMT
+                   "202511250000Z" -- 25 November 2025 00:00:00 GMT
         ORGANIZATION
                    "IANA"
         CONTACT-INFO
@@ -19,6 +19,7 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
                             Los Angeles, CA  90094-2536
                     Tel:    +1 310 301 5800
                     EMail:  iana&iana.org"
+
         DESCRIPTION
           "Copyright (c) 2014 IETF Trust and the persons identified as
            authors of the code.  All rights reserved.
@@ -31,9 +32,15 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
            (http://trustee.ietf.org/license-info)."
 
         REVISION
+          "202511250000Z" -- 25 November 2025 00:00:00 GMT
+        DESCRIPTION
+          "Added BFD Authentication Types 6-8."
+
+        REVISION
           "201408120000Z" -- 12 August 2014 00:00:00 GMT
         DESCRIPTION
           "Initial version.  Published as RFC 7330."
+
     ::= { mib-2 224 }
 
     IANAbfdDiagTC ::= TEXTUAL-CONVENTION
@@ -48,6 +55,7 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
          Verification, Continuity Check, and Remote Defect
          Indication for the MPLS Transport Profile, RFC 6428,
          November 2011."
+
     SYNTAX INTEGER {
         noDiagnostic(0),
         controlDetectionTimeExpired(1),
@@ -102,6 +110,7 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
     DESCRIPTION
         "BFD session state.  State failing(5) is only applicable if
          corresponding session is running in BFD version 0."
+
     REFERENCE
         "Katz, D. and D. Ward, Bidirectional Forwarding
          Detection (BFD), RFC 5880, June 2010."
@@ -128,7 +137,10 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
         keyedMD5(2),
         meticulousKeyedMD5(3),
         keyedSHA1(4),
-        meticulousKeyedSHA1(5)
+        meticulousKeyedSHA1(5),
+        null(6),
+        optimizedMD5MeticulousKeyedISAACAuthentication(7),
+        optimizedSHA1MeticulousKeyedISAACAuthentication(8)
     }
 
     IANAbfdSessAuthenticationKeyTC ::= TEXTUAL-CONVENTION
@@ -166,6 +178,9 @@ IANA-BFD-TC-STD-MIB DEFINITIONS ::= BEGIN
          meticulousKeyedMD5(3): SIZE(16)
          keyedSHA1(4): SIZE(20)
          meticulousKeyedSHA1(5): SIZE(20)
+         null(6): SIZE(0)
+         optimizedMD5MeticulousKeyedISAACAuthentication(7): SIZE(8..128)
+         optimizedSHA1MeticulousKeyedISAACAuthentication(8): SIZE(8..128)
 
          When this textual convention is used as the syntax of an
          index object, there may be issues with the limit of 128

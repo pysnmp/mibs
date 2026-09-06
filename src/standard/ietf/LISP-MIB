@@ -1,14 +1,3 @@
--- *****************************************************************
--- LISP-MIB.my
---
--- November 2014, Michael Bassin
---
--- Copyright (c) 2014-2015 by cisco Systems, Inc.
--- All rights reserved.
--- 
--- Based on RFC 7052: http://tools.ietf.org/html/rfc7052 
--- *****************************************************************
-
 LISP-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -19,7 +8,7 @@ IMPORTS
     TimeStamp                       FROM SNMPv2-TC         -- RFC 2579
     MODULE-COMPLIANCE, OBJECT-GROUP FROM SNMPv2-CONF       -- RFC 2580
     MplsL3VpnName
-			 FROM MPLS-L3VPN-STD-MIB                   -- RFC 4382
+                 FROM MPLS-L3VPN-STD-MIB                   -- RFC 4382
     AddressFamilyNumbers
                  FROM IANA-ADDRESS-FAMILY-NUMBERS-MIB;
        -- http://www.iana.org/assignments/ianaaddressfamilynumbers-mib
@@ -54,7 +43,6 @@ lispMIB MODULE-IDENTITY
 --
 -- Textual Conventions
 --
-
 LispAddressType ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "39a"
     STATUS current
@@ -99,7 +87,6 @@ LispAddressType ::= TEXTUAL-CONVENTION
           lispMapCacheEidLength          INTEGER,
           lispMapCacheEid                LispAddressType,
            ... [skip] ...
-
        Example 1: Suppose that the IPv4 EID-Prefix stored is
        192.0.2.0/24.  In this case, the values within
        lispMapCacheEntry would be:
@@ -142,22 +129,21 @@ LispAddressType ::= TEXTUAL-CONVENTION
        is part of LISP Instance ID 101.  In this case, the values
        within lispMapCacheEntry would be:
 
-          lispMapCacheEidLength  = 14
-          lispMapCacheEid = 16387, 10, 2, 101, 1, 192.0.2.0, 24
+          lispMapCacheEidLength  = 11
+          lispMapCacheEid = 16387, 7, 2, 101, 1, 192.0.2.0, 24
           ... [skip] ...
-
-       where 14 is the total length in octets of the next object
+       where 11 is the total length in octets of the next object
        (lispMapCacheEID of type LispAddressType).  Then, the value
        16387 indicates the LCAF AF (see the
-       IANA-ADDRESS-FAMILY-NUMBERS-MIB), the value 10 indicates that
-       the LCAF AF is 10 octets in length in this case, 2 indicates
+       IANA-ADDRESS-FAMILY-NUMBERS-MIB), the value 7 indicates that
+       the LCAF AF is 7 octets in length in this case, 2 indicates
        that LCAF Type 2 encoding is used (see the LCAF document), 101
        gives the Instance ID, 1 gives the AFI (per the
        IANA-ADDRESS-FAMILY-NUMBERS-MIB) for an IPv4 address, 192.0.2.0
        is the IPv4 address, and 24 is the mask-length in bits.  Note
-       that the lispMapCacheEidLength value of 14 octets is used to
+       that the lispMapCacheEidLength value of 11 octets is used to
        compute the length of the last field in lispMapCacheEid to be 1
-       octet -- as computed by 14 - (2 + 1 + 1 + 3 + 2 + 4) = 1.
+       octet -- as computed by 11 - (2 + 1 + 1 + 1 + 1 + 4) = 1.
 
        Note: all LISP header formats and locations of specific
        flags, bits, and fields are as given in the base LISP
@@ -167,7 +153,7 @@ LispAddressType ::= TEXTUAL-CONVENTION
         "RFC 6830, Section 14.2 and
          LISP Canonical Address Format (LCAF), Work in Progress,
          March 2013."
-    SYNTAX OCTET STRING (SIZE (0..39))
+    SYNTAX OCTET STRING (SIZE (5..39))
 
 --
 -- Top-level components of this MIB.
@@ -185,7 +171,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        REFERENCE
            "RFC 6830, Section 4, Section 5.5., Section 6.3."
        ::= { lispObjects 1 }
-
    lispFeaturesEntry OBJECT-TYPE
        SYNTAX     LispFeaturesEntry
        MAX-ACCESS not-accessible
@@ -234,7 +219,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            "The IANA Address Family Number of destination address
            of packets that this LISP device is enabled to process."
         ::= { lispFeaturesEntry 2 }
-
    lispFeaturesItrEnabled OBJECT-TYPE
        SYNTAX     TruthValue
        MAX-ACCESS read-only
@@ -282,7 +266,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            If this object is true, then the Map-Server feature is
            enabled."
        ::= { lispFeaturesEntry 7 }
-
    lispFeaturesMapResolverEnabled OBJECT-TYPE
        SYNTAX     TruthValue
        MAX-ACCESS read-only
@@ -328,7 +311,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            device.  If this object is true, then this feature is
            enabled."
        ::= { lispFeaturesEntry 12 }
-
    lispFeaturesEtrAcceptMapDataEnabled OBJECT-TYPE
        SYNTAX     TruthValue
        MAX-ACCESS read-only
@@ -375,7 +357,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        REFERENCE
            "RFC 6830, Section 5.5., and RFC 4382, Section 7."
        ::= { lispObjects 2 }
-
    lispIidToVrfEntry OBJECT-TYPE
        SYNTAX     LispIidToVrfEntry
        MAX-ACCESS not-accessible
@@ -419,7 +400,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        INDEX      { lispFeaturesInstanceID,
                     lispFeaturesAddressFamily }
        ::= { lispGlobalStatsTable 1 }
-
    LispGlobalStatsEntry ::= SEQUENCE {
        lispGlobalStatsMapRequestsIn        Counter64,
        lispGlobalStatsMapRequestsOut       Counter64,
@@ -526,6 +506,7 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            "This table represents the EID-to-RLOC mapping database
             that contains the EID-Prefix to RLOC mappings configured
             on an ETR.
+
            This table represents all such mappings for the given LISP
            site to which this device belongs."
        REFERENCE
@@ -554,7 +535,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        lispMappingDatabaseEncapOctets      Counter64,
        lispMappingDatabaseEncapPackets     Counter64
    }
-
    lispMappingDatabaseEidLength OBJECT-TYPE
        SYNTAX     Integer32 (5..39)
        MAX-ACCESS not-accessible
@@ -599,7 +579,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            "The value of sysUpTime at which the EID Prefix information
            represented by this mapping database entry was configured
            on this device.
-
            If this information was present at the most recent
            reinitialization of the local management subsystem, then
            this object contains a zero value."
@@ -692,7 +671,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
                 lispMappingDatabaseLocatorRlocLength,
                 lispMappingDatabaseLocatorRloc }
        ::= { lispMappingDatabaseLocatorTable 1 }
-
    LispMappingDatabaseLocatorEntry ::= SEQUENCE {
        lispMappingDatabaseLocatorRlocLength        Integer32,
        lispMappingDatabaseLocatorRloc              LispAddressType,
@@ -785,7 +763,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            site).  (1 = RLOC is an address on this device; 2 = RLOC is
            an address on another device)."
        ::= { lispMappingDatabaseLocatorEntry 8 }
-
    lispMappingDatabaseLocatorRlocTimeStamp OBJECT-TYPE
        SYNTAX     TimeStamp
        MAX-ACCESS read-only
@@ -834,7 +811,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            can be detected by observing the value of
            lispMappingDatabaseLocatorRlocTimeStamp."
        ::= { lispMappingDatabaseLocatorEntry 11 }
-
    lispMappingDatabaseLocatorRlocEncapOctets OBJECT-TYPE
        SYNTAX     Counter64
        MAX-ACCESS read-only
@@ -880,7 +856,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        REFERENCE
            "RFC 6830, Sections 6 and Section 12."
        ::= { lispObjects 6 }
-
    lispMapCacheEntry OBJECT-TYPE
        SYNTAX     LispMapCacheEntry
        MAX-ACCESS not-accessible
@@ -1114,7 +1089,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            "The multicast priority of the RLOC for this EID-Prefix
            (0-255); lower is more preferred."
        ::= { lispMapCacheLocatorEntry 5 }
-
    lispMapCacheLocatorRlocMWeight OBJECT-TYPE
        SYNTAX     Integer32 (0..100)
        MAX-ACCESS read-only
@@ -1161,7 +1135,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            of the RLOC for this EID-Prefix.  Note that this is
            independent of lispMapCacheLocatorRlocTimeStamp."
        ::= { lispMapCacheLocatorEntry 9 }
-
    lispMapCacheLocatorRlocLastWeightChange OBJECT-TYPE
        SYNTAX     TimeTicks
        MAX-ACCESS read-only
@@ -1207,7 +1180,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            "Round-trip time of RLOC probe and map-reply for this RLOC
            address for this prefix."
        ::= { lispMapCacheLocatorEntry 14 }
-
    lispMapCacheLocatorRlocDecapOctets OBJECT-TYPE
        SYNTAX     Counter64
        MAX-ACCESS read-only
@@ -1254,7 +1226,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            being removed and replaced, which can be detected by
            observing the value of lispMapCacheLocatorRlocTimeStamp."
        ::= { lispMapCacheLocatorEntry 17 }
-
    lispMapCacheLocatorRlocEncapPackets OBJECT-TYPE
        SYNTAX     Counter64
        MAX-ACCESS read-only
@@ -1396,7 +1367,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            RLOC being removed and replaced, which can be detected by
            observing the value of lispConfiguredLocatorRlocTimeStamp."
        ::= { lispConfiguredLocatorEntry 7 }
-
    lispConfiguredLocatorRlocEncapOctets OBJECT-TYPE
        SYNTAX     Counter64
        MAX-ACCESS read-only
@@ -1543,7 +1513,7 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        ::= { lispEidRegistrationEntry 7 }
 
    lispEidRegistrationLastRegisterSenderLength OBJECT-TYPE
-       SYNTAX     Integer32 (0..39)
+       SYNTAX     Integer32 (5..39)
        MAX-ACCESS read-only
        STATUS     current
        DESCRIPTION
@@ -1774,7 +1744,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
            "The unicast priority of the RLOC for this EID-Prefix in the
            register message sent by the given ETR."
        ::= { lispEidRegistrationLocatorEntry 5 }
-
    lispEidRegistrationLocatorWeight OBJECT-TYPE
        SYNTAX     Integer32 (0..100)
        MAX-ACCESS read-only
@@ -1822,7 +1791,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
        INDEX      { lispUseMapServerAddressLength,
                     lispUseMapServerAddress }
        ::= { lispUseMapServerTable 1 }
-
    LispUseMapServerEntry ::= SEQUENCE {
        lispUseMapServerAddressLength Integer32,
        lispUseMapServerAddress       LispAddressType,
@@ -2015,7 +1983,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
 
    lispCompliances OBJECT IDENTIFIER ::= { lispConformance 1 }
    lispGroups      OBJECT IDENTIFIER ::= { lispConformance 2 }
-
    --
    -- Compliance Statements
    --
@@ -2064,7 +2031,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
          GROUP   lispMIBTuningParametersGroup
          DESCRIPTION
              "This group is optional."
-
          GROUP   lispMIBEncapStatisticsGroup
          DESCRIPTION
              "This group is optional."
@@ -2209,7 +2175,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
              "This group is optional."
 
        ::= { lispCompliances 3 }
-
    lispMIBCompliancePitr MODULE-COMPLIANCE
        STATUS  current
        DESCRIPTION
@@ -2401,7 +2366,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
              "This group is optional."
 
        ::= { lispCompliances 6 }
-
    --
    -- Units of Conformance
    --
@@ -2448,7 +2412,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
                "A collection of objects to support reporting of basic
                 LISP ITR parameters."
        ::= { lispGroups 2 }
-
    lispMIBPetrGroup OBJECT-GROUP
        OBJECTS { lispFeaturesProxyEtrEnabled
                }
@@ -2544,7 +2507,6 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
                 LISP features and properties on Map Servers
                 related to EID registrations."
        ::= { lispGroups 9 }
-
    lispMIBTuningParametersGroup OBJECT-GROUP
        OBJECTS { lispFeaturesMapCacheLimit,
                  lispFeaturesEtrMapCacheTtl
@@ -2629,4 +2591,3 @@ lispConformance   OBJECT IDENTIFIER ::= { lispMIB 2 }
                 VRF-related information on a LISP device."
        ::= { lispGroups 14 }
 END
-

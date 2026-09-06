@@ -16,8 +16,6 @@ IMPORTS
 
 
 --    REFERENCE
-
-
 --        "The COPS (Common Open Policy Service) Protocol RFC 2748
 
 copsClientMIB MODULE-IDENTITY
@@ -66,8 +64,6 @@ CopsClientState ::= TEXTUAL-CONVENTION
             copsClientInvalid(1),      -- default state.
             copsClientTcpconnected(2), -- TCP connection up but COPS
                                        -- not yet open.
-
-
             copsClientAuthenticating(3), -- TCP connection up but still
                                          -- authenticating.
             copsClientSecAccepted(4),  -- connection authenticated.
@@ -116,8 +112,6 @@ CopsTcpPort ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION
         "A value indicating a TCP protocol port number."
-
-
     SYNTAX      INTEGER (0..65535)
 
 CopsAuthType ::= TEXTUAL-CONVENTION
@@ -165,9 +159,6 @@ copsClientStatusGroup OBJECT IDENTIFIER ::= { copsClientMIBObjects 2 }
 --
 -- Current status of COPS server connections, all read-only.
 --
-
-
-
 copsClientServerCurrentTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF CopsClientServerCurrentEntry
     MAX-ACCESS  not-accessible
@@ -216,8 +207,6 @@ CopsClientServerCurrentEntry ::=
         copsClientTcpConnectAttempts        Counter32,
         copsClientTcpConnectFailures        Counter32,
         copsClientOpenAttempts              Counter32,
-
-
         copsClientOpenFailures              Counter32,
         copsClientErrUnsupportClienttype    Counter32,
         copsClientErrUnsupportedVersion     Counter32,
@@ -266,8 +255,6 @@ copsClientServerClientType OBJECT-TYPE
         itself."
     REFERENCE
         "RFC 2748 section 6, IANA"
-
-
     ::= { copsClientServerCurrentEntry 3 }
 
 copsClientServerTcpPort OBJECT-TYPE
@@ -316,8 +303,6 @@ copsClientState  OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "The state of the connection and COPS protocol with respect
-
-
         to this COPS server."
     ::= { copsClientServerCurrentEntry 8 }
 
@@ -366,8 +351,6 @@ copsClientOutPkts OBJECT-TYPE
         "A count of the total number of COPS messages that this client
         has sent to this COPS server marked for this Client-Type. This
         value is cumulative since agent restart and is not zeroed on new
-
-
         connections."
     ::= { copsClientServerCurrentEntry 12 }
 
@@ -416,8 +399,6 @@ copsClientTcpConnectFailures OBJECT-TYPE
         to open an TCP connection to a COPS server. This value is
         cumulative since agent restart and is not zeroed on new
         connections. This value is not incremented for
-
-
         entries representing a non-zero Client-Type."
     ::= { copsClientServerCurrentEntry 16 }
 
@@ -466,8 +447,6 @@ copsClientErrUnsupportedVersion OBJECT-TYPE
         had a COPS protocol Version number that is unsupported by this
         client. This value is cumulative since agent restart and is not
         zeroed on new connections."
-
-
     ::= { copsClientServerCurrentEntry 20 }
 
 copsClientErrLengthMismatch OBJECT-TYPE
@@ -516,8 +495,6 @@ copsClientErrBadCtype OBJECT-TYPE
         contained a COPS protocol object C-Type that was not defined for
         the C-Nums known by this client. This value is cumulative since
         agent restart and is not zeroed on new connections."
-
-
     ::= { copsClientServerCurrentEntry 24 }
 
 copsClientErrBadSends OBJECT-TYPE
@@ -566,8 +543,6 @@ copsClientKaTimedoutClients OBJECT-TYPE
         cumulative since agent restart and is not zeroed on new
         connections."
     ::= { copsClientServerCurrentEntry 28 }
-
-
 copsClientErrAuthFailures OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS  read-only
@@ -616,8 +591,6 @@ copsClientServerConfigEntry OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "A set of configuration information regarding a single
-
-
         COPS server from the point of view of a COPS client."
     INDEX { copsClientServerConfigAddrType,
             copsClientServerConfigAddress,
@@ -666,8 +639,6 @@ copsClientServerConfigClientType OBJECT-TYPE
         applies and for which this COPS server is capable
         of serving. Multiple Client-Types can be served by a
         single COPS server."
-
-
     REFERENCE
         "RFC 2748 section 6, IANA"
     ::= { copsClientServerConfigEntry 3 }
@@ -715,9 +686,6 @@ copsClientServerConfigRowStatus OBJECT-TYPE
     DESCRIPTION
         "State of this entry in the table."
     ::= { copsClientServerConfigEntry 7 }
-
-
-
 copsClientServerConfigRetryAlgrm OBJECT-TYPE
     SYNTAX      INTEGER {
                     other(1),
@@ -765,9 +733,6 @@ copsClientServerConfigRetryIntvl OBJECT-TYPE
          of this interval before restarting the algorithm."
     DEFVAL { 1000 }
     ::= { copsClientConfigGroup 4 }
-
-
-
 -- -------------------------------------------------------------
 -- Conformance Information
 -- -------------------------------------------------------------
@@ -816,8 +781,6 @@ copsDeviceConfigGroup OBJECT-GROUP
     STATUS      current
     DESCRIPTION
         "A collection of objects for configuring COPS server
-
-
         information."
     ::= { copsClientGroups 2 }
 
@@ -865,9 +828,6 @@ copsClientCompliance MODULE-COMPLIANCE
         DESCRIPTION
             "Write access is required only if the device supports the
             configuration of COPS server information."
-
-
-
         OBJECT      copsClientServerConfigRetryIntvl
         MIN-ACCESS  read-only
         DESCRIPTION

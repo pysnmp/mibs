@@ -1,9 +1,8 @@
-
 IEEE8021-FQTSS-MIB DEFINITIONS ::= BEGIN
 
 -- =============================================================
 -- MIB for support of the Forwarding & Queuing Enhancements
--- for Time Sensitive Streams (FQTSS) in IEEE 802.1Q Bridges.
+-- for Time-Sensitive Streams (FQTSS) in IEEE 802.1Q Bridges.
 -- =============================================================
 
 IMPORTS
@@ -31,31 +30,34 @@ IMPORTS
     ;
 
 ieee8021FqtssMib MODULE-IDENTITY
-    LAST-UPDATED "201810040000Z" -- October 4, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-        "  WG-URL: http://ieee802.org/1/
-         WG-EMail: STDS-802-1-L@IEEE.ORG
-
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@IEEE.ORG"
+           E-mail: stds-802-1-chairs@ieee.org"
     DESCRIPTION
         "The Bridge MIB module for managing devices that support
         the Forwarding and Queuing Enhancements
-        for Time Sensitive Streams.
+        for Time-Sensitive Streams.
 
         Unless otherwise indicated, the references in this MIB
-        module are to IEEE Std 802.1Q.
+        module are to IEEE Std 802.1Q-2022.
 
-        Copyright (C) IEEE (2018).
+        Copyright (C) IEEE (2022).
         This version of this MIB module is part of IEEE Std 802.1Q;
-        see the draft itself for full legal notices."
+        see that standard for full legal notices."
+        
+    REVISION "202211080000Z" -- November 8, 2022
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
 
     REVISION "201810040000Z" -- October 4, 2018
     DESCRIPTION
@@ -66,7 +68,7 @@ ieee8021FqtssMib MODULE-IDENTITY
 
     REVISION "201806280000Z" -- June 28, 2018
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q 2017.
+            "Published as part of IEEE Std 802.1Q 2018.
             Cross references corrected and updated. "
             
     REVISION "201512020000Z" -- December 2, 2015
@@ -111,7 +113,7 @@ IEEE8021FqtssDeltaBandwidthValue ::= TEXTUAL-CONVENTION
     DESCRIPTION
         "An 802.1 FQTSS delta bandwidth percentage,
         represented as a fixed point number scaled by
-        1,000,000."
+        1 000 000."
     REFERENCE   "12.20.1, 34.4"
     SYNTAX      Unsigned32 (0..100000000)
 
@@ -134,7 +136,7 @@ IEEE8021FqtssTxSelectionAlgorithmIDValue ::= TEXTUAL-CONVENTION
                          and the least significant octet holds
                          an integer value in the range 0-255
                          assigned by the owner of the OUI or CID."
-    REFERENCE   "8.6.8, 12.20.2"
+    REFERENCE   "8.6.4, 12.20.2"
     SYNTAX  Unsigned32
 
 -- =============================================================
@@ -241,7 +243,7 @@ ieee8021FqtssDeltaBandwidth OBJECT-TYPE
         "The value of the deltaBandwidth parameter
         for the traffic class.
         This value is represented as a fixed point number
-        scaled by a factor of 1,000,000; i.e., 100,000,000
+        scaled by a factor of 1 000 000; i.e., 100 000 000
         (the maximum value) represents 100%.
 
         The default value of the deltaBandwidth parameter
@@ -548,7 +550,7 @@ ieee8021FqtssSrpBoundaryPort OBJECT-TYPE
 
             The default values for the entries of this table are
             specified in 34.5"
-        REFERENCE   "12.40.4, 35.2.2.9.2, 6.9.3"
+        REFERENCE   "12.20.4, 35.2.2.9.2, 6.9.3"
         ::= { ieee8021FqtssMappings 3 }
 
     ieee8021FqtssSRClassToPriorityEntry OBJECT-TYPE
@@ -578,7 +580,7 @@ ieee8021FqtssSrpBoundaryPort OBJECT-TYPE
                 STATUS      current
                 DESCRIPTION
                     "The srClassId attribute provides the SR class ID
-                    from Table 35-7 of 35.2.2.9.2, so that management
+                    from Table 35-6 of 35.2.2.9.2, so that management
                     software can associate the traffic class to the
                     corresponding SR class A or B used by protocols
                     such as SRP.
@@ -590,7 +592,7 @@ ieee8021FqtssSrpBoundaryPort OBJECT-TYPE
                     If this managed object is not supported, the default
                     values specified in 34.5 are used as the fixed
                     configuration."
-                REFERENCE   "12.20.4, 35.2.2.9.2 "
+                REFERENCE   "12.20.4, 35.2.2.9.2"
                 ::= { ieee8021FqtssSRClassToPriorityEntry 1 }
 
             ieee8021FqtssSRClassToPriorityRowStatus OBJECT-TYPE
@@ -611,7 +613,7 @@ ieee8021FqtssBapXTable OBJECT-TYPE
         parameters for each traffic class configured for use with time-sensitive streams.
         All writable objects in this table must be
         persistent over power up restart/reboot."
-    REFERENCE   "12.20.1"
+    REFERENCE   "12.20.2"
     ::= { ieee8021FqtssBapX 1 }
 
 ieee8021FqtssBapXEntry OBJECT-TYPE

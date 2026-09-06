@@ -44,9 +44,6 @@ IMPORTS
       REVISION    "200409090000Z"  -- September 09, 2004
       DESCRIPTION
           "Initial version, published as RFC 3877."
-
-
-
      ::= { mib-2 120 }
 
 ItuPerceivedSeverity ::= TEXTUAL-CONVENTION

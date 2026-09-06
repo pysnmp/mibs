@@ -64,7 +64,6 @@ Dot5Entry ::= SEQUENCE {
      dot5Functional           MacAddress,
      dot5LastBeaconSent       TimeStamp
 }
-
 dot5IfIndex     OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
@@ -257,7 +256,6 @@ dot5LastBeaconSent OBJECT-TYPE
             the local system last transmitted a Beacon frame
             on this interface."
     ::= { dot5Entry 10 }
-
 --   The 802.5 Statistics Table
 
 -- This table contains statistics and error counter which are
@@ -352,7 +350,6 @@ dot5StatsBurstErrors OBJECT-TYPE
             detects the absence of transitions for five
             half-bit timers (burst-five error)."
     ::= { dot5StatsEntry 3 }
-
 dot5StatsACErrors OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
@@ -398,7 +395,6 @@ dot5StatsLostFrameErrors OBJECT-TYPE
             receive the trailer of the frame before the
             TRR timer goes off."
     ::= { dot5StatsEntry 7 }
-
 dot5StatsReceiveCongestions OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
@@ -446,7 +442,6 @@ dot5StatsSoftErrors OBJECT-TYPE
             Soft Errors are those which are
             recoverable by the MAC layer protocols."
     ::= { dot5StatsEntry 11 }
-
 dot5StatsHardErrors OBJECT-TYPE
     SYNTAX      Counter32
     MAX-ACCESS  read-only
@@ -540,7 +535,6 @@ dot5StatsFreqErrors OBJECT-TYPE
             frequency by more than that specified by
             the IEEE 802.5 standard."
     ::= { dot5StatsEntry 19 }
-
 -- The Timer Table
 
 -- This group contains the values of timers for 802.5
@@ -685,7 +679,6 @@ dot5TimerErrorReport  OBJECT-TYPE
             MAC frame to report its error counters,
             in units of 100 micro-seconds."
     ::= { dot5TimerEntry 9 }
-
 dot5TimerBeaconTransmit  OBJECT-TYPE
     SYNTAX      Integer32
     MAX-ACCESS  read-only
@@ -732,7 +725,6 @@ dot5TestInsertFunc  OBJECT-IDENTITY
         thus, could cause problems if the station is connected
         to a operational network."
     ::= { dot5Tests 1 }
-
 -- The Full-Duplex Loop Back test
 
 dot5TestFullDuplexLoopBack OBJECT-IDENTITY
@@ -773,7 +765,6 @@ dot5ChipSetTItms380c16 OBJECT-IDENTITY
     DESCRIPTION
         "Texas Instruments' TMS 380C16 16/4 Mbs chip-set"
     ::= { dot5ChipSets 3 }
-
 -- conformance information
 
 dot5Conformance OBJECT IDENTIFIER ::= { dot5 6 }

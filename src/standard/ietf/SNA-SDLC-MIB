@@ -41,7 +41,6 @@ snaDLC MODULE-IDENTITY
 --
 
 sdlc        OBJECT IDENTIFIER ::= { snaDLC 1 }
-
 --
 --  THE SDLC GROUP
 --  ==============
@@ -87,7 +86,6 @@ sdlcLSGroup   OBJECT IDENTIFIER ::= { sdlc 2 } -- Logical Link Stations
 --     ** e.  rs232AsyncPortTable        rs232AsyncPortIndex
 --
 --     ** rs232AsyncPortTable for ISO 3309.3 ( Start-Stop SDLC).
-
 --  *************************************************************
 --  *                                                           *
 --  *           THE SDLC PORT ADMINISTRATIVE TABLE              *
@@ -597,7 +595,6 @@ sdlcPortOperLastFailCause    OBJECT-TYPE
                         value of undefined(1)."
                     DEFVAL { undefined }
                     ::= { sdlcPortOperEntry 13 }
-
 --  *************************************************************
 --  *                                                           *
 --  *           THE SDLC PORT STATISTICS TABLE                  *
@@ -694,7 +691,6 @@ sdlcPortStatsPollsIn OBJECT-TYPE
                          created."
 
                     ::= { sdlcPortStatsEntry 4 }
-
 sdlcPortStatsPollsOut OBJECT-TYPE
                     SYNTAX      Counter32
                     MAX-ACCESS  read-only
@@ -871,7 +867,6 @@ sdlcPortStatsRetransmitsOut OBJECT-TYPE
                          stations on this port.  This object is
                          initialized to zero when the port is created."
                     ::= { sdlcPortStatsEntry 19 }
-
 --
 --  THE SDLC LINK STATION GROUP
 --  ===========================
@@ -1063,7 +1058,6 @@ sdlcLSAdminREPLYTO  OBJECT-TYPE
                         where sdlcPortAdminRole == primary "
                     DEFVAL { 100 }
                     ::= { sdlcLSAdminEntry 7 }
-
 sdlcLSAdminMAXIN    OBJECT-TYPE
                     SYNTAX      INTEGER (1..127)
                     MAX-ACCESS  read-create
@@ -1352,7 +1346,6 @@ sdlcLSOperTable     OBJECT-TYPE
                           corresponding objects in the
                           sdlcLSAdminTable."
                     ::= { sdlcLSGroup 2 }
-
 sdlcLSOperEntry     OBJECT-TYPE
                     SYNTAX      SdlcLSOperEntry
                     MAX-ACCESS  not-accessible
@@ -1401,7 +1394,6 @@ sdlcLSOperName      OBJECT-TYPE
                          received in the XID3 control vector 0x0E, type
                          0xF7."
                     ::= { sdlcLSOperEntry 1 }
-
 sdlcLSOperRole      OBJECT-TYPE
                     SYNTAX      INTEGER
                     {
@@ -2024,7 +2016,6 @@ sdlcLSStatsXIDsOut  OBJECT-TYPE
                         transmitted to an adjacent SDLC link station
                         since link station startup."
                     ::= { sdlcLSStatsEntry 16 }
-
 sdlcLSStatsTESTsIn   OBJECT-TYPE
                     SYNTAX      Counter32
                     MAX-ACCESS  read-only
@@ -2121,7 +2112,6 @@ sdlcLSStatsRIMsIn   OBJECT-TYPE
                         startup.  At link station startup time, this
                         object must be initialized to zero."
                     ::= { sdlcLSStatsEntry 25 }
-
 sdlcLSStatsRIMsOut  OBJECT-TYPE
                     SYNTAX      Counter32
                     MAX-ACCESS  read-only
@@ -2170,7 +2160,6 @@ sdlcLSStatsUAIn     OBJECT-TYPE
                          startup time, this object must be initialized
                          to zero."
                     ::= { sdlcLSStatsEntry 29 }
-
 sdlcLSStatsUAOut    OBJECT-TYPE
                     SYNTAX      Counter32
                     MAX-ACCESS  read-only

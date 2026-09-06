@@ -1,4 +1,3 @@
-
      ATM-MIB DEFINITIONS ::= BEGIN
 
      IMPORTS
@@ -513,7 +512,6 @@
      -- The ATM VPL or VCL table will indicate a row
      -- in the atmTrafficDescrParamTable
      -- using its atmTrafficDescrParamIndex value.
-
      -- The management application can then compare a set of
      -- ATM traffic parameters with a single value.
 
@@ -752,7 +750,6 @@
 
 
      --  The ATM Interface VPL Table
-
      atmVplTable         OBJECT-TYPE
           SYNTAX         SEQUENCE OF AtmVplEntry
           MAX-ACCESS     not-accessible
@@ -848,7 +845,6 @@
             associated resources."
           INDEX  {ifIndex, atmVplVpi }
           ::= { atmVplTable  1}
-
      AtmVplEntry    ::= SEQUENCE  {
           atmVplVpi          AtmVpIdentifier,
           atmVplAdminStatus  AtmVorXAdminStatus,
@@ -992,7 +988,6 @@
      -- This table contains configuration and state
      -- information of a bi-directional Virtual Channel
      -- Link (VCL) at an ATM interface.
-
      -- This table can be used to create, delete or modify
      -- a VCL that is terminated in an ATM host or switch.
      -- This table can also be
@@ -1040,7 +1035,6 @@
               thereby, selecting a set of self-consistent
               ATM traffic parameters and the service category
               for receive and transmit directions of the VCL.
-
          (2a) If no suitable row(s) in the
               atmTrafficDescrParamTable exists,
               the manager must create a new row(s)
@@ -1089,7 +1083,6 @@
            performs the setup on one operation but
            does not have the advantage of step-wise
            error checking.
-
            VCL Retirement
 
            A VCL is released by setting atmVclRowStatus to
@@ -1185,7 +1178,6 @@
             to the transmit direction of this VCL."
           DEFVAL { 0 }
            ::= { atmVclEntry 7}
-
      atmVccAalType       OBJECT-TYPE
           SYNTAX         INTEGER {
                             aal1(1),
@@ -1234,7 +1226,6 @@
             supported on the receive direction of this VCC."
           DEFVAL { 9188 }
                 ::= { atmVclEntry 10 }
-
      atmVccAal5EncapsType  OBJECT-TYPE
           SYNTAX         INTEGER {
                          vcMultiplexRoutedProtocol(1),
@@ -1282,7 +1273,6 @@
             At no time should entries in these respective
             cross-connect tables exist simultaneously
             with the same cross-connect index value.
-
             The value of this object is initialized by the
             agent after the associated entries in the
             atmVcCrossConnectTable have been created."
@@ -1571,7 +1561,6 @@
           atmVpCrossConnectH2LLastChange  AtmVorXLastChange,
           atmVpCrossConnectRowStatus      RowStatus
                   }
-
      atmVpCrossConnectIndex OBJECT-TYPE
           SYNTAX         INTEGER (1..2147483647)
           MAX-ACCESS     not-accessible
@@ -1667,7 +1656,6 @@
             VP cross-connect entered its current operational
             state in the low to high direction."
           ::= { atmVpCrossConnectEntry 9 }
-
      atmVpCrossConnectH2LLastChange OBJECT-TYPE
           SYNTAX         AtmVorXLastChange
           MAX-ACCESS     read-only
@@ -1715,7 +1703,6 @@
      -- The model using step-wise procedures described for setting
      -- up a VP cross-connect is also used for setting up
      -- a VC cross-connect.
-
      atmVcCrossConnectIndexNext  OBJECT-TYPE
           SYNTAX         INTEGER (0..2147483647)
           MAX-ACCESS     read-only
@@ -1763,7 +1750,6 @@
             VC cross-connect cross-connecting two end points.
 
             Step-wise Procedures to set up a VC Cross-connect
-
             Once the entries in the atmVclTable are created,
             the following procedures are used
             to cross-connect the VCLs together to
@@ -2218,7 +2204,6 @@
                active VPI bits configured for use ranges
                from 0 to 8 only.
                Implementations may support smaller ranges."
-
             OBJECT         atmInterfaceMaxActiveVciBits
             MIN-ACCESS     read-only
             DESCRIPTION
@@ -2244,7 +2229,6 @@
             MIN-ACCESS     read-only
             DESCRIPTION
               "Write access is not required."
-
             OBJECT         atmInterfaceSubscrAddress
             MIN-ACCESS     read-only
             DESCRIPTION
@@ -2293,6 +2277,7 @@
 
             OBJECT         atmTrafficDescrRowStatus
             SYNTAX         INTEGER {active(1)}
+                             -- subset of RowStatus
             MIN-ACCESS     read-only
             DESCRIPTION
               "Write access is not required, and only one
@@ -2339,7 +2324,6 @@
                VPLs that are not associated with VCLs
                and are cross-connected to other VPLs
                for VPCs."
-
             GROUP          atmVpPvcCrossConnectGroup
             DESCRIPTION
               "This group is mandatory only for those
@@ -2435,7 +2419,6 @@
             MIN-ACCESS     read-only
             DESCRIPTION
               "Write access is not required."
-
             OBJECT         atmVclTransmitTrafficDescrIndex
             MIN-ACCESS     read-only
             DESCRIPTION
@@ -2484,7 +2467,6 @@
      -- ****** AAL5 Support ******************************
      --
             GROUP          aal5VccGroup
-
             DESCRIPTION
               "This group is mandatory for the
                AAL5 virtual connections only."
@@ -2773,7 +2755,6 @@
               "This group is mandatory only for those
                ATM interfaces which implement the
                DS3 PLCP layer."
-
             GROUP          atmInterfaceTCGroup
             DESCRIPTION
               "This group is mandatory only for those
@@ -2916,7 +2897,6 @@
 
 
      -- Deprecated Definitions - Groups
-
      atmInterfaceConfGroup    OBJECT-GROUP
             OBJECTS {
                   atmInterfaceMaxVpcs, atmInterfaceMaxVccs,

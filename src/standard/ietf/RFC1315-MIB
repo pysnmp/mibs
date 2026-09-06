@@ -1,8 +1,3 @@
--- Changes for RFC1315 (Frame Relay MIB)
---      Added IMPORT for Counter.
---      Changed module name from RFC-1155 to RFC1155-SMI.
-
-
      RFC1315-MIB DEFINITIONS ::= BEGIN
 
      IMPORTS
@@ -10,8 +5,8 @@
                      FROM RFC-1212
              transmission
                      FROM RFC1213-MIB
-             Counter, TimeTicks
-                     FROM RFC1155-SMI
+             TimeTicks
+                     FROM RFC-1155
              TRAP-TYPE
                      FROM RFC-1215;
 
@@ -90,7 +85,6 @@
                 "The ifIndex value of the  corresponding  ifEn-
                 try."
             ::= { frDlcmiEntry 1 }
-
          frDlcmiState OBJECT-TYPE
              SYNTAX INTEGER {
                  noLmiConfigured (1),
@@ -186,8 +180,6 @@
                Section D.5.1 Counter N392."
            DEFVAL { 3 }
            ::= { frDlcmiEntry 7 }
-
-
          frDlcmiMonitoredEvents OBJECT-TYPE
              SYNTAX   INTEGER (1..10)
              ACCESS   read-write
@@ -234,8 +226,6 @@
                 "This indicates whether the Frame Relay  inter-
                 face is using a multicast service."
             ::= { frDlcmiEntry 10 }
-
-
      -- A Frame Relay service is a multiplexing service.  Data
      -- Link Connection Identifiers enumerate virtual circuits
      -- (permanent or dynamic) which are layered onto the underlying
@@ -328,8 +318,6 @@
                "Draft American National  Standard  T1.618-1991,
                Section 3.3.6"
            ::= { frCircuitEntry 2 }
-
-
          frCircuitState OBJECT-TYPE
              SYNTAX   INTEGER {
                          invalid (1),
@@ -426,8 +414,6 @@
                 "Number of octets received  over  this  virtual
                 circuit since it was created."
             ::= { frCircuitEntry 9 }
-
-
          frCircuitCreationTime OBJECT-TYPE
              SYNTAX   TimeTicks
              ACCESS   read-only

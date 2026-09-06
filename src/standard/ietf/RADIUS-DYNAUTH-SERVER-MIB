@@ -91,7 +91,6 @@ radiusDynAuthServerIdentifier OBJECT-TYPE
       REFERENCE
              "RFC 2865, Section 5.32, NAS-Identifier."
       ::= { radiusDynAuthServerScalars 3 }
-
 radiusDynAuthClientTable OBJECT-TYPE
       SYNTAX SEQUENCE OF RadiusDynAuthClientEntry
       MAX-ACCESS not-accessible
@@ -142,6 +141,7 @@ RadiusDynAuthClientEntry ::= SEQUENCE {
        radiusDynAuthServUnknownTypes                Counter32,
        radiusDynAuthServerCounterDiscontinuity      TimeTicks
 }
+
 
 radiusDynAuthClientIndex OBJECT-TYPE
        SYNTAX     Integer32 (1..2147483647)
@@ -330,7 +330,6 @@ radiusDynAuthServMalformedDisconRequests OBJECT-TYPE
              "RFC 3576, Section 2.1, Disconnect Messages (DM), and
               Section 2.3, Packet Format."
        ::= { radiusDynAuthClientEntry 12 }
-
 radiusDynAuthServDisconBadAuthenticators OBJECT-TYPE
        SYNTAX     Counter32
        UNITS      "requests"
@@ -400,6 +399,7 @@ radiusDynAuthServCoAAuthOnlyRequests OBJECT-TYPE
              "RFC 3576, Section 2.2, Change-of-Authorization
               Messages (CoA)."
        ::= { radiusDynAuthClientEntry 16 }
+
 
 radiusDynAuthServDupCoARequests OBJECT-TYPE
        SYNTAX     Counter32
@@ -611,7 +611,7 @@ radiusAuthServerMIBCompliance MODULE-COMPLIANCE
        MANDATORY-GROUPS { radiusDynAuthServerMIBGroup }
 
        OBJECT             radiusDynAuthClientAddressType
-       SYNTAX             InetAddressType -- { ipv4(1), ipv6(2) }
+       SYNTAX             InetAddressType { ipv4(1), ipv6(2) }
        DESCRIPTION
            "An implementation is only required to support IPv4 and
             globally unique IPv6 addresses."

@@ -42,9 +42,6 @@ T11FabricIndex ::= TEXTUAL-CONVENTION
            one (or more) physical infrastructures.
 
            In an environment that is conformant to FC-SW-3, where
-
-
-
            there is always exactly one Fabric in a single physical
            infrastructure, the value of this Fabric Index will
            always be 1.

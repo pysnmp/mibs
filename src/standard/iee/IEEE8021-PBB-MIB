@@ -26,38 +26,40 @@ IMPORTS
         FROM SNMPv2-CONF;
 
 ieee8021PbbMib MODULE-IDENTITY
-    LAST-UPDATED "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
         "  WG-URL: http://www.ieee802.org/1/
-         WG-EMail: stds-802-1-L@ieee.org
-
-          Contact: IEEE 802.1 Working Group Chair
+         WG-EMail: stds-802-1-l@ieee.org
+          Contact: IEEE 802.1 Working Group Chair 
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@IEEE.ORG"
+           E-mail: stds-802-1-chairs@ieee.org"
     DESCRIPTION
         "The Provider Backbone Bridge (PBB) MIB module for managing
-         devices that support PBB.
+        devices that support PBB.
 
-         Unless otherwise indicated, the references in this MIB
-         module are to IEEE Std 802.1Q.
+        Unless otherwise indicated, the references in this MIB
+        module are to IEEE Std 802.1Q-2022.
 
-         Copyright (C) IEEE (2018).
-         This version of this MIB module is part of IEEE Std 802.1Q;
-         see the draft itself for full legal notices."
+        Copyright (C) IEEE (2022).
+        This version of this MIB module is part of IEEE Std 802.1Q;
+        see that standard for full legal notices."
 
-    REVISION "201806280000Z" -- June 28, 2018
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q-2018.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
-            
+
     REVISION "201412150000Z" -- December 15, 2014
-    
     DESCRIPTION
             "Published as part of IEEE Std 802.1Q 2014 revision.
             Cross references updated and corrected.
@@ -69,7 +71,7 @@ ieee8021PbbMib MODULE-IDENTITY
          "Minor edits to contact information etc. as part of 
           2011 revision of IEEE Std 802.1Q."
           
-    REVISION     "200811180000Z" -- November 18,2008
+    REVISION     "200811180000Z" -- November 18, 2008
     DESCRIPTION
         "Modified VIP table to support the enableConnectionIdentifier
          configuration option."
@@ -247,7 +249,7 @@ ieee8021PbbVipType OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      deprecated
     DESCRIPTION
-        "This feature is used to support asymmetic VLANs.
+        "This feature is used to support asymmetric VLANs.
 
         The value of this object must be persistent across
         reinitializations of the management system."
@@ -303,7 +305,7 @@ ieee8021PbbISidToVipEntry OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
-        "A mapping from an I-SID to the VIP whith which it is
+        "A mapping from an I-SID to the VIP with which it is
          associated.  An entry will exist for each entry in
          the ieee8021PbbVipTable."
     INDEX       { ieee8021PbbISidToVipISid }
@@ -415,7 +417,7 @@ ieee8021PbbPipName OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "A text string of local significance which identifies the
+        "A text string of local significance that identifies the
          PIP within a BEB."
     DEFVAL { ''H }
     ::= { ieee8021PbbPipEntry 3 }
@@ -567,7 +569,7 @@ ieee8021PbbPipRowStatus OBJECT-TYPE
 
 -- =============================================================
 -- 12.16.4.1    Provider Instance Port (PIP)  
---              Prioity Table
+--              Priority Table
 -- =============================================================
 
 ieee8021PbbPipPriorityTable OBJECT-TYPE
@@ -633,7 +635,7 @@ ieee8021PbbPipRequireDropEncoding OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "If a Bridge supports encoding or decoding of drop_eligible
-        from the PCP field of a VLAN tag (6.7.3) on any of its PIPs,
+        from the PCP field of a VLAN tag (6.9.3) on any of its PIPs,
         then it shall implement a Boolean parameter Require Drop
         Encoding on each of its PIPs with default value false(2). If
         Require Drop Encoding is True and the PIP cannot
@@ -646,7 +648,7 @@ ieee8021PbbPipRequireDropEncoding OBJECT-TYPE
 
 -- =============================================================
 -- 12.16.4.7/12.16.4.8 Provider Instance Port (PIP)  
---              Prioity Code Point (PCP) Decoding Table
+--              Priority Code Point (PCP) Decoding Table
 -- =============================================================
 
 ieee8021PbbPipDecodingTable OBJECT-TYPE
@@ -724,7 +726,7 @@ ieee8021PbbPipDecodingDropEligible OBJECT-TYPE
 
 -- =============================================================
 -- 12.16.4.9/10 Provider Instance Port (PIP)  
---              Prioity Code Point (PCP) Encoding Table
+--              Priority Code Point (PCP) Encoding Table
 -- =============================================================
 
 ieee8021PbbPipEncodingTable OBJECT-TYPE
@@ -927,7 +929,7 @@ ieee8021PbbCBPServiceMappingBackboneSid OBJECT-TYPE
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
-        "The I-SID which will be transmitted over the PBBN."
+        "The I-SID that will be transmitted over the PBBN."
     ::= { ieee8021PbbCBPServiceMappingEntry 1 }
 
 ieee8021PbbCBPServiceMappingBVid OBJECT-TYPE
@@ -935,7 +937,7 @@ ieee8021PbbCBPServiceMappingBVid OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "The B-VID which will carry this service instance."
+        "The B-VID that will carry this service instance."
     ::= { ieee8021PbbCBPServiceMappingEntry 2 }
 
 ieee8021PbbCBPServiceMappingDefaultBackboneDest OBJECT-TYPE
