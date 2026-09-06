@@ -11,34 +11,49 @@ IMPORTS
     SnmpSecurityModel                     FROM SNMP-FRAMEWORK-MIB;
 
 snmpVacmMIB       MODULE-IDENTITY
-    LAST-UPDATED "9901200000Z"            -- 20 Jan 1999, midnight
+    LAST-UPDATED "200210160000Z"          -- 16 Oct 2002, midnight
     ORGANIZATION "SNMPv3 Working Group"
     CONTACT-INFO "WG-email:   snmpv3@lists.tislabs.com
                   Subscribe:  majordomo@lists.tislabs.com
                               In message body:  subscribe snmpv3
-                  Chair:      Russ Mundy
-                              Trusted Information Systems
-                  postal:     3060 Washington Rd
-                              Glenwood MD 21738
+
+                  Co-Chair:   Russ Mundy
+                              Network Associates Laboratories
+                  postal:     15204 Omega Drive, Suite 300
+                              Rockville, MD 20850-4601
                               USA
                   email:      mundy@tislabs.com
-                  phone:      +1-301-854-6889
+                  phone:      +1 301-947-7107
+
+                  Co-Chair:   David Harrington
+                              Enterasys Networks
+                  Postal:     35 Industrial Way
+                              P. O. Box 5004
+                              Rochester, New Hampshire 03866-5005
+                              USA
+                  EMail:      dbh@enterasys.com
+                  Phone:      +1 603-337-2614
 
                   Co-editor:  Bert Wijnen
-                              IBM T.J. Watson Research
+                              Lucent Technologies
                   postal:     Schagen 33
                               3461 GL Linschoten
                               Netherlands
-                  email:      wijnen@vnet.ibm.com
-                  phone:      +31-348-432-794
+                  email:      bwijnen@lucent.com
+                  phone:      +31-348-480-685
 
                   Co-editor:  Randy Presuhn
-                              BMC Software, Inc
-                  postal:     965 Stewart Drive
-                              Sunnyvale, CA 94086
+                              BMC Software, Inc.
+
+
+
+
+
+                  postal:     2141 North First Street
+                              San Jose, CA 95131
                               USA
                   email:      randy_presuhn@bmc.com
-                  phone:      +1-408-616-3100
+                  phone:      +1 408-546-1006
 
                   Co-editor:  Keith McCloghrie
                               Cisco Systems, Inc.
@@ -50,12 +65,20 @@ snmpVacmMIB       MODULE-IDENTITY
                  "
     DESCRIPTION  "The management information definitions for the
                   View-based Access Control Model for SNMP.
+
+                  Copyright (C) The Internet Society (2002). This
+                  version of this MIB module is part of RFC 3415;
+                  see the RFC itself for full legal notices.
                  "
 --  Revision history
-    REVISION     "9901200000Z"            -- 20 Jan 1999, midnight
+
+    REVISION     "200210160000Z"          -- 16 Oct 2002, midnight
+    DESCRIPTION  "Clarifications, published as RFC3415"
+
+    REVISION     "199901200000Z"          -- 20 Jan 1999, midnight
     DESCRIPTION  "Clarifications, published as RFC2575"
 
-    REVISION     "9711200000Z"            -- 20 Nov 1997, midnight
+    REVISION     "199711200000Z"          -- 20 Nov 1997, midnight
     DESCRIPTION  "Initial version, published as RFC2275"
 
     ::= { snmpModules 16 }
@@ -74,13 +97,18 @@ vacmContextTable OBJECT-TYPE
     DESCRIPTION "The table of locally available contexts.
 
                  This table provides information to SNMP Command
+
+
+
+
+
                  Generator applications so that they can properly
                  configure the vacmAccessTable to control access to
                  all contexts at the SNMP entity.
 
                  This table may change dynamically if the SNMP entity
                  allows that contexts are added/deleted dynamically
-                 (for instance when its configuration changes). Such
+                 (for instance when its configuration changes).  Such
                  changes would happen only if the management
                  instrumentation at that SNMP entity recognizes more
                  (or fewer) contexts.
@@ -98,7 +126,7 @@ vacmContextTable OBJECT-TYPE
                  context so that Command Responder applications have
                  a standard way of retrieving the information.
 
-                 This table is read-only. It cannot be configured via
+                 This table is read-only.  It cannot be configured via
                  SNMP.
                 "
     ::= { vacmMIBObjects 1 }
@@ -122,6 +150,11 @@ vacmContextName  OBJECT-TYPE
     SYNTAX       SnmpAdminString (SIZE(0..32))
     MAX-ACCESS   read-only
     STATUS       current
+
+
+
+
+
     DESCRIPTION "A human readable name identifying a particular
                  context at a particular SNMP entity.
 
@@ -171,6 +204,10 @@ vacmSecurityModel OBJECT-TYPE
     DESCRIPTION "The Security Model, by which the vacmSecurityName
                  referenced by this entry is provided.
 
+
+
+
+
                  Note, this object may not take the 'any' (0) value.
                 "
     ::= { vacmSecurityToGroupEntry 1 }
@@ -208,8 +245,8 @@ vacmSecurityToGroupStorageType OBJECT-TYPE
                  Conceptual rows having the value 'permanent' need not
                  allow write-access to any columnar objects in the row.
                 "
-    DEFVAL      { nonVolatile }	
-::= { vacmSecurityToGroupEntry 4 }
+    DEFVAL      { nonVolatile }
+    ::= { vacmSecurityToGroupEntry 4 }
 
 vacmSecurityToGroupStatus OBJECT-TYPE
     SYNTAX       RowStatus
@@ -219,6 +256,11 @@ vacmSecurityToGroupStatus OBJECT-TYPE
 
                  Until instances of all corresponding columns are
                  appropriately configured, the value of the
+
+
+
+
+
                  corresponding instance of the vacmSecurityToGroupStatus
                  column is 'notReady'.
 
@@ -252,6 +294,7 @@ vacmAccessTable  OBJECT-TYPE
 
                  1) the set of possible matches is formed by the
                     intersection of the following sets of entries:
+
                       the set of entries with identical vacmGroupName
                       the union of these two sets:
                        - the set with identical vacmAccessContextPrefix
@@ -266,6 +309,10 @@ vacmAccessTable  OBJECT-TYPE
                       intersected with the set of entries with
                       vacmAccessSecurityLevel value less than or equal
                       to the requested securityLevel
+
+
+
+
 
                  2) if this set has only one member, we're done
                     otherwise, it comes down to deciding how to weight
@@ -315,6 +362,11 @@ VacmAccessEntry ::= SEQUENCE
         vacmAccessContextMatch     INTEGER,
         vacmAccessReadViewName     SnmpAdminString,
         vacmAccessWriteViewName    SnmpAdminString,
+
+
+
+
+
         vacmAccessNotifyViewName   SnmpAdminString,
         vacmAccessStorageType      StorageType,
         vacmAccessStatus           RowStatus
@@ -363,6 +415,11 @@ vacmAccessContextMatch OBJECT-TYPE
                 { exact (1), -- exact match of prefix and contextName
                   prefix (2) -- Only match to the prefix
                 }
+
+
+
+
+
     MAX-ACCESS   read-create
     STATUS       current
     DESCRIPTION "If the value of this object is exact(1), then all
@@ -411,6 +468,11 @@ vacmAccessWriteViewName OBJECT-TYPE
                  is granted.
                 "
     DEFVAL      { ''H }   -- the empty string
+
+
+
+
+
     ::= { vacmAccessEntry 6 }
 
 vacmAccessNotifyViewName OBJECT-TYPE
@@ -448,6 +510,7 @@ vacmAccessStatus OBJECT-TYPE
     MAX-ACCESS   read-create
     STATUS       current
     DESCRIPTION "The status of this conceptual row.
+
                  The  RowStatus TC [RFC2579] requires that this
                  DESCRIPTION clause states under which circumstances
                  other objects in this row can be modified:
@@ -458,6 +521,10 @@ vacmAccessStatus OBJECT-TYPE
     ::= { vacmAccessEntry 9 }
 
 -- Information about MIB views ***************************************
+
+
+
+
 
 -- Support for instance-level granularity is optional.
 --
@@ -507,6 +574,11 @@ vacmViewTreeFamilyTable OBJECT-TYPE
                    - the included view subtrees, and
                    - the excluded view subtrees.
                  Every such view subtree, both the included and the
+
+
+
+
+
                  excluded ones, is defined in this table.
 
                  To determine if a particular object instance is in
@@ -539,13 +611,14 @@ vacmViewTreeFamilyTable OBJECT-TYPE
                  A 'family' of subtrees is the set of subtrees defined
                  by a particular combination of values of
                  vacmViewTreeFamilySubtree and vacmViewTreeFamilyMask.
+
                  In the case where no 'wild card' is defined in the
                  vacmViewTreeFamilyMask, the family of subtrees reduces
                  to a single subtree.
 
                  When creating or changing MIB views, an SNMP Command
                  Generator application should utilize the
-                 vacmViewSpinLock to try to avoid collisions. See
+                 vacmViewSpinLock to try to avoid collisions.  See
                  DESCRIPTION clause of vacmViewSpinLock.
 
                  When creating MIB views, it is strongly advised that
@@ -554,6 +627,11 @@ vacmViewTreeFamilyTable OBJECT-TYPE
 
                  When deleting MIB views, it is strongly advised that
                  first the 'included' vacmViewTreeFamilyEntries are
+
+
+
+
+
                  deleted and then the 'excluded' entries.
 
                  If a create for an entry for instance-level access
@@ -602,6 +680,11 @@ vacmViewTreeFamilyViewName OBJECT-TYPE
     STATUS       current
     DESCRIPTION "The human readable name for a family of view subtrees.
                 "
+
+
+
+
+
     ::= { vacmViewTreeFamilyEntry 1 }
 
 vacmViewTreeFamilySubtree OBJECT-TYPE
@@ -650,6 +733,11 @@ vacmViewTreeFamilyMask OBJECT-TYPE
                    vacmViewTreeFamilySubtree.
 
                  If the value of this bit mask is M bits long and
+
+
+
+
+
                  there are more than M sub-identifiers in the
                  corresponding instance of vacmViewTreeFamilySubtree,
                  then the bit mask is extended with 1's to be the
@@ -663,7 +751,7 @@ vacmViewTreeFamilyMask OBJECT-TYPE
                  instance of vacmViewTreeFamilySubtree.
 
                  Note that masks of length greater than zero length
-                 do not need to be supported. In this case this
+                 do not need to be supported.  In this case this
                  object is made read-only.
                 "
     DEFVAL      { ''H }
@@ -688,7 +776,7 @@ vacmViewTreeFamilyStorageType OBJECT-TYPE
     DESCRIPTION "The storage type for this conceptual row.
 
                  Conceptual rows having the value 'permanent' need not
-        allow write-access to any columnar objects in the row.
+                 allow write-access to any columnar objects in the row.
                 "
     DEFVAL      { nonVolatile }
     ::= { vacmViewTreeFamilyEntry 5 }
@@ -698,6 +786,10 @@ vacmViewTreeFamilyStatus OBJECT-TYPE
     MAX-ACCESS   read-create
     STATUS       current
     DESCRIPTION "The status of this conceptual row.
+
+
+
+
 
                  The  RowStatus TC [RFC2579] requires that this
                  DESCRIPTION clause states under which circumstances
@@ -747,6 +839,11 @@ vacmMIBCompliance MODULE-COMPLIANCE
         OBJECT        vacmAccessStatus
         MIN-ACCESS    read-only
         DESCRIPTION  "Create/delete/modify access to the
+
+
+
+
+
                       vacmAccessTable is not required.
                      "
 
@@ -795,10 +892,13 @@ vacmBasicGroup OBJECT-GROUP
     STATUS       current
     DESCRIPTION "A collection of objects providing for remote
                  configuration of an SNMP engine which implements
+
+
+
+
+
                  the SNMP View-based Access Control Model.
                 "
     ::= { vacmMIBGroups 1 }
 
 END
-
-

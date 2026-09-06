@@ -12,7 +12,13 @@ IMPORTS
 
     SnmpAdminString
         FROM SNMP-FRAMEWORK-MIB
+
     SnmpTagValue,
+
+
+
+
+
     snmpTargetParamsName
         FROM SNMP-TARGET-MIB
 
@@ -21,50 +27,68 @@ IMPORTS
         FROM SNMPv2-CONF;
 
 snmpNotificationMIB MODULE-IDENTITY
-    LAST-UPDATED "9808040000Z"
+    LAST-UPDATED "200210140000Z"
     ORGANIZATION "IETF SNMPv3 Working Group"
     CONTACT-INFO
         "WG-email:   snmpv3@lists.tislabs.com
          Subscribe:  majordomo@lists.tislabs.com
                      In message body:  subscribe snmpv3
 
-         Chair:      Russ Mundy
-                     Trusted Information Systems
-         Postal:     3060 Washington Rd
-                     Glenwood MD 21738
+         Co-Chair:   Russ Mundy
+                     Network Associates Laboratories
+         Postal:     15204 Omega Drive, Suite 300
+                     Rockville, MD 20850-4601
                      USA
          EMail:      mundy@tislabs.com
-         Phone:      +1-301-854-6889
+         Phone:      +1 301-947-7107
+
+         Co-Chair:   David Harrington
+                     Enterasys Networks
+         Postal:     35 Industrial Way
+                     P. O. Box 5004
+                     Rochester, New Hampshire 03866-5005
+                     USA
+         EMail:      dbh@enterasys.com
+         Phone:      +1 603-337-2614
 
          Co-editor:  David B. Levi
-                     SNMP Research, Inc.
-         Postal:     3001 Kimberlin Heights Road
-                     Knoxville, TN 37920-9716
-         EMail:      levi@snmp.com
-         Phone:      +1 423 573 1434
+                     Nortel Networks
+         Postal:     3505 Kesterwood Drive
+                     Knoxville, Tennessee 37918
+         EMail:      dlevi@nortelnetworks.com
+         Phone:      +1 865 686 0432
 
          Co-editor:  Paul Meyer
                      Secure Computing Corporation
          Postal:     2675 Long Lake Road
-                     Roseville, MN 55113
+                     Roseville, Minnesota 55113
          EMail:      paul_meyer@securecomputing.com
          Phone:      +1 651 628 1592
 
          Co-editor:  Bob Stewart
-                     Cisco Systems, Inc.
-         Postal:     170 West Tasman Drive
-                     San Jose, CA 95134-1706
-         EMail:      bstewart@cisco.com
-         Phone:      +1 603 654 2686"
+                     Retired"
+
+
+
+
+
     DESCRIPTION
         "This MIB module defines MIB objects which provide
          mechanisms to remotely configure the parameters
          used by an SNMP entity for the generation of
-         notifications."
-    REVISION    "9808040000Z"
+         notifications.
+
+         Copyright (C) The Internet Society (2002). This
+         version of this MIB module is part of RFC 3413;
+         see the RFC itself for full legal notices.
+        "
+    REVISION    "200210140000Z"             -- 14 October 2002
     DESCRIPTION "Clarifications, published as
-                 RFC2573"
-    REVISION    "9707140000Z"
+                 RFC 3413."
+    REVISION    "199808040000Z"             -- 4 August 1998
+    DESCRIPTION "Clarifications, published as
+                 RFC 2573."
+    REVISION    "199707140000Z"             -- 14 July 1997
     DESCRIPTION "The initial revision, published as RFC2273."
     ::= { snmpModules 13 }
 
@@ -96,6 +120,11 @@ snmpNotifyEntry OBJECT-TYPE
     DESCRIPTION
         "An entry in this table selects a set of management targets
          which should receive notifications, as well as the type of
+
+
+
+
+
          notification which should be sent to each selected
          management target.
 
@@ -144,6 +173,11 @@ snmpNotifyType OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "This object determines the type of notification to
+
+
+
+
+
          be generated for entries in the snmpTargetAddrTable
          selected by the corresponding instance of
          snmpNotifyTag.  This value is only used when
@@ -164,12 +198,15 @@ snmpNotifyType OBJECT-TYPE
          read-only."
     DEFVAL { trap }
     ::= { snmpNotifyEntry 3 }
+
 snmpNotifyStorageType OBJECT-TYPE
     SYNTAX      StorageType
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "The storage type for this conceptual row."
+        "The storage type for this conceptual row.
+         Conceptual rows having the value 'permanent' need not
+         allow write-access to any columnar objects in the row."
     DEFVAL { nonVolatile }
     ::= { snmpNotifyEntry 4 }
 
@@ -189,6 +226,11 @@ snmpNotifyFilterProfileTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF SnmpNotifyFilterProfileEntry
     MAX-ACCESS  not-accessible
     STATUS      current
+
+
+
+
+
     DESCRIPTION
         "This table is used to associate a notification filter
          profile with a particular set of target parameters."
@@ -230,11 +272,18 @@ snmpNotifyFilterProfileStorType OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "The storage type of this conceptual row."
+        "The storage type for this conceptual row.
+         Conceptual rows having the value 'permanent' need not
+         allow write-access to any columnar objects in the row."
     DEFVAL { nonVolatile }
     ::= { snmpNotifyFilterProfileEntry 2 }
 
 snmpNotifyFilterProfileRowStatus OBJECT-TYPE
+
+
+
+
+
     SYNTAX      RowStatus
     MAX-ACCESS  read-create
     STATUS      current
@@ -271,7 +320,7 @@ snmpNotifyFilterTable OBJECT-TYPE
          target.
 
          A more complete discussion of notification filtering
-         can be found in section 6. of [RFC2573]."
+         can be found in section 6. of [SNMP-APPL]."
     ::= { snmpNotifyObjects 3 }
 
 snmpNotifyFilterEntry OBJECT-TYPE
@@ -283,6 +332,11 @@ snmpNotifyFilterEntry OBJECT-TYPE
 
          Entries in the snmpNotifyFilterTable are created and
          deleted using the snmpNotifyFilterRowStatus object."
+
+
+
+
+
     INDEX {         snmpNotifyFilterProfileName,
             IMPLIED snmpNotifyFilterSubtree }
     ::= { snmpNotifyFilterTable 1 }
@@ -305,6 +359,7 @@ snmpNotifyFilterSubtree OBJECT-TYPE
          subtrees which are included in or excluded from the
          filter profile."
     ::= { snmpNotifyFilterEntry 1 }
+
 snmpNotifyFilterMask OBJECT-TYPE
     SYNTAX      OCTET STRING (SIZE(0..16))
     MAX-ACCESS  read-create
@@ -331,6 +386,10 @@ snmpNotifyFilterMask OBJECT-TYPE
          exact match must occur; a '0' indicates 'wild card',
          i.e., any sub-identifier value matches.
 
+
+
+
+
          Thus, the OBJECT IDENTIFIER X of an object instance
          is contained in a family of filter subtrees if, for
          each sub-identifier of the value of
@@ -347,6 +406,7 @@ snmpNotifyFilterMask OBJECT-TYPE
          corresponding instance of snmpNotifyFilterSubtree,
          then the bit mask is extended with 1's to be the
          required length.
+
          Note that when the value of this object is the
          zero-length string, this extension rule results in
          a mask of all-1's being used (i.e., no 'wild card'),
@@ -367,7 +427,7 @@ snmpNotifyFilterType OBJECT-TYPE
         "This object indicates whether the family of filter subtrees
          defined by this entry are included in or excluded from a
          filter.  A more detailed discussion of the use of this
-         object can be found in section 6. of [RFC2573]."
+         object can be found in section 6. of [SNMP-APPL]."
     DEFVAL { included }
     ::= { snmpNotifyFilterEntry 3 }
 
@@ -376,7 +436,14 @@ snmpNotifyFilterStorageType OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "The storage type of this conceptual row."
+        "The storage type for this conceptual row.
+         Conceptual rows having the value 'permanent' need not
+
+
+
+
+
+         allow write-access to any columnar objects in the row."
     DEFVAL { nonVolatile }
     ::= { snmpNotifyFilterEntry 4 }
 
@@ -395,9 +462,9 @@ snmpNotifyFilterRowStatus OBJECT-TYPE
 --
 --
 -- Conformance information
+--
+--
 
---
---
 snmpNotifyCompliances OBJECT IDENTIFIER ::=
                                         { snmpNotifyConformance 1 }
 snmpNotifyGroups      OBJECT IDENTIFIER ::=
@@ -424,6 +491,11 @@ snmpNotifyBasicCompliance MODULE-COMPLIANCE
             "Create/delete/modify access is not required."
 
         OBJECT snmpTargetParamsSecurityModel
+
+
+
+
+
         MIN-ACCESS    read-only
         DESCRIPTION
             "Create/delete/modify access is not required."
@@ -472,6 +544,11 @@ snmpNotifyBasicCompliance MODULE-COMPLIANCE
         SYNTAX INTEGER {
             trap(1)
         }
+
+
+
+
+
         MIN-ACCESS    read-only
         DESCRIPTION
             "Create/delete/modify access is not required.
@@ -520,6 +597,11 @@ snmpNotifyFullCompliance MODULE-COMPLIANCE
         "The compliance statement for SNMP entities which either
          implement only SNMP Confirmed-Class notifications, or both
          SNMP Unconfirmed-Class and Confirmed-Class notifications,
+
+
+
+
+
          plus filtering and read-create operations on all related
          tables."
     MODULE SNMP-TARGET-MIB
