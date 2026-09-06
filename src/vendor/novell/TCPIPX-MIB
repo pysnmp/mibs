@@ -215,7 +215,7 @@ udpIpxLocalPort OBJECT-TYPE
 -- address.
 
 tcpUnspecConnTable OBJECT-TYPE
-    SYNTAX  SEQUENCE OF TcpIpxConnEntry
+    SYNTAX  SEQUENCE OF TcpUnspecConnEntry
     ACCESS  not-accessible
     STATUS  mandatory
     DESCRIPTION
