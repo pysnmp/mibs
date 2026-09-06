@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 PY ?= uv run
-.PHONY: all vendor
+.PHONY: all vendor bundled-asn1
 #RFC=$(notdir $(wildcard mibs/*))
 RFC=$(wildcard src/standard/*)
 
@@ -16,18 +16,24 @@ dirs:
 	mkdir -p output/json/ || true
 	mkdir -p log || true
 
+bundled-asn1: dirs  ## Stage pysmi's bundled ASN.1 sources into the published asn1 tree
+	@bundle=$$($(PY) python -c 'import pysmi.mibs.asn1 as m; print(m.__path__[0])'); \
+	  test -n "$$bundle" -a -d "$$bundle" || { echo "cannot locate pysmi bundled asn1"; exit 1; }; \
+	  find "$$bundle" -maxdepth 1 -type f ! -name '*.py' ! -name '*.pyc' -exec cp -f {} output/asn1/ \;
+
 render:
 	rm -rf rendered/manifests/*
 	helm template --namespace default --output-dir rendered/manifests/default default charts/mibserver
 	./render_manifests.sh
 
-standard: dirs $(RFC)
+standard: bundled-asn1 $(RFC)
 	@# Compile mibs
 
-	find src/standard -type f | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
+	{ find src/standard -type f; find output/asn1 -maxdepth 1 -type f; } | sed 's|^.*\/||g' | grep -v '^\.' | grep -v '^RFC' | grep -v '^SNMPv2' | sort | uniq >output/standard.txt
+	./scripts/vendorsingle.sh output/asn1
 	./scripts/vendor.sh standard	
 
-vendor: dirs $(RFC)
+vendor: bundled-asn1 $(RFC)
 	./scripts/vendor.sh vendor
 
 localmibs:
@@ -38,7 +44,7 @@ index: standard vendor  ##generate index
 	touch output/.nojekyll
 	$(PY) python index.py
 
-index-local-mibs: dirs $(RFC) localmibs
+index-local-mibs: bundled-asn1 $(RFC) localmibs
 	touch output/.nojekyll
 	$(PY) python index.py
 
