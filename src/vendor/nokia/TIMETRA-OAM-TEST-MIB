@@ -11,7 +11,7 @@ IMPORTS
     InetAddressType, InetPortNumber
                                                          FROM INET-ADDRESS-MIB
     MplsLabel
-                                                         FROM MPLS-LDP-MIB
+                                                         FROM MPLS-TC-STD-MIB
     RouterID
                                                          FROM OSPF-MIB
     SnmpAdminString

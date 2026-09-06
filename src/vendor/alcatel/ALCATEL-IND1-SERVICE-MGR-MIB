@@ -27,7 +27,7 @@ ALCATEL-IND1-SERVICE-MGR-MIB DEFINITIONS ::= BEGIN
                 InetAddress, InetAddressType
                         FROM INET-ADDRESS-MIB
                 MplsLdpIdentifier
-                        FROM MPLS-LDP-MIB
+                        FROM MPLS-TC-STD-MIB
                 SnmpAdminString
                         FROM SNMP-FRAMEWORK-MIB
                 ;

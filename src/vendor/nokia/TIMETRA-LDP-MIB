@@ -7,7 +7,7 @@ IMPORTS
     InetAddressType
                                                          FROM INET-ADDRESS-MIB
     MplsLdpIdentifier, MplsLsrIdentifier
-                                                         FROM MPLS-LDP-MIB
+                                                         FROM MPLS-TC-STD-MIB
     MODULE-COMPLIANCE, NOTIFICATION-GROUP,
     OBJECT-GROUP
                                                          FROM SNMPv2-CONF
