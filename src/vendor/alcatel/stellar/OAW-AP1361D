@@ -115,7 +115,7 @@ DESCRIPTION
 " "
 ::= { apRadioInfo  1}
 
-ApRadioInfoEntry  OBJECT-TYPE
+apRadioInfoEntry  OBJECT-TYPE
 SYNTAX ApRadioInfoEntry
 MAX-ACCESS not-accessible
 STATUS current
@@ -148,7 +148,7 @@ MAX-ACCESS not-accessible
 STATUS current
 DESCRIPTION
 ""
-::={ApRadioInfoEntry 1}
+::={apRadioInfoEntry 1}
 
 apRadioMacAddress OBJECT-TYPE
 SYNTAX  DisplayString
@@ -156,7 +156,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApRadioInfoEntry 2}
+::= {apRadioInfoEntry 2}
 
 apRadioBand   OBJECT-TYPE
 SYNTAX  INTEGER
@@ -164,7 +164,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApRadioInfoEntry 3}
+::= {apRadioInfoEntry 3}
 
 apRadioChannel  OBJECT-TYPE
 SYNTAX  INTEGER
@@ -172,7 +172,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApRadioInfoEntry 4}
+::= {apRadioInfoEntry 4}
 
 apRadioTxpower  OBJECT-TYPE
 SYNTAX  INTEGER
@@ -180,7 +180,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApRadioInfoEntry 5}
+::= {apRadioInfoEntry 5}
 
 apRadioUtilization   OBJECT-TYPE
 SYNTAX   INTEGER
@@ -188,7 +188,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 6 }
+::= { apRadioInfoEntry 6 }
 
 apRadioTxTotalFrames  OBJECT-TYPE
 SYNTAX    Counter64
@@ -196,7 +196,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 7}
+::= { apRadioInfoEntry 7}
 
 apRadioTxManagementFrames OBJECT-TYPE
 SYNTAX    Counter64
@@ -204,7 +204,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 8}
+::= { apRadioInfoEntry 8}
 
 apRadioTxDataFrames  OBJECT-TYPE
 SYNTAX   Counter64
@@ -212,7 +212,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 9}
+::= { apRadioInfoEntry 9}
 
 apRadioTxBytes  OBJECT-TYPE
 SYNTAX  Counter64
@@ -220,7 +220,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 10}
+::= { apRadioInfoEntry 10}
 
 apRadioTxDrops  OBJECT-TYPE
 SYNTAX  Counter64
@@ -228,7 +228,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 11}
+::= { apRadioInfoEntry 11}
 
 apRadioRxTotalFrames  OBJECT-TYPE
 SYNTAX  Counter64
@@ -236,7 +236,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 12}
+::= { apRadioInfoEntry 12}
 
 apRadioRxManagementFrames  OBJECT-TYPE
 SYNTAX  Counter64
@@ -244,7 +244,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 13}
+::= { apRadioInfoEntry 13}
 
 apRadioRxDataFrames  OBJECT-TYPE
 SYNTAX  Counter64
@@ -252,7 +252,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 14}
+::= { apRadioInfoEntry 14}
 
 apRadioRxBytes  OBJECT-TYPE
 SYNTAX  Counter64
@@ -260,7 +260,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 15}
+::= { apRadioInfoEntry 15}
 
 apRadioRxBadFrames  OBJECT-TYPE
 SYNTAX  Counter64
@@ -268,7 +268,7 @@ MAX-ACCESS read-only
 STATUS current
 DESCRIPTION
 " "
-::= { ApRadioInfoEntry 16}
+::= { apRadioInfoEntry 16}
 
 -- **********************************************************************
 -- *apWlanInfoTable
@@ -281,7 +281,7 @@ DESCRIPTION
 " "
 ::= { apWlanInfo  1}
 
-ApWlanInfoEntry  OBJECT-TYPE
+apWlanInfoEntry  OBJECT-TYPE
 SYNTAX ApWlanInfoEntry
 MAX-ACCESS not-accessible
 STATUS current
@@ -305,7 +305,7 @@ MAX-ACCESS not-accessible
 STATUS current
 DESCRIPTION
 ""
-::={ApWlanInfoEntry 1}
+::={apWlanInfoEntry 1}
 
 
 apWlanEssid OBJECT-TYPE
@@ -314,7 +314,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApWlanInfoEntry 2}
+::= {apWlanInfoEntry 2}
 
 apWlanMacAddress OBJECT-TYPE
 SYNTAX  DisplayString
@@ -322,7 +322,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApWlanInfoEntry 3}
+::= {apWlanInfoEntry 3}
 
 apWlanTxTotalFrames   OBJECT-TYPE
 SYNTAX  Counter64
@@ -330,7 +330,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApWlanInfoEntry 4}
+::= {apWlanInfoEntry 4}
 
 apWlanTxBytes  OBJECT-TYPE
 SYNTAX  Counter64
@@ -338,7 +338,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApWlanInfoEntry 5}
+::= {apWlanInfoEntry 5}
 
 apWlanRxTotalFrames  OBJECT-TYPE
 SYNTAX  Counter64
@@ -346,7 +346,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApWlanInfoEntry 6}
+::= {apWlanInfoEntry 6}
 
 apWlanRxBytes  OBJECT-TYPE
 SYNTAX  Counter64
@@ -354,7 +354,7 @@ MAX-ACCESS  read-only
 STATUS  current
 DESCRIPTION
 ""
-::= {ApWlanInfoEntry 7}
+::= {apWlanInfoEntry 7}
 
 -- **********************************************************************
 -- *apClientInfoTable
@@ -367,7 +367,7 @@ DESCRIPTION
 " "
 ::= { apClientInfo  1}
 
-ApClientInfoEntry  OBJECT-TYPE
+apClientInfoEntry  OBJECT-TYPE
 SYNTAX ApClientInfoEntry
 MAX-ACCESS not-accessible
 STATUS current
@@ -401,7 +401,7 @@ MAX-ACCESS not-accessible
 STATUS current
 DESCRIPTION
 ""
-::={ApClientInfoEntry 1}
+::={apClientInfoEntry 1}
 
 apClientMacAddress OBJECT-TYPE
     SYNTAX  DisplayString
@@ -409,7 +409,7 @@ apClientMacAddress OBJECT-TYPE
     STATUS  current
     DESCRIPTION
     ""
-    ::= { ApClientInfoEntry 2 }
+    ::= { apClientInfoEntry 2 }
 
 apClientIPAddress OBJECT-TYPE
     SYNTAX  NetworkAddress
@@ -417,7 +417,7 @@ apClientIPAddress OBJECT-TYPE
     STATUS  current
     DESCRIPTION
     ""
-    ::= { ApClientInfoEntry 3 }
+    ::= { apClientInfoEntry 3 }
 
 apClientWlanService OBJECT-TYPE
     SYNTAX  DisplayString (SIZE (0..255))
@@ -425,7 +425,7 @@ apClientWlanService OBJECT-TYPE
     STATUS  current
     DESCRIPTION
     ""
-    ::= { ApClientInfoEntry 4 }
+    ::= { apClientInfoEntry 4 }
 	
 apClientSNR OBJECT-TYPE
     SYNTAX  INTEGER
@@ -433,7 +433,7 @@ apClientSNR OBJECT-TYPE
     STATUS  current
     DESCRIPTION
     ""
-    ::= { ApClientInfoEntry 5 }
+    ::= { apClientInfoEntry 5 }
 
 apClientDeviceFamily OBJECT-TYPE
     SYNTAX  DisplayString (SIZE (0..255))
@@ -441,7 +441,7 @@ apClientDeviceFamily OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 6 }
+    ::= { apClientInfoEntry 6 }
 
 apClientOS OBJECT-TYPE
     SYNTAX  DisplayString (SIZE (0..255))
@@ -449,7 +449,7 @@ apClientOS OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 7 }
+    ::= { apClientInfoEntry 7 }
 
 apClientUptime OBJECT-TYPE
     SYNTAX  Integer32
@@ -457,7 +457,7 @@ apClientUptime OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 8}
+    ::= { apClientInfoEntry 8}
 
 apClientTxFrames OBJECT-TYPE
     SYNTAX  Counter64
@@ -465,7 +465,7 @@ apClientTxFrames OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 9}	
+    ::= { apClientInfoEntry 9}	
 
 apClientTxBytes OBJECT-TYPE
     SYNTAX  Counter64
@@ -473,7 +473,7 @@ apClientTxBytes OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 10}	
+    ::= { apClientInfoEntry 10}	
 	
 apClientTxRate OBJECT-TYPE
     SYNTAX  Counter64
@@ -481,7 +481,7 @@ apClientTxRate OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 11}	
+    ::= { apClientInfoEntry 11}	
 
 apClientTxRetries OBJECT-TYPE
     SYNTAX  Counter64
@@ -489,7 +489,7 @@ apClientTxRetries OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 12}
+    ::= { apClientInfoEntry 12}
 	
 apClientRxFrames OBJECT-TYPE
     SYNTAX  Counter64
@@ -497,7 +497,7 @@ apClientRxFrames OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 13}	
+    ::= { apClientInfoEntry 13}	
 
 apClientRxBytes OBJECT-TYPE
     SYNTAX  Counter64
@@ -505,7 +505,7 @@ apClientRxBytes OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 14}	
+    ::= { apClientInfoEntry 14}	
 
 apClientRxRate OBJECT-TYPE
     SYNTAX  Counter64
@@ -513,7 +513,7 @@ apClientRxRate OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 15}		
+    ::= { apClientInfoEntry 15}		
 
 apClientRxRetries OBJECT-TYPE
     SYNTAX  Counter64
@@ -521,6 +521,6 @@ apClientRxRetries OBJECT-TYPE
     STATUS  current
     DESCRIPTION
 	""
-    ::= { ApClientInfoEntry 16}	
+    ::= { apClientInfoEntry 16}	
 	
 END
