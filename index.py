@@ -118,16 +118,26 @@ with open(CURRENT_OUT, "w") as f:
 # given OID resolves to keep the answer they already have. Rows are dropped
 # only where the module they name is no longer compiled, so nothing here
 # points at a MIB the site does not serve.
-dropped = 0
-with open(FROZEN, newline="") as src, open(LEGACY_OUT, "w") as out:
-    for row in csv.reader(src):
-        if len(row) < 2:
-            continue
-        module, oid = row[0], row[1]
-        if module not in modules:
-            dropped += 1
-            continue
-        out.write(f"{module},{oid}\n")
-
-print(f"{LEGACY_OUT}: frozen snapshot, {dropped} rows dropped as absent")
+#
+# The snapshot only ships with the corpus. The container runs this script again
+# over just the MIBs a user mounted at runtime, and there the snapshot has
+# nothing to say about modules it predates, so the ranked index is the answer
+# and the caller merges it into the index already being served.
+if os.path.exists(FROZEN):
+    dropped = 0
+    with open(FROZEN, newline="") as src, open(LEGACY_OUT, "w") as out:
+        for row in csv.reader(src):
+            if len(row) < 2:
+                continue
+            module, oid = row[0], row[1]
+            if module not in modules:
+                dropped += 1
+                continue
+            out.write(f"{module},{oid}\n")
+    print(f"{LEGACY_OUT}: frozen snapshot, {dropped} rows dropped as absent")
+else:
+    with open(LEGACY_OUT, "w") as out:
+        for oid, rank in sorted(index.items(), key=lambda item: arcs(item[0])):
+            out.write(f"{rank[-1]},{oid}\n")
+    print(f"{LEGACY_OUT}: no frozen snapshot, wrote {len(index)} ranked OIDs")
 print(f"{CURRENT_OUT}: {len(index)} OIDs")
