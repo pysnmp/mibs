@@ -1,6 +1,6 @@
 [project]
 name = "pysnmp-mibs"
-version = "1.18.0"
+version = "1.19.0"
 description = ""
 authors = [{ name = "rfaircloth-splunk", email = "rfaircloth@splunk.com" }]
 license = "BSD-2-Clause"
