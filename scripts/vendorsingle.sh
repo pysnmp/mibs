@@ -22,4 +22,5 @@ ${MIBDUMP:-uv run mibdump} \
 	 $mib >log/$v-j.log 2>log/$v-j.err
 
 
-cp -f $1/* output/asn1
+# Skip when compiling the staged bundle itself: source and target are the same tree.
+[ "$(cd "$1" && pwd)" = "$(pwd)/output/asn1" ] || cp -f $1/* output/asn1
