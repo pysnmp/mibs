@@ -1,4 +1,4 @@
-MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
+     MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
 
      IMPORTS
          OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE,
@@ -586,7 +586,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              mplsLdpEntityTargetPeerAddrType specifies how
              this address is to be interpreted."
         ::= { mplsLdpEntityEntry 19 }
-
      mplsLdpEntityLabelType OBJECT-TYPE
          SYNTAX      MplsLdpLabelType
          MAX-ACCESS  read-create
@@ -778,7 +777,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              other times as indicated by the value of
              mplsLdpEntityDiscontinuityTime."
          ::= { mplsLdpEntityStatsEntry 4 }
-
      mplsLdpEntityStatsSessionRejectedLRErrors OBJECT-TYPE
          SYNTAX      Counter32
          MAX-ACCESS  read-only
@@ -827,7 +825,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
          REFERENCE
             "RFC3036, LDP Specification, Section 3.5.1.2."
          ::= { mplsLdpEntityStatsEntry 7 }
-
      mplsLdpEntityStatsBadMessageLengthErrors OBJECT-TYPE
          SYNTAX      Counter32
          MAX-ACCESS  read-only
@@ -1115,7 +1112,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              denoted by the mplsLdpSessionState
              object."
          ::= { mplsLdpSessionEntry 1 }
-
      mplsLdpSessionState OBJECT-TYPE
          SYNTAX      INTEGER {
                         nonexistent(1),
@@ -1307,8 +1303,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              other times as indicated by the value of
              mplsLdpSessionDiscontinuityTime."
          ::= { mplsLdpSessionStatsEntry 2 }
-
-
      --
      -- The MPLS LDP Hello Adjacency Table
      --
@@ -1452,7 +1446,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
                        mplsInSegmentLdpLspIndex
                      }
          ::= { mplsInSegmentLdpLspTable 1 }
-
      MplsInSegmentLdpLspEntry ::= SEQUENCE {
          mplsInSegmentLdpLspIndex                 MplsIndexType,
          mplsInSegmentLdpLspLabelType             MplsLdpLabelType,
@@ -1596,7 +1589,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              (Forwarding Equivalence Class)
              Information associated with an LSP."
          ::= { mplsFecObjects 3 }
-
      mplsFecEntry OBJECT-TYPE
          SYNTAX      MplsFecEntry
          MAX-ACCESS  not-accessible
@@ -1741,7 +1733,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              re-initialization of the local management subsystem,
              then this object contains a zero value."
        ::= { mplsLdpSessionObjects 9 }
-
      mplsLdpLspFecTable OBJECT-TYPE
         SYNTAX      SEQUENCE OF MplsLdpLspFecEntry
         MAX-ACCESS  not-accessible
@@ -1837,7 +1828,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
             objects in the row."
         DEFVAL { nonVolatile }
         ::= { mplsLdpLspFecEntry 4 }
-
      mplsLdpLspFecRowStatus  OBJECT-TYPE
         SYNTAX     RowStatus
         MAX-ACCESS read-create
@@ -1981,7 +1971,6 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
           REFERENCE
              "RFC3036, LDP Specification, Section 3.5.3."
           ::= { mplsLdpNotifications 2 }
-
      mplsLdpSessionUp NOTIFICATION-TYPE
           OBJECTS     {
                          mplsLdpSessionState,
@@ -2396,4 +2385,4 @@ MPLS-LDP-STD-MIB DEFINITIONS ::= BEGIN
              "The notification for an MPLS LDP implementation."
          ::= { mplsLdpGroups 3 }
 
-END
+     END

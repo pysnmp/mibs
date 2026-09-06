@@ -1,4 +1,3 @@
-
    VDSL-LINE-MIB DEFINITIONS ::= BEGIN
 
    IMPORTS
@@ -112,7 +111,6 @@
    --
    -- textual conventions used in this MIB
    --
-
    VdslLineCodingType ::= TEXTUAL-CONVENTION
        STATUS       current
        DESCRIPTION
@@ -160,8 +158,6 @@
            physical interfaces.  VDSL physical interfaces are
            those ifEntries where ifType is equal to vdsl(97)."
        ::= { vdslMibObjects 1 }
-
-
    vdslLineEntry OBJECT-TYPE
        SYNTAX       VdslLineEntry
        MAX-ACCESS   not-accessible
@@ -395,7 +391,6 @@
            6   dataInitFailure      Vtu failure during initialization
                                     due to bit errors corrupting
                                     startup exchange data.
-
            7   configInitFailure    Vtu failure during initialization
                                     due to peer Vtu not able to
                                     support requested configuration.
@@ -636,7 +631,6 @@
            was Loss of Framing."
        REFERENCE    "T1E1.4/2000-009R3, Part 1, common spec"
        ::= { vdslPerfDataEntry 3 }
-
    vdslPerfDataLoss OBJECT-TYPE
        SYNTAX       Unsigned32
        UNITS        "seconds"
@@ -733,7 +727,6 @@
            was Loss of Framing."
        REFERENCE    "T1E1.4/2000-009R3, Part 1, common spec"
        ::= { vdslPerfDataEntry 12 }
-
    vdslPerfDataCurr15MinLoss OBJECT-TYPE
        SYNTAX       HCPerfCurrentCount
        UNITS        "seconds"
@@ -877,7 +870,6 @@
            "Count of Loss of Link (LOL) Seconds since the beginning
            of the current 1-day interval."
        ::= { vdslPerfDataEntry 26 }
-
    vdslPerfDataCurr1DayESs OBJECT-TYPE
        SYNTAX       Unsigned32
        UNITS        "seconds"
@@ -974,7 +966,6 @@
            of Framing."
        REFERENCE    "T1E1.4/2000-009R3, Part 1, common spec"
        ::= { vdslPerfIntervalEntry 2 }
-
    vdslPerfIntervalLoss OBJECT-TYPE
        SYNTAX       HCPerfIntervalCount
        UNITS        "seconds"
@@ -1359,7 +1350,6 @@
            collection interval.  VDSL channel interfaces are those
            ifEntries where ifType is equal to interleave(124) or
            fast(125)."
-
        ::= { vdslMibObjects 8 }
 
    vdslChanIntervalEntry OBJECT-TYPE
@@ -2079,8 +2069,6 @@
        REFERENCE    "DSL TR-057"
        DEFVAL       { templateMask1 }
        ::= { vdslLineConfProfileEntry 34 }
-
-
    vdslLineConfDownPsdTemplate OBJECT-TYPE
        SYNTAX       INTEGER
                     {
@@ -2129,7 +2117,6 @@
            40m   3500 kHz            3800 kHz (ETSI); 4000 kHz (ANSI)
            80m   7000 kHz            7100 kHz (ETSI); 7300 kHz (ANSI)
            160m  10100 kHz           10150 kHz
-
            Notching for each standard band can be enabled or disabled
            via the bit mask.
 
@@ -2512,8 +2499,6 @@
 
            An 'active' profile may be modified at any time."
        ::= { vdslLineAlarmConfProfileEntry 10 }
-
-
    -- Notification definitions
 
    vdslNotifications OBJECT IDENTIFIER ::= { vdslLineMib 0 }
@@ -2562,7 +2547,6 @@
        OBJECTS       {
                      vdslPerfDataCurr15MinESs
                      }
-
        STATUS        current
        DESCRIPTION
            "Errored Seconds 15-minute interval threshold
@@ -2611,7 +2595,6 @@
            vdslLineConfDownMinSnrMgn.  The object vdslPhysCurrSnrMgn
            will contain the Signal to Noise margin as measured by
            the VTU-R."
-
        ::= { vdslNotifications 9 }
 
    vdslUpMaxSnrMgnNotification NOTIFICATION-TYPE

@@ -18,9 +18,6 @@ uriTcMIB MODULE-IDENTITY
 
             Copyright (C) The IETF Trust (2007).  This version of this
             MIB module is part of RFC 5017; see the RFC itself for full
-
-
-
             legal notices."
     ::= { mib-2 164 }
 
@@ -69,9 +66,6 @@ Uri255 ::= TEXTUAL-CONVENTION
             encoding, and MUST be normalized as described by RFC 3986
             Sections 6.2.1, 6.2.2.1, and 6.2.2.2.  All unnecessary
             percent-encoding is removed, and all case-insensitive
-
-
-
             characters are set to lowercase except for hexadecimal
             digits, which are normalized to uppercase as described in
             Section 6.2.2.1.
@@ -120,9 +114,6 @@ Uri1024 ::= TEXTUAL-CONVENTION
             Objects using this TEXTUAL-CONVENTION MAY restrict the
             schemes that they permit.  For example, 'data:' and 'urn:'
             schemes might not be appropriate.
-
-
-
             A zero-length URI is not a valid URI.  This can be used to
             express 'URI absent' where required, for example when used
             as an index field.

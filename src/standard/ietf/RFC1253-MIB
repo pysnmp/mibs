@@ -1,16 +1,4 @@
--- Changes to rfc1253 (OSPF MIB):
---      Changed ospfAreaID in index clause for ospfAreaEntry to
---              ospfAreaId.
---      Changed ospfLSACount in definition for sequence OspfAreaEntry
---              to ospfAreaLSACount.
---      Suggestion: the DEFVAL clauses should be removed from
---              the objects that are counters. Some objects that
---              are gauges should probably not have DEFVAL clauses.
-
      RFC1253-MIB DEFINITIONS ::= BEGIN
-
-     -- RFC1253
-     -- August 91
 
      IMPORTS
              Counter, Gauge, IpAddress
@@ -48,7 +36,6 @@
      --  Status Values
 
              Status ::= INTEGER { enabled (1), disabled (2) }
-
      --  Row Creation/Deletion Values
 
              Validation ::= INTEGER { valid (1), invalid (2) }
@@ -193,7 +180,6 @@
             been originated.  This number is incremented each time
             the router originates a new LSA."
          ::= { ospfGeneralGroup 9 }
-
      ospfRxNewLSAs OBJECT-TYPE
          SYNTAX   Counter
          ACCESS   read-only
@@ -230,7 +216,7 @@
             "Information describing the configured parameters and
             cumulative statistics of one of the router's attached
             areas."
-         INDEX { ospfAreaId }
+         INDEX { ospfAreaID }
          ::= { ospfAreaTable 1 }
 
      OspfAreaEntry ::=
@@ -247,7 +233,7 @@
                  Gauge,
              ospfASBdrRtrCount
                  Gauge,
-             ospfAreaLSACount
+             ospfLSACount
                  Gauge,
              ospfAreaLSACksumSum
                  INTEGER
@@ -336,7 +322,6 @@
             LSA's."
          DEFVAL   { 0 }
          ::= { ospfAreaEntry 7 }
-
      ospfAreaLSACksumSum OBJECT-TYPE
          SYNTAX   INTEGER
          ACCESS   read-only
@@ -382,7 +367,6 @@
             "OSPF Version 2, Appendix C.2, Area Parameters"
          INDEX { ospfStubAreaID, ospfStubTOS }
          ::= { ospfStubAreaTable 1 }
-
      OspfStubAreaEntry ::=
          SEQUENCE {
              ospfStubAreaID
@@ -525,7 +509,6 @@
          REFERENCE
             "OSPF Version 2, Section 12.1.4 Link State ID"
          ::= { ospfLsdbEntry 3 }
-
      ospfLsdbRouterId OBJECT-TYPE
          SYNTAX   RouterID
          ACCESS   read-only
@@ -766,7 +749,6 @@
             removal) is implementation dependent."
          DEFVAL   { valid }
          ::= { ospfHostEntry 4 }
-
      --  OSPF Interface Table
 
      --      The OSPF Interface Table augments the ifTable with OSPF
@@ -858,9 +840,8 @@
             "A 32-bit integer uniquely identifying the area to
             which the interface connects.  Area ID 0.0.0.0 is used
             for the OSPF backbone."
-         DEFVAL   { '00000000'h }    -- 0.0.0.0
+         DEFVAL   { '00000000'H }    -- 0.0.0.0
          ::= { ospfIfEntry 3 }
-
      ospfIfType OBJECT-TYPE
          SYNTAX   INTEGER {
                      broadcast (1),
@@ -909,7 +890,6 @@
             breaker."
          DEFVAL { 1 }
          ::= { ospfIfEntry 6 }
-
      ospfIfTransitDelay OBJECT-TYPE
          SYNTAX   UpToMaxAge
          ACCESS   read-write
@@ -956,7 +936,6 @@
             attached to a common network."
          DEFVAL { 40 }
          ::= { ospfIfEntry 10 }
-
      ospfIfPollInterval OBJECT-TYPE
          SYNTAX   PositiveInteger
          ACCESS   read-write
@@ -991,7 +970,7 @@
          STATUS   mandatory
          DESCRIPTION
             "The IP Address of the Designated Router."
-         DEFVAL   { '00000000'h }    -- 0.0.0.0
+         DEFVAL   { '00000000'H }    -- 0.0.0.0
          ::= { ospfIfEntry 13 }
 
      ospfIfBackupDesignatedRouter OBJECT-TYPE
@@ -1000,9 +979,8 @@
          STATUS   mandatory
          DESCRIPTION
             "The IP Address of the Backup Designated Router."
-         DEFVAL   { '00000000'h }    -- 0.0.0.0
+         DEFVAL   { '00000000'H }    -- 0.0.0.0
          ::= { ospfIfEntry 14 }
-
      ospfIfEvents OBJECT-TYPE
          SYNTAX   Counter
          ACCESS   read-only
@@ -1028,7 +1006,7 @@
          REFERENCE
             "OSPF Version 2, Section 9 The Interface Data
             Structure"
-         DEFVAL   { '0000000000000000'h }    -- 0.0.0.0.0.0.0.0
+         DEFVAL   { '0000000000000000'H }    -- 0.0.0.0.0.0.0.0
          ::= { ospfIfEntry 16 }
 
 
@@ -1050,7 +1028,6 @@
      -- is the default value.  For multiple link interfaces, note
      -- that ifSpeed is the sum of the individual link speeds.
      -- This yields a number having the following typical values:
-
      --      Network Type/bit rate   Metric
 
      --      >= 100 MBPS                 1
@@ -1147,7 +1124,6 @@
             The value FFFF is distinguished to mean 'no route via
             this TOS'."
          ::= { ospfIfMetricEntry 4 }
-
      ospfIfMetricStatus OBJECT-TYPE
          SYNTAX   Validation
          ACCESS   read-write
@@ -1310,7 +1286,7 @@
          REFERENCE
             "OSPF Version 2, Section 9 The Interface Data
             Structure"
-         DEFVAL   { '0000000000000000'h }    -- 0.0.0.0.0.0.0.0
+         DEFVAL   { '0000000000000000'H }    -- 0.0.0.0.0.0.0.0
          ::= { ospfVirtIfEntry 9 }
 
      ospfVirtIfStatus OBJECT-TYPE
@@ -1403,7 +1379,7 @@
             "A 32-bit integer (represented as a type IpAddress)
             uniquely identifying the neighboring router in the
             Autonomous System."
-         DEFVAL   { '00000000'h }    -- 0.0.0.0
+         DEFVAL   { '00000000'H }    -- 0.0.0.0
          ::= { ospfNbrEntry 3 }
 
      ospfNbrOptions OBJECT-TYPE

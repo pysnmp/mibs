@@ -86,7 +86,6 @@ JmJobStringTC ::= TEXTUAL-CONVENTION
         See section 3.6.2, entitled: 'Text supplied by the job
         submitter'."
     SYNTAX      OCTET STRING (SIZE (0..63))
-
 JmNaturalLanguageTagTC  ::= TEXTUAL-CONVENTION
     STATUS      current
     DESCRIPTION
@@ -612,7 +611,6 @@ JmAttributeTypeTC ::= TEXTUAL-CONVENTION
         jobHoldUntil(53),               -- JmJobStringTC (SIZE(0..63))
         outputBin(54),                  -- Integer32 (0..2147483647)
                                         -- AND/OR
-
                                         -- JmJobStringTC (SIZE(0..63))
         sides(55),                      -- Integer32 (-2..2)
         finishing(56),                  -- JmFinishingTC
@@ -876,13 +874,13 @@ jmGeneralEntry  OBJECT-TYPE
 
 
 JmGeneralEntry ::= SEQUENCE {
-    jmGeneralJobSetIndex                  Integer32,
-    jmGeneralNumberOfActiveJobs           Integer32,
-    jmGeneralOldestActiveJobIndex         Integer32,
-    jmGeneralNewestActiveJobIndex         Integer32,
-    jmGeneralJobPersistence               Integer32,
-    jmGeneralAttributePersistence         Integer32,
-    jmGeneralJobSetName                   JmUTF8StringTC
+    jmGeneralJobSetIndex                  Integer32 (1..32767),
+    jmGeneralNumberOfActiveJobs           Integer32 (0..2147483647),
+    jmGeneralOldestActiveJobIndex         Integer32 (0..2147483647),
+    jmGeneralNewestActiveJobIndex         Integer32 (0..2147483647),
+    jmGeneralJobPersistence               Integer32 (15..2147483647),
+    jmGeneralAttributePersistence         Integer32 (15..2147483647),
+    jmGeneralJobSetName                   JmUTF8StringTC (SIZE(0..63))
 }
 
 
@@ -1086,9 +1084,9 @@ jmJobIDEntry  OBJECT-TYPE
     ::= { jmJobIDTable 1 }
 
 JmJobIDEntry ::= SEQUENCE {
-    jmJobSubmissionID                     OCTET STRING,
-    jmJobIDJobSetIndex                    Integer32,
-    jmJobIDJobIndex                       Integer32
+    jmJobSubmissionID                     OCTET STRING(SIZE(48)),
+    jmJobIDJobSetIndex                    Integer32 (0..32767),
+    jmJobIDJobIndex                       Integer32 (0..2147483647)
 }
 
 
@@ -1188,7 +1186,6 @@ jmJobTable  OBJECT-TYPE
         The MANDATORY-GROUP macro specifies that this group is
         MANDATORY."
     ::= { jmJob 1 }
-
 jmJobEntry  OBJECT-TYPE
     SYNTAX      JmJobEntry
     MAX-ACCESS  not-accessible
@@ -1205,15 +1202,15 @@ jmJobEntry  OBJECT-TYPE
     ::= { jmJobTable 1 }
 
 JmJobEntry ::= SEQUENCE {
-    jmJobIndex                            Integer32,
+    jmJobIndex                            Integer32 (1..2147483647),
     jmJobState                            JmJobStateTC,
     jmJobStateReasons1                    JmJobStateReasons1TC,
-    jmNumberOfInterveningJobs             Integer32,
-    jmJobKOctetsPerCopyRequested          Integer32,
-    jmJobKOctetsProcessed                 Integer32,
-    jmJobImpressionsPerCopyRequested      Integer32,
-    jmJobImpressionsCompleted             Integer32,
-    jmJobOwner                            JmJobStringTC
+    jmNumberOfInterveningJobs             Integer32 (-2..2147483647),
+    jmJobKOctetsPerCopyRequested          Integer32 (-2..2147483647),
+    jmJobKOctetsProcessed                 Integer32 (-2..2147483647),
+    jmJobImpressionsPerCopyRequested      Integer32 (-2..2147483647),
+    jmJobImpressionsCompleted             Integer32 (-2..2147483647),
+    jmJobOwner                            JmJobStringTC (SIZE(0..63))
 }
 
 
@@ -1236,7 +1233,6 @@ jmJobIndex OBJECT-TYPE
         See JmJobSubmissionIDTypeTC for a limit on the size of this
         index if the agent represents it as an 8-digit decimal number."
     ::= { jmJobEntry 1 }
-
 jmJobState OBJECT-TYPE
     SYNTAX      JmJobStateTC
     MAX-ACCESS  read-only
@@ -1282,7 +1278,6 @@ jmJobStateReasons1 OBJECT-TYPE
         additional information about the job's current state."
     DEFVAL      { 0 }      -- no reasons
     ::= { jmJobEntry 3 }
-
 jmNumberOfInterveningJobs OBJECT-TYPE
     SYNTAX      Integer32 (-2..2147483647)
     MAX-ACCESS  read-only
@@ -1509,9 +1504,9 @@ jmAttributeEntry  OBJECT-TYPE
 
 JmAttributeEntry ::= SEQUENCE {
     jmAttributeTypeIndex                  JmAttributeTypeTC,
-    jmAttributeInstanceIndex              Integer32,
-    jmAttributeValueAsInteger             Integer32,
-    jmAttributeValueAsOctets              OCTET STRING
+    jmAttributeInstanceIndex              Integer32 (1..32767),
+    jmAttributeValueAsInteger             Integer32 (-2..2147483647),
+    jmAttributeValueAsOctets              OCTET STRING(SIZE(0..63))
 }
 
 

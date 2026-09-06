@@ -24,15 +24,6 @@ entityMIB MODULE-IDENTITY
             "WG Email: eman@ietf.org
             Mailing list subscription info:
             http://www.ietf.org/mailman/listinfo/eman
-
-
-
-
-
-
-
-
-
             Andy Bierman
             YumaWorks, Inc.
             274 Redwood Shores Parkway, #133
@@ -81,11 +72,6 @@ entityMIB MODULE-IDENTITY
             (http://trustee.ietf.org/license-info)."
 
     REVISION        "201304050000Z"      -- April 5, 2013
-
-
-
-
-
     DESCRIPTION
             "Entity MIB (Version 4).
             This revision obsoletes RFC 4133.
@@ -129,16 +115,6 @@ entityMIB MODULE-IDENTITY
     ::= { mib-2 47 }
 
 entityMIBObjects OBJECT IDENTIFIER ::= { entityMIB 1 }
-
-
-
-
-
-
-
-
-
-
 -- MIB contains four groups
 entityPhysical OBJECT IDENTIFIER ::= { entityMIBObjects 1 }
 entityLogical  OBJECT IDENTIFIER ::= { entityMIBObjects 2 }
@@ -182,16 +158,6 @@ SnmpEngineIdOrNone ::= TEXTUAL-CONVENTION
             a non-zero length, then the object encoding and semantics
             are defined by the SnmpEngineID TEXTUAL-CONVENTION (see STD
             62, RFC 3411).
-
-
-
-
-
-
-
-
-
-
             If an instance of an object of SYNTAX SnmpEngineIdOrNone
             contains a zero-length string, then no appropriate
             SnmpEngineID is associated with the logical entity (i.e.,
@@ -238,13 +204,6 @@ PhysicalClass ::= TEXTUAL-CONVENTION
             example, each (empty or full) slot in a chassis will be
             modeled as a container.  Note that all removable physical
             entities should be modeled within a container entity, such
-
-
-
-
-
-
-
             as field-replaceable modules, fans, or power supplies.  Note
             that all known containers should be modeled by the agent,
             including empty containers.
@@ -293,11 +252,6 @@ PhysicalClass ::= TEXTUAL-CONVENTION
        sensor(8),
        module(9),        -- e.g., plug-in card or daughter-card
        port(10),
-
-
-
-
-
        stack(11),        -- e.g., stack of multiple chassis entities
        cpu(12)
     }
@@ -346,11 +300,6 @@ EntPhysicalEntry ::= SEQUENCE {
       entPhysicalAlias          SnmpAdminString,
       entPhysicalAssetID        SnmpAdminString,
       entPhysicalIsFRU          TruthValue,
-
-
-
-
-
       entPhysicalMfgDate        DateAndTime,
       entPhysicalUris           OCTET STRING,
       entPhysicalUUID           UUIDorZero
@@ -396,14 +345,6 @@ entPhysicalVendorType OBJECT-TYPE
             this physical entity, or the value is unknown by this agent,
             then the value { 0 0 } is returned."
     ::= { entPhysicalEntry 3 }
-
-
-
-
-
-
-
-
 entPhysicalContainedIn OBJECT-TYPE
     SYNTAX      PhysicalIndexOrZero
     MAX-ACCESS  read-only
@@ -451,12 +392,6 @@ entPhysicalParentRelPos OBJECT-TYPE
             components are defined as entPhysicalEntries that share the
             same instance values of each of the entPhysicalContainedIn
             and entPhysicalClass objects.
-
-
-
-
-
-
             An NMS can use this object to identify the relative ordering
             for all sibling components of a particular parent
             (identified by the entPhysicalContainedIn instance in each
@@ -505,11 +440,6 @@ entPhysicalParentRelPos OBJECT-TYPE
     ::= { entPhysicalEntry 6 }
 
 entPhysicalName OBJECT-TYPE
-
-
-
-
-
     SYNTAX      SnmpAdminString
     MAX-ACCESS  read-only
     STATUS      current
@@ -557,12 +487,6 @@ entPhysicalFirmwareRev    OBJECT-TYPE
     SYNTAX      SnmpAdminString
     MAX-ACCESS  read-only
     STATUS      current
-
-
-
-
-
-
     DESCRIPTION
             "The vendor-specific firmware revision string for the
             physical entity.
@@ -610,12 +534,6 @@ entPhysicalSerialNum   OBJECT-TYPE
             information is available to the agent.  If a serial number
             is unknown or non-existent, the entPhysicalSerialNum will be
             set to a zero-length string instead.
-
-
-
-
-
-
             Note that implementations that can correctly identify the
             serial numbers of all installed physical entities do not
             need to provide write access to the entPhysicalSerialNum
@@ -661,14 +579,6 @@ entPhysicalMfgName   OBJECT-TYPE
             component is unknown to the agent, then this object will
             contain a zero-length string."
     ::= { entPhysicalEntry 12 }
-
-
-
-
-
-
-
-
 entPhysicalModelName   OBJECT-TYPE
     SYNTAX      SnmpAdminString
     MAX-ACCESS  read-only
@@ -714,14 +624,6 @@ entPhysicalAssetID OBJECT-TYPE
     SYNTAX      SnmpAdminString (SIZE (0..32))
     MAX-ACCESS  read-write
     STATUS      current
-
-
-
-
-
-
-
-
     DESCRIPTION
             "This object is a user-assigned asset tracking identifier
             (as specified by a network manager) for the physical entity
@@ -768,13 +670,6 @@ entPhysicalIsFRU OBJECT-TYPE
             permanently contained within a field replaceable unit, the
             value 'false(2)' should be returned for this object."
     ::= { entPhysicalEntry 16 }
-
-
-
-
-
-
-
 entPhysicalMfgDate  OBJECT-TYPE
     SYNTAX      DateAndTime
     MAX-ACCESS  read-only
@@ -823,11 +718,6 @@ entPhysicalUUID OBJECT-TYPE
 
             A zero-length octet string is returned if no UUID
             information is known."
-
-
-
-
-
     REFERENCE
             "RFC 4122, A Universally Unique IDentifier (UUID) URN
             Namespace, Section 4.1, July 2005."
@@ -874,13 +764,6 @@ entLogicalIndex OBJECT-TYPE
     SYNTAX      Integer32 (1..2147483647)
     MAX-ACCESS  not-accessible
     STATUS      current
-
-
-
-
-
-
-
     DESCRIPTION
             "The value of this object uniquely identifies the logical
             entity.  The value should be a small positive integer; index
@@ -929,11 +812,6 @@ entLogicalCommunity OBJECT-TYPE
             privileges of the request used to read this object.  Note
             that an agent may return a community string with read-only
             privileges, even if this object is accessed with a
-
-
-
-
-
             read-write community string.  However, the agent must take
             care not to return a community string that allows more
             privileges than the community string used to access this
@@ -981,12 +859,6 @@ entLogicalTAddress OBJECT-TYPE
             4 octets contain the IP-address in network-byte order, and
             the last 2 contain the UDP port in network-byte order.
             Consult RFC 3417 for further information on snmpUDPDomain."
-
-
-
-
-
-
     REFERENCE
             "Transport Mappings for the Simple Network Management
             Protocol (SNMP), STD 62, RFC 3417."
@@ -1031,15 +903,6 @@ entLogicalContextName    OBJECT-TYPE
     SYNTAX      SnmpAdminString
     MAX-ACCESS  read-only
     STATUS      current
-
-
-
-
-
-
-
-
-
     DESCRIPTION
             "The contextName that can be used to send an SNMP message
             concerning information held by this logical entity to the
@@ -1088,11 +951,6 @@ entLPMappingTable OBJECT-TYPE
             information).  On the other hand, if more than one bridge
             were utilizing ports on this module, then mappings between
             each bridge and the ports it used would be appropriate.
-
-
-
-
-
             Also, in the case of a single backplane repeater, a mapping
             for the backplane to the single repeater entity is not
             necessary."
@@ -1138,14 +996,6 @@ entAliasMappingTable OBJECT-TYPE
             external MIB identifiers.  Each physical port in the system
             may be associated with a mapping to an external identifier,
             which itself is associated with a particular logical
-
-
-
-
-
-
-
-
             entity's naming scope.  A 'wildcard' mechanism is provided
             to indicate that an identifier is associated with more than
             one logical entity."
@@ -1194,11 +1044,6 @@ entAliasLogicalIndexOrZero OBJECT-TYPE
             mapping) identifies any logical entity that does not have
             an explicit entry in this table for a particular
             entPhysicalIndex/entAliasMappingIdentifier pair.
-
-
-
-
-
             For example, to indicate that a particular interface (e.g.,
             physical component 33) is identified by the same value of
             ifIndex for all logical entities, the following instance
@@ -1245,13 +1090,6 @@ entAliasMappingIdentifier OBJECT-TYPE
 
                entAliasMappingIdentifier.3.15 == rptrPortGroupIndex.5.2
                entAliasMappingIdentifier.3.22 == ifIndex.17
-
-
-
-
-
-
-
             It is possible that other mappings (besides interfaces and
             repeater ports) may be defined in the future, as required.
 
@@ -1300,11 +1138,6 @@ entPhysicalChildIndex OBJECT-TYPE
     DESCRIPTION
             "The value of entPhysicalIndex for the contained physical
             entity."
-
-
-
-
-
     ::= { entPhysicalContainsEntry 1 }
 
 -- last change time stamp for the whole MIB
@@ -1349,15 +1182,6 @@ entConfigChange NOTIFICATION-TYPE
             configuration changes occurred since the start of the
             throttling period.  In such a case, another throttling
             period is started right away.
-
-
-
-
-
-
-
-
-
             An NMS should periodically check the value of
             entLastChangeTime to detect any missed entConfigChange
             notification-events, e.g., due to throttling or transmission
@@ -1405,12 +1229,6 @@ entity2Compliance MODULE-COMPLIANCE
             "Implementation of this group is not mandatory for agents
             that model all MIB object instances within a single naming
             scope."
-
-
-
-
-
-
         GROUP entityMappingGroup
         DESCRIPTION
             "Implementation of the entPhysicalContainsTable is mandatory
@@ -1459,11 +1277,6 @@ entity2Compliance MODULE-COMPLIANCE
         OBJECT entPhysicalClass
         SYNTAX INTEGER {
             other(1),
-
-
-
-
-
             unknown(2),
             chassis(3),
             backplane(4),
@@ -1512,11 +1325,6 @@ entity3Compliance MODULE-COMPLIANCE
 
         OBJECT entPhysicalSerialNum
         MIN-ACCESS   not-accessible
-
-
-
-
-
         DESCRIPTION
             "Read and write access is not required for agents that
             cannot identify serial number information for physical
@@ -1565,11 +1373,6 @@ entity4Compliance MODULE-COMPLIANCE
                            entityPhysical4Group
         }
         GROUP entityLogical2Group
-
-
-
-
-
         DESCRIPTION
             "Implementation of this group is not mandatory for agents
             that model all MIB object instances within a single naming
@@ -1615,14 +1418,6 @@ entity4Compliance MODULE-COMPLIANCE
             "Read and write access is not required for agents that
             cannot provide non-volatile storage for NMS-assigned asset
             identifiers.
-
-
-
-
-
-
-
-
             Write access is not required for physical entities for which
             the associated value of entPhysicalIsFRU is equal to
             'false(2)'."
@@ -1668,14 +1463,6 @@ entityLogicalGroup    OBJECT-GROUP
               entLogicalTDomain
             }
     STATUS  deprecated
-
-
-
-
-
-
-
-
     DESCRIPTION
             "The collection of objects used to represent the list of
             logical entities for which a single agent provides
@@ -1724,11 +1511,6 @@ entityPhysical2Group    OBJECT-GROUP
               entPhysicalMfgName,
               entPhysicalModelName,
               entPhysicalAlias,
-
-
-
-
-
               entPhysicalAssetID,
               entPhysicalIsFRU
             }
@@ -1774,14 +1556,6 @@ entityPhysical4Group    OBJECT-GROUP
               entPhysicalUUID
             }
     STATUS  current
-
-
-
-
-
-
-
-
     DESCRIPTION
             "The collection of objects used to represent physical
             system components for which a single agent provides

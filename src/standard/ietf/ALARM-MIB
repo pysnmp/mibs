@@ -28,7 +28,6 @@ IMPORTS
            "WG EMail: disman@ietf.org
            Subscribe: disman-request@ietf.org
            http://www.ietf.org/html.charters/disman-charter.html
-
            Chair:     Randy Presuhn
                       randy_presuhn@mindspring.com
 
@@ -76,7 +75,6 @@ alarmClear OBJECT IDENTIFIER ::= { alarmObjects 3 }
  -- ResourceId is intended to be a general textual convention
  -- that can be used outside of the set of MIBs related to
  -- Alarm Management.
-
 ResourceId ::= TEXTUAL-CONVENTION
     STATUS current
     DESCRIPTION
@@ -269,7 +267,6 @@ alarmModelSpecificPointer OBJECT-TYPE
         in order, is compared to the value of this object.
         If the name is equal to or a subtree of the value
         of this object, for purposes of computing the value
-
         of AlarmActiveResourceID the 'prefix' will be the
         matching portion, and the 'indexes' will be any
         remainder.  The examination of varbinds ends with
@@ -317,7 +314,6 @@ alarmModelRowStatus OBJECT-TYPE
     referenced by a value of alarmActiveModelPointer.  This results
     in the deletion of this entry and entries in the active alarms
     referencing this entry via an alarmActiveModelPointer.
-
     As all read-create objects in this table have a DEFVAL clause,
     there is no requirement that any object be explicitly set
     before this row can become active.  Note that a row consisting
@@ -366,7 +362,6 @@ alarmActiveEntry OBJECT-TYPE
         are removed when the alarm is cleared.
 
         If under extreme resource constraint the system is unable to
-
         add any more entries into this table, then the
         alarmActiveOverflow statistic will be increased by one."
    INDEX       { alarmListName, alarmActiveDateAndTime,
@@ -415,7 +410,6 @@ alarmActiveDateAndTime OBJECT-TYPE
        "The local date and time when the error occurred.
 
        This object facilitates retrieving all instances of
-
        alarms that have been raised or have changed state
        since a given point in time.
 
@@ -511,7 +505,6 @@ alarmActiveResourceId    OBJECT-TYPE
       If there is no corresponding resource, then
       the value of this object MUST be 0.0."
    ::= { alarmActiveEntry 10 }
-
 alarmActiveDescription    OBJECT-TYPE
    SYNTAX      SnmpAdminString
    MAX-ACCESS  read-only
@@ -655,7 +648,6 @@ alarmActiveVariableCounter32Val OBJECT-TYPE
    DESCRIPTION
        "The value when alarmActiveVariableType is 'counter32'."
    ::= { alarmActiveVariableEntry 4 }
-
 alarmActiveVariableUnsigned32Val OBJECT-TYPE
    SYNTAX      Unsigned32
    MAX-ACCESS  read-only
@@ -703,7 +695,6 @@ alarmActiveVariableOidVal OBJECT-TYPE
    DESCRIPTION
        "The value when alarmActiveVariableType is 'objectId'."
    ::= { alarmActiveVariableEntry 10 }
-
 alarmActiveVariableCounter64Val OBJECT-TYPE
    SYNTAX      Counter64
    MAX-ACCESS  read-only
@@ -744,6 +735,7 @@ alarmActiveStatsEntry OBJECT-TYPE
       DESCRIPTION
          "Statistics on the current active alarms."
       INDEX   { alarmListName }
+
   ::= {  alarmActiveStatsTable 1 }
 
 AlarmActiveStatsEntry ::=
@@ -824,6 +816,7 @@ alarmClearEntry OBJECT-TYPE
          "Information on a cleared alarm."
       INDEX   { alarmListName, alarmClearDateAndTime,
 alarmClearIndex }
+
   ::= {  alarmClearTable 1 }
 
 AlarmClearEntry ::=
@@ -846,7 +839,6 @@ alarmClearIndex OBJECT-TYPE
    STATUS     current
    DESCRIPTION
        "An integer which acts as the index of entries within
-
        the named alarm list.  It wraps back to 1 after it
        reaches its maximum value.
 
@@ -895,7 +887,6 @@ alarmClearEngineAddress OBJECT-TYPE
    DESCRIPTION
     "The Address of the SNMP engine on which the alarm was
     occurring.  This is used to identify the source of an SNMPv1
-
     trap, since an alarmActiveEngineId cannot be extracted from the
     SNMPv1 trap PDU.
 
@@ -992,7 +983,6 @@ alarmClearState NOTIFICATION-TYPE
    DESCRIPTION
      "An instance of the alarm indicated by
      alarmActiveModelPointer has been cleared against
-
      the entity indicated by alarmActiveResourceId.
 
     The agent must throttle the generation of

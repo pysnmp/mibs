@@ -19,7 +19,6 @@ IMPORTS
     OBJECT-GROUP
         FROM SNMPv2-CONF
     ieee802dot1mibs,
-    IEEE8021PriorityCodePoint,
     IEEE8021VlanIndex
         FROM IEEE8021-TC-MIB
     IEEE8021FqtssTrafficClassValue
@@ -33,30 +32,43 @@ IMPORTS
     ;
 
 ieee8021SrpMib MODULE-IDENTITY
-    LAST-UPDATED "201810040000Z" -- October 4, 2018
+    LAST-UPDATED "202309260000Z" -- September 26, 2023
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-        "WG-URL: http://ieee802.org/1/
-         WG-EMail: STDS-802-1-L@IEEE.ORG
-
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@IEEE.ORG"
+           E-mail: stds-802-1-chairs@ieee.org"
     DESCRIPTION
         "The Bridge MIB module for managing devices that support
         the IEEE Std 802.1Q Stream Reservation Protocol.
 
         Unless otherwise indicated, the references in this MIB
-        module are to IEEE Std 802.1Q.
+        module are to IEEE Std 802.1Q-2022.
 
-        Copyright (C) IEEE (2018).
+        Copyright (C) IEEE (2023).
         This version of this MIB module is part of IEEE Std 802.1Q;
-        see the draft itself for full legal notices."
+        see that standard for full legal notices."
+
+    REVISION "202309260000Z" -- September 26, 2023
+    DESCRIPTION
+            "Published as part of IEEE 802.1Qcw.
+            Changed the applicable SYNTAX of object definitions
+              ieee8021SrpStreamDataFramePriority, and
+              ieee8021SrpStreamPreloadDataFramePriority
+            from IEEE8021PriorityCodePoint to INTEGER
+            to correct an error identifying PCP encoding SYNTAX 
+            instead of PCP values as intended."
+
+    REVISION "202211080000Z" -- November 8, 2022
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
 
     REVISION "201810040000Z" -- October 4, 2018
     DESCRIPTION
@@ -67,7 +79,7 @@ ieee8021SrpMib MODULE-IDENTITY
 
     REVISION "201806280000Z" -- June 28, 2018
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q 2017.
+            "Published as part of IEEE Std 802.1Q 2018.
             Cross references updated. "
 
     REVISION "201512020000Z" -- December 2, 2015
@@ -246,7 +258,7 @@ ieee8021SrpBridgeBaseTable OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "A table for SRP main control and status information.
-        All writeable objects in this table must be persistent
+        All writable objects in this table must be persistent
         over power up restart/reboot.  These objects augment
         the ieee8021BridgeBasePortTable."
     ::= { ieee8021SrpConfiguration 1 }
@@ -306,7 +318,7 @@ ieee8021SrpBridgeBaseMsrpTalkerPruning OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "The value of the talkerPruning parameter which
+        "The value of the talkerPruning parameter, which
         controls the propagation of Talker declarations.
         The value true(1) indicates that Talker attributes
         are only declared on ports that have the Stream
@@ -326,7 +338,7 @@ ieee8021SrpBridgeBaseMsrpMaxFanInPorts OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
-        "The value of the msrpMaxFanInPorts parameter which
+        "The value of the msrpMaxFanInPorts parameter, which
         limits the total number of ports on a Bridge that
         are allowed to establish reservations for inbound
         Streams.  A value of zero (0) indicates no fan-in
@@ -532,7 +544,7 @@ ieee8021SrpLatencyEntry OBJECT-TYPE
         "A list of objects containing latency information
         for each traffic class. Rows in the table are
         automatically created for ports that are not an
-        SRP domain boundary port (i.e. SRPdomainBoundaryPort
+        SRP domain boundary port (i.e., SRPdomainBoundaryPort
         is FALSE). See 35.1.4, 8.8.2, 12.22.3."
     INDEX  { ieee8021BridgeBaseComponentId,
              ieee8021BridgeBasePort,
@@ -557,7 +569,7 @@ ieee8021SrpTrafficClass OBJECT-TYPE
 
         Rows in the table are automatically created for
         ports that are not an SRP domain boundary port
-        (i.e. SRPdomainBoundaryPort is FALSE)."
+        (i.e., SRPdomainBoundaryPort is FALSE)."
     REFERENCE   "35.1.4, 8.8.2, 12.22.3"
     ::= { ieee8021SrpLatencyEntry 1 }
 
@@ -619,7 +631,7 @@ Ieee8021SrpStreamEntry ::=
         ieee8021SrpStreamTspecMaxIntervalFrames
             Unsigned32,
         ieee8021SrpStreamDataFramePriority
-            IEEE8021PriorityCodePoint,
+            INTEGER,
         ieee8021SrpStreamRank
             IEEE8021SrpStreamRankValue
         }
@@ -680,7 +692,7 @@ ieee8021SrpStreamTspecMaxIntervalFrames OBJECT-TYPE
     ::= { ieee8021SrpStreamEntry 5}
 
 ieee8021SrpStreamDataFramePriority OBJECT-TYPE
-    SYNTAX      IEEE8021PriorityCodePoint
+    SYNTAX      INTEGER (0..7)
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
@@ -741,7 +753,7 @@ ieee8021SrpStreamRank OBJECT-TYPE
             ieee8021SrpStreamPreloadTspecMaxIntervalFrames
                 Unsigned32,
             ieee8021SrpStreamPreloadDataFramePriority
-                IEEE8021PriorityCodePoint,
+                INTEGER,
             ieee8021SrpStreamPreloadRank
                 IEEE8021SrpStreamRankValue
             }
@@ -801,7 +813,7 @@ ieee8021SrpStreamRank OBJECT-TYPE
         ::= { ieee8021SrpStreamPreloadEntry 5}
 
     ieee8021SrpStreamPreloadDataFramePriority OBJECT-TYPE
-        SYNTAX      IEEE8021PriorityCodePoint
+        SYNTAX      INTEGER (0..7)
         MAX-ACCESS  read-write
         STATUS      current
         DESCRIPTION
@@ -1034,7 +1046,7 @@ ieee8021SrpReservationsPreloadStreamId OBJECT-TYPE
 
 ieee8021SrpReservationPreloadDirection OBJECT-TYPE
     SYNTAX      IEEE8021SrpReservationDirectionValue
-    MAX-ACCESS  read-write
+    MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
         "The source of this Stream registration, either
@@ -1186,7 +1198,6 @@ ieee8021SrpMonitoringSRclassesGroup OBJECT-GROUP
 
 ieee8021SrpStreamsPreloadGroup OBJECT-GROUP
     OBJECTS {
-        ieee8021SrpStreamPreloadId,
         ieee8021SrpStreamPreloadDestinationAddress,
         ieee8021SrpStreamPreloadVlanId,
         ieee8021SrpStreamPreloadTspecMaxFrameSize,
@@ -1206,8 +1217,6 @@ ieee8021SrpStreamsPreloadGroup OBJECT-GROUP
 
 ieee8021SrpReservationsPreloadGroup OBJECT-GROUP
     OBJECTS {
-        ieee8021SrpReservationsPreloadStreamId,
-        ieee8021SrpReservationPreloadDirection,
         ieee8021SrpReservationPreloadAccumulatedLatency
     }
     STATUS      current

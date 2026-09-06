@@ -41,7 +41,6 @@ t11FcTcMIB  MODULE-IDENTITY
     DESCRIPTION
            "Initial version of this MIB module, published as RFC 5324."
     ::= { mib-2 175 }
-
 t11FcSpIdentities OBJECT IDENTIFIER ::= { t11FcTcMIB 1 }
 t11FcSpAlgorithms OBJECT IDENTIFIER ::= { t11FcSpIdentities 1 }
 
@@ -89,7 +88,6 @@ T11FcSpPolicyHashValue ::=  TEXTUAL-CONVENTION
               Fibre Channel - Security Protocols (FC-SP),
               February 2007, section 7.1.3.1 and table 106."
     SYNTAX        OCTET STRING (SIZE (0..64))
-
 T11FcSpHashCalculationStatus ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
@@ -138,7 +136,6 @@ T11FcSpAuthRejectReasonCode ::=  TEXTUAL-CONVENTION
               Fibre Channel - Security Protocols (FC-SP),
               February 2007, Table 17, 48, 52."
     SYNTAX        INTEGER {
-
                       authFailure(1),
                       logicalError(2),
                       logicalBusy(3),
@@ -187,7 +184,6 @@ T11FcSpHashFunctions ::= TEXTUAL-CONVENTION
                       md5(0),
                       sha1(1)
                   }
-
 T11FcSpSignFunctions ::= TEXTUAL-CONVENTION
     STATUS        current
     DESCRIPTION
@@ -428,7 +424,6 @@ T11FcSpType ::= TEXTUAL-CONVENTION
                octet contains the Data structure type (TYPE) value
                defined by FC-FS-2.  The TYPE value is used in
                combination with T11FcRoutingControl to identify a link
-
                layer service/protocol.
 
              - for Common Transport Information Units (CT_IUs), the
@@ -477,7 +472,6 @@ T11FcSpTransforms ::= TEXTUAL-CONVENTION
                      dhGroups1024bit(13),
                      dhGroups2048bit(14)
                  }
-
 T11FcSpSecurityProtocolId ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
@@ -526,7 +520,6 @@ T11FcSpLifetimeLeftUnits ::= TEXTUAL-CONVENTION
 --
 -- Object Identities to identify the Cryptographic Algorithms
 -- listed in FC-SP.
-
 --
 
 t11FcSpEncryptAlgorithms

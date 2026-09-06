@@ -147,15 +147,14 @@ DlswTCPAddress ::= TEXTUAL-CONVENTION
 -- *******************************************************************
 -- DLSw MIB Definition
 -- *******************************************************************
-
 -- The DLSw MIB module contains an object part and a conformance part.
 -- Object part is organized in the following groups:
--- (1) dlswNode      -  information about this DLSw
--- (2) dlswTConn     -  about adjacent DLSw partners
--- (3) dlswInterface -  about which interfaces DLSw is active on
--- (4) dlswDirectory -  about any directory of local/remote resources
--- (5) dlswCircuit   -  about established circuits.
--- (6) dlswSdlc      -  about SDLC data link switched devices
+-- (1) dlswNode      -- information about this DLSw
+-- (2) dlswTConn     -- about adjacent DLSw partners
+-- (3) dlswInterface -- about which interfaces DLSw is active on
+-- (4) dlswDirectory -- about any directory of local/remote resources
+-- (5) dlswCircuit   -- about established circuits.
+-- (6) dlswSdlc      -- about SDLC data link switched devices
 
 dlswNode        OBJECT IDENTIFIER ::= { dlswMIB 1 }
 dlswTConn       OBJECT IDENTIFIER ::= { dlswMIB 2 }
@@ -168,9 +167,9 @@ dlswSdlc        OBJECT IDENTIFIER ::= { dlswMIB 6 }  -- SDLC
 -- THE NODE GROUP
 -- *******************************************************************
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- DLSw Node Identity
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswNodeVersion  OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE (2))
     MAX-ACCESS read-only
@@ -211,9 +210,9 @@ dlswNodeVersionString  OBJECT-TYPE
        "DLSW: Switch-to-Switch Protocol RFC 1795"
     ::= { dlswNode 3 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- DLSw Code Capability
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswNodeStdPacingSupport  OBJECT-TYPE
     SYNTAX     INTEGER  {
        none              (1),  -- does not support DLSw
@@ -238,9 +237,9 @@ dlswNodeStdPacingSupport  OBJECT-TYPE
         scheme but never varies its receive window size."
     ::= { dlswNode 4 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- DLSw Node Operational Objects
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswNodeStatus  OBJECT-TYPE
     SYNTAX     INTEGER  {
         active        (1),
@@ -339,10 +338,9 @@ dlswNodeResourceMacExclusivity  OBJECT-TYPE
 -- TRANSPORT CONNECTION (aka: PARTNER DLSW)
 -- *******************************************************************
 
--- ------------------------------------------------------------------
-
+-- -------------------------------------------------------------------
 -- Transport Connection Statistics Objects
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswTConnStat    OBJECT IDENTIFIER ::= { dlswTConn 1 }
 
 dlswTConnStatActiveConnections  OBJECT-TYPE
@@ -375,9 +373,9 @@ dlswTConnStatCloseBusys  OBJECT-TYPE
         this means the transport connection failed unexpectedly."
     ::= { dlswTConnStat 3 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Transport Connection Configuration Table
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswTConnConfigTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnConfigEntry
     MAX-ACCESS not-accessible
@@ -437,7 +435,6 @@ dlswTConnConfigIndex  OBJECT-TYPE
         should not be reused but should continue to
         increase in value."
     ::= { dlswTConnConfigEntry 1 }
-
 dlswTConnConfigTDomain  OBJECT-TYPE
     SYNTAX     OBJECT IDENTIFIER
     MAX-ACCESS read-create
@@ -648,15 +645,15 @@ dlswTConnConfigRowStatus  OBJECT-TYPE
         row definition out of use."
     ::= { dlswTConnConfigEntry 13 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Transport Connection Operation Table
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- (1) At most one transport connection can be connected between
 --     this DLSw and one of its DLSw partners at a given time.
 -- (2) Multiple transport types are supported.
 -- (3) Since the entries may be reused, dlswTConnOperEntryTime
 --     needs to be consulted for the possibility of counter reset.
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 
 dlswTConnOperTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnOperEntry
@@ -1155,7 +1152,6 @@ dlswTConnOperOutCntlPkts  OBJECT-TYPE
         transmitted on this transport connection which were not of
         type DGRMFRAME, DATAFRAME, or INFOFRAME."
     ::= { dlswTConnOperEntry 26 }
-
 -- ...................................................................
 -- (2) Directory activities (Explorer messages)
 -- ...................................................................
@@ -1256,14 +1252,14 @@ dlswTConnOperCircuits  OBJECT-TYPE
     ::= { dlswTConnOperEntry 36 }
 
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Transport Connection Specific
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswTConnSpecific OBJECT IDENTIFIER ::= { dlswTConn 4 }
 dlswTConnTcp      OBJECT IDENTIFIER ::= { dlswTConnSpecific 1 }
 
 -- ...................................................................
--- TCP Transport Connection Specific -  Configuration
+-- TCP Transport Connection Specific -- Configuration
 -- ...................................................................
 dlswTConnTcpConfigTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnTcpConfigEntry
@@ -1330,7 +1326,7 @@ dlswTConnTcpConfigMaxSegmentSize  OBJECT-TYPE
 
 
 -- ...................................................................
--- TCP Transport Connection Specific -  Operation
+-- TCP Transport Connection Specific -- Operation
 -- ...................................................................
 dlswTConnTcpOperTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswTConnTcpOperEntry
@@ -1444,7 +1440,6 @@ dlswIfVirtualSegment  OBJECT-TYPE
         assignment is not required."
     DEFVAL { 65535 }
     ::= { dlswIfEntry 2 }
-
 dlswIfSapList  OBJECT-TYPE
     SYNTAX     OCTET STRING  (SIZE(16))
     MAX-ACCESS read-create
@@ -1476,9 +1471,9 @@ dlswIfSapList  OBJECT-TYPE
 -- transport address of the DLSw partner is cached.
 -- *******************************************************************
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Directory Related Statistical Objects
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswDirStat     OBJECT IDENTIFIER ::= { dlswDirectory 1 }
 
 dlswDirMacEntries  OBJECT-TYPE
@@ -1560,9 +1555,9 @@ dlswDirNBCacheNextIndex  OBJECT-TYPE
         create new rows."
     ::= { dlswDirStat 8 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Directory Cache
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswDirCache     OBJECT IDENTIFIER ::= { dlswDirectory 2 }
 
 -- ...................................................................
@@ -1922,9 +1917,9 @@ dlswDirNBRowStatus  OBJECT-TYPE
     ::= { dlswDirNBEntry 9 }
 
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Resource Locations
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswDirLocate       OBJECT IDENTIFIER ::= { dlswDirectory 3 }
 
 -- ...................................................................
@@ -2020,7 +2015,6 @@ DlswDirLocateNBEntry ::= SEQUENCE {
     dlswDirLocateNBMatch          INTEGER,
     dlswDirLocateNBLocation       RowPointer
     }
-
 dlswDirLocateNBName  OBJECT-TYPE
     SYNTAX     NBName
     MAX-ACCESS not-accessible
@@ -2060,9 +2054,9 @@ dlswDirLocateNBLocation  OBJECT-TYPE
 -- station that receives the initiation.
 -- *******************************************************************
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Statistics Related to Circuits
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswCircuitStat      OBJECT IDENTIFIER ::= { dlswCircuit 1 }
 
 dlswCircuitStatActives  OBJECT-TYPE
@@ -2084,7 +2078,7 @@ dlswCircuitStatCreates  OBJECT-TYPE
     ::= { dlswCircuitStat 2 }
 
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- Circuit Table
 --
 -- This table is the DLSw entity's view of circuits.  There will be
@@ -2097,7 +2091,7 @@ dlswCircuitStatCreates  OBJECT-TYPE
 --           number of       |    Origin End Station Location
 --         entries in the    |--------------------------------------
 --         Circuit Table     |  internal     local       remote
---     --------------------- |--------------------------------------
+--    -----------------------|--------------------------------------
 --     Target    |  internal |     NA          2           1
 --     End       |  local    |     2           2           1
 --     Station   |  remote   |     1           1           NA
@@ -2111,7 +2105,7 @@ dlswCircuitStatCreates  OBJECT-TYPE
 --
 -- Most of statistics related to circuits can be collected
 -- from LLC-2 Link Station Table.
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 dlswCircuitTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF DlswCircuitEntry
     MAX-ACCESS not-accessible
@@ -2308,7 +2302,6 @@ dlswCircuitS2TDomain  OBJECT-TYPE
         transport protocol the circuit is running
         over.  Otherwise, the value is 0.0."
     ::= { dlswCircuitEntry 11 }
-
 dlswCircuitS2TAddress  OBJECT-TYPE
     SYNTAX     TAddress
     MAX-ACCESS read-only
@@ -2356,7 +2349,6 @@ dlswCircuitEntryTime  OBJECT-TYPE
        "The amount of time (in hundredths of a second) since this
         circuit table conceptual row was created."
     ::= { dlswCircuitEntry 15 }
-
 dlswCircuitStateTime  OBJECT-TYPE
     SYNTAX     TimeTicks
     UNITS      "hundredths of a second"
@@ -2547,7 +2539,6 @@ dlswCircuitFCHalveWndwRcvds  OBJECT-TYPE
         The value zero should be returned if this circuit is not
         running the DLSw pacing protocol."
     ::= { dlswCircuitEntry 27 }
-
 dlswCircuitFCResetOpRcvds  OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -2825,7 +2816,7 @@ dlswTrapCntlCircuit  OBJECT-TYPE
 -- *******************************************************************
 dlswTraps              OBJECT IDENTIFIER ::= { dlswMIB 0 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- This section defines the well-known notifications sent by
 -- DLSW agents.
 -- Care must be taken to insure that no particular notification
@@ -2836,9 +2827,8 @@ dlswTraps              OBJECT IDENTIFIER ::= { dlswMIB 0 }
 -- (1) Partner rejected (capEx rejection, not in partner list, etc.)
 -- (2) DLSw protocol violation (e.g., window size violation, etc.)
 -- (3) Transport connection up/down
-
 -- (4) Circuit up/down
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 --
 
 dlswTrapTConnPartnerReject NOTIFICATION-TYPE
@@ -2913,9 +2903,9 @@ dlswConformance        OBJECT IDENTIFIER ::= { dlsw 3 }
 dlswCompliances        OBJECT IDENTIFIER ::= { dlswConformance 1 }
 dlswGroups             OBJECT IDENTIFIER ::= { dlswConformance 2 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- COMPLIANCE STATEMENTS
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 
 -- ...................................................................
 -- Core compliance for all DLSw entities
@@ -3258,9 +3248,9 @@ dlswSdlcCompliance MODULE-COMPLIANCE
 
     ::= { dlswCompliances 5 }
 
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 -- CONFORMANCE GROUPS
--- ------------------------------------------------------------------
+-- -------------------------------------------------------------------
 
 -- ...................................................................
 -- Node Conformance Group
@@ -3410,7 +3400,6 @@ dlswTConnTcpOperGroup  OBJECT-GROUP
        "Conformance group for operation information for
         transport connections using TCP."
     ::= { dlswGroups 8 }
-
 -- ...................................................................
 dlswInterfaceGroup  OBJECT-GROUP
     OBJECTS  {

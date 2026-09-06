@@ -236,7 +236,6 @@ snaNodeAdminXidFormat OBJECT-TYPE
                 been re-activated (e.g., after the next initialization
                 of the SNA services)."
         ::= { snaNodeAdminEntry 4 }
-
 snaNodeAdminBlockNum OBJECT-TYPE
         SYNTAX  DisplayString (SIZE(3))
         MAX-ACCESS  read-create
@@ -573,7 +572,6 @@ SnaNodeOperEntry ::= SEQUENCE {
           snaNodeOperActFailureReason
                   INTEGER
           }
-
 snaNodeOperName OBJECT-TYPE
           SYNTAX  DisplayString (SIZE(0..17))
           MAX-ACCESS  read-only
@@ -957,7 +955,6 @@ snaPu20StatsReceivedPius OBJECT-TYPE
           DESCRIPTION
                   "The number of PIUs received by this Node."
           ::= { snaPu20StatsEntry 4 }
-
 snaPu20StatsSentNegativeResps OBJECT-TYPE
           SYNTAX  Counter32
           MAX-ACCESS  read-only
@@ -1005,7 +1002,6 @@ snaPu20StatsBindLus OBJECT-TYPE
                   received and acknowledged a BIND request from the
                   host."
           ::= { snaPu20StatsEntry 9 }
-
 -- ***************************************************************
 -- The following table contains the association between Nodes and
 -- link identifiers.
@@ -1237,7 +1233,6 @@ snaNodeLinkOperTableLastChange OBJECT-TYPE
                   information has been changed. Only then will the
                   Management Station retrieve the entire table."
           ::= { snaNode 9 }
-
 -- ***************************************************************
 -- Traps
 -- ***************************************************************
@@ -1283,7 +1278,6 @@ snaNodeActFailTrap NOTIFICATION-TYPE
 -- ***************************************************************
 -- The following table contains LU configuration parameters.
 -- ***************************************************************
-
 snaLuAdminTable OBJECT-TYPE
         SYNTAX  SEQUENCE OF SnaLuAdminEntry
         MAX-ACCESS  not-accessible
@@ -1956,7 +1950,6 @@ snaLuSessnAdminState OBJECT-TYPE
                 Note: for dependent LUs, deactivating the session is
                 the same as deactivating the LU."
         ::= { snaLuSessnEntry 10 }
-
 snaLuSessnOperState OBJECT-TYPE
         SYNTAX  INTEGER {
                 unbound (1),
@@ -2197,7 +2190,6 @@ snaLuSessnBindFailTrap NOTIFICATION-TYPE
 -- A set of counters (one per range) identifies
 -- the number of transactions within each response time range.
 -- ***************************************************************
-
 snaLuRtmTable OBJECT-TYPE
         SYNTAX  SEQUENCE OF SnaLuRtmEntry
         MAX-ACCESS  not-accessible
@@ -2438,7 +2430,6 @@ snaLuRtmNumTrans OBJECT-TYPE
                 executed since the RTM monitoring began (i.e.,
                 snaLuRtmState changed to 'on(2)') for this LU."
         ::= { snaLuRtmEntry 17 }
-
 snaLuRtmLastRspTime OBJECT-TYPE
         SYNTAX  Integer32
         MAX-ACCESS  read-only

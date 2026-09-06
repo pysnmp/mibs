@@ -22,7 +22,6 @@ hcAlarmMIB MODULE-IDENTITY
             "        Andy Bierman
                      Cisco Systems, Inc.
                 Tel: +1 408 527-3711
-
              E-mail: abierman@cisco.com
              Postal: 170 West Tasman Drive
                      San Jose, CA USA 95134
@@ -165,7 +164,6 @@ hcAlarmInterval OBJECT-TYPE
             enough that the sampled variable is very unlikely to
             increase or decrease by more than 2^63 - 1 during a single
             sampling interval.
-
             This object may not be modified if the associated
             hcAlarmStatus object is equal to active(1)."
     ::= { hcAlarmEntry 2 }
@@ -310,7 +308,6 @@ hcAlarmRisingThreshAbsValueLo OBJECT-TYPE
             hcAlarmFallingThreshAbsValueLo,
             hcAlarmFallingThreshAbsValueHi, and
             hcAlarmFallingThresholdValStatus objects.
-
             This object may not be modified if the associated
             hcAlarmStatus object is equal to active(1)."
 
@@ -407,7 +404,6 @@ hcAlarmFallingThreshAbsValueLo OBJECT-TYPE
             hcAlarmRisingThreshAbsValueLo,
             hcAlarmRisingThreshAbsValueHi, and
             hcAlarmRisingThresholdValStatus objects.
-
             This object may not be modified if the associated
             hcAlarmStatus object is equal to active(1)."
     ::= { hcAlarmEntry 11 }
@@ -552,7 +548,6 @@ hcAlarmStatus OBJECT-TYPE
             may be modified if the associated instance of this object is
             equal to notInService(2) or notReady(3)."
     ::= { hcAlarmEntry 19 }
-
 --
 -- Capabilities
 --
@@ -649,7 +644,6 @@ hcAlarmCompliance MODULE-COMPLIANCE
         MANDATORY-GROUPS { rmonEventGroup }
 
     ::= { hcAlarmCompliances 1 }
-
 -- Object Groups
 
 hcAlarmControlGroup OBJECT-GROUP

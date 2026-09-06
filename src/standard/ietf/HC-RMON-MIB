@@ -22,9 +22,6 @@ IMPORTS
     alHost, alHostTimeMark,
     alMatrix, alMatrixSDTimeMark, alMatrixDSTimeMark,
     alMatrixTopNControlIndex, alMatrixTopNIndex,
-
-
-
     usrHistory, usrHistoryControlIndex,
     usrHistorySampleIndex, usrHistoryObjectIndex,
     rmonConformance, ZeroBasedCounter32, probeConfig
@@ -73,9 +70,6 @@ mediaIndependentTable OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
-
-
-
         "Media independent statistics for promiscuous monitoring of
         any media.
 
@@ -124,9 +118,6 @@ MediaIndependentEntry ::= SEQUENCE {
     mediaIndependentOutHighCapacityOctets       Counter64,
     mediaIndependentInNUCastPkts                Counter32,
     mediaIndependentInNUCastOverflowPkts        Counter32,
-
-
-
     mediaIndependentInNUCastHighCapacityPkts    Counter64,
     mediaIndependentOutNUCastPkts               Counter32,
     mediaIndependentOutNUCastOverflowPkts       Counter32,
@@ -175,9 +166,6 @@ mediaIndependentDataSource OBJECT-TYPE
         have occurred and necessitate a deletion of
         this entry.  For example, a hot-pluggable ethernet
         card could be pulled out and replaced by a
-
-
-
         token-ring card.  In such a case, if the agent has
         such knowledge of the change, it is recommended that
         it delete this entry.
@@ -226,9 +214,6 @@ mediaIndependentInPkts OBJECT-TYPE
     STATUS      current
     DESCRIPTION
         "The total number of packets (including bad packets,
-
-
-
         broadcast packets, and multicast packets) received
         on a half-duplex link or on the inbound connection of a
         full-duplex link."
@@ -276,10 +261,6 @@ mediaIndependentOutOverflowPkts OBJECT-TYPE
         "The number of times the associated
         mediaIndependentOutPkts counter has overflowed."
     ::= { mediaIndependentEntry 9 }
-
-
-
-
 mediaIndependentOutHighCapacityPkts OBJECT-TYPE
     SYNTAX      Counter64
     UNITS       "Packets"
@@ -328,9 +309,6 @@ mediaIndependentInHighCapacityOctets OBJECT-TYPE
 mediaIndependentOutOctets OBJECT-TYPE
     SYNTAX      Counter32
     UNITS       "Octets"
-
-
-
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
@@ -379,9 +357,6 @@ mediaIndependentInNUCastOverflowPkts OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
-
-
-
         "The number of times the associated
         mediaIndependentInNUCastPkts counter has overflowed."
     ::= { mediaIndependentEntry 18 }
@@ -430,9 +405,6 @@ mediaIndependentOutNUCastHighCapacityPkts OBJECT-TYPE
     ::= { mediaIndependentEntry 22 }
 
 mediaIndependentInErrors OBJECT-TYPE
-
-
-
     SYNTAX     Counter32
     UNITS       "Packets"
     MAX-ACCESS read-only
@@ -481,9 +453,6 @@ mediaIndependentDuplexMode OBJECT-TYPE
     SYNTAX     INTEGER {
                     halfduplex(1),
                     fullduplex(2)
-
-
-
                }
     MAX-ACCESS read-only
     STATUS     current
@@ -531,10 +500,6 @@ mediaIndependentStatus OBJECT-TYPE
     DESCRIPTION
         "The status of this media independent statistics entry."
     ::= { mediaIndependentEntry 31 }
-
-
-
-
 -- High Capacity extensions for the etherStatsTable
 
 etherStatsHighCapacityTable  OBJECT-TYPE
@@ -583,9 +548,6 @@ etherStatsHighCapacityOverflowPkts OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-
-
-
         "The number of times the associated etherStatsPkts
         counter has overflowed."
     ::= { etherStatsHighCapacityEntry 1 }
@@ -631,12 +593,6 @@ etherStatsHighCapacityOctets OBJECT-TYPE
         respectively, and the number of seconds in the
         interval is Interval.  These values
         are used to calculate the Utilization as follows:
-
-
-
-
-
-
                         Pkts * (.96 + .64) + (Octets * .08)
         Utilization = -------------------------------------
                                 Interval * 10,000
@@ -685,9 +641,6 @@ etherStatsHighCapacityPkts64Octets OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-
-
-
         "The total number of packets (including bad
         packets) received that were 64 octets in length
         (excluding framing bits but including FCS octets)."
@@ -736,9 +689,6 @@ etherStatsHighCapacityPkts128to255Octets OBJECT-TYPE
         128 and 255 octets in length inclusive
         (excluding framing bits but including FCS octets)."
     ::= { etherStatsHighCapacityEntry 10 }
-
-
-
 etherStatsHighCapacityOverflowPkts256to511Octets OBJECT-TYPE
     SYNTAX     Counter32
     UNITS      "Packets"
@@ -787,9 +737,6 @@ etherStatsHighCapacityOverflowPkts1024to1518Octets OBJECT-TYPE
     SYNTAX     Counter32
     UNITS      "Packets"
     MAX-ACCESS read-only
-
-
-
     STATUS     current
     DESCRIPTION
         "The number of times the associated
@@ -838,9 +785,6 @@ EtherHistoryHighCapacityEntry ::= SEQUENCE {
     etherHistoryHighCapacityOverflowPkts           Gauge32,
     etherHistoryHighCapacityPkts                   CounterBasedGauge64,
     etherHistoryHighCapacityOverflowOctets         Gauge32,
-
-
-
     etherHistoryHighCapacityOctets                 CounterBasedGauge64
 }
 
@@ -888,10 +832,6 @@ etherHistoryHighCapacityOctets OBJECT-TYPE
     ::= { etherHistoryHighCapacityEntry 4 }
 
 -- High Capacity Extensions for the hostTable
-
-
-
-
 hostHighCapacityTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF HostHighCapacityEntry
     MAX-ACCESS not-accessible
@@ -940,9 +880,6 @@ hostHighCapacityInOverflowPkts OBJECT-TYPE
 hostHighCapacityInPkts OBJECT-TYPE
     SYNTAX     Counter64
     UNITS      "Packets"
-
-
-
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -991,9 +928,6 @@ hostHighCapacityInOctets OBJECT-TYPE
         "The number of octets transmitted to this address
         since it was added to the hostHighCapacityTable (excluding
         framing bits but including FCS octets), except for
-
-
-
         those octets in bad packets."
     ::= { hostHighCapacityEntry 6 }
 
@@ -1042,9 +976,6 @@ hostTimeHighCapacityEntry  OBJECT-TYPE
         hostTimeHighCapacityEntries associated with a particular
         hostControlEntry will be created, or none of them will
         be.)"
-
-
-
     INDEX { hostTimeIndex, hostTimeCreationOrder }
     ::= { hostTimeHighCapacityTable 1 }
 
@@ -1093,9 +1024,6 @@ hostTimeHighCapacityOutPkts OBJECT-TYPE
     SYNTAX     Counter64
     UNITS      "Packets"
     MAX-ACCESS read-only
-
-
-
     STATUS     current
     DESCRIPTION
         "The number of packets, including bad packets, transmitted
@@ -1144,9 +1072,6 @@ hostTimeHighCapacityOutOctets OBJECT-TYPE
         "The number of octets transmitted by this address since
         it was added to the hostTimeTable (excluding framing
         bits but including FCS octets), including those
-
-
-
         octets in bad packets."
     ::= { hostTimeHighCapacityEntry 8 }
 
@@ -1195,9 +1120,6 @@ hostTopNHighCapacityBaseRate OBJECT-TYPE
     SYNTAX     Gauge32
     MAX-ACCESS read-only
     STATUS     current
-
-
-
     DESCRIPTION
           "The amount of change in the selected variable
           during this sampling interval, modulo 2^32.  The
@@ -1246,9 +1168,6 @@ matrixSDHighCapacityEntry  OBJECT-TYPE
     DESCRIPTION
         "Contains the High Capacity RMON extensions to the RMON-1
         matrixSDEntry. These objects will be created by the agent
-
-
-
         for all matrixSDEntries associated with whichever
         matrixControlEntries it deems appropriate. (i.e., either all
         matrixSDHighCapacityEntries associated with a particular
@@ -1297,9 +1216,6 @@ matrixSDHighCapacityOverflowOctets OBJECT-TYPE
     ::= { matrixSDHighCapacityEntry 3 }
 
 matrixSDHighCapacityOctets OBJECT-TYPE
-
-
-
     SYNTAX     Counter64
     UNITS      "Octets"
     MAX-ACCESS read-only
@@ -1348,9 +1264,6 @@ MatrixDSHighCapacityEntry ::= SEQUENCE {
 matrixDSHighCapacityOverflowPkts OBJECT-TYPE
     SYNTAX     Counter32
     UNITS      "Packets"
-
-
-
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -1399,9 +1312,6 @@ captureBufferHighCapacityTable OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "Contains the High Capacity RMON extensions to the RMON-1
-
-
-
         captureBufferTable."
     ::= { capture 3 }
 
@@ -1450,9 +1360,6 @@ protocolDistStatsHighCapacityTable OBJECT-TYPE
     DESCRIPTION
         "Contains the High Capacity RMON extensions to the RMON-2
         protocolDistStatsTable."
-
-
-
     ::= { protocolDist 3 }
 
 protocolDistStatsHighCapacityEntry OBJECT-TYPE
@@ -1501,9 +1408,6 @@ protocolDistStatsHighCapacityPkts OBJECT-TYPE
     ::= { protocolDistStatsHighCapacityEntry 2 }
 
 protocolDistStatsHighCapacityOverflowOctets OBJECT-TYPE
-
-
-
     SYNTAX     ZeroBasedCounter32
     UNITS      "Octets"
     MAX-ACCESS read-only
@@ -1552,9 +1456,6 @@ nlHostHighCapacityEntry  OBJECT-TYPE
         nlHostHighCapacityEntries associated with a particular
         hlHostControlEntry will be created, or none of them will
         be.)"
-
-
-
     INDEX { hlHostControlIndex, nlHostTimeMark,
             protocolDirLocalIndex, nlHostAddress }
     ::= { nlHostHighCapacityTable 1 }
@@ -1602,10 +1503,6 @@ nlHostHighCapacityOutOverflowPkts OBJECT-TYPE
         "The number of times the associated nlHostOutPkts
         counter has overflowed."
     ::= { nlHostHighCapacityEntry 3 }
-
-
-
-
 nlHostHighCapacityOutPkts OBJECT-TYPE
     SYNTAX     ZeroBasedCounter64
     UNITS      "Packets"
@@ -1654,9 +1551,6 @@ nlHostHighCapacityOutOverflowOctets OBJECT-TYPE
     DESCRIPTION
         "The number of times the associated nlHostOutOctets
         counter has overflowed."
-
-
-
     ::= { nlHostHighCapacityEntry 7 }
 
 nlHostHighCapacityOutOctets OBJECT-TYPE
@@ -1705,9 +1599,6 @@ nlMatrixSDHighCapacityEntry  OBJECT-TYPE
     ::= { nlMatrixSDHighCapacityTable 1 }
 
 NlMatrixSDHighCapacityEntry ::= SEQUENCE {
-
-
-
     nlMatrixSDHighCapacityOverflowPkts   ZeroBasedCounter32,
     nlMatrixSDHighCapacityPkts           ZeroBasedCounter64,
     nlMatrixSDHighCapacityOverflowOctets ZeroBasedCounter32,
@@ -1756,9 +1647,6 @@ nlMatrixSDHighCapacityOctets OBJECT-TYPE
     DESCRIPTION
         "The number of octets transmitted from the source address to
         the destination address since this entry was added to the
-
-
-
         nlMatrixSDHighCapacityTable (excluding framing bits but
         including FCS octets), excluding those octets in packets that
         contained errors.
@@ -1807,9 +1695,6 @@ nlMatrixDSHighCapacityOverflowPkts OBJECT-TYPE
     SYNTAX     ZeroBasedCounter32
     UNITS      "Packets"
     MAX-ACCESS read-only
-
-
-
     STATUS     current
     DESCRIPTION
         "The number of times the associated nlMatrixDSPkts
@@ -1858,9 +1743,6 @@ nlMatrixDSHighCapacityOctets OBJECT-TYPE
     ::= { nlMatrixDSHighCapacityEntry 4 }
 
 -- High Capacity extensions for the nlMatrixTopNTable
-
-
-
 nlMatrixTopNHighCapacityTable OBJECT-TYPE
     SYNTAX     SEQUENCE OF NlMatrixTopNHighCapacityEntry
     MAX-ACCESS not-accessible
@@ -1909,9 +1791,6 @@ nlMatrixTopNHighCapacityProtocolDirLocalIndex OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "The protocolDirLocalIndex of the network layer protocol of
-
-
-
         this entry's network address."
     ::= { nlMatrixTopNHighCapacityEntry 1 }
 
@@ -1960,9 +1839,6 @@ nlMatrixTopNHighCapacityBasePktRate OBJECT-TYPE
         "The number of packets seen from the source host
         to the destination host during this sampling interval,
         modulo 2^32, counted using the rules for counting the
-
-
-
         nlMatrixSDPkts object."
     ::= { nlMatrixTopNHighCapacityEntry 4 }
 
@@ -2011,9 +1887,6 @@ nlMatrixTopNHighCapacityReverseBasePktRate OBJECT-TYPE
         to nlMatrixTopNHighCapacityPkts, the sort of topN entries is
         based entirely on nlMatrixTopNHighCapacityPktRate, and not on
         the value of this object."
-
-
-
     ::= { nlMatrixTopNHighCapacityEntry 7 }
 
 nlMatrixTopNHighCapacityReverseOverflowPktRate OBJECT-TYPE
@@ -2062,9 +1935,6 @@ nlMatrixTopNHighCapacityBaseOctetRate OBJECT-TYPE
     UNITS      "Octets"
     MAX-ACCESS read-only
     STATUS     current
-
-
-
     DESCRIPTION
         "The number of octets seen from the source host to the
         destination host during this sampling interval, modulo 2^32,
@@ -2113,9 +1983,6 @@ nlMatrixTopNHighCapacityReverseBaseOctetRate OBJECT-TYPE
         one whose source address is equal to nlMatrixTopNDestAddress
         and whose destination address is equal to
         nlMatrixTopNSourceAddress.)
-
-
-
         Note that if the value of nlMatrixTopNControlRateBase is equal
         to nlMatrixTopNHighCapacityOctets, the sort of topN entries is
         based entirely on nlMatrixTopNHighCapacityOctetRate, and not on
@@ -2164,9 +2031,6 @@ nlMatrixTopNHighCapacityReverseOctetRate OBJECT-TYPE
     ::= { nlMatrixTopNHighCapacityEntry 15 }
 
 -- High Capacity extensions for the alHostTable
-
-
-
 alHostHighCapacityTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF AlHostHighCapacityEntry
     MAX-ACCESS not-accessible
@@ -2214,10 +2078,6 @@ alHostHighCapacityInOverflowPkts OBJECT-TYPE
         counter has overflowed."
 
     ::= { alHostHighCapacityEntry 1 }
-
-
-
-
 alHostHighCapacityInPkts OBJECT-TYPE
     SYNTAX     ZeroBasedCounter64
     UNITS      "Packets"
@@ -2265,10 +2125,6 @@ alHostHighCapacityInOverflowOctets OBJECT-TYPE
         "The number of times the associated alHostInOctets
         counter has overflowed."
     ::= { alHostHighCapacityEntry 5 }
-
-
-
-
 alHostHighCapacityInOctets OBJECT-TYPE
     SYNTAX     ZeroBasedCounter64
     UNITS      "Octets"
@@ -2317,9 +2173,6 @@ alHostHighCapacityOutOctets OBJECT-TYPE
 
 alMatrixSDHighCapacityTable  OBJECT-TYPE
     SYNTAX     SEQUENCE OF AlMatrixSDHighCapacityEntry
-
-
-
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
@@ -2368,9 +2221,6 @@ alMatrixSDHighCapacityPkts OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-
-
-
         "The number of good packets of this protocol type
         transmitted from the source address to the destination address
         since this entry was added to the alMatrixSDHighCapacityTable.
@@ -2419,9 +2269,6 @@ alMatrixDSHighCapacityTable  OBJECT-TYPE
 alMatrixDSHighCapacityEntry  OBJECT-TYPE
     SYNTAX     AlMatrixDSHighCapacityEntry
     MAX-ACCESS not-accessible
-
-
-
     STATUS     current
     DESCRIPTION
         "Contains the High Capacity RMON extensions to the RMON-2
@@ -2470,9 +2317,6 @@ alMatrixDSHighCapacityPkts OBJECT-TYPE
 
 alMatrixDSHighCapacityOverflowOctets OBJECT-TYPE
     SYNTAX     ZeroBasedCounter32
-
-
-
     UNITS      "Octets"
     MAX-ACCESS read-only
     STATUS     current
@@ -2520,10 +2364,6 @@ alMatrixTopNHighCapacityEntry OBJECT-TYPE
         that specify a high capacity report."
      INDEX { alMatrixTopNControlIndex, alMatrixTopNIndex }
     ::= { alMatrixTopNHighCapacityTable 1 }
-
-
-
-
 AlMatrixTopNHighCapacityEntry ::= SEQUENCE {
   alMatrixTopNHighCapacityProtocolDirLocalIndex    Integer32,
   alMatrixTopNHighCapacitySourceAddress            OCTET STRING,
@@ -2572,9 +2412,6 @@ alMatrixTopNHighCapacitySourceAddress OBJECT-TYPE
 
 alMatrixTopNHighCapacityDestAddress OBJECT-TYPE
     SYNTAX     OCTET STRING
-
-
-
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -2623,9 +2460,6 @@ alMatrixTopNHighCapacityOverflowPktRate OBJECT-TYPE
         and counted using the rules for counting the
         alMatrixSDPkts object."
     ::= { alMatrixTopNHighCapacityEntry 6 }
-
-
-
 alMatrixTopNHighCapacityPktRate OBJECT-TYPE
     SYNTAX     CounterBasedGauge64
     UNITS      "Packets"
@@ -2674,9 +2508,6 @@ alMatrixTopNHighCapacityReverseOverflowPktRate OBJECT-TYPE
         and whose destination address is equal to
         alMatrixTopNSourceAddress.)"
     ::= { alMatrixTopNHighCapacityEntry 9 }
-
-
-
 alMatrixTopNHighCapacityReversePktRate OBJECT-TYPE
     SYNTAX     CounterBasedGauge64
     UNITS      "Packets"
@@ -2725,9 +2556,6 @@ alMatrixTopNHighCapacityOctetRate OBJECT-TYPE
     DESCRIPTION
         "The number of octets seen of this protocol from the source host
         to the destination host during this sampling interval,
-
-
-
         counted using the rules for counting the
         alMatrixSDOctets object.
         If the value of alMatrixTopNControlRateBase is
@@ -2776,9 +2604,6 @@ alMatrixTopNHighCapacityReverseOctetRate OBJECT-TYPE
     DESCRIPTION
         "The number of octets seen of this protocol from the
         destination host to the source host during this sampling
-
-
-
         interval, counted using the rules for counting the
         alMatrixSDOctets object (note that the corresponding
         alMatrixSDOctets object selected is the one whose source
@@ -2826,10 +2651,6 @@ usrHistoryHighCapacityOverflowAbsValue OBJECT-TYPE
         divided by 2^32, truncating fractions (i.e., X DIV 2^32).
         The value during the current sampling period is not made
         available until the period is completed.
-
-
-
-
         To obtain the true value for this sampling interval, the
         associated instance of usrHistoryValStatus should be checked,
         and usrHistoryAbsValue adjusted as necessary.
@@ -2878,9 +2699,6 @@ hcRMONCapabilities OBJECT-TYPE
         nlMatrixTopNHighCapacityGroup(10),
         alHostHighCapacityGroup(11),
         alMatrixHighCapacityGroup(12),
-
-
-
         alMatrixTopNHighCapacityGroup(13),
         usrHistoryHighCapacityGroup(14)
     }
@@ -2929,9 +2747,6 @@ hcRmon1MIBCompliance MODULE-COMPLIANCE
             requires implementation of the rmonHostGroup."
 
         GROUP hostTopNHighCapacityGroup
-
-
-
         DESCRIPTION
             "The hostTopNHighCapacityGroup is optional but requires
             implementation of the rmonHostTopNGroup."
@@ -2980,9 +2795,6 @@ hcRmon1MIBCompliance MODULE-COMPLIANCE
 
         GROUP rmonFilterGroup
         DESCRIPTION
-
-
-
             "The RMON Filter Group is mandatory when the
             captureBufferHighCapacityGroup is implemented."
 
@@ -3031,9 +2843,6 @@ hcRmon2MIBApplicationLayerCompliance MODULE-COMPLIANCE
 
                            nlHostHighCapacityGroup,
                            nlMatrixHighCapacityGroup,
-
-
-
                            nlMatrixTopNHighCapacityGroup,
                            alHostHighCapacityGroup,
                            alMatrixHighCapacityGroup,
@@ -3082,9 +2891,6 @@ mediaIndependentGroup OBJECT-GROUP
         mediaIndependentInErrors,
         mediaIndependentOutErrors,
         mediaIndependentInputSpeed,
-
-
-
         mediaIndependentOutputSpeed,
         mediaIndependentDuplexMode,
         mediaIndependentDuplexChanges,
@@ -3133,9 +2939,6 @@ hostHighCapacityGroup OBJECT-GROUP
               hostHighCapacityInPkts,
               hostHighCapacityOutOverflowPkts,
               hostHighCapacityOutPkts,
-
-
-
               hostHighCapacityInOverflowOctets,
               hostHighCapacityInOctets,
               hostHighCapacityOutOverflowOctets,
@@ -3184,9 +2987,6 @@ captureBufferHighCapacityGroup OBJECT-GROUP
     STATUS  current
     DESCRIPTION
         "Provides finer granularity time stamps."
-
-
-
     ::= { hcRmonMIBGroups 7 }
 
 protocolDistributionHighCapacityGroup OBJECT-GROUP
@@ -3235,9 +3035,6 @@ nlMatrixTopNHighCapacityGroup OBJECT-GROUP
         nlMatrixTopNHighCapacitySourceAddress,
         nlMatrixTopNHighCapacityDestAddress,
         nlMatrixTopNHighCapacityBasePktRate,
-
-
-
         nlMatrixTopNHighCapacityOverflowPktRate,
         nlMatrixTopNHighCapacityPktRate,
         nlMatrixTopNHighCapacityReverseBasePktRate,
@@ -3285,10 +3082,6 @@ alMatrixHighCapacityGroup OBJECT-GROUP
         pair of network addresses discovered by the
         probe."
     ::= { hcRmonMIBGroups 13 }
-
-
-
-
 alMatrixTopNHighCapacityGroup OBJECT-GROUP
     OBJECTS { alMatrixTopNHighCapacityProtocolDirLocalIndex,
         alMatrixTopNHighCapacitySourceAddress,

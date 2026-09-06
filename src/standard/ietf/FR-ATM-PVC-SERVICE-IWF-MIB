@@ -4,9 +4,6 @@ IMPORTS
               MODULE-IDENTITY, OBJECT-TYPE,
               NOTIFICATION-TYPE,
               mib-2, Integer32, Counter32             FROM SNMPv2-SMI
-
-
-
               RowStatus, TimeStamp                    FROM SNMPv2-TC
 
               MODULE-COMPLIANCE, OBJECT-GROUP,
@@ -55,8 +52,6 @@ IMPORTS
              --
              -- Revision History
              --
-
-
              REVISION "200009280000Z"
              DESCRIPTION
                   "Published as RFC 2955"
@@ -105,8 +100,6 @@ IMPORTS
                      retrieval, the agent should modify the value to
                      the next unassigned index."
               ::= { frAtmIwfMIBObjects 1 }
-
-
          frAtmIwfConnectionTable OBJECT-TYPE
              SYNTAX      SEQUENCE OF FrAtmIwfConnectionEntry
              MAX-ACCESS  not-accessible
@@ -155,8 +148,6 @@ IMPORTS
                      A row can be established by one-step set-request
                      with all required parameter values and
                      frAtmIwfConnRowStatus set to createAndGo(4). The
-
-
                      Agent should perform all error checking as needed.
                      A pair of cross-connected PVCs, as identified by a
                      particular value of the indexes, is released by
@@ -205,8 +196,6 @@ IMPORTS
                      "A unique value for each point-to-point or point-
                      to-multipoint connection.  The manager obtains the
                      frAtmIwfConnIndex value by reading the
-
-
                      frAtmIwfConnIndexNext object.  A point-to-
                      multipoint connection will be represented in the
                      frAtmIwfConnectionTable with multiple entries that
@@ -255,8 +244,6 @@ IMPORTS
              SYNTAX      Integer32 (16..4194303)
              MAX-ACCESS  not-accessible
              STATUS      current
-
-
              DESCRIPTION
                      "The DLCI that identifies the frame relay PVC end
                      point for this interworking connection."
@@ -305,8 +292,6 @@ IMPORTS
                                    the atmVclAdminStatus of the
                                    corresponding ATM endpoint MUST be
                                    'down(2)'.  The deactivation of the
-
-
                                    ATM endpoint MAY occur as a
                                    side-effect of deactivating the
                                    FR/ATM IWF cross-connection."
@@ -355,8 +340,6 @@ IMPORTS
                      interworking connection entered its current
                      operational state in the FR to ATM direction.  If
                      the current state was entered prior to the last
-
-
                      re-initialization of the local network management
                      subsystem, then this object contains a zero
                      value."
@@ -405,8 +388,6 @@ IMPORTS
                      "Count of frames discarded by the IWF because the
                      frame is too large to be processed by the AAL5
                      segmentation procedure.  Specifically, the frame
-
-
                      does not conform to the size specified in the
                      atmVccAal5CpcsTransmitSduSize object associated
                      with the atmVclEntry at the ATM endpoint.
@@ -455,8 +436,6 @@ IMPORTS
                      direction of the PVC."
                        REFERENCE
                                 "FRS MIB [19], frLportTable
-
-
                                  FRF.8 [17], 5.3.1.4"
                        ::= { frAtmIwfConnectionEntry 17 }
 
@@ -505,8 +484,6 @@ IMPORTS
          frAtmIwfConnectionDescriptorIndexNext OBJECT-TYPE
               SYNTAX      Integer32 (0..2147483647)
               MAX-ACCESS  read-only
-
-
               STATUS      current
               DESCRIPTION
                      "This object contains an appropriate value to be
@@ -555,8 +532,6 @@ IMPORTS
                  frAtmIwfConnEncapsulationMappingMode   INTEGER,
                  frAtmIwfConnEncapsulationMappings      BITS,
                  frAtmIwfConnFragAndReassEnabled        INTEGER,
-
-
                  frAtmIwfConnArpTranslationEnabled      INTEGER
          }
 
@@ -605,8 +580,6 @@ IMPORTS
              DESCRIPTION
                      "This object describes which mode of translation
                      is in use for loss priority mapping in the frame
-
-
                      relay to ATM direction.
 
                      mode1(1)        = the DE field in the Q.922 core
@@ -655,8 +628,6 @@ IMPORTS
 
                      mode2Const0(2) = the DE field of the Q.922 core
                                       frame should be set to the
-
-
                                       constant 0.
 
                      mode2Const1(3) = the DE field of the Q.922 core
@@ -705,8 +676,6 @@ IMPORTS
 
          frAtmIwfConnEncapsulationMappingMode OBJECT-TYPE
              SYNTAX      INTEGER {
-
-
                             transparentMode(1),
                             translationMode(2),
                             translationModeAll(3)
@@ -755,8 +724,6 @@ IMPORTS
              MAX-ACCESS  read-create
              STATUS      current
              DESCRIPTION
-
-
                      "If upper layer protocol encapsulation mapping is
                      enabled on this interworking connection, then this
                      attribute enumerates which of the encapsulation
@@ -805,8 +772,6 @@ IMPORTS
          --
          frAtmIwfVclTable OBJECT-TYPE
              SYNTAX      SEQUENCE OF FrAtmIwfVclEntry
-
-
              MAX-ACCESS  not-accessible
              STATUS      current
              DESCRIPTION
@@ -854,9 +819,6 @@ IMPORTS
                      agent after the associated entries in the
                      frAtmIwfConnectionTable have been created."
              ::= { frAtmIwfVclEntry 1 }
-
-
-
          --
          -- Frame Relay/ATM PVC Service Interworking NOTIFICATION
          --
@@ -905,8 +867,6 @@ IMPORTS
                  OBJECT      frAtmIwfConnCongestionMappingMode
                  SYNTAX      INTEGER { mode1(1) }
                  DESCRIPTION
-
-
                      "Only support for Mode 1 is REQUIRED."
 
                  OBJECT      frAtmIwfConnEncapsulationMappingMode
@@ -955,8 +915,6 @@ IMPORTS
                  --
                  OBJECT      frAtmIwfConnAdminStatus
                  MIN-ACCESS  read-only
-
-
                  DESCRIPTION
                      "Write access is not REQUIRED."
 
@@ -1004,9 +962,6 @@ IMPORTS
                  DESCRIPTION
                      "Support for Fragmentation and Reassembly is NOT
                      REQUIRED.  Write access is not required."
-
-
-
                  OBJECT      frAtmIwfConnArpTranslationEnabled
                  SYNTAX      INTEGER { disabled(2) }
                  MIN-ACCESS  read-only
@@ -1055,8 +1010,6 @@ IMPORTS
 
          frAtmIwfConnectionDescriptorGroup    OBJECT-GROUP
              OBJECTS {
-
-
                  frAtmIwfConnectionDescriptorIndexNext,
                  frAtmIwfConnDeToClpMappingMode,
                  frAtmIwfConnClpToDeMappingMode,

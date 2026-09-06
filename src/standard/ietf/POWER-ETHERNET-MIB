@@ -351,7 +351,6 @@ pethConformance   OBJECT IDENTIFIER ::= { powerEthernetMIB 2 }
 -- Main PSE Objects
 
 pethMainPseObjects       OBJECT IDENTIFIER ::= { pethObjects 3 }
-
 pethMainPseTable OBJECT-TYPE
        SYNTAX      SEQUENCE OF PethMainPseEntry
        MAX-ACCESS  not-accessible
@@ -400,7 +399,6 @@ pethMainPseTable OBJECT-TYPE
            and pethNotificationControlGroupIndex to refer to a
            given box in a stack or module in a rack."
        ::= { pethMainPseEntry 1 }
-
      pethMainPsePower OBJECT-TYPE
        SYNTAX      Gauge32  (1..65535)
        UNITS      "Watts"
@@ -496,7 +494,6 @@ pethNotificationControlTable OBJECT-TYPE
              value true(1) means that notifications are enabled; the
              value false(2) means that they are not."
        ::= { pethNotificationControlEntry 2 }
-
 --
 -- Notifications Section
 --

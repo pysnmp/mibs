@@ -1,6 +1,3 @@
--- extracted from rfc1284.txt
--- at Mon Nov 15 17:11:59 1999
-
     RFC1284-MIB DEFINITIONS ::= BEGIN
 
     IMPORTS
@@ -44,7 +41,6 @@
                 particular interface to an ethernet-like medium."
         INDEX   { dot3Index }
         ::= { dot3Table 1 }
-
     Dot3Entry ::=
         SEQUENCE {
             dot3Index
@@ -236,7 +232,6 @@
                executed, or the last TDR value is not available,
               this object has the value 0."
         ::= { dot3Entry 6 }
-
     -- the Ethernet-like Statistics group
 
     -- Implementation of this group is mandatory
@@ -285,7 +280,6 @@
                 Counter,
             dot3StatsFCSErrors
                 Counter,
-
             dot3StatsSingleCollisionFrames
                 Counter,
             dot3StatsMultipleCollisionFrames
@@ -379,7 +373,6 @@
                 corresponding instance of the
                 dot3StatsMultipleCollisionFrames object."
        ::= { dot3StatsEntry 4 }
-
     dot3StatsMultipleCollisionFrames OBJECT-TYPE
         SYNTAX  Counter
         ACCESS  read-only
@@ -473,7 +466,6 @@
                 errors on a particular interface that are not
                 otherwise counted."
         ::= { dot3StatsEntry 10 }
-
     dot3StatsCarrierSenseErrors OBJECT-TYPE
         SYNTAX  Counter
         ACCESS  read-only
@@ -519,7 +511,6 @@
                 according to the error status presented to the
                 LLC."
         ::= { dot3StatsEntry 13 }
-
     dot3StatsInRangeLengthErrors OBJECT-TYPE
         SYNTAX  Counter
         ACCESS  read-only
@@ -616,7 +607,6 @@
                 INTEGER,
             dot3CollFrequencies
                 Counter
-
         }
 
     dot3CollIndex OBJECT-TYPE

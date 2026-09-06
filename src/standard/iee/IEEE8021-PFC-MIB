@@ -19,32 +19,36 @@ IMPORTS
    ;
 
 ieee8021PFCMib MODULE-IDENTITY
-    LAST-UPDATED "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202103050000Z" -- March 5, 2021
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-       "WG-URL:   http://www.ieee802.org/1/
-        WG-EMail: stds-802-1-L@ieee.org 
-        Contact:  IEEE 802.1 Working Group Chair
-        Postal:   IEEE Standards Board
-                  445 Hoes Lane
-                  Piscataway, NJ 08854
-                  USA
-        E-mail:   stds-802-1-L@ieee.org
-        "
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
+          Contact: IEEE 802.1 Working Group Chair
+           Postal: C/O IEEE 802.1 Working Group
+                   IEEE Standards Association
+                   445 Hoes Lane
+                   Piscataway, NJ 08854
+                   USA
+           E-mail: stds-802-1-chairs@ieee.org"
    DESCRIPTION 
      "Priority-based Flow Control module for IEEE Std 802.1Q.
 
         Unless otherwise indicated, the references in this MIB
-        module are to IEEE Std 802.1Q.
+        module are to IEEE Std 802.1Q-2022.
 
-        Copyright (C) IEEE (2018).
+        Copyright (C) IEEE (2022).
         This version of this MIB module is part of IEEE Std 802.1Q;
-        see the draft itself for full legal notices.
-      "
-
-    REVISION "201806280000Z" -- June 28, 2018
+        see that standard for full legal notices."
+        
+    REVISION "202103050000Z" -- March 5, 2021
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q-2018.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
             
     REVISION "201412150000Z" -- December 15, 2014
@@ -71,7 +75,7 @@ ieee8021PfcIfTable OBJECT-TYPE
     DESCRIPTION
        "A table of PFC information for all interfaces of a system."
     REFERENCE
-       "12.23"
+       "12.22.6"
     ::= { ieee8021PfcMIBObjects 1 }
 
 ieee8021PfcIfEntry OBJECT-TYPE
@@ -82,7 +86,7 @@ ieee8021PfcIfEntry OBJECT-TYPE
        "Each entry contains information about
         the PFC function on a single interface."
     REFERENCE
-       "12.23"
+       "12.22.6"
     AUGMENTS { ifEntry }
     ::= { ieee8021PfcIfTable 1 }
 

@@ -221,7 +221,6 @@ IntSrvIfAttribEntry ::=
            ther from a reservation protocol (such as  RSVP
            or ST-II) or via configuration information."
        ::= { intSrvIfAttribEntry 4 }
-
     intSrvIfAttribPropagationDelay OBJECT-TYPE
         SYNTAX      Integer32
         UNITS       "microseconds"
@@ -509,7 +508,6 @@ IntSrvIfAttribEntry ::=
            implementation-specific,   as   implementations
            vary in their use of weighting procedures."
        ::= { intSrvFlowEntry 16 }
-
     intSrvFlowQueue OBJECT-TYPE
         SYNTAX      Integer32
         MAX-ACCESS  read-create

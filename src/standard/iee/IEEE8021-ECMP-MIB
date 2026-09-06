@@ -24,37 +24,37 @@ IMPORTS
         FROM SNMPv2-CONF;
 
 ieee8021EcmpMib MODULE-IDENTITY
-    LAST-UPDATED "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-        "WG-URL:   http://www.ieee802.org/1/
-         WG-EMail: stds-802-1-L@ieee.org
-
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@IEEE.ORG"
+           E-mail: stds-802-1-chairs@ieee.org"
     DESCRIPTION
         "MIB Module for managing systems that provide
-         802.1Q Equal Cost Multiple Paths.
+        802.1Q Equal Cost Multiple Paths.
 
-         Unless otherwise indicated, the references in this MIB
-         module are to IEEE Std 802.1Q.
+        Unless otherwise indicated, the references in this MIB
+        module are to IEEE Std 802.1Q-2022.
 
-         Copyright (C) IEEE (2018).
-         This version of this MIB module is part of IEEE Std 802.1Q;
-         see the draft itself for full legal notices."
+        Copyright (C) IEEE (2022).
+        This version of this MIB module is part of IEEE Std 802.1Q;
+        see that standard for full legal notices."
 
-
-
-    REVISION "201806280000Z" -- June 28, 2018
-
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q 2017 revision.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected.
             Description replaced."
 
@@ -126,7 +126,7 @@ ieee8021EcmpFlowFilterCtlTable OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
-        "A table flow filtering control informmation for ports
+        "A table flow filtering control information for ports
          in a Bridge supporting F-Tag processing."
     REFERENCE "12.16.5.4, 12.16.5.5"
     ::= { ieee8021EcmpObjects 2 }

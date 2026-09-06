@@ -27,7 +27,6 @@ IMPORTS
 t11FcSpAuthenticationMIB  MODULE-IDENTITY
     LAST-UPDATED  "200808200000Z"
     ORGANIZATION  "This MIB module was developed through the
-
                   coordinated effort of two organizations:
                   T11 began the development and the IETF (in
                   the IMSS Working Group) finished it."
@@ -76,7 +75,6 @@ t11FcSpAuMIBObjects
                    OBJECT IDENTIFIER ::= { t11FcSpAuthenticationMIB 1 }
 t11FcSpAuMIBConformance
                    OBJECT IDENTIFIER ::= { t11FcSpAuthenticationMIB 2 }
-
 t11FcSpAuMIBIdentities
                    OBJECT IDENTIFIER ::= { t11FcSpAuthenticationMIB 3 }
 
@@ -173,7 +171,6 @@ T11FcSpAuEntityEntry ::= SEQUENCE {
     t11FcSpAuFcapDhGroups           T11FcSpDhGroups,
     t11FcSpAuFcpapHashFunctions     T11FcSpHashFunctions,
     t11FcSpAuFcpapDhGroups          T11FcSpDhGroups
-
 }
 
 t11FcSpAuEntityName OBJECT-TYPE
@@ -222,7 +219,6 @@ t11FcSpAuServerProtocol OBJECT-TYPE
            party to verify DH-CHAP responses.
 
            When no protocol is being used, or if the third party is
-
            unreachable via the specified protocol, then locally
            configured information (if any) may be used instead."
     ::= { t11FcSpAuEntityEntry 3 }
@@ -271,7 +267,6 @@ t11FcSpAuRcvRejNotifyEnable OBJECT-TYPE
            this type of notification is not generated."
     DEFVAL { false }
     ::= { t11FcSpAuEntityEntry 6 }
-
 t11FcSpAuDefaultLifetime OBJECT-TYPE
     SYNTAX       T11FcSpLifetimeLeft
     MAX-ACCESS   read-write
@@ -416,7 +411,6 @@ t11FcSpAuIfStatTable OBJECT-TYPE
            The objects within this table contain statistics information
            related to FC-SP's Authentication Protocols."
     ::= { t11FcSpAuMIBObjects 2 }
-
 t11FcSpAuIfStatEntry OBJECT-TYPE
     SYNTAX       T11FcSpAuIfStatEntry
     MAX-ACCESS   not-accessible
@@ -561,7 +555,6 @@ t11FcSpAuIfStatOutLsSwRejectedMsgs OBJECT-TYPE
            by the particular entity on the particular Fabric on the
            particular interface, which were rejected by a lower-level
            (SW_RJT or LS_RJT) reject.
-
            This counter has no discontinuities other than those
            that all Counter32's have when sysUpTime=0."
     REFERENCE
@@ -610,7 +603,6 @@ t11FcSpAuRejectTable OBJECT-TYPE
            its value rolls over to zero after approximately 497 days.
            To avoid any confusion due to such a rollover, rows should
            be deleted from this table before they are 497 days old.
-
            This table will be empty if no AUTH_Reject messages,
            nor any SW_RJT/LS_RJT's rejecting an AUTH message,
            have been sent or received since the last
@@ -659,7 +651,6 @@ t11FcSpAuRejFabricIndex OBJECT-TYPE
     STATUS       current
     DESCRIPTION
            "An index value identifying the particular Fabric on
-
            which the rejected AUTH message was sent or received."
     ::= { t11FcSpAuRejectEntry 2 }
 
@@ -708,7 +699,6 @@ t11FcSpAuRejAuthMsgString OBJECT-TYPE
            "The binary content of the AUTH message that was
            rejected, formatted as an octet string (in network
            byte order) containing the content of the message.
-
            If the binary content is unavailable, then the
            length is zero.  Otherwise, the first octet of the
            message identifies the type of message:

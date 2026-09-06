@@ -24,7 +24,7 @@ IMPORTS
         FROM LLDP-V2-TC-MIB;
 
 lldpV2Xdot3MIB MODULE-IDENTITY
-    LAST-UPDATED "201305241753Z"  -- Fri May 24 17:53 UTC 2013
+    LAST-UPDATED "200906080000Z" -- June 08, 2009
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO 
             "WG-URL: http://grouper.ieee.org/groups/802/1/index.html
@@ -53,12 +53,6 @@ lldpV2Xdot3MIB MODULE-IDENTITY
             is published as Annex F.6.5 of IEEE Std 802.1AB-2009;
             see the standard itself for full legal notices."
 
-    REVISION "201305241753Z"  -- Fri May 24 17:53 UTC 2013
-    DESCRIPTION
-            "Enterasys Networks:
-             Added a p8021 prefix to all leaves to avoid naming conflicts
-             with IEEE8023-DOT3-LLDP-EXT-V2-MIB."
-
     REVISION "200906080000Z" -- June 08, 2009
 
     DESCRIPTION
@@ -79,12 +73,12 @@ lldpV2Xdot3MIB MODULE-IDENTITY
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
-p8021lldpV2Xdot3Objects    OBJECT IDENTIFIER ::= { lldpV2Xdot3MIB 1 }
+lldpV2Xdot3Objects    OBJECT IDENTIFIER ::= { lldpV2Xdot3MIB 1 }
 
 -- LLDP IEEE 802.3 extension MIB groups
-p8021lldpV2Xdot3Config     OBJECT IDENTIFIER ::= { p8021lldpV2Xdot3Objects 1 }
-p8021lldpV2Xdot3LocalData  OBJECT IDENTIFIER ::= { p8021lldpV2Xdot3Objects 2 }
-p8021lldpV2Xdot3RemoteData OBJECT IDENTIFIER ::= { p8021lldpV2Xdot3Objects 3 }
+lldpV2Xdot3Config     OBJECT IDENTIFIER ::= { lldpV2Xdot3Objects 1 }
+lldpV2Xdot3LocalData  OBJECT IDENTIFIER ::= { lldpV2Xdot3Objects 2 }
+lldpV2Xdot3RemoteData OBJECT IDENTIFIER ::= { lldpV2Xdot3Objects 3 }
 
 
 
@@ -99,16 +93,16 @@ p8021lldpV2Xdot3RemoteData OBJECT IDENTIFIER ::= { p8021lldpV2Xdot3Objects 3 }
 --
 
 
-p8021lldpV2Xdot3PortConfigTable OBJECT-TYPE
+lldpV2Xdot3PortConfigTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF LldpV2Xdot3PortConfigEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
             "A table that controls selection of LLDP TLVs to be transmitted 
             on individual ports."
-    ::= { p8021lldpV2Xdot3Config 1 }
+    ::= { lldpV2Xdot3Config 1 }
 
-p8021lldpV2Xdot3PortConfigEntry  OBJECT-TYPE
+lldpV2Xdot3PortConfigEntry  OBJECT-TYPE
     SYNTAX      LldpV2Xdot3PortConfigEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -126,13 +120,13 @@ p8021lldpV2Xdot3PortConfigEntry  OBJECT-TYPE
             storage (along with the corresponding lldpV2PortConfigEntry)
             after a re-initialization of the management system."
     AUGMENTS { lldpV2PortConfigEntry }
-    ::= { p8021lldpV2Xdot3PortConfigTable 1 }
+    ::= { lldpV2Xdot3PortConfigTable 1 }
 
 LldpV2Xdot3PortConfigEntry ::= SEQUENCE {
-      p8021lldpV2Xdot3PortConfigTLVsTxEnable  BITS
+      lldpV2Xdot3PortConfigTLVsTxEnable  BITS
 }
 
-p8021lldpV2Xdot3PortConfigTLVsTxEnable  OBJECT-TYPE
+lldpV2Xdot3PortConfigTLVsTxEnable  OBJECT-TYPE
     SYNTAX      BITS {
             macPhyConfigStatus(0),
             powerViaMDI(1),
@@ -170,7 +164,7 @@ p8021lldpV2Xdot3PortConfigTLVsTxEnable  OBJECT-TYPE
     REFERENCE 
             "9.1.2.1"
     DEFVAL  { { } }
-    ::= { p8021lldpV2Xdot3PortConfigEntry  1 }
+    ::= { lldpV2Xdot3PortConfigEntry  1 }
 
 
 
@@ -184,33 +178,33 @@ p8021lldpV2Xdot3PortConfigTLVsTxEnable  OBJECT-TYPE
 --- V2 modified to be indexed by ifIndex.
 ---
 
-p8021lldpV2Xdot3LocPortTable OBJECT-TYPE
-    SYNTAX      SEQUENCE OF P8021LldpV2Xdot3LocPortEntry
+lldpV2Xdot3LocPortTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF LldpV2Xdot3LocPortEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
             "This table contains one row per port of Ethernet port
             information (as a part of the LLDP 802.3 organizational
             extension) on the local system known to this agent."
-    ::= { p8021lldpV2Xdot3LocalData 1 }
+    ::= { lldpV2Xdot3LocalData 1 }
 
-p8021lldpV2Xdot3LocPortEntry OBJECT-TYPE
-    SYNTAX      P8021LldpV2Xdot3LocPortEntry
+lldpV2Xdot3LocPortEntry OBJECT-TYPE
+    SYNTAX      LldpV2Xdot3LocPortEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
             "Information about a particular port component."
     INDEX   { lldpV2LocPortIfIndex }
-    ::= { p8021lldpV2Xdot3LocPortTable 1 }
+    ::= { lldpV2Xdot3LocPortTable 1 }
 
-P8021LldpV2Xdot3LocPortEntry ::= SEQUENCE {
-         p8021lldpV2Xdot3LocPortAutoNegSupported     TruthValue,
-         p8021lldpV2Xdot3LocPortAutoNegEnabled       TruthValue,
-         p8021lldpV2Xdot3LocPortAutoNegAdvertisedCap OCTET STRING,
-         p8021lldpV2Xdot3LocPortOperMauType          Unsigned32
+LldpV2Xdot3LocPortEntry ::= SEQUENCE {
+         lldpV2Xdot3LocPortAutoNegSupported     TruthValue,
+         lldpV2Xdot3LocPortAutoNegEnabled       TruthValue,
+         lldpV2Xdot3LocPortAutoNegAdvertisedCap OCTET STRING,
+         lldpV2Xdot3LocPortOperMauType          Unsigned32
 }
 
-p8021lldpV2Xdot3LocPortAutoNegSupported OBJECT-TYPE
+lldpV2Xdot3LocPortAutoNegSupported OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -219,9 +213,9 @@ p8021lldpV2Xdot3LocPortAutoNegSupported OBJECT-TYPE
             (associated with the local system) supports Auto-negotiation."
     REFERENCE 
             "F.2.1"
-    ::= { p8021lldpV2Xdot3LocPortEntry 1 }
+    ::= { lldpV2Xdot3LocPortEntry 1 }
 
-p8021lldpV2Xdot3LocPortAutoNegEnabled  OBJECT-TYPE
+lldpV2Xdot3LocPortAutoNegEnabled  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -231,9 +225,9 @@ p8021lldpV2Xdot3LocPortAutoNegEnabled  OBJECT-TYPE
             with the local system."
     REFERENCE 
             "F.2.1"
-    ::= { p8021lldpV2Xdot3LocPortEntry 2 }
+    ::= { lldpV2Xdot3LocPortEntry 2 }
 
-p8021lldpV2Xdot3LocPortAutoNegAdvertisedCap OBJECT-TYPE
+lldpV2Xdot3LocPortAutoNegAdvertisedCap OBJECT-TYPE
     SYNTAX      OCTET STRING(SIZE(2))
     MAX-ACCESS  read-only
     STATUS      current
@@ -244,9 +238,9 @@ p8021lldpV2Xdot3LocPortAutoNegAdvertisedCap OBJECT-TYPE
             local system."
     REFERENCE 
             "F.2.2"
-    ::= { p8021lldpV2Xdot3LocPortEntry 3 }
+    ::= { lldpV2Xdot3LocPortEntry 3 }
 
-p8021lldpV2Xdot3LocPortOperMauType  OBJECT-TYPE
+lldpV2Xdot3LocPortOperMauType  OBJECT-TYPE
     SYNTAX      Unsigned32(0..2147483647)
     MAX-ACCESS  read-only
     STATUS      current
@@ -266,7 +260,7 @@ p8021lldpV2Xdot3LocPortOperMauType  OBJECT-TYPE
             set to zero."
     REFERENCE 
             "F.2.3"
-    ::= { p8021lldpV2Xdot3LocPortEntry 4 }
+    ::= { lldpV2Xdot3LocPortEntry 4 }
 
 
 
@@ -277,7 +271,7 @@ p8021lldpV2Xdot3LocPortOperMauType  OBJECT-TYPE
 ---
 ---
 
-p8021lldpV2Xdot3LocPowerTable OBJECT-TYPE
+lldpV2Xdot3LocPowerTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF LldpV2Xdot3LocPowerEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -285,28 +279,28 @@ p8021lldpV2Xdot3LocPowerTable OBJECT-TYPE
             "This table contains one row per port of power ethernet 
             information (as a part of the LLDP 802.3 organizational
             extension) on the local system known to this agent."
-    ::= { p8021lldpV2Xdot3LocalData 2 }
+    ::= { lldpV2Xdot3LocalData 2 }
 
-p8021lldpV2Xdot3LocPowerEntry OBJECT-TYPE
+lldpV2Xdot3LocPowerEntry OBJECT-TYPE
     SYNTAX      LldpV2Xdot3LocPowerEntry
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
             "Information about a particular port component."
     INDEX   { lldpV2LocPortIfIndex }
-    ::= { p8021lldpV2Xdot3LocPowerTable 1 }
+    ::= { lldpV2Xdot3LocPowerTable 1 }
 
 LldpV2Xdot3LocPowerEntry ::= SEQUENCE {
-         p8021lldpV2Xdot3LocPowerPortClass           LldpV2PowerPortClass,
-         p8021lldpV2Xdot3LocPowerMDISupported        TruthValue,
-         p8021lldpV2Xdot3LocPowerMDIEnabled           TruthValue,
-         p8021lldpV2Xdot3LocPowerPairControlable     TruthValue,
-         p8021lldpV2Xdot3LocPowerPairs               Unsigned32,
-         p8021lldpV2Xdot3LocPowerClass               Unsigned32
+         lldpV2Xdot3LocPowerPortClass           LldpV2PowerPortClass,
+         lldpV2Xdot3LocPowerMDISupported        TruthValue,
+         lldpV2Xdot3LocPowerMDIEnabled           TruthValue,
+         lldpV2Xdot3LocPowerPairControlable     TruthValue,
+         lldpV2Xdot3LocPowerPairs               Unsigned32,
+         lldpV2Xdot3LocPowerClass               Unsigned32
 } 
 
 
-p8021lldpV2Xdot3LocPowerPortClass  OBJECT-TYPE
+lldpV2Xdot3LocPowerPortClass  OBJECT-TYPE
     SYNTAX      LldpV2PowerPortClass
     MAX-ACCESS  read-only
     STATUS      current
@@ -315,9 +309,9 @@ p8021lldpV2Xdot3LocPowerPortClass  OBJECT-TYPE
             associated with the local system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3LocPowerEntry 1 }
+    ::= { lldpV2Xdot3LocPowerEntry 1 }
 
-p8021lldpV2Xdot3LocPowerMDISupported  OBJECT-TYPE
+lldpV2Xdot3LocPowerMDISupported  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -326,9 +320,9 @@ p8021lldpV2Xdot3LocPowerMDISupported  OBJECT-TYPE
             supported on the given port associated with the local system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3LocPowerEntry 2 }
+    ::= { lldpV2Xdot3LocPowerEntry 2 }
 
-p8021lldpV2Xdot3LocPowerMDIEnabled  OBJECT-TYPE
+lldpV2Xdot3LocPowerMDIEnabled  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -337,9 +331,9 @@ p8021lldpV2Xdot3LocPowerMDIEnabled  OBJECT-TYPE
             enabled on the given port associated with the local system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3LocPowerEntry 3 }
+    ::= { lldpV2Xdot3LocPowerEntry 3 }
 
-p8021lldpV2Xdot3LocPowerPairControlable  OBJECT-TYPE
+lldpV2Xdot3LocPowerPairControlable  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -351,9 +345,9 @@ p8021lldpV2Xdot3LocPowerPairControlable  OBJECT-TYPE
             local system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3LocPowerEntry 4 }
+    ::= { lldpV2Xdot3LocPowerEntry 4 }
 
-p8021lldpV2Xdot3LocPowerPairs  OBJECT-TYPE
+lldpV2Xdot3LocPowerPairs  OBJECT-TYPE
     SYNTAX      Unsigned32(1|2)
     MAX-ACCESS  read-only
     STATUS      current
@@ -363,9 +357,9 @@ p8021lldpV2Xdot3LocPowerPairs  OBJECT-TYPE
             the given port on the local system."
     REFERENCE 
             "F.3.2"
-    ::= { p8021lldpV2Xdot3LocPowerEntry 5 }
+    ::= { lldpV2Xdot3LocPowerEntry 5 }
 
-p8021lldpV2Xdot3LocPowerClass  OBJECT-TYPE
+lldpV2Xdot3LocPowerClass  OBJECT-TYPE
     SYNTAX      Unsigned32(1|2|3|4|5)
     MAX-ACCESS  read-only
     STATUS      current
@@ -376,7 +370,7 @@ p8021lldpV2Xdot3LocPowerClass  OBJECT-TYPE
             local system."
     REFERENCE 
             "F.3.3"
-    ::= { p8021lldpV2Xdot3LocPowerEntry 6 }
+    ::= { lldpV2Xdot3LocPowerEntry 6 }
 
 
 
@@ -386,7 +380,7 @@ p8021lldpV2Xdot3LocPowerClass  OBJECT-TYPE
 --- V2 modified to be indexed by ifIndex.
 ---
 ---
-p8021lldpV2Xdot3LocMaxFrameSizeTable  OBJECT-TYPE
+lldpV2Xdot3LocMaxFrameSizeTable  OBJECT-TYPE
     SYNTAX      SEQUENCE OF LldpV2Xdot3LocMaxFrameSizeEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -394,9 +388,9 @@ p8021lldpV2Xdot3LocMaxFrameSizeTable  OBJECT-TYPE
             "This table contains one row per port of maximum frame 
             size information (as a part of the LLDP 802.3 organizational
             extension) on the local system known to this agent."
-    ::= { p8021lldpV2Xdot3LocalData 3 }
+    ::= { lldpV2Xdot3LocalData 3 }
 
-p8021lldpV2Xdot3LocMaxFrameSizeEntry OBJECT-TYPE
+lldpV2Xdot3LocMaxFrameSizeEntry OBJECT-TYPE
     SYNTAX      LldpV2Xdot3LocMaxFrameSizeEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -404,13 +398,13 @@ p8021lldpV2Xdot3LocMaxFrameSizeEntry OBJECT-TYPE
             "Maximum Frame Size information about a particular port
             component."
     INDEX   { lldpV2LocPortIfIndex }
-    ::= { p8021lldpV2Xdot3LocMaxFrameSizeTable 1 }
+    ::= { lldpV2Xdot3LocMaxFrameSizeTable 1 }
 
 LldpV2Xdot3LocMaxFrameSizeEntry ::= SEQUENCE {
-        p8021lldpV2Xdot3LocMaxFrameSize             Unsigned32
+        lldpV2Xdot3LocMaxFrameSize             Unsigned32
 } 
 
-p8021lldpV2Xdot3LocMaxFrameSize OBJECT-TYPE
+lldpV2Xdot3LocMaxFrameSize OBJECT-TYPE
     SYNTAX      Unsigned32(0..65535)
     MAX-ACCESS  read-only
     STATUS      current
@@ -419,7 +413,7 @@ p8021lldpV2Xdot3LocMaxFrameSize OBJECT-TYPE
              size in octets on the given port of the local system."
     REFERENCE 
             "F.4.1"
-    ::= { p8021lldpV2Xdot3LocMaxFrameSizeEntry 1 }
+    ::= { lldpV2Xdot3LocMaxFrameSizeEntry 1 }
 
 
 
@@ -434,7 +428,7 @@ p8021lldpV2Xdot3LocMaxFrameSize OBJECT-TYPE
 ---
 ---
 
-p8021lldpV2Xdot3RemPortTable OBJECT-TYPE
+lldpV2Xdot3RemPortTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF LldpV2Xdot3RemPortEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -442,9 +436,9 @@ p8021lldpV2Xdot3RemPortTable OBJECT-TYPE
             "This table contains Ethernet port information (as a part
             of the LLDP 802.3 organizational extension) of the remote
             system."
-    ::= { p8021lldpV2Xdot3RemoteData 1 }
+    ::= { lldpV2Xdot3RemoteData 1 }
 
-p8021lldpV2Xdot3RemPortEntry OBJECT-TYPE
+lldpV2Xdot3RemPortEntry OBJECT-TYPE
     SYNTAX      LldpV2Xdot3RemPortEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -454,17 +448,17 @@ p8021lldpV2Xdot3RemPortEntry OBJECT-TYPE
               lldpV2RemLocalIfIndex, 
               lldpV2RemLocalDestMACAddress,
               lldpV2RemIndex }
-    ::= { p8021lldpV2Xdot3RemPortTable 1 }
+    ::= { lldpV2Xdot3RemPortTable 1 }
 
 LldpV2Xdot3RemPortEntry ::= SEQUENCE {
-              p8021lldpV2Xdot3RemPortAutoNegSupported     TruthValue,
-              p8021lldpV2Xdot3RemPortAutoNegEnabled       TruthValue,
-              p8021lldpV2Xdot3RemPortAutoNegAdvertisedCap OCTET STRING,
-              p8021lldpV2Xdot3RemPortOperMauType          Unsigned32
+              lldpV2Xdot3RemPortAutoNegSupported     TruthValue,
+              lldpV2Xdot3RemPortAutoNegEnabled       TruthValue,
+              lldpV2Xdot3RemPortAutoNegAdvertisedCap OCTET STRING,
+              lldpV2Xdot3RemPortOperMauType          Unsigned32
 } 
 
 
-p8021lldpV2Xdot3RemPortAutoNegSupported OBJECT-TYPE
+lldpV2Xdot3RemPortAutoNegSupported OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -473,9 +467,9 @@ p8021lldpV2Xdot3RemPortAutoNegSupported OBJECT-TYPE
             (associated with remote system) supports Auto-negotiation."
     REFERENCE 
             "F.2.1"
-    ::= { p8021lldpV2Xdot3RemPortEntry 1 }
+    ::= { lldpV2Xdot3RemPortEntry 1 }
 
-p8021lldpV2Xdot3RemPortAutoNegEnabled  OBJECT-TYPE
+lldpV2Xdot3RemPortAutoNegEnabled  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -485,9 +479,9 @@ p8021lldpV2Xdot3RemPortAutoNegEnabled  OBJECT-TYPE
             with the remote system."
     REFERENCE 
             "F.2.1"
-    ::= { p8021lldpV2Xdot3RemPortEntry 2 }
+    ::= { lldpV2Xdot3RemPortEntry 2 }
 
-p8021lldpV2Xdot3RemPortAutoNegAdvertisedCap  OBJECT-TYPE
+lldpV2Xdot3RemPortAutoNegAdvertisedCap  OBJECT-TYPE
     SYNTAX      OCTET STRING(SIZE(2))
     MAX-ACCESS  read-only
     STATUS      current
@@ -498,9 +492,9 @@ p8021lldpV2Xdot3RemPortAutoNegAdvertisedCap  OBJECT-TYPE
             remote system."
     REFERENCE 
             "F.2.2"
-    ::= { p8021lldpV2Xdot3RemPortEntry 3 }
+    ::= { lldpV2Xdot3RemPortEntry 3 }
 
-p8021lldpV2Xdot3RemPortOperMauType OBJECT-TYPE
+lldpV2Xdot3RemPortOperMauType OBJECT-TYPE
     SYNTAX      Unsigned32(0..2147483647)
     MAX-ACCESS  read-only
     STATUS      current
@@ -520,7 +514,7 @@ p8021lldpV2Xdot3RemPortOperMauType OBJECT-TYPE
             set to zero."
     REFERENCE 
             "F.2.3"
-    ::= { p8021lldpV2Xdot3RemPortEntry 4 }
+    ::= { lldpV2Xdot3RemPortEntry 4 }
 
 
 ---
@@ -530,7 +524,7 @@ p8021lldpV2Xdot3RemPortOperMauType OBJECT-TYPE
 ---
 ---
 
-p8021lldpV2Xdot3RemPowerTable OBJECT-TYPE
+lldpV2Xdot3RemPowerTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF LldpV2Xdot3RemPowerEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -538,9 +532,9 @@ p8021lldpV2Xdot3RemPowerTable OBJECT-TYPE
             "This table contains Ethernet power information (as a part
             of the LLDP 802.3 organizational extension) of the remote
             system."
-    ::= { p8021lldpV2Xdot3RemoteData 2 }
+    ::= { lldpV2Xdot3RemoteData 2 }
 
-p8021lldpV2Xdot3RemPowerEntry OBJECT-TYPE
+lldpV2Xdot3RemPowerEntry OBJECT-TYPE
     SYNTAX      LldpV2Xdot3RemPowerEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -550,19 +544,19 @@ p8021lldpV2Xdot3RemPowerEntry OBJECT-TYPE
               lldpV2RemLocalIfIndex,
               lldpV2RemLocalDestMACAddress,
               lldpV2RemIndex }
-    ::= { p8021lldpV2Xdot3RemPowerTable 1 }
+    ::= { lldpV2Xdot3RemPowerTable 1 }
 
 LldpV2Xdot3RemPowerEntry ::= SEQUENCE {
-              p8021lldpV2Xdot3RemPowerPortClass           LldpV2PowerPortClass,
-              p8021lldpV2Xdot3RemPowerMDISupported        TruthValue,
-              p8021lldpV2Xdot3RemPowerMDIEnabled          TruthValue,
-              p8021lldpV2Xdot3RemPowerPairControlable     TruthValue,
-              p8021lldpV2Xdot3RemPowerPairs               Unsigned32,
-              p8021lldpV2Xdot3RemPowerClass               Unsigned32
+              lldpV2Xdot3RemPowerPortClass           LldpV2PowerPortClass,
+              lldpV2Xdot3RemPowerMDISupported        TruthValue,
+              lldpV2Xdot3RemPowerMDIEnabled          TruthValue,
+              lldpV2Xdot3RemPowerPairControlable     TruthValue,
+              lldpV2Xdot3RemPowerPairs               Unsigned32,
+              lldpV2Xdot3RemPowerClass               Unsigned32
 } 
 
 
-p8021lldpV2Xdot3RemPowerPortClass  OBJECT-TYPE
+lldpV2Xdot3RemPowerPortClass  OBJECT-TYPE
     SYNTAX      LldpV2PowerPortClass
     MAX-ACCESS  read-only
     STATUS      current
@@ -571,9 +565,9 @@ p8021lldpV2Xdot3RemPowerPortClass  OBJECT-TYPE
             associated with the remote system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3RemPowerEntry 1 }
+    ::= { lldpV2Xdot3RemPowerEntry 1 }
 
-p8021lldpV2Xdot3RemPowerMDISupported  OBJECT-TYPE
+lldpV2Xdot3RemPowerMDISupported  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -583,9 +577,9 @@ p8021lldpV2Xdot3RemPowerMDISupported  OBJECT-TYPE
             system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3RemPowerEntry 2 }
+    ::= { lldpV2Xdot3RemPowerEntry 2 }
 
-p8021lldpV2Xdot3RemPowerMDIEnabled  OBJECT-TYPE
+lldpV2Xdot3RemPowerMDIEnabled  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -594,9 +588,9 @@ p8021lldpV2Xdot3RemPowerMDIEnabled  OBJECT-TYPE
             enabled on the given port associated with the remote system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3RemPowerEntry 3 }
+    ::= { lldpV2Xdot3RemPowerEntry 3 }
 
-p8021lldpV2Xdot3RemPowerPairControlable  OBJECT-TYPE
+lldpV2Xdot3RemPowerPairControlable  OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
     STATUS      current
@@ -608,9 +602,9 @@ p8021lldpV2Xdot3RemPowerPairControlable  OBJECT-TYPE
             remote system."
     REFERENCE 
             "F.3.1"
-    ::= { p8021lldpV2Xdot3RemPowerEntry 4 }
+    ::= { lldpV2Xdot3RemPowerEntry 4 }
 
-p8021lldpV2Xdot3RemPowerPairs  OBJECT-TYPE
+lldpV2Xdot3RemPowerPairs  OBJECT-TYPE
     SYNTAX      Unsigned32(1|2)
     MAX-ACCESS  read-only
     STATUS      current
@@ -620,9 +614,9 @@ p8021lldpV2Xdot3RemPowerPairs  OBJECT-TYPE
             the given port on the remote system."
     REFERENCE 
             "F.3.2"
-    ::= { p8021lldpV2Xdot3RemPowerEntry 5 }
+    ::= { lldpV2Xdot3RemPowerEntry 5 }
 
-p8021lldpV2Xdot3RemPowerClass  OBJECT-TYPE
+lldpV2Xdot3RemPowerClass  OBJECT-TYPE
     SYNTAX      Unsigned32(1|2|3|4|5)
     MAX-ACCESS  read-only
     STATUS      current
@@ -633,7 +627,7 @@ p8021lldpV2Xdot3RemPowerClass  OBJECT-TYPE
             remote system."
     REFERENCE 
             "F.3.3"
-    ::= { p8021lldpV2Xdot3RemPowerEntry 6 }
+    ::= { lldpV2Xdot3RemPowerEntry 6 }
 
 
 
@@ -643,7 +637,7 @@ p8021lldpV2Xdot3RemPowerClass  OBJECT-TYPE
 ---
 ---
 
-p8021lldpV2Xdot3RemMaxFrameSizeTable  OBJECT-TYPE
+lldpV2Xdot3RemMaxFrameSizeTable  OBJECT-TYPE
     SYNTAX      SEQUENCE OF LldpV2Xdot3RemMaxFrameSizeEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -652,9 +646,9 @@ p8021lldpV2Xdot3RemMaxFrameSizeTable  OBJECT-TYPE
             address pair of maximum frame 
             size information (as a part of the LLDP IEEE 802.3 
             organizational extension) of the remote system."
-    ::= { p8021lldpV2Xdot3RemoteData 3 }
+    ::= { lldpV2Xdot3RemoteData 3 }
 
-p8021lldpV2Xdot3RemMaxFrameSizeEntry OBJECT-TYPE
+lldpV2Xdot3RemMaxFrameSizeEntry OBJECT-TYPE
     SYNTAX      LldpV2Xdot3RemMaxFrameSizeEntry
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -665,13 +659,13 @@ p8021lldpV2Xdot3RemMaxFrameSizeEntry OBJECT-TYPE
               lldpV2RemLocalIfIndex,
               lldpV2RemLocalDestMACAddress,
               lldpV2RemIndex }
-    ::= { p8021lldpV2Xdot3RemMaxFrameSizeTable 1 }
+    ::= { lldpV2Xdot3RemMaxFrameSizeTable 1 }
 
 LldpV2Xdot3RemMaxFrameSizeEntry ::= SEQUENCE {
-              p8021lldpV2Xdot3RemMaxFrameSize   Unsigned32
+              lldpV2Xdot3RemMaxFrameSize   Unsigned32
 }
 
-p8021lldpV2Xdot3RemMaxFrameSize OBJECT-TYPE
+lldpV2Xdot3RemMaxFrameSize OBJECT-TYPE
     SYNTAX      Unsigned32(0..65535)
     MAX-ACCESS  read-only
     STATUS      current
@@ -681,20 +675,20 @@ p8021lldpV2Xdot3RemMaxFrameSize OBJECT-TYPE
              remote system."
     REFERENCE 
             "F.4.1"
-    ::= { p8021lldpV2Xdot3RemMaxFrameSizeEntry 1 }
+    ::= { lldpV2Xdot3RemMaxFrameSizeEntry 1 }
 
 
 ------------------------------------------------------------------------------
 -- Conformance Information
 ------------------------------------------------------------------------------
-p8021lldpV2Xdot3Conformance OBJECT IDENTIFIER ::= { lldpV2Xdot3MIB 2 }
-p8021lldpV2Xdot3Compliances OBJECT IDENTIFIER ::= { p8021lldpV2Xdot3Conformance 1 }
-p8021lldpV2Xdot3Groups      OBJECT IDENTIFIER ::= { p8021lldpV2Xdot3Conformance 2 }
+lldpV2Xdot3Conformance OBJECT IDENTIFIER ::= { lldpV2Xdot3MIB 2 }
+lldpV2Xdot3Compliances OBJECT IDENTIFIER ::= { lldpV2Xdot3Conformance 1 }
+lldpV2Xdot3Groups      OBJECT IDENTIFIER ::= { lldpV2Xdot3Conformance 2 }
 
 -- compliance statements
 
 
-p8021lldpV2Xdot3TxRxCompliance MODULE-COMPLIANCE
+lldpV2Xdot3TxRxCompliance MODULE-COMPLIANCE
     STATUS  current
     DESCRIPTION
             "A compliance statement for SNMP entities that implement
@@ -706,14 +700,12 @@ p8021lldpV2Xdot3TxRxCompliance MODULE-COMPLIANCE
             This version defines compliance requirements for
             V2 of the LLDP MIB."
     MODULE  -- this module
-        MANDATORY-GROUPS { p8021lldpV2Xdot3ConfigGroup
+        MANDATORY-GROUPS { lldpV2Xdot3ConfigGroup, 
+                           ifGeneralInformationGroup
         }
-    MODULE  IF-MIB -- The interfaces Group MIB, RFC 2863
-        MANDATORY-GROUPS { ifGeneralInformationGroup
-        }
-    ::= { p8021lldpV2Xdot3Compliances 1 }
+    ::= { lldpV2Xdot3Compliances 1 }
 
-p8021lldpV2Xdot3TxCompliance MODULE-COMPLIANCE
+lldpV2Xdot3TxCompliance MODULE-COMPLIANCE
     STATUS  current
     DESCRIPTION
             "The compliance statement for SNMP entities which implement
@@ -725,10 +717,10 @@ p8021lldpV2Xdot3TxCompliance MODULE-COMPLIANCE
             This version defines compliance requirements for
             V2 of the LLDP MIB."
     MODULE  -- this module
-        MANDATORY-GROUPS { p8021lldpV2Xdot3LocSysGroup }
-    ::= { p8021lldpV2Xdot3Compliances 2 }
+        MANDATORY-GROUPS { lldpV2Xdot3LocSysGroup }
+    ::= { lldpV2Xdot3Compliances 2 }
 
-p8021lldpV2Xdot3RxCompliance MODULE-COMPLIANCE
+lldpV2Xdot3RxCompliance MODULE-COMPLIANCE
     STATUS  current
     DESCRIPTION
             "The compliance statement for SNMP entities which implement
@@ -740,61 +732,62 @@ p8021lldpV2Xdot3RxCompliance MODULE-COMPLIANCE
             This version defines compliance requirements for
             V2 of the LLDP MIB."
     MODULE  -- this module
-        MANDATORY-GROUPS { p8021lldpV2Xdot3RemSysGroup }
-    ::= { p8021lldpV2Xdot3Compliances 3 }
+        MANDATORY-GROUPS { lldpV2Xdot3RemSysGroup }
+    ::= { lldpV2Xdot3Compliances 3 }
 
 
 -- MIB groupings
 
 
-p8021lldpV2Xdot3ConfigGroup    OBJECT-GROUP
+lldpV2Xdot3ConfigGroup    OBJECT-GROUP
     OBJECTS {
-        p8021lldpV2Xdot3PortConfigTLVsTxEnable
+        lldpV2Xdot3PortConfigTLVsTxEnable
     }
     STATUS  current
     DESCRIPTION
             "The collection of objects which are used to configure the
             LLDP 802.3 organizational extension implementation behavior. "
-    ::= { p8021lldpV2Xdot3Groups 1 }
+    ::= { lldpV2Xdot3Groups 1 }
 
-p8021lldpV2Xdot3LocSysGroup  OBJECT-GROUP
+lldpV2Xdot3LocSysGroup  OBJECT-GROUP
     OBJECTS {
-        p8021lldpV2Xdot3LocPortAutoNegSupported,
-        p8021lldpV2Xdot3LocPortAutoNegEnabled,
-        p8021lldpV2Xdot3LocPortAutoNegAdvertisedCap,
-        p8021lldpV2Xdot3LocPortOperMauType,
-        p8021lldpV2Xdot3LocPowerPortClass,
-        p8021lldpV2Xdot3LocPowerMDISupported,
-        p8021lldpV2Xdot3LocPowerMDIEnabled,
-        p8021lldpV2Xdot3LocPowerPairControlable,
-        p8021lldpV2Xdot3LocPowerPairs,
-        p8021lldpV2Xdot3LocPowerClass,
-        p8021lldpV2Xdot3LocMaxFrameSize
+        lldpV2Xdot3LocPortAutoNegSupported,
+        lldpV2Xdot3LocPortAutoNegEnabled,
+        lldpV2Xdot3LocPortAutoNegAdvertisedCap,
+        lldpV2Xdot3LocPortOperMauType,
+        lldpV2Xdot3LocPowerPortClass,
+        lldpV2Xdot3LocPowerMDISupported,
+        lldpV2Xdot3LocPowerMDIEnabled,
+        lldpV2Xdot3LocPowerPairControlable,
+        lldpV2Xdot3LocPowerPairs,
+        lldpV2Xdot3LocPowerClass,
+        lldpV2Xdot3LocMaxFrameSize
     }
     STATUS  current
     DESCRIPTION
             "The collection of objects which are used to represent LLDP
             802.3 organizational extension Local Device Information. "
-    ::= { p8021lldpV2Xdot3Groups 2 }
+    ::= { lldpV2Xdot3Groups 2 }
 
-p8021lldpV2Xdot3RemSysGroup  OBJECT-GROUP
+lldpV2Xdot3RemSysGroup  OBJECT-GROUP
     OBJECTS {
-        p8021lldpV2Xdot3RemPortAutoNegSupported,
-        p8021lldpV2Xdot3RemPortAutoNegEnabled,
-        p8021lldpV2Xdot3RemPortAutoNegAdvertisedCap,
-        p8021lldpV2Xdot3RemPortOperMauType,
-        p8021lldpV2Xdot3RemPowerPortClass,
-        p8021lldpV2Xdot3RemPowerMDISupported,
-        p8021lldpV2Xdot3RemPowerMDIEnabled,
-        p8021lldpV2Xdot3RemPowerPairControlable,
-        p8021lldpV2Xdot3RemPowerPairs,
-        p8021lldpV2Xdot3RemPowerClass,
-        p8021lldpV2Xdot3RemMaxFrameSize
+        lldpV2Xdot3RemPortAutoNegSupported,
+        lldpV2Xdot3RemPortAutoNegEnabled,
+        lldpV2Xdot3RemPortAutoNegAdvertisedCap,
+        lldpV2Xdot3RemPortOperMauType,
+        lldpV2Xdot3RemPowerPortClass,
+        lldpV2Xdot3RemPowerMDISupported,
+        lldpV2Xdot3RemPowerMDIEnabled,
+        lldpV2Xdot3RemPowerPairControlable,
+        lldpV2Xdot3RemPowerPairs,
+        lldpV2Xdot3RemPowerClass,
+        lldpV2Xdot3RemMaxFrameSize
     }
     STATUS  current
     DESCRIPTION
             "The collection of objects which are used to represent LLDP
             802.3 organizational extension Local Device Information. "
-    ::= { p8021lldpV2Xdot3Groups 3 }
+    ::= { lldpV2Xdot3Groups 3 }
 
 END
+

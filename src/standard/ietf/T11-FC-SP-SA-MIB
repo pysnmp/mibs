@@ -58,7 +58,6 @@ t11FcSpSaMIB  MODULE-IDENTITY
              and t11FcSpSaTransTable, specifying the proposals for an
              FC-SP entity acting as an SA_Initiator to present to the
              SA_Responder during the negotiation of Security
-
              Associations.  The same information is also used by an
              FC-SP entity acting as an SA_Responder to decide what to
              accept during the negotiation of Security Associations.
@@ -107,7 +106,6 @@ t11FcSpSaBase           OBJECT IDENTIFIER ::= { t11FcSpSaMIBObjects 1 }
 t11FcSpSaConfig         OBJECT IDENTIFIER ::= { t11FcSpSaMIBObjects 2 }
 t11FcSpSaActive         OBJECT IDENTIFIER ::= { t11FcSpSaMIBObjects 3 }
 t11FcSpSaControl        OBJECT IDENTIFIER ::= { t11FcSpSaMIBObjects 4 }
-
 --
 --  Base-level Per-Fabric Information
 --
@@ -203,7 +201,6 @@ t11FcSpSaIfEspHeaderCapab OBJECT-TYPE
               Fibre Channel - Security Protocols (FC-SP),
               February 2007, Appendix A.3.1, tables A.23, A.25."
     ::= { t11FcSpSaIfEntry 3 }
-
 t11FcSpSaIfCTAuthCapab OBJECT-TYPE
     SYNTAX       T11FcSpTransforms
     MAX-ACCESS   read-only
@@ -396,7 +393,6 @@ t11FcSpSaIfInUnprotUnmtchDrops OBJECT-TYPE
            "The number of frames received on this interface that
            were dropped because they were unprotected and did not
            match any Traffic Selector active at that time.
-
            This counter has no discontinuities other than those
            that all Counter64's have when sysUpTime=0."
     ::= { t11FcSpSaIfEntry 16 }
@@ -444,7 +440,6 @@ t11FcSpSaIfInBadXforms OBJECT-TYPE
            This counter has no discontinuities other than those
            that all Counter64's have when sysUpTime=0."
     ::= { t11FcSpSaIfEntry 19 }
-
 t11FcSpSaIfInGoodXforms OBJECT-TYPE
     SYNTAX       Counter64
     MAX-ACCESS   read-only
@@ -589,7 +584,6 @@ t11FcSpSaPropAcceptAlgorithm OBJECT-TYPE
            "The algorithm by which an SA_Responder in an SA negotiation
            decides on which Traffic Selectors to specify in a response
            to an IKE_Create_Child_SA request.  This algorithm is used
-
            when the Traffic Selectors specified by an SA_Initiator in
            an IKE_Create_Child_SA request overlap with this proposal's
            list of Traffic Selectors:
@@ -637,7 +631,6 @@ t11FcSpSaPropRowStatus OBJECT-TYPE
            tables, respectively.  A row in this table is
            deleted if the active rows it points to are deleted."
     ::= { t11FcSpSaPropEntry 7 }
-
 --
 --  Traffic Selector Proposals
 --
@@ -685,7 +678,6 @@ t11FcSpSaTSelPropEntry OBJECT-TYPE
     INDEX  { fcmInstanceIndex, t11FcSpSaIfIndex,
              t11FcSpSaTSelPropListIndex, t11FcSpSaTSelPropPrecedence }
     ::= { t11FcSpSaTSelPropTable 1 }
-
 T11FcSpSaTSelPropEntry ::= SEQUENCE {
     t11FcSpSaTSelPropListIndex    Unsigned32,
     t11FcSpSaTSelPropPrecedence   T11FcSpPrecedence,
@@ -877,7 +869,6 @@ t11FcSpSaTSelPropRowStatus OBJECT-TYPE
            "The status of this row.  Values of object instances
            within the row can be modified at any time."
     ::= { t11FcSpSaTSelPropEntry 13 }
-
 --
 --  Transform Proposals
 --
@@ -1022,7 +1013,6 @@ t11FcSpSaTransStorageType OBJECT-TYPE
            the information in this row.
 
            Even if an instance of this object has the value
-
            'permanent(4)', none of the information in its row
            needs to be writable."
     ::= { t11FcSpSaTransEntry 7 }
@@ -1071,7 +1061,6 @@ t11FcSpSaTSelDrByEntry OBJECT-TYPE
            that is unprotected by FC-SP, or to all egress
            traffic on one or more interfaces (identified by
            t11FcSpSaIfIndex) to a particular Fabric (identified
-
            by t11FcSpSaIfFabricIndex), and managed as part of the Fibre
            Channel management instance identified by fcmInstanceIndex.
 
@@ -1120,7 +1109,6 @@ t11FcSpSaTSelDrByPrecedence OBJECT-TYPE
            matching Traffic Selector having the numerically smallest
            precedence value."
     ::= { t11FcSpSaTSelDrByEntry 2 }
-
 t11FcSpSaTSelDrByAction OBJECT-TYPE
     SYNTAX       INTEGER { drop(1), bypass(2) }
     MAX-ACCESS   read-create
@@ -1361,7 +1349,6 @@ t11FcSpSaPairTerminate OBJECT-TYPE
     DESCRIPTION
            "Setting this object to 'terminate' is a request
            to terminate this pair of Security Associations.
-
            When read, the value of this object is always 'noop'.
            Setting this object to 'noop' has no effect."
     ::= { t11FcSpSaPairEntry 8 }
@@ -1697,7 +1684,6 @@ t11FcSpSaTSelNegOutEndDstAddr OBJECT-TYPE
            address (D_ID) of a frame that will match with this
            Traffic Selector."
     ::= { t11FcSpSaTSelNegOutEntry 6 }
-
 t11FcSpSaTSelNegOutStartRCtl OBJECT-TYPE
     SYNTAX       T11FcRoutingControl
     MAX-ACCESS   read-only
@@ -1842,7 +1828,6 @@ t11FcSpSaControlEntry OBJECT-TYPE
     STATUS       current
     DESCRIPTION
            "Each entry identifies information for the one or more
-
            interfaces (identified by t11FcSpSaIfIndex) to a
            particular Fabric (identified by t11FcSpSaIfFabricIndex),
            and managed as part of the Fibre Channel management
@@ -1891,7 +1876,6 @@ t11FcSpSaControlInboundSpi OBJECT-TYPE
            "The SPI value of the ingress Security Association on
            which was received the last frame for which a
            t11FcSpSaNotifyAuthFailure was generated.
-
            If no t11FcSpSaNotifyAuthFailure notifications have
            been generated, the value of this object is zero."
     ::= { t11FcSpSaControlEntry 2 }
@@ -1988,7 +1972,6 @@ t11FcSpSaControlWindow OBJECT-TYPE
            window, that time window is immediately terminated, i.e.,
            the next Authentication failure on the relevant Fabric
            after the modification will cause a new time window to
-
            begin with the new length."
     DEFVAL   { 300 }
     ::= { t11FcSpSaControlEntry 8 }
@@ -2084,7 +2067,6 @@ t11FcSpSaNotifyAuthFailure NOTIFICATION-TYPE
            a time window.  Subsequent occurrences of an Authentication
            Failure on the same Fabric within the same time window
            are counted but suppressed.
-
            The value of t11FcSpSaControlElapsed contains (a lower bound
            on) the elapsed time since the last generation of this
            notification for the same Fabric.  The value of
@@ -2133,7 +2115,6 @@ t11FcSpSaMIBCompliance MODULE-COMPLIANCE
             }
 
        -- The following is an auxiliary (listed in an INDEX clause)
-
        -- object for which the SMIv2 does not allow an OBJECT clause
        -- to be specified, but for which this MIB has the following
        -- compliance requirement:
@@ -2308,6 +2289,7 @@ t11FcSpSaMIBCompliance MODULE-COMPLIANCE
         OBJECT       t11FcSpSaControlLifeExcdEnable
         MIN-ACCESS   read-only
         DESCRIPTION  "Write access is not required."
+
     ::= { t11FcSpSaMIBCompliances 1 }
 
 -- Units of Conformance
@@ -2325,7 +2307,6 @@ t11FcSpSaCapabilityGroup OBJECT-GROUP
     ::= { t11FcSpSaMIBGroups 1 }
 
 t11FcSpSaParamStatusGroup OBJECT-GROUP
-
     OBJECTS  { t11FcSpSaIfStorageType,
                t11FcSpSaIfReplayPrevention,
                t11FcSpSaIfReplayWindowSize,
@@ -2374,7 +2355,6 @@ t11FcSpSaProposalGroup OBJECT-GROUP
                t11FcSpSaTSelPropEndType,
                t11FcSpSaTSelPropStorageType,
                t11FcSpSaTSelPropRowStatus
-
              }
     STATUS   current
     DESCRIPTION
@@ -2469,7 +2449,6 @@ t11FcSpSaNotifInfoGroup OBJECT-GROUP
            related to notifications of events concerning
            FC-SP Security Associations."
     ::= { t11FcSpSaMIBGroups 7 }
-
 t11FcSpSaNotificationGroup NOTIFICATION-GROUP
     NOTIFICATIONS  { t11FcSpSaNotifyAuthFailure,
                      t11FcSpSaNotifyLifeExceeded

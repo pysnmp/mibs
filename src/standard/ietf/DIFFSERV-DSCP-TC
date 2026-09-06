@@ -5,9 +5,6 @@ DIFFSERV-DSCP-TC DEFINITIONS ::= BEGIN
          FROM SNMPv2-SMI
     TEXTUAL-CONVENTION
          FROM SNMPv2-TC;
-
-
-
 diffServDSCPTC MODULE-IDENTITY
     LAST-UPDATED "200205090000Z"
     ORGANIZATION "IETF Differentiated Services WG"
@@ -56,9 +53,6 @@ DscpOrAny ::= TEXTUAL-CONVENTION
     STATUS   current
     DESCRIPTION
        "The IP header Differentiated Services Code-Point that may be
-
-
-
        used for discriminating among traffic streams. The value -1 is
        used to indicate a wild card i.e. any value."
     REFERENCE

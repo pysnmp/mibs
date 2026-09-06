@@ -236,7 +236,6 @@ dlurDefaultDefBackupDlusName OBJECT-TYPE
 --
 --  The following table carries information about the PUs that this APPN
 --  node is supporting via DLUR.
-
 -- *********************************************************************
 dlurPuInfo OBJECT IDENTIFIER ::= { dlurObjects 2 }
 
@@ -525,7 +524,6 @@ dlurPuDefBackupDlusName OBJECT-TYPE
 --  sessions for communication, for the purpose of status, information
 --  about these two sessions is combined to yield a single status for the
 --  requester/server connection.
-
 -- *********************************************************************
 
 dlurDlusInfo OBJECT IDENTIFIER ::= { dlurObjects 3 }

@@ -21,11 +21,11 @@ IMPORTS
         FROM IEEE8021-CFM-MIB;
 
 ieee8021DdcfmMIB MODULE-IDENTITY
-    LAST-UPDATED "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
           "WG-URL: http://www.ieee802.org/1/
-         WG-EMail: stds-802-1-L@ieee.org
+         WG-EMail: stds-802-1-l@ieee.org
 
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
@@ -38,17 +38,22 @@ ieee8021DdcfmMIB MODULE-IDENTITY
     DESCRIPTION
         "module for managing Data Dependent and Data Driven
          Connectivity Fault Management.
-        
-         Unless otherwise indicated, the references in this MIB
-         module are to IEEE Std 802.1Q.
 
-         Copyright (C) IEEE (2018).
-         This version of this MIB module is part of IEEE Std 802.1Q;
-         see the draft itself for full legal notices."
+        Unless otherwise indicated, the references in this MIB
+        module are to IEEE Std 802.1Q-2022.
 
-    REVISION "201806280000Z" -- June 28, 2018
+        Copyright (C) IEEE (2022).
+        This version of this MIB module is part of IEEE Std 802.1Q;
+        see that standard for full legal notices."
+
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q-2018.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
             
     REVISION "201412150000Z" -- December 15, 2014
@@ -412,8 +417,8 @@ ieee8021DdcfmRrVlanDropEligible OBJECT-TYPE
     MAX-ACCESS read-create
     STATUS current
     DESCRIPTION
-        "It indicates that drop_eligible bit value to be used in 
-        the VLAN tag which to be used in the transmitted encapsulated
+        "It indicates that the drop_eligible bit value to be used in 
+        the VLAN tag to be used in the transmitted encapsulated
         frames is set as True or False accordingly."
     REFERENCE
         "12.17.2.2.2 b.9"
@@ -439,7 +444,7 @@ ieee8021DdcfmRrTruncationFlag OBJECT-TYPE
     STATUS current
     DESCRIPTION
         "True indicates that the received data frame will be truncated to
-        keep the contructed RFM size not exceeding the egress port's 
+        keep the constructed RFM size not exceeding the egress port's 
         Maximum Service Data Unit Size, False otherwise."
     REFERENCE
         "12.17.2.2.2 b.11"

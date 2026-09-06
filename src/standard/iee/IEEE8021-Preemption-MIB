@@ -22,37 +22,38 @@ IMPORTS
     ;
 
 ieee8021PreemptionMib MODULE-IDENTITY
-    LAST-UPDATED "201806210000Z" -- June 21, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
         "  WG-URL: http://www.ieee802.org/1/
-         WG-EMail: STDS-802-1-L@ieee.org
-
+         WG-EMail: stds-802-1-l@ieee.org
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@ieee.org"
+           E-mail: stds-802-1-chairs@ieee.org"
     DESCRIPTION
         "The Bridge MIB module for managing devices that support
         the frame preemption enhancements
         for IEEE 802.1Q Bridges.
 
         Unless otherwise indicated, the references in this MIB
-        module are to IEEE Std 802.1Q.
+        module are to IEEE Std 802.1Q-2022.
 
-        Copyright (C) IEEE (2018).
+        Copyright (C) IEEE (2022).
         This version of this MIB module is part of IEEE Std 802.1Q;
-        see the draft itself for full legal notices."
+        see that standard for full legal notices."
 
-    REVISION "201806210000Z" -- June 21, 2018
-
-    
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q 2017 revision.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
 
     REVISION "201608150000Z" -- August 15, 2016
@@ -82,7 +83,7 @@ ieee8021PreemptionParameters
 -- The ieee8021PreemptionNotifications subtree
 -- This subtree defines any notifications necessary for the management
 -- of frame preemption on a Port. This subtree is currently unused, 
--- but is retained as a place-holder for future standardisation.
+-- but is retained as a place-holder for future standardization.
 -- =============================================================
 
 
@@ -104,7 +105,7 @@ ieee8021PreemptionParameterTable OBJECT-TYPE
     DESCRIPTION
         "A table containing a set of frame preemption 
         parameters, one for each priority value.
-        All writeable objects in this table must be
+        All writable objects in this table must be
         persistent over power up restart/reboot."
     REFERENCE   "6.7.2, 12.30.1"
     ::= { ieee8021PreemptionParameters 1 }
@@ -143,7 +144,7 @@ ieee8021PreemptionPriority OBJECT-TYPE
 
 
 ieee8021FramePreemptionAdminStatus OBJECT-TYPE
-    SYNTAX      INTEGER {express (1), preemptible (2)}
+    SYNTAX      INTEGER {express (1), preemptable (2)}
     MAX-ACCESS  read-write
     STATUS      current
     DESCRIPTION
@@ -170,7 +171,7 @@ ieee8021PreemptionConfigTable OBJECT-TYPE
     DESCRIPTION
         "A table containing a set of frame preemption 
         parameters, one for each Port.
-        All writeable objects in this table must be
+        All writable objects in this table must be
         persistent over power up restart/reboot."
     REFERENCE   "6.7.2, 12.30.1"
     ::= { ieee8021PreemptionParameters 2 }

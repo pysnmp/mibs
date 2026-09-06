@@ -35,9 +35,6 @@ t11FcRouteMIB MODULE-IDENTITY
            of this MIB module is part of RFC 4625;  see the RFC
            itself for full legal notices."
     REVISION     "200608140000Z"
-
-
-
     DESCRIPTION
            "Initial version of this MIB module, published as RFC4625."
 
@@ -86,9 +83,6 @@ t11FcRouteFabricIndex OBJECT-TYPE
            particular Fabric.
 
            In a Fabric conformant to FC-SW-3, only a single Fabric
-
-
-
            can operate within a physical infrastructure, and thus
            the value of this Fabric Index will always be 1.
 
@@ -137,9 +131,6 @@ t11FcRouteTable OBJECT-TYPE
            result of that 'AND' operation to the value of
            t11FcRouteDestAddrId.  A similar comparison is made of the
            Source Fibre Channel Address Identifier (S_ID) of a frame
-
-
-
            against the t11FcRouteSrcAddrId and t11FcRouteSrcMask values
            of an entry.  If an entry's value of t11FcRouteInInterface
            is non-zero, then a further comparison determines if the
@@ -188,9 +179,6 @@ T11FcRouteEntry ::=
 
 t11FcRouteDestAddrId OBJECT-TYPE
     SYNTAX      FcAddressIdOrZero (SIZE (3))
-
-
-
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -239,9 +227,6 @@ t11FcRouteSrcMask OBJECT-TYPE
 
 t11FcRouteInInterface OBJECT-TYPE
     SYNTAX      InterfaceIndexOrZero
-
-
-
     MAX-ACCESS  not-accessible
     STATUS      current
     DESCRIPTION
@@ -290,9 +275,6 @@ t11FcRouteDomainId OBJECT-TYPE
            "The domain_ID of next hop switch.
 
            This object can have a value of zero if the value
-
-
-
            of t11FcRouteProto is 'local'."
     ::= { t11FcRouteEntry 8 }
 
@@ -340,10 +322,6 @@ t11FcRouteIfDown OBJECT-TYPE
            from this table."
     DEFVAL  { retain }
     ::= { t11FcRouteEntry 11 }
-
-
-
-
 t11FcRouteStorageType OBJECT-TYPE
     SYNTAX      StorageType
     MAX-ACCESS  read-create
@@ -392,9 +370,6 @@ t11FcRouteCompliance  MODULE-COMPLIANCE
 --      DESCRIPTION
 --             'Support is not required for routes that
 --             match only a subset of possible source
-
-
-
 --             addresses.'
 --
 --      OBJECT     t11FcRouteSrcMask
@@ -443,9 +418,6 @@ t11FcRouteCompliance  MODULE-COMPLIANCE
                "Write access is not required."
 
         OBJECT     t11FcRouteStorageType
-
-
-
         MIN-ACCESS read-only
         DESCRIPTION
                "Write access is not required."

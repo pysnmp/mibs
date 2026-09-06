@@ -44,9 +44,6 @@ t11FcNameServerMIB  MODULE-IDENTITY
            Copyright (C) The Internet Society (2006).  This version of
            this MIB module is part of RFC 4438; see the RFC itself for
            full legal notices."
-
-
-
     REVISION    "200603020000Z"
     DESCRIPTION
            "Initial version of this MIB module, published as RFC 4438."
@@ -95,9 +92,6 @@ T11NsGs4RejectReasonCode ::= TEXTUAL-CONVENTION
     REFERENCE
           "ANSI INCITS 387-2004, Fibre Channel - Generic
            Services-4 (FC-GS-4), section 4.4.3."
-
-
-
     SYNTAX  INTEGER {
               none(1),
               invalidCmdCode(2),
@@ -146,9 +140,6 @@ T11NsRejReasonCodeExpl ::= TEXTUAL-CONVENTION
              - Fabric Port Name not registered.
          hardAddressNotRegistered(14)
              - 'Hard Address' not registered.
-
-
-
          fc4DescriptorNotRegistered(15)
              - FC-4 Descriptor not registered.
          fc4FeaturesNotRegistered(16)
@@ -197,9 +188,6 @@ T11NsRejReasonCodeExpl ::= TEXTUAL-CONVENTION
               accessDenied(17),
               unacceptablePortIdentifier(18),
               databaseEmpty(19),
-
-
-
               noObjectRegInSpecifiedScope(20),
               domainIdNotPresent(21),
               portIdNotPresent(22),
@@ -248,9 +236,6 @@ t11NsInfoSubsetIndex OBJECT-TYPE
     SYNTAX        Unsigned32 (1..4294967295)
     MAX-ACCESS    not-accessible
     STATUS        current
-
-
-
     DESCRIPTION
            "An arbitrary integer value that uniquely identifies
            this Name Server Information Subset amongst all others
@@ -299,9 +284,6 @@ t11NsInfoSubsetNumRows OBJECT-TYPE
     STATUS        current
     DESCRIPTION
            "The number of Nx_Ports currently registered in this
-
-
-
            Name Server Information Subset, i.e., the number of
            rows in the t11NsRegTable with the same values of
            fcmInstanceIndex and t11NsInfoSubsetIndex."
@@ -350,9 +332,6 @@ t11NsRegTable OBJECT-TYPE
     STATUS        current
     DESCRIPTION
            "This table contains entries for all Nx_Ports registered
-
-
-
            in the identified Name Server Information Subsets across
            all Fabrics for which such subsets contain information."
     ::= { t11NsStatus 2 }
@@ -401,9 +380,6 @@ t11NsRegFabricIndex OBJECT-TYPE
            In a Fabric conformant to SW-3, only a single Fabric can
            operate within a single physical infrastructure, and thus,
            the value of this Fabric Index will always be 1.
-
-
-
            However, it is possible that future standards will define
            how multiple Fabrics, each with its own management
            instrumentation, could operate within one (or more) physical
@@ -452,9 +428,6 @@ t11NsRegClassOfSvc OBJECT-TYPE
            "The class of service indicator.  This object is an
            array of bits that contain a bit map of the classes of
            service supported by the associated port.  If a bit in
-
-
-
            this object is 1, it indicates that the class of
            service is supported by the associated port.  When a
            bit is set to 0, it indicates that no class of service
@@ -503,9 +476,6 @@ t11NsRegProcAssoc OBJECT-TYPE
            Services-4 (FC-GS-4)"
     DEFVAL  { ''H }
     ::= { t11NsRegEntry 7 }
-
-
-
 t11NsRegFc4Type OBJECT-TYPE
     SYNTAX        OCTET STRING (SIZE (0 | 32))
     MAX-ACCESS    read-only
@@ -554,9 +524,6 @@ t11NsRegPortIpAddress OBJECT-TYPE
            should be present in the rightmost 32 bits.
 
            Note that the value of this object is the IP address value
-
-
-
            that is received in the FC-GS-4 message Register IP address
            (Port) RIPP_ID.  It is not validated against any IP address
            format.
@@ -605,9 +572,6 @@ t11NsRegHardAddress OBJECT-TYPE
            reported as zeros.
 
            If no 'Hard Address' has been registered, then the
-
-
-
            value of this object is the zero-length string."
     DEFVAL {''H}
     ::= { t11NsRegEntry 12 }
@@ -656,9 +620,6 @@ t11NsRegFc4Features OBJECT-TYPE
            each FC-4 Type value, positioned as follows: the 5 most
            significant bits of a Type value identify where it appears
            within the 128-byte value, specifically, within which word:
-
-
-
                  - Word 0 (of the 128-byte value) contains information
                    related to Types '00' through '07';
                  - Word 1 contains information related to Types
@@ -707,9 +668,6 @@ t11NsRegFc4DescriptorEntry OBJECT-TYPE
            Subset (identified by t11NsInfoSubsetIndex) within
            the Fibre Channel management instance (identified by
            fcmInstanceIndex) on the Fabric (identified by
-
-
-
            t11NsRegFabricIndex).
 
            If no FC-4 Descriptors have been registered
@@ -758,9 +716,6 @@ t11NsRegFc4Descriptor OBJECT-TYPE
 
            The format of an FC-4 Descriptor is dependent on the
            corresponding FC-4 Type value, but is represented in
-
-
-
            network-byte order."
     REFERENCE
            "ANSI INCITS 387-2004, Fibre Channel - Generic
@@ -809,9 +764,6 @@ T11NsStatsEntry ::=  SEQUENCE {
  }
 
 t11NsInGetReqs OBJECT-TYPE
-
-
-
     SYNTAX        Counter32
     MAX-ACCESS    read-only
     STATUS        current
@@ -860,9 +812,6 @@ t11NsInDeRegReqs OBJECT-TYPE
            Information Subset on this Fabric.
 
            This counter has no discontinuities other than those
-
-
-
            that all Counter32s have when sysUpTime=0."
     ::= { t11NsStatsEntry 4 }
 
@@ -911,9 +860,6 @@ t11NsDatabaseFull OBJECT-TYPE
     STATUS        current
     DESCRIPTION
            "An indication of whether the database containing this
-
-
-
            Name Server Information Subset is full.  This object is
            set to 'true' only if the Name Server is unable to allocate
            space for a new entry for the corresponding Fabric, and it is
@@ -962,9 +908,6 @@ t11NsRejectEntry OBJECT-TYPE
     ::= { t11NsRejectTable 1 }
 
 T11NsRejectEntry ::= SEQUENCE {
-
-
-
     t11NsRejectCtCommandString   OCTET STRING,
     t11NsRejectReasonCode        T11NsGs4RejectReasonCode,
     t11NsRejReasonCodeExp        T11NsRejReasonCodeExpl,
@@ -1013,9 +956,6 @@ t11NsRejReasonCodeExp OBJECT-TYPE
            recent Name Server Registration Request failure for the
            particular port on the particular Fabric."
     ::= { t11NsRejectEntry 3 }
-
-
-
 t11NsRejReasonVendorCode OBJECT-TYPE
     SYNTAX        OCTET STRING (SIZE(1))
     MAX-ACCESS    read-only
@@ -1064,9 +1004,6 @@ t11NsRejectRegNotify NOTIFICATION-TYPE
 
 --
 -- Conformance
-
-
-
 --
 
 t11NsMIBCompliances OBJECT IDENTIFIER ::= {t11NsMIBConformance 1}
@@ -1115,9 +1052,6 @@ t11NsDBGroup        OBJECT-GROUP
               t11NsRegPortName,
               t11NsRegNodeName,
               t11NsRegClassOfSvc,
-
-
-
               t11NsRegNodeIpAddress,
               t11NsRegProcAssoc,
               t11NsRegFc4Type,
@@ -1166,9 +1100,6 @@ t11NsRejectStatsGroup OBJECT-GROUP
     ::= { t11NsMIBGroups 4 }
 
 t11NsNotifyControlGroup  OBJECT-GROUP
-
-
-
     OBJECTS { t11NsRejectCtCommandString,
               t11NsRejectReasonCode,
               t11NsRejReasonCodeExp,

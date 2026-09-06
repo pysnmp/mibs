@@ -91,7 +91,6 @@ FileIndex ::= TEXTUAL-CONVENTION
 
 
 -- The Accounting Information Selection table
-
 acctngSelectionTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF AcctngSelectionEntry
     MAX-ACCESS  not-accessible
@@ -139,7 +138,6 @@ acctngSelectionIndex OBJECT-TYPE
             long as that entry exists, including across restarts and
             power outages."
     ::= { acctngSelectionEntry 1 }
-
 acctngSelectionSubtree OBJECT-TYPE
     SYNTAX      DataCollectionSubtree
     MAX-ACCESS  read-create

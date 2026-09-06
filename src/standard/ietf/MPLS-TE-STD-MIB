@@ -1,6 +1,3 @@
--- extracted from rfc3812.txt
--- at Thu Jun 17 06:20:52 2004
-
    MPLS-TE-STD-MIB DEFINITIONS ::= BEGIN
 
    IMPORTS
@@ -542,7 +539,6 @@
              outage of the link it was previously routed over)."
       DEFVAL { false }
       ::= { mplsTunnelEntry 16 }
-
    mplsTunnelResourcePointer OBJECT-TYPE
       SYNTAX        RowPointer
       MAX-ACCESS    read-create
@@ -591,7 +587,6 @@
              another. Instances of tunnels containing the same
              mplsTunnelInstancePriority will be used for load
              sharing."
-
       DEFVAL        { 0 }
       ::= { mplsTunnelEntry 19 }
 
@@ -688,7 +683,6 @@
              Awduche et al, RFC 3209, December 2001."
       DEFVAL { 0 }
       ::= { mplsTunnelEntry 26 }
-
    mplsTunnelTotalUpTime OBJECT-TYPE
       SYNTAX        TimeTicks
       MAX-ACCESS    read-only
@@ -736,7 +730,6 @@
            "Specifies the time since the last change to the
             actual path for this tunnel instance."
       ::= { mplsTunnelEntry 31 }
-
    mplsTunnelCreationTime OBJECT-TYPE
       SYNTAX        TimeStamp
       MAX-ACCESS    read-only
@@ -880,7 +873,6 @@
              we specify this as the first hop for this tunnel in
              mplsTunnelHopTable."
       ::= { mplsTeObjects 4 }
-
    mplsTunnelHopEntry  OBJECT-TYPE
       SYNTAX        MplsTunnelHopEntry
       MAX-ACCESS    not-accessible
@@ -1360,7 +1352,6 @@
              the actual route read is consistent by reference to
              the mplsTunnelLastPathChange object."
       ::= { mplsTeObjects 7 }
-
    mplsTunnelARHopEntry  OBJECT-TYPE
       SYNTAX        MplsTunnelARHopEntry
       MAX-ACCESS    not-accessible
@@ -1502,7 +1493,6 @@
              mplsTunnelHopTable."
       INDEX { mplsTunnelCHopListIndex, mplsTunnelCHopIndex }
       ::= { mplsTunnelCHopTable 1 }
-
    MplsTunnelCHopEntry ::= SEQUENCE {
          mplsTunnelCHopListIndex          MplsPathIndex,
          mplsTunnelCHopIndex              MplsPathIndex,
@@ -1646,7 +1636,6 @@
            "An entry in this table is created by the LSR for
              every tunnel.  Its is an extension to
              mplsTunnelEntry."
-
       AUGMENTS { mplsTunnelEntry }
       ::= { mplsTunnelPerfTable 1 }
 
@@ -1742,7 +1731,6 @@
              signalling protocol."
       INDEX { mplsTunnelResourceIndex }
       ::= { mplsTunnelCRLDPResTable 1 }
-
    MplsTunnelCRLDPResEntry ::= SEQUENCE {
          mplsTunnelCRLDPResMeanBurstSize   MplsBurstSize,
          mplsTunnelCRLDPResExBurstSize     MplsBurstSize,
@@ -2126,7 +2114,6 @@
          MIN-ACCESS  read-only
          DESCRIPTION
              "Write access is not required."
-
          OBJECT      mplsTunnelResourcePointer
          MIN-ACCESS  read-only
          DESCRIPTION
@@ -2462,7 +2449,6 @@
            "Set of objects implemented for resources applicable
              for tunnels signaled using CR-LDP."
       ::= { mplsTeGroups 7 }
-
    mplsTeNotificationGroup NOTIFICATION-GROUP
       NOTIFICATIONS {
          mplsTunnelUp,
@@ -2477,42 +2463,3 @@
       ::= { mplsTeGroups 8 }
 
    END
-
--- 
---    Copyright (C) The Internet Society (2004).  This document is subject
---    to the rights, licenses and restrictions contained in BCP 78, and
---    except as set forth therein, the authors retain all their rights.
--- 
---    This document and the information contained herein are provided on an
---    "AS IS" basis and THE CONTRIBUTOR, THE ORGANIZATION HE/SHE
---    REPRESENTS OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY AND THE
---    INTERNET ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES, EXPRESS OR
---    IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF
---    THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
---    WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
--- 
--- Intellectual Property
--- 
---    The IETF takes no position regarding the validity or scope of any
---    Intellectual Property Rights or other rights that might be claimed
---    to pertain to the implementation or use of the technology
---    described in this document or the extent to which any license
---    under such rights might or might not be available; nor does it
---    represent that it has made any independent effort to identify any
---    such rights.  Information on the procedures with respect to
---    rights in RFC documents can be found in BCP 78 and BCP 79.
--- 
---    Copies of IPR disclosures made to the IETF Secretariat and any
---    assurances of licenses to be made available, or the result of an
---    attempt made to obtain a general license or permission for the use
---    of such proprietary rights by implementers or users of this
---    specification can be obtained from the IETF on-line IPR repository
---    at http://www.ietf.org/ipr.
--- 
---    The IETF invites any interested party to bring to its attention
---    any copyrights, patents or patent applications, or other
---    proprietary rights that may cover technology that may be required
---    to implement this standard.  Please address the information to the
---    IETF at ietf-ipr@ietf.org.
--- 
-

@@ -35,7 +35,9 @@ IANA-ITU-ALARM-TC-MIB DEFINITIONS ::= BEGIN
          REVISION    "200409090000Z"
          DESCRIPTION
              "Initial version, published as RFC 3877."
+             
         ::= { mib-2 119 } 
+
 
    IANAItuProbableCause ::= TEXTUAL-CONVENTION
        STATUS current
@@ -80,6 +82,7 @@ IANA-ITU-ALARM-TC-MIB DEFINITIONS ::= BEGIN
             ITU Recommendation X.736, 'Information Technology - Open
                Systems Interconnection - System Management: Security
                Alarm Reporting Function', 1992"
+
        SYNTAX         INTEGER
                {
                -- The following probable causes were defined in M.3100
@@ -296,6 +299,7 @@ IANA-ITU-ALARM-TC-MIB DEFINITIONS ::= BEGIN
                 proceduralError (613),
                 unauthorizedAccessAttempt (614),
                 unexpectedInformation (615),
+
                 other (1024)
                 }
 

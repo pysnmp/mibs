@@ -92,7 +92,6 @@ AppnTOSPrecedence ::= TEXTUAL-CONVENTION
       SYNTAX DisplayString (SIZE(3))
 
 -- *******************************************************************
-
 -- hprObjects              OBJECT IDENTIFIER ::= { hprMIB 1 }
 -- *******************************************************************
 
@@ -188,7 +187,6 @@ hprIpAppnPortTable OBJECT-TYPE
           the hprIpLsTOSPrecedence and the hprIpCnTOSPrecedence objects."
 
       ::= { hprIp 2 }
-
 hprIpAppnPortEntry OBJECT-TYPE
       SYNTAX HprIpAppnPortEntry
       MAX-ACCESS not-accessible
@@ -330,7 +328,6 @@ hprIpLsRowStatus OBJECT-TYPE
           mapping for its port."
 
       ::= { hprIpLsEntry 4 }
-
 -- *******************************************************************
 hprIpCnTable OBJECT-TYPE
       SYNTAX SEQUENCE OF HprIpCnEntry

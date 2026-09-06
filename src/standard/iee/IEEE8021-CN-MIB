@@ -45,35 +45,38 @@ IMPORTS
 
 ieee8021CnMib
  MODULE-IDENTITY
-    LAST-UPDATED "201806280000Z" -- June 28, 2018
+    LAST-UPDATED "202211080000Z" -- November 8, 2022
     ORGANIZATION "IEEE 802.1 Working Group"
     CONTACT-INFO
-          "WG-URL: http://www.ieee802.org/1/
-         WG-EMail: stds-802-1-L@ieee.org 
-
+        "  WG-URL: http://www.ieee802.org/1/
+         WG-EMail: stds-802-1-l@ieee.org
           Contact: IEEE 802.1 Working Group Chair
            Postal: C/O IEEE 802.1 Working Group
                    IEEE Standards Association
                    445 Hoes Lane
-                   Piscataway
-                   NJ 08854
+                   Piscataway, NJ 08854
                    USA
-           E-mail: STDS-802-1-L@IEEE.ORG
-       "
+           E-mail: stds-802-1-chairs@ieee.org"
    DESCRIPTION 
      "Congestion notification module.
-      Unless otherwise indicated, the references in this MIB
-      module are to IEEE Std 802.1Q.
 
-      Copyright (C) IEEE (2018).
-      This version of this MIB module is part of IEEE Std 802.1Q;
-      see the draft itself for full legal notices."
+        Unless otherwise indicated, the references in this MIB
+        module are to IEEE Std 802.1Q-2022.
 
-    REVISION "201806280000Z" -- June 28, 2018
+        Copyright (C) IEEE (2022).
+        This version of this MIB module is part of IEEE Std 802.1Q;
+        see that standard for full legal notices."
+        
+    REVISION "202211080000Z" -- November 8, 2022
     DESCRIPTION
-            "Published as part of IEEE Std 802.1Q-2018.
+            "Published as part of IEEE Std 802.1Q-2022.
+            Cross references and contact information updated."
+
+    REVISION "201807010000Z" -- July 1, 2018
+    DESCRIPTION
+            "Published as part of IEEE Std 802.1Q 2018 revision.
             Cross references updated and corrected."
-            
+             
     REVISION "201412150000Z" -- December 15, 2014
     DESCRIPTION
             "Published as part of IEEE Std 802.1Q 2014 revision.
@@ -124,9 +127,9 @@ Ieee8021CnControlChoice
     REFERENCE
        "32.3.1, 32.4.1, Table 32-2"
     SYNTAX  INTEGER {
-        cpcAdmin    (1),
-        cpcAuto     (2),
-        cpcComp     (3)
+        cpcAdmin(1),
+        cpcAuto(2),
+        cpcComp(3)
     }
 
 Ieee8021CnDefenseMode
@@ -170,10 +173,10 @@ Ieee8021CnDefenseMode
     REFERENCE
        "32.1.1, 32.3.4, 32.4.2, 32.4.3, Table 32-2"
     SYNTAX  INTEGER {
-        cptDisabled      (1),
-        cptInterior      (2),
-        cptInteriorReady (3),
-        cptEdge          (4)
+        cptDisabled(1),
+        cptInterior(2),
+        cptInteriorReady(3),
+        cptEdge(4)
     }
 
 Ieee8021CnLldpChoice
@@ -207,9 +210,9 @@ Ieee8021CnLldpChoice
     REFERENCE
        "32.3.6, 32.4.4, Table 32-1"
     SYNTAX  INTEGER {
-        cnlNone         (1),
-        cnlAdmin        (2),
-        cnlComponent    (3)
+        cnlNone(1),
+        cnlAdmin(2),
+        cnlComponent(3)
     }
 
 
@@ -510,8 +513,8 @@ ieee8021CnComPriPriority
 ieee8021CnComPriDefModeChoice
  OBJECT-TYPE
     SYNTAX      Ieee8021CnControlChoice {
-                    cpcAdmin    (1),
-                    cpcAuto     (2)
+                    cpcAdmin(1),
+                    cpcAuto(2)
                 }
     MAX-ACCESS  read-create
     STATUS      current
@@ -544,7 +547,7 @@ ieee8021CnComPriAlternatePriority
     DESCRIPTION
        "The Congestion Notification Priority Value to which an
         incoming frame is to be mapped, in spite of what the
-        Priority Regereration Table says, if 1) Congestion
+        Priority Regeneration Table says, if 1) Congestion
         Notification is enabled and 2) the CND defense mode of the
         port is cptEdge.
 
@@ -564,10 +567,10 @@ ieee8021CnComPriAutoAltPri
     DESCRIPTION
        "The Congestion Notification Priority Value to which an
         incoming frame can be mapped, in spite of what the
-        Priority Regereration Table says, if 1) Congestion
+        Priority Regeneration Table says, if 1) Congestion
         Notification is enabled, 2) the CND defense mode of the
         port is cptEdge, and 3) ieee8021CnComPriDefModeChoice
-        contains the value cpcAuto (2).
+        contains the value cpcAuto(2).
 
         The value of this object is the next lower priority value
         than this row's ieee8021CnComPriPriority that is not a CNPV,
@@ -607,8 +610,8 @@ ieee8021CnComPriAdminDefenseMode
 ieee8021CnComPriCreation
  OBJECT-TYPE
     SYNTAX      INTEGER {
-                    cncpAutoEnable   (1),
-                    cncpAutoDisable  (2)
+                    cncpAutoEnable(1),
+                    cncpAutoDisable(2)
                 }
     MAX-ACCESS  read-create
     STATUS      current
@@ -618,7 +621,7 @@ ieee8021CnComPriCreation
 
             cncpAutoEnable (1)  Newly-created
                                 ieee8021CnPortPriDefModeChoice
-                                objects take the value cpcComp (3).
+                                objects take the value cpcComp(3).
             cncpAutoDisable(2)  Newly-created
                                 ieee8021CnPortPriDefModeChoice
                                 objects take the value cpcAdmin (1).
@@ -926,7 +929,7 @@ ieee8021CnPortPriAlternatePriority
     DESCRIPTION
        "The Congestion Notification Priority Value to which an
         incoming frame is to be mapped, in spite of what the
-        Priority Regereration Table says, if 1) Congestion
+        Priority Regeneration Table says, if 1) Congestion
         Notification is enabled and 2) the port is acting in the
         cptEdge (4) CND defense mode.
 
@@ -1761,7 +1764,7 @@ ieee8021CnRpgMaxRate
     DESCRIPTION
        "This object controls the maximum rate, in multiples of 1 Mb/s,
         at which an RP can transmit. Default value is the speed of the
-        port. A system SHALL support a minimim  value for this object
+        port. A system SHALL support a minimum  value for this object
         that is no larger than 5 Mbits/s (object value 5). This rate
         includes all bits consequent to transmitting the frame on the
         LAN, including preamble, inter-frame gap, etc.

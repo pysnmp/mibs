@@ -44,8 +44,6 @@ snmpFrameworkMIB MODULE-IDENTITY
                   postal:     Schagen 33
                               3461 GL Linschoten
                               Netherlands
-
-
                   EMail:      bwijnen@lucent.com
                   phone:      +31 348-680-485
                     "
@@ -94,8 +92,6 @@ SnmpEngineID ::= TEXTUAL-CONVENTION
                  addressing, even though it is possible that an
                  address may have been used in the generation of
                  a specific value.
-
-
                  The value for this object may not be all zeros or
                  all 'ff'H or the empty (zero length) string.
 
@@ -144,8 +140,6 @@ SnmpEngineID ::= TEXTUAL-CONVENTION
                     defined, then it is recommended that the first
                     octet indicate the method being used and the
                     remaining octets be a function of the method.
-
-
                  3) The length of the octet string varies.
 
                     The first four octets are set to the binary
@@ -188,8 +182,6 @@ SnmpEngineID ::= TEXTUAL-CONVENTION
                               Maximum remaining length 27
                 "
     SYNTAX       OCTET STRING (SIZE(5..32))
-
-
 SnmpSecurityModel ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION "An identifier that uniquely identifies a
@@ -238,8 +230,6 @@ SnmpSecurityModel ::= TEXTUAL-CONVENTION
                  Note that the most significant bit must be zero;
                  hence, there are 23 bits allocated for various
                  organizations to design and define non-standard
-
-
                  securityModels.  This limits the ability to
                  define new proprietary implementations of Security
                  Models to the first 8,388,608 enterprises.
@@ -262,6 +252,7 @@ SnmpSecurityModel ::= TEXTUAL-CONVENTION
                      3  User-Based Security Model (USM)
                 "
     SYNTAX       INTEGER(0 .. 2147483647)
+
 
 SnmpMessageProcessingModel ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -287,8 +278,6 @@ SnmpMessageProcessingModel ::= TEXTUAL-CONVENTION
 
                    For example, the fourth Message Processing Model
                    defined by the enterprise whose enterpriseID
-
-
                    is 1 would be 259.
 
                  This scheme for allocating messageProcessingModel
@@ -334,8 +323,6 @@ SnmpMessageProcessingModel ::= TEXTUAL-CONVENTION
                      3  reserved for SNMPv3
                 "
     SYNTAX       INTEGER(0 .. 2147483647)
-
-
 SnmpSecurityLevel ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION "A Level of Security at which SNMP messages can be
@@ -383,8 +370,6 @@ SnmpAdminString ::= TEXTUAL-CONVENTION
 
                  When it is necessary to represent a newline,
                  the control code sequence CR LF should be used.
-
-
                  The use of leading or trailing white space should
                  be avoided.
 
@@ -417,6 +402,7 @@ SnmpAdminString ::= TEXTUAL-CONVENTION
                 "
     SYNTAX       OCTET STRING (SIZE (0..255))
 
+
 -- Administrative assignments ***************************************
 
 snmpFrameworkAdmin
@@ -429,8 +415,6 @@ snmpFrameworkMIBConformance
 -- the snmpEngine Group ********************************************
 
 snmpEngine OBJECT IDENTIFIER ::= { snmpFrameworkMIBObjects 1 }
-
-
 snmpEngineID     OBJECT-TYPE
     SYNTAX       SnmpEngineID
     MAX-ACCESS   read-only
@@ -479,8 +463,6 @@ snmpEngineMaxMessageSize OBJECT-TYPE
                  transports available to and supported by the engine.
                 "
     ::= { snmpEngine 4 }
-
-
 -- Registration Points for Authentication and Privacy Protocols **
 
 snmpAuthProtocols OBJECT-IDENTITY
@@ -529,8 +511,6 @@ snmpEngineGroup OBJECT-GROUP
     STATUS       current
     DESCRIPTION "A collection of objects for identifying and
                  determining the configuration and current timeliness
-
-
                  values of an SNMP engine.
                 "
     ::= { snmpFrameworkMIBGroups 1 }

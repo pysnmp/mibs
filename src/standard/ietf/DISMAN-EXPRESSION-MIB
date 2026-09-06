@@ -1,14 +1,3 @@
--- *****************************************************************
--- DISMAN-EXPRESSION-MIB.my: Expression MIB
---
--- July 2006, Chinna Pellacuru
---
--- Copyright (c) 2006-2007 by cisco Systems, Inc.
--- All rights reserved.
--- 
--- *****************************************************************
--- extracted from RFC 2982
-
 DISMAN-EXPRESSION-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -51,8 +40,6 @@ expValue  OBJECT IDENTIFIER ::= { dismanExpressionMIBObjects 3 }
 --
 -- Resource Control
 --
-
-
 expResourceDeltaMinimum OBJECT-TYPE
     SYNTAX      Integer32 (-1 | 1..600)
     UNITS       "seconds"
@@ -100,7 +87,6 @@ expResourceDeltaWildcardInstanceMaximum OBJECT-TYPE
 
      Unless explicitly resource limited, a system's value for
      this object should be 0.
-
      Changing this value will not eliminate or inhibit existing delta
      wildcard instance objects but will prevent the creation of more
      such objects.
@@ -293,7 +279,6 @@ expExpression OBJECT-TYPE
           0.
           .0
           1.3.6.1
-
      No additional leading or trailing subidentifiers are automatically
      added to an OID constant.  The constant is taken as expressed.
 
@@ -341,7 +326,6 @@ expExpression OBJECT-TYPE
           If either side is Counter64, use that.
 
           If either side is IpAddress, use that.
-
           If either side is TimeTicks, use that.
 
           If either side is Counter32, use that.
@@ -389,7 +373,6 @@ expExpression OBJECT-TYPE
           minimum
           sum
           exists
-
      The following function definitions indicate their parameters by
      naming the data type of the parameter in the parameter's position
      in the parameter list.  The parameter must be of the type indicated
@@ -438,7 +421,6 @@ expExpression OBJECT-TYPE
      exists(anyTypeObject) - verifies the object instance exists. A
      return value of 0 indicates NoSuchInstance (i.e. boolean
      false)."
-
     ::= { expExpressionEntry 3 }
 
 expExpressionValueType OBJECT-TYPE
@@ -583,7 +565,6 @@ expErrorEntry OBJECT-TYPE
      error for that expression as reflected by the error codes
      defined for expErrorCode."
     INDEX       { expExpressionOwner, expExpressionName }
-
     ::= { expErrorTable 1 }
 
 ExpErrorEntry ::= SEQUENCE {
@@ -823,7 +804,6 @@ expObjectDeltaDiscontinuityID OBJECT-TYPE
      "The OBJECT IDENTIFIER (OID) of a TimeTicks, TimeStamp, or
      DateAndTime object that indicates a discontinuity in the value
      at expObjectID.
-
      This object is instantiated only if expObjectSampleType is
      'deltaValue' or 'changedValue'.
 
@@ -871,7 +851,6 @@ expObjectDiscontinuityIDType OBJECT-TYPE
      'deltaValue' or 'changedValue'."
     DEFVAL      { timeTicks }
      ::= { expObjectEntry 7 }
-
 expObjectConditional OBJECT-TYPE
     SYNTAX      OBJECT IDENTIFIER
     MAX-ACCESS  read-create
@@ -902,7 +881,7 @@ expObjectConditional OBJECT-TYPE
     DEFVAL      { zeroDotZero }
     ::= { expObjectEntry 8 }
 
-expObjectConditionalWildcard  OBJECT-TYPE
+ expObjectConditionalWildcard  OBJECT-TYPE
      SYNTAX      TruthValue
      MAX-ACCESS  read-create
      STATUS      current

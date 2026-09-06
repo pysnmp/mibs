@@ -20,8 +20,6 @@ rtpMIB MODULE-IDENTITY
     Postal: Intel Corporation
             2111 NE 25th Avenue
             Hillsboro, OR   97124
-
-
             United States
     Tel:    +1 503 466 8406
     Email:  mbaugher@passedge.com
@@ -70,8 +68,6 @@ rtpMIBObjects OBJECT IDENTIFIER ::= { rtpMIB 1 }
 rtpConformance OBJECT IDENTIFIER ::= { rtpMIB 2 }
 
 --
-
-
 -- SESSION NEW INDEX
 --
 rtpSessionNewIndex OBJECT-TYPE
@@ -120,8 +116,6 @@ rtpSessionInverseEntry OBJECT-TYPE
     INDEX { rtpSessionDomain, rtpSessionRemAddr, rtpSessionLocAddr,
             rtpSessionIndex }
     ::= { rtpSessionInverseTable 1 }
-
-
 RtpSessionInverseEntry ::= SEQUENCE {
         rtpSessionInverseStartTime     TimeStamp
         }
@@ -170,8 +164,6 @@ rtpSessionEntry OBJECT-TYPE
        rtpSenderTable).  Thus, rtpSessionTable rows SHOULD be created
        for RTP session monitoring purposes.  Rows created by a
        management application SHOULD be deleted via SNMP operations by
-
-
        management applications.  Rows created by management operations
        are deleted by management operations by setting
        rtpSessionRowStatus to 'destroy(6)'."
@@ -220,8 +212,6 @@ rtpSessionRemAddr OBJECT-TYPE
     DESCRIPTION
       "The address to which RTP packets are sent by the RTP system.
       In an IP multicast RTP session, this is the single address used
-
-
       by all senders and receivers of RTP session data.  In a unicast
       RTP session this is the unicast address of the remote RTP system.
       'The destination address pair may be common for all participants,
@@ -270,8 +260,6 @@ rtpSessionSenderJoins OBJECT-TYPE
     DESCRIPTION
       "The number of senders that have been observed to have
        joined the session since this conceptual row was created
-
-
        (rtpSessionStartTime).  A sender 'joins' an RTP
        session by sending to it.  Senders that leave and then
        re-join following an RTCP BYE (see RFC 1889, 'RTP: A
@@ -320,8 +308,6 @@ rtpSessionMonitor OBJECT-TYPE
     MAX-ACCESS      read-only
     STATUS          current
     DESCRIPTION
-
-
       "Boolean, Set to 'true(1)' if remote senders or receivers in
        addition to the local RTP System are to be monitored using RTCP.
        RTP Monitors MUST initialize to 'true(1)' and RTP Hosts SHOULD
@@ -370,8 +356,6 @@ rtpSenderInverseEntry OBJECT-TYPE
        rtpSenderTable - the entry containing the index pair,
        rtpSessionIndex, rtpSenderSSRC."
     INDEX { rtpSessionDomain, rtpSenderAddr, rtpSessionIndex,
-
-
             rtpSenderSSRC }
     ::= { rtpSenderInverseTable 1 }
 
@@ -420,8 +404,6 @@ rtpSenderEntry OBJECT-TYPE
        1889, Sec. 6.2.1) or when the rtpSessionEntry is deleted."
     INDEX { rtpSessionIndex, rtpSenderSSRC }
     ::= { rtpSenderTable 1 }
-
-
 RtpSenderEntry ::= SEQUENCE {
         rtpSenderSSRC           Unsigned32,
         rtpSenderCNAME          Utf8String,
@@ -470,8 +452,6 @@ rtpSenderPackets OBJECT-TYPE
     STATUS          current
     DESCRIPTION
       "Count of RTP packets sent by this sender, or observed by
-
-
        an RTP monitor, since rtpSenderStartTime."
     ::= { rtpSenderEntry 4 }
 
@@ -520,8 +500,6 @@ rtpSenderPT OBJECT-TYPE
     DESCRIPTION
       "Payload type from the RTP header of the most recently received
        RTP Packet (see RFC 1889, 'RTP: A Transport Protocol for
-
-
        Real-Time Applications' sec. 5)."
     ::= { rtpSenderEntry 9 }
 
@@ -570,8 +548,6 @@ RtpRcvrInverseEntry ::= SEQUENCE {
 
 rtpRcvrInverseStartTime OBJECT-TYPE
     SYNTAX          TimeStamp
-
-
     MAX-ACCESS      read-only
     STATUS          current
     DESCRIPTION
@@ -620,8 +596,6 @@ RtpRcvrEntry ::= SEQUENCE {
         rtpRcvrSSRC           Unsigned32,
         rtpRcvrCNAME          Utf8String,
         rtpRcvrAddr           TAddress,
-
-
         rtpRcvrRTT            Gauge32,
         rtpRcvrLostPackets    Counter64,
         rtpRcvrJitter         Gauge32,
@@ -670,8 +644,6 @@ rtpRcvrAddr OBJECT-TYPE
     MAX-ACCESS   read-only
     STATUS       current
     DESCRIPTION
-
-
       "The unicast transport address on which the receiver is
        receiving RTP packets and/or RTCP Receiver Reports."
     ::= { rtpRcvrEntry 4 }
@@ -720,8 +692,6 @@ rtpRcvrTool OBJECT-TYPE
 
 rtpRcvrRRs OBJECT-TYPE
     SYNTAX          Counter32
-
-
     MAX-ACCESS      read-only
     STATUS          current
     DESCRIPTION
@@ -769,9 +739,6 @@ rtpRcvrOctets OBJECT-TYPE
       "Count of non-header RTP octets received by this receiving RTP
        host since rtpRcvrStartTime."
     ::= { rtpRcvrEntry 13 }
-
-
-
 rtpRcvrStartTime OBJECT-TYPE
     SYNTAX          TimeStamp
     MAX-ACCESS      read-only
@@ -820,8 +787,6 @@ rtpSystemGroup      OBJECT-GROUP
                     rtpRcvrStartTime
                     }
     STATUS          current
-
-
     DESCRIPTION
         "Objects available to all RTP Systems."
     ::= { rtpGroups 1 }
@@ -870,8 +835,6 @@ rtpCompliances OBJECT IDENTIFIER ::= { rtpConformance 2 }
 
 rtpHostCompliance MODULE-COMPLIANCE
     STATUS          current
-
-
     DESCRIPTION
             "Host implementations MUST comply."
     MODULE           RTP-MIB
@@ -920,8 +883,6 @@ rtpHostCompliance MODULE-COMPLIANCE
               DESCRIPTION
                "Multicast RTP Systems SHOULD implement the optional
                 tables."
-
-
         OBJECT  rtpSenderInverseStartTime
             MIN-ACCESS not-accessible
               DESCRIPTION
@@ -970,8 +931,6 @@ rtpMonitorCompliance MODULE-COMPLIANCE
               DESCRIPTION
                "RTP monitor systems may not support
                 retrieval of the RTP Payload Type from the RTP
-
-
                 header (and may receive RTCP messages only).  When
                 queried for the payload type information."
         OBJECT  rtpRcvrOctets

@@ -1,7 +1,3 @@
--- *****************************************************************
--- MPLS-TC-STD-MIB.my: extracted from RFC 3811
--- *****************************************************************
-
    MPLS-TC-STD-MIB DEFINITIONS ::= BEGIN
 
        IMPORTS
@@ -452,7 +448,6 @@
                      conservative(1),
                      liberal(2)
                  }
-
        MplsTunnelAffinity ::= TEXTUAL-CONVENTION
           STATUS        current
           DESCRIPTION
@@ -549,7 +544,6 @@
               TeHopAddressType/TeHopAddress pairs
               must be changed together if the address
               type changes (e.g., from ipv6(2) to ipv4(1))."
-
           REFERENCE
              "TEXTUAL-CONVENTIONs for Internet Network
               Addresses, RFC3291.

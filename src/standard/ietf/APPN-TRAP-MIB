@@ -338,7 +338,6 @@ appnPortTableChanges OBJECT-TYPE
           to be sent, whether or not this notification is enabled."
 
       ::= { appnTrapObjects 3 }
-
 appnLsTableChanges OBJECT-TYPE
       SYNTAX Counter32
       MAX-ACCESS read-only

@@ -22,7 +22,6 @@ vdsl2TCMIB MODULE-IDENTITY
              Phone:     +1 206 600 7022
 
              Co-Chair:  Menachem Dodge
-
                         ECI Telecom Ltd.
              Postal:    30 Hasivim St.
                         Petach Tikva 49517,
@@ -71,7 +70,6 @@ vdsl2TCMIB MODULE-IDENTITY
          - Redistributions of source code must retain the
            above copyright notice, this list of conditions
            and the following disclaimer.
-
          - Redistributions in binary form must reproduce
            the above copyright notice, this list of
            conditions and the following disclaimer in
@@ -120,7 +118,6 @@ Xdsl2Unit ::= TEXTUAL-CONVENTION
        also called atuc and atur.
        In the case of VDSL2, those two transceivers are also called
        vtuc and vtur.
-
        Specified as an INTEGER, the two values are:
         xtuc(1)  -- central office transceiver
         xtur(2)  -- remote site transceiver"
@@ -169,7 +166,6 @@ Xdsl2Band ::= TEXTUAL-CONVENTION
          follows:"
      SYNTAX INTEGER {
         upstream(1),   -- Transmission from the xTU-R to the xTU-C
-
                        -- (refers to the single upstream band for
                        -- ADSL/ADSL2/ADSL2+ or to the whole
                        -- upstream traffic for VDSL2).
@@ -218,7 +214,6 @@ Xdsl2TransmissionModeType ::= TEXTUAL-CONVENTION
           Bit 26-27: Reserved
           Bit 28 : G.992.3 Annex I All-Digital non-overlapped (F)
           Bit 29 : G.992.3 Annex I All-Digital overlapped (F)
-
           Bit 30 : G.992.3 Annex J All-Digital non-overlapped (F)
           Bit 31 : G.992.3 Annex J All-Digital overlapped (F)
           Bit 32 : G.992.4 Annex I All-Digital non-overlapped (L)
@@ -267,7 +262,6 @@ Xdsl2TransmissionModeType ::= TEXTUAL-CONVENTION
                   reserved1(13),
                   reserved2(14),
                   reserved3(15),
-
                   reserved4(16),
                   reserved5(17),
                   g9923PotsNonOverlapped(18),
@@ -316,7 +310,6 @@ Xdsl2TransmissionModeType ::= TEXTUAL-CONVENTION
                   reserved18(61),
                   reserved19(62),
                   reserved20(63)
-
                }
 
 Xdsl2RaMode ::= TEXTUAL-CONVENTION
@@ -365,7 +358,6 @@ Xdsl2OperationModes ::= TEXTUAL-CONVENTION
       "The VDSL2 management model specified includes an xDSL Mode
        object that identifies an instance of xDSL Mode-Specific
        PSD Configuration object in the xDSL Line Profile.  The
-
        following classes of xDSL operating mode are defined.
        The notes (F) and (L) denote Full-Rate and Lite/splitterless,
        respectively:
@@ -414,7 +406,6 @@ Xdsl2OperationModes ::= TEXTUAL-CONVENTION
           40   - G.992.3 Annex M POTS non-overlapped (F)
           41   - G.992.3 Annex M POTS overlapped (F)
           42   - G.992.5 POTS non-overlapped (F)
-
           43   - G.992.5 POTS overlapped (F)
           44   - G.992.5 ISDN non-overlapped (F)
           45   - G.992.5 ISDN overlapped (F)
@@ -463,7 +454,6 @@ Xdsl2OperationModes ::= TEXTUAL-CONVENTION
                   g9923AnnexLMode4Overlapped(39),
                   g9923AnnexMPotsNonOverlapped(40),
                   g9923AnnexMPotsOverlapped(41),
-
                   g9925PotsNonOverlapped(42),
                   g9925PotsOverlapped(43),
                   g9925IsdnNonOverlapped(44),
@@ -512,7 +502,6 @@ Xdsl2ConfPmsForce ::= TEXTUAL-CONVENTION
        In VDSL2, only L0 and L3 states are defined:
          l3toL0 (0)         - Perform a transition from L3 to L0
                               (Full power management state).
-
          l0toL2 (2)         - Perform a transition from L0 to L2
                               (Low power management state).
          l0orL2toL3 (3)     - Perform a transition into L3 (Idle
@@ -561,7 +550,6 @@ Xdsl2LineLdsf ::= TEXTUAL-CONVENTION
 Xdsl2LdsfResult ::= TEXTUAL-CONVENTION
      STATUS current
      DESCRIPTION
-
         "Possible failure reasons associated with performing
          Dual Ended Loop Test (DELT) on a DSL line.
          Possible values are:
@@ -610,7 +598,6 @@ Xdsl2LineBpsc ::= TEXTUAL-CONVENTION
        VDSL2/ADSL/ADSL2 or ADSL2+ link.  The possible values are:
          idle    (1)  - Idle state
          measure (2)  - Measure the bits per subcarrier"
-
    SYNTAX INTEGER {
        idle(1),
        measure(2)
@@ -659,7 +646,6 @@ Xdsl2LineReset ::= TEXTUAL-CONVENTION
      }
 
 Xdsl2LineProfiles ::= TEXTUAL-CONVENTION
-
    STATUS current
    DESCRIPTION
      "Objects with this syntax reference the list of
@@ -708,7 +694,6 @@ Xdsl2LineClassMask ::= TEXTUAL-CONVENTION
        Class HPE-M1  Annex B: HPE17-M1-NUS0, HPE30-M1-NUS0."
 
    SYNTAX      INTEGER {
-
                   none(1),
                   a998ORb997M1cORc998B(2),
                   b997M1xOR998co(3),
@@ -757,7 +742,6 @@ Xdsl2LineLimitMask ::= TEXTUAL-CONVENTION
           profile12Limit8(23),
           profile12Limit9(24),
           profile12Limit10(25),
-
           profile12Limit11(26),
           profile12Limit12(27),
           profile12Limit13(28),
@@ -806,7 +790,6 @@ Xdsl2LineUs0Disable ::= TEXTUAL-CONVENTION
      "Indicates if US0 is disabled for each limit PSD mask.
       The profiles are grouped in following profile classes:
       - Class 8: Profiles 8a, 8b, 8c, 8d.
-
       - Class 12: Profiles 12a, 12b.
       - Class 17: Profile 17a.
       - Class 30: Profile 30a."
@@ -855,7 +838,6 @@ Xdsl2LineUs0Disable ::= TEXTUAL-CONVENTION
           profile17Us0Disable7(38),
           profile17Us0Disable8(39),
           profile17Us0Disable9(40),
-
           profile17Us0Disable10(41),
           profile17Us0Disable11(42),
           profile17Us0Disable12(43),
@@ -904,7 +886,6 @@ Xdsl2LineUs0Mask ::= TEXTUAL-CONVENTION
           eu128(9),
           reserved1(10),
           reserved2(11),
-
           reserved3(12),
           reserved4(13),
           reserved5(14),
@@ -953,7 +934,6 @@ Xdsl2SymbolProtection ::= TEXTUAL-CONVENTION
                eightSymbols (10),
                nineSymbols (11),
                tenSymbols (12),
-
                elevenSymbols (13),
                twelveSymbols (14),
                thirteeSymbols (15),
@@ -1002,7 +982,6 @@ Xdsl2MaxBer ::= TEXTUAL-CONVENTION
          eminus5 (2)  - Maximum BER=E^-5
          eminus7 (3)  - Maximum BER=E^-7"
    SYNTAX      INTEGER {
-
                   eminus3(1),
                   eminus5(2),
                   eminus7(3)
@@ -1051,7 +1030,6 @@ Xdsl2CarMask ::= TEXTUAL-CONVENTION
        The subcarrier index is an unsigned number in the range 0 to
        NSC-1."
    SYNTAX      OCTET STRING (SIZE(0..128))
-
 Xdsl2RfiBands ::= TEXTUAL-CONVENTION
    STATUS      current
    DESCRIPTION
@@ -1100,7 +1078,6 @@ Xdsl2Tssi ::= TEXTUAL-CONVENTION
       "This is a structure that represents up to 32 transmit
        spectrum shaping (TSSi) breakpoints.
        Each breakpoint is a pair of values occupying 3 octets with the
-
        following structure:
        First 2 octets - Index of the subcarrier used in the context of
                         the breakpoint.
@@ -1149,7 +1126,6 @@ Xdsl2LastTransmittedState ::= TEXTUAL-CONVENTION
        atucMedley(24),
        atucExchmarker(25),
        atucMsg2(26),
-
        atucReverb6(27),
        atucSegue3(28),
        atucParams(29),
@@ -1198,7 +1174,6 @@ Xdsl2LastTransmittedState ::= TEXTUAL-CONVENTION
        vtucQuiet2(205),
        vtucPeriodic1(206),
        vtucSynchro2(207),
-
        vtucChDiscov2(208),
        vtucSynchro3(209),
        vtucTraining1(210),
@@ -1247,7 +1222,6 @@ Xdsl2LineStatus ::= TEXTUAL-CONVENTION
        This BITS structure can report the following failures:
 
         noDefect (0)      - This bit position positively reports
-
                             that no defect or failure exist.
         lossOfFraming (1) - Loss of frame synchronization.
         lossOfSignal (2)  - Loss of signal.
@@ -1296,7 +1270,6 @@ Xdsl2ChAtmStatus ::= TEXTUAL-CONVENTION
        noCellDelineation (1)    - The link was successfully
                                   initialized, but cell delineation
                                   was never acquired on the
-
                                   associated ATM data path.
        lossOfCellDelineation (2)- Loss of cell delineation on the
                                   associated ATM data path."
@@ -1345,7 +1318,6 @@ Xdsl2BandUs ::= TEXTUAL-CONVENTION
    STATUS      current
    DESCRIPTION
       "Each value identifies a specific band in the upstream
-
        transmission direction (excluding the US0 band.).
        The possible values that identify a band are as follows:
           us1(5)          - Upstream band number 1 (US1).
@@ -1394,7 +1366,6 @@ Xdsl2LineCeFlag ::= TEXTUAL-CONVENTION
        cyclic extension values.  If the bit is set to '1', the optional
        cyclic extension values may be used.  Otherwise, the cyclic
        extension shall be forced to the mandatory length (5N/32).
-
        enableCyclicExtension (0) - Enable use of optional
                                    Cyclic Extension values."
    SYNTAX        BITS {
@@ -1443,7 +1414,6 @@ Xdsl2LineTxRefVnUs ::= TEXTUAL-CONVENTION
        The subcarrier index is an unsigned number in the range 0 to
        NSCus-1."
    SYNTAX      OCTET STRING (SIZE(0..48))
-
 Xdsl2BitsAlloc ::= TEXTUAL-CONVENTION
    STATUS      current
    DESCRIPTION
@@ -1492,7 +1462,6 @@ Xdsl2MrefPsdUs ::= TEXTUAL-CONVENTION
        Octets 4-7 -- Same, for a second breakpoint
        Octets 8-11 -- Same, for a third breakpoint
        And so on until
-
        Octets 124-127 -- Same, for a 32nd breakpoint.
        The subcarrier index is an unsigned number in the range 0
        to NSCus-1.
@@ -1501,4 +1470,3 @@ Xdsl2MrefPsdUs ::= TEXTUAL-CONVENTION
    SYNTAX      OCTET STRING (SIZE(0..128))
 
 END
-
