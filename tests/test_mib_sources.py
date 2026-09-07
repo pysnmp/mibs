@@ -31,6 +31,9 @@ import pathlib
 import subprocess
 import sys
 import tempfile
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "scripts"))
 
@@ -223,41 +226,64 @@ def test_drift_is_confirmed_on_the_bytes() -> None:
 
 
 def test_archive_failure_is_settled_once() -> None:
-    """An unreachable archive is worked out once, not once per module."""
+    """Modules racing for one unreachable archive ask the publisher once.
+
+    Deliberately concurrent. A sweep reaches this from several workers at
+    the same instant, which is the only situation the locking exists for
+    -- calling one after another would pass just as happily against an
+    implementation that lets every caller start its own download.
+
+    So all three arrive together on a barrier, and the refusing download
+    dawdles long enough that the two that lose the race are genuinely
+    waiting on the first rather than finding a result already there.
+    """
     sys.stdout.write("\narchive fetching\n")
 
     attempts = {"count": 0}
+    counted = threading.Lock()
+    arrive = threading.Barrier(3)
+
     download = mib_sources.download
     archives = dict(mib_sources._archives)
     locks = dict(mib_sources._archive_locks)
 
     def refusing(url: str) -> bytes:
-        attempts["count"] += 1
+        with counted:
+            attempts["count"] += 1
+        time.sleep(0.2)  # hold the others on the lock
         raise mib_sources.Unreachable(f"{url}: refused")
+
+    def caller(module: str) -> BaseException | None:
+        arrive.wait(timeout=10)
+        try:
+            mib_sources.fetch(
+                f"src/vendor/acme/{module}",
+                {},
+                {
+                    "kind": "archive",
+                    "url": "https://example.invalid/mibs.zip",
+                    "member": "{module}.txt",
+                },
+            )
+        except mib_sources.Unreachable as exc:
+            return exc
+
+        return None
 
     try:
         mib_sources._archives.clear()
         mib_sources._archive_locks.clear()
         mib_sources.download = refusing
 
-        publisher = {
-            "kind": "archive",
-            "url": "https://example.invalid/mibs.zip",
-            "member": "{module}.txt",
-        }
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            caught = list(pool.map(caller, ("ONE-MIB", "TWO-MIB", "THREE-MIB")))
 
-        # Three modules from the same archive, as a sweep would ask.
-        raised = 0
-        for name in ("ONE-MIB", "TWO-MIB", "THREE-MIB"):
-            try:
-                mib_sources.fetch(f"src/vendor/acme/{name}", {}, publisher)
-            except mib_sources.Unreachable:
-                raised += 1
-
-        # Without a remembered failure each module repeats the whole
-        # retry sequence -- three attempts against a 60s timeout, apiece.
-        check("every module is told", raised, 3)
+        check("every module is told", [e is not None for e in caught], [True] * 3)
         check("the publisher is asked once", attempts["count"], 1)
+
+        # Each waiter gets its own exception. Re-raising one shared
+        # instance across threads piles their tracebacks into each other.
+        check("each caller gets its own", len({id(e) for e in caught}), 3)
     finally:
         mib_sources.download = download
         mib_sources._archives.clear()
