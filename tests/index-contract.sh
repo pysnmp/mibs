@@ -138,14 +138,30 @@ else
   echo "  skip pysmi bundle not importable; cannot tell rot from bundled modules"
 fi
 
-if [ -d output ] && [ -f output/index.csv ]; then
-  echo "== built output: index.csv replays the frozen snapshot"
-  # index.py writes index.csv from index-frozen.csv, dropping only rows whose
-  # module is no longer compiled. So index.csv must be a subset, with no row
-  # the snapshot does not contain.
-  EXTRA="$(comm -13 <(sort "$FROZEN") <(sort output/index.csv) | wc -l | tr -d ' ')"
-  [ "$EXTRA" = "0" ] || fail "output/index.csv has $EXTRA rows absent from $FROZEN"
-  [ "$EXTRA" = "0" ] && pass "index.csv introduces no row the snapshot lacks"
+if [ -d output ]; then
+  # The workflow creates output/asn1 before 'make index', so output/ existing
+  # says nothing about whether the index was built. Skipping on a missing
+  # index.csv would let an incomplete generation pass this script silently,
+  # which is the one thing a contract test must not do. Once output/ exists,
+  # both files are required.
+  echo "== built output: both index files are present"
+  for artifact in output/index.csv output/index-v2.csv; do
+    if [ -f "$artifact" ]; then
+      pass "$artifact exists"
+    else
+      fail "$artifact is missing, but output/ exists -- the index build did not complete"
+    fi
+  done
+
+  if [ -f output/index.csv ]; then
+    echo "== built output: index.csv replays the frozen snapshot"
+    # index.py writes index.csv from index-frozen.csv, dropping only rows whose
+    # module is no longer compiled. So index.csv must be a subset, with no row
+    # the snapshot does not contain.
+    EXTRA="$(comm -13 <(sort "$FROZEN") <(sort output/index.csv) | wc -l | tr -d ' ')"
+    [ "$EXTRA" = "0" ] || fail "output/index.csv has $EXTRA rows absent from $FROZEN"
+    [ "$EXTRA" = "0" ] && pass "index.csv introduces no row the snapshot lacks"
+  fi
 
   if [ -f output/index-v2.csv ]; then
     echo "== built output: index-v2.csv carries the corrections"
@@ -153,11 +169,9 @@ if [ -d output ] && [ -f output/index.csv ]; then
     [ "$V2" = "SNMPv2-MIB" ] \
       || fail "index-v2.csv resolves 1.3.6.1.6.3.1 to '${V2:-<absent>}', expected SNMPv2-MIB"
     [ "$V2" = "SNMPv2-MIB" ] && pass "index-v2.csv fixes 1.3.6.1.6.3.1 -> SNMPv2-MIB"
-  else
-    echo "  skip output/index-v2.csv is absent"
   fi
 else
-  echo "== built output absent, skipping index.csv and index-v2.csv checks"
+  echo "== output/ absent, skipping the built-index checks"
   echo "     run 'make index' first to include them"
 fi
 
