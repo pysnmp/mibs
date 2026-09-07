@@ -68,6 +68,40 @@ ANCHOR_CLASSES = ("moduleidentity", "objectidentity")
 ANCHOR_RANK = {"moduleidentity": 0, "objectidentity": 1}
 ANCHOR_RANK_FALLBACK = 2
 
+
+def rfc_numbers():
+    """Each bundled module mapped to the RFC that publishes it, or 0.
+
+    The SMI root arcs are defined identically by RFC1065-SMI (1988),
+    RFC1155-SMI (1990) and SNMPv2-SMI (1999), and mib-2 and transmission by
+    RFC1158-MIB, RFC1213-MIB and SNMPv2-SMI. None of them carries a
+    MODULE-IDENTITY or a revision date, so every rank term above ties and the
+    winner was decided by module name sorting alphabetically -- which is how
+    RFC1065-SMI and RFC1158-MIB came to own ten arcs that RFC 2578 defines.
+
+    Supersession cannot break those ties: RFC 1155 and RFC 1212 are STD 16 and
+    are still Internet Standards, so no publisher says anything replaced them.
+    Publication order can, and the RFC number is exactly that. A module the
+    manifest does not name -- every vendor module, and any standard module
+    pysmi does not bundle -- gets 0 and, negated, sorts last, so a tie among
+    those still falls through to the module name as before.
+
+    See pysnmp/mibs#378.
+    """
+    try:
+        from pysmi.mibs import manifest
+    except ImportError:  # pragma: no cover - pysmi is a hard dependency
+        return {}
+
+    return {
+        name: entry["rfc"]
+        for name, entry in manifest().items()
+        if isinstance(entry.get("rfc"), int)
+    }
+
+
+rfcs = rfc_numbers()
+
 tiers = classify()
 index: dict[str, tuple] = {}
 modules = set()
@@ -92,7 +126,7 @@ for filename in sorted(os.listdir(JSON_DIR)):
         tiers.get(module, TIER_STANDARD),
         0 if has_identity else 1,
     )
-    suffix = (-revision_rank(jmib), module)
+    suffix = (-revision_rank(jmib), -rfcs.get(module, 0), module)
 
     oids = [
         (data["oid"], ANCHOR_RANK[data["class"]])

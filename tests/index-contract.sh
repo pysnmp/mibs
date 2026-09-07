@@ -181,6 +181,37 @@ if [ -d output ]; then
     [ "$V2" = "SNMPv2-MIB" ] \
       || fail "index-v2.csv resolves 1.3.6.1.6.3.1 to '${V2:-<absent>}', expected SNMPv2-MIB"
     [ "$V2" = "SNMPv2-MIB" ] && pass "index-v2.csv fixes 1.3.6.1.6.3.1 -> SNMPv2-MIB"
+
+    # The SMI base arcs. RFC1065-SMI (1988), RFC1155-SMI (1990) and SNMPv2-SMI
+    # (1999) define the root arcs identically, and RFC1158-MIB, RFC1213-MIB and
+    # SNMPv2-SMI define mib-2 and transmission identically. None carries a
+    # MODULE-IDENTITY or a revision date, so every rank term ties and the winner
+    # used to be whichever module name sorted first -- handing ten arcs to the
+    # 1988 and 1990 modules. The RFC-number tiebreak decides them by publication
+    # order instead (pysnmp/mibs#378).
+    #
+    # at and egp are the two RFC 2578 did not carry forward, so SNMPv2-SMI does
+    # not define them and RFC1213-MIB is the right answer there, not SNMPv2-SMI.
+    check_v2() {
+      got="$(awk -F, -v k="$1" '$2 == k {print $1}' output/index-v2.csv)"
+      if [ "$got" = "$2" ]; then
+        pass "index-v2.csv resolves $1 -> $2${3:+  ($3)}"
+      else
+        fail "index-v2.csv resolves $1 to '${got:-<absent>}', expected $2"
+      fi
+    }
+
+    echo "== built output: index-v2.csv resolves the SMI base arcs by RFC, not alphabet"
+    check_v2 1.3.6.1        SNMPv2-SMI   internet
+    check_v2 1.3.6.1.1      SNMPv2-SMI   directory
+    check_v2 1.3.6.1.2      SNMPv2-SMI   mgmt
+    check_v2 1.3.6.1.3      SNMPv2-SMI   experimental
+    check_v2 1.3.6.1.4      SNMPv2-SMI   private
+    check_v2 1.3.6.1.4.1    SNMPv2-SMI   enterprises
+    check_v2 1.3.6.1.2.1    SNMPv2-SMI   mib-2
+    check_v2 1.3.6.1.2.1.10 SNMPv2-SMI   transmission
+    check_v2 1.3.6.1.2.1.3  RFC1213-MIB  "at -- SMIv2 dropped it"
+    check_v2 1.3.6.1.2.1.8  RFC1213-MIB  "egp -- SMIv2 dropped it"
   fi
 else
   echo "== output/ absent, skipping the built-index checks"
