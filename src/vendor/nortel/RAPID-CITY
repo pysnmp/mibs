@@ -29,11 +29,11 @@ IMPORTS
     Ipv6AddressIfIdentifier                 FROM IPV6-TC
     Ipv6IfIndexOrZero                       FROM IPV6-TC
     ifAdminStatus, ifOperStatus             FROM RFC1213-MIB
-    igmpInterfaceIfIndex, igmpInterfaceQuerier	 	FROM IGMP-MIB
+    igmpInterfaceIfIndex, igmpInterfaceQuerier	 	FROM IGMP-STD-MIB
     dvmrpInterfaceIfIndex, dvmrpNeighborIfIndex,
-    dvmrpNeighborAddress, dvmrpInterfaceOperState 	FROM DVMRP-MIB
+    dvmrpNeighborAddress, dvmrpInterfaceOperState 	FROM DVMRP-STD-MIB
     ifAdminStatus, ifOperStatus 				FROM RFC1213-MIB
-    igmpCacheAddress, igmpCacheIfIndex		 	FROM IGMP-MIB
+    igmpCacheAddress, igmpCacheIfIndex		 	FROM IGMP-STD-MIB
     ipNetToMediaNetAddress, ipNetToMediaPhysAddress       FROM RFC1213-MIB
     VrId                                          FROM VRRP-MIB
     SnmpAdminString,SnmpSecurityLevel,SnmpSecurityModel FROM SNMP-FRAMEWORK-MIB
@@ -47,7 +47,7 @@ IMPORTS
     ipv6RouteEntry       FROM IPV6-MIB
     mldInterfaceQuerier, mldInterfaceIfIndex FROM IPV6-MLD-MIB
     msdpPeerFsmEstablishedTransitions, msdpPeerState, msdpPeerEntry, msdpSACacheEntry    FROM MSDP-MIB
-    ipMRouteEntry, ipMRouteNextHopEntry, ipMRouteInterfaceEntry FROM IPMROUTE-MIB
+    ipMRouteEntry, ipMRouteNextHopEntry, ipMRouteInterfaceEntry FROM IPMROUTE-STD-MIB
     radiusDynAuthClientEntry FROM RADIUS-DYNAUTH-SERVER-MIB;
 
 rapidCity MODULE-IDENTITY
