@@ -113,19 +113,27 @@ with open(CURRENT_OUT, "w") as f:
     for oid, rank in sorted(index.items(), key=lambda item: arcs(item[0])):
         f.write(f"{rank[-1]},{oid}\n")
 
-# The legacy index is a frozen snapshot of what this repo published before OID
-# winners were decided by rule, so consumers that key on the module name a
-# given OID resolves to keep the answer they already have. Rows are dropped
-# only where the module they name is no longer compiled, so nothing here
-# points at a MIB the site does not serve.
+# The legacy index answers to consumers that key on the module name a given OID
+# resolves to, so the one thing it must never do is change an answer it has
+# already given. Everything else is fair game:
+#
+#   - a row whose module is no longer compiled is dropped, because it names a
+#     MIB the site cannot serve;
+#   - an OID the snapshot never carried is added from the ranked index, because
+#     a caller that had no answer for it cannot be broken by getting one.
+#
+# Without the second rule a MIB added to this repo would never reach the legacy
+# index at all, and a consumer that has not moved to index-v2.csv would keep
+# resolving nothing for it.
 #
 # The snapshot only ships with the corpus. The container runs this script again
 # over just the MIBs a user mounted at runtime, and there the snapshot has
 # nothing to say about modules it predates, so the ranked index is the answer
 # and the caller merges it into the index already being served.
 if os.path.exists(FROZEN):
+    kept: dict[str, str] = {}
     dropped = 0
-    with open(FROZEN, newline="") as src, open(LEGACY_OUT, "w") as out:
+    with open(FROZEN, newline="") as src:
         for row in csv.reader(src):
             if len(row) < 2:
                 continue
@@ -133,8 +141,19 @@ if os.path.exists(FROZEN):
             if module not in modules:
                 dropped += 1
                 continue
+            kept[oid] = module
+    added = 0
+    for oid, rank in index.items():
+        if oid not in kept:
+            kept[oid] = rank[-1]
+            added += 1
+    with open(LEGACY_OUT, "w") as out:
+        for oid, module in sorted(kept.items(), key=lambda item: arcs(item[0])):
             out.write(f"{module},{oid}\n")
-    print(f"{LEGACY_OUT}: frozen snapshot, {dropped} rows dropped as absent")
+    print(
+        f"{LEGACY_OUT}: {len(kept)} OIDs, {dropped} rows dropped as absent, "
+        f"{added} added from the ranked index"
+    )
 else:
     with open(LEGACY_OUT, "w") as out:
         for oid, rank in sorted(index.items(), key=lambda item: arcs(item[0])):

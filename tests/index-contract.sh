@@ -154,13 +154,21 @@ if [ -d output ]; then
   done
 
   if [ -f output/index.csv ]; then
-    echo "== built output: index.csv replays the frozen snapshot"
-    # index.py writes index.csv from index-frozen.csv, dropping only rows whose
-    # module is no longer compiled. So index.csv must be a subset, with no row
-    # the snapshot does not contain.
-    EXTRA="$(comm -13 <(sort "$FROZEN") <(sort output/index.csv) | wc -l | tr -d ' ')"
-    [ "$EXTRA" = "0" ] || fail "output/index.csv has $EXTRA rows absent from $FROZEN"
-    [ "$EXTRA" = "0" ] && pass "index.csv introduces no row the snapshot lacks"
+    echo "== built output: index.csv keeps every answer it can still serve"
+    # index.csv is a compatibility index, not a literal freeze. It may drop a
+    # row whose module is gone, and may add an OID the snapshot never carried.
+    # What it may never do is hand a caller a different module for an OID whose
+    # snapshot answer the site can still serve -- that is the breaking change.
+    CHANGED="$(awk -F, '
+      NR==FNR { sub(/\.json$/, "", $0); carried[$0]; next }
+      FILENAME == snapshot { was[$2] = $1; next }
+      ($2 in was) && was[$2] != $1 && (was[$2] in carried) {
+        printf "  %s: %s -> %s\n", $2, was[$2], $1; c++
+      }
+      END { exit (c > 0) }
+    ' <(ls output/json) snapshot="$FROZEN" "$FROZEN" output/index.csv)" \
+      && pass "index.csv changes no answer whose module is still carried" \
+      || fail "index.csv reassigns OIDs away from modules it still serves:"$'\n'"$CHANGED"
   fi
 
   if [ -f output/index-v2.csv ]; then
