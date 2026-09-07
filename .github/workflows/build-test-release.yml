@@ -68,6 +68,8 @@ jobs:
       # the image build, which is the expensive part.
       - name: OID index contract
         run: ./tests/index-contract.sh
+      - name: Published artifact contract
+        run: ./tests/artifact-contract.sh
       - uses: actions/upload-artifact@v7
         with:
           path: log/
